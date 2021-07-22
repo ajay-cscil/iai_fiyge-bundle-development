@@ -1,3 +1,42 @@
 [submodule "kernel"]
 	path = kernel
 	url = https://github.com/fiyge/kernel
+[submodule "library/Aws"]
+	path = library/Aws
+	url = https://github.com/fiyge/library-Aws
+[submodule "library/Doctrine"]
+	path = library/Doctrine
+	url = https://github.com/fiyge/library-Doctrine
+[submodule "library/Guzzle"]
+	path = library/Guzzle
+	url = https://github.com/fiyge/library-Guzzle
+[submodule "library/JsonSchema"]
+	path = library/JsonSchema
+	url = https://github.com/fiyge/library-JsonSchema
+[submodule "library/Monolog"]
+	path = library/Monolog
+	url = https://github.com/fiyge/library-Monolog
+[submodule "library/Psr"]
+	path = library/Psr
+	url = https://github.com/fiyge/library-Psr
+[submodule "library/Symfony"]
+	path = library/Symfony
+	url = https://github.com/fiyge/library-Symfony
+[submodule "library/Zend"]
+	path = library/Zend
+	url = https://github.com/fiyge/library-Zend
+[submodule "library/emogrifier"]
+	path = library/emogrifier
+	url = https://github.com/fiyge/library-emogrifier
+[submodule "library/phpmailer"]
+	path = library/phpmailer
+	url = https://github.com/fiyge/library-phpmailer
+[submodule "library/simpletest"]
+	path = library/simpletest
+	url = https://github.com/fiyge/library-simpletest
+[submodule "library/svndiff"]
+	path = library/svndiff
+	url = https://github.com/fiyge/library-svndiff
+[submodule "library/tcpdf"]
+	path = library/tcpdf
+	url = https://github.com/fiyge/library-tcpdf
