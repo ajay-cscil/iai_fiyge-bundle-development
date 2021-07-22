@@ -1,0 +1,95 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"fields\":[{\"column\":\"delivery_orders_acl_cache.id\",\"__column\":\"delivery_orders_acl_cache.id\"},{\"column\":\"delivery_orders_acl_cache.user_id\",\"__column\":\"delivery_orders_acl_cache.user_id\"}],\"render_as\":\"index\"}",
+            "category_id": "5",
+            "controller": "stock\/delivery_orders_acl_cache",
+            "created": "2014-02-13 16:00:52",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "stock.delivery_orders_acl_cache.All",
+            "id": "52fcec34-f75c-46a2-b56b-1cdbac100612",
+            "is_commit_pending": "0",
+            "is_default": "1",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "27263d19-e746-11e3-aad5-0800275f9930",
+            "name": "All",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"fields\":[\"delivery_orders_acl_cache.id\",\"delivery_orders_acl_cache.user_id\"],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "100176",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "stock",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

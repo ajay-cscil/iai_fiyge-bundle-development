@@ -1,0 +1,118 @@
+{
+    "version": "1.2.1",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": null,
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Tushar Takkar",
+    "category_id": "10",
+    "company": "Primary Modules",
+    "created": "2015-05-25",
+    "created_by": null,
+    "current_stable_version": "1.0.2",
+    "description": "Under development.",
+    "flags": null,
+    "id": "27263187-e746-11e3-aad5-0800275f9930",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": null,
+    "label": "Support: FAQ",
+    "latest_version": null,
+    "license_agreement": null,
+    "modified": "2015-05-25 19:43:00",
+    "modified_by": "-1",
+    "name": "faq",
+    "owned_by": "-1",
+    "revision": null,
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/faq",
+    "__created_by": "",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "Maax Core Development Team",
+    "__category_id": "Project Management",
+    "category_id_business_key": "Project Management",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "modified_by_model": "modified_by_user",
+    "owned_by_model": "owned_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "configurations": "\\module\\faq\\controller\\configurations",
+        "faq": "\\module\\faq\\controller\\faq",
+        "faq_answers": "\\module\\faq\\controller\\faq_answers",
+        "faq_categories": "\\module\\faq\\controller\\faq_categories"
+    },
+    "models": {
+        "configurations": "\\module\\faq\\model\\configurations",
+        "faq": "\\module\\faq\\model\\faq",
+        "faq_answers": "\\module\\faq\\model\\faq_answers",
+        "faq_categories": "\\module\\faq\\model\\faq_categories"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "1.2.4"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_tushar_behaviour_tree": "\\tushar\\behaviour\\tree"
+        }
+    }
+}

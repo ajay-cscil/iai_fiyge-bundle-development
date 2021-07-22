@@ -1,0 +1,58 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\stock\model;
+  class delivery_orders_acl_cache extends \module\stock\model\delivery_orders_acl_cache_domain_logic
+  {
+       public $source = 'acl';
+       public $table = 'stock__delivery_orders_acl_cache';
+       public $parentClass = '\\acl_model';
+       public $displayField = 'user_id';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'user_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'user_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'is_demo_data' => 
+  array (
+    'column' => 'is_demo_data',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+);
+       public $filters = array (
+  'user_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

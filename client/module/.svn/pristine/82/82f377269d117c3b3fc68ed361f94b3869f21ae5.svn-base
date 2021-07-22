@@ -1,0 +1,7 @@
+<?php
+
+namespace module\help\model;
+
+class note_categories_domain_logic extends \tushar\model{
+    public $table = 'help__note_categories';
+}

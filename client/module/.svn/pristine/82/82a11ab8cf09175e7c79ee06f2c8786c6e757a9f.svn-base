@@ -1,0 +1,26 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\wiki\controller;
+  class article_topics extends \module\wiki\controller\article_topics_domain_logic
+  {
+       public $modelClass = '\\module\\wiki\\model\\article_topics';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'tree',
+  'fields' => 
+  array (
+    0 => 'article_topics.topic',
+    1 => 'article_topics.created',
+  ),
+);
+
+
+
+
+
+
+  }

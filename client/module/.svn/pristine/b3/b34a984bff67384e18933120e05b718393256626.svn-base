@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class refund_receipts extends \module\accounting\controller\refund_receipts_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\refund_receipts';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

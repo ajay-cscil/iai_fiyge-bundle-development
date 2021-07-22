@@ -1,0 +1,486 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class customers extends \module\excursion\model\customers_domain_logic
+  {
+       public $displayField = 'companyName';
+       public $primaryKey = 'customerId';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__customers';
+       public $alias = 'customers';
+       public $fields = array (
+  'accessKey' => 
+  array (
+    'column' => 'accessKey',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'allow_Access_To_Private_Sections' => 
+  array (
+    'column' => 'allow_Access_To_Private_Sections',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'billingAddress1' => 
+  array (
+    'column' => 'billingAddress1',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'billingAddress2' => 
+  array (
+    'column' => 'billingAddress2',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'catalogSubscriber' => 
+  array (
+    'column' => 'catalogSubscriber',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'checkbox_For_New_Customers' => 
+  array (
+    'column' => 'checkbox_For_New_Customers',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'city' => 
+  array (
+    'column' => 'city',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'companyName' => 
+  array (
+    'column' => 'companyName',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'country' => 
+  array (
+    'column' => 'country',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'custom_Field_Custom1' => 
+  array (
+    'column' => 'custom_Field_Custom1',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom2' => 
+  array (
+    'column' => 'custom_Field_Custom2',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom3' => 
+  array (
+    'column' => 'custom_Field_Custom3',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom4' => 
+  array (
+    'column' => 'custom_Field_Custom4',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom5' => 
+  array (
+    'column' => 'custom_Field_Custom5',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_ParentAffiliat' => 
+  array (
+    'column' => 'custom_Field_ParentAffiliat',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'customerId' => 
+  array (
+    'column' => 'customerId',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'customerType' => 
+  array (
+    'column' => 'customerType',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'customer_IsAnonymous' => 
+  array (
+    'column' => 'customer_IsAnonymous',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'customer_Notes' => 
+  array (
+    'column' => 'customer_Notes',
+    'ntype' => 'string',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'discountLevel' => 
+  array (
+    'column' => 'discountLevel',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'emailAddress' => 
+  array (
+    'column' => 'emailAddress',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'emailSubscriber' => 
+  array (
+    'column' => 'emailSubscriber',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'faxNumber' => 
+  array (
+    'column' => 'faxNumber',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'firstDateVisited' => 
+  array (
+    'column' => 'firstDateVisited',
+    'ntype' => 'datetime',
+  ),
+  'firstName' => 
+  array (
+    'column' => 'firstName',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'firstOrderDate' => 
+  array (
+    'column' => 'firstOrderDate',
+    'ntype' => 'datetime',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'iD_Customers_Groups' => 
+  array (
+    'column' => 'iD_Customers_Groups',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'isSuperAdmin' => 
+  array (
+    'column' => 'isSuperAdmin',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'lastLogin' => 
+  array (
+    'column' => 'lastLogin',
+    'ntype' => 'datetime',
+  ),
+  'lastLoginAttempt' => 
+  array (
+    'column' => 'lastLoginAttempt',
+    'ntype' => 'datetime',
+  ),
+  'lastModBy' => 
+  array (
+    'column' => 'lastModBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModified' => 
+  array (
+    'column' => 'lastModified',
+    'ntype' => 'datetime',
+  ),
+  'lastName' => 
+  array (
+    'column' => 'lastName',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'loginAttempts' => 
+  array (
+    'column' => 'loginAttempts',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'news1' => 
+  array (
+    'column' => 'news1',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news10' => 
+  array (
+    'column' => 'news10',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news11' => 
+  array (
+    'column' => 'news11',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news12' => 
+  array (
+    'column' => 'news12',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news13' => 
+  array (
+    'column' => 'news13',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news14' => 
+  array (
+    'column' => 'news14',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news15' => 
+  array (
+    'column' => 'news15',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news16' => 
+  array (
+    'column' => 'news16',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news17' => 
+  array (
+    'column' => 'news17',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news18' => 
+  array (
+    'column' => 'news18',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news19' => 
+  array (
+    'column' => 'news19',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news2' => 
+  array (
+    'column' => 'news2',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news20' => 
+  array (
+    'column' => 'news20',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news3' => 
+  array (
+    'column' => 'news3',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news4' => 
+  array (
+    'column' => 'news4',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news5' => 
+  array (
+    'column' => 'news5',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news6' => 
+  array (
+    'column' => 'news6',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news7' => 
+  array (
+    'column' => 'news7',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news8' => 
+  array (
+    'column' => 'news8',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'news9' => 
+  array (
+    'column' => 'news9',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'paysStateTax' => 
+  array (
+    'column' => 'paysStateTax',
+    'ntype' => 'string',
+    'length' => '3',
+  ),
+  'percentDiscount' => 
+  array (
+    'column' => 'percentDiscount',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'phoneNumber' => 
+  array (
+    'column' => 'phoneNumber',
+    'ntype' => 'string',
+    'length' => '35',
+  ),
+  'postalCode' => 
+  array (
+    'column' => 'postalCode',
+    'ntype' => 'string',
+    'length' => '15',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'salesRep_CustomerID' => 
+  array (
+    'column' => 'salesRep_CustomerID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'state' => 
+  array (
+    'column' => 'state',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'taxID' => 
+  array (
+    'column' => 'taxID',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'websiteAddress' => 
+  array (
+    'column' => 'websiteAddress',
+    'ntype' => 'string',
+    'length' => '150',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'emailAddress' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'emailSubscriber' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

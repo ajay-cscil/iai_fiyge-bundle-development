@@ -1,0 +1,16 @@
+<?php
+
+namespace module\analytics\helper\presentation;
+
+class reports {
+
+    public static function run(&$action, &$actionParams, $request, $paginate, $primaryKey, $record) {
+        if (\array_key_exists('reports.controller', $record)) {
+            $actionParams['method'] = '_report';
+            $actionParams['url'] = $request->base . $record['reports.controller'] . '/' . $actionParams['method'];
+            $actionParams['get'] = "?action_menu_bar=1&current_report=".$record[$primaryKey];
+        }
+    }
+
+}
+

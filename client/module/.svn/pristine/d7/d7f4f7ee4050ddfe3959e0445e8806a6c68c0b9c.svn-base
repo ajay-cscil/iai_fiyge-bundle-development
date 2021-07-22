@@ -1,0 +1,387 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\benchmarking\model;
+  class jmeter_configuration extends \module\benchmarking\model\jmeter_configuration_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\data_model';
+       public $source = 'default';
+       public $table = 'benchmarking__jmeter_configuration';
+       public $alias = 'jmeter_configuration';
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'cacheClass' => '1',
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'modules' => 
+  array (
+    'className' => '\\module\\development\\model\\modules',
+    'associationAlias' => 'modules',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'module_id',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $fields = array (
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'number_of_threads' => 
+  array (
+    'column' => 'number_of_threads',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'ramp_up_period' => 
+  array (
+    'column' => 'ramp_up_period',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'loops' => 
+  array (
+    'column' => 'loops',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'continue_forever' => 
+  array (
+    'column' => 'continue_forever',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'scheduler' => 
+  array (
+    'column' => 'scheduler',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'on_sample_error' => 
+  array (
+    'column' => 'on_sample_error',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'test_module' => 
+  array (
+    'column' => 'test_module',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'module' => 
+  array (
+    'column' => 'module',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'view_id' => 
+  array (
+    'column' => 'view_id',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'test_case' => 
+  array (
+    'column' => 'test_case',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'unit_web' => 
+  array (
+    'column' => 'unit_web',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'jmeter_executable_path' => 
+  array (
+    'column' => 'jmeter_executable_path',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'jmeter_port' => 
+  array (
+    'column' => 'jmeter_port',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'proxy_host' => 
+  array (
+    'column' => 'proxy_host',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'proxy_port' => 
+  array (
+    'column' => 'proxy_port',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'proxy_username' => 
+  array (
+    'column' => 'proxy_username',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'proxy_password' => 
+  array (
+    'column' => 'proxy_password',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'imported' => 
+  array (
+    'column' => 'imported',
+    'ntype' => 'datetime',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'number_of_threads' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'loops' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'test_module' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'jmete_executable_path' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'jmeter_executable_path' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

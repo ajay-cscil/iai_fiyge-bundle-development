@@ -1,0 +1,59 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\controller;
+
+class bank_reconciliation_domain_logic extends \data_controller{
+
+    public function edit($request) {
+        if ($request->is('post')) {
+            $request->data['bank_reconciliation']['list_record'] = $request->param('list_record');
+        }
+        $return = parent::edit($request);
+        if ($request->is('post')) {
+            if ($this->action($request) == 'reload' 
+            &&
+            isset($request->data['action']['reload']) 
+            &&
+            $request->data['action']['reload']=='data[bank_reconciliation][account_id]') {
+                $data=$request->response('data');
+                $this->_get_ending_balance($request, $request->data['bank_reconciliation']['account_id']);
+                if(!isset($data['bank_reconciliation'])){
+                        $data['bank_reconciliation']=array();
+                }
+                $data['bank_reconciliation']['starting_balance'] = $request->response('last_ending_balance');
+                $data['bank_reconciliation']['last_reconciled_on'] = $request->response('last_reconciled_on');
+                $request->set('data',$data);
+            }
+        }
+        return $return;
+    }
+
+    public function _get_ending_balance($request, $accountID = null) {
+        if (is_null($accountID))
+            $accountID = $request->param('account_id');
+        $modelObject = $this->modelObj();
+        $endingBalance = 0;
+        $endingDate = null;
+        if (!empty($accountID)) {
+            $info = \select(array('ending_balance','ending_date'))
+                    ->from($modelObject)
+                    ->where('account_id', $accountID)
+                    ->inserted()
+                    ->order('id DESC')
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+                    $endingBalance=$info['ending_balance'];
+                    $endingDate=$info['ending_date'];
+                    
+        }
+        $request->set('last_ending_balance', $endingBalance);
+        $request->set('last_reconciled_on', $endingDate);
+    }
+
+}

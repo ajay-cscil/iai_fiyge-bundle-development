@@ -1,0 +1,88 @@
+<?php
+$dateFormat = str_replace(
+        array('yyyy', 'MM'), array('yy', 'mm'), \tushar\locale::getDatePattern($this->request->locale)
+);
+$timeFormat = \tushar\locale::getTimePattern($this->request->locale);
+$hourFormat = stripos($timeFormat, 'a') !== false ? 12 : 24;
+$timeFormat = str_replace('a', '', $timeFormat);
+
+echo \tushar\html::css($this->request, '/css/style');
+echo \tushar\html::css($this->request, '/css/common');
+echo \tushar\html::css($this->request, '/module/documentation/css/bootstrap');
+
+$jsConfig = \tushar\configuration::read('js', array());
+if (!is_array($jsConfig)) {
+    $jsConfig = array();
+}
+$jsConfig = array_merge($jsConfig, array(
+    'base' => $this->request->base,
+    'module' => $this->request->module,
+    'controller' => $this->request->controller,
+    'action' => $this->request->action,
+    'locale' => $this->request->locale,
+    'skin' => $this->request->skin,
+    'hour_format' => $hourFormat,
+    'date_format' => $dateFormat,
+    'delay_load_left_panel' => \tushar\configuration::read('delay_load_left_panel', 5000),
+    'delay_load_right_panel' => \tushar\configuration::read('delay_load_right_panel', 5000),
+    'debug_js' => \tushar\configuration::read('debug_js', 0),
+        ));
+
+
+$jQueryConfig = array(
+    'base' => $this->request->base,
+    'module' => $this->request->module,
+    'controller' => $this->request->controller,
+    'action' => $this->request->action,
+    'locale' => $this->request->locale,
+    'skin' => $this->request->skin,
+    'hour_format' => $hourFormat,
+    'is_mobile' => (\tushar\request::$mobile ? 1 : 0),
+    'date_format' => $dateFormat
+);
+// jquery arrary.
+echo \tushar\html::js($this->request, '/js/jquery');
+?>
+<script type="text/javascript">
+    var CONFIG=<?php echo json_encode($jsConfig); ?>;
+    jQuery(function(){
+        jQuery.config=<?php echo json_encode($jQueryConfig); ?>;
+        //jQuery.preferCulture("<?php echo $this->request->locale; ?>");
+        $.datepicker.setDefaults($.datepicker.regional["<?php echo $this->request->locale; ?>"]);
+        $.datepicker.setDefaults({
+            changeMonth: true,
+            changeYear: true,
+            showOn: "button",
+            buttonImageOnly: true,
+            buttonImage: "<?php echo $this->request->base; ?>img/calendar.gif",
+            dateFormat:"<?php echo $dateFormat; ?>"
+        });
+
+        $.timepicker.setDefaults({"ampm":<?php echo $hourFormat == 12 ? 'true' : 'false'; ?>,"showSecond": true,"timeFormat":"<?php echo $timeFormat; ?>"});
+
+    });
+</script>
+<?php
+// jquery ui javascript.
+echo \tushar\html::js($this->request, '/js/jquery-ui');
+// locale file for datepicker.
+echo \tushar\html::js($this->request, '/js/locale/datepicker/jquery.ui.datepicker-' . $this->request->locale);
+// locale file for globalization.
+echo \tushar\html::js($this->request, '/js/locale/globalization/jquery.glob.' . $this->request->locale);
+// json javascript helper.
+echo \tushar\html::js($this->request, '/js/json');
+// jquery ui timepicker javascript.
+echo \tushar\html::js($this->request, '/js/jquery-ui-timepicker');
+//script file for WYSIWYG editor.
+echo \tushar\html::js($this->request, '/module/cleditor/jquery.cleditor');
+//echo \tushar\html::js($this->request, '/js/jquery.ui.tooltip');
+//echo \tushar\html::css($this->request, '/css/jquery.ui.tooltip');
+echo \tushar\html::js($this->request, '/js/jquery.cookie');
+//echo \tushar\html::js($this->request, '/js/jquery.address-1.4');
+// file for app level javascript.
+echo \tushar\html::js($this->request, 'script');
+echo \tushar\html::js($this->request, 'common');
+echo \tushar\html::js($this->request, '/js/jquery.glob');
+?>
+
+

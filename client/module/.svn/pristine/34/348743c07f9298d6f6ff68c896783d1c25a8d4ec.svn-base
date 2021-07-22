@@ -1,0 +1,73 @@
+{
+    "transactions_acl_cache": {
+        "model_class": "\\module\\accounting\\model\\transactions_acl_cache",
+        "design": [],
+        "schema": {
+            "name": "accounting__transactions_acl_cache",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "{\"displayField\":\"id\"}",
+            "schema": {
+                "columns": {
+                    "id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "user_id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "accounting__transactions_acl_cache",
+                            "column": "id"
+                        },
+                        "2": {
+                            "type": "UNIQUE",
+                            "table": "accounting__transactions_acl_cache",
+                            "column": "user_id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

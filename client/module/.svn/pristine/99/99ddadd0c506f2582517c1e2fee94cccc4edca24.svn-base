@@ -1,0 +1,1033 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\controller;
+
+\library('phpmailer' . DS . 'class.phpmailer.php');
+\library('emogrifier' . DS . 'emogrifier.php');
+
+class process extends \tushar\controller {
+    const UNDER_TESTING="Under Testing";
+    const SENDING_EMAILS="Sending Emails";
+    const SENDING_TEST_EMAILS="Sending Test Emails";
+    const ACTIVE="Active";
+    const TESTED="Tested";
+    const COMPLETED="Completed";
+    public $modelClass = "campaigns";
+
+    /**
+     *
+     * @var type
+     */
+    public $access = array('execute' => PUBLIC_ACCESS);
+    public $defaultAction = "execute";
+
+    /**
+     *
+     * @var type
+     */
+    private $data = null;
+
+    /**
+     *
+     * @var type
+     */
+    public $maxFailedLogCount = 3;
+
+    /**
+     *
+     * @var type
+     */
+    public $standbyMinutes = 30;
+
+    /**
+     *
+     * @var type
+     */
+    public $sources = array('\\module\\campaigns\\source\\csv');
+    private $attachments = array();
+
+    /**
+     *
+     * @var type
+     */
+    private $rules = array(
+        "merge_words" => "/\{\{[\.\w\-]*\}\}/i"
+        , "click_through" => "/href='(?:[^\\']+|\\.)*'|href=\"(?:[^\\\"]+|\\.)*\"/"
+        , "unsubscribe" => "/unsubscribe_link/i"
+    );
+    private $tmp = null;
+    private $tmpLog = null;
+    private $campaignLog = null;
+    private $campaignLogSummary = null;
+    private $campaignRunLog = null;
+    private $campaignRunStatus = null;
+    private $campaignTestRecipients = null;
+    private $debugOutputDirectory = false;
+    private $lastRun = 0;
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public function lastRun() {
+        $now = strtotime('now');
+        // comparison is in seconds.
+        // set last run if last run  > $standbyMinutes/3 ;
+        if (($now - $this->lastRun) > ($this->standbyMinutes * 20)) {
+            $this->campaignRunStatus->saveModel(
+                    array(
+                'campaign_id' => $this->data['id']
+                , 'last_run' => date('Y-m-d H:i:s')), array('type' => 'update')
+            );
+            $this->lastRun = $now;
+        }
+    }
+
+    public function cutofTime() {
+        return date("Y-m-d H:i:s", mktime(date('H'), date('i') - $this->standbyMinutes, date('s')));
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $campaignId
+     * @return type
+     */
+    private function getCampaign($campaignId=false, $testMode=false) {
+        $info = array();
+        $info['invocation'] = date('Y-m-d H:i:s');
+        $info['singleton_key'] = uuid();
+        $modelObj = $this->modelObj();
+        $cutofTime = $this->cutofTime();
+        $campaignRunStatus = \module\campaigns\model\campaign_run_status::getInstance();
+// release any locks.
+
+        \tushar\configuration::write('debug', 1);
+        \tushar\logger::enable(false);
+
+        update(array('singleton_key' => NULL))
+                ->from($campaignRunStatus)
+                ->where(array('last_run < ' => $cutofTime, 'singleton_key IS NOT NULL'))
+                ->execute();
+
+        if ($testMode) {
+            $where = array("{$modelObj->alias}.status" => array(self::UNDER_TESTING, self::SENDING_TEST_EMAILS));
+        } else {
+            $where = array('OR' => array(
+                    array("{$modelObj->alias}.status" => self::SENDING_EMAILS),
+                    array(
+                        "{$modelObj->alias}.status" => self::ACTIVE
+                        , array("OR" => array("scheduler.starts_on <= " => $info['invocation'], "scheduler.starts_on IS NULL "))
+                        , 'OR' => array(" scheduler.ends_on >=" => $info['invocation'], " scheduler.ends_on IS NULL ")
+                    )
+                )
+            );
+        }
+
+// aquire campaigns
+        $possibleCampaigns = \select("{$modelObj->alias}.id")
+                ->from($modelObj)
+                ->join('scheduler', false, true)
+                ->where(array("{$modelObj->alias}.deleted !=" => 1))
+                ->where($where)->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN, 0);
+
+
+
+
+
+        update(array('campaign_run_status.singleton_key' => $info['singleton_key']))
+                ->from($campaignRunStatus)
+                ->where(array("campaign_run_status.singleton_key IS NULL"))
+                ->where("campaign_run_status.campaign_id", $possibleCampaigns)
+                ->execute();
+
+
+        $toBeRun = array();
+        foreach (\select(array("campaign_id"
+                    , "invocation"
+                    , "last_run"
+                    , "total_run"
+                    , "last_complete_run"))
+                ->from($campaignRunStatus)
+                ->where(array("singleton_key" => $info['singleton_key']))
+                ->limit(0)
+                ->execute()->fetchAll(\PDO::FETCH_ASSOC) as $camp) {
+            $toBeRun[$camp["campaign_id"]] = $camp;
+        }
+        $campaignsToRun = array_keys($toBeRun);
+        pr("campaignsToRun");
+        pr($campaignsToRun);
+        pr("SQL");
+        sql_log();
+
+
+        \tushar\configuration::write('debug', 0);
+        \tushar\logger::enable(false);
+
+        if (empty($campaignsToRun)) {
+            return array();
+        }
+
+// fetch aquired campaigns
+        $campaigns = \select(
+                        array(
+                            "{$modelObj->alias}.*"
+                            , "scheduler.repeats"
+                            , "scheduler.repeat_every"
+                            , "scheduler.repeat_on"
+                            , "scheduler.repeat_by"
+                            , "scheduler.starts_on"
+                            , "scheduler.ends"
+                            , "scheduler.occurrences"
+                            , "scheduler.ends_on"
+                        )
+                )
+                ->from($modelObj)
+                ->join('scheduler')
+                ->where(array("{$modelObj->alias}.id" => $campaignsToRun))
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        $requiredCampaign = array();
+        foreach ($campaigns as $campaign) {
+            $campaign = array_merge($campaign, array('invocation' => null, 'last_run' => null, 'last_complete_run' => null, 'total_run' => 0), (isset($toBeRun[$campaign['id']]) ? $toBeRun[$campaign['id']] : array()));
+            $isValid = $this->isValid($campaign, $info);
+            $message = '';
+            if (is_array($isValid)) {
+                $message = array_pop($isValid);
+                $isValid = current($isValid);
+            }
+            $this->runLog(
+                    array(
+                        'campaign_id' => $campaign['id']
+                        , 'invocation' => $info['invocation']
+                        , 'stage' => 'Test For Run: ' . ($isValid ? 'Run Now' : 'Dont Run') . (!empty($message) ? " {$message}" : "")
+                        , 'message' => \json_encode(array_merge((isset($toBeRun[$campaign['id']]) ? $toBeRun[$campaign['id']] : array()), $info))
+                    )
+            );
+
+            if ($isValid) {
+                //$requiredCampaign = $campaign;
+                if (!in_array($campaign['status'], array(self::SENDING_EMAILS, self::SENDING_TEST_EMAILS))) {
+                    $campaign['invocation'] = $info['invocation'];
+                }
+                $campaignRunStatus->saveModel(array(
+                    'campaign_id' => $campaign['id']
+                    , 'invocation' => $campaign['invocation']
+                        ), array('type' => 'update', 'force' => true));
+                $requiredCampaign = $campaign;
+                $requiredCampaign['source_campaign_id'] = $requiredCampaign['id'];
+            }
+        }
+        //unlock all other campaigns
+        \update(array('singleton_key' => NULL))
+                ->from($campaignRunStatus)
+                ->where(array(
+                    'singleton_key' => $info['singleton_key']
+                    , 'campaign_id != ' => (isset($requiredCampaign['id']) ? $requiredCampaign['id'] : '')
+                ))
+                ->execute();
+
+        return $requiredCampaign;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $campaign
+     * @param type $info
+     * @return type
+     */
+    private function isValid($campaign, $info) {
+        $scheduler = $this->modelObj()->scheduler;
+        $scheduler->invalidReason = '';
+        switch ($campaign['status']) {
+            case self::SENDING_EMAILS:
+            case self::SENDING_TEST_EMAILS:
+            case self::UNDER_TESTING:
+                return true;
+                break;
+            default:
+                if ($scheduler->isValid($campaign, $info['invocation'], $campaign['last_complete_run'], $campaign['total_run'])
+                ) {
+                    return true;
+                } else {
+                    return array(false, $scheduler->invalidReason);
+                }
+        }
+    }
+
+    public function runLog($log, $save=true) {
+        echo "campaign_id: {$log['campaign_id']}, invocation: {$log['invocation']}, stage: {$log['stage']}, message: " . (isset($log['message']) ? $log['message'] : '') . ";<br/><br/>";
+        if ($save === true) {
+            $this->campaignRunLog->saveModel($log, array('type' => 'insert'));
+        }
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $data
+     */
+    private function processCampaign(&$data) {
+        $this->runLog(array(
+            'campaign_id' => $this->data['id']
+            , 'invocation' => $this->data['invocation']
+            , 'stage' => 'processCampaign-start', 'message' => ''
+                )
+        );
+        $rules = array();
+        $rules["merge_words"] = $this->rules["merge_words"];
+        $tracker = $data['tracker'];
+        if (!is_array($tracker)) {
+            $tracker = array();
+        }
+        foreach ($this->rules as $rule => $info) {
+            if (isset($tracker[$rule]) && $tracker[$rule] == true) {
+                $rules[$rule] = $info;
+            }
+        }
+        if ((!isset($data['tracker_url']) || empty($data['tracker_url']) ) && isset($rules['click_through'])) {
+            throw new \Exception(__('Missing tracker URL in campaign processor'));
+        }
+        if ((!isset($data['unsubscribe_url']) || empty($data['unsubscribe_url']) ) && isset($rules['unsubscribe'])) {
+            throw new \Exception(__('Missing unsubscribe URL in campaign processor'));
+        }
+        $array = \tushar\string::split($data['content'], $rules);
+        list($strings, $data['extracts']) = $array;
+        foreach ($rules as $rule => $info) {
+            if (isset($data['extracts'][$rule]) && is_array($data['extracts'][$rule])) {
+                $data['extracts'][$rule] = \tushar\string::cleanWords($data['extracts'][$rule]);
+            }
+        }
+        $extracts = $data['extracts'];
+        $data['merge_words'] = array();
+        if (isset($data['extracts']['click_through'])) {
+            $this->runLog(array(
+                'campaign_id' => $this->data['id']
+                , 'invocation' => $this->data['invocation']
+                , 'stage' => 'Inject URl click tracker')
+            );
+
+
+            $data['extracts']['click_through'] = \tushar\string::cleanUrls($data['extracts']['click_through']);
+            foreach ($data['extracts']['click_through'] as $k => $click) {
+                $data['extracts']['click_through'][$k] =
+                        '<?php echo "href=\"{$tracker_url}?ei={$entity_id}&et={$entity_id_model}&c={$campaign_id}&i={$base64_invocation}'
+                        . '&o={$base64_from_email}&r={$base64_to_email}&a=' . ($this->campaignAction->code('CLICKED'))
+                        . '&s=' . base64_encode($click) . '&t={$base64_subject}&u={$base64_message_id}\"";?>';
+            }
+        }
+
+        if (isset($data['extracts']['unsubscribe'])) {
+            $this->runLog(array(
+                'campaign_id' => $this->data['id']
+                , 'invocation' => $this->data['invocation']
+                , 'stage' => 'Inject unsubscribe URL')
+            );
+
+            $data['extracts']['unsubscribe'] = $data['extracts']['unsubscribe']; //\tushar\string::cleanUrls();
+            foreach ($data['extracts']['unsubscribe'] as $k => $click) {
+                $data['extracts']['unsubscribe'][$k] =
+                        '<?php echo " <a class=\"hlite\"  href=\"{$unsubscribe_url}?ei={$entity_id}&et={$entity_id_model}&c={$campaign_id}&i={$base64_invocation}'
+                        . '&o={$base64_from_email}&r={$base64_to_email}&a=' . ($this->campaignAction->code('UNSUBSCRIBE'))
+                        . '&s=' . base64_encode($click) . '&t={$base64_subject}&u={$base64_message_id}\" style=\"text-decoration: none; color: #0db9ea\">unsubscribe</a> ";   ?>';
+            }
+        }
+
+
+        if (isset($data['extracts']['merge_words'])) {
+            $mergeWords = array();
+            foreach ($data['extracts']['merge_words'] as $k => $word) {
+                $_word = \str_replace('.', '_', $word);
+                if (\stripos($word, 'element.') !== false) {
+                    $element = \explode('.', $word);
+                    if (\count($element) < 2) {
+                        throw new \Exception(__('Missing element name in campaign'));
+                    }
+                    \array_shift($element);
+                    $file = \array_shift($element);
+                    $mergeWords[$_word] = '<?php echo $this->element("' . $file . '",false,array("pass"=>'
+                            . \var_export($element, true) . ',"data"=>$data)); ?>';
+                } else {
+                    $mergeWords[$_word] = '<?php echo (isset($' . $_word . ')?$' . $_word . ':""); ?>';
+                    $data['merge_words'][$word] = $_word;
+                }
+                $data['extracts']['merge_words'][$k] = $_word;
+            }
+            $data['extracts']['merge_words'] = \tushar\string::populateWords($data['extracts']['merge_words'], $mergeWords);
+        }
+        $data['template_file'] = \tempnam(TMP, 'campaign_template');
+        $content = \tushar\string::merge($strings, $data['extracts']);
+
+
+        if (isset($tracker['email_open']) && $tracker['email_open'] == true) {
+            $this->runLog(array(
+                'campaign_id' => $this->data['id']
+                , 'invocation' => $this->data['invocation']
+                , 'stage' => 'Inject email open tracker')
+            );
+
+            $emailOpenTrackerMarkup = \tushar\configuration::read('email_open_tracker_markup');
+            if (empty($emailOpenTrackerMarkup)) {
+                $emailOpenTrackerMarkup = '<img src="$url">';
+            }
+            $emailOpenTrackerMarkup = str_replace('$url', '<?php echo "{$tracker_url}?ei={$entity_id}&et={$entity_id_model}&c={$campaign_id}&i={$base64_invocation}'
+                    . '&o={$base64_from_email}&r={$base64_to_email}&a=' . ($this->campaignAction->code('OPEN'))
+                    . '&t={$base64_subject}&u={$base64_message_id}";?>', $emailOpenTrackerMarkup);
+            $content .= $emailOpenTrackerMarkup;
+        }
+
+        \file_put_contents($data['template_file'], $content);
+        $this->runLog(
+                array(
+                    'campaign_id' => $this->data['id']
+                    , 'invocation' => $this->data['invocation']
+                    , 'stage' => 'processCampaign-end'
+                    , 'message' => \json_encode($extracts))
+        );
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     */
+    public function execute($request, $campaignId=null) {
+        $this->campaignRunLog = \module\campaigns\model\campaign_run_log::getInstance();
+        $this->campaignAction = \module\campaigns\model\campaign_actions::getInstance();
+
+        $testMode = (bool) $request->param('test_mode', false);
+        $this->data = $this->getCampaign((!is_null($campaignId) ? $campaignId : $request->param('campaign_id', false)), $testMode);
+
+
+
+        if (!empty($this->data)) {
+            $userINFO = \module\access_controls\model\users::getInstance()->setCurrentUserSesionInfo($this->data['sender_id'], true);
+            \tushar\user::flush();
+            \tushar\user::write($userINFO);
+
+            $this->data['test_mode'] = $testMode;
+
+            $tracker = \tushar\configuration::read('tracker', '');
+            if (!is_array($tracker)) {
+                $tracker = array();
+            }
+            $currentApplicationURL = \tushar\configuration::read('current_application_url', '');
+            if (!empty($currentApplicationURL)) {
+                if (substr($currentApplicationURL, -1) == '/') {
+                    $currentApplicationURL = substr($currentApplicationURL, 0, -1);
+                }
+                $tracker['tracker_url'] = $currentApplicationURL . '/campaigns/tracker/log';
+                $tracker['unsubscribe_url'] = $currentApplicationURL . '/campaigns/tracker/unsubscribe';
+            }
+                $this->data = array_merge($this->data, $tracker);
+            $this->data['tracker'] = $tracker;
+            try {
+                //&& \is_dir(\tushar\configuration::read('debug_output_directory'))
+                if (\tushar\configuration::read('debug') == true) {
+                    $this->debugOutputDirectory = \tushar\configuration::read('debug_output_directory');
+                    if (substr($this->debugOutputDirectory, -1) != DS) {
+                        $this->debugOutputDirectory .= DS;
+                    }
+                    $this->debugOutputDirectory = $this->debugOutputDirectory . 'id_' . $this->data['id'];
+                    if (!is_dir($this->debugOutputDirectory)) {
+                        \mkdir($this->debugOutputDirectory, 0777, true);
+                    }
+                }
+
+                if (isset($this->data['status'])) {
+                    if ($this->data['status'] == self::UNDER_TESTING) {
+                        $this->data['test_mode'] = true;
+                    }
+                    $tmp = "_tmp_" . $this->data['id'] . "_" . str_ireplace(array(":", "-", " "), "_", $this->data['invocation']);
+                    $this->tmp = \tushar\model::getInstance(array('alias' => 'tmp', 'table' => $tmp));
+                    $this->tmpLog = \tushar\model::getInstance(array('alias' => 'tmp_log', 'table' => $tmp . '_log'));
+                    $this->campaignLog = \module\campaigns\model\campaign_log::getInstance();
+                    $this->campaignLogSummary = \module\campaigns\model\campaign_log_summary::getInstance();
+                    $this->campaignRunStatus =
+                            \module\campaigns\model\campaign_run_status::getInstance(array(), true);
+                    $this->campaignTestRecipients =
+                            \module\campaigns\model\campaign_test_recipients::getInstance(array(), true);
+
+
+                    $this->runLog(array(
+                        'campaign_id' => $this->data['id'],
+                        'invocation' => $this->data['invocation'],
+                        'stage' => 'start')
+                    );
+                    $this->processCampaign($this->data);
+
+
+                    if ($this->data['status'] == self::SENDING_EMAILS
+                            || $this->data['status'] == self::SENDING_TEST_EMAILS) {
+                        $this->runLog(array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => 'Continue Sending Pending Emails'
+                            , 'message' => 'status is ' . $this->data['status']
+                        ));
+                        $return = $this->send($request);
+                    } else {
+                        $this->runLog(array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => 'Start with new Emails'
+                            , 'message' => 'status is ' . $this->data['status']
+                                )
+                        );
+                        $columns = array();
+                        $columns['id'] = array('type' => 'int(19)', 'key' => 'PRI', 'extra' => 'AUTO_INCREMENT');
+                        $columns['to_email'] = array('type' => 'varchar(50)');
+                        $columns['to_name'] = array('type' => 'varchar(50)');
+                        $columns['from_email'] = array('type' => 'varchar(50)');
+                        $columns['from_name'] = array('type' => 'varchar(50)');
+                        $columns['entity_id'] = array('type' => 'int(19)');
+                        $columns['email_opt_out'] = array('type' => 'int(11)');
+                        $columns['entity_id_model'] = array('type' => 'varchar(50)');
+                        if (isset($this->data['merge_words'])) {
+                            foreach ($this->data['merge_words'] as $word) {
+                                $columns[$word] = array('type' => 'varchar(70)');
+                            }
+                        }
+                        $structure = array();
+                        $structure['schema'] = array();
+                        $structure['name'] = $this->tmp->table;
+                        $structure['engine'] = 'InnoDB';
+                        $structure['auto_increment'] = 1;
+                        $structure['schema']['columns'] = $columns;
+                        $structure['schema']['indexes'] = array('PRIMARY' => array(
+                                array(
+                                    'column' => 'id'
+                                )
+                            )
+                        );
+                        $this->runLog(array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => 'Setup tmp table'
+                            , 'message' => json_encode($structure)
+                                )
+                        );
+                        $this->tmp->table('add', $structure);
+
+
+
+                        $structure = array();
+                        $structure['schema'] = array();
+                        $structure['name'] = $this->tmpLog->table;
+                        $structure['engine'] = 'InnoDB';
+                        $structure['auto_increment'] = 1;
+                        $structure['schema']['columns'] = array('id' => array('type' => 'int(19)', 'key' => 'PRI'));
+                        $structure['schema']['indexes'] = array('PRIMARY' => array(
+                                array(
+                                    'column' => 'id'
+                                )
+                            )
+                        );
+                        $this->runLog(array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => 'Setup tmp log table'
+                            , 'message' => json_encode($structure)
+                                )
+                        );
+                        $this->tmpLog->table('add', $structure);
+                        $pluginSources = array();
+                        foreach (\scandir(APP . DS . 'module' . DS . 'campaigns' . DS . 'source') as $source) {
+                            if ($source{0} != '.'
+                                    && \file_exists(APP . DS . 'module'
+                                            . DS . 'campaigns' . DS . 'source' . DS . $source))
+                                $pluginSources['\\module\\campaigns\\source\\'
+                                        . \str_replace('.php', '', $source)] = array();
+                        }
+
+                        $sources = array();
+                        foreach (array_merge($pluginSources, $this->sources) as $source => $params) {
+                            if (is_numeric($source)) {
+                                $source = $params;
+                                $params = array();
+                            }
+                            $sources[$source] = $params;
+                        }
+                        $this->runLog(array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => 'Start processing source'
+                            , 'message' => json_encode($sources)
+                                )
+                        );
+                        foreach ($sources as $source => $params) {
+                            $this->lastRun();
+                            if (\class_exists($source) && \is_callable(array($source, 'process'), true) === true) {
+                                $this->runLog(array(
+                                    'campaign_id' => $this->data['id']
+                                    , 'invocation' => $this->data['invocation']
+                                    , 'stage' => 'Processing source'
+                                    , 'message' => $source)
+                                );
+                                $source::process($this->modelObj(), $this->tmp, $this, $this->data, $params);
+                            }
+                        }
+
+                        $this->setSender();
+
+                        $return = $this->send($request);
+                    }
+                    $this->runLog(array(
+                        'campaign_id' => $this->data['id']
+                        , 'invocation' => $this->data['invocation']
+                        , 'stage' => 'end')
+                    );
+
+                    $deleteTemporaryTable = \tushar\configuration::read('delete_temporary_table', true);
+
+
+                    if ($deleteTemporaryTable && $return) {
+                        \tushar\source::getInstance($this->tmp->source)
+                                ->table('drop', array('name' => $this->tmp->table));
+                        \tushar\source::getInstance($this->tmpLog->source)
+                                ->table('drop', array('name' => $this->tmpLog->table));
+                    }
+                }
+            } catch (\Exception $e) {
+                $this->runLog(array(
+                    'campaign_id' => $this->data['id']
+                    , 'invocation' => $this->data['invocation']
+                    , 'stage' => 'failed'
+                    , 'message' => $e->getMessage() . ", File:" . $e->getFile() . ", Line:" . $e->getLine()));
+            }
+        }
+        if (is_null($campaignId)) {
+            die();
+        }
+    }
+
+    protected function setSender() {
+        $senderObj = \module\access_controls\model\users::getInstance();
+        $sender = current($senderObj->read($this->data['sender_id']));
+        if (!empty($sender)) {
+            if (isset($sender['email']) && !empty($sender['email'])) {
+                \update(array(
+                    'from_email' => $sender['email']
+                    , 'from_name' => $sender['first_name'] . ' ' . $sender['last_name']
+                ))->from($this->tmp)->where(array('from_email IS NULL'))->execute();
+            } else if (isset($sender['email_addresses']) && !empty($sender['email_addresses'])) {
+                $office = "";
+                $personal = "";
+                foreach ($sender['email_addresses'] as $sn) {
+                    switch ($sn['__type']) {
+                        case 'Office':
+                            $office = $sn['email'];
+                            break;
+                        case 'Personal':
+                            $personal = $sn['email'];
+                            break;
+                    }
+                }
+                if (empty($office)) {
+                    $office = $personal;
+                }
+                \update(array(
+                    'from_email' => $office
+                    , 'from_name' => $sender['first_name'] . ' ' . $sender['last_name']
+                ))->from($this->tmp)->where(array('from_email IS NULL'))->execute();
+            }
+        }
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    private function send($request) {
+        $view = new \tushar\view($request);
+        if (empty($this->debugOutputDirectory)) {
+            $this->debugOutputDirectory = false;
+        }
+        $campaignTestRecipients = array();
+        if ($this->data['test_mode']) {
+            $this->data['test_mode'] = true;
+            $this->data['cc_email'] = $this->data['bcc_email'] = '';
+            foreach ($this->campaignTestRecipients
+                    ->find(array('fields' => array('email')))
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $row) {
+                if (filter_var($row['email'], \FILTER_VALIDATE_EMAIL)) {
+                    $campaignTestRecipients[] = $row['email'];
+                }
+            }
+            if (empty($campaignTestRecipients)) {
+                throw new \Exception(__("No valid emails found for sending test mails"));
+            }
+
+            $this->data['status'] = self::SENDING_TEST_EMAILS;
+        } else {
+            $this->data['status'] = self::SENDING_EMAILS;
+        }
+        $campaignTestRecipientsList = $campaignTestRecipients;
+        $this->modelObj()->saveModel(array('id' => $this->data['id'], 'status' => $this->data['status']), array('type' => 'update'));
+
+        $failedLogCount = 0;
+        $base64Invocation = base64_encode($this->data['invocation']);
+        $base64Subject = base64_encode($this->data['subject']);
+        $this->lastRun();
+
+        //@todo - if table dont respond then notify admin.
+        $this->runLog(array(
+            'campaign_id' => $this->data['id']
+            , 'invocation' => $this->data['invocation']
+            , 'stage' => 'Initialize mailer', 'message' => ''));
+        $mailer = new \PHPMailer();
+        $mailer->IsHTML(true);
+        if (empty($this->data['smtp_server'])) {
+            \module\administration\model\global_configurations::setServer($mailer);
+        } else {
+            \module\administration\model\global_configurations::setServer($mailer, $this->data['smtp_server']);
+        }
+        //$mailer->LE = uuid();
+        //Email priority (1 = High, 3 = Normal, 5 = low).
+        if (isset($this->data['priority']) && !empty($this->data['priority'])) {
+            $mailer->Priority = $this->data['priority'];
+        }
+        $this->runLog(array(
+            'campaign_id' => $this->data['id']
+            , 'invocation' => $this->data['invocation']
+            , 'stage' => 'Loading Attachments', 'message' => ''));
+
+        $attachments=select('attachments.id')
+                    ->from($this->modelObj)
+                    ->joinInner('attachments')
+                    ->where(array('campaigns.id' => $this->data['id']))
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_COLUMN);
+        $this->attachments=$this->modelObj->{'attachments'}->readFiles($attachments);
+        foreach ($this->attachments as $path => $attachment) {
+            if (!file_exists($path)) {
+                throw new \Exception(sprintf(
+                                __('File %s(%s) not found'), $path, $attachment['name'])
+                );
+            }
+            $mailer->AddAttachment($path, $attachment['name'], 'base64', $attachment['mime_type']);
+        }
+
+        if ($this->data['test_mode'] === true) {
+            if (\select($this->tmp->alias . '.id')
+                            ->from($this->tmp)
+                            ->limit(1)
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN, 0) == "") {
+                $this->runLog(
+                        array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => "Set Test Record"
+                            , 'message' => "Generating a dummy test record as filters return no data"
+                        )
+                );
+
+                $schema = $this->tmp->schema(false, false, false);
+                $dt = array();
+                foreach ($schema as $col => $info) {
+                    switch ($info['const']) {
+                        case INT:
+                            $dt[$col] = rand(10, 1000);
+                            break;
+                        case FLOAT:
+                            $dt[$col] = round((rand(10, 1000) * 1.1), 2);
+                            break;
+                        case STRING:
+                        default:
+                            $dt[$col] = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 10);
+                    }
+                }
+                $dt["from_email"] = \tushar\configuration::read('default_from_email');
+                $dt["from_name"] = "";
+                $dt["entity_id"] = "";
+                $dt["entity_id_model"] = "";
+                unset($dt['id']);
+
+                if (empty($dt["from_email"])) {
+                    $this->runLog(
+                            array(
+                                'campaign_id' => $this->data['id']
+                                , 'invocation' => $this->data['invocation']
+                                , 'stage' => "failed"
+                                , 'message' => "Check that default_from_email is set in configuration"
+                            )
+                    );
+                    return false;
+                }
+                $this->runLog(
+                        array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => "Dummy record"
+                            , 'message' => json_encode($dt)
+                        )
+                );
+                $this->tmp->save(array($this->tmp->alias => $dt), array('type' => 'insert', 'atomic' => true));
+            }
+        }
+
+        $lastToAddress = "";
+
+        $stmt = \select($this->tmp->alias . '.*')
+                ->from($this->tmp)
+                ->join(array(
+                    $this->tmpLog->alias => array('table' => $this->tmpLog->table
+                        , 'on' => array($this->tmp->alias . '.id=' . $this->tmpLog->alias . '.id')
+                    )
+                        )
+                )
+                ->where(array($this->tmpLog->alias . '.' . $this->tmpLog->primaryKey . ' IS NULL'))
+                ->order($this->tmp->alias . '.to_email ASC')
+                ->execute();
+        //$request->set($this->data);
+        $this->runLog(array(
+            'campaign_id' => $this->data['id']
+            , 'invocation' => $this->data['invocation']
+            , 'stage' => 'Loading View', 'message' => ''));
+        //$view = new \tushar\view($request);
+
+        $this->runLog(array(
+            'campaign_id' => $this->data['id'],
+            'invocation' => $this->data['invocation'],
+            'stage' => 'Start sending email', 'message' => ''));
+        $debugNum = 0;
+        $processedCount = 0;
+        while ($recordBase = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $shouldBreak = false;
+
+            if ($this->data['test_mode'] === true) {
+                $records = array();
+                $k = 0;
+                foreach ($campaignTestRecipients as $campaignTestRecipient) {
+                    $recordBase['to_email'] = $campaignTestRecipient;
+                    $recordBase['id'] = ++$k;
+                    $records[] = $recordBase;
+                }
+            } else {
+                $records = array($recordBase);
+            }
+            foreach ($records as $record) {
+                $processedCount++;
+                $row = array_merge($record, $this->data);
+                if (is_null($row['entity_id'])) {
+                    $row['entity_id'] = 0;
+                }
+
+                $mailer->ClearAddresses();
+                $mailer->Subject = $this->data['subject'];
+                $row['base64_invocation'] = $base64Invocation;
+                $row['base64_subject'] = $base64Subject;
+
+                $this->lastRun();
+                if ($failedLogCount > $this->maxFailedLogCount) {
+                    // terminate since db not responding
+                    $message = __('Terminating process since max failed count of ' . $this->maxFailedLogCount . ' reached');
+                    $this->runLog(
+                            array(
+                        'campaign_id' => $this->data['id']
+                        , 'invocation' => $this->data['invocation']
+                        , 'stage' => "Terminating Email Send Process"
+                        , 'message' => $message), $this->data['test_mode']
+                    );
+                    $shouldBreak = true;
+                    break;
+                }
+
+                $messageID = $action = $subAction = '';
+                if ($row['email_opt_out']=="1") {
+                    $action = $this->campaignAction->code('EMAIL_OPT_OUT');
+                } elseif ($lastToAddress == $row['to_email']) {
+                    $action = $this->campaignAction->code('DUPLICATE');
+                } elseif (!filter_var($row['to_email'], \FILTER_VALIDATE_EMAIL)) {
+                    $action = $this->campaignAction->code('INVALID_EMAIL');
+                } else if (empty($row['from_email'])) {
+                    $action = $this->campaignAction->code('MISSING_SENDER');
+                } else {
+                    $mailer->From = $row['from_email'];
+                    $mailer->FromName = $row['from_name'];
+
+                    $mailer->AddAddress($row['to_email'], (isset($row['to_name']) ? $row['to_name'] : ''));
+                    if (isset($this->data['cc_email']) && !empty($this->data['cc_email']))
+                        $mailer->AddCC($this->data['cc_email'], (isset($this->data['cc_name']) ? $this->data['cc_name'] : ''));
+                    if (isset($this->data['bcc_email']) && !empty($this->data['bcc_email']))
+                        $mailer->AddBCC($this->data['bcc_email'], (isset($this->data['bcc_name']) ? $this->data['bcc_name'] : ''));
+                    if (isset($this->data['reply_email']) && !empty($this->data['reply_email']))
+                        $mailer->AddReplyTo($this->data['reply_email'], (isset($this->data['reply_name']) ? $this->data['reply_name'] : ''));
+
+                    $mailer->MessageID = uuid();
+                    $row["base64_from_email"] = base64_encode($row['from_email']);
+                    $row["base64_to_email"] = base64_encode($row['to_email']);
+                    $row["base64_message_id"] = base64_encode($mailer->MessageID);
+                    $row["tracker"] = $this->data['tracker'];
+                    $row["campaign_id"] = $this->data['id'];
+
+                    $mailer->Body = $view->generate($this->data['template_file'], $row);
+
+                    if ($this->debugOutputDirectory !== false) {
+                        $debugNum++;
+                        \file_put_contents($this->debugOutputDirectory . DS . $debugNum . '.html', $mailer->Body . '<hr/><div>' . str_replace('","', '", "', \json_encode($row)) . '</div>');
+                    }
+
+                    if ($mailer->send()) {
+                        $action = $this->campaignAction->code('SENT');
+                        $lastToAddress = $row['to_email'];
+                        $this->runLog(
+                                array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => "Email sent"
+                            , 'message' => "From \"{$row['from_email']}\" to \"{$row['to_email']}\""), $this->data['test_mode']
+                        );
+                    } else {
+                        $action = $this->campaignAction->code('FAILED');
+                        $this->runLog(
+                                array(
+                            'campaign_id' => $this->data['id']
+                            , 'invocation' => $this->data['invocation']
+                            , 'stage' => "Email failed"
+                            , 'message' => "From \"{$row['from_email']}\" to \"{$row['to_email']}\" " . $mailer->ErrorInfo), $this->data['test_mode']
+                        );
+                        $subAction = $mailer->ErrorInfo;
+                    }
+                }
+
+                // terminate since we cant log into logger, will result in duplicate emails issue and wrong email statistic.
+                if ($this->tmpLog->saveModel(array('id' => $record['id']), array('type' => 'insert'))) {
+                    try {
+                        $data = array('campaign_id' => $this->data['id'],
+                            'originator' => $mailer->From,
+                            'receiver' => $row['to_email'],
+                            'action' => $action,
+                            'sub_action' => $subAction,
+                            'subject' => $mailer->Subject,
+                            'uid' => $mailer->MessageID,
+                            'entity_id' => $row['entity_id'],
+                            'entity_type' => $row['entity_id_model'],
+                            'count' => 1, 'invocation' => $this->data['invocation']);
+                        if ($this->campaignLog->saveModel($data, array('type' => 'insert'))) {
+                            $this->campaignLogSummary->saveModel($data, array(
+                                'exp' => true
+                                , 'type' => 'insert'
+                                , 'on_duplicate_key' => array('count' => "(count+1)"))
+                            );
+                        }
+                    } catch (\Exception $e) {
+                        $failedLogCount++;
+                    }
+                } else {
+                    // count if any log sql failed.
+                    $failedLogCount++;
+                }
+            }
+
+            if ($this->data['test_mode']) {
+                $campaignTestRecipients = $shouldBreak = true;
+            }
+
+            if ($shouldBreak) {
+                break;
+            }
+        }
+
+        $this->runLog(array(
+            'campaign_id' => $this->data['id']
+            , 'invocation' => $this->data['invocation']
+            , 'stage' => 'Processed (' . $processedCount . ') rows'
+            , 'message' => ''));
+
+        $this->runLog(array(
+            'campaign_id' => $this->data['id']
+            , 'invocation' => $this->data['invocation']
+            , 'stage' => 'End sending email'
+            , 'message' => ''));
+
+        $return = false;
+        $status = self::ACTIVE;
+        // run fetch query again to cross check if all records in tmp table are processed.
+        $records = \select($this->tmp->alias . '.*')
+                ->from($this->tmp)
+                ->join(array(
+                    $this->tmpLog->alias => array(
+                        'table' => $this->tmpLog->table
+                        , 'on' => array($this->tmp->alias . '.id=' . $this->tmpLog->alias . '.id')
+                        )))
+                ->where(array($this->tmpLog->alias . '.' . $this->tmpLog->primaryKey . ' IS NULL'))
+                ->order($this->tmp->alias . '.to_email ASC')
+                ->execute()
+                ->fetch(\PDO::FETCH_ASSOC);
+
+        if ($this->data['test_mode'] && $campaignTestRecipients === true) {
+            $records = '';
+        }
+
+        if (empty($records)) {
+            $return = true;
+            if ($this->data['status'] == self::SENDING_TEST_EMAILS) {
+                $status = self::TESTED;
+            } else if ($this->data['status'] == self::SENDING_EMAILS) {
+                if ($this->data['repeats'] == 'Once') {
+                    $status = self::COMPLETED;
+                }
+            }
+
+
+            if (empty($records) && $this->data['test_mode'] !== true) {
+                $last_complete_run = date('Y-m-d H:i:s');
+                $instance = \tushar\source::getInstance($this->campaignRunStatus->source);
+                $data = array(
+                    'fields' => array('total_run' => '(total_run+1)', 'last_complete_run' => $last_complete_run),
+                    'table' => array('db' => $this->campaignRunStatus->db, 'table' => $this->campaignRunStatus->table),
+                    'type' => 'update', 'where' => array('campaign_id' => $this->data['id'])
+                );
+                $instance->save($data, true);
+            } else {
+                //$last_complete_run = null;
+                //$instance = \tushar\source::getInstance($this->campaignRunStatus->source);
+                //$data = array(
+                //    'fields' => array('total_run' => 0, 'last_complete_run' => $last_complete_run),
+                //    'table' => array('db' => $this->campaignRunStatus->db, 'table' => $this->campaignRunStatus->table),
+                //    'type' => 'update', 'where' => array('campaign_id' => $this->data['id'])
+                //);
+                //$instance->save($data, true);
+            }
+
+            $this->modelObj()->saveModel(array('id' => $this->data['id'], 'status' => $status), array('type' => 'update'));
+            $this->runLog(array(
+                'campaign_id' => $this->data['id']
+                , 'invocation' => $this->data['invocation']
+                , 'stage' => 'Update status'
+                , 'message' => 'state changed from ' . $this->data['status'] . ' to ' . $status)
+            );
+            $msg = 'Temp file not deleted';
+
+            $deleteTemplateFile = \tushar\configuration::read('delete_template_file', true);
+            if ($deleteTemplateFile) {
+                if (\unlink($this->data['template_file'])) {
+                    $msg = 'Temp file deleted';
+                }
+            }
+        if (is_array($this->attachments)) {
+                foreach ($this->attachments as $path => $info) {
+                    if (isset($info['temp']) && $info['temp'] === true) {
+                        unlink($path);
+                    }
+                }
+            }
+            $this->runLog(array(
+                'campaign_id' => $this->data['id']
+                , 'invocation' => $this->data['invocation']
+                , 'stage' => 'Erase temporary file', 'message' => $msg
+            ));
+        }
+        $this->campaignRunStatus->saveModel(array(
+            'campaign_id' => $this->data['id']
+            , 'singleton_key' => NULL), array('type' => 'update'
+                )
+        );
+        return $return;
+    }
+
+}

@@ -1,0 +1,218 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\cases\model;
+  class activities extends \module\cases\model\activities_domain_logic
+  {
+       public $displayField = 'title';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'cases__activities';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'title' => 
+  array (
+    'column' => 'title',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'content' => 
+  array (
+    'column' => 'content',
+    'ntype' => 'string',
+  ),
+  'type_id' => 
+  array (
+    'column' => 'type_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'contact_id' => 
+  array (
+    'column' => 'contact_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'activities_type' => 
+  array (
+    'column' => 'activities_type',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'cases_id' => 
+  array (
+    'column' => 'cases_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'priority_id' => 
+  array (
+    'column' => 'priority_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'related_to' => 
+  array (
+    'column' => 'related_to',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  ' __related_to' => 
+  array (
+    'column' => ' __related_to',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'related_to_model' => 
+  array (
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'case_id' => 
+  array (
+    'column' => 'case_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'contacts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\contacts',
+    'associationAlias' => 'contacts',
+    'foreignKey' => 'contact_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_priorities' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\cases\\model\\config_priorities',
+    'associationAlias' => 'config_priorities',
+    'foreignKey' => 'priority_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'cases' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\cases\\model\\cases',
+    'associationAlias' => 'cases',
+    'foreignKey' => 'case_id',
+    'isAclParent' => '1',
+    'show_link' => '1',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '0',
+    'deleteAccess' => '0',
+    'ownAcl' => '0',
+    'cacheClass' => '1',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+);
+  }

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:02:32 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>modules_domain_logic (System Module)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's System Module</h1><span>Class</span>
+
+<h2>module\development_base\model\modules_domain_logic</h2>
+
+</header><p class="signature">public  class <strong>modules_domain_logic</strong> extends \kernel\model
+
+</p>
+
+<div class="comment"><p></p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#associations">$associations</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#dataOld">$dataOld</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#filters">$filters</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#limitForInstallation">$limitForInstallation</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#singular">$singular</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#svnfilters">$svnfilters</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterSave()">afterSave</a>(mixed created)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeFind()">beforeFind</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeSave()">beforeSave</a>()</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#checkForUpdates()">checkForUpdates</a>()</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#checkModule()">checkModule</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#cloned()">cloned</a>(mixed data, mixed options)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#createModuleFolder()">createModuleFolder</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#dataForInstallation()">dataForInstallation</a>()</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#jsonDecode()">jsonDecode</a>(mixed string)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#moduleNameCharactar()">moduleNameCharactar</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#moduleNamelength()">moduleNamelength</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#populateDesignMetadata()">populateDesignMetadata</a>(mixed data, mixed options)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setGroups()">setGroups</a>(mixed moduleName)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="associations">public  mixed <strong>$associations</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="dataOld">public  mixed <strong>$dataOld</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="filters">public  mixed <strong>$filters</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="limitForInstallation">public  mixed <strong>$limitForInstallation</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="singular">public  mixed <strong>$singular</strong> = 'module'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="svnfilters">public  mixed <strong>$svnfilters</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterSave">public  void <strong>afterSave</strong>(mixed created)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeFind">public  void <strong>beforeFind</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeSave">public  void <strong>beforeSave</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="checkForUpdates">public static  void <strong>checkForUpdates</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="checkModule">public static  void <strong>checkModule</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="cloned">public  void <strong>cloned</strong>(mixed data, mixed options)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="createModuleFolder">public static  void <strong>createModuleFolder</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="dataForInstallation">public  void <strong>dataForInstallation</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="jsonDecode">public static  void <strong>jsonDecode</strong>(mixed string)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="moduleNameCharactar">public static  void <strong>moduleNameCharactar</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="moduleNamelength">public static  void <strong>moduleNamelength</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="populateDesignMetadata">public  void <strong>populateDesignMetadata</strong>(mixed data, mixed options)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="setGroups">public  void <strong>setGroups</strong>(mixed moduleName)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

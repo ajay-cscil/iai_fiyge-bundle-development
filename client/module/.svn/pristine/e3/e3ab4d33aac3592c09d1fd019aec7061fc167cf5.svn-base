@@ -1,0 +1,16 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\email_intelligence\model;
+
+class mail_accounts_domain_logic extends \data_model{
+
+    public function dataForInstallation() {
+        
+    }
+
+}

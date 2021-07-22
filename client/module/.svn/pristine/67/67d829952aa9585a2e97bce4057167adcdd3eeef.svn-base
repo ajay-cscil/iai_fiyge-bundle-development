@@ -1,0 +1,263 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class expenses_lines extends \module\accounting\model\expenses_lines_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'accounting__expenses_lines';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $alias = 'expenselines';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isConfig = '1';
+       public $isSequentialData = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'price_per_unit' => 
+  array (
+    'column' => 'price_per_unit',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'discount' => 
+  array (
+    'column' => 'discount',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'quantity' => 
+  array (
+    'column' => 'quantity',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'product_id' => 
+  array (
+    'column' => 'product_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'total_amount' => 
+  array (
+    'column' => 'total_amount',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'tax_id' => 
+  array (
+    'column' => 'tax_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'uom_id' => 
+  array (
+    'column' => 'uom_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'expense_id' => 
+  array (
+    'column' => 'expense_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+);
+       public $associations = array (
+  'line_taxes' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\accounting\\model\\line_taxes',
+    'associationAlias' => 'line_taxes',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '{{FOREIGN}}.{{FOREIGN_KEY}}_model=\'{{PRIMARY}}\'',
+    ),
+    'joinCondition' => 'SSUBMODEL	No',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'owned_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'owned_by_user',
+    'foreignKey' => 'owned_by',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'created_by_user',
+    'foreignKey' => 'created_by',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'modified_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'modified_by_user',
+    'foreignKey' => 'modified_by',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'products' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\products',
+    'associationAlias' => 'products',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_uom' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\config_uom',
+    'associationAlias' => 'config_uom',
+    'foreignKey' => 'uom_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+  }

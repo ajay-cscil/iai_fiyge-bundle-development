@@ -1,0 +1,95 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"52611fb5-f864-4179-963c-1d890acef1b9\",\"name\":\"Converted Leads by State and by Industry\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"crm\\\/leads\",\"render_as\":\"categorized\",\"description\":\"Count of leads categorized by state and industry repectively\",\"fields\":[{\"seq\":\"1\",\"column\":\"leads.primary_state\",\"column_model\":\"schema\",\"__column\":\"leads.primary_state\",\"alias\":\"State\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"leads.config_industries.industry\",\"column_model\":\"schema\",\"__column\":\"leads.config_industries.industry\",\"alias\":\"Industry\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"leads.id\",\"column_model\":\"schema\",\"__column\":\"leads.id\",\"alias\":\"Count\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"width:5%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"leads.first_name\",\"column_model\":\"schema\",\"__column\":\"leads.first_name\",\"alias\":\"First Name\",\"render_type\":\"info\",\"style\":\"width:15%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"leads.office_phone\",\"column_model\":\"schema\",\"__column\":\"leads.office_phone\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"width:15%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"leads.office_email\",\"column_model\":\"schema\",\"__column\":\"leads.office_email\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"leads.converted\",\"search_column_model\":\"schema\",\"__search_column\":\"leads.converted\",\"search_comparator\":\"=\",\"search_value\":\"1\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::column_chart\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"8\",\"animation--duration\":\"\",\"animation--easing\":\"\",\"axis-titles-position\":\"\",\"background-color\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"chart-area\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"colors\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"h-axis\":\"\",\"h-axis--direction\":\"\",\"h-axis--text-position\":\"\",\"h-axis--text-style\":\"\",\"h-axis--title\":\"\",\"h-axis--title-text-style\":\"\",\"h-axis--slanted-text\":\"\",\"h-axis--slanted-text-angle\":\"\",\"h-axis--max-alternation\":\"\",\"h-axis--show-text-every\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"height\":\"\",\"is-stacked\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"reverse-categories\":\"\",\"series\":\"\",\"theme\":\"\",\"title\":\"\",\"title-position\":\"\",\"title-text-style\":\"\",\"tooltip\":\"\",\"tooltip--show-color-code\":\"\",\"tooltip--text-style\":\"\",\"tooltip--trigger\":\"\",\"v-axes\":\"\",\"v-axis\":\"\",\"v-axis--baseline\":\"\",\"v-axis--baseline-color\":\"\",\"v-axis--direction\":\"\",\"v-axis--format\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"v-axis--log-scale\":\"\",\"v-axis--text-position\":\"\",\"v-axis--text-style\":\"\",\"v-axis--title\":\"\",\"v-axis--title-text-style\":\"\",\"v-axis--max-value\":\"\",\"v-axis--min-value\":\"\",\"v-axis--view-window-mode\":\"\",\"v-axis--view-window\":\"\",\"v-axis--view-window--max\":\"\",\"owned_by\":\"0\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "crm\/leads",
+            "created": "2013-02-17 17:55:11",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "Count of leads categorized by state and industry repectively",
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "crm.leads.Converted Leads by State and by Industry",
+            "id": "52611fb5-f864-4179-963c-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-18 10:36:18",
+            "modified_by": "1",
+            "module_id": "27260a2d-e746-11e3-aad5-0800275f9930",
+            "name": "Converted Leads by State and by Industry",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[{\"leads.primary_state\":{\"__column\":\"leads.primary_state\",\"alias\":\"State\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.config_industries.industry\":{\"__column\":\"leads.config_industries.industry\",\"alias\":\"Industry\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.id\":{\"__column\":\"leads.id\",\"alias\":\"Count\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"width:5%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.first_name\":{\"__column\":\"leads.first_name\",\"alias\":\"First Name\",\"render_type\":\"info\",\"style\":\"width:15%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.office_phone\":{\"__column\":\"leads.office_phone\",\"render_type\":\"info\",\"style\":\"width:15%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.office_email\":{\"__column\":\"leads.office_email\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"leads.converted = \":\"1\"}}]],\"order\":[],\"name\":\"Converted Leads by State and by Industry\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"crm\\\/leads\",\"render_as\":\"categorized\",\"description\":\"Count of leads categorized by state and industry repectively\",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::column_chart\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"8\",\"owned_by_model\":\"users\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+            "revision": "1",
+            "sequence": "8",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "",
+            "__module_id": "crm",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

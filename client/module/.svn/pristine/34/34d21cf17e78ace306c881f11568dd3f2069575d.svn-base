@@ -1,0 +1,155 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class package_costs extends \module\excursion\model\package_costs_domain_logic
+  {
+       public $displayField = 'package_cost_id';
+       public $primaryKey = 'package_cost_id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__package_costs';
+       public $alias = 'package_costs';
+       public $fields = array (
+  'cost' => 
+  array (
+    'column' => 'cost',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'package_cost_id' => 
+  array (
+    'column' => 'package_cost_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'package_port_id' => 
+  array (
+    'column' => 'package_port_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'quantity_lower' => 
+  array (
+    'column' => 'quantity_lower',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'quantity_upper' => 
+  array (
+    'column' => 'quantity_upper',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'package_ports' => 
+  array (
+    'className' => '\\module\\excursion\\model\\package_ports',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'package_port_id',
+    'associationAlias' => 'package_ports',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'cost' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'package_port_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

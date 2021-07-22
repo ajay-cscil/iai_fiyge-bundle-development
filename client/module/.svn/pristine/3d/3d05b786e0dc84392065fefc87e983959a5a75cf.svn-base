@@ -1,0 +1,139 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\contracts\controller;
+
+\library('zend.php');
+
+class process extends \tushar\controller
+{
+
+    public $access = array('execute' => PUBLIC_ACCESS);
+    private $markup = 'Bbcode';
+    public $renderers = array();
+    public $modelClass = '\\module\\contracts\\model\\contracts';
+
+    private function processTags($content, $prefix)
+    {
+        $markupProcessor = \Zend_Markup::factory($this->markup);
+        $this->setRenderers($markupProcessor);
+        $processContent = $markupProcessor->render($content);
+        // replace merge words
+        $array = \tushar\string::split($processContent, array("merge_words" => "/\{\{[\.\w]*\}\}/i"));
+        list($strings, $extracts) = $array;
+
+        if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+            $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+            $merge = array();
+            foreach ($extracts['merge_words'] as $k => $word) {
+                $merge[] = '<?php echo $this->data("'.$word.'") ?>';
+            }
+            $extracts['merge_words'] = $merge;
+            $processContent = \tushar\string::merge($strings, $extracts);
+        }
+
+
+        // split into pages.
+        $pages = array();
+        $basePath = TMP . DS . 'contracts' . DS . $prefix;
+        if (!\is_dir($basePath)) {
+            if (mkdir($basePath, 0777, true) === false) {
+                throw new \Exception(sprintf(_('directory could not be created "%s" '), $basePath));
+            }
+        }
+        $uuid = uuid();
+        $i = 0;
+        foreach (explode("[page-break]", $processContent) as $pageContent) {
+            $i++;
+            $fileName = $uuid . '-' . $i . '.php';
+            if (is_writable($basePath)) {
+                $info = array();
+                if (substr($pageContent, 0, 6) == 'MERGE:') {
+                    $e = explode(":", $pageContent);
+                    $info['document'] = true;
+                    $info['id'] = $e[1];
+                    $info['name'] = $e[2];
+                    $info['storage_path'] = $e[3];
+                    $info['path'] = $e[4];
+                    $info['mime_type'] = $e[5];
+                }
+                $pages['contracts' . DS . $prefix . DS . $fileName] = $info;
+                \file_put_contents($basePath . DS . $fileName, $pageContent);
+            } else {
+                throw new \Exception(sprintf(_('directory not writable "%s" '), $key));
+            }
+        }
+        return $pages;
+    }
+
+    private function setRenderers(&$markupProcessor)
+    {
+        $modulePath=module_path('contracts');
+        $path = $modulePath . DS . 'renderer';
+        $renderers = array();
+        if (\is_dir(($path)))
+                foreach (\scandir($path) as $renderer) {
+                if ($renderer{0} != '.' && \file_exists($path . DS . $renderer))
+                        $renderers['\\module\\contracts\\renderer\\' . \str_replace('.php', '', $renderer)] = array();
+            }
+        foreach (\array_unique(array_merge($renderers, $this->renderers)) as $renderer => $params) {
+            if (is_numeric($renderer)) {
+                $renderer = $params;
+                $params = array();
+            }
+            $renderers[$renderer] = $params;
+        }
+
+        foreach ($renderers as $renderer => $params) {
+            $rendererP=explode('contracts',$renderer);
+            $fileName=$modulePath.  str_replace(NS, DS, $rendererP[1]).".php";
+            if (file_exists($fileName)) {
+                $p = explode("\\", $renderer);
+                $tag = array_pop($p);
+                $markupProcessor->addMarkup(
+                        $tag, \Zend_Markup_Renderer_RendererAbstract::TYPE_CALLBACK,
+                        array(
+                    'callback' => new $renderer(),
+                    'group' => 'inline'
+                        )
+                );
+            }
+        }
+        
+    }
+
+    public function execute($request, $docId=null, $content=null)
+    {
+
+        if (is_null($docId)) {
+            $docId = $request->param('id');
+        }
+        if (is_null($content)) {
+            $content = $request->param('content');
+        }
+        $data = array();
+        $pages = array();
+        if (!empty($docId)) {
+            // read contract
+            $modelObj = $this->modelObj();
+            $data = $modelObj->read($docId);
+            //processTags
+            $content = $data[$modelObj->alias]['content'];
+        }
+        // process content
+        if (!empty($content)) {
+            $pages = $this->processTags($content, (!empty($docId) ? $docId : 'unknown'));
+        }
+        $request->set('contract_pages', $pages);
+        // process lists
+        if (!empty($data)) {
+
+        }
+    }
+
+}
+
+?>

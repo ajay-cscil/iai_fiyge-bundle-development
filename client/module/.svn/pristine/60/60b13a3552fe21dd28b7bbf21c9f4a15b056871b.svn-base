@@ -1,0 +1,124 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\model;
+  class action_log extends \module\flexflow\model\action_log_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'flexflow__action_log';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'message';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19 unsigned',
+  ),
+  'log_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'log_id',
+    'ntype' => 'int',
+    'length' => '19 unsigned',
+  ),
+  'action_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'action_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'message' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'message',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'minutes_taken' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'minutes_taken',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'actions' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\flexflow\\model\\actions',
+    'associationAlias' => 'actions',
+    'foreignKey' => 'action_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'stage_log' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\flexflow\\model\\stage_log',
+    'associationAlias' => 'stage_log',
+    'foreignKey' => 'log_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $filters = array (
+  'log_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

@@ -1,0 +1,189 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+class TestOfBrules extends UnitTestCase {
+    //public function __construct() {
+    //}
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public function tes1tRuleEngine() {
+        $object = \module\access_controls\model\users::getInstance();
+        $object->id = 4;
+        $engine = \module\brules\model\business_rules::getInstance(array(), true);
+        $engine->process($object);
+    }
+
+    function jsonRPC($url, $post_data) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($post_data))
+        );
+        // decode result
+        $result = @curl_exec($ch);
+        curl_close($ch);
+        return json_decode($result, true);
+    }
+
+    public function testJsonRPCRuleExecution() {
+        // Create test rule.
+        $businessRuleObj = \module\brules\model\business_rules::getInstance(array(), true);
+        $id = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '1',
+                        'then_condition' => '$object->set("destination_location","alpha/beta");'
+                    )
+                )
+        );
+
+        $url = \tushar\request::$baseURL . "brules/business_rules";
+        $post_data = array("jsonrpc" => "2.0", "id" => "curltest", "method" => "__process", "params" => array("q" => array('where' => array('id' => $id))));
+        $result = $this->jsonRPC($url, json_encode($post_data));
+        $this->assertTrue(isset($result['result'])
+                && isset($result['result']['destination_location'])
+                && $result['result']['destination_location'] == "alpha/beta");
+
+        // Erase test rule.
+        $businessRuleObj->delete($id);
+    }
+
+    public function testJsonRPCRuleChaining() {
+        // Create test rule.
+        $businessRuleObj = \module\brules\model\business_rules::getInstance(array(), true);
+        $id = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '$object->param("child") == 1 || $object->param("child") == 2',
+                        'then_condition' => '$object->set("destination_location","parent");'
+                    )
+                )
+        );
+
+        $idChild1 = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'parent_id' => $id,
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '$object->param("child") == 1',
+                        'then_condition' => '$object->set("destination_location","child1");'
+                    )
+                )
+        );
+
+        $idChild2 = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'parent_id' => $id,
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '$object->param("child") == 2',
+                        'then_condition' => '$object->set("destination_location","child2");'
+                    )
+                )
+        );
+
+        $url = \tushar\request::$baseURL . "brules/business_rules";
+        $post_data = array("jsonrpc" => "2.0", "id" => "curltest", "method" => "__process", "params" => array("child" => 2, "q" => array('where' => array('filter_path' => '/module/brules/model/business_rules'))));
+        $result = $this->jsonRPC($url, json_encode($post_data));
+        $this->assertTrue(isset($result['result'])
+                && isset($result['result']['destination_location'])
+                && $result['result']['destination_location'] == "child2");
+
+
+        // Erase test rule.
+        $businessRuleObj->delete($id);
+        $businessRuleObj->delete($idChild1);
+        $businessRuleObj->delete($idChild2);
+    }
+
+    public function testJsonRPCRuleTermination() {
+        // Create test rule.
+        $businessRuleObj = \module\brules\model\business_rules::getInstance(array(), true);
+        $id = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '$object->param("child") == 1 || $object->param("child") == 2',
+                        'then_condition' => '$object->set("destination_location","parent");'
+                    )
+                )
+        );
+
+        $idChild1 = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'parent_id' => $id,
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '$object->param("child") == 1',
+                        'then_condition' => '$object->set("destination_location","child1");',
+                        'is_terminal' => 1
+                    )
+                )
+        );
+
+        $idChild1Child = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'parent_id' => $idChild1,
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '$object->param("child") == 1',
+                        'then_condition' => '$object->set("destination_location","child1child");'
+                    )
+                )
+        );
+
+        $idChild2 = $businessRuleObj->save(
+                array(
+                    $businessRuleObj->alias => array(
+                        'name' => 'Test RULE FOR JSON RPC',
+                        'parent_id' => $id,
+                        'runlevel' => 2,
+                        'filter_path' => '/module/brules/model/business_rules',
+                        'if_condition' => '$object->param("child") == 2',
+                        'then_condition' => '$object->set("destination_location","child2");'
+                    )
+                )
+        );
+
+        $url = \tushar\request::$baseURL . "brules/business_rules";
+        $post_data = array("jsonrpc" => "2.0", "id" => "curltest", "method" => "__process", "params" => array("child" => 1, "q" => array('where' => array('filter_path' => '/module/brules/model/business_rules'))));
+        $result = $this->jsonRPC($url, json_encode($post_data));
+        $this->assertTrue(isset($result['result'])
+                && isset($result['result']['destination_location'])
+                && $result['result']['destination_location'] == "child1");
+
+
+        // Erase test rule.
+        $businessRuleObj->delete($id);
+        $businessRuleObj->delete($idChild1);
+        $businessRuleObj->delete($idChild1Child);
+        $businessRuleObj->delete($idChild2);
+    }
+
+}
+
+?>

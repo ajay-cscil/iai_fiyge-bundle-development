@@ -1,0 +1,119 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\wiki\controller;
+  class articles extends \module\wiki\controller\articles_domain_logic
+  {
+       public $modelClass = '\\module\\wiki\\model\\articles';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'row_template' => '<span class="capitalize"><b>{{articles.title}}</b></span>&nbsp;&nbsp;
+<span class="float-right">{{articles.publish_date}}</span>
+<br />
+{{articles.description}} <a href="{{action.view}}">Read More</a>...
+<br />
+<b class="capitalize">Author: {{articles.author}}</b>
+<span class="float-right">{{row.actions}} </span>
+
+
+',
+  'order_by_column' => 'articles.weight',
+  'order_by_dir' => 'desc',
+  'fields' => 
+  array (
+    0 => 
+    array (
+      'seq' => '1',
+      'column' => 'articles.title',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    1 => 
+    array (
+      'seq' => '2',
+      'column' => 'articles.description',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'seq' => '3',
+      'column' => 'sic.sic_name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    3 => 
+    array (
+      'seq' => '4',
+      'column' => 'articles.created',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    4 => 
+    array (
+      'seq' => '5',
+      'column' => 'articles.author',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    5 => 
+    array (
+      'seq' => '6',
+      'column' => 'articles.publish_date',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+  ),
+  'order' => 'articles.weight desc',
+);
+       public $paginateMobile = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'listindex',
+  'row_template' => '<span class="capitalize"><b>{{articles.title}}</b></span> &nbsp;&nbsp;
+<span class="float-right">{{articles.publish_date}}</span>',
+  'fields' => 
+  array (
+    1 => 
+    array (
+      'seq' => '1',
+      'column' => 'articles.title',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'seq' => '2',
+      'column' => 'articles.publish_date',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+  ),
+);
+
+
+
+
+
+
+  }

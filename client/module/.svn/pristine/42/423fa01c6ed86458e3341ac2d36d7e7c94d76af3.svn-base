@@ -1,0 +1,83 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\contracts\controller;
+
+class contract_data_domain_logic extends \tushar\controller{
+
+    public function edit($request)
+    {
+
+        $return = parent::edit($request);
+        $relatedId = $request->param('related_id');
+        $modelObj = $this->modelObj();
+        $alias = $modelObj->alias;
+        $data = $request->response('data');
+
+        // Params always passed.
+        // If contract data saved the read it.
+
+        if ($request->is('get') && !empty($relatedId) && (!isset($data[$alias]) || !isset($data[$alias]['contract_type']))) {
+            $id = $modelObj->find(
+                            array(
+                                'fields' => array("{$alias}.{$modelObj->primaryKey}"),
+                                'where' => array("{$alias}.contract_id" => $relatedId)
+                            )
+                    )->fetch(\PDO::FETCH_COLUMN);
+            $request->set('id', $id);
+            $contractData = \current($modelObj->read($id));
+            if (is_array($contractData)) {
+                foreach ($contractData as $k => $v) {
+                    $data[$alias][$k] = $v;
+                }
+            }
+        }
+        if (!is_path_set(array($alias, 'contracts', 'related_to'), $data)) {
+            $getdata = $request->get('data', array());
+            if (is_path_set(array($alias, 'contracts', 'related_to'), $getdata)) {
+                $data[$alias]['contracts'] = $getdata[$alias]['contracts'];
+            } else {
+                $data[$alias]['contracts'] = current($modelObj->contracts->read($data[$alias]['contract_id']));
+            }
+        }
+        if ($request->is('get')) {
+            $error = false;
+            if (path(array($alias, 'contracts', 'related_to'), $data) == '') {
+                \tushar\model::$errors[] = __('Select contract related to', 'module');
+                $error = true;
+            }
+            if (path(array($alias, 'contracts', 'template_id'), $data) == '') {
+                \tushar\model::$errors[] = __('Select contract template', 'module');
+                $error = true;
+            }
+            if ($error === true) {
+                return false;
+            }
+        }
+        if (!empty($data[$alias]['contracts'])) {
+            $relatedToModel = $data[$alias]['contracts']['related_to_model'];
+            $relatedTo = $data[$alias]['contracts']['related_to'];
+            if (is_object($modelObj->contracts->{$relatedToModel})) {
+                $data[$alias]['contracts'][$relatedToModel] = current($modelObj->contracts->{$relatedToModel}->read($relatedTo));
+                if ($this->action($request, 'reload') === 'data[contract_data][is_address_same_as_agency_address]') {
+                    if (\path(array('contract_data', 'is_address_same_as_agency_address'), $data)) {
+                        $data[$alias]['addresses'] = array(\path(array($alias, 'contracts', $relatedToModel, 'addresses', '0'),
+                                                                 $data));
+                        if(isset($data[$alias]['addresses'][0])){
+                            unset($data[$alias]['addresses'][0]['id']);
+                        }
+                    } else {
+                        $data[$alias]['addresses'] = array();
+                    }
+                }
+            }
+        }
+        $request->set('data', $data);
+        return $return;
+    }
+
+}

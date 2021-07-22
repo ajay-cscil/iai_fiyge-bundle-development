@@ -1,0 +1,164 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\data_management\model;
+  class import_log extends \module\data_management\model\import_log_domain_logic
+  {
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'data_management__import_log';
+       public $alias = 'import_log';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'imports' => 
+  array (
+    'className' => '\\module\\data_management\\model\\imports',
+    'associationAlias' => 'imports',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'import_id',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $fields = array (
+  'import_id' => 
+  array (
+    'column' => 'import_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'related_to' => 
+  array (
+    'column' => 'related_to',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'related_to_model' => 
+  array (
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'related_to_model_class' => 
+  array (
+    'column' => 'related_to_model_class',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '__related_to' => 
+  array (
+    'column' => '__related_to',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'status' => 
+  array (
+    'column' => 'status',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'reason' => 
+  array (
+    'column' => 'reason',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'data' => 
+  array (
+    'column' => 'data',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+       public $filters = array (
+  'import_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'related_to' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

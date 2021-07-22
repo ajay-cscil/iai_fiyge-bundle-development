@@ -1,0 +1,34 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\kpi\model;
+
+class notifications_domain_logic extends \tushar\model{
+
+    public function afterFind(&$data) {
+        parent::afterFind($data);
+        if (isset($data['data']) && is_array($data['data'])) {
+            foreach ($data['data'] as $r => $d) {
+                if (isset($d['related_to']) && is_array($d['related_to'])) {
+                    $x = array();
+                    foreach ($d['related_to'] as $rr) {
+                        if (!empty($rr['related_to_model'])) {
+                            $x[] = "{$rr['__related_to']} [{$rr['related_to_model']}]";
+                        }
+                    }
+                    $data['data'][$r]['related_to'] = implode(', ', $x);
+                }
+            }
+            foreach ($data['header'] as $i => $v) {
+                if (isset($v['alias']) && $v['alias'] == 'related_to' && isset($v['presentation'])) {
+                    unset($data['header'][$i]['presentation']);
+                }
+            }
+        }
+    }
+
+}

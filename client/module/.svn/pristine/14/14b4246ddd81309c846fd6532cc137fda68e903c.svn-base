@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\controller;
+
+class lists extends \tushar\controller {
+
+   
+
+    /**
+     *
+     * @var type
+     */
+    public $paginate = array(
+        'fields' => array('lists.name', 'lists.columns', 'created_by_user.first_name', 'created_by_user.last_name')
+    );
+
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function edit($request) {
+        $return = parent::edit($request);
+        $data = $request->response('data');
+        if (!empty($data) && isset($data['lists']) && isset($data['lists']['columns'])) {
+            if (is_string($data['lists']['columns']))
+                $data['lists']['columns'] = json_decode($data['lists']['columns'], true);
+
+            $request->set('data', $data);
+        }
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function view($request) {
+        $return = parent::view($request);
+        $data = $request->response('data');
+        if (!empty($data) && isset($data['lists']) && isset($data['lists']['columns'])) {
+            if (is_string($data['lists']['columns']))
+                $data['lists']['columns'] = json_decode($data['lists']['columns'], true);
+            $request->set('data', $data);
+        }
+        return $return;
+    }
+
+}

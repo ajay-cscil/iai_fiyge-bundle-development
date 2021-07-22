@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:13 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>validation (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\validation</h2>
+
+</header><p class="signature">public  class <strong>validation</strong></p>
+
+<div class="comment"><p>This class provide methods for data validations in model</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#checkControllerAction()">checkControllerAction</a>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule, mixed obj)</p><p class="description">Check if current module/controller support given action</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#compareDates()">compareDates</a>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule, mixed obj)</p><p class="description">Check date based on $rule['column_1'], $rule['column_2'] and $rule['comparator']
+If $rule['column_1'] is empty then uses $col as $rule['column_1']
+If $rule['column_2'] is empty then uses str_replace(array('start', 'start'), array('end', 'due'), $col) as $rule['column_2']</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#dateGreaterOrEqualToday()">dateGreaterOrEqualToday</a>(mixed val, mixed col, mixed data, mixed obj, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#datetimeGreaterOrEqualNow()">datetimeGreaterOrEqualNow</a>(mixed val, mixed col, mixed data, mixed obj, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#integerIfNotEmpty()">integerIfNotEmpty</a>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</p><p class="description">If empty then true else its numeric then true, else false</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isBool()">isBool</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isFloatNumber()">isFloatNumber</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isIntNumber()">isIntNumber</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isValidEmail()">isValidEmail</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isValidIP()">isValidIP</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isValidPhoneNumber()">isValidPhoneNumber</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isValidURL()">isValidURL</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#noLoop()">noLoop</a>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</p><p class="description">If empty then true else its numeric then true, else false</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#notDuplicate()">notDuplicate</a>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</p><p class="description">If empty then false else true</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#notEmpty()">notEmpty</a>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</p><p class="description">If empty then false else true</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#numericIfNotEmpty()">numericIfNotEmpty</a>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</p><p class="description">If empty then true else its numeric then true, else false</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#writeOnceUniqueValue()">writeOnceUniqueValue</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="checkControllerAction">public static  bool <strong>checkControllerAction</strong>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule, mixed obj)</code>
+<div class="details">
+<p>Check if current module/controller support given action</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="compareDates">public static  bool <strong>compareDates</strong>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule, mixed obj)</code>
+<div class="details">
+<p>Check date based on $rule['column_1'], $rule['column_2'] and $rule['comparator']
+If $rule['column_1'] is empty then uses $col as $rule['column_1']
+If $rule['column_2'] is empty then uses str_replace(array('start', 'start'), array('end', 'due'), $col) as $rule['column_2']</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="dateGreaterOrEqualToday">public static  void <strong>dateGreaterOrEqualToday</strong>(mixed val, mixed col, mixed data, mixed obj, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="datetimeGreaterOrEqualNow">public static  void <strong>datetimeGreaterOrEqualNow</strong>(mixed val, mixed col, mixed data, mixed obj, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="integerIfNotEmpty">public static  bool <strong>integerIfNotEmpty</strong>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</code>
+<div class="details">
+<p>If empty then true else its numeric then true, else false</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isBool">public static  void <strong>isBool</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isFloatNumber">public static  void <strong>isFloatNumber</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isIntNumber">public static  void <strong>isIntNumber</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isValidEmail">public static  void <strong>isValidEmail</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isValidIP">public static  void <strong>isValidIP</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isValidPhoneNumber">public static  void <strong>isValidPhoneNumber</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isValidURL">public static  void <strong>isValidURL</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="noLoop">public static  bool <strong>noLoop</strong>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</code>
+<div class="details">
+<p>If empty then true else its numeric then true, else false</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="notDuplicate">public static  bool <strong>notDuplicate</strong>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</code>
+<div class="details">
+<p>If empty then false else true</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="notEmpty">public static  bool <strong>notEmpty</strong>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</code>
+<div class="details">
+<p>If empty then false else true</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="numericIfNotEmpty">public static  bool <strong>numericIfNotEmpty</strong>(mixed val, <a href="../kernel/string.html">string</a> col, array data, mixed object, mixed rule)</code>
+<div class="details">
+<p>If empty then true else its numeric then true, else false</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="writeOnceUniqueValue">public static  void <strong>writeOnceUniqueValue</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

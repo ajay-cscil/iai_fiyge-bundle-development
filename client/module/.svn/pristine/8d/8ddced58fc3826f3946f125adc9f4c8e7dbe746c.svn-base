@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @author Pooja Pednekar<ppednekar@primarymodules.com>
+ */
+class TestSequencePattern extends UnitTestCase
+{
+    /**
+     * @author Pooja Pednekar<ppednekar@primarymodules.com>
+     */
+    public function testSequence()
+    {
+        $testObject = \module\test\model\test::getInstance();
+        $testObject->data['name'] = 'testSequencePattern';
+        $testObject->data['revenue'] = 100;
+        $testObject->data['description'] = 'testSequencePattern';
+        $testObject->data['ff_schema'] = 'PO';
+        $testObject->data['action'] = array('Submit' => 'Submit');
+        $testObject->save($testObject->data, array('atomic' => true));
+        $ffCurrentStagesObject = \module\flexflow\model\ff_current_stages::getInstance();
+        $docObject = \module\flexflow\model\ff_docs::getInstance();
+        $stages = \select("{$ffCurrentStagesObject->alias}.*")
+                        ->from($docObject)
+                        ->joinInner('ff_current_stages')
+                        ->inserted()
+                        ->where("{$docObject->alias}.foreign_key", $testObject->data['id'])
+                        ->where("{$docObject->alias}.foreign_key_model", 'test')
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+        if (count($stages) >= 2) {
+            if (!(isset($stages[0]['status']) && ($stages[0]['status'] == 'completed' )
+                    && isset($stages[1]['status']) && ($stages[1]['status'] == 'currently_active' ) )) {
+                $this->assertTrue(false, 'Flex Flow does not support Sequence Pattern.');
+            }
+        } else {
+            $this->assertTrue(false, 'Flex Flow does not support Sequence Pattern.
+                Form is not submitted as required.');
+        }
+    }
+
+}
+?>

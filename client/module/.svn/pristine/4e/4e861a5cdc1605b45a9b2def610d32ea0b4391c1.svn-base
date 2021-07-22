@@ -1,0 +1,153 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL & ~E_DEPRECATED);
+ini_set('max_execution_time', 12800);
+
+class TestOfIndexBasicSearch extends WebTestCase {
+
+    private $base_url;
+    private $username;
+    private $password;
+    private $search_string_length;
+
+    function TestOfIndexBasicSearch() {
+
+        \tushar\configuration::write('test_mode', false);
+        foreach (\module\benchmarking\model\configurations::getInstance()
+                ->find(array('limit' => 0))
+                ->fetch(\PDO::FETCH_ASSOC) as $info) {
+            if (property_exists($this, $info['name'])) {
+                $this->{$info['name']} = $info['value'];
+            }
+        }
+        \tushar\configuration::write('test_mode', true);
+    }
+
+    function testIndexBasicSearchMethod() {
+        $url = $this->base_url;
+        $this->get($url);
+        $this->setField('data[users][user_name]', $this->username);
+        $this->setField('data[users][user_password]', $this->password);
+        $this->click('Login');
+
+
+        //$webResponseObject = \module\benchmarking\model\web_responses::getInstance();
+        $user = "\\tushar\\user";
+        $userDetails = $user::readAll();
+        $rolesObj = \module\access_controls\model\roles::getInstance();
+        $rolesRecords = $rolesObj->find(array('limit' => 0))->fetchAll(\PDO::FETCH_ASSOC);
+        foreach ($rolesRecords as $role) {
+            if (isset($role[$rolesObj->primaryKey])) {
+                $user::write('role_id', $role[$rolesObj->primaryKey]);
+                $app_menu = "\\module\\development_base\\model\\menus";
+                $appMenuObj = $app_menu::getInstance();
+                $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%index'", "{$appMenuObj->alias}.type" => "action")))->fetchAll(\PDO::FETCH_ASSOC);
+
+                $listviewObj = \module\core\model\listviews::getInstance();
+                if (is_array($urls)) {
+                    foreach ($urls as $url) {
+                        if (isset($url['url'])) {
+                            $urlParts = explode('/', $url['url']);
+                            if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+                                try {
+                                    $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+                                    $modelObj = $model::getInstance();
+                                    $controller = "$urlParts[0]/$urlParts[1]";
+                                    $listviews = \select("{$listviewObj->alias}.*")
+                                            ->from($listviewObj)
+                                            ->where("{$listviewObj->alias}.controller", $controller)
+                                            ->execute()
+                                            ->fetchAll(\PDO::FETCH_ASSOC);
+
+                                    if (is_array($listviews)) {
+                                        foreach ($listviews as $listview) {
+                                            if (isset($listview[$listviewObj->primaryKey])) {
+                                                $search = '?current_listview=' . $listview[$listviewObj->primaryKey] . '&search_basic=' . $this->rand_string($this->search_string_length);
+                                                $to_call_url = $this->base_url . $url['url'] . $search;
+                                                $to_search_url = $url['url'];
+
+                                                $this->get($to_call_url);
+                                                $responseCode = $this->_browser->getResponseCode();
+                                                $source = $this->_browser->getContent();
+                                                $sourceText = $this->_browser->getContentAsText();
+                                                $matches = array();
+                                                preg_match('/Server response time:.*/i', $sourceText, $matches);
+                                                $server_response_time = '';
+                                                $server_memory = '';
+                                                if (is_array($matches) && isset($matches[0])) {
+                                                    $dataParts = explode(',', $matches[0]);
+                                                    $server_response_time = str_replace('Server response time:', '', $dataParts[0]);
+                                                    $server_memory = str_replace('Memory:', '', $dataParts[1]);
+                                                    $server_memory = str_replace('Powered ByMaaxFrame', '', $server_memory);
+                                                }
+
+                                                $m = array();
+                                                preg_match("/\d+\.?\d*/", $server_response_time, $m);
+                                                $server_response_time_time = (is_array($m) && isset($m[0])) ? $m[0] : $server_response_time;
+                                                $server_response_time_unit = (is_array($m) && isset($m[0])) ? str_replace($m[0], '', $server_response_time) : $server_response_time;
+                                                $m = array();
+                                                preg_match("/\w+/", $server_response_time_unit, $m);
+                                                $server_response_time_unit = (is_array($m) && isset($m[0])) ? $m[0] : $server_response_time_unit;
+
+                                                $m = array();
+                                                preg_match("/\d+\.?\d*/", $server_memory, $m);
+                                                $server_memory_size = (is_array($m) && isset($m[0])) ? $m[0] : $server_memory;
+                                                $server_memory_unit = (is_array($m) && isset($m[0])) ? str_replace($m[0], '', $server_memory) : $server_memory;
+                                                $m = array();
+                                                preg_match("/\w\w/", $server_memory_unit, $m);
+                                                $server_memory_unit = (is_array($m) && isset($m[0])) ? $m[0] : $server_memory_unit;
+
+                                                \tushar\configuration::write('test_mode', false);
+                                                $webResponseObject = \module\benchmarking\model\test_case_responses::getInstance();
+
+                                                $webResponseObject->data = array();
+                                                $webResponseObject->data['url'] = $to_call_url;
+                                                $webResponseObject->data['http_code'] = $responseCode;
+                                                $webResponseObject->data['role_id'] = $role[$rolesObj->primaryKey];
+
+                                                $webResponseObject->data['sever_response_time'] = $server_response_time_time;
+                                                $webResponseObject->data['sever_response_time_unit'] = $server_response_time_unit;
+
+                                                $webResponseObject->data['related_module'] = $urlParts[0];
+                                                $webResponseObject->data['related_model'] = $urlParts[1];
+
+                                                $webResponseObject->data['method'] = 'Basic Search';
+                                                $webResponseObject->data['memory'] = $server_memory_size;
+                                                $webResponseObject->data['memory_unit'] = $server_memory_unit;
+                                                if (strpos($source, $to_search_url) === false) {
+                                                    $webResponseObject->data['error_message'] = "Error occured while accessing the index view";
+                                                } else {
+                                                    $webResponseObject->data['error_message'] = 'No Error';
+                                                }
+                                                // \tushar\configuration::write('test_mode', false);
+                                                $webResponseObject->save($webResponseObject->data, array('atomic' => true));
+
+                                                \tushar\configuration::write('test_mode', true);
+                                            }
+                                        }
+                                    }
+                                } catch (Exception $e) {
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private function rand_string($length) {
+        $str = '';
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $size = strlen($chars);
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $chars[rand(0, $size - 1)];
+        }
+        return $str;
+    }
+
+}
+
+?>

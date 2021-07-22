@@ -1,0 +1,179 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\kpi\model;
+  class goal_types extends \module\kpi\model\goal_types_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'kpi__goal_types';
+       public $alias = 'goal_types';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'string',
+    'length' => '36',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '500',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'module_id' => 
+  array (
+    'column' => 'module_id',
+    'ntype' => 'string',
+    'length' => '36',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'goal_level' => 
+  array (
+    'column' => 'goal_level',
+    'ntype' => 'string',
+    'length' => '50',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'group_goals' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\kpi\\model\\group_goals',
+    'associationAlias' => 'group_goals',
+    'foreignKey' => 'goal_type_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'modules' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\development_base\\model\\modules',
+    'associationAlias' => 'modules',
+    'foreignKey' => 'module_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'goal_level' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

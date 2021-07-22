@@ -1,0 +1,231 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class vendors extends \module\excursion\model\vendors_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__vendors';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'vendor_Contacts';
+       public $primaryKey = 'vendorId';
+       public $alias = 'vendors';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'active' => 
+  array (
+    'column' => 'active',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'allows_DropShipping' => 
+  array (
+    'column' => 'allows_DropShipping',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'lastModBy' => 
+  array (
+    'column' => 'lastModBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModified' => 
+  array (
+    'column' => 'lastModified',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'vendorId' => 
+  array (
+    'column' => 'vendorId',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'vendor_Address' => 
+  array (
+    'column' => 'vendor_Address',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_Contacts' => 
+  array (
+    'column' => 'vendor_Contacts',
+    'ntype' => 'string',
+  ),
+  'vendor_EmailAddress' => 
+  array (
+    'column' => 'vendor_EmailAddress',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'vendor_Email_Subject' => 
+  array (
+    'column' => 'vendor_Email_Subject',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'vendor_FaxNumber' => 
+  array (
+    'column' => 'vendor_FaxNumber',
+    'ntype' => 'string',
+    'length' => '20',
+  ),
+  'vendor_PO_DueDate' => 
+  array (
+    'column' => 'vendor_PO_DueDate',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_PO_FOB' => 
+  array (
+    'column' => 'vendor_PO_FOB',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_PO_Notes' => 
+  array (
+    'column' => 'vendor_PO_Notes',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_PO_SendVia' => 
+  array (
+    'column' => 'vendor_PO_SendVia',
+    'ntype' => 'string',
+    'length' => '10',
+  ),
+  'vendor_PO_ShipTo' => 
+  array (
+    'column' => 'vendor_PO_ShipTo',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_PO_ShipVia' => 
+  array (
+    'column' => 'vendor_PO_ShipVia',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_PO_SignedBy' => 
+  array (
+    'column' => 'vendor_PO_SignedBy',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_PO_Template' => 
+  array (
+    'column' => 'vendor_PO_Template',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'vendor_PO_Terms' => 
+  array (
+    'column' => 'vendor_PO_Terms',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'vendor_Title' => 
+  array (
+    'column' => 'vendor_Title',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'vendor_EmailAddress' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'vendor_Email_Subject' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

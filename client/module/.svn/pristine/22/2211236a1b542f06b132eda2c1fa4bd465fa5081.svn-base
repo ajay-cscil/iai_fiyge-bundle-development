@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\controller;
+  class production_workcenter_line extends \module\mrp\controller\production_workcenter_line_domain_logic
+  {
+       public $modelClass = '\\module\\mrp\\model\\production_workcenter_line';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

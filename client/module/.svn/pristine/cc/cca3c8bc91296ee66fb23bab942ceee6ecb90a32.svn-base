@@ -1,0 +1,108 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "roles",
+                    "aro_id": "1",
+                    "__aro_id": "MyOrg"
+                },
+                {
+                    "id": "847",
+                    "aro_id_model": "groups",
+                    "aro_id": "847",
+                    "__aro_id": "Region-USA"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"537c786d-12c0-4fe4-826f-0de8305cb485\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"hr\\\/employees\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"employees.name\",\"column_model\":\"schema\",\"__column\":\"employees.name\",\"alias\":\"Employee\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"employees.created\",\"column_model\":\"schema\",\"__column\":\"employees.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"employees.created\",\"column_model\":\"schema\",\"__column\":\"employees.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100356\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Tushar Takkar\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"1\",\"deleted\":\"\"}]}",
+            "category_id": "1",
+            "controller": "hr\/employees",
+            "created": "2014-05-21 09:57:01",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "hr.employees.All",
+            "id": "537c786d-12c0-4fe4-826f-0de8305cb485",
+            "is_commit_pending": "0",
+            "is_default": "1",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-06-07 14:54:38",
+            "modified_by": "1",
+            "module_id": "27265080-e746-11e3-aad5-0800275f9930",
+            "name": "All",
+            "old_id": null,
+            "owned_by": "1",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"fields\":[{\"employees.name\":{\"__column\":\"employees.name\",\"alias\":\"Employee\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"employees.created\":{\"__column\":\"employees.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"employees.created\":{\"__column\":\"employees.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"hr\\\/employees\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"100356\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Tushar Takkar\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "100356",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__category_id": "Corporate Views",
+            "__parent_id": "",
+            "__owned_by": "System Admin",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "hr",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

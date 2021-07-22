@@ -1,0 +1,874 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class products extends \module\excursion\model\products_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__products';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'productCode';
+       public $primaryKey = 'productID';
+       public $alias = 'products';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'accessories' => 
+  array (
+    'column' => 'accessories',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'addToPO_Now' => 
+  array (
+    'column' => 'addToPO_Now',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'additional_Handling_Indicator' => 
+  array (
+    'column' => 'additional_Handling_Indicator',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'addtoCartBtn_Replacement_Text' => 
+  array (
+    'column' => 'addtoCartBtn_Replacement_Text',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'affiliate_Commissionable_Value' => 
+  array (
+    'column' => 'affiliate_Commissionable_Value',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'allowPriceEdit' => 
+  array (
+    'column' => 'allowPriceEdit',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'autoDropShip' => 
+  array (
+    'column' => 'autoDropShip',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'availability' => 
+  array (
+    'column' => 'availability',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'book_ISBN' => 
+  array (
+    'column' => 'book_ISBN',
+    'ntype' => 'string',
+    'length' => '13',
+  ),
+  'cUSTOM_METATAGS_OVERRIDE' => 
+  array (
+    'column' => 'cUSTOM_METATAGS_OVERRIDE',
+    'ntype' => 'string',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'customField1' => 
+  array (
+    'column' => 'customField1',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'customField2' => 
+  array (
+    'column' => 'customField2',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'customField3' => 
+  array (
+    'column' => 'customField3',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'customField4' => 
+  array (
+    'column' => 'customField4',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'customField5' => 
+  array (
+    'column' => 'customField5',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'discountedPrice_Level1' => 
+  array (
+    'column' => 'discountedPrice_Level1',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedPrice_Level2' => 
+  array (
+    'column' => 'discountedPrice_Level2',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedPrice_Level3' => 
+  array (
+    'column' => 'discountedPrice_Level3',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedPrice_Level4' => 
+  array (
+    'column' => 'discountedPrice_Level4',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedPrice_Level5' => 
+  array (
+    'column' => 'discountedPrice_Level5',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedRecurringPrice_Level1' => 
+  array (
+    'column' => 'discountedRecurringPrice_Level1',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedRecurringPrice_Level2' => 
+  array (
+    'column' => 'discountedRecurringPrice_Level2',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedRecurringPrice_Level3' => 
+  array (
+    'column' => 'discountedRecurringPrice_Level3',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedRecurringPrice_Level4' => 
+  array (
+    'column' => 'discountedRecurringPrice_Level4',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedRecurringPrice_Level5' => 
+  array (
+    'column' => 'discountedRecurringPrice_Level5',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedSetupCost_Level1' => 
+  array (
+    'column' => 'discountedSetupCost_Level1',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedSetupCost_Level2' => 
+  array (
+    'column' => 'discountedSetupCost_Level2',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedSetupCost_Level3' => 
+  array (
+    'column' => 'discountedSetupCost_Level3',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedSetupCost_Level4' => 
+  array (
+    'column' => 'discountedSetupCost_Level4',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'discountedSetupCost_Level5' => 
+  array (
+    'column' => 'discountedSetupCost_Level5',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'displayBeginDate' => 
+  array (
+    'column' => 'displayBeginDate',
+    'ntype' => 'datetime',
+  ),
+  'displayEndDate' => 
+  array (
+    'column' => 'displayEndDate',
+    'ntype' => 'datetime',
+  ),
+  'doNotAllowBackOrders' => 
+  array (
+    'column' => 'doNotAllowBackOrders',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'downloadFile' => 
+  array (
+    'column' => 'downloadFile',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'enableMultiChildAddToCart' => 
+  array (
+    'column' => 'enableMultiChildAddToCart',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'enableOptions_InventoryControl' => 
+  array (
+    'column' => 'enableOptions_InventoryControl',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'estShip_2ndDay' => 
+  array (
+    'column' => 'estShip_2ndDay',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'estShip_Ground' => 
+  array (
+    'column' => 'estShip_Ground',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'estShip_Overnight' => 
+  array (
+    'column' => 'estShip_Overnight',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'extInfo' => 
+  array (
+    'column' => 'extInfo',
+    'ntype' => 'string',
+  ),
+  'fixed_ShippingCost' => 
+  array (
+    'column' => 'fixed_ShippingCost',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'fixed_ShippingCost_Outside_LocalRegion' => 
+  array (
+    'column' => 'fixed_ShippingCost_Outside_LocalRegion',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'freeShippingItem' => 
+  array (
+    'column' => 'freeShippingItem',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'giftWrapCost' => 
+  array (
+    'column' => 'giftWrapCost',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'height' => 
+  array (
+    'column' => 'height',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'hideProduct' => 
+  array (
+    'column' => 'hideProduct',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'hide_FreeAccessories' => 
+  array (
+    'column' => 'hide_FreeAccessories',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'hide_When_OutOfStock' => 
+  array (
+    'column' => 'hide_When_OutOfStock',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'hide_YouSave' => 
+  array (
+    'column' => 'hide_YouSave',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'homePage_Section' => 
+  array (
+    'column' => 'homePage_Section',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'howToGetSalePrice' => 
+  array (
+    'column' => 'howToGetSalePrice',
+    'ntype' => 'string',
+    'length' => '10',
+  ),
+  'inv_LastVerified' => 
+  array (
+    'column' => 'inv_LastVerified',
+    'ntype' => 'datetime',
+  ),
+  'inv_Verify_QtyOnHand' => 
+  array (
+    'column' => 'inv_Verify_QtyOnHand',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'isChildOfProductCode' => 
+  array (
+    'column' => 'isChildOfProductCode',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'isChildOfProductCode_ProductID' => 
+  array (
+    'column' => 'isChildOfProductCode_ProductID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModBy' => 
+  array (
+    'column' => 'lastModBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModified' => 
+  array (
+    'column' => 'lastModified',
+    'ntype' => 'datetime',
+  ),
+  'lastPO_Date' => 
+  array (
+    'column' => 'lastPO_Date',
+    'ntype' => 'datetime',
+  ),
+  'lastPO_Qty' => 
+  array (
+    'column' => 'lastPO_Qty',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'length' => 
+  array (
+    'column' => 'length',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'listPrice' => 
+  array (
+    'column' => 'listPrice',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'listPrice_Name' => 
+  array (
+    'column' => 'listPrice_Name',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'mETATAG_Description' => 
+  array (
+    'column' => 'mETATAG_Description',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'mETATAG_Keywords' => 
+  array (
+    'column' => 'mETATAG_Keywords',
+    'ntype' => 'string',
+  ),
+  'mETATAG_Title' => 
+  array (
+    'column' => 'mETATAG_Title',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'maxQty' => 
+  array (
+    'column' => 'maxQty',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'minQty' => 
+  array (
+    'column' => 'minQty',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'options_Cloned_From' => 
+  array (
+    'column' => 'options_Cloned_From',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'options_Cloned_From_ProductID' => 
+  array (
+    'column' => 'options_Cloned_From_ProductID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'orderFinished_Note' => 
+  array (
+    'column' => 'orderFinished_Note',
+    'ntype' => 'string',
+  ),
+  'oversized' => 
+  array (
+    'column' => 'oversized',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'package_Type' => 
+  array (
+    'column' => 'package_Type',
+    'ntype' => 'string',
+    'length' => '20',
+  ),
+  'photoURL_Large' => 
+  array (
+    'column' => 'photoURL_Large',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'photoURL_Small' => 
+  array (
+    'column' => 'photoURL_Small',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'photo_AltText' => 
+  array (
+    'column' => 'photo_AltText',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'photo_SubText' => 
+  array (
+    'column' => 'photo_SubText',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'photos_Cloned_From' => 
+  array (
+    'column' => 'photos_Cloned_From',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'photos_Cloned_From_ProductID' => 
+  array (
+    'column' => 'photos_Cloned_From_ProductID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'price_SubText' => 
+  array (
+    'column' => 'price_SubText',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'price_SubText_Short' => 
+  array (
+    'column' => 'price_SubText_Short',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'private_Section_Customers_Only' => 
+  array (
+    'column' => 'private_Section_Customers_Only',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'productCode' => 
+  array (
+    'column' => 'productCode',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'productCondition' => 
+  array (
+    'column' => 'productCondition',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'productDescription' => 
+  array (
+    'column' => 'productDescription',
+    'ntype' => 'string',
+  ),
+  'productDescriptionShort' => 
+  array (
+    'column' => 'productDescriptionShort',
+    'ntype' => 'string',
+  ),
+  'productDescription_AbovePricing' => 
+  array (
+    'column' => 'productDescription_AbovePricing',
+    'ntype' => 'string',
+  ),
+  'productFeatures' => 
+  array (
+    'column' => 'productFeatures',
+    'ntype' => 'string',
+  ),
+  'productID' => 
+  array (
+    'column' => 'productID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'productKeywords' => 
+  array (
+    'column' => 'productKeywords',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'productManufacturer' => 
+  array (
+    'column' => 'productManufacturer',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'productName' => 
+  array (
+    'column' => 'productName',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'productNameShort' => 
+  array (
+    'column' => 'productNameShort',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'productPopularity' => 
+  array (
+    'column' => 'productPopularity',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'productPrice' => 
+  array (
+    'column' => 'productPrice',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'productPrice_Name' => 
+  array (
+    'column' => 'productPrice_Name',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'productWeight' => 
+  array (
+    'column' => 'productWeight',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'quickbooks_Item_Accnt' => 
+  array (
+    'column' => 'quickbooks_Item_Accnt',
+    'ntype' => 'string',
+    'length' => '35',
+  ),
+  'quickbooks_Item_AssetAccnt' => 
+  array (
+    'column' => 'quickbooks_Item_AssetAccnt',
+    'ntype' => 'string',
+    'length' => '35',
+  ),
+  'quickbooks_Item_CogsAccnt' => 
+  array (
+    'column' => 'quickbooks_Item_CogsAccnt',
+    'ntype' => 'string',
+    'length' => '35',
+  ),
+  'recurringDuration' => 
+  array (
+    'column' => 'recurringDuration',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'recurringHowOften' => 
+  array (
+    'column' => 'recurringHowOften',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'recurringPrice' => 
+  array (
+    'column' => 'recurringPrice',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'recurringStartDuration' => 
+  array (
+    'column' => 'recurringStartDuration',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'recurringStartPrice' => 
+  array (
+    'column' => 'recurringStartPrice',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'recurring_Pricing_Text' => 
+  array (
+    'column' => 'recurring_Pricing_Text',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'salePrice' => 
+  array (
+    'column' => 'salePrice',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'salePrice_Name' => 
+  array (
+    'column' => 'salePrice_Name',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'selectedOptionIDs' => 
+  array (
+    'column' => 'selectedOptionIDs',
+    'ntype' => 'string',
+    'length' => '200',
+  ),
+  'setupCost' => 
+  array (
+    'column' => 'setupCost',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'setupCost_Name' => 
+  array (
+    'column' => 'setupCost_Name',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'setupCost_Title' => 
+  array (
+    'column' => 'setupCost_Title',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'share_StockStatus_With' => 
+  array (
+    'column' => 'share_StockStatus_With',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'share_StockStatus_With_ProductID' => 
+  array (
+    'column' => 'share_StockStatus_With_ProductID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'ships_By_Itself' => 
+  array (
+    'column' => 'ships_By_Itself',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'shoppingDotCom_Category' => 
+  array (
+    'column' => 'shoppingDotCom_Category',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'stockLowQtyAlarm' => 
+  array (
+    'column' => 'stockLowQtyAlarm',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'stockReOrderQty' => 
+  array (
+    'column' => 'stockReOrderQty',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'stockStatus' => 
+  array (
+    'column' => 'stockStatus',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'taxableProduct' => 
+  array (
+    'column' => 'taxableProduct',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'techSpecs' => 
+  array (
+    'column' => 'techSpecs',
+    'ntype' => 'string',
+  ),
+  'uPC_code' => 
+  array (
+    'column' => 'uPC_code',
+    'ntype' => 'string',
+    'length' => '25',
+  ),
+  'uses_Product_KeyTypes' => 
+  array (
+    'column' => 'uses_Product_KeyTypes',
+    'ntype' => 'string',
+    'length' => '200',
+  ),
+  'vAT_Percentage' => 
+  array (
+    'column' => 'vAT_Percentage',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'vendorID' => 
+  array (
+    'column' => 'vendorID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'vendor_PartNo' => 
+  array (
+    'column' => 'vendor_PartNo',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'vendor_Price' => 
+  array (
+    'column' => 'vendor_Price',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'warehouses' => 
+  array (
+    'column' => 'warehouses',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'width' => 
+  array (
+    'column' => 'width',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'yahoo_Category' => 
+  array (
+    'column' => 'yahoo_Category',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'yahoo_Medium' => 
+  array (
+    'column' => 'yahoo_Medium',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'productCode' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

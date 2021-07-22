@@ -1,0 +1,419 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\model;
+  class polling_stations extends \module\vrm\model\polling_stations_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'vrm__polling_stations';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'polling_stations';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'boundary_properties' => 
+  array (
+    'column' => 'boundary_properties',
+    'ntype' => 'string',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'geometric_boundary' => 
+  array (
+    'column' => 'geometric_boundary',
+    'ntype' => 'string',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'primary_volunteer_id' => 
+  array (
+    'column' => 'primary_volunteer_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'ward_id' => 
+  array (
+    'column' => 'ward_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'address_line_1' => 
+  array (
+    'column' => 'address_line_1',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'address_line_2' => 
+  array (
+    'column' => 'address_line_2',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'city' => 
+  array (
+    'column' => 'city',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'country' => 
+  array (
+    'column' => 'country',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'geocode_status' => 
+  array (
+    'column' => 'geocode_status',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'geocode_type' => 
+  array (
+    'column' => 'geocode_type',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'latitude' => 
+  array (
+    'column' => 'latitude',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'location_type' => 
+  array (
+    'column' => 'location_type',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'longitude' => 
+  array (
+    'column' => 'longitude',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'state' => 
+  array (
+    'column' => 'state',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'zip_code' => 
+  array (
+    'column' => 'zip_code',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'volunteer_id' => 
+  array (
+    'column' => 'volunteer_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'polling_station_id' => 
+  array (
+    'column' => 'polling_station_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'business_key' => 
+  array (
+    'column' => 'business_key',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'election_results' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\election_results',
+    'foreignKey' => 'polling_stations_id',
+    'associationAlias' => 'election_results',
+  ),
+  'people' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\people',
+    'foreignKey' => 'polling_stations_id',
+    'associationAlias' => 'people',
+  ),
+  'wards' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\wards',
+    'foreignKey' => 'ward_id',
+    'associationAlias' => 'wards',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'countries' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\countries',
+    'associationAlias' => 'countries',
+    'foreignKey' => 'country',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'volunteer' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\people',
+    'associationAlias' => 'volunteer',
+    'foreignKey' => 'volunteer_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'donors' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\donors',
+    'foreignKey' => 'polling_stations_id',
+    'associationAlias' => 'donors',
+  ),
+  'key_contacts' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\key_contacts',
+    'foreignKey' => 'polling_stations_id',
+    'associationAlias' => 'key_contacts',
+  ),
+  'addresses' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\addresses',
+    'associationAlias' => 'addresses',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclChild' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isSearchable' => '0',
+  ),
+  'households' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\households',
+    'associationAlias' => 'households',
+    'foreignKey' => 'polling_stations_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '0',
+    'deleteAccess' => '0',
+    'ownAcl' => '1',
+    'cacheClass' => '1',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'state' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'zip_code' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

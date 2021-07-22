@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\leave_management\controller;
+  class leaves extends \module\leave_management\controller\leaves_domain_logic
+  {
+       public $modelClass = '\\module\\leave_management\\model\\leaves';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

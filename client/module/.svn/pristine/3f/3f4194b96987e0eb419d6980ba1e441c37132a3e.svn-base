@@ -1,0 +1,40 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\analytics\model;
+  class reports_group_acl_cache extends \module\analytics\model\reports_group_acl_cache_domain_logic
+  {
+       public $source = 'acl';
+       public $table = 'analytics__reports_group_acl_cache';
+       public $parentClass = '\\acl_model';
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+       public $fields = array (
+  'group_id' => 
+  array (
+    'column' => 'group_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+       public $associations = array (
+  'groups' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\groups',
+    'associationAlias' => 'groups',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'group_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

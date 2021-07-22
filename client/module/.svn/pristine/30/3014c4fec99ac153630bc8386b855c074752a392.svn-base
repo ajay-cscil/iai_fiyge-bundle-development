@@ -1,0 +1,30 @@
+<?php
+
+namespace module\license_management\controller;
+
+class license_ips_domain_logic extends \tushar\controller{
+
+    public $paginate = array('fields' => array('license_ips.ip'));
+   
+    public function edit($request) {
+        $modelObj = $this->modelObj();
+        $request->set('form', $this->form);
+        $return = parent::edit($request);
+        $data = $request->response('data');
+        $relatedId = $request->get('related_id');
+        if (!empty($relatedId)) {
+            $data[$modelObj->alias]['license_id'] = $relatedId;
+        }
+        $request->set('data', $data);
+        return $return;
+    }
+
+    public function view($request) {
+        $form = $this->form;
+        $form['permission'] = VIEW;
+        $request->set('form', $form);
+        return parent::view($request);
+    }
+
+}
+

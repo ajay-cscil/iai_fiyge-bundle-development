@@ -1,0 +1,102 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "847",
+                    "aro_id_model": "groups",
+                    "aro_id": "847",
+                    "__aro_id": "Region-USA"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"534fe746-6bd0-4ee1-8743-219b0af91b9d\",\"name\":\"Pending My Action\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"stock\\\/delivery_orders\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"date(delivery_orders.effective_from)\",\"column_model\":\"schema\",\"__column\":\"date(delivery_orders.effective_from)\",\"alias\":\"Order Date\",\"aggregator\":\"\",\"style\":\"width:5%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"delivery_orders.number\",\"column_model\":\"schema\",\"__column\":\"delivery_orders.number\",\"alias\":\"DO Number\",\"aggregator\":\"\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"date(delivery_orders.effective_to)\",\"column_model\":\"schema\",\"__column\":\"date(delivery_orders.effective_to)\",\"alias\":\"Delivery Date\",\"aggregator\":\"\",\"style\":\"width:5%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"delivery_orders.name\",\"column_model\":\"schema\",\"__column\":\"delivery_orders.name\",\"alias\":\"Subject\",\"aggregator\":\"\",\"style\":\"width:30%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"delivery_orders.accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"delivery_orders.accounts.account_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"width:15%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"delivery_orders.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"delivery_orders.total_after_discount\",\"alias\":\"Total\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"7\",\"column\":\"delivery_orders.workflow_docs.current_stages\",\"column_model\":\"schema\",\"__column\":\"delivery_orders.workflow_docs.current_stages\",\"alias\":\"Status\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"8\",\"column\":\"delivery_orders.workflow_docs.current_authorized_users\",\"column_model\":\"schema\",\"__column\":\"delivery_orders.workflow_docs.current_authorized_users\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"is_invisible\":\"1\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"delivery_orders.workflow_docs.current_authorized_users_id\",\"search_column_model\":\"schema\",\"__search_column\":\"delivery_orders.workflow_docs.current_authorized_users_id\",\"search_comparator\":\"CONTAINS\",\"search_value\":\"[{{CURRENT_USER}}]\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"delivery_orders.effective_from\",\"sort_by_model\":\"schema\",\"__sort_by\":\"delivery_orders.effective_from\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100130\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "stock\/delivery_orders",
+            "created": "2014-04-17 14:37:58",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "stock.delivery_orders.Pending My Action",
+            "id": "534fe746-6bd0-4ee1-8743-219b0af91b9d",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-18 11:37:34",
+            "modified_by": "1",
+            "module_id": "27263d19-e746-11e3-aad5-0800275f9930",
+            "name": "Pending My Action",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"fields\":[{\"date(delivery_orders.effective_from)\":{\"__column\":\"date(delivery_orders.effective_from)\",\"alias\":\"Order Date\",\"style\":\"width:5%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"delivery_orders.number\":{\"__column\":\"delivery_orders.number\",\"alias\":\"DO Number\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"date(delivery_orders.effective_to)\":{\"__column\":\"date(delivery_orders.effective_to)\",\"alias\":\"Delivery Date\",\"style\":\"width:5%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"delivery_orders.name\":{\"__column\":\"delivery_orders.name\",\"alias\":\"Subject\",\"style\":\"width:30%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"delivery_orders.accounts.account_name\":{\"__column\":\"delivery_orders.accounts.account_name\",\"style\":\"width:15%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"delivery_orders.total_after_discount\":{\"__column\":\"delivery_orders.total_after_discount\",\"alias\":\"Total\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"delivery_orders.workflow_docs.current_stages\":{\"__column\":\"delivery_orders.workflow_docs.current_stages\",\"alias\":\"Status\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"delivery_orders.workflow_docs.current_authorized_users\":{\"__column\":\"delivery_orders.workflow_docs.current_authorized_users\",\"is_invisible\":\"1\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"delivery_orders.workflow_docs.current_authorized_users_id CONTAINS \":\"[{{CURRENT_USER}}]\"}}]],\"order\":[\"delivery_orders.effective_from  ASC\"],\"name\":\"Pending My Action\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"stock\\\/delivery_orders\",\"render_as\":\"index\",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"100130\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "100130",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "stock",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

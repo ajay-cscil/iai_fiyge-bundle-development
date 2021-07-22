@@ -1,0 +1,77 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"fields\":[{\"column\":\"bill_of_material_types.name\",\"__column\":\"bill_of_material_types.name\"},{\"column\":\"bill_of_material_types.created\",\"__column\":\"bill_of_material_types.created\"},{\"column\":\"bill_of_material_types.deleted\",\"__column\":\"bill_of_material_types.deleted\"},{\"column\":\"created_by_user.name\",\"__column\":\"created_by_user.name\"},{\"column\":\"bill_of_material_types.created\",\"__column\":\"bill_of_material_types.created\"}],\"render_as\":\"index\"}",
+            "category_id": "1",
+            "controller": "manufacturing\/bill_of_material_types",
+            "created": "2015-06-25 13:37:32",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "manufacturing.bill_of_material_types.All",
+            "id": "558c041c-6c88-49cd-8e35-2f969d1d08de",
+            "is_commit_pending": "0",
+            "is_default": "1",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "558c0384-cccc-447b-9985-06469d1d08de",
+            "name": "All",
+            "old_id": null,
+            "owned_by": "-1",
+            "parent_id": null,
+            "primary_acl_group": "1614",
+            "query": "{\"fields\":[\"bill_of_material_types.name\",\"bill_of_material_types.created\",\"bill_of_material_types.deleted\",{\"created_by_user.name\":{\"alias\":\"Created By User\"}},\"bill_of_material_types.created\"],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "100324",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "",
+            "__category_id": "Corporate Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Core Development Team",
+            "__primary_acl_group": "Parent Company [Sample]",
+            "__module_id": "manufacturing",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

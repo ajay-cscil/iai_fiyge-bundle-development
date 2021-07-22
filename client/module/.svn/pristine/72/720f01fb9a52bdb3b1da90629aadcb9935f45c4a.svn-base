@@ -1,0 +1,70 @@
+[
+	{
+		"listviews":{
+			"old_id":"273",
+			"name":"Comment View",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"ticket_comments.description\":{\"__column\":\"ticket_comments.description\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"ticket_comments.created_by_user.name\":{\"__column\":\"ticket_comments.created_by_user.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"Comment View\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"tickets\\\/ticket_comments\",\"render_as\":\"index\",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"100325\",\"row_template\":\"<p>{{ticket_comments.description}}<\\\/p>\\r\\n<p>By: {{created_by_user.name}}\\r\\n<\\\/p>\",\"owned_by_model\":\"users\",\"created_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+			"_query":"{\"id\":\"53678ce7-d2d8-4b90-8ad1-16ff305cb485\",\"name\":\"Comment View\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"tickets\\\/ticket_comments\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"ticket_comments.description\",\"column_model\":\"schema\",\"__column\":\"ticket_comments.description\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"ticket_comments.created_by_user.name\",\"column_model\":\"schema\",\"__column\":\"ticket_comments.created_by_user.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100325\",\"row_template\":\"<p>{{ticket_comments.description}}<\\\/p>\\r\\n<p>By: {{created_by_user.name}}\\r\\n<\\\/p>\",\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"created_by\":\"1\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"inherited_read_acl\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"tickets\/ticket_comments",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2014-05-05 13:06:47",
+			"modified":"2014-05-07 14:12:47",
+			"deleted":"0",
+			"revision":"2",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"tickets.ticket_comments.Comment View",
+			"sequence":"100325",
+			"primary_acl_group":"0",
+			"id":"53678ce7-d2d8-4b90-8ad1-16ff305cb485",
+			"module_id":"457",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"__module_id":"tickets",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

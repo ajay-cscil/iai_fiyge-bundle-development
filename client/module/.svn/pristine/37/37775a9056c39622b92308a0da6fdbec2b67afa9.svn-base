@@ -1,0 +1,13 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\elections\model;
+  class polling_stations_domain_logic extends \module\access_controls\model\groups{
+
+        public function beforeSave(){
+                parent::beforeSave();
+                $this->data['is_public']=1;
+        }
+  }

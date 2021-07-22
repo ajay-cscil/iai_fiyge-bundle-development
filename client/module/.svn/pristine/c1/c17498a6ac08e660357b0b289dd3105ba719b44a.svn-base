@@ -1,0 +1,83 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\wiki\controller;
+  class article_comments extends \module\wiki\controller\article_comments_domain_logic
+  {
+       public $modelClass = '\\module\\wiki\\model\\article_comments';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'row_template' => '<div class="float-left">
+{{created_by_user.id}}
+</div>
+<div class="float-left width-90">
+<b class="capitalize">{{created_by_user.first_name}} {{created_by_user.last_name}}</b>
+<span class="float-right">{{article_comments.publish_date}}</span>
+<br />
+{{article_comments.comment}}
+<span class="float-right">{{row.actions}} </span>
+</div>
+',
+  'order_by_column' => 'article_comments.created',
+  'order_by_dir' => 'desc',
+  'fields' => 
+  array (
+    0 => 
+    array (
+      'seq' => '1',
+      'column' => 'article_comments.comment',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    1 => 
+    array (
+      'seq' => '2',
+      'column' => 'article_comments.publish_date',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'seq' => '3',
+      'column' => 'created_by_user.first_name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    3 => 
+    array (
+      'seq' => '4',
+      'column' => 'created_by_user.last_name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    4 => 
+    array (
+      'seq' => '5',
+      'column' => 'created_by_user.id',
+      'presentation' => 'tushar\\view\\helper\\listview::profile',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+  ),
+  'order' => 'article_comments.created desc',
+);
+
+
+
+
+
+
+  }

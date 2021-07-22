@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\faq\controller;
+  class faq_categories extends \module\faq\controller\faq_categories_domain_logic
+  {
+       public $modelClass = '\\module\\faq\\model\\faq_categories';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

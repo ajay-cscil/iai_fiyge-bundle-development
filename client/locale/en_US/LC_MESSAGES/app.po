@@ -1,0 +1,2389 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: maax\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: tushar takkar <ttakkar@primod.com>\n"
+"Language-Team: tushar takkar <tushartakkar@primarymodules.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: INDIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+
+msgid " at this categorization level\") : \""
+msgstr " at this categorization level\") : \""
+
+msgid " {$column}"
+msgstr " {$column}"
+
+msgid "\"%s\" action not found"
+msgstr "\"%s\" action not found"
+
+msgid "\"%s\" does not support full text search"
+msgstr "\"%s\" does not support full text search"
+
+msgid "\"%s\" does not work with current \"Render As\""
+msgstr "\"%s\" does not work with current \"Render As\""
+
+msgid "\"%s\" is not a valid association type for model \"%s\""
+msgstr "\"%s\" is not a valid association type for model \"%s\""
+
+msgid "\"%s\" needs minimum \"%s\" columns in result set, read help info"
+msgstr "\"%s\" needs minimum \"%s\" columns in result set, read help info"
+
+msgid "\"%s\" needs minimum \"%s\" summary columns in result set, read help info"
+msgstr "\"%s\" needs minimum \"%s\" summary columns in result set, read help info"
+
+msgid "\"%s/%s\" not found"
+msgstr "\"%s/%s\" not found"
+
+msgid "%s %s successfully"
+msgstr "%s %s successfully"
+
+msgid "%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('deleted"
+msgstr "%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('deleted"
+
+msgid "%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('restored"
+msgstr "%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('restored"
+
+msgid "%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('saved"
+msgstr "%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('saved"
+
+msgid "%s %s successfully, click %s to view record'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record"
+msgstr "%s %s successfully, click %s to view record'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record"
+
+msgid "%s %s successfully, click %s to view record'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('saved"
+msgstr "%s %s successfully, click %s to view record'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('saved"
+
+msgid "%s connection not found"
+msgstr "%s connection not found"
+
+msgid "%s contains wrong value"
+msgstr "%s contains wrong value"
+
+msgid "%s could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('deleted"
+msgstr "%s could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('deleted"
+
+msgid "%s could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('saved"
+msgstr "%s could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('saved"
+
+msgid "%s does not support recycle bin functionality"
+msgstr "%s does not support recycle bin functionality"
+
+msgid "%s is not a valid XVAR"
+msgstr "%s is not a valid XVAR"
+
+msgid "%s should contain numeric value between 1 and 12"
+msgstr "%s should contain numeric value between 1 and 12"
+
+msgid "%s should not be empty"
+msgstr "%s should not be empty"
+
+msgid "%s [%s] %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('saved"
+msgstr "%s [%s] %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('saved"
+
+msgid "%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('saved"
+msgstr "%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('saved"
+
+msgid "A Server extension stopped the file upload"
+msgstr "A Server extension stopped the file upload"
+
+msgid "Aborting 1 module installation  \"%s \""
+msgstr "Aborting 1 module installation  \"%s \""
+
+msgid "Aborting import"
+msgstr "Aborting import"
+
+msgid "Aborting translation process"
+msgstr "Aborting translation process"
+
+msgid "Access Control Object"
+msgstr "Access Control Object"
+
+msgid "Access Request Object"
+msgstr "Access Request Object"
+
+msgid "access_controls"
+msgstr "Access Controls"
+
+msgid "Accounts"
+msgstr "Accounts"
+
+msgid "ACL cache class %s not found"
+msgstr "ACL cache class %s not found"
+
+msgid "action %s::%s() is either not a valid action or is not permitted"
+msgstr "action %s::%s() is either not a valid action or is not permitted"
+
+msgid "actions"
+msgstr "actions"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Actions Notifications"
+msgstr "Actions Notifications"
+
+msgid "activities"
+msgstr "Activities"
+
+msgid "Actor"
+msgstr "Actor"
+
+msgid "Actor Flexflow Stage"
+msgstr "Actor Flexflow Stage"
+
+msgid "Actors"
+msgstr "Actors"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Add Dynamic ACL"
+msgstr "Add Dynamic ACL"
+
+msgid "Add'))) : '"
+msgstr "Add'))) : '"
+
+msgid "Additional Records"
+msgstr "Additional Records"
+
+msgid "administration"
+msgstr "Administration"
+
+msgid "Advance search is not available for this"
+msgstr "Advance search is not available for this"
+
+msgid "Advanced search"
+msgstr "Advanced search"
+
+msgid "All new columns were created"
+msgstr "All new columns were created"
+
+msgid "All summary columns should be placed before info columns in result set, read help info"
+msgstr "All summary columns should be placed before info columns in result set, read help info"
+
+msgid "analytics"
+msgstr "Analytics"
+
+msgid "App License"
+msgstr "App License"
+
+msgid "APP/Config directory should be writable"
+msgstr "APP/Config directory should be writable"
+
+msgid "Application license installed"
+msgstr "Application license installed"
+
+msgid "Application license not found"
+msgstr "Application license not found"
+
+msgid "Application name should be lowercase alpha-numeric"
+msgstr "Application name should be lowercase alpha-numeric"
+
+msgid "Application with name \"%s\" already exists, Choose a different name"
+msgstr "Application with name \"%s\" already exists, Choose a different name"
+
+msgid "application'), 'value' => 'application"
+msgstr "application'), 'value' => 'application"
+
+msgid "Applied ACL Rules"
+msgstr "Applied ACL Rules"
+
+msgid "Article Comments"
+msgstr "Article Comments"
+
+msgid "Article Ratings"
+msgstr "Article Ratings"
+
+msgid "Article Reviews"
+msgstr "Article Reviews"
+
+msgid "Article Subscriptions"
+msgstr "Article Subscriptions"
+
+msgid "Article Topics"
+msgstr "Article Topics"
+
+msgid "Articles"
+msgstr "Articles"
+
+msgid "Associated model \"%s\" class missing for model \"%s\""
+msgstr "Associated model \"%s\" class missing for model \"%s\""
+
+msgid "Associated model for attachment content not set"
+msgstr "Associated model for attachment content not set"
+
+msgid "Associated model to store attachment content not set"
+msgstr "Associated model to store attachment content not set"
+
+msgid "Attached files could not be uploaded"
+msgstr "Attached files could not be uploaded"
+
+msgid "Attachments"
+msgstr "Attachments"
+
+msgid "Authorized Actions"
+msgstr "Authorized Actions"
+
+msgid "Auto build end"
+msgstr "Auto build end"
+
+msgid "Back\") . '\" data-theme=\"b\" >' . __(\"Back"
+msgstr "Back\") . '\" data-theme=\"b\" >' . __(\"Back"
+
+msgid "Back\") . '\" data-theme=\"b\" >' . __(\"Logout"
+msgstr "Back\") . '\" data-theme=\"b\" >' . __(\"Logout"
+
+msgid "Back\") . '\" data-theme=\"e\" >' . __(\"Logout"
+msgstr "Back\") . '\" data-theme=\"e\" >' . __(\"Logout"
+
+msgid "Baking locale start"
+msgstr "Baking locale start"
+
+msgid "benchmarking"
+msgstr "Benchmarking"
+
+msgid "Benchmarking"
+msgstr "Benchmarking"
+
+msgid "Bills"
+msgstr "Bills"
+
+msgid "Brand"
+msgstr "Brand"
+
+msgid "brules"
+msgstr "Brules"
+
+msgid "Build Failed, %s"
+msgstr "Build Failed, %s"
+
+msgid "Build Failed, could not create '%s' class"
+msgstr "Build Failed, could not create '%s' class"
+
+msgid "Build Failed: could not create '%s' class"
+msgstr "Build Failed: could not create '%s' class"
+
+msgid "Build Failed: model should have ACL column(%s)"
+msgstr "Build Failed: model should have ACL column(%s)"
+
+msgid "Build Failed: model should have ACL columns(%s)"
+msgstr "Build Failed: model should have ACL columns(%s)"
+
+msgid "Build indexes for %s model[s]"
+msgstr "Build indexes for %s model[s]"
+
+msgid "Build process finished"
+msgstr "Build process finished"
+
+msgid "Build Wizard"
+msgstr "Build Wizard"
+
+msgid "Building controller end"
+msgstr "Building controller end"
+
+msgid "Building controller start"
+msgstr "Building controller start"
+
+msgid "building index for \"%s\""
+msgstr "building index for \"%s\""
+
+msgid "Building locale end"
+msgstr "Building locale end"
+
+msgid "Building model \"%s\""
+msgstr "Building model \"%s\""
+
+msgid "Building model end"
+msgstr "Building model end"
+
+msgid "Building model start"
+msgstr "Building model start"
+
+msgid "Business Rule Run Log"
+msgstr "Business Rule Run Log"
+
+msgid "Business Rule Runlevels"
+msgstr "Business Rule Runlevels"
+
+msgid "Business Rules"
+msgstr "Business Rules"
+
+msgid "By"
+msgstr "By"
+
+msgid "cache file is not deleted (%s)"
+msgstr "cache file is not deleted (%s)"
+
+msgid "cache file is not readable (%s)"
+msgstr "cache file is not readable (%s)"
+
+msgid "cache key should be string"
+msgstr "cache key should be string"
+
+msgid "calendar"
+msgstr "Calendar"
+
+msgid "Calendar Types"
+msgstr "Calendar Types"
+
+msgid "callback validation rule \"%s\" not found"
+msgstr "callback validation rule \"%s\" not found"
+
+msgid "Campaign Actions"
+msgstr "Campaign Actions"
+
+msgid "Campaign Log"
+msgstr "Campaign Log"
+
+msgid "Campaign Log Summary"
+msgstr "Campaign Log Summary"
+
+msgid "Campaign Run Log"
+msgstr "Campaign Run Log"
+
+msgid "Campaign Test Recipients"
+msgstr "Campaign Test Recipients"
+
+msgid "campaigns"
+msgstr "Campaigns"
+
+msgid "Campaigns"
+msgstr "Campaigns"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Cancel'), 'class' => '"
+msgstr "Cancel'), 'class' => '"
+
+msgid "Cant move this record %s'), ($dir === true ? 'up' : 'down"
+msgstr "Cant move this record %s'), ($dir === true ? 'up' : 'down"
+
+msgid "cases"
+msgstr "Cases"
+
+msgid "Check if source connection with name \"%s\"(host/port) is set"
+msgstr "Check if source connection with name \"%s\"(host/port) is set"
+
+msgid "Check if you have created fulltext index  \"%s \" for database.table  \"%s \""
+msgstr "Check if you have created fulltext index  \"%s \" for database.table  \"%s \""
+
+msgid "Checking model sources"
+msgstr "Checking model sources"
+
+msgid "checking module dependencies"
+msgstr "checking module dependencies"
+
+msgid "class %s does not have lookup method defined"
+msgstr "class %s does not have lookup method defined"
+
+msgid "class for model %s associated to %s not found"
+msgstr "class for model %s associated to %s not found"
+
+msgid "Class  \"%s \" not found"
+msgstr "Class  \"%s \" not found"
+
+msgid "Class '%s' not found"
+msgstr "Class '%s' not found"
+
+msgid "Cleaning database"
+msgstr "Cleaning database"
+
+msgid "clearButton')+'"
+msgstr "clearButton')+'"
+
+msgid "Click %s to download file"
+msgstr "Click %s to download file"
+
+msgid "Click Here'),'',__('to go back"
+msgstr "Click Here'),'',__('to go back"
+
+msgid "Click On %s For More Detail"
+msgstr "Click On %s For More Detail"
+
+msgid "Collecting data for manifest file"
+msgstr "Collecting data for manifest file"
+
+msgid "Comming soon!"
+msgstr "Comming soon!"
+
+msgid "Commit Wizard"
+msgstr "Commit Wizard"
+
+msgid "Committed module[%s] changes sucessfully"
+msgstr "Committed module[%s] changes sucessfully"
+
+msgid "Committing module[%s] failed"
+msgstr "Committing module[%s] failed"
+
+msgid "Comparator \"%s\" not supported in compareDates rule"
+msgstr "Comparator \"%s\" not supported in compareDates rule"
+
+msgid "computing reverse association between %s and %s"
+msgstr "computing reverse association between %s and %s"
+
+msgid "Config"
+msgstr "Config"
+
+msgid "Config Account Types"
+msgstr "Config Account Types"
+
+msgid "Config Contract Types"
+msgstr "Config Contract Types"
+
+msgid "Config Departments"
+msgstr "Config Departments"
+
+msgid "Config Industries"
+msgstr "Config Industries"
+
+msgid "Config Lead Sources"
+msgstr "Config Lead Sources"
+
+msgid "Config Lead Status"
+msgstr "Config Lead Status"
+
+msgid "Config Opportunity Types"
+msgstr "Config Opportunity Types"
+
+msgid "Config Product Categories"
+msgstr "Config Product Categories"
+
+msgid "Config Ratings"
+msgstr "Config Ratings"
+
+msgid "Config Sales Stages"
+msgstr "Config Sales Stages"
+
+msgid "Config Salutations"
+msgstr "Config Salutations"
+
+msgid "Config Ticket Components"
+msgstr "Config Ticket Components"
+
+msgid "Config Ticket Priorities"
+msgstr "Config Ticket Priorities"
+
+msgid "Config Ticket Severities"
+msgstr "Config Ticket Severities"
+
+msgid "Config Ticket Status"
+msgstr "Config Ticket Status"
+
+msgid "Config Ticket Types"
+msgstr "Config Ticket Types"
+
+msgid "Configurations"
+msgstr "Configurations"
+
+msgid "conformed_dimensions"
+msgstr "Conformed Dimensions"
+
+msgid "Contacts"
+msgstr "Contacts"
+
+msgid "Contract Data"
+msgstr "Contract Data"
+
+msgid "contracts"
+msgstr "Contracts"
+
+msgid "Contracts"
+msgstr "Contracts"
+
+msgid "controller %s build failed"
+msgstr "controller %s build failed"
+
+msgid "controller class %s is generated via API, aborting overwrite"
+msgstr "controller class %s is generated via API, aborting overwrite"
+
+msgid "Controller Class %s not found"
+msgstr "Controller Class %s not found"
+
+msgid "Controller design changes commited"
+msgstr "Controller design changes commited"
+
+msgid "Controllers"
+msgstr "Controllers"
+
+msgid "core"
+msgstr "Core"
+
+msgid "Could not connect sphinx host \"%s\" "
+msgstr "Could not connect sphinx host \"%s\" "
+
+msgid "Could not create directory \"%s\""
+msgstr "Could not create directory \"%s\""
+
+msgid "Could not create storage sub/directory \"%s\""
+msgstr "Could not create storage sub/directory \"%s\""
+
+msgid "Could not find any database souce for database %s"
+msgstr "Could not find any database souce for database %s"
+
+msgid "Could not find form for model class '%s'"
+msgstr "Could not find form for model class '%s'"
+
+msgid "Could not find menus for controller class '%s'"
+msgstr "Could not find menus for controller class '%s'"
+
+msgid "Could not find translation"
+msgstr "Could not find translation"
+
+msgid "Could not initialize app as config.new_app_installation_directory is not set"
+msgstr "Could not initialize app as config.new_app_installation_directory is not set"
+
+msgid "Could not initialize app as config.vanilla_acl_db_sql is not set"
+msgstr "Could not initialize app as config.vanilla_acl_db_sql is not set"
+
+msgid "Could not initialize app as config.vanilla_app_db_sql is not set"
+msgstr "Could not initialize app as config.vanilla_app_db_sql is not set"
+
+msgid "Could not initialize app as config.vanilla_app_source_directory is not set"
+msgstr "Could not initialize app as config.vanilla_app_source_directory is not set"
+
+msgid "Could not initialize app as config.vanilla_design_db_sql is not set"
+msgstr "Could not initialize app as config.vanilla_design_db_sql is not set"
+
+msgid "Could not locate %s with %s equal to %s"
+msgstr "Could not locate %s with %s equal to %s"
+
+msgid "Could not locate any source processing plugins"
+msgstr "Could not locate any source processing plugins"
+
+msgid "Could not locate requested document"
+msgstr "Could not locate requested document"
+
+msgid "Could not read records from CSV file %s"
+msgstr "Could not read records from CSV file %s"
+
+msgid "Could not update sphinx index \"%s\" due to error \"%s\""
+msgstr "Could not update sphinx index \"%s\" due to error \"%s\""
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/controllers.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/controllers.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/data/' . $model . '/large/' . $i . '.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/data/' . $model . '/large/' . $i . '.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/data/' . $model . '/medium/' . $i . '.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/data/' . $model . '/medium/' . $i . '.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/data/' . $model . '/small/1.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/data/' . $model . '/small/1.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/forms.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/forms.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/listviews.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/listviews.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/locale/' . $locale['name'] . '.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/locale/' . $locale['name'] . '.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/manifest.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/manifest.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/menus.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/menus.json"
+
+msgid "Could not write to file \"%s\"'), $manifest['name'] . '/install/models.json"
+msgstr "Could not write to file \"%s\"'), $manifest['name'] . '/install/models.json"
+
+msgid "Countries"
+msgstr "Countries"
+
+msgid "Creating table for model %s"
+msgstr "Creating table for model %s"
+
+msgid "Credits - Third Party Packages"
+msgstr "Credits - Third Party Packages"
+
+msgid "crm"
+msgstr "Crm"
+
+msgid "crm_base"
+msgstr "Crm Base"
+
+msgid "CSV file \"%s\" does not contain fields(%s)"
+msgstr "CSV file \"%s\" does not contain fields(%s)"
+
+msgid "CSV source File %s not found"
+msgstr "CSV source File %s not found"
+
+msgid "Currencies"
+msgstr "Currencies"
+
+msgid "Current password dont match"
+msgstr "Current password dont match"
+
+msgid "Current record can have parent node of type \"%s\""
+msgstr "Current record can have parent node of type \"%s\""
+
+msgid "Current record should have empty parent node"
+msgstr "Current record should have empty parent node"
+
+msgid "Current Stages"
+msgstr "Current Stages"
+
+msgid "Custom List"
+msgstr "Custom List"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Dashboard does not have any active widgets"
+msgstr "Dashboard does not have any active widgets"
+
+msgid "dashboards"
+msgstr "Dashboards"
+
+msgid "Data population for model %s end"
+msgstr "Data population for model %s end"
+
+msgid "Data population for model %s start"
+msgstr "Data population for model %s start"
+
+msgid "Data source output does not contain column headers %s"
+msgstr "Data source output does not contain column headers %s"
+
+msgid "data_management"
+msgstr "Data Management"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "dateFieldOrder'):w.__('timeFieldOrder"
+msgstr "dateFieldOrder'):w.__('timeFieldOrder"
+
+msgid "dateFormat"
+msgstr "dateFormat"
+
+msgid "daysOfWeek"
+msgstr "daysOfWeek"
+
+msgid "daysOfWeekShort"
+msgstr "daysOfWeekShort"
+
+msgid "decrement not supported"
+msgstr "decrement not supported"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "deleting controller design"
+msgstr "deleting controller design"
+
+msgid "deleting data"
+msgstr "deleting data"
+
+msgid "deleting data table"
+msgstr "deleting data table"
+
+msgid "Deleting database %s"
+msgstr "Deleting database %s"
+
+msgid "deleting form design"
+msgstr "deleting form design"
+
+msgid "deleting locale design"
+msgstr "deleting locale design"
+
+msgid "deleting menu design"
+msgstr "deleting menu design"
+
+msgid "deleting model design"
+msgstr "deleting model design"
+
+msgid "deleting module files"
+msgstr "deleting module files"
+
+msgid "deleting table %s"
+msgstr "deleting table %s"
+
+msgid "Deleting table %s"
+msgstr "Deleting table %s"
+
+msgid "Deleting temporary installation files..."
+msgstr "Deleting temporary installation files..."
+
+msgid "Deleting temporary installation files..."
+msgstr "Deleting temporary installation files..."
+
+msgid "Deleting temporary installation files..."
+msgstr "Deleting temporary installation files..."
+
+msgid "Deleting temporary installation files..."
+msgstr "Deleting temporary installation files..."
+
+msgid "Deleting temporary installation files..."
+msgstr "Deleting temporary installation files..."
+
+msgid "Deleting temporary installation files..."
+msgstr "Deleting temporary installation files..."
+
+msgid "deleting views"
+msgstr "deleting views"
+
+msgid "Dependencies Installation end"
+msgstr "Dependencies Installation end"
+
+msgid "Design Acl"
+msgstr "Design Acl"
+
+msgid "Designed & developed by"
+msgstr "Designed & developed by"
+
+msgid "development"
+msgstr "Development"
+
+msgid "development_base"
+msgstr "Development Base"
+
+msgid "Device Service Consumption Log"
+msgstr "Device Service Consumption Log"
+
+msgid "Devices"
+msgstr "Devices"
+
+msgid "directory \"%s\" is not writable"
+msgstr "directory \"%s\" is not writable"
+
+msgid "Directory %s is not writable"
+msgstr "Directory %s is not writable"
+
+msgid "Directory could not be created %s"
+msgstr "Directory could not be created %s"
+
+msgid "directory module/%s/install is missing"
+msgstr "directory module/%s/install is missing"
+
+msgid "directory module/%s/install is not writable"
+msgstr "directory module/%s/install is not writable"
+
+msgid "Directory  \"%s \" is not writable"
+msgstr "Directory  \"%s \" is not writable"
+
+msgid "Document in draft mode"
+msgstr "Document in draft mode"
+
+msgid "Document in draft mode') . '"
+msgstr "Document in draft mode') . '"
+
+msgid "document_management_base"
+msgstr "Document Management Base"
+
+msgid "download') . '"
+msgstr "download') . '"
+
+msgid "durationDays')[1]:w.__('durationDays"
+msgstr "durationDays')[1]:w.__('durationDays"
+
+msgid "durationFormat"
+msgstr "durationFormat"
+
+msgid "Either select a account or enter company name"
+msgstr "Either select a account or enter company name"
+
+msgid "eMail"
+msgstr "eMail"
+
+msgid "END"
+msgstr "END"
+
+msgid "Erasing installed files"
+msgstr "Erasing installed files"
+
+msgid "Error Processing \"%s\""
+msgstr "Error Processing \"%s\""
+
+msgid "Errors"
+msgstr "Errors"
+
+msgid "Errors : %s"
+msgstr "Errors : %s"
+
+msgid "Errors') . '' . static::li($allErrors, 'ol"
+msgstr "Errors') . '' . static::li($allErrors, 'ol"
+
+msgid "Errors: %s"
+msgstr "Errors: %s"
+
+msgid "Event Log"
+msgstr "Event Log"
+
+msgid "Exports"
+msgstr "Exports"
+
+msgid "External Variables"
+msgstr "External Variables"
+
+msgid "Failed %s record(s)"
+msgstr "Failed %s record(s)"
+
+msgid "Failed cloning child record due to above reasons: Failed Record is %s %s"
+msgstr "Failed cloning child record due to above reasons: Failed Record is %s %s"
+
+msgid "Failed creating directory %s "
+msgstr "Failed creating directory %s "
+
+msgid "Failed creation of table for model %s, %s"
+msgstr "Failed creation of table for model %s, %s"
+
+msgid "Failed data population for model %s, %s'), (is_object($importModelClassObject) ? $importModelClassObject->alias : '"
+msgstr "Failed data population for model %s, %s'), (is_object($importModelClassObject) ? $importModelClassObject->alias : '"
+
+msgid "Failed insert operation"
+msgstr "Failed insert operation"
+
+msgid "Failed loding model %s"
+msgstr "Failed loding model %s"
+
+msgid "Failed module installation : %s"
+msgstr "Failed module installation : %s"
+
+msgid "Failed To Load Class \"%s\", Trace Log %s"
+msgstr "Failed To Load Class \"%s\", Trace Log %s"
+
+msgid "Failed to write file to disk"
+msgstr "Failed to write file to disk"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Faq Answers"
+msgstr "Faq Answers"
+
+msgid "Faq Categories"
+msgstr "Faq Categories"
+
+msgid "Field %s is required"
+msgstr "Field %s is required"
+
+msgid "Field defination is not correct in fieldExp"
+msgstr "Field defination is not correct in fieldExp"
+
+msgid "File"
+msgstr "File"
+
+msgid "File \"%s\" changes commited'), 'data/' . $model . '/large/' . $i . '.json"
+msgstr "File \"%s\" changes commited'), 'data/' . $model . '/large/' . $i . '.json"
+
+msgid "File \"%s\" changes commited'), 'data/' . $model . '/medium/' . $i . '.json"
+msgstr "File \"%s\" changes commited'), 'data/' . $model . '/medium/' . $i . '.json"
+
+msgid "File \"%s\" changes commited'), 'data/' . $model . '/small/1.json"
+msgstr "File \"%s\" changes commited'), 'data/' . $model . '/small/1.json"
+
+msgid "File %s could not be copied to %s"
+msgstr "File %s could not be copied to %s"
+
+msgid "File %s could not be uploaded"
+msgstr "File %s could not be uploaded"
+
+msgid "File %s could not be uploaded, invalid directory permission"
+msgstr "File %s could not be uploaded, invalid directory permission"
+
+msgid "File %s not found"
+msgstr "File %s not found"
+
+msgid "File %s(%s) not found"
+msgstr "File %s(%s) not found"
+
+msgid "File changes are saved"
+msgstr "File changes are saved"
+
+msgid "File could not be saved, try again"
+msgstr "File could not be saved, try again"
+
+msgid "File is deleted"
+msgstr "File is deleted"
+
+msgid "File Loaded in editor"
+msgstr "File Loaded in editor"
+
+msgid "File Mgmt."
+msgstr "File Mgmt."
+
+msgid "File to download not found."
+msgstr "File to download not found."
+
+msgid "Filters"
+msgstr "Filters"
+
+msgid "Find defination is not correct in fields"
+msgstr "Find defination is not correct in fields"
+
+msgid "First"
+msgstr "First"
+
+msgid "flexflow"
+msgstr "Flexflow"
+
+msgid "Flexflow Types"
+msgstr "Flexflow Types"
+
+msgid "Following model columns could not be created :"
+msgstr "Following model columns could not be created :"
+
+msgid "for application"
+msgstr "for application"
+
+msgid "for module %s"
+msgstr "for module %s"
+
+msgid "Form changes commited"
+msgstr "Form changes commited"
+
+msgid "Form defination not found in edit view"
+msgstr "Form defination not found in edit view"
+
+msgid "Form definition not found in edit view"
+msgstr "Form definition not found in edit view"
+
+msgid "Form definition not found in read view"
+msgstr "Form definition not found in read view"
+
+msgid "Form is Read Only"
+msgstr "Form is Read Only"
+
+msgid "Form with similar name for this model class already exists"
+msgstr "Form with similar name for this model class already exists"
+
+msgid "Forms"
+msgstr "Forms"
+
+msgid "Forms imported successfully"
+msgstr "Forms imported successfully"
+
+msgid "Found No job to import"
+msgstr "Found No job to import"
+
+msgid "From"
+msgstr "From"
+
+msgid "from %s not set for mql"
+msgstr "from %s not set for mql"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "gemma"
+msgstr "Gemma"
+
+msgid "Generating translations string for application"
+msgstr "Generating translations string for application"
+
+msgid "Grant"
+msgstr "Grant"
+
+msgid "Grid  \"%s \" block primary key column not found"
+msgstr "Grid  \"%s \" block primary key column not found"
+
+msgid "Group Contain Groups"
+msgstr "Group Contain Groups"
+
+msgid "Groups"
+msgstr "Groups"
+
+msgid "Groups Users"
+msgstr "Groups Users"
+
+msgid "headerFormat'), w.theDate)+'"
+msgstr "headerFormat'), w.theDate)+'"
+
+msgid "help"
+msgstr "Help"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "human_resource"
+msgstr "Human Resource"
+
+msgid "I G"
+msgstr "I G"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Import Log"
+msgstr "Import Log"
+
+msgid "Import Run Log"
+msgstr "Import Run Log"
+
+msgid "Imports"
+msgstr "Imports"
+
+msgid "increment not supported"
+msgstr "increment not supported"
+
+msgid "INNER"
+msgstr "INNER"
+
+msgid "Inserting %s to %s records"
+msgstr "Inserting %s to %s records"
+
+msgid "Install"
+msgstr "Install"
+
+msgid "Install development module for this feature"
+msgstr "Install development module for this feature"
+
+msgid "Install development module for this feature!"
+msgstr "Install development module for this feature!"
+
+msgid "installaing module \"%s\""
+msgstr "installaing module \"%s\""
+
+msgid "installaing module \"%s\"'), $name) . '"
+msgstr "installaing module \"%s\"'), $name) . '"
+
+msgid "installation"
+msgstr "Installation"
+
+msgid "Installation Wizard"
+msgstr "Installation Wizard"
+
+msgid "Installing any dependencies for module %s"
+msgstr "Installing any dependencies for module %s"
+
+msgid "installing app-menu"
+msgstr "installing app-menu"
+
+msgid "installing controller designs for controller %s"
+msgstr "installing controller designs for controller %s"
+
+msgid "installing forms for model %s"
+msgstr "installing forms for model %s"
+
+msgid "installing listviews"
+msgstr "installing listviews"
+
+msgid "installing locale %s"
+msgstr "installing locale %s"
+
+msgid "installing lookup %s"
+msgstr "installing lookup %s"
+
+msgid "installing menus for controller %s"
+msgstr "installing menus for controller %s"
+
+msgid "installing module \"%s\" version %s"
+msgstr "installing module \"%s\" version %s"
+
+msgid "Invalid CSV file \"%s\" does not contain fields(%s)"
+msgstr "Invalid CSV file \"%s\" does not contain fields(%s)"
+
+msgid "Invalid Document for export"
+msgstr "Invalid Document for export"
+
+msgid "Invalid module license"
+msgstr "Invalid module license"
+
+msgid "Invalid Password"
+msgstr "Invalid Password"
+
+msgid "Invalid requested module/controler/action(%s/%s/%s) in campaign"
+msgstr "Invalid requested module/controler/action(%s/%s/%s) in campaign"
+
+msgid "Invalid User Name"
+msgstr "Invalid User Name"
+
+msgid "Jmeter Configuration"
+msgstr "Jmeter Configuration"
+
+msgid "Jmeter Results"
+msgstr "Jmeter Results"
+
+msgid "Job Instances"
+msgstr "Job Instances"
+
+msgid "Job Run Details"
+msgstr "Job Run Details"
+
+msgid "Job Run Status"
+msgstr "Job Run Status"
+
+msgid "job_queue"
+msgstr "Job Queue"
+
+msgid "joinModel %s not set for mql"
+msgstr "joinModel %s not set for mql"
+
+msgid "Last"
+msgstr "Last"
+
+msgid "layout \"%s\" not found in skin %s"
+msgstr "layout \"%s\" not found in skin %s"
+
+msgid "Leads"
+msgstr "Leads"
+
+msgid "LEFT'), 'value' => 'LEFT'), array('text' => __('INNER'), 'value' => 'INNER"
+msgstr "LEFT'), 'value' => 'LEFT'), array('text' => __('INNER'), 'value' => 'INNER"
+
+msgid "Library package %s could not be loaded"
+msgstr "Library package %s could not be loaded"
+
+msgid "License Domains"
+msgstr "License Domains"
+
+msgid "License file could not be uploaded, APP/license is not writable"
+msgstr "License file could not be uploaded, APP/license is not writable"
+
+msgid "License file could not be uploaded, module/%s is not writable"
+msgstr "License file could not be uploaded, module/%s is not writable"
+
+msgid "License Ips"
+msgstr "License Ips"
+
+msgid "Licenses"
+msgstr "Licenses"
+
+msgid "license_management"
+msgstr "License Management"
+
+msgid "List \"%s\" does not contain fields(%s) "
+msgstr "List \"%s\" does not contain fields(%s) "
+
+msgid "List records"
+msgstr "List records"
+
+msgid "List view"
+msgstr "List view"
+
+msgid "Listview \"%s\" does not contain fields(%s) "
+msgstr "Listview \"%s\" does not contain fields(%s) "
+
+msgid "Listview \"%s\" is not index view"
+msgstr "Listview \"%s\" is not index view"
+
+msgid "Listview Categories"
+msgstr "Listview Categories"
+
+msgid "Listview changes commited"
+msgstr "Listview changes commited"
+
+msgid "Listview could not be generated"
+msgstr "Listview could not be generated"
+
+msgid "locale %s changes commited"
+msgstr "locale %s changes commited"
+
+msgid "locale could not be generated"
+msgstr "locale could not be generated"
+
+msgid "locale file %s for module %s is empty"
+msgstr "locale file %s for module %s is empty"
+
+msgid "Locale for class '%s' - END"
+msgstr "Locale for class '%s' - END"
+
+msgid "Locale for class '%s' - START"
+msgstr "Locale for class '%s' - START"
+
+msgid "locale translation end"
+msgstr "locale translation end"
+
+msgid "locale translation start"
+msgstr "locale translation start"
+
+msgid "Locales"
+msgstr "Locales"
+
+msgid "Localization Wizard"
+msgstr "Localization Wizard"
+
+msgid "logging"
+msgstr "Logging"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Login failed"
+msgstr "Login failed"
+
+msgid "Login History"
+msgstr "Login History"
+
+msgid "login successfully"
+msgstr "login successfully"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Manifest changes commited"
+msgstr "Manifest changes commited"
+
+msgid "many"
+msgstr "many"
+
+msgid "masters"
+msgstr "Masters"
+
+msgid "Masters"
+msgstr "Masters"
+
+msgid "Memory"
+msgstr "Memory"
+
+msgid "Menu changes commited"
+msgstr "Menu changes commited"
+
+msgid "Menu entry with this name already exists"
+msgstr "Menu entry with this name already exists"
+
+msgid "Menus"
+msgstr "Menus"
+
+msgid "menus are not found for controller Class %s"
+msgstr "menus are not found for controller Class %s"
+
+msgid "meridiem"
+msgstr "meridiem"
+
+msgid "meridiem')[0]+'').appendTo(hRow.find('ul"
+msgstr "meridiem')[0]+'').appendTo(hRow.find('ul"
+
+msgid "meridiem')[0].toLowerCase():w.__('meridiem"
+msgstr "meridiem')[0].toLowerCase():w.__('meridiem"
+
+msgid "meridiem')[0].toUpperCase():w.__('meridiem"
+msgstr "meridiem')[0].toUpperCase():w.__('meridiem"
+
+msgid "meridiem')[1]+'').appendTo(hRow.find('ul"
+msgstr "meridiem')[1]+'').appendTo(hRow.find('ul"
+
+msgid "meridiem')[1]:w.__('meridiem"
+msgstr "meridiem')[1]:w.__('meridiem"
+
+msgid "Meta-data updated for"
+msgstr "Meta-data updated for"
+
+msgid "metadata"
+msgstr "Metadata"
+
+msgid "Metatypes"
+msgstr "Metatypes"
+
+msgid "Missing \"%s\" attributes in association named \"%s\""
+msgstr "Missing \"%s\" attributes in association named \"%s\""
+
+msgid "missing %s test case file \"%s\" in file %s on line %s"
+msgstr "missing %s test case file \"%s\" in file %s on line %s"
+
+msgid "missing %s test case in file %s on line %s"
+msgstr "missing %s test case in file %s on line %s"
+
+msgid "Missing a temporary folder"
+msgstr "Missing a temporary folder"
+
+msgid "Missing aggregator in crosstab report"
+msgstr "Missing aggregator in crosstab report"
+
+msgid "Missing column \"%s\" in data"
+msgstr "Missing column \"%s\" in data"
+
+msgid "Missing columns in crosstab report defination"
+msgstr "Missing columns in crosstab report defination"
+
+msgid "Missing database name for schema generation"
+msgstr "Missing database name for schema generation"
+
+msgid "Missing date column 2 in dateLessThenEqualToDate rule"
+msgstr "Missing date column 2 in dateLessThenEqualToDate rule"
+
+msgid "Missing display field for model %s"
+msgstr "Missing display field for model %s"
+
+msgid "Missing element name in campaign"
+msgstr "Missing element name in campaign"
+
+msgid "Missing fields for save"
+msgstr "Missing fields for save"
+
+msgid "Missing fields in crosstab defination"
+msgstr "Missing fields in crosstab defination"
+
+msgid "Missing filtering criteria for update"
+msgstr "Missing filtering criteria for update"
+
+msgid "Missing form defination in detail view"
+msgstr "Missing form defination in detail view"
+
+msgid "Missing form defination in edit view"
+msgstr "Missing form defination in edit view"
+
+msgid "Missing listview id in campaign"
+msgstr "Missing listview id in campaign"
+
+msgid "Missing locale code, configure locale for crm"
+msgstr "Missing locale code, configure locale for crm"
+
+msgid "Missing manifest file for module \"%s\""
+msgstr "Missing manifest file for module \"%s\""
+
+msgid "Missing method giveAccessTo in %s"
+msgstr "Missing method giveAccessTo in %s"
+
+msgid "Missing model class in file %s on line %s"
+msgstr "Missing model class in file %s on line %s"
+
+msgid "Missing model name in view"
+msgstr "Missing model name in view"
+
+msgid "Missing model primary key column name in view"
+msgstr "Missing model primary key column name in view"
+
+msgid "missing module manifest file in package"
+msgstr "missing module manifest file in package"
+
+msgid "Missing module to be install"
+msgstr "Missing module to be install"
+
+msgid "Missing module to export"
+msgstr "Missing module to export"
+
+msgid "Missing module to uninstall"
+msgstr "Missing module to uninstall"
+
+msgid "Missing parent record entry in %s"
+msgstr "Missing parent record entry in %s"
+
+msgid "Missing record for setting ACl"
+msgstr "Missing record for setting ACl"
+
+msgid "Missing record id"
+msgstr "Missing record id"
+
+msgid "Missing record id to be deleted"
+msgstr "Missing record id to be deleted"
+
+msgid "Missing report id in campaign"
+msgstr "Missing report id in campaign"
+
+msgid "Missing row columns in crosstab report defination"
+msgstr "Missing row columns in crosstab report defination"
+
+msgid "Missing skin, Please setup default them for application in configuration file"
+msgstr "Missing skin, Please setup default them for application in configuration file"
+
+msgid "Missing system time zone"
+msgstr "Missing system time zone"
+
+msgid "Missing table name in %s operation "
+msgstr "Missing table name in %s operation "
+
+msgid "Missing tracker URL in campaign processor"
+msgstr "Missing tracker URL in campaign processor"
+
+msgid "Missing unsubscribe URL in campaign processor"
+msgstr "Missing unsubscribe URL in campaign processor"
+
+msgid "Missing user time zone"
+msgstr "Missing user time zone"
+
+msgid "Model \"%s\" does not have any association with model \"%s\""
+msgstr "Model \"%s\" does not have any association with model \"%s\""
+
+msgid "model \"%s\" does not have association with %s"
+msgstr "model \"%s\" does not have association with %s"
+
+msgid "Model \"%s\" does not have behaviour \"%s\" attached"
+msgstr "Model \"%s\" does not have behaviour \"%s\" attached"
+
+msgid "Model \"%s\" does not support full advance search operation"
+msgstr "Model \"%s\" does not support full advance search operation"
+
+msgid "model %s build failed"
+msgstr "model %s build failed"
+
+msgid "model %s does not have valid association with % "
+msgstr "model %s does not have valid association with % "
+
+msgid "model %s not found"
+msgstr "model %s not found"
+
+msgid "Model Behaviour with similar name already exists"
+msgstr "Model Behaviour with similar name already exists"
+
+msgid "model class %s is generated via API, aborting overwrite"
+msgstr "model class %s is generated via API, aborting overwrite"
+
+msgid "Model design changes commited"
+msgstr "Model design changes commited"
+
+msgid "model field %s does not have data type \"%s\""
+msgstr "model field %s does not have data type \"%s\""
+
+msgid "Model field with similar name already exists"
+msgstr "Model field with similar name already exists"
+
+msgid "Model similar Association Alias already exists"
+msgstr "Model similar Association Alias already exists"
+
+msgid "Model similar Rule Name already exists"
+msgstr "Model similar Rule Name already exists"
+
+msgid "Models"
+msgstr "Models"
+
+msgid "Module \"%s\" license installed"
+msgstr "Module \"%s\" license installed"
+
+msgid "module %s not found"
+msgstr "module %s not found"
+
+msgid "Module %s not found"
+msgstr "Module %s not found"
+
+msgid "Module %s(%s) dependent on %s"
+msgstr "Module %s(%s) dependent on %s"
+
+msgid "module %s(version %s) is already installed"
+msgstr "module %s(version %s) is already installed"
+
+msgid "Module build end"
+msgstr "Module build end"
+
+msgid "module build operation failed"
+msgstr "module build operation failed"
+
+msgid "Module build start"
+msgstr "Module build start"
+
+msgid "Module directory dont have write permission, aborting uninstall"
+msgstr "Module directory dont have write permission, aborting uninstall"
+
+msgid "Module directory  \"%s \" could not be created, check file level permission"
+msgstr "Module directory  \"%s \" could not be created, check file level permission"
+
+msgid "module installation ended"
+msgstr "module installation ended"
+
+msgid "module installation failed"
+msgstr "module installation failed"
+
+msgid "module installation started"
+msgstr "module installation started"
+
+msgid "module is empty"
+msgstr "module is empty"
+
+msgid "Module name should be lowercase alpha-numeric"
+msgstr "Module name should be lowercase alpha-numeric"
+
+msgid "module package could not be extracted"
+msgstr "module package could not be extracted"
+
+msgid "module package is not a valid Zip Archive"
+msgstr "module package is not a valid Zip Archive"
+
+msgid "Module package not found"
+msgstr "Module package not found"
+
+msgid "module successfully %s"
+msgstr "module successfully %s"
+
+msgid "Modules"
+msgstr "Modules"
+
+msgid "monthsOfYear"
+msgstr "monthsOfYear"
+
+msgid "monthsOfYearShort"
+msgstr "monthsOfYearShort"
+
+msgid "monthsOfYearShort')[testDate.getMonth()]+\"\").appendTo(hRow.find('ul"
+msgstr "monthsOfYearShort')[testDate.getMonth()]+\"\").appendTo(hRow.find('ul"
+
+msgid "More then one record found for update"
+msgstr "More then one record found for update"
+
+msgid "More'); ?>"
+msgstr "More'); ?>"
+
+msgid "More'); ?>"
+msgstr "More'); ?>"
+
+msgid "more.."
+msgstr "more.."
+
+msgid "more.."
+msgstr "more.."
+
+msgid "more.."
+msgstr "more.."
+
+msgid "more.."
+msgstr "more.."
+
+msgid "more.."
+msgstr "more.."
+
+msgid "more.."
+msgstr "more.."
+
+msgid "My Events"
+msgstr "My Events"
+
+msgid "My Profile"
+msgstr "My Profile"
+
+msgid "My Settings1"
+msgstr "My Settings1"
+
+msgid "My Tasks"
+msgstr "My Tasks"
+
+msgid "new password and confirm password don't match"
+msgstr "new password and confirm password don't match"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "No"
+msgstr "No"
+
+msgid "No actions for current actor"
+msgstr "No actions for current actor"
+
+msgid "no controller designs for module %s"
+msgstr "no controller designs for module %s"
+
+msgid "No file was uploaded"
+msgstr "No file was uploaded"
+
+msgid "no forms for module %s"
+msgstr "no forms for module %s"
+
+msgid "no listviews for module %s"
+msgstr "no listviews for module %s"
+
+msgid "no locales for module %s"
+msgstr "no locales for module %s"
+
+msgid "no menus for module %s"
+msgstr "no menus for module %s"
+
+msgid "No model found to build sphinx index"
+msgstr "No model found to build sphinx index"
+
+msgid "No Records"
+msgstr "No Records"
+
+msgid "No Records Found"
+msgstr "No Records Found"
+
+msgid "No records found"
+msgstr "No records found"
+
+msgid "No valid emails found for sending test mails"
+msgstr "No valid emails found for sending test mails"
+
+msgid "No video to play"
+msgstr "No video to play"
+
+msgid "Normalization error for  \"%s \", should be either array('hour'=>'','minute'=>'','second'=>'','meridiem'=>'optional') or time string"
+msgstr "Normalization error for  \"%s \", should be either array('hour'=>'','minute'=>'','second'=>'','meridiem'=>'optional') or time string"
+
+msgid "Normalization error for  \"%s \", should be either array('year'=>'','month'=>'','day'=>'') or date string"
+msgstr "Normalization error for  \"%s \", should be either array('year'=>'','month'=>'','day'=>'') or date string"
+
+msgid "Not a valid application license file"
+msgstr "Not a valid application license file"
+
+msgid "Not a valid array"
+msgstr "Not a valid array"
+
+msgid "Not a valid data set to save"
+msgstr "Not a valid data set to save"
+
+msgid "not a valid field list in mql"
+msgstr "not a valid field list in mql"
+
+msgid "not a valid model(from) in mql"
+msgstr "not a valid model(from) in mql"
+
+msgid "not a valid mql"
+msgstr "not a valid mql"
+
+msgid "Not a valid url \"%s\""
+msgstr "Not a valid url \"%s\""
+
+msgid "not deleting data for model %s since it is used by another model %s"
+msgstr "not deleting data for model %s since it is used by another model %s"
+
+msgid "not deleting table %s since it is used by another model %s"
+msgstr "not deleting table %s since it is used by another model %s"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Note Categories"
+msgstr "Note Categories"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Notifications"
+msgstr "Notifications"
+
+msgid "of"
+msgstr "of"
+
+msgid "of') . ' ' . $totalCount . ' ' . __('Records"
+msgstr "of') . ' ' . $totalCount . ' ' . __('Records"
+
+msgid "Only multi row insert operation is selected"
+msgstr "Only multi row insert operation is selected"
+
+msgid "on_demand"
+msgstr "On Demand"
+
+msgid "Operation \"%s\" on table \"%s\" not allowed"
+msgstr "Operation \"%s\" on table \"%s\" not allowed"
+
+msgid "Opportunities"
+msgstr "Opportunities"
+
+msgid "Package"
+msgstr "Package"
+
+msgid "Page should be integer"
+msgstr "Page should be integer"
+
+msgid "Paginate should not contain model join(associations) information"
+msgstr "Paginate should not contain model join(associations) information"
+
+msgid "Panels"
+msgstr "Panels"
+
+msgid "Pick List-view"
+msgstr "Pick List-view"
+
+msgid "Please create primary locale en_US for this app"
+msgstr "Please create primary locale en_US for this app"
+
+msgid "Please create primary locale en_US for this module"
+msgstr "Please create primary locale en_US for this module"
+
+msgid "Please enter your user name and password."
+msgstr "Please enter your user name and password."
+
+msgid "Please provide multiple records to be saved"
+msgstr "Please provide multiple records to be saved"
+
+msgid "Please set a valid email address for current user to be used as senders email address"
+msgstr "Please set a valid email address for current user to be used as senders email address"
+
+msgid "Please specify a valid module"
+msgstr "Please specify a valid module"
+
+msgid "Please specify acts as for design acl behaviour of %s"
+msgstr "Please specify acts as for design acl behaviour of %s"
+
+msgid "Please specify either module/controller or models class for sub form"
+msgstr "Please specify either module/controller or models class for sub form"
+
+msgid "Please upload a valid form package"
+msgstr "Please upload a valid form package"
+
+msgid "Plugin %s should return data array"
+msgstr "Plugin %s should return data array"
+
+msgid "Plugin %s should return header array"
+msgstr "Plugin %s should return header array"
+
+msgid "PO File could not be created/opened \"%s\""
+msgstr "PO File could not be created/opened \"%s\""
+
+msgid "possible acts as values are (aro,aco) for design acl behaviour of %s"
+msgstr "possible acts as values are (aro,aco) for design acl behaviour of %s"
+
+msgid "Powered By"
+msgstr "Powered By"
+
+msgid "Preparing changes to commit"
+msgstr "Preparing changes to commit"
+
+msgid "Prev"
+msgstr "Prev"
+
+msgid "Price Program"
+msgstr "Price Program"
+
+msgid "Process"
+msgstr "Process"
+
+msgid "Process Finished"
+msgstr "Process Finished"
+
+msgid "Processed %s record(s) [%s]."
+msgstr "Processed %s record(s) [%s]."
+
+msgid "processing records from %s to %s"
+msgstr "processing records from %s to %s"
+
+msgid "Products"
+msgstr "Products"
+
+msgid "Project Actor Roles"
+msgstr "Project Actor Roles"
+
+msgid "Project Actors"
+msgstr "Project Actors"
+
+msgid "Projects"
+msgstr "Projects"
+
+msgid "proxy"
+msgstr "Proxy"
+
+msgid "Queue connection %s not found"
+msgstr "Queue connection %s not found"
+
+msgid "Rate Category"
+msgstr "Rate Category"
+
+msgid "Record cloned successfully, click %s to open"
+msgstr "Record cloned successfully, click %s to open"
+
+msgid "Record deleted successfully"
+msgstr "Record deleted successfully"
+
+msgid "Record is moved %s"
+msgstr "Record is moved %s"
+
+msgid "Record [%s] could not be deleted"
+msgstr "Record [%s] could not be deleted"
+
+msgid "Record [%s] deleted successfully"
+msgstr "Record [%s] deleted successfully"
+
+msgid "records"
+msgstr "records"
+
+msgid "records') . '"
+msgstr "records') . '"
+
+msgid "Refresh"
+msgstr "Refresh"
+
+msgid "Regions"
+msgstr "Regions"
+
+msgid "Remote HTTP request failed. Check google_translate_key in configuration"
+msgstr "Remote HTTP request failed. Check google_translate_key in configuration"
+
+msgid "Report categories"
+msgstr "Report categories"
+
+msgid "Report with id %s not found"
+msgstr "Report with id %s not found"
+
+msgid "Reports"
+msgstr "Reports"
+
+msgid "Request %s has failed"
+msgstr "Request %s has failed"
+
+msgid "Requested app not found"
+msgstr "Requested app not found"
+
+msgid "Requested model find(%s::%s) could not be perform"
+msgstr "Requested model find(%s::%s) could not be perform"
+
+msgid "Requested record not found, either you dont have permission to access it or its missing"
+msgstr "Requested record not found, either you dont have permission to access it or its missing"
+
+msgid "require minimum 1 argument"
+msgstr "require minimum 1 argument"
+
+msgid "Required File not found"
+msgstr "Required File not found"
+
+msgid "Resquested locale not found for auto build"
+msgstr "Resquested locale not found for auto build"
+
+msgid "Resquested module not found for auto build"
+msgstr "Resquested module not found for auto build"
+
+msgid "Reverting modified files"
+msgstr "Reverting modified files"
+
+msgid "Revoke"
+msgstr "Revoke"
+
+msgid "Roles"
+msgstr "Roles"
+
+msgid "Roles Users"
+msgstr "Roles Users"
+
+msgid "Saildays"
+msgstr "Saildays"
+
+msgid "Sales Orders"
+msgstr "Sales Orders"
+
+msgid "Sales Quotes"
+msgstr "Sales Quotes"
+
+msgid "save"
+msgstr "save"
+
+msgid "saved"
+msgstr "saved"
+
+msgid "Schedule Jobs"
+msgstr "Schedule Jobs"
+
+msgid "Schemas"
+msgstr "Schemas"
+
+msgid "scroll to see all records"
+msgstr "scroll to see all records"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Search Config"
+msgstr "Search Config"
+
+msgid "search is not available for this"
+msgstr "search is not available for this"
+
+msgid "Searching %s records"
+msgstr "Searching %s records"
+
+msgid "Searching controllers"
+msgstr "Searching controllers"
+
+msgid "searching controllers"
+msgstr "searching controllers"
+
+msgid "Searching dependencies"
+msgstr "Searching dependencies"
+
+msgid "Searching dgettext(module) strings"
+msgstr "Searching dgettext(module) strings"
+
+msgid "Searching form/fields labels"
+msgstr "Searching form/fields labels"
+
+msgid "searching locales for module %s"
+msgstr "searching locales for module %s"
+
+msgid "Searching menu related string"
+msgstr "Searching menu related string"
+
+msgid "Searching model related strings"
+msgstr "Searching model related strings"
+
+msgid "Searching models"
+msgstr "Searching models"
+
+msgid "searching models"
+msgstr "searching models"
+
+msgid "Searching module names"
+msgstr "Searching module names"
+
+msgid "Searching sphing models for module %s"
+msgstr "Searching sphing models for module %s"
+
+msgid "Searching __() strings"
+msgstr "Searching __() strings"
+
+msgid "Select \"%s\" as columns in your result set"
+msgstr "Select \"%s\" as columns in your result set"
+
+msgid "Select all %s records in this View"
+msgstr "Select all %s records in this View"
+
+msgid "Select all records in list"
+msgstr "Select all records in list"
+
+msgid "Select at least 1 Recipients source"
+msgstr "Select at least 1 Recipients source"
+
+msgid "Select Database Tables for processing"
+msgstr "Select Database Tables for processing"
+
+msgid "Select records to delete"
+msgstr "Select records to delete"
+
+msgid "Select records to edit"
+msgstr "Select records to edit"
+
+msgid "Select records to export"
+msgstr "Select records to export"
+
+msgid "Selected controller class not found"
+msgstr "Selected controller class not found"
+
+msgid "Selected controller does not have model to import"
+msgstr "Selected controller does not have model to import"
+
+msgid "Selected controller does not have valid data source"
+msgstr "Selected controller does not have valid data source"
+
+msgid "Selected module is not found"
+msgstr "Selected module is not found"
+
+msgid "Selected record depends on its parent, it cant be deleted"
+msgstr "Selected record depends on its parent, it cant be deleted"
+
+msgid "Server response time"
+msgstr "Server response time"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "Set path to php executable in config file(php_exe)"
+msgstr "Set path to php executable in config file(php_exe)"
+
+msgid "setDateButtonLabel'):w.__('setTimeButtonLabel'))+'"
+msgstr "setDateButtonLabel'):w.__('setTimeButtonLabel'))+'"
+
+msgid "setTimeButtonLabel"
+msgstr "setTimeButtonLabel"
+
+msgid "Ship"
+msgstr "Ship"
+
+msgid "show listview"
+msgstr "show listview"
+
+msgid "Showing"
+msgstr "Showing"
+
+msgid "Showing') . ' ' . $from . '-' . $to . ' ' . __('records"
+msgstr "Showing') . ' ' . $from . '-' . $to . ' ' . __('records"
+
+msgid "SIC"
+msgstr "SIC"
+
+msgid "Signup"
+msgstr "Signup"
+
+msgid "SMTP server connection  \"%s \" not found"
+msgstr "SMTP server connection  \"%s \" not found"
+
+msgid "SMTP Servers"
+msgstr "SMTP Servers"
+
+msgid "Source driver %s does not support union of type %s"
+msgstr "Source driver %s does not support union of type %s"
+
+msgid "source driver not found for source \"%s\" "
+msgstr "source driver not found for source \"%s\" "
+
+msgid "Sphinx does not support string primary key"
+msgstr "Sphinx does not support string primary key"
+
+msgid "sphinx index \"%s\" is either not setup or does not have any fields configured"
+msgstr "sphinx index \"%s\" is either not setup or does not have any fields configured"
+
+msgid "SphinxSE dosent support \"%s\" database driver"
+msgstr "SphinxSE dosent support \"%s\" database driver"
+
+msgid "Sql Log"
+msgstr "Sql Log"
+
+msgid "Stage Actions"
+msgstr "Stage Actions"
+
+msgid "Stage Notifications"
+msgstr "Stage Notifications"
+
+msgid "Stage Types"
+msgstr "Stage Types"
+
+msgid "Stages"
+msgstr "Stages"
+
+msgid "Staging meta-data updated for"
+msgstr "Staging meta-data updated for"
+
+msgid "START"
+msgstr "START"
+
+msgid "Start Baking controller \"%s\""
+msgstr "Start Baking controller \"%s\""
+
+msgid "Start Baking locale \"%s\""
+msgstr "Start Baking locale \"%s\""
+
+msgid "Start creating columns for model(\"%s\")"
+msgstr "Start creating columns for model(\"%s\")"
+
+msgid "Start generating locale \"%s\""
+msgstr "Start generating locale \"%s\""
+
+msgid "Starting auto build process for %s module"
+msgstr "Starting auto build process for %s module"
+
+msgid "Starting auto build process for %s module %s locale"
+msgstr "Starting auto build process for %s module %s locale"
+
+msgid "Stress Test Wizard"
+msgstr "Stress Test Wizard"
+
+msgid "Students"
+msgstr "Students"
+
+msgid "submit"
+msgstr "submit"
+
+msgid "Supported fulltext engines are %s"
+msgstr "Supported fulltext engines are %s"
+
+msgid "Tab panel"
+msgstr "Tab panel"
+
+msgid "Table column \"%s\" comment contain wrongly formatted JSON"
+msgstr "Table column \"%s\" comment contain wrongly formatted JSON"
+
+msgid "Table comment contain wrongly formatted JSON"
+msgstr "Table comment contain wrongly formatted JSON"
+
+msgid "Table extended comment contain wrongly formatted JSON"
+msgstr "Table extended comment contain wrongly formatted JSON"
+
+msgid "Table not found for cross join model \"%s\""
+msgstr "Table not found for cross join model \"%s\""
+
+msgid "tags"
+msgstr "Tags"
+
+msgid "Tagview \"%s\" does not contain fields(%s) "
+msgstr "Tagview \"%s\" does not contain fields(%s) "
+
+msgid "Team'),'&nbsp;(',__('Designed & developed by')."
+msgstr "Team'),'&nbsp;(',__('Designed & developed by')."
+
+msgid "telecom_expense_man"
+msgstr "Telecom Expense Man"
+
+msgid "Templates"
+msgstr "Templates"
+
+msgid "Temporary Document ACL"
+msgstr "Temporary Document ACL"
+
+msgid "Test Case Responses"
+msgstr "Test Case Responses"
+
+msgid "The app with name %s already activated"
+msgstr "The app with name %s already activated"
+
+msgid "The controller is not from this module"
+msgstr "The controller is not from this module"
+
+msgid "The model is not from this module"
+msgstr "The model is not from this module"
+
+msgid "The record not found"
+msgstr "The record not found"
+
+msgid "The requested action \"%s\" does not exists"
+msgstr "The requested action \"%s\" does not exists"
+
+msgid "The requested import job with ID  \"%s \" is either imported or could not be found"
+msgstr "The requested import job with ID  \"%s \" is either imported or could not be found"
+
+msgid "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"
+msgstr "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"
+
+msgid "The uploaded file exceeds the upload max filesize"
+msgstr "The uploaded file exceeds the upload max filesize"
+
+msgid "The uploaded file was only partially uploaded"
+msgstr "The uploaded file was only partially uploaded"
+
+msgid "There already exists one record for current user in user based license table"
+msgstr "There already exists one record for current user in user based license table"
+
+msgid "There exists more then one record for current user in user based license table"
+msgstr "There exists more then one record for current user in user based license table"
+
+msgid "This form has expired, try to create new record."
+msgstr "This form has expired, try to create new record."
+
+msgid "This is standard module, aborting uninstall"
+msgstr "This is standard module, aborting uninstall"
+
+msgid "This license is issued for module %s"
+msgstr "This license is issued for module %s"
+
+msgid "This listview is not editable"
+msgstr "This listview is not editable"
+
+msgid "This model does not have parent association defined"
+msgstr "This model does not have parent association defined"
+
+msgid "This record has been modified, %d click here %d to load modified record."
+msgstr "This record has been modified, %d click here %d to load modified record."
+
+msgid "This record has been modified, %d click here %d to load modified record.'), '', '"
+msgstr "This record has been modified, %d click here %d to load modified record.'), '', '"
+
+msgid "This record record[%s] has been modified, %d click here %d to view modified record."
+msgstr "This record record[%s] has been modified, %d click here %d to view modified record."
+
+msgid "This user name is not available"
+msgstr "This user name is not available"
+
+msgid "Ticket Comments"
+msgstr "Ticket Comments"
+
+msgid "Ticket Spent Hours"
+msgstr "Ticket Spent Hours"
+
+msgid "Tickets"
+msgstr "Tickets"
+
+msgid "Time"
+msgstr "Time"
+
+msgid "timeFormat"
+msgstr "timeFormat"
+
+msgid "timeFormat')===12) ? (( testDate.get(3) === 0 ) ? '12' : (( testDate.get(3) < 13 ) ? testDate.get(3) : (testDate.get(3)-12))) : testDate.get(3))+\"\").appendTo(hRow.find('ul"
+msgstr "timeFormat')===12) ? (( testDate.get(3) === 0 ) ? '12' : (( testDate.get(3) < 13 ) ? testDate.get(3) : (testDate.get(3)-12))) : testDate.get(3))+\"\").appendTo(hRow.find('ul"
+
+msgid "timeOutput"
+msgstr "timeOutput"
+
+msgid "titleDateDialogLabel'):w.__('titleTimeDialogLabel"
+msgstr "titleDateDialogLabel'):w.__('titleTimeDialogLabel"
+
+msgid "TMP directory subdirectories not writable(%s)"
+msgstr "TMP directory subdirectories not writable(%s)"
+
+msgid "To"
+msgstr "To"
+
+msgid "To be saved"
+msgstr "To be saved"
+
+msgid "tooltip"
+msgstr "tooltip"
+
+msgid "tooltip')+'\">'+this.__('tooltip')+'"
+msgstr "tooltip')+'\">'+this.__('tooltip')+'"
+
+msgid "Transaction does not support this operation"
+msgstr "Transaction does not support this operation"
+
+msgid "Translate locale \"%s\""
+msgstr "Translate locale \"%s\""
+
+msgid "Translated to: %s"
+msgstr "Translated to: %s"
+
+msgid "translating from %s locale  to %s locale"
+msgstr "translating from %s locale  to %s locale"
+
+msgid "Translating msgid: %s, msgstr: %s "
+msgstr "Translating msgid: %s, msgstr: %s "
+
+msgid "Translations"
+msgstr "Translations"
+
+msgid "Try to delete \"%s\" as it could not be deleted"
+msgstr "Try to delete \"%s\" as it could not be deleted"
+
+msgid "Trying to delete %s records"
+msgstr "Trying to delete %s records"
+
+msgid "Trying to update %s records"
+msgstr "Trying to update %s records"
+
+msgid "Unemployment"
+msgstr "Unemployment"
+
+msgid "Update Index Wizard"
+msgstr "Update Index Wizard"
+
+msgid "Upgrading module \"%s\" from version %s to version %s"
+msgstr "Upgrading module \"%s\" from version %s to version %s"
+
+msgid "Upgrading table for model %s"
+msgstr "Upgrading table for model %s"
+
+msgid "Uploaded license is not compatible with current module"
+msgstr "Uploaded license is not compatible with current module"
+
+msgid "useArabicIndic"
+msgstr "useArabicIndic"
+
+msgid "User blocked"
+msgstr "User blocked"
+
+msgid "User Licenses"
+msgstr "User Licenses"
+
+msgid "Users"
+msgstr "Users"
+
+msgid "validating %s associations"
+msgstr "validating %s associations"
+
+msgid "validating controller bake process"
+msgstr "validating controller bake process"
+
+msgid "validating controller bake process end"
+msgstr "validating controller bake process end"
+
+msgid "validating model bake process end"
+msgstr "validating model bake process end"
+
+msgid "validating model build process"
+msgstr "validating model build process"
+
+msgid "View \"%s\" not found"
+msgstr "View \"%s\" not found"
+
+msgid "View Element %s not found"
+msgstr "View Element %s not found"
+
+msgid "Views"
+msgstr "Views"
+
+msgid "Widget is activated"
+msgstr "Widget is activated"
+
+msgid "Widget is deactivated"
+msgstr "Widget is deactivated"
+
+msgid "Widgets"
+msgstr "Widgets"
+
+msgid "wiki"
+msgstr "Wiki"
+
+msgid "Workflow Documents"
+msgstr "Workflow Documents"
+
+msgid "Workflow Log"
+msgstr "Workflow Log"
+
+msgid "Wrong join specified between %s and %s "
+msgstr "Wrong join specified between %s and %s "
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "Yes'), 'value' => 1), array('text' => __('No"
+msgstr "Yes'), 'value' => 1), array('text' => __('No"
+
+msgid "You are not calling \"parent::%s\" in \"%s\" or one of its parent class as required by data ACL"
+msgstr "You are not calling \"parent::%s\" in \"%s\" or one of its parent class as required by data ACL"
+
+msgid "You dont have DBACL permission to perform this operation"
+msgstr "You dont have DBACL permission to perform this operation"
+
+msgid "You dont have permission to access listview with %s \"%s\"'), (is_numeric($currentListview) ? 'id' : 'name"
+msgstr "You dont have permission to access listview with %s \"%s\"'), (is_numeric($currentListview) ? 'id' : 'name"
+
+msgid "You dont have permission to access this stream"
+msgstr "You dont have permission to access this stream"
+
+msgid "You dont have permission to delete record[%s]"
+msgstr "You dont have permission to delete record[%s]"
+
+msgid "You dont have permission to delete this file"
+msgstr "You dont have permission to delete this file"
+
+msgid "You dont have permission to delete this file as its encoded"
+msgstr "You dont have permission to delete this file as its encoded"
+
+msgid "You dont have permission to edit record[%s]"
+msgstr "You dont have permission to edit record[%s]"
+
+msgid "You dont have permission to edit this file"
+msgstr "You dont have permission to edit this file"
+
+msgid "You dont have permission to edit this file as its encoded"
+msgstr "You dont have permission to edit this file as its encoded"
+
+msgid "You dont have permission to restore record"
+msgstr "You dont have permission to restore record"
+
+msgid "You dont have permissions to view this file"
+msgstr "You dont have permissions to view this file"
+
+msgid "You dont have private ACL permission to access \"%s\""
+msgstr "You dont have private ACL permission to access \"%s\""
+
+msgid "You dont have RBAC permission to perform this operation"
+msgstr "You dont have RBAC permission to perform this operation"
+
+msgid "You have not configured cache settings"
+msgstr "You have not configured cache settings"
+
+msgid "You have not configured memcache server settings"
+msgstr "You have not configured memcache server settings"
+
+msgid "You need to select Access Control Object "
+msgstr "You need to select Access Control Object "
+
+msgid "You need to select Access Request Object"
+msgstr "You need to select Access Request Object"
+
+msgid "Your Application license has expired and is valid from %s to %s"
+msgstr "Your Application license has expired and is valid from %s to %s"
+
+msgid "Your Application license is valid for domain(%s)"
+msgstr "Your Application license is valid for domain(%s)"
+
+msgid "Your Application license is valid for IP(%s)"
+msgstr "Your Application license is valid for IP(%s)"
+
+msgid "Your browser does not support the video tag"
+msgstr "Your browser does not support the video tag"
+
+msgid "Your license allows max %s users"
+msgstr "Your license allows max %s users"
+
+msgid "Your license for application is not valid for current user"
+msgstr "Your license for application is not valid for current user"
+
+msgid "Your license for Application is not valid for current user"
+msgstr "Your license for Application is not valid for current user"
+
+msgid "Your license for module %s is not valid for current user"
+msgstr "Your license for module %s is not valid for current user"
+
+msgid "Your license for module %s/%s is not valid for current user"
+msgstr "Your license for module %s/%s is not valid for current user"
+
+msgid "Your Module \"%s\" license not found"
+msgstr "Your Module \"%s\" license not found"
+
+msgid "Your Module (%s) license has expired and is valid from %s to %s"
+msgstr "Your Module (%s) license has expired and is valid from %s to %s"
+
+msgid "Your Module (%s) license is valid for domain(%s)"
+msgstr "Your Module (%s) license is valid for domain(%s)"
+
+msgid "Your Module (%s) license is valid for IP(%s)"
+msgstr "Your Module (%s) license is valid for IP(%s)"
+
+msgid "Zip archive could not be created for module %s"
+msgstr "Zip archive could not be created for module %s"
+
+msgid "[Click To Drill Down]"
+msgstr "[Click To Drill Down]"
+
+msgid " \"%s \" is reserved PHP keyword, could not use as class name"
+msgstr " \"%s \" is reserved PHP keyword, could not use as class name"

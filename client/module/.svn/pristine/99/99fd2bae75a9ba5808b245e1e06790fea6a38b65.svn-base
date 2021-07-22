@@ -1,0 +1,72 @@
+[
+	{
+		"listviews":{
+			"name":"Donnas list",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"households.name\":{\"__column\":\"households.name\",\"alias\":\"Street Address\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"households.polling_stations.name\":{\"__column\":\"households.polling_stations.name\",\"alias\":\"Polling Station\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"Donnas list\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"vrm\\\/households\",\"render_as\":\"index\",\"is_default\":\"0\",\"is_public\":\"0\",\"show_has_many_records\":\"one\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"sequence\":\"6\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"primary_acl_group_model\":\"groups\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+			"_query":"{\"id\":\"540f8fe0-7be8-44d9-95a0-1d7f0abf2d7d\",\"name\":\"Donnas list\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"vrm\\\/households\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"households.name\",\"column_model\":\"schema\",\"__column\":\"households.name\",\"alias\":\"Street Address\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"households.polling_stations.name\",\"column_model\":\"schema\",\"__column\":\"households.polling_stations.name\",\"alias\":\"Polling Station\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"sequence\":\"6\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"vrm\/households",
+			"is_default":0,
+			"is_public":0,
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2014-09-09 23:40:16",
+			"modified":"2014-09-09 23:44:26",
+			"deleted":"0",
+			"revision":"3",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"vrm.households.Donnas list",
+			"sequence":"6",
+			"primary_acl_group":"0",
+			"id":"540f8fe0-7be8-44d9-95a0-1d7f0abf2d7d",
+			"module_id":"",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Super Admin",
+			"__modified_by":"Super Admin",
+			"__category_id":"Corporate Views",
+			"__parent_id":"",
+			"__owned_by":"Super Admin",
+			"__primary_acl_group":"",
+			"__module_id":"",
+			"created_by_model":"created_by_user",
+			"modified_by_model":"modified_by_user",
+			"category_id_model":"category",
+			"owned_by_model":"owned_by_user",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

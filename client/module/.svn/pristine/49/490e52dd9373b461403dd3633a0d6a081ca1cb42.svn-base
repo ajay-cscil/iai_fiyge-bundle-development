@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class invoices_payments extends \module\accounting\controller\invoices_payments_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\invoices_payments';
+
+
+
+
+
+
+  }

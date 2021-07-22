@@ -1,0 +1,58 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class balance_sheet extends \module\accounting\model\balance_sheet_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'accounting__balance_sheet';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'Account';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $behaviours = array (
+  '\\tushar\\behaviour\\tree' => 
+  array (
+    'name' => '\\tushar\\behaviour\\tree',
+    'materialized_name' => 'full_name',
+    'compute_materialize_name_from' => 'Account',
+    'left' => 'lft',
+    'right' => 'rgt',
+    'depth' => 'depth',
+    'sequence' => 'seq',
+    'parent_id' => 'parent_id',
+  ),
+);
+       public $associations = array (
+  'balance_sheet' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\balance_sheet',
+    'associationAlias' => 'balance_sheet',
+    'foreignKey' => 'parent_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\accounts',
+    'associationAlias' => 'accounts',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+  }

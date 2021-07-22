@@ -1,0 +1,135 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tickets\model;
+  class config_ticket_priorities extends \module\tickets\model\config_ticket_priorities_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'tickets__config_ticket_priorities';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'ticket_priority';
+       public $primaryKey = 'id';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+       public $isConfig = '0';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $fields = array (
+  'business_key' => 
+  array (
+    'column' => 'business_key',
+    'ntype' => 'string',
+    'length' => '50',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'ticket_priority' => 
+  array (
+    'column' => 'ticket_priority',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $filters = array (
+  'ticket_priority' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

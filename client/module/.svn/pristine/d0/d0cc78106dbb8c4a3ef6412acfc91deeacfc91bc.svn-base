@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"527c0797-d84c-4830-b793-04a30aec906d\",\"name\":\"US Leads Distribution\",\"category_id\":\"1\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"crm\\\/leads\",\"description\":\"Where are my Contact situated in US?\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"leads.states.code\",\"column_model\":\"schema\",\"__column\":\"leads.states.code\",\"alias\":\"State\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"leads.id\",\"column_model\":\"schema\",\"__column\":\"leads.id\",\"alias\":\"Count\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"leads.name\",\"column_model\":\"schema\",\"__column\":\"leads.name\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"leads.company\",\"column_model\":\"schema\",\"__column\":\"leads.company\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"leads.primary_countries.country_name\",\"column_model\":\"schema\",\"__column\":\"leads.primary_countries.country_name\",\"alias\":\"\",\"render_type\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"leads.primary_countries.country_name\",\"search_column_model\":\"schema\",\"__search_column\":\"leads.primary_countries.country_name\",\"search_comparator\":\"=\",\"search_value\":\"United States\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::geo_chart\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"sequence\":\"0\",\"background-color\":\"\",\"background-color--fill\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"color-axis\":\"\",\"color-axis--min-value\":\"\",\"color-axis--max-value\":\"\",\"color-axis--values\":\"percentile\",\"color-axis--colors\":\"\",\"dataless-region-color\":\"\",\"display-mode\":\"\",\"enable-region-interactivity\":\"\",\"height\":\"\",\"keep-aspect-ratio\":\"\",\"legend\":\"\",\"legend--number-format\":\"\",\"legend--text-style\":\"\",\"region\":\"\",\"magnifying-glass\":\"\",\"magnifying-glass--enable\":\"\",\"magnifying-glass--zoom-factor\":\"\",\"marker-opacity\":\"\",\"resolution\":\"\",\"range_1\":\"0-5\",\"range_1_color\":\"#338533\",\"range_2\":\"5-9\",\"range_2_color\":\"#197519\",\"range_3\":\"10-14\",\"range_3_color\":\"#006600\",\"range_4\":\"15-1000\",\"range_4_color\":\"#005C00\",\"range_5\":\"\",\"range_5_color\":\"\",\"range_6\":\"\",\"range_6_color\":\"\",\"range_7\":\"\",\"range_7_color\":\"\",\"range_8\":\"\",\"range_8_color\":\"\",\"range_9\":\"\",\"range_9_color\":\"\",\"range_10\":\"\",\"range_10_color\":\"\",\"elements\":[],\"actions\":[],\"group_by\":[],\"longitude\":\"\",\"latitude\":\"\",\"zoom\":\"\",\"_show_marker_index\":\"0\",\"_auto_zoom_to_fit_markers\":\"0\",\"_track_current_position\":\"0\",\"current_position_infowindow\":\"\",\"data_source_1\":\"\",\"data_source_1_model\":\"listviews\",\"__data_source_1\":\"\",\"data_source_2\":\"\",\"data_source_2_model\":\"listviews\",\"__data_source_2\":\"\",\"data_source_3\":\"\",\"data_source_3_model\":\"listviews\",\"__data_source_3\":\"\",\"data_source_4\":\"\",\"data_source_4_model\":\"listviews\",\"__data_source_4\":\"\",\"data_source_5\":\"\",\"data_source_5_model\":\"listviews\",\"__data_source_5\":\"\",\"_is_public\":\"0\",\"is_public\":\"1\",\"_collapse_category_columns\":\"0\",\"_disable_ui_helper\":\"0\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\"}",
+            "category_id": "1",
+            "controller": "crm\/leads",
+            "created": "2013-11-07 21:35:19",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "Where are my Contact situated in US?",
+            "flags": null,
+            "id": "527c0797-d84c-4830-b793-04a30aec906d",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-13 21:52:17",
+            "modified_by": "1",
+            "module_id": "27260a2d-e746-11e3-aad5-0800275f9930",
+            "name": "US Leads Distribution",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"leads.states.code\":{\"__column\":\"leads.states.code\",\"alias\":\"State\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.id\":{\"__column\":\"leads.id\",\"alias\":\"Count\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.name\":{\"__column\":\"leads.name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.company\":{\"__column\":\"leads.company\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"leads.primary_countries.country_name\":{\"__column\":\"leads.primary_countries.country_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"leads.primary_countries.country_name = \":\"United States\"}}]],\"order\":[],\"name\":\"US Leads Distribution\",\"category_id\":\"1\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"crm\\\/leads\",\"description\":\"Where are my Contact situated in US?\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::geo_chart\",\"parent_id_model\":\"parent_listview\",\"color-axis--values\":\"percentile\",\"range_1\":\"0-5\",\"range_1_color\":\"#338533\",\"range_2\":\"5-9\",\"range_2_color\":\"#197519\",\"range_3\":\"10-14\",\"range_3_color\":\"#006600\",\"range_4\":\"15-1000\",\"range_4_color\":\"#005C00\",\"show_marker_index\":\"0\",\"auto_zoom_to_fit_markers\":\"0\",\"track_current_position\":\"0\",\"data_source_1_model\":\"listviews\",\"data_source_2_model\":\"listviews\",\"data_source_3_model\":\"listviews\",\"data_source_4_model\":\"listviews\",\"data_source_5_model\":\"listviews\",\"is_public\":\"1\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"method\":\"categorized\"}",
+            "read_count": "1",
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Ad-hoc Reports",
+            "__primary_acl_group": "",
+            "__module_id": "crm",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

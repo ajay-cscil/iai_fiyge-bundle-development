@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:03:49 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>process (MaaxFrame's Business Modules)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's Business Modules</h1><span>Class</span>
+
+<h2>module\campaigns\controller\process</h2>
+
+</header><p class="signature">public  class <strong>process</strong> extends \kernel\controller
+
+</p>
+
+<div class="comment"><p></p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Constants</h3>
+<table>
+<tr>
+<td class="type">final static  str</td>
+<td class="description"><p class="name"><a href="#ACTIVE">ACTIVE</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  str</td>
+<td class="description"><p class="name"><a href="#COMPLETED">COMPLETED</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  str</td>
+<td class="description"><p class="name"><a href="#SENDING_EMAILS">SENDING_EMAILS</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  str</td>
+<td class="description"><p class="name"><a href="#SENDING_TEST_EMAILS">SENDING_TEST_EMAILS</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  str</td>
+<td class="description"><p class="name"><a href="#TESTED">TESTED</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  str</td>
+<td class="description"><p class="name"><a href="#UNDER_TESTING">UNDER_TESTING</a></p></td>
+</tr>
+</table>
+
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#access">$access</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#defaultAction">$defaultAction</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#maxFailedLogCount">$maxFailedLogCount</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#modelClass">$modelClass</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#sources">$sources</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#standbyMinutes">$standbyMinutes</a></p><p class="description"></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#cutofTime()">cutofTime</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#execute()">execute</a>(type request, mixed campaignId)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#lastRun()">lastRun</a>()</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#runLog()">runLog</a>(mixed log, bool save)</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#setSender()">setSender</a>()</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="ACTIVE">public final static  str <strong>ACTIVE</strong> = &quot;Active&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="COMPLETED">public final static  str <strong>COMPLETED</strong> = &quot;Completed&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="SENDING_EMAILS">public final static  str <strong>SENDING_EMAILS</strong> = &quot;Sending Emails&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="SENDING_TEST_EMAILS">public final static  str <strong>SENDING_TEST_EMAILS</strong> = &quot;Sending Test Emails&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="TESTED">public final static  str <strong>TESTED</strong> = &quot;Tested&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="UNDER_TESTING">public final static  str <strong>UNDER_TESTING</strong> = &quot;Under Testing&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="access">public  type <strong>$access</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="defaultAction">public  mixed <strong>$defaultAction</strong> = &quot;execute&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="maxFailedLogCount">public  type <strong>$maxFailedLogCount</strong> = 3</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="modelClass">public  mixed <strong>$modelClass</strong> = &quot;campaigns&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="sources">public  type <strong>$sources</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="standbyMinutes">public  type <strong>$standbyMinutes</strong> = 30</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="cutofTime">public  void <strong>cutofTime</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="execute">public  void <strong>execute</strong>(type request, mixed campaignId)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="lastRun">public  void <strong>lastRun</strong>()</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="runLog">public  void <strong>runLog</strong>(mixed log, bool save)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="setSender">protected  void <strong>setSender</strong>()</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

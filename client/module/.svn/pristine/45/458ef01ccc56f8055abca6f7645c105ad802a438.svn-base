@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class bills extends \module\accounting\controller\bills_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\bills';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

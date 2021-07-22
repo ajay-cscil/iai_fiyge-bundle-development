@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+class TestOfScheduler extends UnitTestCase
+{
+    //public function __construct() {
+    //}
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public function testOnce()
+    {
+        $modelObj = \module\crm_base\model\scheduler::getInstance(array(), true);
+
+        $scheduleInfo=array();
+        $scheduleInfo['starts_on']='';
+        $scheduleInfo['repeats']='';
+        $scheduleInfo['repeat_every']='';
+        $scheduleInfo['repeat_on']='';
+        $scheduleInfo['repeat_by']='';
+        $scheduleInfo['occurrences']='';
+        $currentRunTime=\date('Y-m-d H:i:s');
+        $lastRunTime=null;
+        $totalRuns=0;
+        $modelObj->isValid($scheduleInfo, $currentRunTime, $lastRunTime, $totalRuns);
+    }
+
+    public function testDaily()
+    {
+        $modelObj = \module\crm_base\model\scheduler::getInstance(array(), true);
+    }
+
+    public function testWeekly()
+    {
+        $modelObj = \module\crm_base\model\scheduler::getInstance(array(), true);
+    }
+
+    public function testMonthly()
+    {
+        $modelObj = \module\crm_base\model\scheduler::getInstance(array(), true);
+    }
+
+    public function testYearly()
+    {
+        $modelObj = \module\crm_base\model\scheduler::getInstance(array(), true);
+    }
+
+
+}
+
+?>

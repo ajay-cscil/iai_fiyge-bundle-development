@@ -1,0 +1,65 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\controller;
+  class authorized_actions extends \module\flexflow\controller\authorized_actions_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow\\model\\authorized_actions';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'inline_click' => '1',
+  'fields' => 
+  array (
+    0 => 
+    array (
+      'column' => 'actors.name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    1 => 
+    array (
+      'column' => 'actions.name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'column' => 'authorized_actions.created',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    3 => 
+    array (
+      'column' => 'created_by_user.first_name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    4 => 
+    array (
+      'column' => 'created_by_user.last_name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+  ),
+);
+
+
+
+
+
+
+  }

@@ -1,0 +1,224 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class accounts_domain_logic extends \design_model{
+
+    public $limitForInstallation = 0;
+
+    public function afterRead(&$data) {
+
+        $data['balance'] = $this->getBalance($data['id']);
+    }
+
+    public function getBalance($accountID) {
+
+        $asum = \module\accounting\model\accounts::getInstance(array('alias' => 'asum'));
+
+        $balance = \select("ifnull(SUM(journal_entry_lines.debit), 0) 
+
+               - ifnull(SUM(journal_entry_lines.credit), 0)")
+                ->from($this)
+                ->join('journal_entry_lines')
+                ->join('journal_entries')
+                ->join('workflow_docs')
+                ->joinCross('asum', $this, true)
+                ->where(
+                        array(
+                            "{$this->alias}.lft >= asum.lft",
+                            "{$this->alias}.lft <= asum.rgt",
+                            "{$this->alias}.rgt <= asum.rgt",
+                            "workflow_docs.current_stages" => "Posted",
+                            "asum.id" => $accountID
+                        )
+                )
+                ->inserted()
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN, 0);
+        if (empty($balance)) {
+            $balance = null;
+        }
+        return $balance;
+    }
+
+    public function beforeSave() {
+        parent::beforeSave();
+        if (isset($this->data[$this->primaryKey]) && !empty($this->data[$this->primaryKey])) {
+            $date = \tushar\locale::systemDate();
+            $data = current($this->read($this->data[$this->primaryKey], false));
+            if (isset($this->data['is_active']) && $data['is_active'] == 1 && $this->data['is_active'] == 0) {
+                //account of same company
+                //find room account....
+                //find company
+                $companyID = \select("{$this->alias}.company_id")->from($this)
+                        ->where(array("lft" <= $data['lft'], "rgt" >= $data["rgt"]))
+                        ->inserted()
+                        ->order("lft ASC")->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+                if ($companyID == false) {
+                    $companyID = $data['company_id'];
+                }
+                if ($companyID == false) {
+                    throw new \Exception(sprintf(__("Could not locate company for account \"%s\"", "module"), $data['name']));
+                }
+                //period of same company
+                $entryLines = \select(array('COUNT(1) AS count', 'fiscal_years.start_date', 'fiscal_years.end_date'))
+                        ->from('\\module\\accounting\\model\\journal_entry_lines')
+                        ->joinInner('journal_entries')
+                        ->joinInner('periods')
+                        ->joinInner('fiscal_years')
+                        ->inserted()
+                        ->where(array(
+                            'journal_entry_lines.account_id' => $this->data[$this->primaryKey],
+                            'fiscal_years.start_date <=' => $date,
+                            'fiscal_years.end_date >=' => $date,
+                            'fiscal_years.company_id ' => $companyID
+                        ))
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+                if (isset($entryLines['count']) && $entryLines['count'] > 0) {
+                    throw new \Exception(sprintf(__("Cannot disable account as it has %s journal entry lines for year %s to %s"), $entryLines['count'], $entryLines['start_date'], $entryLines['end_date']));
+                }
+            }
+        }
+    }
+
+    public function accountingDefaults($companyID=false, $fiscalYearID=false, $periodID=false, $onlyOpen=false,$date=null) {
+        $companyName = $fiscalYearName = $periodName = "";
+        if(is_null($date)){
+            $systemDate = \tushar\locale::systemDate();
+        }else{
+            $systemDate = $date;
+        }
+        if ($companyID === false) {
+            $companyID = \tushar\user::read('company_id');
+        }
+        $obj = \module\crm_base\model\companies::getInstance();
+        $con = array();
+        if (!empty($companyID)) {
+            $con = array("$obj->alias.{$obj->primaryKey}" => $companyID);
+            $info = \select(array("$obj->alias.{$obj->primaryKey}", "{$obj->alias}.{$obj->displayField}"))
+                    ->from($obj)
+                    ->where($con)
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            $companyName = $info[$obj->displayField];
+        }
+
+
+        $obj = \module\accounting\model\fiscal_years::getInstance();
+        $con = array();
+        if (!empty($fiscalYearID)) {
+            $con["fiscal_years.{$obj->primaryKey}"] = $fiscalYearID;
+        } else if ($fiscalYearID === false) {
+            $con["fiscal_years.start_date <= "] = $systemDate;
+            $con["fiscal_years.end_date >="] = $systemDate;
+        }
+        if (!empty($con)) {
+            /*
+              $con["company_fiscal_years.company_id"] = $companyID;
+              $info = \select(array("$obj->alias.{$obj->primaryKey}", "{$obj->alias}.{$obj->displayField}"))
+              ->from($obj)
+              ->join("company_fiscal_years")->inserted()
+              ->where($con)
+              ->limit(1)
+              ->execute()
+              ->fetch(\PDO::FETCH_ASSOC);
+             */
+            $con["$obj->alias.company_id"] = $companyID;
+
+            if ($onlyOpen) {
+                $con["workflow_docs.current_stages"] = 'open';
+                $info = \select(array("$obj->alias.{$obj->primaryKey}", "{$obj->alias}.{$obj->displayField}"))
+                        ->from($obj)
+                        ->joinInner('workflow_docs')
+                        //->join("company_fiscal_years")
+                        ->inserted()
+                        ->where($con)
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+            } else {
+                $info = \select(array("$obj->alias.{$obj->primaryKey}", "{$obj->alias}.{$obj->displayField}"))
+                        ->from($obj)
+                        //->join("company_fiscal_years")
+                        ->inserted()
+                        ->where($con)
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+            }
+
+            $fiscalYearName = $info[$obj->displayField];
+            $fiscalYearID = $info[$obj->primaryKey];
+        }
+
+
+        $con = array();
+        if (!empty($periodID)) {
+            $con["periods.{$obj->primaryKey}"] = $periodID;
+        } else if ($periodID === false) {
+            $con["periods.start_of_period <= "] = $systemDate;
+            $con["periods.end_of_period >="] = $systemDate;
+        }
+        if (!empty($con)) {
+            $con["periods.fiscal_year_id"] = $fiscalYearID;
+            $obj = \module\accounting\model\periods::getInstance();
+
+            if ($onlyOpen) {
+                $con["workflow_docs.current_stages"] = 'open';
+                $info = \select(array("$obj->alias.{$obj->primaryKey}", "{$obj->alias}.{$obj->displayField}"))
+                        ->from($obj)
+                        ->joinInner('workflow_docs')
+                        ->where($con)
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+            } else {
+                $info = \select(array("$obj->alias.{$obj->primaryKey}", "{$obj->alias}.{$obj->displayField}"))
+                        ->from($obj)
+                        ->where($con)
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+            }
+            $periodName = $info[$obj->displayField];
+            $periodID = $info[$obj->primaryKey];
+        }
+
+
+        return array($companyID, $fiscalYearID, $periodID, $companyName, $fiscalYearName, $periodName);
+    }
+
+    public function setDefaultACL() {
+        $acl = array();
+        if (isset($this->data['company_id']) && !empty($this->data['company_id'])) {
+            $aclDefault = \select("*")
+                    ->from($this->companies)
+                    ->inserted()
+                    ->where('id', $this->data['company_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+
+            if (isset($aclDefault['default_read_acl_group_id'])) {
+                foreach (array(
+            '_acl' => $aclDefault['default_read_acl_group_id'],
+            '_acl_edit' => $aclDefault['default_edit_acl_group_id'],
+            '_acl_delete' => $aclDefault['default_delete_acl_group_id']) as $k => $a) {
+                    if (!empty($a)) {
+                        $acl[$k][] = array('op' => 'new', 'value' => "g" . $a);
+                    }
+                }
+            }
+        }
+        return $acl;
+    }
+
+}

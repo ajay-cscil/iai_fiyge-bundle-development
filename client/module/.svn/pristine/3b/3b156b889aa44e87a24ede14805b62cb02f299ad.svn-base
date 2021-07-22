@@ -1,0 +1,194 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\product\model;
+  class pricelists extends \module\product\model\pricelists_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'product__pricelists';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'pricelists';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'effective_from' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'effective_from',
+    'ntype' => 'datetime',
+  ),
+  'effective_to' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'effective_to',
+    'ntype' => 'datetime',
+  ),
+  'price_list_type' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'price_list_type',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'currency_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'currency_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'currencies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\currencies',
+    'associationAlias' => 'currencies',
+    'foreignKey' => 'currency_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'pricelist_pricelist_versions' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\product\\model\\config_pricelist_versions',
+    'associationAlias' => 'pricelist_pricelist_versions',
+    'foreignKey' => 'pricelist_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'price_list_type' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'currency_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

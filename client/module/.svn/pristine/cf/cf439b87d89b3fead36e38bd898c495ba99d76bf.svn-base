@@ -1,0 +1,73 @@
+[
+	{
+		"listviews":{
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"order_details.productName\":{\"__column\":\"order_details.productName\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"order_details.affiliate_Commissionable_Value\":{\"__column\":\"order_details.affiliate_Commissionable_Value\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"order_details.autoDropShip\":{\"__column\":\"order_details.autoDropShip\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"created_by_user.name\":{\"__column\":\"created_by_user.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"order_details.created\":{\"__column\":\"order_details.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"excursion\\\/order_details\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"sequence\":\"27\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+			"_query":"{\"id\":\"54eb2d92-39c4-454d-979e-2b69af4f00b5\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"excursion\\\/order_details\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"order_details.productName\",\"column_model\":\"schema\",\"__column\":\"order_details.productName\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"order_details.affiliate_Commissionable_Value\",\"column_model\":\"schema\",\"__column\":\"order_details.affiliate_Commissionable_Value\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"order_details.autoDropShip\",\"column_model\":\"schema\",\"__column\":\"order_details.autoDropShip\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"created_by_user.name\",\"column_model\":\"schema\",\"__column\":\"created_by_user.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"order_details.created\",\"column_model\":\"schema\",\"__column\":\"order_details.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"sequence\":\"27\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"excursion\/order_details",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2015-02-23 13:39:30",
+			"modified":"2015-02-24 04:39:28",
+			"deleted":"0",
+			"revision":"2",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"excursion.order_details.All",
+			"sequence":"27",
+			"primary_acl_group":"847",
+			"id":"54eb2d92-39c4-454d-979e-2b69af4f00b5",
+			"module_id":"",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"System Admin",
+			"__modified_by":"System Admin",
+			"__category_id":"Corporate Views",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"__primary_acl_group":"Region-USA",
+			"__module_id":"",
+			"created_by_model":"created_by_user",
+			"modified_by_model":"modified_by_user",
+			"category_id_model":"category",
+			"owned_by_model":"owned_by_user",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

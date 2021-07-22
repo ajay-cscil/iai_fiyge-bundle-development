@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:02:30 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>menus (System Module)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's System Module</h1><span>Class</span>
+
+<h2>module\development_base\model\menus</h2>
+
+</header><p class="signature">public  class <strong>menus</strong> extends \design_model
+
+</p>
+
+<div class="comment"><p></p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#associations">$associations</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#behaviours">$behaviours</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#displayField">$displayField</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#drilldownField">$drilldownField</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#filters">$filters</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#limitForInstallation">$limitForInstallation</a></p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#oFilter">$oFilter</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#singular">$singular</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#source">$source</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#table">$table</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterSave()">afterSave</a>(type created)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeSave()">beforeSave</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#build()">build</a>(mixed data, mixed options)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#exportRelatedModuleData()">exportRelatedModuleData</a>(mixed moduleID, mixed manifest)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#exportRelatedModuleDataChildren()">exportRelatedModuleDataChildren</a>(mixed parentID, mixed data)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#findAros()">findAros</a>(mixed menuID)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getControllerMenu()">getControllerMenu</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getSubActionMenu()">getSubActionMenu</a>(mixed module, mixed controller, mixed action)</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../../../module/core/helper/presentation/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#giveAccessTo()">giveAccessTo</a>()</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#importRelatedModuleData()">importRelatedModuleData</a>(mixed module, mixed manifest, mixed records, mixed options)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#noDuplicate()">noDuplicate</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="associations">public  type <strong>$associations</strong> = array(...)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="behaviours">public  type <strong>$behaviours</strong> = array(...)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="displayField">public  mixed <strong>$displayField</strong> = 'full_name'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="drilldownField">public  mixed <strong>$drilldownField</strong> = 'name'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="filters">public  type <strong>$filters</strong> = array(...)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="limitForInstallation">public  mixed <strong>$limitForInstallation</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="oFilter">public static  mixed <strong>$oFilter</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="singular">public  type <strong>$singular</strong> = 'menu'</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="source">public  type <strong>$source</strong> = 'design'</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="table">public  mixed <strong>$table</strong> = 'development_base__menus'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterSave">public  void <strong>afterSave</strong>(type created)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeSave">public  void <strong>beforeSave</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="build">public  void <strong>build</strong>(mixed data, mixed options)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="exportRelatedModuleData">public  void <strong>exportRelatedModuleData</strong>(mixed moduleID, mixed manifest)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="exportRelatedModuleDataChildren">public  void <strong>exportRelatedModuleDataChildren</strong>(mixed parentID, mixed data)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="findAros">public  void <strong>findAros</strong>(mixed menuID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="getControllerMenu">public  void <strong>getControllerMenu</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="getSubActionMenu">public  void <strong>getSubActionMenu</strong>(mixed module, mixed controller, mixed action)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="giveAccessTo">public  <a href="../../../module/core/helper/presentation/string.html">string</a> <strong>giveAccessTo</strong>()</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="importRelatedModuleData">public  void <strong>importRelatedModuleData</strong>(mixed module, mixed manifest, mixed records, mixed options)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="noDuplicate">public static  void <strong>noDuplicate</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,714 @@
+[
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Polling Stations",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53b2b010-a0a4-4a0f-a6f4-01ae0af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Google Map",
+			"sequence_number":"5",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"1",
+			"modified_by":"140",
+			"owned_by":null,
+			"created":"2014-07-02 12:40:46",
+			"modified":"2014-07-07 13:19:27",
+			"deleted":"0",
+			"revision":"6",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53b3fdce-0a8c-4b07-8e59-49a50af91b9d",
+			"__created_by":"Gael Miles",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"widget_permissions":{
+				"id":"571",
+				"old_widget_id":null,
+				"user_id":"140",
+				"is_active":"0",
+				"sequence_number":null,
+				"created_by":"140",
+				"modified_by":null,
+				"owned_by":null,
+				"created":"2014-07-07 10:46:48",
+				"modified":null,
+				"deleted":"0",
+				"revision":"1",
+				"flags":null,
+				"widget_id":"53b3fdce-0a8c-4b07-8e59-49a50af91b9d",
+				"__user_id":"Super Admin",
+				"user_id_model":"users",
+				"__widget_id":"Polling Stations",
+				"widget_id_model":"widgets",
+				"__created_by":"Super Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"",
+				"__owned_by":""
+			},
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Knocked Doors",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53b6754c-c7fc-438e-8da7-64f10af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Knocked Door",
+			"sequence_number":"7",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"Flag markers shows here doors which have been Knocked",
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":null,
+			"created":"2014-07-07 10:46:40",
+			"modified":"2014-07-08 15:51:26",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53ba7a90-16e8-4062-b788-3c560af91b9d",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"widget_permissions":{
+				"id":"589",
+				"old_widget_id":null,
+				"user_id":"140",
+				"is_active":"1",
+				"sequence_number":null,
+				"created_by":"140",
+				"modified_by":"140",
+				"owned_by":null,
+				"created":"2014-07-07 10:47:05",
+				"modified":"2014-07-07 10:50:56",
+				"deleted":"0",
+				"revision":"2",
+				"flags":null,
+				"widget_id":"53ba7a90-16e8-4062-b788-3c560af91b9d",
+				"__user_id":"Super Admin",
+				"user_id_model":"users",
+				"__widget_id":"Knocked Doors",
+				"widget_id_model":"widgets",
+				"__created_by":"Super Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"Super Admin",
+				"modified_by_model":"modified_by_user",
+				"__owned_by":""
+			},
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Signs Placed",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53b67567-828c-48bc-b2ec-65cc0af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Signs",
+			"sequence_number":"5",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":null,
+			"created":"2014-07-07 10:47:34",
+			"modified":"2014-07-07 13:13:50",
+			"deleted":"0",
+			"revision":"2",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53ba7ac6-0888-4c88-9421-3d8b0af91b9d",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Dropped Flyers",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53ba7b11-8aec-46cf-b2eb-3ed40af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Dropped Flyers",
+			"sequence_number":"5",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":null,
+			"created":"2014-07-07 10:50:10",
+			"modified":"2014-07-07 13:17:49",
+			"deleted":"0",
+			"revision":"2",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53ba7b62-7524-4d47-8be4-3e970af91b9d",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Potential Donors",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53b67583-9754-4296-be7c-649a0af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Potential Donor",
+			"sequence_number":"5",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":null,
+			"created":"2014-07-07 10:52:15",
+			"modified":"2014-07-07 13:19:02",
+			"deleted":"0",
+			"revision":"2",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53ba7bdf-8988-4acd-a03c-40730af91b9d",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Supporters",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53b66e65-4d54-44eb-ac31-5be20af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Supporters",
+			"sequence_number":"8",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":null,
+			"created":"2014-07-07 11:14:49",
+			"modified":"2014-07-07 13:02:09",
+			"deleted":"0",
+			"revision":"3",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53ba8129-afc4-4836-9617-468c0af91b9d",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"widget_permissions":{
+				"id":"604",
+				"old_widget_id":null,
+				"user_id":"140",
+				"is_active":"0",
+				"sequence_number":null,
+				"created_by":"140",
+				"modified_by":null,
+				"owned_by":null,
+				"created":"2014-07-07 11:15:00",
+				"modified":null,
+				"deleted":"0",
+				"revision":"1",
+				"flags":null,
+				"widget_id":"53ba8129-afc4-4836-9617-468c0af91b9d",
+				"__user_id":"Super Admin",
+				"user_id_model":"users",
+				"__widget_id":"Supporters",
+				"widget_id_model":"widgets",
+				"__created_by":"Super Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"",
+				"__owned_by":""
+			},
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Doors to knock today",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53ba8e4c-57b0-4a65-a35f-54930af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Doors to knock today",
+			"sequence_number":"2",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":null,
+			"created":"2014-07-07 12:50:54",
+			"modified":"2014-07-07 13:02:46",
+			"deleted":"0",
+			"revision":"4",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53ba97ae-2f8c-4a9f-8765-5ea40af91b9d",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Calls to be made today",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53ba96b0-02b0-416f-921c-5ffc0af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Calls to be made today",
+			"sequence_number":"1",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"140",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2014-07-07 12:51:24",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53ba97cc-f8bc-4bda-899f-60410af91b9d",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"panel_id_model":"panels",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null
+			}
+		}
+	}
+]

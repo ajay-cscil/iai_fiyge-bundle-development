@@ -1,0 +1,149 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\model;
+  class canvass_options extends \module\vrm\model\canvass_options_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'vrm__canvass_options';
+       public $alias = 'canvass_options';
+       public $fields = array (
+  'canvass_id' => 
+  array (
+    'column' => 'canvass_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'canvass_option_id' => 
+  array (
+    'column' => 'canvass_option_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'canvass_year' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\canvass_year',
+    'associationAlias' => 'canvass_year',
+    'foreignKey' => 'canvass_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'survey_options' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\survey_options',
+    'associationAlias' => 'survey_options',
+    'foreignKey' => 'canvass_option_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'people_canvasses' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\people_canvasses',
+    'foreignKey' => 'canvass_id',
+    'associationAlias' => 'people_canvasses',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\core\\behaviour\\hasone_to_hasmany_storage_model' => 
+  array (
+    'name' => '\\module\\core\\behaviour\\hasone_to_hasmany_storage_model',
+    'data_column' => 'canvass_option_id',
+    'foreign_key_column' => 'canvass_id',
+  ),
+);
+  }

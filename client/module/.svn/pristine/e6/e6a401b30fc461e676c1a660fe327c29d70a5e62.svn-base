@@ -1,0 +1,159 @@
+{
+    "version": "1.0.4",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        },
+        {
+            "id": "1",
+            "aro_id_model": "users",
+            "aro_id": "1",
+            "__aro_id": "System Admin"
+        }
+    ],
+    "_acl_delete": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        },
+        {
+            "id": "1",
+            "aro_id_model": "users",
+            "aro_id": "1",
+            "__aro_id": "System Admin"
+        }
+    ],
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        },
+        {
+            "id": "1",
+            "aro_id_model": "users",
+            "aro_id": "1",
+            "__aro_id": "System Admin"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Varun Behal",
+    "category_id": "4",
+    "company": "Primary Modules",
+    "created": "2015-05-20",
+    "created_by": "-1",
+    "current_stable_version": "1.0.0",
+    "description": "Recruitment module enables company to post job and track application status",
+    "flags": null,
+    "id": "27265b1a-e746-11e3-aad5-0800275f9930",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": "1",
+    "latest_version": null,
+    "license_agreement": null,
+    "modified": "2015-05-20 15:25:50",
+    "modified_by": "-1",
+    "name": "recruitment",
+    "owned_by": "1",
+    "revision": null,
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/recruitment",
+    "label": "Human Resource: Recruitment",
+    "__created_by": "Maax Core Development Team",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "System Admin",
+    "__category_id": "Human Resource",
+    "category_id_business_key": "Human Resource",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "created_by_model": "created_by_user",
+    "modified_by_model": "modified_by_user",
+    "owned_by_model": "owned_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "applications": "\\module\\recruitment\\controller\\applications",
+        "config_degrees": "\\module\\recruitment\\controller\\config_degrees",
+        "config_sources": "\\module\\recruitment\\controller\\config_sources",
+        "jobs": "\\module\\recruitment\\controller\\jobs"
+    },
+    "models": {
+        "applications": "\\module\\recruitment\\model\\applications",
+        "applications_acl_cache": "\\module\\recruitment\\model\\applications_acl_cache",
+        "applications_group_acl_cache": "\\module\\recruitment\\model\\applications_group_acl_cache",
+        "config_degrees": "\\module\\recruitment\\model\\config_degrees",
+        "config_sources": "\\module\\recruitment\\model\\config_sources",
+        "jobs": "\\module\\recruitment\\model\\jobs"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "1.0.9"
+            },
+            "hr": {
+                "name": "hr",
+                "version": "1.0.0"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_config_departments": "\\module\\access_controls\\model\\config_departments",
+            "_module_hr_model_employees": "\\module\\hr\\model\\employees",
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_flexflow_behaviour_flexflow": "\\module\\flexflow\\behaviour\\flexflow",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl"
+        }
+    }
+}

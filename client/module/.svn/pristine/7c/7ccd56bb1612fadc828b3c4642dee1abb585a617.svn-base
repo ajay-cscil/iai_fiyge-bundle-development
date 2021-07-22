@@ -1,0 +1,483 @@
+{
+	"production":[
+		
+	],
+	"production_workcenter_line":[
+		
+	],
+	"product":[
+		{
+			"listviews":{
+				"id":"1439",
+				"name":"All",
+				"category_id":"1",
+				"query":"{\"fields\":[{\"product.stock_production_lot.ref\":{\"__column\":\"product.stock_production_lot.ref\",\"alias\":\"Internal Reference\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"product.template.name\":{\"__column\":\"product.template.name\",\"alias\":\"Product\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"product.workcenter.production_workcenter_line.production.uom.name\":{\"__column\":\"product.workcenter.production_workcenter_line.production.uom.name\",\"alias\":\"UOM\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"product.create_date\":{\"__column\":\"product.create_date\",\"alias\":\"Created On\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/product\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1439\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/product\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"product.stock_production_lot.ref\",\"column_model\":\"schema\",\"__column\":\"product.stock_production_lot.ref\",\"alias\":\"Internal Reference\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"product.template.name\",\"column_model\":\"schema\",\"__column\":\"product.template.name\",\"alias\":\"Product\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"product.workcenter.production_workcenter_line.production.uom.name\",\"column_model\":\"schema\",\"__column\":\"product.workcenter.production_workcenter_line.production.uom.name\",\"alias\":\"UOM\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"4\",\"column\":\"product.create_date\",\"column_model\":\"schema\",\"__column\":\"product.create_date\",\"alias\":\"Created On\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"mrp\/product",
+				"is_default":"1",
+				"is_public":"1",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-05-30 19:43:39",
+				"modified":"2013-05-30 21:47:02",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"mrp.product.All",
+				"sequence":"286",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		}
+	],
+	"product_uom_categ":[
+		
+	],
+	"resource":[
+		
+	],
+	"stock_location":[
+		{
+			"listviews":{
+				"id":"1434",
+				"name":"All",
+				"category_id":"1",
+				"query":"{\"fields\":[{\"stock_location.complete_name\":{\"__column\":\"stock_location.complete_name\",\"alias\":\"Location Name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_location.chained_location_type\":{\"__column\":\"stock_location.chained_location_type\",\"alias\":\"Location Type\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_location\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1434\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_location\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"stock_location.complete_name\",\"column_model\":\"schema\",\"__column\":\"stock_location.complete_name\",\"alias\":\"Location Name\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"stock_location.chained_location_type\",\"column_model\":\"schema\",\"__column\":\"stock_location.chained_location_type\",\"alias\":\"Location Type\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"mrp\/stock_location",
+				"is_default":"1",
+				"is_public":"1",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-05-30 17:23:17",
+				"modified":"2013-05-30 21:54:28",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"mrp.stock_location.All",
+				"sequence":"282",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		}
+	],
+	"stock_move":[
+		{
+			"listviews":{
+				"id":"1435",
+				"name":"All",
+				"category_id":"1",
+				"query":"{\"fields\":[{\"stock_move.name\":{\"__column\":\"stock_move.name\",\"alias\":\"Description\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.source_location.stock_picking.name\":{\"__column\":\"stock_move.source_location.stock_picking.name\",\"alias\":\"Reference\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.origin\":{\"__column\":\"stock_move.origin\",\"alias\":\"Source\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.source_location.stock_picking.type\":{\"__column\":\"stock_move.source_location.stock_picking.type\",\"alias\":\"Shipping Type\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.product.template.name\":{\"__column\":\"stock_move.product.template.name\",\"alias\":\"Product\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.product.workcenter.production_workcenter_line.production.product_qty\":{\"__column\":\"stock_move.product.workcenter.production_workcenter_line.production.product_qty\",\"alias\":\"Quantity\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.product_uom\":{\"__column\":\"stock_move.product_uom\",\"alias\":\"Unit of Measure\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.stock_production_lot.name\":{\"__column\":\"stock_move.stock_production_lot.name\",\"alias\":\"Serial Number\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.source_location.complete_name\":{\"__column\":\"stock_move.source_location.complete_name\",\"alias\":\"Source Location\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.destination_location.complete_name\":{\"__column\":\"stock_move.destination_location.complete_name\",\"alias\":\"Destination Location\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.date\":{\"__column\":\"stock_move.date\",\"alias\":\"Date\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.date_expected\":{\"__column\":\"stock_move.date_expected\",\"alias\":\"Scheduled Date\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.state\":{\"__column\":\"stock_move.state\",\"alias\":\"Status\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[\"stock_move.date_expected  DESC\"],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_move\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1435\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_move\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"stock_move.name\",\"column_model\":\"schema\",\"__column\":\"stock_move.name\",\"alias\":\"Description\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"stock_move.source_location.stock_picking.name\",\"column_model\":\"schema\",\"__column\":\"stock_move.source_location.stock_picking.name\",\"alias\":\"Reference\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"stock_move.origin\",\"column_model\":\"schema\",\"__column\":\"stock_move.origin\",\"alias\":\"Source\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"4\",\"column\":\"stock_move.source_location.stock_picking.type\",\"column_model\":\"schema\",\"__column\":\"stock_move.source_location.stock_picking.type\",\"alias\":\"Shipping Type\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"5\":{\"seq\":\"5\",\"column\":\"stock_move.product.template.name\",\"column_model\":\"schema\",\"__column\":\"stock_move.product.template.name\",\"alias\":\"Product\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"6\":{\"seq\":\"6\",\"column\":\"stock_move.product.workcenter.production_workcenter_line.production.product_qty\",\"column_model\":\"schema\",\"__column\":\"stock_move.product.workcenter.production_workcenter_line.production.product_qty\",\"alias\":\"Quantity\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"7\":{\"seq\":\"7\",\"column\":\"stock_move.product_uom\",\"column_model\":\"schema\",\"__column\":\"stock_move.product_uom\",\"alias\":\"Unit of Measure\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"8\":{\"seq\":\"8\",\"column\":\"stock_move.stock_production_lot.name\",\"column_model\":\"schema\",\"__column\":\"stock_move.stock_production_lot.name\",\"alias\":\"Serial Number\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"9\":{\"seq\":\"9\",\"column\":\"stock_move.source_location.complete_name\",\"column_model\":\"schema\",\"__column\":\"stock_move.source_location.complete_name\",\"alias\":\"Source Location\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"10\":{\"seq\":\"10\",\"column\":\"stock_move.destination_location.complete_name\",\"column_model\":\"schema\",\"__column\":\"stock_move.destination_location.complete_name\",\"alias\":\"Destination Location\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"11\":{\"seq\":\"11\",\"column\":\"stock_move.date\",\"column_model\":\"schema\",\"__column\":\"stock_move.date\",\"alias\":\"Date\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"12\":{\"seq\":\"12\",\"column\":\"stock_move.date_expected\",\"column_model\":\"schema\",\"__column\":\"stock_move.date_expected\",\"alias\":\"Scheduled Date\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"13\":{\"seq\":\"13\",\"column\":\"stock_move.state\",\"column_model\":\"schema\",\"__column\":\"stock_move.state\",\"alias\":\"Status\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"stock_move.date_expected\",\"sort_by_model\":\"schema\",\"__sort_by\":\"stock_move.date_expected\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"mrp\/stock_move",
+				"is_default":"1",
+				"is_public":"1",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-05-30 18:21:25",
+				"modified":"2013-05-30 21:54:09",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"mrp.stock_move.All",
+				"sequence":"283",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		},
+		{
+			"listviews":{
+				"id":"1454",
+				"name":"test",
+				"category_id":"1",
+				"query":"{\"fields\":[{\"stock_move.source_location.complete_name\":{\"__column\":\"stock_move.source_location.complete_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_move.product.template.name\":{\"__column\":\"stock_move.product.template.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"test\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_move\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1454\",\"name\":\"test\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_move\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"stock_move.source_location.complete_name\",\"column_model\":\"schema\",\"__column\":\"stock_move.source_location.complete_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"stock_move.product.template.name\",\"column_model\":\"schema\",\"__column\":\"stock_move.product.template.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"mrp\/stock_move",
+				"is_default":"0",
+				"is_public":"0",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-06-10 22:04:47",
+				"modified":"2013-06-10 22:07:22",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"mrp.stock_move.test",
+				"sequence":"298",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		}
+	],
+	"stock_picking":[
+		
+	],
+	"stock_production_lot":[
+		{
+			"listviews":{
+				"id":"1436",
+				"name":"All",
+				"category_id":"1",
+				"query":"{\"fields\":[{\"stock_production_lot.prefix\":{\"__column\":\"stock_production_lot.prefix\",\"alias\":\"Prefix\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_production_lot.name\":{\"__column\":\"stock_production_lot.name\",\"alias\":\"Serial Number\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_production_lot.ref\":{\"__column\":\"stock_production_lot.ref\",\"alias\":\"Internal Reference\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_production_lot.product.template.name\":{\"__column\":\"stock_production_lot.product.template.name\",\"alias\":\"Product\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_production_lot.create_date\":{\"__column\":\"stock_production_lot.create_date\",\"alias\":\"Created On\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[\"stock_production_lot.create_date  ASC\"],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_production_lot\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1436\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_production_lot\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"stock_production_lot.prefix\",\"column_model\":\"schema\",\"__column\":\"stock_production_lot.prefix\",\"alias\":\"Prefix\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"stock_production_lot.name\",\"column_model\":\"schema\",\"__column\":\"stock_production_lot.name\",\"alias\":\"Serial Number\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"stock_production_lot.ref\",\"column_model\":\"schema\",\"__column\":\"stock_production_lot.ref\",\"alias\":\"Internal Reference\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"4\",\"column\":\"stock_production_lot.product.template.name\",\"column_model\":\"schema\",\"__column\":\"stock_production_lot.product.template.name\",\"alias\":\"Product\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"5\":{\"seq\":\"5\",\"column\":\"stock_production_lot.create_date\",\"column_model\":\"schema\",\"__column\":\"stock_production_lot.create_date\",\"alias\":\"Created On\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"stock_production_lot.create_date\",\"sort_by_model\":\"schema\",\"__sort_by\":\"stock_production_lot.create_date\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"mrp\/stock_production_lot",
+				"is_default":"1",
+				"is_public":"1",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-05-30 18:47:28",
+				"modified":"2013-05-30 21:53:39",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"mrp.stock_production_lot.All",
+				"sequence":"284",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		}
+	],
+	"stock_warehouse":[
+		{
+			"listviews":{
+				"id":"1433",
+				"name":"All",
+				"category_id":"1",
+				"query":"{\"fields\":[{\"stock_warehouse.name\":{\"__column\":\"stock_warehouse.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_warehouse.lot_input.complete_name\":{\"__column\":\"stock_warehouse.lot_input.complete_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_warehouse.lot_output.complete_name\":{\"__column\":\"stock_warehouse.lot_output.complete_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"stock_warehouse.lot_stock.complete_name\":{\"__column\":\"stock_warehouse.lot_stock.complete_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_warehouse\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1433\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/stock_warehouse\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"stock_warehouse.name\",\"column_model\":\"schema\",\"__column\":\"stock_warehouse.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"stock_warehouse.lot_input.complete_name\",\"column_model\":\"schema\",\"__column\":\"stock_warehouse.lot_input.complete_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"stock_warehouse.lot_output.complete_name\",\"column_model\":\"schema\",\"__column\":\"stock_warehouse.lot_output.complete_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"4\",\"column\":\"stock_warehouse.lot_stock.complete_name\",\"column_model\":\"schema\",\"__column\":\"stock_warehouse.lot_stock.complete_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"mrp\/stock_warehouse",
+				"is_default":"1",
+				"is_public":"1",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-05-30 17:06:23",
+				"modified":"2013-05-30 21:54:45",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"mrp.stock_warehouse.All",
+				"sequence":"281",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		}
+	],
+	"template":[
+		
+	],
+	"uom":[
+		{
+			"listviews":{
+				"id":"1440",
+				"name":"All",
+				"category_id":"1",
+				"query":"{\"fields\":[{\"uom.name\":{\"__column\":\"uom.name\",\"alias\":\"UOM\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"uom.product_uom_categ.name\":{\"__column\":\"uom.product_uom_categ.name\",\"alias\":\"Category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/uom\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1440\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"mrp\\\/uom\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"uom.name\",\"column_model\":\"schema\",\"__column\":\"uom.name\",\"alias\":\"UOM\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"2\",\"column\":\"uom.product_uom_categ.name\",\"column_model\":\"schema\",\"__column\":\"uom.product_uom_categ.name\",\"alias\":\"Category\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"mrp\/uom",
+				"is_default":"1",
+				"is_public":"1",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-05-30 19:48:42",
+				"modified":"2013-05-30 21:47:41",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"mrp.uom.All",
+				"sequence":"287",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		}
+	],
+	"workcenter":[
+		
+	]
+}

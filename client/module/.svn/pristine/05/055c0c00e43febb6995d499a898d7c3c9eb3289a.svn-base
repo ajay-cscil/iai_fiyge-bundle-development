@@ -1,0 +1,22 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_cancel extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        // check if node is valid and exists in log.
+        $node = $docObject->node($docObject->nodeID());
+        if ($node['status'] == 'open') {
+            $stage = 'cancel';
+            $stages = $docObject->stages($stage);
+            if ($stages[$stage] === false) {
+                throw new \Exception(sprintf(__('Could not locate stage "%s"', 'module'), __($stage, 'module')));
+            }
+            $docObject->after($node['id'], $stages[$stage]);
+            $docObject->exitNode();
+        }
+    }
+
+}
+

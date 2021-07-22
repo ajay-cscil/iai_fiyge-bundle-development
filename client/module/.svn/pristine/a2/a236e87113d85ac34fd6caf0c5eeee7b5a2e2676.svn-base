@@ -1,0 +1,360 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\contracts\model;
+  class contract_data extends \module\contracts\model\contract_data_domain_logic
+  {
+       public $displayField = 'title';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'contracts__contract_data';
+       public $alias = 'contract_data';
+       public $associations = array (
+  'contracts' => 
+  array (
+    'className' => '\\module\\contracts\\model\\contracts',
+    'associationAlias' => 'contracts',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'contract_id',
+    'isAclParent' => '1',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_salutations' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\config_salutations',
+    'foreignKey' => 'salutation',
+    'associationAlias' => 'config_salutations',
+  ),
+  'config_contract_types' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\contracts\\model\\config_contract_types',
+    'foreignKey' => 'contract_type',
+    'associationAlias' => 'config_contract_types',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'addresses' => 
+  array (
+    'className' => '\\module\\crm_base\\model\\addresses',
+    'associationAlias' => 'addresses',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '0',
+    'deleteAccess' => '0',
+    'cacheClass' => '0',
+    'ownAcl' => '0',
+    'recursion' => '2',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'isSearchable' => '0',
+  ),
+);
+       public $fields = array (
+  'contract_id' => 
+  array (
+    'column' => 'contract_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'contract_type' => 
+  array (
+    'column' => 'contract_type',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'salutation' => 
+  array (
+    'column' => 'salutation',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'title' => 
+  array (
+    'column' => 'title',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'first_name' => 
+  array (
+    'column' => 'first_name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'is_address_same_as_agency_address' => 
+  array (
+    'column' => 'is_address_same_as_agency_address',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'last_name' => 
+  array (
+    'column' => 'last_name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'base_year' => 
+  array (
+    'column' => 'base_year',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'incentive_year' => 
+  array (
+    'column' => 'incentive_year',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'official_goal' => 
+  array (
+    'column' => 'official_goal',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'goals_threshold' => 
+  array (
+    'column' => 'goals_threshold',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'g2_jumpstart_payout' => 
+  array (
+    'column' => 'g2_jumpstart_payout',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'base_year_combined_revenue' => 
+  array (
+    'column' => 'base_year_combined_revenue',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'base_year_bd_percent' => 
+  array (
+    'column' => 'base_year_bd_percent',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'initial_co_op' => 
+  array (
+    'column' => 'initial_co_op',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'incremental_co_op' => 
+  array (
+    'column' => 'incremental_co_op',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'base_year_booking_count' => 
+  array (
+    'column' => 'base_year_booking_count',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'bd_t1_growth_goal' => 
+  array (
+    'column' => 'bd_t1_growth_goal',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'bd_t2_growth_goal' => 
+  array (
+    'column' => 'bd_t2_growth_goal',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'committed_revenue' => 
+  array (
+    'column' => 'committed_revenue',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'extra_commision_percentage' => 
+  array (
+    'column' => 'extra_commision_percentage',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+       public $filters = array (
+  'title' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'first_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'last_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'contract_type' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'g2_jumpstart_payout' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

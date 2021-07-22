@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\leave_management\controller;
+  class leave_allocations extends \module\leave_management\controller\leave_allocations_domain_logic
+  {
+       public $modelClass = '\\module\\leave_management\\model\\leave_allocations';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

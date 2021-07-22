@@ -1,0 +1,435 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class order_details extends \module\excursion\model\order_details_domain_logic
+  {
+       public $displayField = 'productName';
+       public $primaryKey = 'orderDetailId';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__order_details';
+       public $alias = 'order_details';
+       public $fields = array (
+  'affiliate_Commissionable_Value' => 
+  array (
+    'column' => 'affiliate_Commissionable_Value',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'autoDropShip' => 
+  array (
+    'column' => 'autoDropShip',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'categoryID' => 
+  array (
+    'column' => 'categoryID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'couponCode' => 
+  array (
+    'column' => 'couponCode',
+    'ntype' => 'string',
+    'length' => '10',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'customLineItem' => 
+  array (
+    'column' => 'customLineItem',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'discountAutoID' => 
+  array (
+    'column' => 'discountAutoID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'downloadFile' => 
+  array (
+    'column' => 'downloadFile',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'fixed_ShippingCost' => 
+  array (
+    'column' => 'fixed_ShippingCost',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'fixed_ShippingCost_Outside_LocalRegion' => 
+  array (
+    'column' => 'fixed_ShippingCost_Outside_LocalRegion',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'freeShippingItem' => 
+  array (
+    'column' => 'freeShippingItem',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'giftTrakNumber' => 
+  array (
+    'column' => 'giftTrakNumber',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'giftWrap' => 
+  array (
+    'column' => 'giftWrap',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'giftWrapCost' => 
+  array (
+    'column' => 'giftWrapCost',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'giftWrapNote' => 
+  array (
+    'column' => 'giftWrapNote',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'isKitID' => 
+  array (
+    'column' => 'isKitID',
+    'ntype' => 'string',
+    'length' => '15',
+  ),
+  'kitID' => 
+  array (
+    'column' => 'kitID',
+    'ntype' => 'string',
+    'length' => '15',
+  ),
+  'lastModBy' => 
+  array (
+    'column' => 'lastModBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModified' => 
+  array (
+    'column' => 'lastModified',
+    'ntype' => 'datetime',
+  ),
+  'locked' => 
+  array (
+    'column' => 'locked',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'onOrder_Qty' => 
+  array (
+    'column' => 'onOrder_Qty',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'optionID' => 
+  array (
+    'column' => 'optionID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'optionIDs' => 
+  array (
+    'column' => 'optionIDs',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'options' => 
+  array (
+    'column' => 'options',
+    'ntype' => 'string',
+  ),
+  'orderDetailId' => 
+  array (
+    'column' => 'orderDetailId',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'orderFinished_Note' => 
+  array (
+    'column' => 'orderFinished_Note',
+    'ntype' => 'string',
+  ),
+  'orderID' => 
+  array (
+    'column' => 'orderID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'productCode' => 
+  array (
+    'column' => 'productCode',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'productId' => 
+  array (
+    'column' => 'productId',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'productName' => 
+  array (
+    'column' => 'productName',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'productNote' => 
+  array (
+    'column' => 'productNote',
+    'ntype' => 'string',
+    'length' => '150',
+  ),
+  'productPrice' => 
+  array (
+    'column' => 'productPrice',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'productWeight' => 
+  array (
+    'column' => 'productWeight',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'product_Keys_Shipped' => 
+  array (
+    'column' => 'product_Keys_Shipped',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'qtyOnBackOrder' => 
+  array (
+    'column' => 'qtyOnBackOrder',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'qtyOnHold' => 
+  array (
+    'column' => 'qtyOnHold',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'qtyOnPackingSlip' => 
+  array (
+    'column' => 'qtyOnPackingSlip',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'qtyShipped' => 
+  array (
+    'column' => 'qtyShipped',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'quantity' => 
+  array (
+    'column' => 'quantity',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'rMAI_ID' => 
+  array (
+    'column' => 'rMAI_ID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'rMA_Number' => 
+  array (
+    'column' => 'rMA_Number',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'returned' => 
+  array (
+    'column' => 'returned',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'returned_Date' => 
+  array (
+    'column' => 'returned_Date',
+    'ntype' => 'datetime',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'shipDate' => 
+  array (
+    'column' => 'shipDate',
+    'ntype' => 'datetime',
+  ),
+  'shipped' => 
+  array (
+    'column' => 'shipped',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'taxableProduct' => 
+  array (
+    'column' => 'taxableProduct',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'totalPrice' => 
+  array (
+    'column' => 'totalPrice',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'validOrderDetail' => 
+  array (
+    'column' => 'validOrderDetail',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'vendorID' => 
+  array (
+    'column' => 'vendorID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'vendor_Price' => 
+  array (
+    'column' => 'vendor_Price',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'warehouses' => 
+  array (
+    'column' => 'warehouses',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+);
+       public $associations = array (
+  'orders' => 
+  array (
+    'className' => '\\module\\excursion\\model\\orders',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'orders',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'orderID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'productCode' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'validOrderDetail' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

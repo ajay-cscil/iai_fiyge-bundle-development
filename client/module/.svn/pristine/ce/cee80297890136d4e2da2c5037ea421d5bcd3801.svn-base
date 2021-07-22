@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\purchase\controller;
+  class config_purchase_order_lines extends \module\purchase\controller\config_purchase_order_lines_domain_logic
+  {
+       public $modelClass = '\\module\\purchase\\model\\config_purchase_order_lines';
+
+
+
+
+
+
+  }

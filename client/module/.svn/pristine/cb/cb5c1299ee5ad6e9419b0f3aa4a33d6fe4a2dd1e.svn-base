@@ -1,0 +1,312 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm_cruise\model;
+  class leads extends \module\crm_cruise\model\leads_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'crm_cruise__leads';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $paginateAs = 'lazy';
+       public $singular = 'lead';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'associationAlias' => 'created_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+  ),
+  'modified_by_user' => 
+  array (
+    'associationAlias' => 'modified_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+  ),
+  'owned_by_user' => 
+  array (
+    'associationAlias' => 'owned_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+  ),
+  'imported_by_user' => 
+  array (
+    'associationAlias' => 'imported_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'imported_by',
+  ),
+  'config_salutations' => 
+  array (
+    'className' => '\\module\\masters\\model\\config_salutations',
+    'associationAlias' => 'config_salutations',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'salutation',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_industries' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\config_industries',
+    'associationAlias' => 'config_industries',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'industry',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_ratings' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\config_ratings',
+    'associationAlias' => 'config_ratings',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'rating',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_lead_sources' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\config_lead_sources',
+    'associationAlias' => 'config_lead_sources',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'lead_source',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_lead_status' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\config_lead_status',
+    'associationAlias' => 'config_lead_status',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'lead_status',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'notes' => 
+  array (
+    'associationAlias' => 'notes',
+    'className' => '\\module\\help\\model\\notes',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'isAclChild' => '1',
+  ),
+  'accounts' => 
+  array (
+    'associationAlias' => 'accounts',
+    'className' => '\\module\\crm_cruise\\model\\accounts',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'parent_id',
+  ),
+  'unread_records' => 
+  array (
+    'associationAlias' => 'unread_records',
+    'className' => '\\module\\logging\\model\\action_history',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'record_id',
+    'on' => 
+    array (
+      0 => '{{FOREIGN}}.controller=\'{{PRIMARY}}\'',
+      1 => ' {{FOREIGN}}.record_id={{PRIMARY}}.{{PRIMARY_KEY}}',
+      2 => '{{FOREIGN}}.created_by={{CURRENT_USER}}',
+    ),
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'products' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\products',
+    'associationAlias' => 'products',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'product_id',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'currencies' => 
+  array (
+    'className' => '\\module\\masters\\model\\currencies',
+    'associationAlias' => 'currencies',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'currency',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'parent_lead' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\leads',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'parent_id',
+    'associationAlias' => 'parent_lead',
+  ),
+  'primary_countries' => 
+  array (
+    'className' => '\\module\\masters\\model\\countries',
+    'associationAlias' => 'primary_countries',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'primary_country',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '4',
+    'deleteAccess' => '4',
+    'cacheClass' => '1',
+    'ownAcl' => '1',
+    'isSearchable' => '0',
+  ),
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'first_name' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    2 => 'required',
+    3 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'last_name' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    2 => 'required',
+    3 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'email_opt_out' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\transformation',
+          1 => 'name',
+        ),
+      ),
+      'sanitize' => 1,
+    ),
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\transformation',
+          1 => 'name',
+        ),
+      ),
+      'sanitize' => 1,
+    ),
+  ),
+);
+  }

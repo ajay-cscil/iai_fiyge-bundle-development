@@ -1,0 +1,349 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\brules\model;
+
+class business_rules_domain_logic extends \design_model{
+
+    protected $entityAlias = '';
+    public $isSystemModel = 1;
+    const IGNORE_DATA_ACL_OVERRIDE = true;
+    public $isPseudoDesignElement=1;
+    public function beforeValidate() {
+        parent::beforevalidate();
+        if (isset($this->data['if_condition']) && !empty($this->data['if_condition'])) {
+            $error = check_syntex('<?php ' . $this->data['if_condition'] . "; ?>");
+            if (!empty($error)) {
+                throw new \Exception("If Condition Contain " . $error);
+            }
+        }
+        if (isset($this->data['then_condition']) && !empty($this->data['then_condition'])) {
+            $error = check_syntex('<?php ' . $this->data['then_condition'] . "?>");
+            if (!empty($error)) {
+                throw new \Exception('Then Condition Contain ' . $error);
+            }
+        }
+        if (isset($this->data['else_condition']) && !empty($this->data['else_condition'])) {
+            $error = check_syntex('<?php ' . $this->data['else_condition'] . "?>");
+            if (!empty($error)) {
+                throw new \Exception('Else Condition Contain ' . $error);
+            }
+        }
+    }
+
+    public function beforeSave() {
+        parent::beforeSave();
+    }
+
+    /**
+     * This method acts like rule engine, executing all matched rules.
+     *
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $object Model against which rules need to be run
+     * @param type $filter Filtering criteria for searching rules
+     */
+    public function process($object, $filter = array(), $parameters = array(), $rules = null) {
+
+        /**
+         * Process method reads all rules based on filtering criteria,
+         * and run them against model Object.
+         * It can alter state of model object.
+         * Run all rules which have runlevel >= current runlevel
+         */
+        if (!is_array($filter)) {
+            $filter = array();
+        }
+
+        if (is_a($object, '\tushar\request')) {
+            $object->id = $object->param('id');
+            $object->modelClass = 'remote_procedure_call';
+            $this->entityAlias = 'remote_procedure_call';
+        } else if (is_a($object, '\tushar\model')) {
+            if (!isset($object->id) || empty($object->id)) {
+                if (isset($object->data[$object->primaryKey]) && !empty($object->data[$object->primaryKey])) {
+                    $object->id = $object->data[$object->primaryKey];
+                } elseif (isset($object->data[$object->alias]) && isset($object->data[$object->alias][$object->primaryKey]) && !empty($object->data[$object->alias][$object->primaryKey])) {
+                    $object->id = $object->data[$object->alias][$object->primaryKey];
+                }
+            }
+            if (!isset($object->modelClass) || empty($object->modelClass)) {
+                $object->modelClass = get_class($object);
+            }
+            $al = \explode(NS, $object->modelClass);
+            $count = \count($al);
+            if ($count == 5) {
+                $this->entityAlias = "{$al[2]}_{$al[4]}";
+            } else {
+                if (empty($al[0])) {
+                    array_shift($al);
+                }
+                $this->entityAlias = implode('_', $al);
+            }
+        }
+
+
+
+        $isThreaded = false;
+        if (is_null($rules)) {
+            if (count(array_intersect_key($filter, array('where' => '', 'having' => '', 'group' => '', 'limit' => ''))) == 0) {
+                if (isset($filter['id'])) {
+                    $filter = array('id' => $filter['id']);
+                } else {
+                    if (!isset($filter['filter_path']) && !is_null($object) && isset($object->modelClass)) {
+                        $filter['filter_path'] = \str_replace(NS, '/', $object->modelClass);
+                    }
+                    $filter["{$this->alias}.runlevel >= "] = \tushar\configuration::read('runlevel', 2);
+                    if (isset($filter['filter_path'])) {
+                        $model = (isset($filter['filter_path']{1}) && \substr($filter['filter_path'], -1) == '*' ? \substr($filter['filter_path'], 0, -1) : $filter['filter_path']);
+                        unset($filter['filter_path']);
+                        $run_global_rules = true;
+                        if (array_key_exists('run_global_rules', $filter)) {
+                            $run_global_rules = (bool) $filter['run_global_rules'];
+                            unset($filter['run_global_rules']);
+                        }
+                        if ($run_global_rules) {
+                            $filter['OR'] = array('filter_path LIKE' => $model, 'filter_path' => '-');
+                        } else {
+                            $filter['filter_path LIKE'] = $model;
+                        }
+                    }
+                }
+                $find = array(
+                    'fields' => array("{$this->alias}.*")
+                    , 'order' => "{$this->alias}.lft"
+                    , 'limit' => 0
+                    , 'where' => $filter
+                );
+            } else {
+                $find = array_merge(array('limit' => 0), $filter, array(
+                    'fields' => array("{$this->alias}.*")
+                    , 'order' => "{$this->alias}.lft"
+                        )
+                );
+            }
+            $rules = $this->find($find)->fetchAll(\PDO::FETCH_ASSOC);
+        } else {
+            $rule = current($rules);
+            $isThreaded = is_array($rule) && isset($rule['children']);
+        }
+        if (!empty($rules)) {
+            $invocation = \uuid();
+            //All rules read based on filter are converted to nested tree structure
+            if (!$isThreaded) {
+                $rules = \tushar\app::threaded($rules);
+            }
+            //This rules tree is traverse recursively, Till all rules are processed or encounters terminating state.
+            $this->__process($object, $rules, $invocation, $parameters);
+        }
+        return $rules;
+    }
+
+    /**
+     * Helper method to traverse rules recursively and execute them
+     *
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $object Model against which rules need to be run
+     * @param type $rules All matched rules to be executed
+     * @param type $invocation All rules executed in sngle run will be trac based on invocation UUID
+     * @return type
+     */
+    private function __process($object, &$rules, $invocation, $parameters = array()) {
+        $debugMode = (bool) \tushar\configuration::read('debug');
+        if (is_array($rules)) {
+            foreach ($rules as $k => $rule) {
+                $parameters = $debug_output = "";
+                if ($debugMode === true) {
+                    $parameters = var_export($parameters, true);
+                    //$debug_output = var_export($object, true);
+                }
+                $rules[$k]['is_true_if_condition'] = $ifTrue = false;
+                eval('$ifTrue=(' . $rule['if_condition'] . '?true:false);');
+                $then = $else = null;
+                if ($ifTrue) {
+                    $rules[$k]['is_true_if_condition'] = $ifTrue;
+                    if (!empty($rule['then_condition'])) {
+                        $isValid = true;
+                        // check if rule is already executed in case of run once cases.
+                        if (isset($rule['run_once']) && $rule['run_once'] == 1 && !is_null($object)) {
+                            $isValid = ($this->business_rule_run_log->find(
+                                            array(
+                                                'fields' => "{$this->business_rule_run_log->alias}.id",
+                                                'where' => array(
+                                                    'business_rule_id' => $rule['id'],
+                                                    'related_to' => $object->id,
+                                                    'related_to_model' => $this->entityAlias,
+                                                    'is_true_if_condition' => 1,
+                                                ), 'limit' => 1
+                                            )
+                                    )->fetch(\PDO::FETCH_COLUMN, 0) > 0 ? false : true);
+                        }
+
+                        if ($isValid === true) {
+                            $result = eval($rule['then_condition'] . ";");
+                            // log all rules executed
+                            if (!is_null($object)) {
+
+                                if ($this->business_rule_run_log->save(array(
+                                            'related_to' => $object->id,
+                                            'related_to_model' => $this->entityAlias,
+                                            'related_to_model_class' => $object->modelClass,
+                                            'business_rule_id' => $rule['id'],
+                                            'invocation' => $invocation,
+                                            'is_true_if_condition' => (int) $ifTrue,
+                                            'failed' => ($result === false ? "THEN" : ""),
+                                            'parameters' => $parameters
+                                                ), array('atomic' => true)
+                                        )) {
+                                    \tushar\logger::log(array("event_name" => 'OBJECT', "message" => $object, 'event_type' => 'OBJECT', 'params' => ''), DEBUG, false);
+                                }
+                            }
+                            if ($result === false) {
+                                throw new \Exception(sprintf(__('Rule %s( %s ) execution failed for entiry "%s"', 'module'), $rule['name'], $rule['id'], str_replace(NS, NS . NS, $object->modelClass)));
+                            }
+                        }
+                    }
+                } else {
+                    if (!empty($rule['else_condition'])) {
+                        $result = eval($rule['else_condition'] . ";");
+                        // log all rules executed
+                        if (!is_null($object)) {
+                            if ($this->business_rule_run_log->save(array(
+                                        'related_to' => $object->id,
+                                        'related_to_model' => $this->entityAlias,
+                                        'related_to_model_class' => $object->modelClass,
+                                        'business_rule_id' => $rule['id'],
+                                        'invocation' => $invocation,
+                                        'is_true_if_condition' => (int) $ifTrue,
+                                        'failed' => ($result === false ? "ELSE" : ""),
+                                        'parameters' => $parameters
+                                            ), array('atomic' => true)
+                                    )) {
+                                \tushar\logger::log(array("event_name" => 'OBJECT', "message" => $object, 'event_type' => 'OBJECT', 'params' => ''), DEBUG, false);
+                            }
+                        }
+                        if ($result === false) {
+                            throw new \Exception(sprintf(__('Rule %s( %s ) execution failed for entiry "%s"', 'module'), $rule['name'], $rule['id'], str_replace(NS, NS . NS, $object->modelClass)));
+                        }
+                    }
+                }
+
+                //If any rule is terminal then it breaks chain and return
+                if (isset($rule['is_terminal']) && $rule['is_terminal'] == 1) {
+                    return;
+                }
+                if (isset($rule['children'])) {
+                    $this->__process($object, $rules[$k]['children'], $invocation);
+                }
+            }
+        }
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @return string
+     */
+    public static function lookup($query, $x, $view) {
+        $options = array();
+        switch ($query) {
+            case 'runlevel':
+                foreach (\module\brules\model\business_rule_runlevels::getInstance(array(), true)->find(
+                                array('fields' => array('runlevel', 'runlevel_code')))
+                        ->fetchAll(\PDO::FETCH_ASSOC) as $row) {
+                    $options[] = array('text' => $row['runlevel'], 'value' => $row['runlevel_code']);
+                }
+                break;
+        }
+        return $options;
+    }
+
+    public function paginateRelatedModuleData($moduleID, $manifest) {
+        $pages = array();
+        foreach (\select("filter_path", "deleted")
+                ->from($this)
+                //->inserted()
+                ->where(
+                        array(
+                            'OR' => array('module_id' => $moduleID, array("module_id " => "", "filter_path LIKE " => "/module/{$manifest['name']}/"))
+                        )
+                )->limit(0)
+                ->order('lft ASC')
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC) as $rule) {
+            $pages[$rule['filter_path']] = $rule;
+        }
+
+        return $pages;
+    }
+
+    public function exportRelatedModuleData($moduleID, $manifest, $page = null) {
+        // only copy module rules.
+        // either module_id is set.
+        // for backword compatibility module_id IS null and filter_path contain module name.
+        // dont export global rules.
+
+        $schema = $this->schema();
+        if (isset($schema['module_id']) && is_array($page)) {
+            $where = array(
+                'OR' => array('module_id' => $moduleID, "module_id " => "")
+                , "filter_path" => $page['filter_path']
+            );
+        } else {
+            $where = array("filter_path LIKE" => "/module/{$manifest['name']}/");
+        }
+        return \select("*")
+                        ->from($this)
+                        ->inserted()
+                        ->where($where)
+                        ->limit(0)
+                        ->order('lft ASC')
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function importRelatedModuleData($module, $manifest, $records, $options = array()) {
+        $return = array();
+        try {
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('begin');
+            }
+
+            $this->computeDepth = false;
+            foreach ($records as $record) {
+                if (is_array($record) && !empty($record)) {
+                    $record['module_id'] = $module['id'];
+                    $record = array_diff_key($record, array('lft' => 1, 'rgt' => 1));
+                    if (!shouldApplyChanges($this, $record, $manifest)) {
+                        continue;
+                    }
+                    $this->save($record, array('atomic' => true, 'validate' => false, 'compute_actors' => false));
+                }
+            }
+            $this->computeDepth = true;
+            $this->call('updateDepth', array(array("{$this->alias}.depth" => 0)), array('\\tushar\\behaviour\\tree'));
+
+
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('commit');
+            }
+        } catch (\Exception $e) {
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('rollback');
+            }
+            static::$errors[] = $e->getMessage();
+            return false;
+        }
+        return true;
+    }
+
+    public function beforeDelete() {
+        if (isset($this->associations['business_rule_run_log'])) {
+            $this->associations['business_rule_run_log']['isSubModel'] = 1;
+        }
+        parent::beforeDelete();
+    }
+
+}

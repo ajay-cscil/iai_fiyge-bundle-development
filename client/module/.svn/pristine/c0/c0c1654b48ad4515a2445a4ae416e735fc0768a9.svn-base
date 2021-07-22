@@ -1,0 +1,178 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow_test\model;
+  class patterns extends \module\flexflow_test\model\patterns_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'flexflow_test__patterns';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'types' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\flexflow\\model\\types',
+    'associationAlias' => 'types',
+    'foreignKey' => 'type_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\flexflow\\behaviour\\flexflow' => 
+  array (
+    'name' => '\\module\\flexflow\\behaviour\\flexflow',
+  ),
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '4',
+    'deleteAccess' => '4',
+    'cacheClass' => '1',
+    'ownAcl' => '1',
+    'lazyAclCheck' => '1',
+  ),
+);
+       public $fields = array (
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '500',
+    'comment' => '{"block":"Pattern Information","colspan":"3"}',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'amount' => 
+  array (
+    'column' => 'amount',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'choice' => 
+  array (
+    'column' => 'choice',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'type_id' => 
+  array (
+    'column' => 'type_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

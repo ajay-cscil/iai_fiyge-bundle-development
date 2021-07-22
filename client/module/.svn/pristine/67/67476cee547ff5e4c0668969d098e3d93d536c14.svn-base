@@ -1,0 +1,94 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"name\":\"All Journal entries\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"accounting\\\/journal_entries\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"journal_entries.created\",\"column_model\":\"schema\",\"__column\":\"journal_entries.created\",\"alias\":\"Date\",\"aggregator\":\"\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"journal_entries.journal_date\",\"column_model\":\"schema\",\"__column\":\"journal_entries.journal_date\",\"alias\":\"Journal Date\",\"aggregator\":\"\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"journal_entries.journal_date\",\"column_model\":\"schema\",\"__column\":\"journal_entries.journal_date\",\"alias\":\"Date\",\"aggregator\":\"\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"journal_entries.memo\",\"column_model\":\"schema\",\"__column\":\"journal_entries.memo\",\"alias\":\"Description\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"journal_entries.debits_total\",\"column_model\":\"schema\",\"__column\":\"journal_entries.debits_total\",\"alias\":\"Debits\",\"aggregator\":\"\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"number\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"journal_entries.credits_total\",\"column_model\":\"schema\",\"__column\":\"journal_entries.credits_total\",\"alias\":\"Credits\",\"aggregator\":\"\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"number\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"7\",\"column\":\"journal_entries.workflow_docs.current_stages\",\"column_model\":\"schema\",\"__column\":\"journal_entries.workflow_docs.current_stages\",\"alias\":\"Stage\",\"aggregator\":\"\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"journal_entries.created\",\"sort_by_model\":\"schema\",\"__sort_by\":\"journal_entries.created\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"all\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"0\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "accounting\/journal_entries",
+            "created": "2014-04-25 09:45:59",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "accounting.journal_entries.All Journal entries",
+            "id": "535a2ed7-1e30-4a22-9c5b-18370af91b9d",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+            "name": "All Journal entries",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[{\"journal_entries.created\":{\"__column\":\"journal_entries.created\",\"alias\":\"Date\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"journal_entries.journal_date\":{\"__column\":\"journal_entries.journal_date\",\"alias\":\"Journal Date\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"journal_entries.journal_date\":{\"__column\":\"journal_entries.journal_date\",\"alias\":\"Date\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"journal_entries.memo\":{\"__column\":\"journal_entries.memo\",\"alias\":\"Description\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"journal_entries.debits_total\":{\"__column\":\"journal_entries.debits_total\",\"alias\":\"Debits\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"class\":\"number\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"journal_entries.credits_total\":{\"__column\":\"journal_entries.credits_total\",\"alias\":\"Credits\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"class\":\"number\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"journal_entries.workflow_docs.current_stages\":{\"__column\":\"journal_entries.workflow_docs.current_stages\",\"alias\":\"Stage\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[\"journal_entries.created  DESC\"],\"name\":\"All Journal entries\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"accounting\\\/journal_entries\",\"render_as\":\"index\",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"all\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"1\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "1",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "",
+            "__module_id": "accounting",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

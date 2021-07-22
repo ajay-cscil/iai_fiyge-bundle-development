@@ -1,0 +1,79 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\brules\controller;
+  class business_rule_run_log extends \module\brules\controller\business_rule_run_log_domain_logic
+  {
+       public $modelClass = '\\module\\brules\\model\\business_rule_run_log';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'fields' => 
+  array (
+    1 => 
+    array (
+      'column' => 'business_rules.name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'column' => 'business_rules.filter_path',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    3 => 
+    array (
+      'column' => 'business_rules.runlevel',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    4 => 
+    array (
+      'column' => 'business_rule_run_log.related_to_model',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    5 => 
+    array (
+      'column' => 'business_rule_run_log.related_to',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    7 => 
+    array (
+      'column' => 'business_rule_run_log.created',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    8 => 
+    array (
+      'column' => 'business_rule_run_log.invocation',
+      'presentation' => '',
+      'alias' => '',
+    ),
+  ),
+  'inline_click' => '0',
+);
+
+
+
+
+
+
+  }

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\contracts\controller;
+  class config_contract_types extends \module\contracts\controller\config_contract_types_domain_logic
+  {
+       public $modelClass = '\\module\\contracts\\model\\config_contract_types';
+
+
+
+
+
+
+  }

@@ -1,0 +1,300 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\controller;
+
+class stage_log_domain_logic extends \data_controller{
+
+    public function _workflow($request) {
+        return $this->workflow($request);
+    }
+
+    /**
+     * Pseudo Code
+     * Create a list-view from UI. Call list-with
+     * Columns to read "stage_name|possible actors|actor[action]take taken|message"|status[hidden]
+     * Use standard maax API to compute result set.
+     * for Every row
+     * if status is open then compute next stages to be shown based on stages->possible_actions/is_default->move_to_stages
+     * 
+     * @param type $request 
+     */
+    public function workflow($request) {
+        $this->render = 'index';
+        $modelObj = $this->modelObj();
+        $actorObject = \module\flexflow\model\actors::getInstance();
+        parent::index($request);
+        $paginate = $request->response('paginate');
+        $alias = $modelObj->alias;
+
+        if (isset($paginate['data'])) {
+
+            $records = array();
+            $keys = array();
+            $css_class_for_open_stage = \tushar\configuration::read('css_class_for_open_stage', 'btn-mini btn-success');
+            $css_class_for_close_stage = \tushar\configuration::read('css_class_for_close_stage', '');
+            $css_class_for_canceled_stage = \tushar\configuration::read('css_class_for_canceled_stage', 'btn-mini btn-danger');
+
+            // Compute column names.
+            $actorAlias = 'stage_log._acl_edit';
+            $stageName = 'stage_log.name';
+            $relationshipName = 'stage_log.relationship';
+            $messageColumn = 'stage_log.action_log.message';
+            if (isset($paginate['header'])) {
+                foreach ($paginate['header'] as $column) {
+                    if (isset($column['column_name'])) {
+                        if ($column['column_name'] == $actorAlias && !empty($column['alias'])) {
+                            $actorAlias = $column['alias'];
+                        }
+                        if ($column['column_name'] == $stageName && !empty($column['alias'])) {
+                            $stageName = $column['alias'];
+                        }
+                        if ($column['column_name'] == $relationshipName && !empty($column['alias'])) {
+                            $relationshipName = $column['alias'];
+                        }
+                        if ($column['column_name'] == $messageColumn && !empty($column['alias'])) {
+                            $messageColumn = $column['alias'];
+                        }
+                    }
+                }
+            }
+
+
+
+            $nodeParents = $added = $keys = $tobeAdded = $record = $logIds = array();
+            // get list of all primary keys for stage_log.
+            foreach ($paginate['data'] as $recordNo => $record) {
+                $logIds[] = $record["{$alias}.id"];
+            }
+            // Get all parents for each of stage log entry.
+            foreach (\select("*")
+                    ->from(\module\flexflow\model\rel_log::getInstance())
+                    ->where('child_id', $logIds)
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $nu) {
+                if (!isset($nodeParents[$nu['child_id']])) {
+                    $nodeParents[$nu['child_id']] = array();
+                }
+                $nodeParents[$nu['child_id']][] = $nu['parent_id'];
+            }
+
+            // Compute padding for each entry of stage_log.
+            foreach ($paginate['data'] as $recordNo => $record) {
+                $pk = $record["{$alias}.id"];
+                $rel = isset($record[$relationshipName]) ? $record[$relationshipName] : '';
+                $this->computePadding($nodeParents, $rel, $pk);
+            }
+            // Get future stages for each stage log entry which is open.
+            $openStages = array();
+            for ($recordNo = count($paginate['data']) - 1; $recordNo >= 0; $recordNo--) {
+                $record = $paginate['data'][$recordNo];
+                $pk = $record["{$alias}.id"];
+                $isOpen = isset($record["{$alias}.status"]) && $record["{$alias}.status"] == 'open';
+                if ($isOpen) {
+                    $tobeAdded[$recordNo] = array();
+                    foreach ($this->getStageMap($record["{$alias}.stage_id"], $nodeParents[$pk]) as $stage) {
+                        if (!isset($added[$stage['id']]) && !empty($stage['name'])) {
+                            $tobeAdded[$recordNo][] = array($stageName => $stage['name'], 'padding' => $stage['padding']);
+                            $added[$stage['id']] = $stage['id'];
+                            $added[$record["{$alias}.stage_id"]] = $record["{$alias}.stage_id"];
+                        }
+                    }
+                    $openStages[] = $record["{$alias}.stage_id"];
+                }
+            }
+
+            $possibleActions = array();
+            foreach (\select(array("possible_actions.stage_id", "actions.escalation_time"))
+                    ->from($this->modelObj()->stages->possible_actions)
+                    ->joinInner('actions')
+                    ->inserted()
+                    ->where(
+                            array(
+                                "possible_actions.stage_id" => $openStages,
+                                //"possible_actions.is_default" => 1,
+                                "actions.id > " => 0,
+                            )
+                    )
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $action) {
+                if (!empty($action['escalation_time'])) {
+                    if (!isset($possibleActions[$action['stage_id']])) {
+                        $possibleActions[$action['stage_id']] = array();
+                    }
+                    $possibleActions[$action['stage_id']][] = $action['escalation_time'];
+                }
+            }
+
+            // pr($possibleActions);
+            $nmap = array();
+            foreach (select("*")
+                    ->from(\module\flexflow\model\notified_users_log::getInstance())
+                    ->where('log_id', $logIds)
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $nu) {
+                if (!isset($nmap[$nu['log_id']])) {
+                    $nmap[$nu['log_id']] = array();
+                }
+                $nmap[$nu['log_id']][] = $nu['user_id'];
+            }
+
+
+            foreach (array_flip(array_keys($record)) as $key => $value) {
+                $keys[$key] = "";
+            }
+            $escalationProgress = \tushar\configuration::read('escalation_progress');
+            if (!is_array($escalationProgress)) {
+                $escalationProgress = array();
+            }
+            krsort($escalationProgress);
+            // pr( $escalationProgress);
+            foreach ($paginate['data'] as $recordNo => $record) {
+                $pk = $record["{$alias}.id"];
+                $class = '';
+                if (isset($record[$stageName])) {
+                    $class = 'css_class_for_' . $record["{$alias}.status"] . '_stage';
+                    if (isset($$class)) {
+                        $class = $$class;
+                    }
+                }
+
+                if (isset($record["{$alias}.status"])) {
+                    if ($record["{$alias}.status"] == 'open' && isset($record["{$alias}.created"])) {
+                        $stageID = $record["{$alias}.stage_id"];
+                        $openTime = round(((strtotime(\tushar\locale::systemDate() . " " . \tushar\locale::systemTime()) - strtotime($record["{$alias}.created"])) / (60 * 60)), 2);
+                        if (isset($possibleActions[$stageID])) {
+                            foreach ($possibleActions[$stageID] as $possibleAction) {
+                                $spentHour = ($openTime / $possibleAction) * 100;
+                                $escalationClass = "";
+                                foreach ($escalationProgress as $escalationKey => $escalationValue) {
+                                    if ($spentHour >= $escalationKey) {
+                                        //$class = $escalationValue;
+                                        $escalationClass = $escalationValue;
+                                        break;
+                                    }
+                                }
+                                $message = \sprintf(__('Time: %s hours in this stage.<br/>Escalation scheduled at %s hours'), $openTime, $possibleAction);
+                                if (!empty($escalationClass)) {
+                                    $message = "<div class='{$escalationClass}'>{$message}</div>";
+                                }
+                                $record[$messageColumn][] = $message;
+                            }
+                        } else {
+                            $record[$messageColumn][] = \sprintf(__('Stage open for last %s hours'), $openTime);
+                        }
+                    } else if ($record["{$alias}.status"] == 'canceled') {
+                        if (empty($record[$messageColumn])) {
+                            $record[$messageColumn][] = __('DISABLED: This stage is not appropriate for this document due to corporate business rules by Flexflow System');
+                        }
+                    }
+                }
+
+                if (isset($record[$actorAlias])) {
+                    $users = $actorObject->processACLString($record[$actorAlias], true);
+                    $record[$actorAlias] = array();
+                    foreach ($users as $user) {
+                        $record[$actorAlias][] = $user['name'] . (isset($nmap[$pk]) && in_array($user['id'], $nmap[$pk]) ? ' [Notified]' : '');
+                    }
+                    $record[$actorAlias] = implode(", ", $record[$actorAlias]);
+                }
+                if (isset($record[$stageName])) {
+                    $record[$stageName] = str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $nodeParents[$pk]) . "<span " . (isset($record["{$alias}.stage_id"]) ? " stage_id='" . $record["{$alias}.stage_id"] . "'" : "") . " class=\"{$class}\">$record[$stageName]</span>";
+                }
+                $records[] = $record;
+
+                if (isset($tobeAdded[$recordNo]) && !empty($tobeAdded[$recordNo])) {
+                    foreach ($tobeAdded[$recordNo] as $tobe) {
+                        $record = array_merge($keys, $tobe);
+                        $record[$stageName] = str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $record['padding']) . "<span " . (isset($record["{$alias}.id"]) ? " stage_id='" . $record["{$alias}.id"] . "'" : "") . " >$record[$stageName]</span>";
+                        $records[] = $record;
+                    }
+                }
+            }
+            $paginate['data'] = $records;
+        }
+        $request->set('paginate', $paginate);
+    }
+
+    private function computePadding(&$nodeParents, $rel, $pk) {
+        if (isset($nodeParents[$pk]) && is_array($nodeParents[$pk])) {
+            $pad = array();
+            foreach ($nodeParents[$pk] as $k => $v) {
+                if (is_numeric($nodeParents[$pk][$v])) {
+                    $pad[] = $nodeParents[$pk][$v];
+                }
+                \sort($pad);
+            }
+            $nodeParents[$pk] = (isset($pad[0]) ? $pad[0] : 0);
+            if (isset($rel)) {
+                switch ($rel) {
+                    case 'is_parent':
+                        $nodeParents[$pk] = $nodeParents[$pk] - 1;
+                        break;
+                    case 'is_child':
+                        $nodeParents[$pk] = $nodeParents[$pk] + 1;
+                        break;
+                    case 'is_sibling':
+                        $nodeParents[$pk] = $nodeParents[$pk];
+                        break;
+                }
+            }
+        } else {
+            $nodeParents[$pk] = 0;
+        }
+    }
+
+    private function getStageMap($stageID, $padding = 0, $cnt = 0) {
+        if (empty($stageID)) {
+            return array();
+        }
+        $cnt++;
+        if ($cnt > 20) {
+            return array();
+        }
+        $modelObj = $this->modelObj()->stages->possible_actions;
+        $stages = \select(array("stages.*", "move_to_stages.relationship"))
+                ->from($modelObj)
+                ->joinInner('move_to_stages')
+                ->joinInner('stages')
+                ->inserted()
+                ->where(
+                        array(
+                            "possible_actions.stage_id" => $stageID,
+                            "possible_actions.is_default" => 1,
+                            "stages.id > " => 0,
+                        )
+                )
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        if (!is_array($stages)) {
+            $stages = array();
+        }
+        $childStages = array();
+        foreach ($stages as $k => $stage) {
+            $stage['padding'] = 0;
+            switch ($stage['relationship']) {
+                case 'is_parent':
+                    $stage['padding'] = $padding - 1;
+                    break;
+                case 'is_child':
+                    $stage['padding'] = $padding + 1;
+                    break;
+                case 'is_sibling':
+                    $stage['padding'] = $padding;
+                    break;
+            }
+            $childStages = array_merge($childStages, $this->getStageMap($stage['id'], $stage['padding'], $cnt));
+            $stages[$k] = $stage;
+        }
+        return array_merge($stages, $childStages);
+    }
+
+}

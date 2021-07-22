@@ -1,0 +1,24 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\model;
+
+class actions_domain_logic extends \design_model{
+    public $isSystemModel=1;
+    public function process($docObject) {
+        
+    }
+
+    public function exportRelatedModuleData($moduleID, $manifest, $page=null) {
+        return array();
+    }
+
+    public function importRelatedModuleData($module, $manifest, $records, $options=array()) {
+        return true;
+    }
+
+}

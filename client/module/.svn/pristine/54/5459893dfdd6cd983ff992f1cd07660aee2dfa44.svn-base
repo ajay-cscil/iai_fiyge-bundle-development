@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\controller;
+  class list_type extends \module\vrm\controller\list_type_domain_logic
+  {
+       public $modelClass = '\\module\\vrm\\model\\list_type';
+
+
+
+
+
+
+  }

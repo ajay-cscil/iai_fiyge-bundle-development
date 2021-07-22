@@ -1,0 +1,79 @@
+[
+	{
+		"listviews":{
+			"name":"Recycle Bin",
+			"category_id":"12",
+			"query":"{\"fields\":[\"current_canvass_options.name\",\"current_canvass_options.created\",\"current_canvass_options.deleted\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"current_canvass_options.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"current_canvass_options.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"current_canvass_options.name\",\"__column\":\"current_canvass_options.name\"},{\"column\":\"current_canvass_options.created\",\"__column\":\"current_canvass_options.created\"},{\"column\":\"current_canvass_options.deleted\",\"__column\":\"current_canvass_options.deleted\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"current_canvass_options.modified\",\"__column\":\"current_canvass_options.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"current_canvass_options.modified\",\"sort_by\":\"current_canvass_options.modified\"}}",
+			"description":null,
+			"controller":"vrm\/current_canvass_options",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2014-07-24 21:31:00",
+			"modified":null,
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Ward-7-8"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"vrm.current_canvass_options.Recycle Bin",
+			"sequence":"100270",
+			"primary_acl_group":"847",
+			"id":"53d17b14-f144-456c-8644-0b900af91b9d",
+			"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Super Admin",
+			"__modified_by":"",
+			"__category_id":"System View",
+			"__parent_id":"",
+			"__owned_by":"Super Admin",
+			"__primary_acl_group":"Ward-7-8",
+			"__module_id":"vrm",
+			"created_by_model":"created_by_user",
+			"category_id_model":"category",
+			"owned_by_model":"owned_by_user",
+			"primary_acl_group_model":"groups",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

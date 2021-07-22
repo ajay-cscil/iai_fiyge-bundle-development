@@ -1,0 +1,72 @@
+[
+	{
+		"listviews":{
+			"name":"Dropped Flyers",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"contacts.name\":{\"__column\":\"contacts.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"contacts.addresses.latitude\":{\"__column\":\"contacts.addresses.latitude\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"contacts.addresses.longitude\":{\"__column\":\"contacts.addresses.longitude\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\" IF( LOCATE('Dropped Flyers',contacts.voter_informations.survey) > 0 ,'https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/postoffice-us.png','https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/man.png')\":{\"__column\":\" IF( LOCATE('Dropped Flyers',contacts.voter_informations.survey) > 0 ,'https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/postoffice-us.png','https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/man.png')\",\"alias\":\"icon\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"Dropped Flyers\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"elections\\\/contacts\",\"render_as\":\"index\",\"description\":\"Yellow marker shows the area where flyers are dropped\",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::google_map\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"100379\",\"show_marker_index\":\"1\",\"auto_zoom_to_fit_markers\":\"1\",\"track_current_position\":\"0\",\"data_source_1_model\":\"listviews\",\"data_source_2_model\":\"listviews\",\"data_source_3_model\":\"listviews\",\"data_source_4_model\":\"listviews\",\"data_source_5_model\":\"listviews\",\"owned_by\":\"140\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"created_by\":\"140\",\"modified_by\":\"140\",\"primary_acl_group_model\":\"groups\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"acl\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"method\":\"index\"}",
+			"_query":"{\"id\":\"53ba7b11-8aec-46cf-b2eb-3ed40af91b9d\",\"name\":\"Dropped Flyers\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"elections\\\/contacts\",\"render_as\":\"index\",\"description\":\"Yellow marker shows the area where flyers are dropped\",\"fields\":[{\"seq\":\"1\",\"column\":\"contacts.name\",\"column_model\":\"schema\",\"__column\":\"contacts.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"contacts.addresses.latitude\",\"column_model\":\"schema\",\"__column\":\"contacts.addresses.latitude\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"contacts.addresses.longitude\",\"column_model\":\"schema\",\"__column\":\"contacts.addresses.longitude\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\" IF( LOCATE('Dropped Flyers',contacts.voter_informations.survey) > 0 ,'https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/postoffice-us.png','https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/man.png')\",\"column_model\":\"schema\",\"__column\":\" IF( LOCATE('Dropped Flyers',contacts.voter_informations.survey) > 0 ,'https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/postoffice-us.png','https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/man.png')\",\"alias\":\"icon\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::google_map\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100379\",\"longitude\":\"\",\"latitude\":\"\",\"zoom\":\"\",\"_show_marker_index\":\"0\",\"show_marker_index\":\"1\",\"_auto_zoom_to_fit_markers\":\"0\",\"auto_zoom_to_fit_markers\":\"1\",\"_track_current_position\":\"0\",\"current_position_infowindow\":\"\",\"data_source_1\":\"\",\"data_source_1_model\":\"listviews\",\"__data_source_1\":\"\",\"data_source_2\":\"\",\"data_source_2_model\":\"listviews\",\"__data_source_2\":\"\",\"data_source_3\":\"\",\"data_source_3_model\":\"listviews\",\"__data_source_3\":\"\",\"data_source_4\":\"\",\"data_source_4_model\":\"listviews\",\"__data_source_4\":\"\",\"data_source_5\":\"\",\"data_source_5_model\":\"listviews\",\"__data_source_5\":\"\",\"row_template\":\"\",\"owned_by\":\"140\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"created_by\":\"140\",\"modified_by\":\"140\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"_acl\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}]}",
+			"description":"Yellow marker shows the area where flyers are dropped",
+			"controller":"elections\/contacts",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":"140",
+			"created":"2014-07-07 10:48:49",
+			"modified":"2014-07-08 16:17:30",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"elections.contacts.Dropped Flyers",
+			"sequence":"100379",
+			"primary_acl_group":"0",
+			"id":"53ba7b11-8aec-46cf-b2eb-3ed40af91b9d",
+			"module_id":"",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Super Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"",
+			"__module_id":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

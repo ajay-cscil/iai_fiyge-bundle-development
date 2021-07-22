@@ -1,0 +1,179 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\model;
+  class households extends \module\vrm\model\households_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'vrm__households';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'households';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'count' => 
+  array (
+    'column' => 'count',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'comment' => 'Count of People at this Address',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'polling_stations_id' => 
+  array (
+    'column' => 'polling_stations_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'street_name' => 
+  array (
+    'column' => 'street_name',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'polling_stations' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\polling_stations',
+    'associationAlias' => 'polling_stations',
+    'foreignKey' => 'polling_stations_id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '0',
+    'deleteAccess' => '0',
+    'ownAcl' => '1',
+    'cacheClass' => '1',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

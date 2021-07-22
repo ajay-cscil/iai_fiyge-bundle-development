@@ -1,0 +1,95 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"52611fb5-2728-4abb-b94e-1d890acef1b9\",\"name\":\"Opportunities By Source\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"crm\\\/opportunities\",\"render_as\":\"categorized\",\"description\":\"Sum of opportunities annual revenue by different sources\",\"fields\":[{\"seq\":\"1\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.config_lead_sources.lead_source\",\"column_model\":\"schema\",\"__column\":\"opportunities.config_lead_sources.lead_source\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.amount\",\"column_model\":\"schema\",\"__column\":\"opportunities.amount\",\"alias\":\"Amount\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.name\",\"column_model\":\"schema\",\"__column\":\"opportunities.name\",\"alias\":\"Opportunity Name\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.closing_date\",\"column_model\":\"schema\",\"__column\":\"opportunities.closing_date\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.amount\",\"column_model\":\"schema\",\"__column\":\"opportunities.amount\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.config_sales_stages.probability\",\"column_model\":\"schema\",\"__column\":\"opportunities.config_sales_stages.probability\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"7\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.accounts.website\",\"column_model\":\"schema\",\"__column\":\"opportunities.accounts.website\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"opportunities.config_sales_stages.sales_stage\",\"search_column_model\":\"schema\",\"__search_column\":\"opportunities.config_sales_stages.sales_stage\",\"search_comparator\":\"=\",\"search_value\":\"Closed Won\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::column_chart\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"sequence\":\"9\",\"animation--duration\":\"\",\"animation--easing\":\"\",\"axis-titles-position\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"height\":\"\",\"is-stacked\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"reverse-categories\":\"\",\"series\":\"\",\"theme\":\"\",\"title\":\"\",\"title-position\":\"\",\"title-text-style\":\"\",\"tooltip\":\"\",\"tooltip--show-color-code\":\"\",\"tooltip--text-style\":\"\",\"tooltip--trigger\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"chart-area\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"colors\":\"\",\"background-color\":\"\",\"h-axis--direction\":\"\",\"h-axis--text-position\":\"\",\"h-axis--text-style\":\"\",\"h-axis--title\":\"Lead Source\",\"h-axis--title-text-style\":\"\",\"h-axis--slanted-text\":\"\",\"h-axis--slanted-text-angle\":\"\",\"h-axis--max-alternation\":\"\",\"h-axis--show-text-every\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"h-axis\":\"\",\"v-axes\":\"\",\"v-axis--baseline\":\"\",\"v-axis--baseline-color\":\"\",\"v-axis--direction\":\"\",\"v-axis--format\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"v-axis--log-scale\":\"\",\"v-axis--text-position\":\"\",\"v-axis--text-style\":\"\",\"v-axis--title\":\"Amount\",\"v-axis--title-text-style\":\"\",\"v-axis--max-value\":\"\",\"v-axis--min-value\":\"\",\"v-axis--view-window-mode\":\"\",\"v-axis--view-window\":\"\",\"v-axis--view-window--max\":\"\",\"v-axis\":\"\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\",\"owned_by\":\"-2\",\"owned_by_model\":\"users\",\"__owned_by\":\"Maax Modules Development Team\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_is_public\":\"0\",\"is_public\":\"1\",\"_acl\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "crm\/opportunities",
+            "created": "2013-02-17 17:55:12",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "Sum of opportunities annual revenue by different sources",
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "crm.opportunities.Opportunities By Source",
+            "id": "52611fb5-2728-4abb-b94e-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-05-01 20:41:11",
+            "modified_by": "-2",
+            "module_id": "27260a2d-e746-11e3-aad5-0800275f9930",
+            "name": "Opportunities By Source",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[{\"opportunities.config_lead_sources.lead_source\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.config_lead_sources.lead_source\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.amount\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.amount\",\"alias\":\"Amount\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.name\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.name\",\"alias\":\"Opportunity Name\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.closing_date\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.closing_date\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.amount\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.amount\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.config_sales_stages.probability\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.config_sales_stages.probability\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.accounts.website\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.accounts.website\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"opportunities.config_sales_stages.sales_stage = \":\"Closed Won\"}}]],\"order\":[],\"name\":\"Opportunities By Source\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"crm\\\/opportunities\",\"render_as\":\"categorized\",\"description\":\"Sum of opportunities annual revenue by different sources\",\"is_default\":\"0\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::column_chart\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"sequence\":\"9\",\"h-axis--title\":\"Lead Source\",\"v-axis--title\":\"Amount\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\",\"owned_by\":\"-2\",\"owned_by_model\":\"users\",\"__owned_by\":\"Maax Modules Development Team\",\"primary_acl_group_model\":\"groups\",\"is_public\":\"1\",\"acl\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+            "revision": "1",
+            "sequence": "9",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "Maax Modules Development Team",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "",
+            "__module_id": "crm",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

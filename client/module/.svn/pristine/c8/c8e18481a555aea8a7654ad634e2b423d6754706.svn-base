@@ -1,0 +1,29 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\hr\controller;
+
+class timesheets_domain_logic extends \data_controller{
+
+    public function _compute_total_attendance($request) {
+        $modelObj = $this->modelObj();
+        $employeeID = $request->param('employee_id');
+        $startDate = $request->param('start_date');
+        $endDate = $request->param('end_date');
+        if (!empty($employeeID) && !empty($startDate) && !empty($endDate)) {
+            $startDate = \tushar\locale::normalize($startDate, DATE);
+            $endDate = \tushar\locale::normalize($endDate, DATE);
+            $attendance = $modelObj->getAttendance($employeeID, $startDate, $endDate);
+            $totalAttendance = 0;
+            if (!empty($attendance)) {
+                $totalAttendance = $modelObj->computeAttendanceTime($attendance);
+            }
+            $request->set('total_attendance', $totalAttendance);
+        }
+    }
+
+}

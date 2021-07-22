@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:02:27 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>modules (System Module)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's System Module</h1><span>Class</span>
+
+<h2>module\development_base\controller\modules</h2>
+
+</header><p class="signature">public  class <strong>modules</strong> extends \kernel\controller
+
+</p>
+
+<div class="comment"><p></p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#packageModelList">$packageModelList</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#add()">add</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> null</td>
+<td class="description"><p class="name"><a href="#apply_local_changes()">apply_local_changes</a>(\kernel\request request)</p><p class="description">Apply updates to modules as per local cached installation files. </p></td>
+</tr>
+<tr>
+<td class="type"> null</td>
+<td class="description"><p class="name"><a href="#apply_repository_changes()">apply_repository_changes</a>(\kernel\request request)</p><p class="description">Searches svn history for module version to be installed and install/update module</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#build()">build</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#check_code_repository_updates()">check_code_repository_updates</a>(\kernel\request request)</p><p class="description">This function allows user to scan maax apps repository as per global configuration and
+update available module information in development_base__modules table</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#check_for_updates()">check_for_updates</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#commit()">commit</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#commit_selected()">commit_selected</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#edit()">edit</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#export()">export</a>(type request, bool commit, mixed id, mixed exportList)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#index()">index</a>(mixed request, mixed query)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#install()">install</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#installation_progress()">installation_progress</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isCompleteRecord()">isCompleteRecord</a>(mixed exportModelClassObject)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#license()">license</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#populate_design_metadata()">populate_design_metadata</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> null</td>
+<td class="description"><p class="name"><a href="#push_code_to_repository()">push_code_to_repository</a>(\kernel\request request)</p><p class="description">Searches svn history for module version to be installed and install/update module</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setup()">setup</a>(mixed request, mixed name, mixed populatedDataSet, mixed moduleInfo, mixed dependencies)</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#uninstall()">uninstall</a>(type request)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#uninstallation_progress()">uninstallation_progress</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#upgrade()">upgrade</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#view()">view</a>(mixed request)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="packageModelList">public  mixed <strong>$packageModelList</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="add">public  void <strong>add</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="apply_local_changes">public  null <strong>apply_local_changes</strong>(\kernel\request request)</code>
+<div class="details">
+<p>Apply updates to modules as per local cached installation files.
+This can be used to apply any changes lost.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="apply_repository_changes">public  null <strong>apply_repository_changes</strong>(\kernel\request request)</code>
+<div class="details">
+<p>Searches svn history for module version to be installed and install/update module</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="build">public  void <strong>build</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="check_code_repository_updates">public  void <strong>check_code_repository_updates</strong>(\kernel\request request)</code>
+<div class="details">
+<p>This function allows user to scan maax apps repository as per global configuration and
+update available module information in development_base__modules table</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="check_for_updates">public  void <strong>check_for_updates</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="commit">public  void <strong>commit</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="commit_selected">public  void <strong>commit_selected</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="edit">public  void <strong>edit</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="export">public  type <strong>export</strong>(type request, bool commit, mixed id, mixed exportList)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="index">public  void <strong>index</strong>(mixed request, mixed query)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="install">public  void <strong>install</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="installation_progress">public  void <strong>installation_progress</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isCompleteRecord">public  void <strong>isCompleteRecord</strong>(mixed exportModelClassObject)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="license">public  void <strong>license</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="populate_design_metadata">public  void <strong>populate_design_metadata</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="push_code_to_repository">public  null <strong>push_code_to_repository</strong>(\kernel\request request)</code>
+<div class="details">
+<p>Searches svn history for module version to be installed and install/update module</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setup">public  void <strong>setup</strong>(mixed request, mixed name, mixed populatedDataSet, mixed moduleInfo, mixed dependencies)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="uninstall">public  type <strong>uninstall</strong>(type request)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="uninstallation_progress">public  void <strong>uninstallation_progress</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="upgrade">public  void <strong>upgrade</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="view">public  void <strong>view</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,2347 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: maax\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: tushar takkar <ttakkar@primod.com>\n"
+"Language-Team: tushar takkar <tushartakkar@primarymodules.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: INDIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+
+msgid "1"
+msgstr "1"
+
+msgid "Access Control List"
+msgstr "Список контроля доступа"
+
+msgid "ACL & Revisions"
+msgstr "ACL и ревизий"
+
+msgid "add"
+msgstr "Добавлять"
+
+msgid "Add"
+msgstr "добавлять"
+
+msgid "Add Guest"
+msgstr "Добавить Гость"
+
+msgid "app-menu"
+msgstr "приложение-меню"
+
+msgid "Attachments"
+msgstr "Вложения"
+
+msgid "attachments.created"
+msgstr "Созданный"
+
+msgid "attachments.created_by"
+msgstr "Создано"
+
+msgid "attachments.deleted"
+msgstr "Удаленный"
+
+msgid "attachments.description"
+msgstr "Описание"
+
+msgid "attachments.field_type"
+msgstr "Тип поля"
+
+msgid "attachments.flags"
+msgstr "Флаги"
+
+msgid "attachments.id"
+msgstr "Id"
+
+msgid "attachments.imported"
+msgstr "Импортированный"
+
+msgid "attachments.imported_by"
+msgstr "Ввозимые"
+
+msgid "attachments.mime_type"
+msgstr "Тип Mime"
+
+msgid "attachments.modified"
+msgstr "Модифицированный"
+
+msgid "attachments.modified_by"
+msgstr "Автор изменений"
+
+msgid "attachments.name"
+msgstr "Имя"
+
+msgid "attachments.owned_by"
+msgstr "Владелец"
+
+msgid "attachments.path"
+msgstr "Путь"
+
+msgid "attachments.related_to"
+msgstr "Связанный С"
+
+msgid "attachments.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "attachments.revision"
+msgstr "Пересмотр"
+
+msgid "attachments.storage_path"
+msgstr "Хранение Путь"
+
+msgid "Basic Information"
+msgstr "Базовая информация"
+
+msgid "calendar"
+msgstr "Календарь"
+
+msgid "Calendar"
+msgstr "Календарь"
+
+msgid "Calendar Information"
+msgstr "Календарь Информация"
+
+msgid "Calendar Types"
+msgstr "Календарь Типы"
+
+msgid "Calendars"
+msgstr "Календари"
+
+msgid "calendars"
+msgstr "Календари"
+
+msgid "calendars.calendar_name"
+msgstr "Календарь Имя"
+
+msgid "calendars.created"
+msgstr "Созданный"
+
+msgid "calendars.created_by"
+msgstr "Создано"
+
+msgid "calendars.deleted"
+msgstr "удаленный"
+
+msgid "calendars.description"
+msgstr "Описание"
+
+msgid "calendars.flags"
+msgstr "Флаги"
+
+msgid "calendars.id"
+msgstr "Id"
+
+msgid "calendars.imported"
+msgstr "Импортированный"
+
+msgid "calendars.imported_by"
+msgstr "Ввозимые"
+
+msgid "calendars.modified"
+msgstr "Модифицированный"
+
+msgid "calendars.modified_by"
+msgstr "Автор изменений"
+
+msgid "calendars.owned_by"
+msgstr "Владелец"
+
+msgid "calendars.primary_acl_group"
+msgstr "Первичные группы Acl"
+
+msgid "calendars.revision"
+msgstr "Пересмотр"
+
+msgid "calendars.share_only"
+msgstr "Доля только"
+
+msgid "calendars.time_zone"
+msgstr "Часовой пояс"
+
+msgid "calendars._acl"
+msgstr "Acl"
+
+msgid "calendars._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "calendars._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "calendars._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "calendars._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "calendars._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "calendarShareWith.calendar_id"
+msgstr "Календарь Id"
+
+msgid "calendarShareWith.created"
+msgstr "Созданный"
+
+msgid "calendarShareWith.created_by"
+msgstr "Создано"
+
+msgid "calendarShareWith.deleted"
+msgstr "удаленный"
+
+msgid "calendarShareWith.flags"
+msgstr "Флаги"
+
+msgid "calendarShareWith.id"
+msgstr "Id"
+
+msgid "calendarShareWith.imported"
+msgstr "Импортированный"
+
+msgid "calendarShareWith.imported_by"
+msgstr "Ввозимые"
+
+msgid "calendarShareWith.modified"
+msgstr "Модифицированный"
+
+msgid "calendarShareWith.modified_by"
+msgstr "Автор изменений"
+
+msgid "calendarShareWith.owned_by"
+msgstr "Владелец"
+
+msgid "calendarShareWith.revision"
+msgstr "Пересмотр"
+
+msgid "calendarShareWith.share_only"
+msgstr "Доля только"
+
+msgid "calendarShareWith.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "calendars_acl_cache.id"
+msgstr "Id"
+
+msgid "calendars_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "calendars_domain_logic"
+msgstr "Календари логики предметной области"
+
+msgid "calendars_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "calendars_group_acl_cache.id"
+msgstr "Id"
+
+msgid "calendar_share_with.calendar_id"
+msgstr "Календарь Id"
+
+msgid "calendar_share_with.created"
+msgstr "Созданный"
+
+msgid "calendar_share_with.created_by"
+msgstr "Создано"
+
+msgid "calendar_share_with.deleted"
+msgstr "удаленный"
+
+msgid "calendar_share_with.flags"
+msgstr "Флаги"
+
+msgid "calendar_share_with.id"
+msgstr "Id"
+
+msgid "calendar_share_with.imported"
+msgstr "Импортированный"
+
+msgid "calendar_share_with.imported_by"
+msgstr "Ввозимые"
+
+msgid "calendar_share_with.modified"
+msgstr "Модифицированный"
+
+msgid "calendar_share_with.modified_by"
+msgstr "Автор изменений"
+
+msgid "calendar_share_with.owned_by"
+msgstr "Владелец"
+
+msgid "calendar_share_with.revision"
+msgstr "Пересмотр"
+
+msgid "calendar_share_with.share_only"
+msgstr "Доля только"
+
+msgid "calendar_share_with.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "Clone"
+msgstr "Клон"
+
+msgid "Config Task Priority Information"
+msgstr "Конфигурационной информации, приоритетная задача"
+
+msgid "Config Task Status Information"
+msgstr "Config информация о ходе процесса"
+
+msgid "Configuration Information"
+msgstr "Сведения о конфигурации"
+
+msgid "Configurations"
+msgstr "Конфигурации"
+
+msgid "configurations"
+msgstr "Конфигурации"
+
+msgid "configurations.comment"
+msgstr "Комментировать"
+
+msgid "configurations.created"
+msgstr "Созданный"
+
+msgid "configurations.created_by"
+msgstr "Создано"
+
+msgid "configurations.deleted"
+msgstr "Удаленный"
+
+msgid "configurations.flags"
+msgstr "Флаги"
+
+msgid "configurations.id"
+msgstr "Id"
+
+msgid "configurations.modified"
+msgstr "Модифицированный"
+
+msgid "configurations.modified_by"
+msgstr "Автор изменений"
+
+msgid "configurations.name"
+msgstr "Имя"
+
+msgid "configurations.revision"
+msgstr "Пересмотр"
+
+msgid "configurations.value"
+msgstr "Значение"
+
+msgid "configurations_domain_logic"
+msgstr "Конфигурации предметной области"
+
+msgid "config_task_priorities"
+msgstr "Config Приоритеты целевая"
+
+msgid "config_task_priorities.created"
+msgstr "Созданный"
+
+msgid "config_task_priorities.created_by"
+msgstr "Создано"
+
+msgid "config_task_priorities.deleted"
+msgstr "Удаленный"
+
+msgid "config_task_priorities.flags"
+msgstr "Флаги"
+
+msgid "config_task_priorities.id"
+msgstr "Id"
+
+msgid "config_task_priorities.modified"
+msgstr "Модифицированный"
+
+msgid "config_task_priorities.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_task_priorities.owned_by"
+msgstr "Владелец"
+
+msgid "config_task_priorities.revision"
+msgstr "Пересмотр"
+
+msgid "config_task_priorities.task_priority"
+msgstr "Приоритет задачи"
+
+msgid "config_task_priorities.ticket_priority"
+msgstr "Билет приоритет"
+
+msgid "config_task_priorities_domain_logic"
+msgstr "Config приоритеты задач предметной области"
+
+msgid "config_task_status"
+msgstr "Config Состояние задачи"
+
+msgid "config_task_status.created"
+msgstr "Созданный"
+
+msgid "config_task_status.created_by"
+msgstr "Создано"
+
+msgid "config_task_status.deleted"
+msgstr "Удаленный"
+
+msgid "config_task_status.flags"
+msgstr "Флаги"
+
+msgid "config_task_status.id"
+msgstr "Id"
+
+msgid "config_task_status.modified"
+msgstr "Модифицированный"
+
+msgid "config_task_status.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_task_status.owned_by"
+msgstr "Владелец"
+
+msgid "config_task_status.revision"
+msgstr "Пересмотр"
+
+msgid "config_task_status.task_status"
+msgstr "Состояние задачи"
+
+msgid "config_task_status.ticket_status"
+msgstr "Статус заявки"
+
+msgid "config_task_status_domain_logic"
+msgstr "Config Состояние задачи предметной области"
+
+msgid "createdBy.accesskey"
+msgstr "Accesskey"
+
+msgid "createdBy.currency_id"
+msgstr "Валюта Id"
+
+msgid "createdBy.deleted"
+msgstr "удаленный"
+
+msgid "createdBy.department"
+msgstr "Отдел"
+
+msgid "createdBy.description"
+msgstr "Описание"
+
+msgid "createdBy.fax"
+msgstr "Факс"
+
+msgid "createdBy.first_name"
+msgstr "Имя"
+
+msgid "createdBy.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "createdBy.home_page"
+msgstr "Главная страница"
+
+msgid "createdBy.hour_format"
+msgstr "Часовой формат"
+
+msgid "createdBy.id"
+msgstr "Id"
+
+msgid "createdBy.is_active"
+msgstr "Активен"
+
+msgid "createdBy.last_name"
+msgstr "Фамилия"
+
+msgid "createdBy.locale"
+msgstr "Locale"
+
+msgid "createdBy.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "createdBy.name"
+msgstr "Имя"
+
+msgid "createdBy.owned_by"
+msgstr "Владелец"
+
+msgid "createdBy.parent_id"
+msgstr "Родитель Id"
+
+msgid "createdBy.region_id"
+msgstr "Регион Id"
+
+msgid "createdBy.role_id"
+msgstr "Роль Id"
+
+msgid "createdBy.salutation"
+msgstr "Приветствие"
+
+msgid "createdBy.signature"
+msgstr "Подпись"
+
+msgid "createdBy.skin"
+msgstr "Кожа"
+
+msgid "createdBy.status"
+msgstr "Статус"
+
+msgid "createdBy.theme"
+msgstr "Тема"
+
+msgid "createdBy.time_zone"
+msgstr "Часовой пояс"
+
+msgid "createdBy.title"
+msgstr "Название"
+
+msgid "createdBy.user_name"
+msgstr "Имя пользователя"
+
+msgid "createdBy.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "created_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "created_by_user.created"
+msgstr "Созданный"
+
+msgid "created_by_user.created_by"
+msgstr "Создано"
+
+msgid "created_by_user.currency_id"
+msgstr "Валюта Id"
+
+msgid "created_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "created_by_user.department"
+msgstr "Отдел"
+
+msgid "created_by_user.description"
+msgstr "Описание"
+
+msgid "created_by_user.fax"
+msgstr "Факс"
+
+msgid "created_by_user.first_name"
+msgstr "Имя"
+
+msgid "created_by_user.flags"
+msgstr "Флаги"
+
+msgid "created_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "created_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "created_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "created_by_user.id"
+msgstr "Id"
+
+msgid "created_by_user.is_active"
+msgstr "Активен"
+
+msgid "created_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "created_by_user.locale"
+msgstr "Locale"
+
+msgid "created_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "created_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "created_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "created_by_user.name"
+msgstr "Имя"
+
+msgid "created_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "created_by_user.parent_id"
+msgstr "Родитель Id"
+
+msgid "created_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "created_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "created_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "created_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "created_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "created_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "created_by_user.region_id"
+msgstr "Регион Id"
+
+msgid "created_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "created_by_user.role_id"
+msgstr "Роль Id"
+
+msgid "created_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "created_by_user.signature"
+msgstr "Подпись"
+
+msgid "created_by_user.skin"
+msgstr "Кожа"
+
+msgid "created_by_user.status"
+msgstr "Статус"
+
+msgid "created_by_user.theme"
+msgstr "Тема"
+
+msgid "created_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "created_by_user.title"
+msgstr "Название"
+
+msgid "created_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "created_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "created_by_users.accesskey"
+msgstr "Accesskey"
+
+msgid "created_by_users.currency_id"
+msgstr "Валюта"
+
+msgid "created_by_users.deleted"
+msgstr "Удаленный"
+
+msgid "created_by_users.department"
+msgstr "Отдел"
+
+msgid "created_by_users.description"
+msgstr "Описание"
+
+msgid "created_by_users.fax"
+msgstr "Факс"
+
+msgid "created_by_users.first_name"
+msgstr "Имя"
+
+msgid "created_by_users.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "created_by_users.home_page"
+msgstr "Главная страница"
+
+msgid "created_by_users.hour_format"
+msgstr "Часовой формат"
+
+msgid "created_by_users.id"
+msgstr "Id"
+
+msgid "created_by_users.is_active"
+msgstr "Активен"
+
+msgid "created_by_users.last_name"
+msgstr "Фамилия"
+
+msgid "created_by_users.locale"
+msgstr "Locale"
+
+msgid "created_by_users.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "created_by_users.name"
+msgstr "Имя"
+
+msgid "created_by_users.owned_by"
+msgstr "Владелец"
+
+msgid "created_by_users.parent_id"
+msgstr "Родитель"
+
+msgid "created_by_users.region_id"
+msgstr "Регион"
+
+msgid "created_by_users.role_id"
+msgstr "Роль"
+
+msgid "created_by_users.salutation"
+msgstr "Приветствие"
+
+msgid "created_by_users.signature"
+msgstr "Подпись"
+
+msgid "created_by_users.skin"
+msgstr "Кожа"
+
+msgid "created_by_users.status"
+msgstr "Статус"
+
+msgid "created_by_users.theme"
+msgstr "Тема"
+
+msgid "created_by_users.time_zone"
+msgstr "Часовой пояс"
+
+msgid "created_by_users.title"
+msgstr "Название"
+
+msgid "created_by_users.user_name"
+msgstr "Имя пользователя"
+
+msgid "created_by_users.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "Daily"
+msgstr "Ежедневно"
+
+msgid "Delete"
+msgstr "удалять"
+
+msgid "Delete Access"
+msgstr "Удалить Access"
+
+msgid "delete selected"
+msgstr "удалять выбранные"
+
+msgid "Delete Selected"
+msgstr "удалять выбранные"
+
+msgid "Document Information"
+msgstr "Информация о документе"
+
+msgid "Document Information "
+msgstr "Информация о документе"
+
+msgid "edit"
+msgstr "редактировать"
+
+msgid "Edit"
+msgstr "редактировать"
+
+msgid "Edit Access"
+msgstr "Изменить Access"
+
+msgid "edit selected"
+msgstr "Изменить выбранные"
+
+msgid "Edit Selected"
+msgstr "Изменить выбранные"
+
+msgid "event"
+msgstr "Событие"
+
+msgid "Event Information"
+msgstr "Информация о событии"
+
+msgid "eventGuest.created"
+msgstr "Созданный"
+
+msgid "eventGuest.created_by"
+msgstr "Создано"
+
+msgid "eventGuest.deleted"
+msgstr "удаленный"
+
+msgid "eventGuest.event_id"
+msgstr "Код события"
+
+msgid "eventGuest.flags"
+msgstr "Флаги"
+
+msgid "eventGuest.guest_actions"
+msgstr "Гость Действия"
+
+msgid "eventGuest.guest_id"
+msgstr "Гость Id"
+
+msgid "eventGuest.id"
+msgstr "Id"
+
+msgid "eventGuest.modified"
+msgstr "Модифицированный"
+
+msgid "eventGuest.modified_by"
+msgstr "Автор изменений"
+
+msgid "eventGuest.owned_by"
+msgstr "Владелец"
+
+msgid "eventGuest.revision"
+msgstr "Пересмотр"
+
+msgid "eventReminder.created"
+msgstr "Созданный"
+
+msgid "eventReminder.created_by"
+msgstr "Создано"
+
+msgid "eventReminder.deleted"
+msgstr "удаленный"
+
+msgid "eventReminder.event_id"
+msgstr "Код события"
+
+msgid "eventReminder.flags"
+msgstr "Флаги"
+
+msgid "eventReminder.id"
+msgstr "Id"
+
+msgid "eventReminder.modified"
+msgstr "Модифицированный"
+
+msgid "eventReminder.modified_by"
+msgstr "Автор изменений"
+
+msgid "eventReminder.notified"
+msgstr "Уполномоченным"
+
+msgid "eventReminder.owned_by"
+msgstr "Владелец"
+
+msgid "eventReminder.reminder_duration"
+msgstr "Напоминание Длительность"
+
+msgid "eventReminder.reminder_type"
+msgstr "Напоминание типа"
+
+msgid "eventReminder.reminder_unit"
+msgstr "Напоминание группы"
+
+msgid "eventReminder.revision"
+msgstr "Пересмотр"
+
+msgid "Events"
+msgstr "События"
+
+msgid "events"
+msgstr "События"
+
+msgid "Events Acl Cache"
+msgstr "События Acl Cache"
+
+msgid "Events Group Acl Cache"
+msgstr "События Группа Acl Cache"
+
+msgid "events.all_day"
+msgstr "Весь день"
+
+msgid "events.calendar_id"
+msgstr "Календарь Id"
+
+msgid "events.created"
+msgstr "Созданный"
+
+msgid "events.created_by"
+msgstr "Создано"
+
+msgid "events.deleted"
+msgstr "удаленный"
+
+msgid "events.description"
+msgstr "Описание"
+
+msgid "events.end"
+msgstr "КОНЕЦ"
+
+msgid "events.flags"
+msgstr "Флаги"
+
+msgid "events.id"
+msgstr "Id"
+
+msgid "events.modified"
+msgstr "Модифицированный"
+
+msgid "events.modified_by"
+msgstr "Автор изменений"
+
+msgid "events.name"
+msgstr "Имя"
+
+msgid "events.owned_by"
+msgstr "Владелец"
+
+msgid "events.primary_acl_group"
+msgstr "Первичные группы Acl"
+
+msgid "events.privacy"
+msgstr "Неприкосновенность частной жизни"
+
+msgid "events.reminder_duration"
+msgstr "Напоминание Длительность"
+
+msgid "events.reminder_type"
+msgstr "Напоминание типа"
+
+msgid "events.reminder_unit"
+msgstr "Напоминание группы"
+
+msgid "events.repeat"
+msgstr "Повторять"
+
+msgid "events.revision"
+msgstr "Пересмотр"
+
+msgid "events.show_me_as"
+msgstr "Покажи мне как"
+
+msgid "events.start"
+msgstr "СНВ"
+
+msgid "events.title"
+msgstr "Название"
+
+msgid "events.where"
+msgstr "Где"
+
+msgid "events._acl"
+msgstr "Acl"
+
+msgid "events._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "events._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "events._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "events._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "events._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "events_acl_cache"
+msgstr "События Acl Cache"
+
+msgid "events_acl_cache.id"
+msgstr "Id"
+
+msgid "events_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "events_acl_cache_domain_logic"
+msgstr "События Acl Кэш логики предметной области"
+
+msgid "events_domain_logic"
+msgstr "События логики предметной области"
+
+msgid "events_group_acl_cache"
+msgstr "События Группа Acl Cache"
+
+msgid "events_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "events_group_acl_cache.id"
+msgstr "Id"
+
+msgid "events_group_acl_cache_domain_logic"
+msgstr "События Группа Acl Кэш логики предметной области"
+
+msgid "event_guests.created"
+msgstr "Созданный"
+
+msgid "event_guests.created_by"
+msgstr "Создано"
+
+msgid "event_guests.deleted"
+msgstr "удаленный"
+
+msgid "event_guests.event_id"
+msgstr "Код события"
+
+msgid "event_guests.flags"
+msgstr "Флаги"
+
+msgid "event_guests.guest_actions"
+msgstr "Гость Действия"
+
+msgid "event_guests.guest_id"
+msgstr "Гость Id"
+
+msgid "event_guests.id"
+msgstr "Id"
+
+msgid "event_guests.modified"
+msgstr "Модифицированный"
+
+msgid "event_guests.modified_by"
+msgstr "Автор изменений"
+
+msgid "event_guests.owned_by"
+msgstr "Владелец"
+
+msgid "event_guests.revision"
+msgstr "Пересмотр"
+
+msgid "event_related_to.created"
+msgstr "Созданный"
+
+msgid "event_related_to.created_by"
+msgstr "Создано"
+
+msgid "event_related_to.deleted"
+msgstr "Удаленный"
+
+msgid "event_related_to.event_id"
+msgstr "Событие"
+
+msgid "event_related_to.flags"
+msgstr "Флаги"
+
+msgid "event_related_to.id"
+msgstr "Id"
+
+msgid "event_related_to.modified"
+msgstr "Модифицированный"
+
+msgid "event_related_to.modified_by"
+msgstr "Автор изменений"
+
+msgid "event_related_to.owned_by"
+msgstr "Владелец"
+
+msgid "event_related_to.related_to"
+msgstr "Связанный С"
+
+msgid "event_related_to.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "event_related_to.revision"
+msgstr "Пересмотр"
+
+msgid "event_related_to.__related_to"
+msgstr "Связанный С"
+
+msgid "event_reminders.created"
+msgstr "Созданный"
+
+msgid "event_reminders.created_by"
+msgstr "Создано"
+
+msgid "event_reminders.deleted"
+msgstr "удаленный"
+
+msgid "event_reminders.event_id"
+msgstr "Код события"
+
+msgid "event_reminders.flags"
+msgstr "Флаги"
+
+msgid "event_reminders.id"
+msgstr "Id"
+
+msgid "event_reminders.modified"
+msgstr "Модифицированный"
+
+msgid "event_reminders.modified_by"
+msgstr "Автор изменений"
+
+msgid "event_reminders.notified"
+msgstr "Уполномоченным"
+
+msgid "event_reminders.owned_by"
+msgstr "Владелец"
+
+msgid "event_reminders.reminder_duration"
+msgstr "Напоминание Длительность"
+
+msgid "event_reminders.reminder_type"
+msgstr "Напоминание типа"
+
+msgid "event_reminders.reminder_unit"
+msgstr "Напоминание группы"
+
+msgid "event_reminders.revision"
+msgstr "Пересмотр"
+
+msgid "Export Selected"
+msgstr "экспортировать выбранные"
+
+msgid "groups.created"
+msgstr "Созданный"
+
+msgid "groups.created_by"
+msgstr "Создано"
+
+msgid "groups.deleted"
+msgstr "Удаленный"
+
+msgid "groups.description"
+msgstr "Описание"
+
+msgid "groups.flags"
+msgstr "Флаги"
+
+msgid "groups.id"
+msgstr "Id"
+
+msgid "groups.modified"
+msgstr "Модифицированный"
+
+msgid "groups.modified_by"
+msgstr "Автор изменений"
+
+msgid "groups.name"
+msgstr "Имя"
+
+msgid "groups.owned_by"
+msgstr "Владелец"
+
+msgid "groups.related_to"
+msgstr "Связанный С"
+
+msgid "groups.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "groups.revision"
+msgstr "Пересмотр"
+
+msgid "guest_users.accesskey"
+msgstr "Accesskey"
+
+msgid "guest_users.currency_id"
+msgstr "Валюта"
+
+msgid "guest_users.deleted"
+msgstr "Удаленный"
+
+msgid "guest_users.department"
+msgstr "Отдел"
+
+msgid "guest_users.description"
+msgstr "Описание"
+
+msgid "guest_users.fax"
+msgstr "Факс"
+
+msgid "guest_users.first_name"
+msgstr "Имя"
+
+msgid "guest_users.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "guest_users.home_page"
+msgstr "Главная страница"
+
+msgid "guest_users.hour_format"
+msgstr "Часовой формат"
+
+msgid "guest_users.id"
+msgstr "Id"
+
+msgid "guest_users.is_active"
+msgstr "Активен"
+
+msgid "guest_users.last_name"
+msgstr "Фамилия"
+
+msgid "guest_users.locale"
+msgstr "Locale"
+
+msgid "guest_users.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "guest_users.name"
+msgstr "Имя"
+
+msgid "guest_users.owned_by"
+msgstr "Владелец"
+
+msgid "guest_users.parent_id"
+msgstr "Родитель"
+
+msgid "guest_users.region_id"
+msgstr "Регион"
+
+msgid "guest_users.role_id"
+msgstr "Роль"
+
+msgid "guest_users.salutation"
+msgstr "Приветствие"
+
+msgid "guest_users.signature"
+msgstr "Подпись"
+
+msgid "guest_users.skin"
+msgstr "Кожа"
+
+msgid "guest_users.status"
+msgstr "Статус"
+
+msgid "guest_users.theme"
+msgstr "Тема"
+
+msgid "guest_users.time_zone"
+msgstr "Часовой пояс"
+
+msgid "guest_users.title"
+msgstr "Название"
+
+msgid "guest_users.user_name"
+msgstr "Имя пользователя"
+
+msgid "guest_users.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "Home"
+msgstr "Домой"
+
+msgid "index"
+msgstr "индекс"
+
+msgid "Index"
+msgstr "индекс"
+
+msgid "listviews.created"
+msgstr "Созданный"
+
+msgid "listviews.created_by"
+msgstr "Создано"
+
+msgid "listviews.modified"
+msgstr "Модифицированный"
+
+msgid "listviews.modified_by"
+msgstr "Автор изменений"
+
+msgid "listviews.primary_acl_group"
+msgstr "Первичные группы Acl"
+
+msgid "listviews.revision"
+msgstr "Пересмотр"
+
+msgid "Masters"
+msgstr "Мастера"
+
+msgid "modifiedBy.accesskey"
+msgstr "Accesskey"
+
+msgid "modifiedBy.currency_id"
+msgstr "Валюта Id"
+
+msgid "modifiedBy.deleted"
+msgstr "удаленный"
+
+msgid "modifiedBy.department"
+msgstr "Отдел"
+
+msgid "modifiedBy.description"
+msgstr "Описание"
+
+msgid "modifiedBy.fax"
+msgstr "Факс"
+
+msgid "modifiedBy.first_name"
+msgstr "Имя"
+
+msgid "modifiedBy.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "modifiedBy.home_page"
+msgstr "Главная страница"
+
+msgid "modifiedBy.hour_format"
+msgstr "Часовой формат"
+
+msgid "modifiedBy.id"
+msgstr "Id"
+
+msgid "modifiedBy.is_active"
+msgstr "Активен"
+
+msgid "modifiedBy.last_name"
+msgstr "Фамилия"
+
+msgid "modifiedBy.locale"
+msgstr "Locale"
+
+msgid "modifiedBy.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "modifiedBy.name"
+msgstr "Имя"
+
+msgid "modifiedBy.owned_by"
+msgstr "Владелец"
+
+msgid "modifiedBy.parent_id"
+msgstr "Родитель Id"
+
+msgid "modifiedBy.region_id"
+msgstr "Регион Id"
+
+msgid "modifiedBy.role_id"
+msgstr "Роль Id"
+
+msgid "modifiedBy.salutation"
+msgstr "Приветствие"
+
+msgid "modifiedBy.signature"
+msgstr "Подпись"
+
+msgid "modifiedBy.skin"
+msgstr "Кожа"
+
+msgid "modifiedBy.status"
+msgstr "Статус"
+
+msgid "modifiedBy.theme"
+msgstr "Тема"
+
+msgid "modifiedBy.time_zone"
+msgstr "Часовой пояс"
+
+msgid "modifiedBy.title"
+msgstr "Название"
+
+msgid "modifiedBy.user_name"
+msgstr "Имя пользователя"
+
+msgid "modifiedBy.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "modified_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "modified_by_user.created"
+msgstr "Созданный"
+
+msgid "modified_by_user.created_by"
+msgstr "Создано"
+
+msgid "modified_by_user.currency_id"
+msgstr "Валюта Id"
+
+msgid "modified_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "modified_by_user.department"
+msgstr "Отдел"
+
+msgid "modified_by_user.description"
+msgstr "Описание"
+
+msgid "modified_by_user.fax"
+msgstr "Факс"
+
+msgid "modified_by_user.first_name"
+msgstr "Имя"
+
+msgid "modified_by_user.flags"
+msgstr "Флаги"
+
+msgid "modified_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "modified_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "modified_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "modified_by_user.id"
+msgstr "Id"
+
+msgid "modified_by_user.is_active"
+msgstr "Активен"
+
+msgid "modified_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "modified_by_user.locale"
+msgstr "Locale"
+
+msgid "modified_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "modified_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "modified_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "modified_by_user.name"
+msgstr "Имя"
+
+msgid "modified_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "modified_by_user.parent_id"
+msgstr "Родитель Id"
+
+msgid "modified_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "modified_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "modified_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "modified_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "modified_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "modified_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "modified_by_user.region_id"
+msgstr "Регион Id"
+
+msgid "modified_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "modified_by_user.role_id"
+msgstr "Роль Id"
+
+msgid "modified_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "modified_by_user.signature"
+msgstr "Подпись"
+
+msgid "modified_by_user.skin"
+msgstr "Кожа"
+
+msgid "modified_by_user.status"
+msgstr "Статус"
+
+msgid "modified_by_user.theme"
+msgstr "Тема"
+
+msgid "modified_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "modified_by_user.title"
+msgstr "Название"
+
+msgid "modified_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "modified_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "modified_by_users.accesskey"
+msgstr "Accesskey"
+
+msgid "modified_by_users.currency_id"
+msgstr "Валюта"
+
+msgid "modified_by_users.deleted"
+msgstr "Удаленный"
+
+msgid "modified_by_users.department"
+msgstr "Отдел"
+
+msgid "modified_by_users.description"
+msgstr "Описание"
+
+msgid "modified_by_users.fax"
+msgstr "Факс"
+
+msgid "modified_by_users.first_name"
+msgstr "Имя"
+
+msgid "modified_by_users.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "modified_by_users.home_page"
+msgstr "Главная страница"
+
+msgid "modified_by_users.hour_format"
+msgstr "Часовой формат"
+
+msgid "modified_by_users.id"
+msgstr "Id"
+
+msgid "modified_by_users.is_active"
+msgstr "Активен"
+
+msgid "modified_by_users.last_name"
+msgstr "Фамилия"
+
+msgid "modified_by_users.locale"
+msgstr "Locale"
+
+msgid "modified_by_users.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "modified_by_users.name"
+msgstr "Имя"
+
+msgid "modified_by_users.owned_by"
+msgstr "Владелец"
+
+msgid "modified_by_users.parent_id"
+msgstr "Родитель"
+
+msgid "modified_by_users.region_id"
+msgstr "Регион"
+
+msgid "modified_by_users.role_id"
+msgstr "Роль"
+
+msgid "modified_by_users.salutation"
+msgstr "Приветствие"
+
+msgid "modified_by_users.signature"
+msgstr "Подпись"
+
+msgid "modified_by_users.skin"
+msgstr "Кожа"
+
+msgid "modified_by_users.status"
+msgstr "Статус"
+
+msgid "modified_by_users.theme"
+msgstr "Тема"
+
+msgid "modified_by_users.time_zone"
+msgstr "Часовой пояс"
+
+msgid "modified_by_users.title"
+msgstr "Название"
+
+msgid "modified_by_users.user_name"
+msgstr "Имя пользователя"
+
+msgid "modified_by_users.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "Monthly"
+msgstr "Ежемесячно"
+
+msgid "More information"
+msgstr "Дополнительная информация"
+
+msgid "more information"
+msgstr "Дополнительная информация"
+
+msgid "My Events"
+msgstr "Мои события"
+
+msgid "My Tasks"
+msgstr "Мои задачи"
+
+msgid "ownedBy.accesskey"
+msgstr "Accesskey"
+
+msgid "ownedBy.currency_id"
+msgstr "Валюта Id"
+
+msgid "ownedBy.deleted"
+msgstr "удаленный"
+
+msgid "ownedBy.department"
+msgstr "Отдел"
+
+msgid "ownedBy.description"
+msgstr "Описание"
+
+msgid "ownedBy.fax"
+msgstr "Факс"
+
+msgid "ownedBy.first_name"
+msgstr "Имя"
+
+msgid "ownedBy.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "ownedBy.home_page"
+msgstr "Главная страница"
+
+msgid "ownedBy.hour_format"
+msgstr "Часовой формат"
+
+msgid "ownedBy.id"
+msgstr "Id"
+
+msgid "ownedBy.is_active"
+msgstr "Активен"
+
+msgid "ownedBy.last_name"
+msgstr "Фамилия"
+
+msgid "ownedBy.locale"
+msgstr "Locale"
+
+msgid "ownedBy.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "ownedBy.name"
+msgstr "Имя"
+
+msgid "ownedBy.owned_by"
+msgstr "Владелец"
+
+msgid "ownedBy.parent_id"
+msgstr "Родитель Id"
+
+msgid "ownedBy.region_id"
+msgstr "Регион Id"
+
+msgid "ownedBy.role_id"
+msgstr "Роль Id"
+
+msgid "ownedBy.salutation"
+msgstr "Приветствие"
+
+msgid "ownedBy.signature"
+msgstr "Подпись"
+
+msgid "ownedBy.skin"
+msgstr "Кожа"
+
+msgid "ownedBy.status"
+msgstr "Статус"
+
+msgid "ownedBy.theme"
+msgstr "Тема"
+
+msgid "ownedBy.time_zone"
+msgstr "Часовой пояс"
+
+msgid "ownedBy.title"
+msgstr "Название"
+
+msgid "ownedBy.user_name"
+msgstr "Имя пользователя"
+
+msgid "ownedBy.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "owned_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "owned_by_user.created"
+msgstr "Созданный"
+
+msgid "owned_by_user.created_by"
+msgstr "Создано"
+
+msgid "owned_by_user.currency_id"
+msgstr "Валюта Id"
+
+msgid "owned_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "owned_by_user.department"
+msgstr "Отдел"
+
+msgid "owned_by_user.description"
+msgstr "Описание"
+
+msgid "owned_by_user.fax"
+msgstr "Факс"
+
+msgid "owned_by_user.first_name"
+msgstr "Имя"
+
+msgid "owned_by_user.flags"
+msgstr "Флаги"
+
+msgid "owned_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "owned_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "owned_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "owned_by_user.id"
+msgstr "Id"
+
+msgid "owned_by_user.is_active"
+msgstr "Активен"
+
+msgid "owned_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "owned_by_user.locale"
+msgstr "Locale"
+
+msgid "owned_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "owned_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "owned_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "owned_by_user.name"
+msgstr "Имя"
+
+msgid "owned_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "owned_by_user.parent_id"
+msgstr "Родитель Id"
+
+msgid "owned_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "owned_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "owned_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "owned_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "owned_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "owned_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "owned_by_user.region_id"
+msgstr "Регион Id"
+
+msgid "owned_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "owned_by_user.role_id"
+msgstr "Роль Id"
+
+msgid "owned_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "owned_by_user.signature"
+msgstr "Подпись"
+
+msgid "owned_by_user.skin"
+msgstr "Кожа"
+
+msgid "owned_by_user.status"
+msgstr "Статус"
+
+msgid "owned_by_user.theme"
+msgstr "Тема"
+
+msgid "owned_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "owned_by_user.title"
+msgstr "Название"
+
+msgid "owned_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "owned_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "owned_by_users.accesskey"
+msgstr "Accesskey"
+
+msgid "owned_by_users.currency_id"
+msgstr "Валюта"
+
+msgid "owned_by_users.deleted"
+msgstr "Удаленный"
+
+msgid "owned_by_users.department"
+msgstr "Отдел"
+
+msgid "owned_by_users.description"
+msgstr "Описание"
+
+msgid "owned_by_users.fax"
+msgstr "Факс"
+
+msgid "owned_by_users.first_name"
+msgstr "Имя"
+
+msgid "owned_by_users.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "owned_by_users.home_page"
+msgstr "Главная страница"
+
+msgid "owned_by_users.hour_format"
+msgstr "Часовой формат"
+
+msgid "owned_by_users.id"
+msgstr "Id"
+
+msgid "owned_by_users.is_active"
+msgstr "Активен"
+
+msgid "owned_by_users.last_name"
+msgstr "Фамилия"
+
+msgid "owned_by_users.locale"
+msgstr "Locale"
+
+msgid "owned_by_users.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "owned_by_users.name"
+msgstr "Имя"
+
+msgid "owned_by_users.owned_by"
+msgstr "Владелец"
+
+msgid "owned_by_users.parent_id"
+msgstr "Родитель"
+
+msgid "owned_by_users.region_id"
+msgstr "Регион"
+
+msgid "owned_by_users.role_id"
+msgstr "Роль"
+
+msgid "owned_by_users.salutation"
+msgstr "Приветствие"
+
+msgid "owned_by_users.signature"
+msgstr "Подпись"
+
+msgid "owned_by_users.skin"
+msgstr "Кожа"
+
+msgid "owned_by_users.status"
+msgstr "Статус"
+
+msgid "owned_by_users.theme"
+msgstr "Тема"
+
+msgid "owned_by_users.time_zone"
+msgstr "Часовой пояс"
+
+msgid "owned_by_users.title"
+msgstr "Название"
+
+msgid "owned_by_users.user_name"
+msgstr "Имя пользователя"
+
+msgid "owned_by_users.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "r"
+msgstr "т"
+
+msgid "Read Access"
+msgstr "Прочитано Access"
+
+msgid "Read Access Groups"
+msgstr "Читайте Группы доступа"
+
+msgid "Read Access Users"
+msgstr "Read Access пользователей"
+
+msgid "Related To Entity"
+msgstr "Связанный С Entity"
+
+msgid "Reminders (To be send before event start)"
+msgstr "Напоминания (To Be Отправить До начала события)"
+
+msgid "Revision Log"
+msgstr "Редакция журнала"
+
+msgid "Run / Repeats"
+msgstr "Run / Повторы"
+
+msgid "Schedule Information"
+msgstr "Расписание Информация"
+
+msgid "Scheduler Information"
+msgstr "Планировщик информации"
+
+msgid "scheduler.created"
+msgstr "Созданный"
+
+msgid "scheduler.created_by"
+msgstr "Создано"
+
+msgid "scheduler.deleted"
+msgstr "Удаленный"
+
+msgid "scheduler.description"
+msgstr "Описание"
+
+msgid "scheduler.ends"
+msgstr "Завершает"
+
+msgid "scheduler.ends_on"
+msgstr "Заканчивается"
+
+msgid "scheduler.flags"
+msgstr "Флаги"
+
+msgid "scheduler.id"
+msgstr "Id"
+
+msgid "scheduler.modified"
+msgstr "Модифицированный"
+
+msgid "scheduler.modified_by"
+msgstr "Автор изменений"
+
+msgid "scheduler.occurrences"
+msgstr "Вхождения"
+
+msgid "scheduler.owned_by"
+msgstr "Владелец"
+
+msgid "scheduler.related_to"
+msgstr "Связанный С"
+
+msgid "scheduler.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "scheduler.repeats"
+msgstr "Повторы"
+
+msgid "scheduler.repeat_by"
+msgstr "Повторите по"
+
+msgid "scheduler.repeat_every"
+msgstr "Повторяйте каждый"
+
+msgid "scheduler.repeat_on"
+msgstr "Повторите по"
+
+msgid "scheduler.rivision"
+msgstr "Rivision"
+
+msgid "scheduler.starts_on"
+msgstr "Начинается на"
+
+msgid "scheduler.__related_to"
+msgstr "Связанный С"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Share with"
+msgstr "Поделиться"
+
+msgid "Share with specific people"
+msgstr "Доля с конкретными людьми"
+
+msgid "Some users might be granted access via groups"
+msgstr "Некоторые пользователям может быть предоставлен доступ через группы"
+
+msgid "Submit"
+msgstr "представлять"
+
+msgid "SYSTEM_ACL_REVISIONS"
+msgstr "SYSTEM ACL ПЕРЕСМОТРЕННЫМ"
+
+msgid "task"
+msgstr "Задача"
+
+msgid "Task Information"
+msgstr "Сведения о задаче"
+
+msgid "Tasks"
+msgstr "Задачи"
+
+msgid "tasks"
+msgstr "Задачи"
+
+msgid "Tasks Acl Cache"
+msgstr "Задачи Acl Cache"
+
+msgid "Tasks Group Acl Cache"
+msgstr "Задачи группы Acl Cache"
+
+msgid "tasks.calendar_id"
+msgstr "Календарь Id"
+
+msgid "tasks.created"
+msgstr "Созданный"
+
+msgid "tasks.created_by"
+msgstr "Создано"
+
+msgid "tasks.deleted"
+msgstr "удаленный"
+
+msgid "tasks.description"
+msgstr "Описание"
+
+msgid "tasks.end"
+msgstr "КОНЕЦ"
+
+msgid "tasks.flags"
+msgstr "Флаги"
+
+msgid "tasks.id"
+msgstr "Id"
+
+msgid "tasks.modified"
+msgstr "Модифицированный"
+
+msgid "tasks.modified_by"
+msgstr "Автор изменений"
+
+msgid "tasks.name"
+msgstr "Имя"
+
+msgid "tasks.owned_by"
+msgstr "Владелец"
+
+msgid "tasks.primary_acl_group"
+msgstr "Первичные группы Acl"
+
+msgid "tasks.priorities"
+msgstr "Приоритеты"
+
+msgid "tasks.related_to"
+msgstr "Связанный С"
+
+msgid "tasks.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "tasks.revision"
+msgstr "Пересмотр"
+
+msgid "tasks.start"
+msgstr "СНВ"
+
+msgid "tasks.status"
+msgstr "Статус"
+
+msgid "tasks._acl"
+msgstr "Acl"
+
+msgid "tasks._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "tasks._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "tasks._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "tasks._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "tasks._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "tasks.__related_to"
+msgstr "Связанный С"
+
+msgid "tasks_acl_cache"
+msgstr "Задачи Acl Cache"
+
+msgid "tasks_acl_cache.id"
+msgstr "Id"
+
+msgid "tasks_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "tasks_acl_cache_domain_logic"
+msgstr "Задачи Acl Кэш логики предметной области"
+
+msgid "tasks_domain_logic"
+msgstr "Задачи логики предметной области"
+
+msgid "tasks_group_acl_cache"
+msgstr "Задачи группы Acl Cache"
+
+msgid "tasks_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "tasks_group_acl_cache.id"
+msgstr "Id"
+
+msgid "tasks_group_acl_cache_domain_logic"
+msgstr "Задачи группы Acl Кэш логики предметной области"
+
+msgid "task_related_to.created"
+msgstr "Созданный"
+
+msgid "task_related_to.created_by"
+msgstr "Создано"
+
+msgid "task_related_to.deleted"
+msgstr "Удаленный"
+
+msgid "task_related_to.flags"
+msgstr "Флаги"
+
+msgid "task_related_to.id"
+msgstr "Id"
+
+msgid "task_related_to.modified"
+msgstr "Модифицированный"
+
+msgid "task_related_to.modified_by"
+msgstr "Автор изменений"
+
+msgid "task_related_to.owned_by"
+msgstr "Владелец"
+
+msgid "task_related_to.related_to"
+msgstr "Связанный С"
+
+msgid "task_related_to.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "task_related_to.revision"
+msgstr "Пересмотр"
+
+msgid "task_related_to.task_id"
+msgstr "Задача"
+
+msgid "task_related_to.__related_to"
+msgstr "Связанный С"
+
+msgid "Temporary Delete"
+msgstr "Временные Delete"
+
+msgid "Temporary Edit"
+msgstr "Временные Edit"
+
+msgid "Temporary Read"
+msgstr "Временные прочитанными"
+
+msgid "users.accesskey"
+msgstr "Accesskey"
+
+msgid "users.created"
+msgstr "Созданный"
+
+msgid "users.created_by"
+msgstr "Создано"
+
+msgid "users.currency_id"
+msgstr "Валюта Id"
+
+msgid "users.deleted"
+msgstr "удаленный"
+
+msgid "users.department"
+msgstr "Отдел"
+
+msgid "users.description"
+msgstr "Описание"
+
+msgid "users.fax"
+msgstr "Факс"
+
+msgid "users.first_name"
+msgstr "Имя"
+
+msgid "users.flags"
+msgstr "Флаги"
+
+msgid "users.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "users.home_page"
+msgstr "Главная страница"
+
+msgid "users.hour_format"
+msgstr "Часовой формат"
+
+msgid "users.id"
+msgstr "Id"
+
+msgid "users.is_active"
+msgstr "Активен"
+
+msgid "users.last_name"
+msgstr "Фамилия"
+
+msgid "users.locale"
+msgstr "Locale"
+
+msgid "users.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "users.modified"
+msgstr "Модифицированный"
+
+msgid "users.modified_by"
+msgstr "Автор изменений"
+
+msgid "users.name"
+msgstr "Имя"
+
+msgid "users.owned_by"
+msgstr "Владелец"
+
+msgid "users.parent_id"
+msgstr "Родитель Id"
+
+msgid "users.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "users.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "users.primary_city"
+msgstr "Первичный города"
+
+msgid "users.primary_country"
+msgstr "Первичная Страна"
+
+msgid "users.primary_state"
+msgstr "ОГРН"
+
+msgid "users.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "users.region_id"
+msgstr "Регион Id"
+
+msgid "users.revision"
+msgstr "Пересмотр"
+
+msgid "users.role_id"
+msgstr "Роль Id"
+
+msgid "users.salutation"
+msgstr "Приветствие"
+
+msgid "users.signature"
+msgstr "Подпись"
+
+msgid "users.skin"
+msgstr "Кожа"
+
+msgid "users.status"
+msgstr "Статус"
+
+msgid "users.theme"
+msgstr "Тема"
+
+msgid "users.time_zone"
+msgstr "Часовой пояс"
+
+msgid "users.title"
+msgstr "Название"
+
+msgid "users.user_name"
+msgstr "Имя пользователя"
+
+msgid "users.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "user_users.accesskey"
+msgstr "Accesskey"
+
+msgid "user_users.currency_id"
+msgstr "Валюта"
+
+msgid "user_users.deleted"
+msgstr "Удаленный"
+
+msgid "user_users.department"
+msgstr "Отдел"
+
+msgid "user_users.description"
+msgstr "Описание"
+
+msgid "user_users.fax"
+msgstr "Факс"
+
+msgid "user_users.first_name"
+msgstr "Имя"
+
+msgid "user_users.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "user_users.home_page"
+msgstr "Главная страница"
+
+msgid "user_users.hour_format"
+msgstr "Часовой формат"
+
+msgid "user_users.id"
+msgstr "Id"
+
+msgid "user_users.is_active"
+msgstr "Активен"
+
+msgid "user_users.last_name"
+msgstr "Фамилия"
+
+msgid "user_users.locale"
+msgstr "Locale"
+
+msgid "user_users.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "user_users.name"
+msgstr "Имя"
+
+msgid "user_users.owned_by"
+msgstr "Владелец"
+
+msgid "user_users.parent_id"
+msgstr "Родитель"
+
+msgid "user_users.region_id"
+msgstr "Регион"
+
+msgid "user_users.role_id"
+msgstr "Роль"
+
+msgid "user_users.salutation"
+msgstr "Приветствие"
+
+msgid "user_users.signature"
+msgstr "Подпись"
+
+msgid "user_users.skin"
+msgstr "Кожа"
+
+msgid "user_users.status"
+msgstr "Статус"
+
+msgid "user_users.theme"
+msgstr "Тема"
+
+msgid "user_users.time_zone"
+msgstr "Часовой пояс"
+
+msgid "user_users.title"
+msgstr "Название"
+
+msgid "user_users.user_name"
+msgstr "Имя пользователя"
+
+msgid "user_users.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "view"
+msgstr "вид"
+
+msgid "View"
+msgstr "вид"
+
+msgid "Weekly"
+msgstr "Еженедельно"
+
+msgid "Yearly"
+msgstr "Годовой"

@@ -1,0 +1,95 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"52611fb5-7d88-4fdf-889a-1d890acef1b9\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"accounting\\\/periods\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"periods.fiscal_years.fiscal_year\",\"column_model\":\"schema\",\"__column\":\"periods.fiscal_years.fiscal_year\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"periods.start_of_period\",\"column_model\":\"schema\",\"__column\":\"periods.start_of_period\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"periods.end_of_period\",\"column_model\":\"schema\",\"__column\":\"periods.end_of_period\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"periods.name\",\"column_model\":\"schema\",\"__column\":\"periods.name\",\"alias\":\"Period\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"periods.workflow_docs.current_stages\",\"column_model\":\"schema\",\"__column\":\"periods.workflow_docs.current_stages\",\"alias\":\"Stage\",\"render_type\":\"info\",\"style\":\"width:10%\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"periods.start_of_period\",\"sort_by_model\":\"schema\",\"__sort_by\":\"periods.start_of_period\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"0\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"315\",\"owned_by\":\"0\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "accounting\/periods",
+            "created": "2013-06-25 12:13:16",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "accounting.periods.All",
+            "id": "52611fb5-7d88-4fdf-889a-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_default": "1",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-16 14:20:29",
+            "modified_by": "1",
+            "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+            "name": "All",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[{\"periods.fiscal_years.fiscal_year\":{\"__column\":\"periods.fiscal_years.fiscal_year\",\"render_type\":\"category\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"periods.start_of_period\":{\"__column\":\"periods.start_of_period\",\"render_type\":\"info\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"periods.end_of_period\":{\"__column\":\"periods.end_of_period\",\"render_type\":\"info\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"periods.name\":{\"__column\":\"periods.name\",\"alias\":\"Period\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"periods.workflow_docs.current_stages\":{\"__column\":\"periods.workflow_docs.current_stages\",\"alias\":\"Stage\",\"render_type\":\"info\",\"style\":\"width:10%\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[\"periods.start_of_period  ASC\"],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"accounting\\\/periods\",\"render_as\":\"categorized\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"315\",\"owned_by_model\":\"users\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+            "revision": "1",
+            "sequence": "315",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "",
+            "__module_id": "accounting",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

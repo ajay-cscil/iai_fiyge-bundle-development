@@ -1,0 +1,24 @@
+<?php
+
+namespace module\dashboards\helper\presentation;
+
+class widgets
+{
+
+    public static function activate(&$action, &$actionParams, $request, $paginate, $primaryKey, $record)
+    {
+        if (\array_key_exists('widget_permissions.is_active', $record)) {
+            if ($record['widget_permissions.is_active'] == 1 || strlen($record['widget_permissions.is_active']) ==0 ) {
+                $actionParams['label'] = 'de-activate';
+                $actionParams['method'] = 'deactivate';
+                $actionParams['url']=$request->base.$request->module.'/'.$request->controller.'/'.$actionParams['method'];
+            } else {
+                $actionParams['label'] = 'activate';
+                $actionParams['method'] = 'activate';
+            }
+        }
+    }
+
+}
+
+?>

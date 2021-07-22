@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tickets\controller;
+  class faq_answers extends \module\tickets\controller\faq_answers_domain_logic
+  {
+       public $modelClass = '\\module\\tickets\\model\\faq_answers';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

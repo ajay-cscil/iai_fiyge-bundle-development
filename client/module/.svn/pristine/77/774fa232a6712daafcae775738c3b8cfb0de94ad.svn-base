@@ -1,0 +1,54 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\kpi\model;
+
+class goal_types_domain_logic extends \tushar\model{
+
+    public function exportRelatedModuleData($moduleID, $manifest, $page=null) {
+        return \select("{$this->alias}.*")
+                        ->from($this)
+                        ->where("{$this->alias}.module_id", $moduleID)
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function importRelatedModuleData($module, $manifest, $records, $options=array()) {
+        try {
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('begin');
+            }
+            foreach ($records as $k => $record) {
+                if (isset($record[$this->primaryKey])) {
+                    $recordID = \select("{$this->primaryKey}")
+                            ->from($this)
+                            ->inserted()
+                            ->where($this->primaryKey, $record[$this->primaryKey])
+                            ->limit(1)
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN, 0);
+                    if (!empty($recordID)) {
+                        continue;
+                    }
+                }
+                $this->save($record, array('atomic' => true, 'validate' => false));
+            }
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('commit');
+            }
+        } catch (\Exception $e) {
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('rollback');
+            }
+            static::$errors[] = $e->getMessage();
+            return false;
+        }
+        return true;
+    }
+
+}

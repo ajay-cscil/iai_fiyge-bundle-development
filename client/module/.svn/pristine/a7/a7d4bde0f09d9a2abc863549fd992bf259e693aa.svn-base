@@ -1,0 +1,24 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\product\model;
+  class config_uom_domain_logic extends \tushar\model{
+
+       public function beforeRender(){
+       /*
+               parent::beforeRender();
+               $reference=\select("*")->from($this)
+               ->where('is_reference_uom',1)
+               ->where('uom_category_id',$this->data['uom_category_id'])
+               ->inserted()->limit(1)->execute()->fetch(\PDO::FETCH_ASSOC);
+               if(!empty($reference)){
+                        $this->data['reference_uom_id']=$reference['id'];
+                        $this->data['__reference_uom_id']=$reference['name'];
+               }
+               */
+       }
+       
+
+  }

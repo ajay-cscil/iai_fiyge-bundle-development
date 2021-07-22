@@ -1,0 +1,27 @@
+<?php
+
+namespace module\flexflow\helper\presentation;
+
+class flexflow
+{
+
+
+
+    public static function active_stage_row($request, $paginate, $primaryKey, $record)
+    {
+        if(isset($record['.active']) && $record['.active'] ==1){
+            return ' data-theme="e" ';
+        }
+
+    }
+    
+    public static function active_stage($val, &$column, $request, $paginate, $primaryKey, $record)
+    {
+        if ($val == 1) $val = '<span class="ui-icon ui-icon-arrowthick-1-e float-right"></span>';
+        return $val;
+    }
+
+
+
+
+}

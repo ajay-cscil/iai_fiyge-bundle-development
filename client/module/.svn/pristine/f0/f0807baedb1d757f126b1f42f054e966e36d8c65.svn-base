@@ -1,0 +1,619 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\data_management\controller;
+
+class imports_domain_logic extends \data_controller {
+
+    private $invocation = null;
+    private $importId = null;
+
+    private function importStatus() {
+        $modelObj = $this->modelObj();
+        $status = array();
+        foreach ($modelObj->importStatus as $sta) {
+            $status[] = array("text" => $sta, "value" => $sta);
+        }
+        return $status;
+    }
+
+    private function dateFormats() {
+        $dateFormats = array();
+        $dates = \tushar\configuration::read('dateFormats');
+        if (is_array($dates)) {
+            foreach ($dates as $k => $v) {
+                $dateFormats[$v] = array('text' => $v, 'value' => $v);
+            }
+        }
+        $dateFormats = \array_values($dateFormats);
+        return $dateFormats;
+    }
+
+    public function edit($request) {
+        $request->set('date_formats', $this->dateFormats());
+        $request->set('import_status', $this->importStatus());
+        $request->set('controllers', \module\core\model\listviews::getInstance()->controllers("", false, true));
+        return parent::edit($request);
+    }
+
+    public function view($request) {
+        $request->set('date_formats', $this->dateFormats());
+        $request->set('import_status', $this->importStatus());
+        $request->set('controllers', \module\core\model\listviews::getInstance()->controllers("", false, true));
+        return parent::view($request);
+    }
+
+    public function generate_template($request) {
+        $this->form = 'import_template';
+        $template = $modelObj = $this->modelObj();
+        $request->layout = 'detail';
+        $request->set('form', $this->form);
+        $this->render = 'edit';
+        $this->saveHandler = 'exportTemplate';
+
+        $data = $request->all('data');
+
+        if (isset($data['imports']) && isset($data['imports']['controller']) && !empty($data['imports']['controller'])) {
+            $controller = $data['imports']['controller'];
+            \tushar\configuration::write('debug', 0);
+            $this->saveHandlerOutput = $modelObj->{$this->saveHandler}($data);
+        } else {
+            $return = parent::edit($request);
+        }
+        if (!empty($this->saveHandlerOutput)) {
+            /*
+              $controller = (isset($request->data[$modelObj->alias]) &&
+              isset($request->data[$modelObj->alias]['controller']) ?
+              $request->data[$modelObj->alias]['controller'] : '');
+
+             * 
+             */
+            $module = explode("/", $controller);
+            $controller = str_replace('/', '__', $controller);
+            header("Content-type:text/csv");
+            header("Content-Disposition: attachment; filename=\"{$controller}-import-template.csv\"");
+            header("Pragma: no-cache");
+            header("Expires: 0");
+
+            list($headers, $options) = $this->saveHandlerOutput;
+            if (is_array($headers)) {
+                $labels = array();
+                foreach ($headers as $k => $label) {
+                    $isRequired = false;
+                    if ($label{0} == "*") {
+                        $isRequired = true;
+                        $label = substr($label, 1);
+                    }
+                    $label = explode('.', $label);
+                    $label = array_slice($label, -1);
+                    $label = implode(".", $label);
+                    $labels[$k] = ($isRequired ? "*" : "") . \tushar\translation::__module($label, $module[0]);
+                }
+                array_unshift($labels, "Field Label");
+                array_unshift($headers, "Field Name");
+                echo '"' . implode('","', $labels) . '"' . PHP_EOL;
+                echo '"' . implode('","', $headers) . '"' . PHP_EOL;
+            }
+            if (is_array($options)) {
+                $options[0] = "";
+                array_unshift($options, "Field Option");
+                echo '"' . implode('","', $options) . '"' . PHP_EOL;
+            }
+            if (is_array($headers)) {
+                $row = array_fill(0, count($headers), '');
+                for ($v = 0; $v < 10; $v++) {
+                    echo '"' . implode('","', $row) . '"' . PHP_EOL;
+                }
+            }
+            exit;
+        }
+        $request->set('controllers', \module\core\model\listviews::getInstance()->controllers("", false, true));
+        return $return;
+    }
+
+    public function logMessage($message) {
+        echo "<br/>{$message}";
+        \module\data_management\model\import_run_log::getInstance(array(), true)->save(
+                array(
+            'import_id' => $this->importId,
+            'invocation' => $this->invocation,
+            'message' => $message
+                ), array('type' => 'insert', 'atomic' => true)
+        );
+    }
+
+    public function __execute($request) {
+        $importProcessMemoryLimit = \tushar\configuration::read('import_process_memory_limit', false);
+        $importProcessTimeLimit = \tushar\configuration::read('import_process_time_limit', 120);
+        $importProcessReportBackTimeLimit = \tushar\configuration::read('import_process_report_back_time_limit', 15);
+        if ($importProcessTimeLimit <= 0) {
+            $importProcessTimeLimit = 120;
+        }
+        if ($importProcessReportBackTimeLimit <= 0) {
+            $importProcessReportBackTimeLimit = 15;
+        }
+        $importProcessReportBackTimeLimit = $importProcessReportBackTimeLimit * 60;
+        $this->invocation = \tushar\locale::systemDate() . ' ' . \tushar\locale::systemTime(); // date('Y-m-d H:i:s');
+        $this->logMessage("Starting import process");
+        if ($importProcessMemoryLimit != false) {
+            ini_set('memory_limit', $importProcessMemoryLimit);
+            $this->logMessage("Allocating memory for process :" . ini_get('memory_limit'));
+        }
+        $seconds = 60 * $importProcessTimeLimit;
+        \set_time_limit($seconds);
+        $id = $this->id($request);
+        $modelObj = $this->modelObj();
+        $sourcePlugins = array();
+        $modulePath = \module_path($request->module);
+        $sourcePath = $modulePath . DS . 'source';
+        if (is_dir($sourcePath)) {
+            foreach (\scandir($sourcePath) as $file) {
+                if ($file{0} != '.' && \file_exists($sourcePath . DS . $file)) {
+                    $file = explode('.', $file);
+                    $sourcePlugins[] = NS . 'module' . NS . $request->module . NS . 'source' . NS . $file[0];
+                }
+            }
+        }
+        if (empty($sourcePlugins)) {
+            $this->logMessage(__('Could not locate any source processing plugins'));
+        } else {
+            $date = \tushar\locale::systemDate(); //date('Y-m-d');
+            //get import details;
+            $where = array();
+            $where["{$modelObj->alias}.import_on_date <= "] = $date;
+            $where["{$modelObj->alias}.status"] = array('to be imported', 'processing records');
+            if (!empty($id)) {
+                $where["{$modelObj->alias}.{$modelObj->primaryKey}"] = $id;
+            }
+
+            $attempt = 0;
+            $data = array();
+            foreach (\select("$modelObj->alias.*")
+                    ->from($modelObj)
+                    ->inserted()
+                    ->where("{$modelObj->alias}.imported IS NULL")
+                    ->where($where)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $job) {
+                // if still processing records then check if job is running , else claim it if it croses maax run time.        
+                if ($job['status'] == 'processing records') {
+                    $maxCreation = \select('MAX(created)')
+                            ->from(\module\data_management\model\import_run_log::getInstance(array(), true))
+                            ->where('import_id', $job['id'])
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN, 0);
+                    // if created is set the check how old it is.
+                    if (!empty($maxCreation)) {
+                        $diff = (strtotime($this->invocation) - strtotime($maxCreation) );
+                        if ($diff > $importProcessReportBackTimeLimit) {
+                            $data = $job;
+                            break;
+                        }
+                    }
+                } else {
+                    $data = $job;
+                    break;
+                }
+            }
+
+            if (!empty($id) && empty($data)) {
+                $this->logMessage(sprintf(__("The requested import job with ID \"%s\" is either imported or could not be found"), $id), false, true);
+            }
+            if (empty($data)) {
+                $this->logMessage(__('Found No job to import'));
+            }
+            if (!empty($data)) {
+                try {
+                    $this->importId = $data['id'];
+                    $userINFO = \module\access_controls\model\users::getInstance()->setCurrentUserSesionInfo($data['created_by'], true);
+                    \tushar\user::flush();
+                    \tushar\user::write($userINFO);
+                    $this->logMessage(sprintf("Processing import job %s[%s] on behalf of user %s[%s]", $data['name'], $data['id'], $userINFO['name'], $userINFO['id']));
+                    if ($data['status'] != 'processing records') {
+                        \update(array("status" => 'processing records'))
+                                ->from($modelObj)
+                                ->inserted()
+                                ->where("{$modelObj->alias}.{$modelObj->primaryKey}", $data['id'])
+                                ->execute();
+                    }
+                    $controller = explode('/', $data['controller']);
+                    $controllerClass = NS . 'module' . NS . $controller[0] . NS . 'controller' . NS . $controller[1];
+                    $controllerObj = $controllerClass::getInstance();
+                    $controllerModelObj = $controllerObj->modelObj();
+                    $records = array();
+                    $start = \select('count(1)')
+                            ->from($modelObj->import_log)
+                            ->where('import_id', $data['id'])
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN, 0);
+                    if (!is_numeric($start)) {
+                        $start = 0;
+                    }
+
+                    $i = 0;
+                    foreach ($sourcePlugins as $sourcePlugin) {
+                        if (\class_exists($sourcePlugin) && \is_callable(array($sourcePlugin, 'process'), true) === true) {
+                            $this->logMessage(sprintf("Processing data source \"%s\"", $sourcePlugin));
+                            $processRecords = $sourcePlugin::process($modelObj, $data);
+                            if (!\array_key_exists('data', $processRecords) || !is_array($processRecords['data'])) {
+                                throw new \Exception(sprintf(__('Plugin %s should return data array'), $sourcePlugin));
+                            }
+                            if (!\array_key_exists('header', $processRecords) || !is_array($processRecords['header'])) {
+                                throw new \Exception(sprintf(__('Plugin %s should return header array'), $sourcePlugin));
+                            }
+                            $keys = array();
+                            foreach (array_keys($controllerModelObj->schema()) as $key) {
+                                $keys[] = "{$controllerModelObj->alias}.{$key}";
+                            }
+                            $headerKeys = implode('|', $processRecords['header']);
+                            $headerKeys = str_replace('*', '', $headerKeys);
+                            $processRecords['header'] = explode('|', $headerKeys);
+                            if (count(array_intersect($keys, $processRecords['header'])) <= 0) {
+                                throw new \Exception(sprintf(__('Data source output does not contain column headers %s'), $sourcePlugin));
+                            }
+
+
+                            foreach ($processRecords['data'] as $recordData) {
+                                if (isset($recordData['0']) && trim($recordData['0']) == 'OPTIONS') {
+                                    continue;
+                                }
+                                $records[$i] = array();
+                                foreach ($processRecords['header'] as $k => $columnName) {
+                                    if (isset($recordData[$k])) {
+                                        \set_path_value($columnName, $records[$i], $recordData[$k]);
+                                    }
+                                }
+                                $i++;
+                            }
+                            unset($processRecords);
+                        }
+                    }
+                    $recordCount = \count($records);
+                    $importHandler = (isset($controllerModelObj->importHandler) ? $controllerModelObj->importHandler : 'save');
+
+                    if ($start < $recordCount) {
+                        $this->logMessage(sprintf("Importing records from %s to %s", $start + 1, ($recordCount)));
+                    } else {
+                        $this->logMessage(sprintf("No records to import"));
+                    }
+                    for ($current = $start; $current < $recordCount; $current++) {
+                        $this->logMessage(sprintf("Processing record[%s]-START", $current + 1));
+                        $controllerModelObj->reset(true);
+                        //@todo:handel this in model behavior;
+                        $controllerModelObj->acl = array();
+                        $record = &$records[$current];
+                        if (empty($data['date_format'])) {
+                            $data['date_format'] = 'Y-m-d';
+                        }
+                        $data['date_format'] = \str_replace(array('YYYY', 'yyyy', 'MM', 'mm', 'DD', 'dd'), array('Y', 'Y', 'm', 'm', 'd', 'd'), $data['date_format']);
+                        $record['import_status'] = $record['import_reason'] = '';
+                        $this->normalizeDATA($controllerModelObj, $data, $record, $record['import_status'], $record['import_reason']);
+                        echo "<br />RAW RECORD";
+                        //pr($record);
+                        if (isset($record[$controllerModelObj->alias])) {
+                            $this->processImportRecord(
+                                    $controllerModelObj, $data, $record[$controllerModelObj->alias], $record['import_status'], $record['import_reason']
+                            );
+                        }
+                        /**
+                         *  What happens if I give you PK or BizKey
+                         *  I am going in an update mode.  ACL applies
+                         *  BizKeys are unique too.
+                         */
+                        //$records[$current]['import_reason']
+                        $primaryKey = $controllerModelObj->primaryKey;
+                        $businessKey = $controllerModelObj->businessKey;
+                        $errorMessage = '';
+                        $where = array();
+                        if (isset($record[$primaryKey]) && !empty($record[$primaryKey])) {
+                            $where = array("{$controllerModelObj->alias}.{$primaryKey}" => $record[$primaryKey]);
+                            $errorMessage = \sprintf(__("Could not locate %s with %s equal to %s"), $controllerModelObj->alias, $primaryKey, $record[$primaryKey]);
+                        } else if (isset($record[$businessKey]) && !empty($record[$businessKey])) {
+                            $where = array("{$controllerModelObj->alias}.{$businessKey}" => $record[$businessKey]);
+                            $errorMessage = \sprintf(__("Could not locate %s with %s equal to %s"), $obj->alias, $businessKey, $record[$businessKey]);
+                        }
+                        if (!empty($where)) {
+                            $val = $controllerModelObj->find(
+                                            array(
+                                                'fields' => array("{$controllerModelObj->alias}.{$primaryKey}")
+                                                , 'where' => $where
+                                                , 'limit' => 1
+                                            )
+                                    )->fetch(\PDO::FETCH_COLUMN, 0);
+                            if (!empty($val)) {
+                                $record[$primaryKey] = $val;
+                                $record['import_status'] = 'updated';
+                            } else {
+                                $record['import_status'] = 'not imported';
+                                $record['import_reason'] .= $errorMessage . '. ';
+                            }
+                        }
+
+                        $importLogData = \json_encode(\array_diff_key($record, array('import_status' => 1, 'import_reason' => 1)));
+                        $dontImport = isset($record['import_status']) && $record['import_status'] == 'not imported';
+
+
+
+
+
+
+                        if ($dontImport === false) {
+                            if ($record[$controllerModelObj->alias]) {
+                                $record[$controllerModelObj->alias]['action'] = 'draft';
+                            } else {
+                                $record['action'] = 'draft';
+                            }
+
+                            if ($controllerModelObj->$importHandler($record)) {
+                                if (empty($record['import_status'])) {
+                                    $record['import_status'] = 'created';
+                                }
+                                $record['import_reason'] = '';
+                            } else {
+                                $record['import_status'] = 'not imported';
+                                if (!isset($record['import_reason'])) {
+                                    $record['import_reason'] = '';
+                                }
+                                echo $record['import_reason'] .= array_to_string(\tushar\model::$errors);
+                            }
+                        }
+
+                        if (!empty($controllerModelObj->id)) {
+                            $importLog = array(
+                                'import_id' => $data['id']
+                                , 'related_to' => $controllerModelObj->id
+                                , '__related_to' => (isset($record[$controllerModelObj->displayField]) ? $record[$controllerModelObj->displayField] : '')
+                                , 'related_to_model' => $controllerModelObj->alias
+                                , 'related_to_model_class' => $controllerModelObj->modelClass
+                                , 'status' => $record['import_status']
+                                , 'reason' => $record['import_reason']
+                                , 'lookup_sql_log' => $record['lookup_sql_log']
+                                , 'data' => str_replace('","', '", "', $importLogData)
+                            );
+                        } else {
+                            $importLog = array(
+                                'import_id' => $data['id']
+                                , 'status' => $record['import_status']
+                                , 'reason' => $record['import_reason']
+                                , 'data' => str_replace('","', '", "', $importLogData)
+                            );
+                        }
+
+                        $this->logMessage(sprintf("Processing record[%s]-END with status %s", ($current + 1), $record['import_status']));
+                        if (!empty($record['import_reason'])) {
+                            echo "<br/>Errors:<br/>{$record['import_reason']}";
+                        }
+
+
+                        $modelObj->import_log->reset(true);
+                        if ($modelObj->import_log->save($importLog) != true) {
+                            $this->logMessage(__('Aborting import : ' . array_to_string(\tushar\model::$errors)));
+                            throw new \Exception(__('Aborting import'));
+                        }
+                    }
+
+                    $start = \select('count(1)')
+                            ->from($modelObj->import_log)
+                            ->where('import_id', $data['id'])
+                            ->limit(0)
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN, 0);
+
+                    $request->push(sprintf("Import Log shows %s records imported out of total %s records", $start, $recordCount));
+
+
+
+                    $controllerModelObjSchema = $controllerModelObj->schema();
+                    if (isset($controllerModelObjSchema[$controllerModelObj->displayField])) {
+                        \update(array("{$modelObj->import_log->alias}.__related_to" => "(entity.{$controllerModelObj->displayField})"))
+                                ->from($modelObj->import_log)
+                                ->joinCross("entity", $controllerModelObj)
+                                ->where(array("{$modelObj->import_log->alias}.import_id" => $data['id'], "{$modelObj->import_log->alias}.related_to=entity.{$modelObj->primaryKey}"))
+                                ->execute("", true);
+                    }
+
+                    if ($start >= $recordCount) {
+                        \update(array("imported" => $date, "status" => 'completed'))
+                                ->from($modelObj)
+                                ->inserted()
+                                ->where("{$modelObj->alias}.{$modelObj->primaryKey}", $data['id'])
+                                ->where("{$modelObj->alias}.status != ", "completed")
+                                ->execute();
+
+                        $importedRecords = \select('count(1)')->from($modelObj->import_log)
+                                        ->where(array('import_id' => $data['id'], 'status' => array('created', 'updated')))
+                                        ->limit(0)->execute()->fetch(\PDO::FETCH_COLUMN, 0);
+                        \update(
+                                        array(
+                                            "total_records" => $recordCount
+                                            , "imported_records" => $importedRecords
+                                            , "non_imported_records" => ($recordCount - $importedRecords)
+                                        )
+                                )
+                                ->from($modelObj)
+                                ->inserted()
+                                ->where("{$modelObj->alias}.{$modelObj->primaryKey}", $data['id'])
+                                ->execute();
+                    }
+                } catch (\Exception $e) {
+                    $this->logMessage(\exception_message($e));
+                    \update(array("status" => 'failed'))
+                            ->from($modelObj)
+                            ->inserted()
+                            ->where("{$modelObj->alias}.{$modelObj->primaryKey}", $data['id'])
+                            ->execute();
+                }
+            }
+        }
+        $this->logMessage("Ending import process");
+        if (\tushar\configuration::read('debug') == true) {
+            foreach (\tushar\logger::$sqlLog as $entry) {
+                $q = str_replace('?', "'%s'", str_replace("%", "PERCENT_SIGN", $entry['message']));
+                $q = (isset($entry['params']) && is_array($entry['params']) ? vsprintf($q, json_decode(str_replace("'", "\'", json_encode($entry['params'])), true)) : $entry['message'] );
+                $q = str_replace("PERCENT_SIGN", "%", $q);
+                $this->logMessage($entry['event_type'] . " : " . $q);
+            }
+            if (!empty(\tushar\model::$errors)) {
+                $this->logMessage(json_encode(\tushar\model::$errors));
+            }
+        }
+
+        exit;
+    }
+
+    private function normalizeDATA($object, $data, &$record, &$importStatus, &$importReason) {
+        $schema = $object->schema(false, false);
+        foreach ($schema as $column => $info) {
+            if (isset($record[$column]) && !empty($record[$column])) {
+                switch ($info['const']) {
+                    case FLOAT:
+                    case INT:
+                        if ($data['decimal_separator'] == 'Comma') {
+                            // Replace point with empty
+                            $record[$column] = \str_replace('.', '', $record[$column]);
+                            // Replace comma with point
+                            $record[$column] = \str_replace(',', '.', $record[$column]);
+                        } else {
+                            // replace comma with empty
+                            $record[$column] = \str_replace(',', '', $record[$column]);
+                        }
+                        break;
+                    case DATE:
+                        $dateObj = \DateTime::createFromFormat($data['date_format'], $record[$column]);
+                        if (is_object($dateObj)) {
+                            $record[$column] = $dateObj->format('Y-m-d');
+                        } else if (!empty($record[$column])) {
+                            $importStatus = 'not imported';
+                            $importReason .= ' ' . sprintf('Value "%s" for column "%s" is not a valid %s as per SCHEMA', $record[$column], $column, $info['const']) . '.';
+                        }
+                        break;
+                    case DATETIME:
+                        $dateObj = \DateTime::createFromFormat($data['date_format'] . ' H:i:s', $record[$column]);
+                        if (is_object($dateObj)) {
+                            $record[$column] = $dateObj->format('Y-m-d H:i:s');
+                        } else if (!empty($record[$column])) {
+                            $importStatus = 'not imported';
+                            $importReason .= ' ' . sprintf('Value "%s" for column "%s" is not a valid %s as per SCHEMA', $record[$column], $column, $info['const']) . '.';
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
+    private function processImportRecord($controllerModelObj, $data, &$record, &$importStatus, &$importReason) {
+        $schema = $controllerModelObj->schema(false, false);
+        $this->normalizeDATA($controllerModelObj, $data, $record, $importStatus, $importReason);
+        echo "PROCESSED RECORD";
+        //pr($record);
+        // process lookup fields
+        foreach ($controllerModelObj->associations as $assocName => $info) {
+            $foreignKey = $info['foreignKey'];
+            if (in_array($foreignKey, array('created_by', 'modified_by'))) {
+                continue;
+            }
+            $obj = $controllerModelObj->{$assocName};
+            $primaryKey = $obj->primaryKey;
+            $displayField = $obj->displayField;
+            $businessKey = $obj->businessKey;
+
+            $isForeignKeySet = isset($record[$foreignKey]) && !empty($record[$foreignKey]) && !is_array($record[$foreignKey]);
+
+            switch ($info['assocType']) {
+                case 'belongsTo':
+                    echo "ForeignKey:{$foreignKey}<br/>";
+                    if (isset($record[$assocName]) && is_array($record[$assocName])) {
+                        $this->normalizeDATA($obj, $data, $record[$assocName], $importStatus, $importReason);
+                    }
+                    $where = array();
+                    $errorMessage = '';
+                    if ($isForeignKeySet) {
+                        if (isset($schema[$foreignKey]) && $schema[$foreignKey]['const'] === INT && is_numeric($record[$foreignKey])) {
+                            $where = array("{$obj->alias}.{$primaryKey}" => $record[$foreignKey]);
+                            $errorMessage = \sprintf(__("Could not locate %s with primary Key %s equal to %s"), $obj->alias, $primaryKey, $record[$foreignKey]);
+                        } else {
+                            $where = array("{$obj->alias}.{$displayField}" => $record[$foreignKey]);
+                            $errorMessage = \sprintf(__("Could not locate %s with display Field %s equal to %s"), $obj->alias, $displayField, $record[$foreignKey]);
+                        }
+                    } else if (isset($record['__' . $foreignKey]) && !empty($record['__' . $foreignKey])) {
+                        $where = array("{$obj->alias}.{$displayField}" => $record['__' . $foreignKey]);
+                        $errorMessage = \sprintf(__("Could not locate %s with %s equal to %s"), $obj->alias, $displayField, $record['__' . $foreignKey]);
+                    } else if (isset($record[$assocName]) && is_array($record[$assocName])) {
+                        if (isset($record[$assocName][$primaryKey]) && !empty($record[$assocName][$primaryKey])) {
+                            $where = array("{$obj->alias}.{$primaryKey}" => $record[$assocName][$primaryKey]);
+                            $errorMessage = \sprintf(__("Could not locate %s with %s equal to %s"), $obj->alias, $primaryKey, $record[$assocName][$primaryKey]);
+                        } else if (isset($record[$assocName][$businessKey]) && !empty($record[$assocName][$businessKey])) {
+                            $where = array("{$obj->alias}.{$businessKey}" => $record[$assocName][$businessKey]);
+                            $errorMessage = \sprintf(__("Could not locate %s with %s equal to %s"), $obj->alias, $businessKey, $record[$assocName][$businessKey]);
+                        } else if (isset($record[$assocName][$displayField]) && !empty($record[$assocName][$displayField])) {
+                            $where = array("{$obj->alias}.{$displayField}" => $record[$assocName][$displayField]);
+                            $errorMessage = \sprintf(__("Could not locate %s with %s equal to %s"), $obj->alias, $displayField, $record[$assocName][$displayField]);
+                        }
+                        unset($record[$assocName]);
+                    }
+
+                    if (!empty($where)) {
+                        echo "FILTER";
+                        //pr($where);
+                        $val = $obj->find(
+                                        array(
+                                            'fields' => array("{$obj->alias}.{$primaryKey}")
+                                            , 'where' => $where
+                                            , 'limit' => 1
+                                        )
+                                )->fetch(\PDO::FETCH_COLUMN, 0);
+                        if (!empty($val)) {
+                            $record[$foreignKey] = $val;
+                        } else {
+                            if ($foreignKey == "owned_by") {
+                                $record['owned_by'] = $data['owned_by'];
+                                if (is_array($where)) {
+                                    $importReason .= sprintf(" Could not find %s with %s='%s'. Record is owned by import job owner.", $obj->alias, key($where), current($where));
+                                }
+                            } else {
+                                $importStatus = 'not imported';
+                                $importReason .= $errorMessage . '. ';
+
+                                if (!isset($record['lookup_sql_log'])) {
+                                    $record['lookup_sql_log'] = '';
+                                }
+                                $record['lookup_sql_log'] .= $obj->find(
+                                        array(
+                                            'fields' => array("{$obj->alias}.{$primaryKey}")
+                                            , 'where' => $where
+                                            , 'limit' => 1
+                                            , 'return_sql' => 1
+                                        )
+                                );
+                                $record['lookup_sql_log'] .= "; ";
+                            }
+                        }
+                    }
+
+                    break;
+                case 'hasOne':
+                    if (isset($record[$assocName]) && !empty($record[$assocName])) {
+                        $this->processImportRecord($obj, $data, $record[$assocName], $importStatus, $importReason);
+                    }
+                    break;
+                case 'hasMany':
+                    if (isset($record[$assocName]) && !empty($record[$assocName])) {
+                        foreach ($record[$assocName] as $i => $subRecord) {
+                            $this->processImportRecord($obj, $data, $record[$assocName][$i], $importStatus, $importReason);
+                        }
+                    }
+                    break;
+            }
+        }
+
+        // set owned by
+        if (!isset($record['owned_by']) || empty($record['owned_by'])) {
+            $record['owned_by'] = $data['owned_by'];
+        }
+    }
+
+}

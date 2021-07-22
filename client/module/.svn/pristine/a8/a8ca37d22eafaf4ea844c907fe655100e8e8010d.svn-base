@@ -1,0 +1,218 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class invoices_domain_logic extends \data_model{
+
+    public function beforeValidate() {
+        $this->filters['due_date'][] = array(
+            'rule' => '1024',
+            'params' =>
+            array(
+                'options' =>
+                array(
+                    0 => '\\tushar\\validation',
+                    1 => 'compareDates',
+                )
+            ),
+            'column_1' => 'due_date',
+            'column_2' => 'invoice_date',
+            'comparator' => '>='
+        );
+        parent::beforeValidate();
+    }
+
+    public function beforeSave() {
+        $invoiceTaxes = array();
+        if (isset($this->data[$this->primaryKey])) {
+            foreach (\select(array('id', 'tax_code_id', 'tax_code_amount'))->from($this->invoice_taxes)
+                    ->inserted()
+                    ->where('invoice_id', $this->data[$this->primaryKey])
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $info) {
+                $invoiceTaxes[$info['tax_code_id']] = $info;
+            }
+        }
+        if (!empty($invoiceTaxes)) {
+            foreach ($this->data['invoice_taxes'] as $row => $info) {
+                if (isset($invoiceTaxes[$info['tax_code_id']])) {
+                    $this->data['invoice_taxes'][$row] = array_merge($invoiceTaxes[$info['tax_code_id']], $this->data['invoice_taxes'][$row]);
+                    unset($invoiceTaxes[$info['tax_code_id']]);
+                }
+            }
+        }
+        if (!empty($invoiceTaxes)) {
+            foreach ($invoiceTaxes as $info) {
+                $info['deleted'] = 1;
+                $this->data['invoice_taxes'][] = $info;
+            }
+        }
+        parent::beforeSave();
+    }
+
+    public function journalEntryDate(){
+        return $this->data['invoice_date'];
+    }
+
+    
+    
+    public function journalEntries(&$journalEntry) {
+        $journalEntry['journal_entry_lines'] = array();
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (strcasecmp($actionTriggred, 'confirm') == 0) {
+            $journalEntry['journal_type'] = 'sale';
+
+            if (!isset($journalEntry['company_id']) || empty($journalEntry['company_id'])) {
+                $journalEntry['company_id'] = \tushar\user::read('company_id');
+            }
+            $journalEntry['currency_id'] = (isset($this->data['currency_id']) ? $this->data['currency_id'] : '');
+            if (!isset($journalEntry['currency_id']) || empty($journalEntry['currency_id'])) {
+                $journalEntry['currency_id'] = \tushar\user::read('currency_id');
+            }
+            $journalEntry['journal_id'] = \module\accounting\model\journals::getInstance()->journalID($journalEntry['journal_type'], $journalEntry['currency_id'], $journalEntry['company_id']);
+
+
+            //$journalEntry[]
+            //invoices.partners.partner_accounts.account_receivable_id	
+            //invoices.partner_id	
+            //invoices.total_after_discount	
+            //debit
+
+
+            $object = $this->partners;
+            $journalEntry['journal_entry_lines'][] = array(
+                'related_to' => $this->data['partner_id'],
+                '__related_to' => \select("{$object->displayField}")
+                        ->from($object)
+                        ->where("{$object->alias}.id", $this->data['partner_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0),
+                'related_to_model' => $object->alias,
+                'related_to_model_class' => $object->modelClass,
+                'account_id' => \select("partner_accounts.account_receivable_id")
+                        ->from($object)
+                        ->joinInner('partner_accounts')
+                        ->where("{$object->alias}.id", $this->data['partner_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0),
+                'debit' => $this->data['total_after_discount']
+            );
+
+            //invoices.invoice_lines.products.product_accounts.income_account_id	
+            //invoices.invoice_lines.product_id	
+            //invoices.invoice_lines.total_amount	
+            //credit
+            if (isset($this->data['invoice_lines']) && is_array($this->data['invoice_lines'])) {
+                $object = $this->invoice_lines->products;
+                foreach ($this->data['invoice_lines'] as $line) {
+                    if (!isset($line['deleted']) || $line['deleted'] != 1) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'related_to' => $line['product_id'],
+                            '__related_to' => \select("{$object->displayField}")
+                                    ->from($object)
+                                    ->where("{$object->alias}.id", $line['product_id'])
+                                    ->execute()->fetch(\PDO::FETCH_COLUMN, 0),
+                            'related_to_model' => $object->alias,
+                            'related_to_model_class' => $object->modelClass,
+                            'account_id' => \select("product_accounts.income_account_id")
+                                    ->from($object)
+                                    ->joinInner('product_accounts')
+                                    ->where("{$object->alias}.id", $line['product_id'])
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN, 0),
+                            'credit' => $line['total_amount']
+                        );
+                    }
+                }
+            }
+
+
+            //invoices.line_taxes_summary.taxes.invoice_tax_account
+            //invoices.line_taxes_summary.tax_id
+            //invoices.ine_taxes_summary.tax_amount
+            //credit
+            if (isset($this->data['line_taxes_summary']) && is_array($this->data['line_taxes_summary'])) {
+                $object = $this->line_taxes_summary->taxes;
+                foreach ($this->data['line_taxes_summary'] as $line) {
+                    if (!isset($line['deleted']) || $line['deleted'] != 1) {
+                        $tx = \select(array("{$object->alias}.{$object->displayField}", "{$object->alias}.invoice_tax_account"))
+                                ->from($object)
+                                ->where("{$object->alias}.id", $line['tax_id'])
+                                ->execute()
+                                ->fetch(\PDO::FETCH_ASSOC, 0);
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'related_to' => $line['tax_id'],
+                            '__related_to' => $tx[$object->displayField],
+                            'related_to_model' => $object->alias,
+                            'related_to_model_class' => $object->modelClass,
+                            'account_id' => $tx['invoice_tax_account'],
+                            'credit' => $line['tax_amount']
+                        );
+                    }
+                }
+            }
+
+            /*
+              invoices.shipping_cost[affected account - shipping income, income account]
+             * credit
+             */
+            if (isset($this->data['shipping_cost']) && $this->data['shipping_cost'] > 0) {
+                $accountID = \tushar\configuration::read('sales_shipping_analytic_account');
+                if (empty($accountID)) {
+                    throw new \Exception(__('Please configure sales shipping analytic account under global configuration', 'module'));
+                }
+                $journalEntry['journal_entry_lines'][] = array(
+                    'related_to' => '',
+                    '__related_to' => '',
+                    'related_to_model' => '',
+                    'related_to_model_class' => '',
+                    'account_id' => $accountID,
+                    'credit' => $this->data['shipping_cost']
+                );
+            }
+
+            /*
+              invoices.discount_amount [affected account - sales discount, income account]
+              debit
+             */
+            if (isset($this->data['discount_amount']) && $this->data['discount_amount'] > 0) {
+                $accountID = \tushar\configuration::read('sales_discount_analytic_account');
+                if (empty($accountID)) {
+                    throw new \Exception(__('Please configure sales discount analytic account under global configuration', 'module'));
+                }
+                $journalEntry['journal_entry_lines'][] = array(
+                    'related_to' => '',
+                    '__related_to' => '',
+                    'related_to_model' => '',
+                    'related_to_model_class' => '',
+                    'account_id' => $accountID,
+                    'debit' => $this->data['discount_amount']
+                );
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            return true;
+        }
+    }
+
+}

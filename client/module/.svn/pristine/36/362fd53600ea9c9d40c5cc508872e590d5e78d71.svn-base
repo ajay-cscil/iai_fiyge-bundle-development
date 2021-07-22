@@ -1,0 +1,135 @@
+{
+    "version": "2.2.1",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": null,
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Tushar Takkar",
+    "category_id": "13",
+    "company": "Primary Modules",
+    "created": "2015-05-25",
+    "created_by": null,
+    "current_stable_version": "0.0.1",
+    "description": "manage import and export of data",
+    "flags": null,
+    "id": "27261990-e746-11e3-aad5-0800275f9930",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": null,
+    "label": "System: Data Management",
+    "latest_version": null,
+    "license_agreement": null,
+    "modified": "2015-05-25 18:18:00",
+    "modified_by": "-1",
+    "name": "data_management",
+    "owned_by": "-2",
+    "revision": null,
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/data_management",
+    "__created_by": "",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "Maax Modules Development Team",
+    "__category_id": "Software Development",
+    "category_id_business_key": "Software Development",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "modified_by_model": "modified_by_user",
+    "owned_by_model": "owned_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "configurations": "\\module\\data_management\\controller\\configurations",
+        "exports": "\\module\\data_management\\controller\\exports",
+        "exports_acl_cache": "\\module\\data_management\\controller\\exports_acl_cache",
+        "exports_group_acl_cache": "\\module\\data_management\\controller\\exports_group_acl_cache",
+        "import_log": "\\module\\data_management\\controller\\import_log",
+        "import_run_log": "\\module\\data_management\\controller\\import_run_log",
+        "imports": "\\module\\data_management\\controller\\imports",
+        "imports_acl_cache": "\\module\\data_management\\controller\\imports_acl_cache",
+        "imports_group_acl_cache": "\\module\\data_management\\controller\\imports_group_acl_cache"
+    },
+    "models": {
+        "configurations": "\\module\\data_management\\model\\configurations",
+        "exports": "\\module\\data_management\\model\\exports",
+        "exports_acl_cache": "\\module\\data_management\\model\\exports_acl_cache",
+        "exports_group_acl_cache": "\\module\\data_management\\model\\exports_group_acl_cache",
+        "import_log": "\\module\\data_management\\model\\import_log",
+        "import_run_log": "\\module\\data_management\\model\\import_run_log",
+        "imports": "\\module\\data_management\\model\\imports",
+        "imports_acl_cache": "\\module\\data_management\\model\\imports_acl_cache",
+        "imports_group_acl_cache": "\\module\\data_management\\model\\imports_group_acl_cache"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "1.2.4"
+            },
+            "document_management_base": {
+                "version": "1.3.9",
+                "author": "Tushar Takkar",
+                "company": "Primary Modules"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_document_management_base_model_attachments": "\\module\\document_management_base\\model\\attachments"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl"
+        }
+    }
+}

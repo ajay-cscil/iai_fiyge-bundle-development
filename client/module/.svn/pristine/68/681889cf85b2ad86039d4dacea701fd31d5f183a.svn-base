@@ -1,0 +1,454 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+class TestOfAdd extends WebTestCase
+{
+    /*
+     * @todo
+     * username
+     * password
+     * base_url
+     */
+
+    function testAddmethod()
+    {
+        $base_url = 'http://localhost/benchmarking-0.0.6.3/';
+        $this->get('http://localhost/tushar/trunk/access_controls/users/login');
+        $this->setField('data[users][user_name]', 'admin');
+        $this->setField('data[users][user_password]', 'sc4JK4GeWiXr');
+        $this->click('Login');
+
+        $this->get('http://localhost/tushar/trunk/access_controls/users/add');
+
+        $usersObj = \module\access_controls\model\users::getInstance();
+        $record = $usersObj->read(1);
+
+        $javaScriptCols = array();
+        $columns = array();
+       // pr($record[$usersObj->alias]);
+        if (isset($record[$usersObj->alias]) && is_array($record[$usersObj->alias])) {
+            unset($record[$usersObj->alias][$usersObj->primaryKey]);
+            $columns = array_keys($record[$usersObj->alias]);
+            foreach ($record[$usersObj->alias] as $colKey => $colValue) {
+                $key = 'data[' . $usersObj->alias . '][' . $colKey . ']';
+
+                if (!is_array($colValue)) {
+                     $custom_field = "__" . $colKey;
+                   // echo "<br />";
+                    if (in_array($custom_field, $columns)) {
+                        $javaScriptCols[$key] = $colValue;
+                    } else {
+                        $this->setField($key, $colValue);
+                    }
+                }
+            }
+        }
+        $this->setField('data[users][user_name]', 'praikar1');
+        $this->setField('data[users][salutation]', '951');
+
+        /*  $this->setField('data[users][user_name]', 'praikar1');
+          $this->setField('data[users][user_password]', 'praikar');
+          $this->setField('data[users][first_name]', 'pooja');
+          $this->setField('data[users][last_name]', 'raikar');
+          $this->setField('data[users][name]', 'pooja raikar');
+          $this->setField('data[users][time_zone]', 'America/New_York');
+          $this->setField('data[users][locale]', 'en_US');
+          $this->setField('data[users][hour_format]', '12');
+          $this->setField('data[users][deleted]', '0');
+          $this->setField('data[users][salutation]', '951');
+          $this->setField('data[users][is_active]', 1);
+          $this->setField('data[users][skin]', '3_panel_fieldset_view');
+          $this->setField('data[users][theme]', 'redmond');
+          $this->setField('data[users][region_id]', '211'); */
+        //   $this->setField('data[users][__role_id]', 'Moderator [14]');
+        //   $this->setField('data[users][role_id_model]', 'roles');
+        //   $this->setField('data[users][role_id]', 14);
+//         $this->get('http://localhost/benchmarking-0.0.6.3/crm/tickets/add');
+//        $this->setField('data[tickets][title]', 'praikar');
+        //       $this->setField('data[tickets][priority]', 1095);
+        //       $this->setField('data[tickets][category]', 1110);
+        //      $this->setField('data[tickets][severity]', 1099);
+        //       $this->setField('data[tickets][problem]', 'problem');
+        //  $this->setField('data[users][first_name]', 'pooja');
+        //   $this->setField('data[users][last_name]', 'raikar');
+        //   $this->setField('data[users][name]', 'pooja raikar');
+        //    $this->setField('data[users][role_id]', '6');
+        //    $this->setField('data[users][time_zone]', 'America/New_York');
+        //    $this->setField('data[users][locale]', 'en_US');
+        //    $this->setField('data[users][hour_format]', '12');
+        //    $this->setField('data[users][deleted]', '0');
+        //    $this->setField('data[users][salutation]', '951');
+        //    $this->setField('data[users][is_active]', 1);
+        //   $this->setField('data[users][skin]', '3_panel_fieldset_view');
+        //   $this->setField('data[users][theme]', 'redmond');
+        //   $this->setField('data[users][region_id]', '211');
+        //   $this->setField('data[users][__role_id]', 'CEO');
+        //   $this->setField('data[users][role_id_model]', 'roles');
+
+        pr($this);
+        $this->clickSubmit('Submit', $javaScriptCols);
+        //      $headers = $this->showHeaders();
+        //    $request = $this->showRequest();
+        $source = $this->showSource();
+        //   $text = $this->showText();
+        // pr($headers);
+        // pr($request);
+        // pr($source);
+        //  pr($text);
+
+        /* $responseObject = \module\benchmarking\model\responses::getInstance();
+
+
+          $app_menu = "\\module\\development_base\\model\\menus";
+          $appMenuObj = $app_menu::getInstance();
+          $controller_urls = \select("{$appMenuObj->alias}.*")
+          ->from($appMenuObj)
+          ->inserted()
+          ->where("{$appMenuObj->alias}.type", 'controller')
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          if (is_array($controller_urls)) {
+          foreach ($controller_urls as $k => $v) {
+          $index_urls = \select("{$appMenuObj->alias}.*")
+          ->from($appMenuObj)
+          ->inserted()
+          ->where("{$appMenuObj->alias}.type", 'action')
+          ->where("{$appMenuObj->alias}.lft >", $v['lft'])
+          ->where("{$appMenuObj->alias}.rgt <", $v['rgt'])
+          ->where("{$appMenuObj->alias}.url like", '%add%')
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          foreach ($index_urls as $k1 => $v1) {
+          if (isset($v1['url'])) {
+          $urlParts = explode('/', $v1['url']);
+          if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+          $fields = array();
+          $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+
+          try {
+          $modelObj = $model::getInstance();
+          $model_record = \select("$modelObj->alias.*")
+          ->from($modelObj)
+          ->inserted()
+          ->limit(1)
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          if (isset($model_record[0]) && isset($model_record[0][$modelObj->primaryKey])) {
+          pr($model_record);
+          $url = $base_url . $v1['url'] . ".json";
+          pr($this->data[$url]['data']);
+          exit;
+          if (isset($this->data[$url]['data']) && isset($this->data[$url]['data'][$modelObj->alias]) && is_array($this->data[$url]['data']) && is_array($this->data[$url]['data'][$modelObj->alias])) {
+
+          foreach ($this->data[$url]['data'][$modelObj->alias] as $fieldLabel => $fieldValue) {
+          if (is_array($this->data[$url]['data'][$modelObj->alias][$fieldLabel])) {
+          unset($this->data[$url]['data'][$modelObj->alias][$fieldLabel]);
+          }
+          }
+          $intersect = array_intersect($model_record[0], $this->data[$url]['data'][$modelObj->alias]);
+
+          $result = array_diff($intersect, $model_record[0]);
+          $this->assertTrue(count($result) == 0, "View of '$url' is failing");
+          $error = "No Error";
+          if (count($result) != 0) {
+          $error = "View of '$url' is failing";
+          }
+          $usersObj = \module\access_controls\model\users::getInstance();
+          $record = $usersObj->find(array('limit' => 1))->fetchAll(\PDO::FETCH_ASSOC);
+          pr($record);exit;
+
+          $this->get('http://localhost/benchmarking-0.0.6.3/access_controls/users/add');
+          $this->setField('data[users][user_name]', 'praikar');
+          $this->setField('data[users][user_password]', 'praikar');
+          $this->setField('data[users][first_name]', 'pooja');
+          $this->setField('data[users][last_name]', 'raikar');
+          $this->setField('data[users][name]', 'pooja raikar');
+          $this->setField('data[users][role_id]', '5');
+          $this->setField('data[users][time_zone]', 'America/New_York');
+          $this->setField('data[users][locale]', 'en_US');
+          $this->setField('data[users][hour_format]', '12');
+          $this->setField('data[users][deleted]', '0');
+          $this->setField('data[users][salutation]', '951');
+          $this->setField('data[users][is_active]', 1);
+          $this->setField('data[users][skin]', '3_panel_fieldset_view');
+          $this->setField('data[users][theme]', 'redmond');
+          $this->setField('data[users][region_id]', '211');
+          $this->setField('data[users][__role_id]', 'Admin [5]');
+          $this->setField('data[users][role_id_model]', 'roles');
+
+
+          //         $this->get('http://localhost/benchmarking-0.0.6.3/crm/tickets/add');
+          //        $this->setField('data[tickets][title]', 'praikar');
+          //       $this->setField('data[tickets][priority]', 1095);
+          //       $this->setField('data[tickets][category]', 1110);
+          //      $this->setField('data[tickets][severity]', 1099);
+          //       $this->setField('data[tickets][problem]', 'problem');
+          //  $this->setField('data[users][first_name]', 'pooja');
+          //   $this->setField('data[users][last_name]', 'raikar');
+          //   $this->setField('data[users][name]', 'pooja raikar');
+          //    $this->setField('data[users][role_id]', '6');
+          //    $this->setField('data[users][time_zone]', 'America/New_York');
+          //    $this->setField('data[users][locale]', 'en_US');
+          //    $this->setField('data[users][hour_format]', '12');
+          //    $this->setField('data[users][deleted]', '0');
+          //    $this->setField('data[users][salutation]', '951');
+          //    $this->setField('data[users][is_active]', 1);
+          //   $this->setField('data[users][skin]', '3_panel_fieldset_view');
+          //   $this->setField('data[users][theme]', 'redmond');
+          //   $this->setField('data[users][region_id]', '211');
+          //   $this->setField('data[users][__role_id]', 'CEO');
+          //   $this->setField('data[users][role_id_model]', 'roles');
+
+          $this->clickSubmit('Submit');
+          //      $headers = $this->showHeaders();
+          //    $request = $this->showRequest();
+          $source = $this->showSource();
+          //   $text = $this->showText();
+          // pr($headers);
+          // pr($request);
+          // pr($source);
+          //  pr($t
+
+          $this->get('http://localhost/benchmarking-0.0.6.3/access_controls/users/add');
+          $this->setField('data[users][user_name]', 'praikar');
+          $this->setField('data[users][user_password]', 'praikar');
+          $this->setField('data[users][first_name]', 'pooja');
+          $this->setField('data[users][last_name]', 'raikar');
+          $this->setField('data[users][name]', 'pooja raikar');
+          $this->setField('data[users][role_id]', '5');
+          $this->setField('data[users][time_zone]', 'America/New_York');
+          $this->setField('data[users][locale]', 'en_US');
+          $this->setField('data[users][hour_format]', '12');
+          $this->setField('data[users][deleted]', '0');
+          $this->setField('data[users][salutation]', '951');
+          $this->setField('data[users][is_active]', 1);
+          $this->setField('data[users][skin]', '3_panel_fieldset_view');
+          $this->setField('data[users][theme]', 'redmond');
+          $this->setField('data[users][region_id]', '211');
+          $this->setField('data[users][__role_id]', 'Admin [5]');
+          $this->setField('data[users][role_id_model]', 'roles');
+
+
+          //         $this->get('http://localhost/benchmarking-0.0.6.3/crm/tickets/add');
+          //        $this->setField('data[tickets][title]', 'praikar');
+          //       $this->setField('data[tickets][priority]', 1095);
+          //       $this->setField('data[tickets][category]', 1110);
+          //      $this->setField('data[tickets][severity]', 1099);
+          //       $this->setField('data[tickets][problem]', 'problem');
+          //  $this->setField('data[users][first_name]', 'pooja');
+          //   $this->setField('data[users][last_name]', 'raikar');
+          //   $this->setField('data[users][name]', 'pooja raikar');
+          //    $this->setField('data[users][role_id]', '6');
+          //    $this->setField('data[users][time_zone]', 'America/New_York');
+          //    $this->setField('data[users][locale]', 'en_US');
+          //    $this->setField('data[users][hour_format]', '12');
+          //    $this->setField('data[users][deleted]', '0');
+          //    $this->setField('data[users][salutation]', '951');
+          //    $this->setField('data[users][is_active]', 1);
+          //   $this->setField('data[users][skin]', '3_panel_fieldset_view');
+          //   $this->setField('data[users][theme]', 'redmond');
+          //   $this->setField('data[users][region_id]', '211');
+          //   $this->setField('data[users][__role_id]', 'CEO');
+          //   $this->setField('data[users][role_id_model]', 'roles');
+
+          $this->clickSubmit('Submit');
+          //      $headers = $this->showHeaders();
+          //    $request = $this->showRequest();
+          $source = $this->showSource();
+          //   $text = $this->showText();
+          // pr($headers);
+          // pr($request);
+          // pr($source);
+          //  pr($text);
+
+          /*$responseObject = \module\benchmarking\model\responses::getInstance();
+
+
+          $app_menu = "\\module\\development_base\\model\\menus";
+          $appMenuObj = $app_menu::getInstance();
+          $controller_urls = \select("{$appMenuObj->alias}.*")
+          ->from($appMenuObj)
+          ->inserted()
+          ->where("{$appMenuObj->alias}.type", 'controller')
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          if (is_array($controller_urls)) {
+          foreach ($controller_urls as $k => $v) {
+          $index_urls = \select("{$appMenuObj->alias}.*")
+          ->from($appMenuObj)
+          ->inserted()
+          ->where("{$appMenuObj->alias}.type", 'action')
+          ->where("{$appMenuObj->alias}.lft >", $v['lft'])
+          ->where("{$appMenuObj->alias}.rgt <", $v['rgt'])
+          ->where("{$appMenuObj->alias}.url like", '%add%')
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          foreach ($index_urls as $k1 => $v1) {
+          if (isset($v1['url'])) {
+          $urlParts = explode('/', $v1['url']);
+          if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+          $fields = array();
+          $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+
+          try {
+          $modelObj = $model::getInstance();
+          $model_record = \select("$modelObj->alias.*")
+          ->from($modelObj)
+          ->inserted()
+          ->limit(1)
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          if (isset($model_record[0]) && isset($model_record[0][$modelObj->primaryKey])) {
+          pr($model_record);
+          $url = $base_url . $v1['url'] . ".json";
+          pr($this->data[$url]['data']);
+          exit;
+          if (isset($this->data[$url]['data']) && isset($this->data[$url]['data'][$modelObj->alias]) && is_array($this->data[$url]['data']) && is_array($this->data[$url]['data'][$modelObj->alias])) {
+
+          foreach ($this->data[$url]['data'][$modelObj->alias] as $fieldLabel => $fieldValue) {
+          if (is_array($this->data[$url]['data'][$modelObj->alias][$fieldLabel])) {
+          unset($this->data[$url]['data'][$modelObj->alias][$fieldLabel]);
+          }
+          }
+          $intersect = array_intersect($model_record[0], $this->data[$url]['data'][$modelObj->alias]);
+
+          $result = array_diff($intersect, $model_record[0]);
+          $this->assertTrue(count($result) == 0, "View of '$url' is failing");
+          $error = "No Error";
+          if (count($result) != 0) {
+          $error = "View of '$url' is failing";
+          }
+          $usersObj = \module\access_controls\model\users::getInstance();
+          $record = $usersObj->find(array('limit' => 1))->fetchAll(\PDO::FETCH_ASSOC);
+          pr($record);exit;
+
+          $this->get('http://localhost/benchmarking-0.0.6.3/access_controls/users/add');
+          $this->setField('data[users][user_name]', 'praikar');
+          $this->setField('data[users][user_password]', 'praikar');
+          $this->setField('data[users][first_name]', 'pooja');
+          $this->setField('data[users][last_name]', 'raikar');
+          $this->setField('data[users][name]', 'pooja raikar');
+          $this->setField('data[users][role_id]', '5');
+          $this->setField('data[users][time_zone]', 'America/New_York');
+          $this->setField('data[users][locale]', 'en_US');
+          $this->setField('data[users][hour_format]', '12');
+          $this->setField('data[users][deleted]', '0');
+          $this->setField('data[users][salutation]', '951');
+          $this->setField('data[users][is_active]', 1);
+          $this->setField('data[users][skin]', '3_panel_fieldset_view');
+          $this->setField('data[users][theme]', 'redmond');
+          $this->setField('data[users][region_id]', '211');
+          $this->setField('data[users][__role_id]', 'Admin [5]');
+          $this->setField('data[users][role_id_model]', 'roles');
+
+
+          //         $this->get('http://localhost/benchmarking-0.0.6.3/crm/tickets/add');
+          //        $this->setField('data[tickets][title]', 'praikar');
+          //       $this->setField('data[tickets][priority]', 1095);
+          //       $this->setField('data[tickets][category]', 1110);
+          //      $this->setField('data[tickets][severity]', 1099);
+          //       $this->setField('data[tickets][problem]', 'problem');
+          //  $this->setField('data[users][first_name]', 'pooja');
+          //   $this->setField('data[users][last_name]', 'raikar');
+          //   $this->setField('data[users][name]', 'pooja raikar');
+          //    $this->setField('data[users][role_id]', '6');
+          //    $this->setField('data[users][time_zone]', 'America/New_York');
+          //    $this->setField('data[users][locale]', 'en_US');
+          //    $this->setField('data[users][hour_format]', '12');
+          //    $this->setField('data[users][deleted]', '0');
+          //    $this->setField('data[users][salutation]', '951');
+          //    $this->setField('data[users][is_active]', 1);
+          //   $this->setField('data[users][skin]', '3_panel_fieldset_view');
+          //   $this->setField('data[users][theme]', 'redmond');
+          //   $this->setField('data[users][region_id]', '211');
+          //   $this->setField('data[users][__role_id]', 'CEO');
+          //   $this->setField('data[users][role_id_model]', 'roles');
+
+          $this->clickSubmit('Submit');
+          //      $headers = $this->showHeaders();
+          //    $request = $this->showRequest();
+          $source = $this->showSource();
+          //   $text = $this->showText();
+          // pr($headers);
+          // pr($request);
+          // pr($source);
+          //  pr($text);
+
+          /*$responseObject = \module\benchmarking\model\responses::getInstance();
+
+
+          $app_menu = "\\module\\development_base\\model\\menus";
+          $appMenuObj = $app_menu::getInstance();
+          $controller_urls = \select("{$appMenuObj->alias}.*")
+          ->from($appMenuObj)
+          ->inserted()
+          ->where("{$appMenuObj->alias}.type", 'controller')
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          if (is_array($controller_urls)) {
+          foreach ($controller_urls as $k => $v) {
+          $index_urls = \select("{$appMenuObj->alias}.*")
+          ->from($appMenuObj)
+          ->inserted()
+          ->where("{$appMenuObj->alias}.type", 'action')
+          ->where("{$appMenuObj->alias}.lft >", $v['lft'])
+          ->where("{$appMenuObj->alias}.rgt <", $v['rgt'])
+          ->where("{$appMenuObj->alias}.url like", '%add%')
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          foreach ($index_urls as $k1 => $v1) {
+          if (isset($v1['url'])) {
+          $urlParts = explode('/', $v1['url']);
+          if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+          $fields = array();
+          $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+
+          try {
+          $modelObj = $model::getInstance();
+          $model_record = \select("$modelObj->alias.*")
+          ->from($modelObj)
+          ->inserted()
+          ->limit(1)
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          if (isset($model_record[0]) && isset($model_record[0][$modelObj->primaryKey])) {
+          pr($model_record);
+          $url = $base_url . $v1['url'] . ".json";
+          pr($this->data[$url]['data']);
+          exit;
+          if (isset($this->data[$url]['data']) && isset($this->data[$url]['data'][$modelObj->alias]) && is_array($this->data[$url]['data']) && is_array($this->data[$url]['data'][$modelObj->alias])) {
+
+          foreach ($this->data[$url]['data'][$modelObj->alias] as $fieldLabel => $fieldValue) {
+          if (is_array($this->data[$url]['data'][$modelObj->alias][$fieldLabel])) {
+          unset($this->data[$url]['data'][$modelObj->alias][$fieldLabel]);
+          }
+          }
+          $intersect = array_intersect($model_record[0], $this->data[$url]['data'][$modelObj->alias]);
+
+          $result = array_diff($intersect, $model_record[0]);
+          $this->assertTrue(count($result) == 0, "View of '$url' is failing");
+          $error = "No Error";
+          if (count($result) != 0) {
+          $error = "View of '$url' is failing";
+          }
+          if (isset($this->info[$url])) {
+          $responseObject->data = $this->info[$url];
+          $responseObject->data['error'] = $error;
+          $responseObject->save($responseObject->data, array('atomic' => true));
+          }
+          }
+          }
+          } catch (Exception $e) {
+
+          }
+          }
+          }
+          }
+          }
+          } */
+    }
+
+}
+?>

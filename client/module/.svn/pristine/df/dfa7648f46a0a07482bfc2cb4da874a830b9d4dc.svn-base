@@ -1,0 +1,508 @@
+[
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"config_freight_terms.name\":{\"__column\":\"config_freight_terms.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"config_freight_terms.created\":{\"__column\":\"config_freight_terms.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"config_freight_terms.modified\":{\"__column\":\"config_freight_terms.modified\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"created_by_user.name\":{\"__column\":\"created_by_user.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"config_freight_terms.created\":{\"__column\":\"config_freight_terms.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"delivery\\\/config_freight_terms\",\"render_as\":\"index\",\"description\":\"Delivery Services\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"100141\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"created_by\":\"1\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"5293a199-a2d0-4217-8a8a-0ba30a047270\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"delivery\\\/config_freight_terms\",\"render_as\":\"index\",\"description\":\"Delivery Services\",\"fields\":[{\"seq\":\"1\",\"column\":\"config_freight_terms.name\",\"column_model\":\"schema\",\"__column\":\"config_freight_terms.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"config_freight_terms.created\",\"column_model\":\"schema\",\"__column\":\"config_freight_terms.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"config_freight_terms.modified\",\"column_model\":\"schema\",\"__column\":\"config_freight_terms.modified\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"created_by_user.name\",\"column_model\":\"schema\",\"__column\":\"created_by_user.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"config_freight_terms.created\",\"column_model\":\"schema\",\"__column\":\"config_freight_terms.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100141\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"created_by\":\"1\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"Delivery Services",
+			"controller":"delivery\/config_freight_terms",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-11-25 19:14:33",
+			"modified":"2013-11-30 17:57:32",
+			"deleted":"0",
+			"revision":"3",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"delivery.config_freight_terms.All",
+			"sequence":"100141",
+			"primary_acl_group":"847",
+			"id":"5293a199-a2d0-4217-8a8a-0ba30a047270",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"config_freight_terms.name\",\"config_freight_terms.created\",\"config_freight_terms.modified\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"config_freight_terms.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"config_freight_terms.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"config_freight_terms.name\",\"__column\":\"config_freight_terms.name\"},{\"column\":\"config_freight_terms.created\",\"__column\":\"config_freight_terms.created\"},{\"column\":\"config_freight_terms.modified\",\"__column\":\"config_freight_terms.modified\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"config_freight_terms.modified\",\"__column\":\"config_freight_terms.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"config_freight_terms.modified\",\"sort_by\":\"config_freight_terms.modified\"}}",
+			"description":null,
+			"controller":"delivery\/config_freight_terms",
+			"is_default":null,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-11-25 19:14:33",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"delivery.config_freight_terms.Recycle Bin",
+			"sequence":"253",
+			"primary_acl_group":"847",
+			"id":"5293a199-cd3c-498a-9dd5-0ba30a047270",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"config_frieght_terms.name\",\"config_frieght_terms.created\",\"config_frieght_terms.modified\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"config_frieght_terms.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"config_frieght_terms.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"config_frieght_terms.name\",\"__column\":\"config_frieght_terms.name\"},{\"column\":\"config_frieght_terms.created\",\"__column\":\"config_frieght_terms.created\"},{\"column\":\"config_frieght_terms.modified\",\"__column\":\"config_frieght_terms.modified\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"config_frieght_terms.modified\",\"__column\":\"config_frieght_terms.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"config_frieght_terms.modified\",\"sort_by\":\"config_frieght_terms.modified\"}}",
+			"description":null,
+			"controller":"delivery\/config_frieght_terms",
+			"is_default":null,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-11-22 15:11:38",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"delivery.config_frieght_terms.Recycle Bin",
+			"sequence":"237",
+			"primary_acl_group":"847",
+			"id":"528f742a-9454-4fc7-913b-0d0b0aec906d",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"config_incoterms.name\":{\"__column\":\"config_incoterms.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"config_incoterms.created\":{\"__column\":\"config_incoterms.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"created_by_user.name\":{\"__column\":\"created_by_user.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"config_incoterms.created\":{\"__column\":\"config_incoterms.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"delivery\\\/config_incoterms\",\"render_as\":\"index\",\"description\":\"The Incoterms rules or International Commercial Terms are a series of pre-defined commercial terms published by the International Chamber of Commerce (ICC) that are widely used in International commercial transactions or procurement processes.\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"100125\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"created_by\":\"1\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"528f742a-ce30-40e0-bf1d-0d0b0aec906d\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"delivery\\\/config_incoterms\",\"render_as\":\"index\",\"description\":\"The Incoterms rules or International Commercial Terms are a series of pre-defined commercial terms published by the International Chamber of Commerce (ICC) that are widely used in International commercial transactions or procurement processes.\",\"fields\":[{\"seq\":\"1\",\"column\":\"config_incoterms.name\",\"column_model\":\"schema\",\"__column\":\"config_incoterms.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"config_incoterms.created\",\"column_model\":\"schema\",\"__column\":\"config_incoterms.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"created_by_user.name\",\"column_model\":\"schema\",\"__column\":\"created_by_user.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"config_incoterms.created\",\"column_model\":\"schema\",\"__column\":\"config_incoterms.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100125\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"created_by\":\"1\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"The Incoterms rules or International Commercial Terms are a series of pre-defined commercial terms published by the International Chamber of Commerce (ICC) that are widely used in International commercial transactions or procurement processes.",
+			"controller":"delivery\/config_incoterms",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-11-22 15:11:38",
+			"modified":"2013-12-02 14:08:13",
+			"deleted":"0",
+			"revision":"7",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"delivery.config_incoterms.All",
+			"sequence":"100125",
+			"primary_acl_group":"847",
+			"id":"528f742a-ce30-40e0-bf1d-0d0b0aec906d",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"config_incoterms.name\",\"config_incoterms.created\",\"config_incoterms.modified\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"config_incoterms.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"config_incoterms.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"config_incoterms.name\",\"__column\":\"config_incoterms.name\"},{\"column\":\"config_incoterms.created\",\"__column\":\"config_incoterms.created\"},{\"column\":\"config_incoterms.modified\",\"__column\":\"config_incoterms.modified\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"config_incoterms.modified\",\"__column\":\"config_incoterms.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"config_incoterms.modified\",\"sort_by\":\"config_incoterms.modified\"}}",
+			"description":null,
+			"controller":"delivery\/config_incoterms",
+			"is_default":null,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-11-22 15:11:38",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"delivery.config_incoterms.Recycle Bin",
+			"sequence":"238",
+			"primary_acl_group":"847",
+			"id":"528f742b-64e4-4b16-ba31-0d0b0aec906d",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"shipping_methods.name\",\"shipping_methods.created\",\"shipping_methods.modified\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"shipping_methods.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"shipping_methods.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"shipping_methods.name\",\"__column\":\"shipping_methods.name\"},{\"column\":\"shipping_methods.created\",\"__column\":\"shipping_methods.created\"},{\"column\":\"shipping_methods.modified\",\"__column\":\"shipping_methods.modified\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"shipping_methods.modified\",\"__column\":\"shipping_methods.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"shipping_methods.modified\",\"sort_by\":\"shipping_methods.modified\"}}",
+			"description":null,
+			"controller":"delivery\/shipping_methods",
+			"is_default":null,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-11-22 15:11:39",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"delivery.shipping_methods.Recycle Bin",
+			"sequence":"239",
+			"primary_acl_group":"847",
+			"id":"528f742b-9b14-4db7-a2a9-0d0b0aec906d",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[\"shipping_methods.name\",\"shipping_methods.created\",\"shipping_methods.modified\",{\"created_by_user.name\":{\"alias\":\"Created By User\"}},\"shipping_methods.created\"],\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"shipping_methods.name\",\"__column\":\"shipping_methods.name\"},{\"column\":\"shipping_methods.created\",\"__column\":\"shipping_methods.created\"},{\"column\":\"shipping_methods.modified\",\"__column\":\"shipping_methods.modified\"},{\"column\":\"created_by_user.name\",\"__column\":\"created_by_user.name\"},{\"column\":\"shipping_methods.created\",\"__column\":\"shipping_methods.created\"}],\"render_as\":\"index\"}",
+			"description":null,
+			"controller":"delivery\/shipping_methods",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-11-22 15:11:39",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"delivery.shipping_methods.All",
+			"sequence":"100126",
+			"primary_acl_group":"847",
+			"id":"528f742b-f97c-4468-a867-0d0b0aec906d",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\sales\controller;
+  class quotes extends \module\sales\controller\quotes_domain_logic
+  {
+       public $modelClass = '\\module\\sales\\model\\quotes';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

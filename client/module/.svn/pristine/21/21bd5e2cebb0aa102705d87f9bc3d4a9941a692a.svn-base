@@ -1,0 +1,76 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"fields\":[{\"column\":\"federated_users.email\",\"__column\":\"federated_users.email\"},{\"column\":\"federated_users.application\",\"__column\":\"federated_users.application\"},{\"column\":\"federated_users.created\",\"__column\":\"federated_users.created\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"federated_users.modified\",\"__column\":\"federated_users.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"federated_users.modified\",\"sort_by\":\"federated_users.modified\"}}",
+            "category_id": "5",
+            "controller": "cloud\/federated_users",
+            "created": "2013-12-09 10:18:19",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "cloud.federated_users.Recycle Bin",
+            "id": "52a598eb-d010-40b2-a152-0c00efe6350e",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "550d6357-b690-497f-bfc9-5a080a8c00e5",
+            "name": "Recycle Bin",
+            "old_id": null,
+            "owned_by": "1",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[\"federated_users.email\",\"federated_users.application\",\"federated_users.created\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"federated_users.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"federated_users.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "253",
+            "__created_by": "System Admin",
+            "__modified_by": "",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "System Admin",
+            "__primary_acl_group": "",
+            "__module_id": "cloud",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

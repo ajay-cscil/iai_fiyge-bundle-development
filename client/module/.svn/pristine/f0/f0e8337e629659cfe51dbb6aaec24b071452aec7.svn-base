@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+    <HEAD>
+        <TITLE><?php echo \tushar\configuration::read('document_title'); ?></TITLE>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link REL="MaaxFrame Icon" HREF="<?php echo $this->request->base ?>img/favicon.ico" />
+        <?php include $this->element('init',
+                                                                                                                                                                                                                                                                                                                                                                                                                            true); ?>
+        <?php echo $resourceForLayout; ?>
+        <script type="text/javascript">
+            jQuery(function(){
+                $('.load').live('click',function(event){
+                    var href=$(this).attr('href');
+                    href=href.split('?')[0];
+                    href=href.split(':').pop();
+                    document.location.href="<?php echo $this->request->base . $this->request->module . '/' . $this->request->controller . '/index?current_listview='; ?>"+href;
+
+                    event.stopPropagation();
+                    return false;
+
+                });
+
+            });
+        </script>
+        <script type="text/javascript">
+            jQuery(function(){
+<?php echo $scriptForLayout; ?>
+    });
+        </script>
+    </HEAD>
+    <BODY class="ui-widget">
+        <div id="header-panel" style="margin:0px;padding:0px;height:25px;">
+            <?php include $this->element('application_menu', true); ?>
+            <?php include $this->element('user_menu',true); ?>
+ &nbsp;
+
+        </div>
+
+        <table width="100%" class="no-mp sub-header">
+            <tbody  class="no-mp">
+                <tr   class="no-mp">
+                    <td  style="width:20%;"  valign="top"  class="no-mp">
+                        <img src="<?php echo $this->request->base ?>img/logo.jpg" border="0">
+                    </td>
+                    <td style="width:80%;"  valign="top" class="no-mp">
+                        <div class="breadcrumb-panel" style="float:left;">
+                            <?php include $this->element('breadcrumb', true); ?>
+                        </div>
+                        <div class="controller-menu" style="float:right;">
+                            <?php include $this->element('controller_menu',true); ?>
+                        </div>
+                        <div class="search-panel"  style="clear:both;">
+                                 <?php include $this->element('search_panel',true); ?>
+
+                        </div>
+
+                        <?php
+                        $msg = $this->request->getMsg(true);
+                        $hasMsg = $this->request->hasMsg();
+                        ?>
+                        <div class="message-panel-container" align="center">
+                            <div id="message-panel" class="ui-state-highlight
+                            <?php echo($hasMsg
+                                        ? "" : " ui-helper-hidden ") ?>"><?php
+                                 echo (is_array($msg) ? implode('<br />', $msg) : $msg);
+                            ?>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+        <table width="100%" class="no-mp content">
+            <tbody  class="no-mp">
+                <tr   class="no-mp">
+                    <td class="container"  style="width:20%;"  valign="top"  class="no-mp">
+                        <div id="left-panel" style="clear: both">
+
+                            <?php
+                            $listview = array(
+                                'collapsible' => 0,
+                                'module' => 'analytics',
+                                'controller' => 'reports',
+                                'action' => 'index',
+                                'auto_build_where' => 0,
+                                'auto_load' => true,
+                                'load_menu' => false,
+                                'listview' => 'Reports Tree view',
+                                'disable_search' => true,
+                                'permission' => EDIT,
+                                'template_markup' => '{{CONTENT_AREA}}',
+                                'q' => array('row_class' => '\\module\\core\\helper\\presentation\\listviews::view_icon','show_search_row' => 0,'inline_hyperlink_click' => 1, 'table_class' => 'sub-listview', 'lca' => 0, 'actions' => array('view' => array('method'=>'run')))
+                            );
+                            echo \tushar\form::listview($this, $listview);
+                            ?>
+
+
+
+                        </div>
+                    </td>
+                    <td style="width:65%;"  valign="top" class="no-mp">
+                        <div id="content-panel" style="clear: both"><?php echo $contentForLayout; ?></div>
+                    </td>
+                    <td class="container"  style="width:15%;"  valign="top"  class="no-mp">
+                        <div id="detail-subpanel" >
+                            <?php
+                            if (is_array($this->request->subPanelElements)) {
+                                foreach ($this->request->subPanelElements as $element) {
+                                    include $this->element($element, true);
+                                }
+                            }
+                            ?>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <?php include $this->element('footer',
+                                                                                                                                                                                                                                                                                                                                                                                                          true); ?>
+    </BODY>
+</HTML>

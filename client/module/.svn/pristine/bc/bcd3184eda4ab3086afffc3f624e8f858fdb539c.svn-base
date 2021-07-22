@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tickets\controller;
+  class projects_acl_cache extends \module\tickets\controller\projects_acl_cache_domain_logic
+  {
+       public $modelClass = '\\module\\tickets\\model\\projects_acl_cache';
+
+
+
+
+
+
+  }

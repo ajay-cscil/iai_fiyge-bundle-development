@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:10 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>cache (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\cache</h2>
+
+</header><p class="signature">public  class <strong>cache</strong></p>
+
+<div class="comment"><p>Base class for handeling cache.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#check()">check</a>(<a href="../kernel/string.html">string</a> key)</p><p class="description">This method check if key exists in cache</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#delete()">delete</a>(mixed key)</p><p class="description">This method erases cache</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#findByPrefix()">findByPrefix</a>()</p><p class="description">Find cache entry by prefix</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#flush()">flush</a>(mixed key)</p><p class="description">This method erases cache</p></td>
+</tr>
+<tr>
+<td class="type">static  object</td>
+<td class="description"><p class="name"><a href="#getInstance()">getInstance</a>()</p><p class="description">This method acts as factory creating cache objects based on config settings</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#keys()">keys</a>()</p><p class="description">Return all keys in cache</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#read()">read</a>(<a href="../kernel/string.html">string</a> key, mixed val, mixed value)</p><p class="description">Getter method to access cache content</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#write()">write</a>(<a href="../kernel/string.html">string</a> key, mixed value)</p><p class="description">This method acts like setter for cache content</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="check">public static  bool <strong>check</strong>(<a href="../kernel/string.html">string</a> key)</code>
+<div class="details">
+<p>This method check if key exists in cache</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar</td>
+</tr><tr><th>Parameters</th>
+<td>key - To be serch into cache</td>
+</tr><tr><th>Returns</th>
+<td>true/false</td>
+</tr></table>
+</div>
+
+<code class="signature" id="delete">public static  void <strong>delete</strong>(mixed key)</code>
+<div class="details">
+<p>This method erases cache</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>key - If key provided erases that entry or else erases whole cache</td>
+</tr></table>
+</div>
+
+<code class="signature" id="findByPrefix">public static  void <strong>findByPrefix</strong>()</code>
+<div class="details">
+<p>Find cache entry by prefix</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Todo</th>
+<td>tobe implemented</td>
+</tr></table>
+</div>
+
+<code class="signature" id="flush">public static  void <strong>flush</strong>(mixed key)</code>
+<div class="details">
+<p>This method erases cache</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>key - If key provided erases that entry or else erases whole cache</td>
+</tr></table>
+</div>
+
+<code class="signature" id="getInstance">public static  object <strong>getInstance</strong>()</code>
+<div class="details">
+<p>This method acts as factory creating cache objects based on config settings</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Returns</th>
+<td>newly created cache object</td>
+</tr></table>
+</div>
+
+<code class="signature" id="keys">public static  void <strong>keys</strong>()</code>
+<div class="details">
+<p>Return all keys in cache</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Todo</th>
+<td>tobe implemented</td>
+</tr></table>
+</div>
+
+<code class="signature" id="read">public static  mixed <strong>read</strong>(<a href="../kernel/string.html">string</a> key, mixed val, mixed value)</code>
+<div class="details">
+<p>Getter method to access cache content</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>key - Reads content from cache based on this identifier</td>
+<td>val - to be return as default value, if key not found</td>
+</tr><tr><th>Returns</th>
+<td>Return found content</td>
+</tr></table>
+</div>
+
+<code class="signature" id="write">public static  bool <strong>write</strong>(<a href="../kernel/string.html">string</a> key, mixed value)</code>
+<div class="details">
+<p>This method acts like setter for cache content</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>key - Identifier string</td>
+<td>value - to be store</td>
+</tr><tr><th>Returns</th>
+<td>If not able to write return false else true</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

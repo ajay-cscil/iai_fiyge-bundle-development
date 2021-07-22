@@ -1,0 +1,68 @@
+[
+	{
+		"reports":{
+			"name":"Doors Knocked Target",
+			"category_id":"2",
+			"query":"{\"fields\":[{\"trim(SUBSTRING_INDEX(people.polling_stations.name,'-',1))\":{\"__column\":\"trim(SUBSTRING_INDEX(people.polling_stations.name,'-',1))\",\"alias\":\"Polling Station\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"people.people_current_canvass.id\":{\"__column\":\"people.people_current_canvass.id\",\"alias\":\"Door Knocked\",\"aggregator\":\"COUNT\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"(select kpi__group_goals.value from kpi__group_goals LEFT JOIN kpi__goal_types on (kpi__group_goals.goal_type_id=kpi__goal_types.id) where kpi__group_goals.group_id='{{USER.primary_acl_group}}' AND kpi__goal_types.name = 'Doors Knocked')\":{\"__column\":\"(select kpi__group_goals.value from kpi__group_goals LEFT JOIN kpi__goal_types on (kpi__group_goals.goal_type_id=kpi__goal_types.id) where kpi__group_goals.group_id='{{USER.primary_acl_group}}' AND kpi__goal_types.name = 'Doors Knocked')\",\"alias\":\"Target\",\"aggregator\":\"AVG\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"group\":[\"people.polling_stations.id\"],\"order\":[],\"name\":\"Doors Knocked Target\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"vrm\\\/people\",\"description\":\"Red shows the Target and Blue shows the no of doors knocked\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::stepped_area_chart\",\"parent_id_model\":\"parent_listview\",\"owned_by_model\":\"users\",\"created_by\":\"1\",\"modified_by\":\"1\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"is_public\":\"1\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"53d66a46-feb8-4584-bf89-1efc0af91b9d\",\"name\":\"Doors Knocked Target\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"vrm\\\/people\",\"description\":\"Red shows the Target and Blue shows the no of doors knocked\",\"render_as\":\"index\",\"fields\":[{\"seq\":\"1\",\"column\":\"trim(SUBSTRING_INDEX(people.polling_stations.name,'-',1))\",\"column_model\":\"schema\",\"__column\":\"trim(SUBSTRING_INDEX(people.polling_stations.name,'-',1))\",\"alias\":\"Polling Station\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"people.people_current_canvass.id\",\"column_model\":\"schema\",\"__column\":\"people.people_current_canvass.id\",\"alias\":\"Door Knocked\",\"aggregator\":\"COUNT\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"(select kpi__group_goals.value from kpi__group_goals LEFT JOIN kpi__goal_types on (kpi__group_goals.goal_type_id=kpi__goal_types.id) where kpi__group_goals.group_id='{{USER.primary_acl_group}}' AND kpi__goal_types.name = 'Doors Knocked')\",\"column_model\":\"schema\",\"__column\":\"(select kpi__group_goals.value from kpi__group_goals LEFT JOIN kpi__goal_types on (kpi__group_goals.goal_type_id=kpi__goal_types.id) where kpi__group_goals.group_id='{{USER.primary_acl_group}}' AND kpi__goal_types.name = 'Doors Knocked')\",\"alias\":\"Target\",\"aggregator\":\"AVG\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"people.polling_stations.id\",\"column_model\":\"schema\",\"__column\":\"people.polling_stations.id\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::stepped_area_chart\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"sequence\":\"\",\"h-axis--direction\":\"\",\"h-axis--text-position\":\"\",\"h-axis--text-style\":\"\",\"h-axis--title\":\"\",\"h-axis--title-text-style\":\"\",\"h-axis--slanted-text\":\"\",\"h-axis--slanted-text-angle\":\"\",\"h-axis--max-alternation\":\"\",\"h-axis--show-text-every\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"h-axis\":\"\",\"v-axes\":\"\",\"v-axis--baseline\":\"\",\"v-axis--baseline-color\":\"\",\"v-axis--direction\":\"\",\"v-axis--format\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"v-axis--log-scale\":\"\",\"v-axis--text-position\":\"\",\"v-axis--text-style\":\"\",\"v-axis--title\":\"\",\"v-axis--title-text-style\":\"\",\"v-axis--max-value\":\"\",\"v-axis--min-value\":\"\",\"v-axis--view-window-mode\":\"\",\"v-axis--view-window\":\"\",\"v-axis\":\"\",\"animation--duration\":\"\",\"animation--easing\":\"\",\"area-opacity\":\"\",\"axis-titles-position\":\"\",\"connect-steps\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"is-stacked\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"reverse-categories\":\"\",\"series\":\"\",\"theme\":\"\",\"title\":\"\",\"title-position\":\"\",\"title-text-style\":\"\",\"tooltip\":\"\",\"tooltip--show-color-code\":\"\",\"tooltip--text-style\":\"\",\"tooltip--trigger\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"chart-area\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"colors\":\"\",\"background-color\":\"\",\"row_template\":\"\",\"owned_by\":\"0\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"elements\":[],\"actions\":[],\"conditions\":[],\"_disable_ui_helper\":\"0\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\"}",
+			"description":"Red shows the Target and Blue shows the no of doors knocked",
+			"controller":"vrm\/people",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2014-07-28 15:20:38",
+			"modified":"2014-07-28 23:41:31",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"53d66a46-feb8-4584-bf89-1efc0af91b9d",
+			"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d",
+			"sequence":null,
+			"__created_by":"Super Admin",
+			"__modified_by":"Super Admin",
+			"__owned_by":"",
+			"__category_id":"Performance Reports",
+			"__primary_acl_group":"",
+			"__module_id":"vrm",
+			"created_by_model":"created_by_user",
+			"modified_by_model":"modified_by_user",
+			"category_id_model":"category",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

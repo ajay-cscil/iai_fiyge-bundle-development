@@ -1,0 +1,209 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\dashboards\model;
+
+class widgets_domain_logic extends \data_model{
+
+    const IGNORE_DATA_ACL_OVERRIDE = true;
+    public $isPseudoDesignElement=1;
+    public $rolesBasedGroups = true;
+    public $isSystemModel = 1;
+
+    /**
+     * If empty then true else its numeric then true, else false
+     *
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param mixed $val
+     * @param string $col
+     * @param array $data
+     * @param mixed $object
+     * @param mixed $rule
+     * @return bool
+     */
+    public static function max12($val, $col, $data, $object, $rule = array()) {
+        if ($val > 12 || $val < 1) {
+            throw new \Exception(\sprintf(__('%s should contain numeric value between 1 and 12'), \__($object->alias . '.' . $col, 'module'))
+            );
+        }
+        return $val;
+    }
+
+    public function exportRelatedModuleData($moduleID, $manifest) {
+        $wids = array();
+        foreach ($this->associations as $assocName => $assocInfo) {
+            if ($assocInfo['foreignKey'] == 'related_to') {
+                $schema = $this->{$assocName}->schema();
+                if (isset($schema['module_id'])) {
+                    $where = array(
+                        'OR' => array('module_id' => $moduleID, array("module_id " => "", "{$assocName}.controller LIKE" => "{$manifest['name']}/"))
+                    );
+                } else {
+                    $where = array("{$assocName}.controller LIKE" => "{$manifest['name']}/");
+                }
+
+
+                $w = \select("{$this->alias}.id")
+                        ->from($this)
+                        ->joinInner($assocName)
+                        ->where($where)
+                        ->inserted()
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN);
+                if (!empty($w) && is_array($w)) {
+                    $wids = array_merge($wids, $w);
+                }
+            }
+        }
+        $widgets = array();
+        foreach ($wids as $wid) {
+            $widgets[$wid] = $this->read($wid);
+            if (isset($widgets[$wid][$this->alias]) && isset($widgets[$wid][$this->alias]['panel_id'])) {
+                $panelID = $widgets[$wid][$this->alias]['panel_id'];
+                $widgets[$wid][$this->alias]['panel_information'] = current($this->panels->read($panelID, false));
+            }
+        }
+        $widgets = array_values($widgets);
+        return $widgets;
+    }
+
+    public function importRelatedModuleData($module, $manifest, $records, $options = array()) {
+        $panelObject = $this->panels;
+        foreach ($records as $record) {
+            if (is_array($record) && !empty($record)) {
+                $record = $record[$this->alias];
+                foreach (array('_acl', '_acl_edit', '_acl_delete') as $acl) {
+                    if (isset($record[$acl]) && is_array($record[$acl])) {
+                        foreach ($record[$acl] as $k => $v) {
+                            if (is_array($v) && $v['aro_id_model'] == 'groups' && isset($v['aro_id'])) {
+                                unset($record[$acl][$k]['aro_id']);
+                            }
+                        }
+                    }
+                }
+                if (!shouldApplyChanges($this, $record, $manifest)) {
+                    continue;
+                }
+                if (isset($record['panel_information']) && !empty($record['panel_information'])) {
+                    $panelInfo = $record['panel_information'];
+                    $panelID = \select("id")
+                            ->from($panelObject)
+                            ->inserted()
+                            ->where(array('panel_name' => $panelInfo['panel_name'], 'dashboard_name' => $panelInfo['dashboard_name']))
+                            ->limit(1)
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN);
+                    if (empty($panelID)) {
+                        $panelInfo = array_diff_key($panelInfo, array('id' => 1));
+                        $panelObject->init();
+                        $panelObject->save($panelInfo, array('atomic' => true, 'validate' => false, 'compute_actors' => false));
+                        $panelID = $panelObject->id;
+                    }
+                    $record['panel_id'] = $panelID;
+                }
+                if (array_key_exists('module_id', $record) && $record['module_id'] == false) {
+                    $record['module_id'] = '';
+                }
+                $this->save($record, array('atomic' => true, 'validate' => false, 'compute_actors' => false));
+            }
+        }
+    }
+
+    public function beforeDelete() {
+        if (isset($this->associations['widget_permissions'])) {
+            $this->associations['widget_permissions']['isSubModel'] = 1;
+        }
+        parent::beforeDelete();
+    }
+
+    /**
+     * Call back for model, called after reading model record
+     *
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param array $data record information
+     */
+    /*
+      public function afterFind(&$data) {
+      parent::afterFind($data);
+      $id = array();
+      //pr($data);
+      foreach ($data["data"] as $k => $v) {
+      if (isset($v[$this->alias . "." . "related_to"]) && !empty($v[$this->alias . "." . "related_to"])) {
+      $id[] = $v[$this->alias . "." . "related_to"];
+      }
+      }
+      if (!empty($id)) {
+      $listviewobj = \module\core\model\listviews::getInstance();
+      $reportsobj = \module\analytics\model\reports::getInstance();
+
+      $f = array(
+      "fields" => array($listviewobj->alias . "." . $listviewobj->primaryKey),
+      "where" => array($listviewobj->alias . "." . $listviewobj->primaryKey => $id)
+      );
+      $r = array(
+      "fields" => array($reportsobj->alias . "." . $reportsobj->primaryKey),
+      "where" => array($reportsobj->alias . "." . $reportsobj->primaryKey => $id)
+      );
+      $listviews = $listviewobj->find($f)->fetchAll(\PDO::FETCH_COLUMN);
+      $reportviews = $reportsobj->find($r)->fetchAll(\PDO::FETCH_COLUMN);
+
+      $listviews = $listviews + $reportviews;
+      foreach ($data["data"] as $k => $v) {
+      if (isset($v[$this->alias . "." . "related_to"])) {
+      if (!in_array($v[$this->alias . "." . "related_to"], $listviews)) {
+      unset($data["data"][$k]);
+      }
+      }
+      }
+      }
+      // pr($data["data"]);
+      // exit;
+
+      }
+     * TODO
+     */
+
+    public function beforeValidate() {
+        parent::beforeValidate();
+        if (isset($this->data['is_public']) && $this->data['is_public'] == 1) {
+            // check if view is public.
+            if (!empty($this->data['related_to'])) {
+                $viewDefination = array();
+                if ($this->data['related_to_model'] == 'listviews') {
+                    $viewDefination = current(\module\core\model\listviews::getInstance(array(), true)->read($this->data['related_to'], array()));
+                } else if ($this->data['related_to_model'] == 'reports') {
+                    $viewDefination = current(\module\analytics\model\reports::getInstance(array(), true)->read($this->data['related_to'], array()));
+                }
+                if (!isset($viewDefination['is_public']) || $viewDefination['is_public'] != 1) {
+                    throw new \Exception(
+                    \sprintf(
+                            __('Could not mark this widget as public, since %s[%s] does not have public access'), $this->data['related_to_model'], $this->data['__related_to']
+                    )
+                    );
+                }
+            }
+        }
+    }
+
+    public function beforeFind() {
+        parent::beforeFind();
+        if (!isset($this->query['where'])) {
+            $this->query['where'] = array();
+        }
+        if (!isset($this->query['joins'])) {
+            $this->query['joins'] = array();
+        }
+        $joins = $this->joins();
+        $this->query['joins']['listviews'] = $joins['listviews'];
+        $this->query['joins']['reports'] = $joins['reports'];
+        $menuObj = \module\development_base\model\menus::getInstance();
+        $sql = $menuObj->find(array('fields' => 'url_key', 'limit' => 0, 'return_sql' => 1));
+        $this->query['where']['OR'] = array("CONCAT(listviews.controller,'/index') IN subquery" => $sql, "CONCAT(reports.controller,'/index') IN subquery" => $sql);
+    }
+
+}

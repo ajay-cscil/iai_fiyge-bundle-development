@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"547d9861-e12c-4bc5-a929-136b0a8c00e5\",\"name\":\"Customer Sale Summary \",\"category_id\":\"10\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Accounting\",\"controller\":\"crm\\\/accounts\",\"description\":\"This report represents Customer wise, Item wise, Quantitative and Value wise sales detail giving a particular range. This report can also be run for a particular customer. This report also represents profit earned from a customer on a particular product during a particular date range.\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"accounts.account_name\",\"alias\":\"Name\",\"render_type\":\"category\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"accounts.invoices.number\",\"column_model\":\"schema\",\"__column\":\"accounts.invoices.number\",\"alias\":\"Invoice No\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"accounts.invoices.invoice_lines.products.name\",\"column_model\":\"schema\",\"__column\":\"accounts.invoices.invoice_lines.products.name\",\"alias\":\"Products Name\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"accounts.invoices.invoice_lines.quantity\",\"column_model\":\"schema\",\"__column\":\"accounts.invoices.invoice_lines.quantity\",\"alias\":\"Quantity\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"accounts.invoices.invoice_lines.config_uom.name\",\"column_model\":\"schema\",\"__column\":\"accounts.invoices.invoice_lines.config_uom.name\",\"alias\":\"Unit of Measurement\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"accounts.invoices.invoice_lines.total_amount\",\"column_model\":\"schema\",\"__column\":\"accounts.invoices.invoice_lines.total_amount\",\"alias\":\"Total Sales Amount\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"7\",\"column\":\"accounts.invoices.balance_due\",\"column_model\":\"schema\",\"__column\":\"accounts.invoices.balance_due\",\"alias\":\"Total balance due\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"8\",\"column\":\"accounts.invoices.balance_due-(accounts.invoices.invoice_lines.price_per_unit*accounts.invoices.invoice_lines.quantity)\",\"column_model\":\"schema\",\"__column\":\"accounts.invoices.balance_due-(accounts.invoices.invoice_lines.price_per_unit*accounts.invoices.invoice_lines.quantity)\",\"alias\":\"Profit Earned\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"sequence\":\"\",\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"elements\":[],\"actions\":[],\"conditions\":{\"1\":{\"search_column\":\"accounts.is_customer\",\"search_column_model\":\"schema\",\"__search_column\":\"accounts.is_customer\",\"search_comparator\":\"<>\",\"search_value\":\"0\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"search_column\":\"accounts.invoices.balance_due\",\"search_column_model\":\"schema\",\"__search_column\":\"accounts.invoices.balance_due\",\"search_comparator\":\"<>\",\"search_value\":\"\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":[],\"module_id\":\"2726306c-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"accounting\",\"_is_public\":\"0\",\"_collapse_category_columns\":\"0\",\"_disable_ui_helper\":\"0\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\"}",
+            "category_id": "10",
+            "controller": "crm\/accounts",
+            "created": "2014-12-02 10:45:53",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "This report represents Customer wise, Item wise, Quantitative and Value wise sales detail giving a particular range. This report can also be run for a particular customer. This report also represents profit earned from a customer on a particular product during a particular date range.",
+            "flags": null,
+            "id": "547d9861-e12c-4bc5-a929-136b0a8c00e5",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-15 22:07:51",
+            "modified_by": "1",
+            "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+            "name": "Customer Sale Summary ",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"accounts.account_name\":{\"__column\":\"accounts.account_name\",\"alias\":\"Name\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.invoices.number\":{\"__column\":\"accounts.invoices.number\",\"alias\":\"Invoice No\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.invoices.invoice_lines.products.name\":{\"__column\":\"accounts.invoices.invoice_lines.products.name\",\"alias\":\"Products Name\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.invoices.invoice_lines.quantity\":{\"__column\":\"accounts.invoices.invoice_lines.quantity\",\"alias\":\"Quantity\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.invoices.invoice_lines.config_uom.name\":{\"__column\":\"accounts.invoices.invoice_lines.config_uom.name\",\"alias\":\"Unit of Measurement\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.invoices.invoice_lines.total_amount\":{\"__column\":\"accounts.invoices.invoice_lines.total_amount\",\"alias\":\"Total Sales Amount\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.invoices.balance_due\":{\"__column\":\"accounts.invoices.balance_due\",\"alias\":\"Total balance due\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.invoices.balance_due-(accounts.invoices.invoice_lines.price_per_unit*accounts.invoices.invoice_lines.quantity)\":{\"__column\":\"accounts.invoices.balance_due-(accounts.invoices.invoice_lines.price_per_unit*accounts.invoices.invoice_lines.quantity)\",\"alias\":\"Profit Earned\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"AND\",\"value\":{\"accounts.is_customer <> \":\"0\"}},{\"op\":\"\",\"value\":{\"accounts.invoices.balance_due <> \":\"\"}}]],\"order\":[],\"name\":\"Customer Sale Summary \",\"category_id\":\"10\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Accounting\",\"controller\":\"crm\\\/accounts\",\"description\":\"This report represents Customer wise, Item wise, Quantitative and Value wise sales detail giving a particular range. This report can also be run for a particular customer. This report also represents profit earned from a customer on a particular product during a particular date range.\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"module_id\":\"2726306c-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"accounting\",\"is_public\":\"0\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"method\":\"categorized\"}",
+            "read_count": "1",
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Accounting",
+            "__primary_acl_group": "",
+            "__module_id": "accounting",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

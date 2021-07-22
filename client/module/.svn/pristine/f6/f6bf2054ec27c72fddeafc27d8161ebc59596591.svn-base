@@ -1,0 +1,69 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class stock_move extends \module\mrp\model\stock_move_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'stock_move';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'source_location' => 
+  array (
+    'className' => '\\module\\mrp\\model\\stock_location',
+    'associationAlias' => 'source_location',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'location_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'destination_location' => 
+  array (
+    'className' => '\\module\\mrp\\model\\stock_location',
+    'associationAlias' => 'destination_location',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'location_dest_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'stock_production_lot' => 
+  array (
+    'className' => '\\module\\mrp\\model\\stock_production_lot',
+    'associationAlias' => 'stock_production_lot',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'prodlot_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'product' => 
+  array (
+    'className' => '\\module\\mrp\\model\\product',
+    'associationAlias' => 'product',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+  ),
+);
+  }

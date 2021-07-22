@@ -1,0 +1,126 @@
+{
+    "version": "2.6.2",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": null,
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Tushar Takkar",
+    "category_id": "9",
+    "company": "Primary Modules Pvt. Ltd.",
+    "created": "2015-05-27",
+    "created_by": null,
+    "current_stable_version": "1.0.0",
+    "description": "Advance analytics<br>",
+    "flags": null,
+    "id": "53bfb307-1f3c-4d0b-b118-5b7d0af91b9d",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": null,
+    "label": "BI: KPI",
+    "latest_version": null,
+    "license_agreement": null,
+    "modified": "2015-05-27 13:57:28",
+    "modified_by": "-1",
+    "name": "kpi",
+    "owned_by": "-2",
+    "revision": null,
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/kpi",
+    "__created_by": "",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "Maax Modules Development Team",
+    "__category_id": "Analytics",
+    "category_id_business_key": "Analytics",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "modified_by_model": "modified_by_user",
+    "owned_by_model": "owned_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "goal_types": "\\module\\kpi\\controller\\goal_types",
+        "group_goals": "\\module\\kpi\\controller\\group_goals",
+        "notification_related_to": "\\module\\kpi\\controller\\notification_related_to",
+        "notifications": "\\module\\kpi\\controller\\notifications"
+    },
+    "models": {
+        "goal_types": "\\module\\kpi\\model\\goal_types",
+        "group_goals": "\\module\\kpi\\model\\group_goals",
+        "notification_related_to": "\\module\\kpi\\model\\notification_related_to",
+        "notifications": "\\module\\kpi\\model\\notifications"
+    },
+    "dependencies": {
+        "module": {
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "1.2.4"
+            },
+            "development_base": {
+                "name": "development_base",
+                "version": "2.4.9"
+            },
+            "brules": {
+                "name": "brules",
+                "version": "1.4.7"
+            },
+            "vrm": {
+                "name": "vrm",
+                "version": "1.0.1"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_development_base_model_modules": "\\module\\development_base\\model\\modules",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_brules_model_business_rules": "\\module\\brules\\model\\business_rules"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log"
+        }
+    }
+}

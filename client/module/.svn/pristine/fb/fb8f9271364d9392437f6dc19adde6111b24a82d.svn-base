@@ -1,0 +1,81 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\controller;
+  class types extends \module\flexflow\controller\types_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow\\model\\types';
+       public $paginate = array (
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'inline_click' => '1',
+  'fields' => 
+  array (
+    0 => 
+    array (
+      'column' => 'types.name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    1 => 
+    array (
+      'column' => 'types.desc',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'column' => 'metatypes.name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    3 => 
+    array (
+      'column' => 'business_rules.name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    4 => 
+    array (
+      'column' => 'created_by_user.first_name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    5 => 
+    array (
+      'column' => 'created_by_user.last_name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    6 => 
+    array (
+      'column' => 'types.created',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+  ),
+  'paginate_as' => '0',
+);
+
+
+
+
+
+
+  }

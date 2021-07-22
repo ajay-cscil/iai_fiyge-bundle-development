@@ -1,0 +1,59 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\calls\model;
+  class logs_acl_cache extends \module\calls\model\logs_acl_cache_domain_logic
+  {
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $parentClass = '\\acl_model';
+       public $source = 'acl';
+       public $table = 'calls__logs_acl_cache';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'user_id' => 
+  array (
+    'column' => 'user_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'users' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'users',
+    'foreignKey' => 'user_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'user_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

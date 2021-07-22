@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\appraisal\controller;
+  class appraisals extends \module\appraisal\controller\appraisals_domain_logic
+  {
+       public $modelClass = '\\module\\appraisal\\model\\appraisals';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

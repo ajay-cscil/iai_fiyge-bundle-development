@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class email_routing extends \module\excursion\controller\email_routing_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\email_routing';
+
+
+
+
+
+
+  }

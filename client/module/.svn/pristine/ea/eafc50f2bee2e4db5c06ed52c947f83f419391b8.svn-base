@@ -1,0 +1,72 @@
+[
+	{
+		"listviews":{
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[\"marketing_customer_data.data\",\"marketing_customer_data.created\",\"marketing_customer_data.deleted\",{\"created_by_user.name\":{\"alias\":\"Created By User\"}},\"marketing_customer_data.created\"],\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"marketing_customer_data.data\",\"__column\":\"marketing_customer_data.data\"},{\"column\":\"marketing_customer_data.created\",\"__column\":\"marketing_customer_data.created\"},{\"column\":\"marketing_customer_data.deleted\",\"__column\":\"marketing_customer_data.deleted\"},{\"column\":\"created_by_user.name\",\"__column\":\"created_by_user.name\"},{\"column\":\"marketing_customer_data.created\",\"__column\":\"marketing_customer_data.created\"}],\"render_as\":\"index\"}",
+			"description":null,
+			"controller":"excursion\/marketing_customer_data",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2015-02-24 05:07:10",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"excursion.marketing_customer_data.All",
+			"sequence":"40",
+			"primary_acl_group":"847",
+			"id":"54ec06fe-fbcc-4817-ae14-04feaf4f00b5",
+			"module_id":"",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"System Admin",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"__primary_acl_group":"Region-USA",
+			"__module_id":"",
+			"created_by_model":"created_by_user",
+			"category_id_model":"category",
+			"owned_by_model":"owned_by_user",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

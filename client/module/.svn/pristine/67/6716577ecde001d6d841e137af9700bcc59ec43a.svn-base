@@ -1,0 +1,229 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class company_accounting extends \module\accounting\model\company_accounting_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'accounting__company_accounting';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'income_summary_account_id' => 
+  array (
+    'column' => 'income_summary_account_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'year_closing_equity_account_id' => 
+  array (
+    'column' => 'year_closing_equity_account_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'dividents_account_id' => 
+  array (
+    'column' => 'dividents_account_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'company_id' => 
+  array (
+    'column' => 'company_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'vat_number' => 
+  array (
+    'column' => 'vat_number',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'cst_number' => 
+  array (
+    'column' => 'cst_number',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'income_summary_accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\accounts',
+    'associationAlias' => 'income_summary_accounts',
+    'foreignKey' => 'income_summary_account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'year_closing_equity_accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\accounts',
+    'associationAlias' => 'year_closing_equity_accounts',
+    'foreignKey' => 'year_closing_equity_account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'divident_accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\accounts',
+    'associationAlias' => 'divident_accounts',
+    'foreignKey' => 'dividents_account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'companies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm_base\\model\\companies',
+    'associationAlias' => 'companies',
+    'foreignKey' => 'company_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

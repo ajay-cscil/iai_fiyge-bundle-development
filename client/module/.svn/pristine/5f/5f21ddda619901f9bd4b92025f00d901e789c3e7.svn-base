@@ -1,0 +1,157 @@
+<?php
+
+namespace module\license_management\controller;
+
+class licenses_domain_logic extends \tushar\controller {
+
+    public $preGenerateID = true;
+    public $paginate = array('fields' => array('licenses.name', 'licenses.module', 'licenses.start', 'licenses.end', 'licenses.license_key', 'licenses.max_users'));
+
+    //public $access = PROTECTED_ACCESS;
+
+    private function moduleList() {
+        $moduleList = array();
+        foreach (array(APP . DS . 'module', PLATFORM . DS . 'module') as $dir) {
+            foreach (\scandir($dir) as $module) {
+                if (is_dir($dir . DS . $module) && stripos($module, '.') === false) {
+                    $moduleList[$module] = array('text' => __($module), 'value' => $module);
+                }
+            }
+        }
+        ksort($moduleList);
+        $moduleList = array_merge(array(array('text' => "*", 'value' => "*")),array_values($moduleList));
+        return $moduleList;
+    }
+
+    private function controllers($name = null) {
+        $options = array();
+        $modulePath = module_path($name);
+        if (is_dir($modulePath)) {
+            $modulePath = $modulePath . DS . 'controller';
+            foreach (scandir($modulePath) as $filename) {
+                if (stripos($filename, '.php') !== false && !is_domain_logic($filename)) {
+                    $filename = \explode('.', $filename);
+                    $filename = $filename[0];
+                    $options[$filename] = array('text' => humanize($filename), 'value' => $filename);
+                }
+            }
+            ksort($options);
+            $options = array_values($options);
+        }
+        return $options;
+    }
+
+    public function edit($request) {
+        $modelObj = $this->modelObj();
+        $request->set('form', $this->form);
+        $request->set('moduleList', $this->moduleList());
+
+        $request->set('editions', \tushar\configuration::read('editions'));
+
+        if ($request->is('post')) {
+            $request->data[$modelObj->alias]['deleted'] = 0;
+        }
+        $return = parent::edit($request);
+        $data = $request->response('data');
+        if (empty($data)) {
+            $data[$modelObj->alias][$modelObj->primaryKey] = $id = $modelObj->saveModel(array('deleted' => 1), array('type' => 'insert'));
+            $request->set('id', $id);
+        } else {
+            if (isset($data[$modelObj->alias]['module'])) {
+                $request->set('controllers', $this->controllers($data[$modelObj->alias]['module']));
+            }
+            if (isset($data[$modelObj->alias]) && isset($data[$modelObj->alias][$modelObj->primaryKey])) {
+                $request->set('download_license', '<a href="' . $request->base . $request->module . '/' . $request->controller . '/download/id:' . $data[$modelObj->alias][$modelObj->primaryKey] . '"></a>');
+            }
+        }
+        $request->set('data', $data);
+        return $return;
+    }
+
+    public function view($request) {
+        $modelObj = $this->modelObj();
+        $form = $this->form;
+        $request->set('editions', \tushar\configuration::read('editions'));
+        $form['permission'] = VIEW;
+        $request->set('form', $form);
+        $request->set('moduleList', $this->moduleList());
+        $return = parent::view($request);
+        $data = $request->response('data');
+        if (isset($data[$modelObj->alias]) && isset($data[$modelObj->alias][$modelObj->primaryKey])) {
+            $request->set('controllers', $this->controllers($data[$modelObj->alias]['module']));
+            $request->set('download_license', '<a href="' . $request->base . $request->module . '/' . $request->controller . '/download/id:' . $data[$modelObj->alias][$modelObj->primaryKey] . '">' . __('download') . '</a>');
+        }
+        $request->set('data', $data);
+        return $return;
+    }
+
+    public function download($request) {
+        $modelObj = $this->modelObj();
+        $return = parent::view($request);
+        $data = $request->response('data');
+        if (!empty($data) && isset($data[$modelObj->alias])) {
+            $data = $modelObj->readLicense($data[$modelObj->alias]['id']);
+            header("Content-type:text/php");
+            header("Content-Disposition: attachment; filename=\"{$data['license_filename']}\"");
+            header("Pragma: no-cache");
+            header("Expires: 0");
+            echo $data['license_key'];
+            exit;
+        }
+    }
+
+    /**
+     * Controller action for performing bulk license installation.
+     * 
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param \tushar\request $request
+     * @return mixed 
+     */
+    public function install_selected($request) {
+        $modelObj = $this->modelObj();
+        $ids = $this->id($request);
+        $selectAllRecords = $this->selectAllRecords($request);
+        if ($selectAllRecords !== false) {
+            $ids = $selectAllRecords;
+        }
+
+        if (empty($ids)) {
+            throw new \Exception(__('Missing licenses ID to install'));
+            return false;
+        }
+        if (!is_array($ids)) {
+            $ids = array($ids);
+        }
+        $isNotEmpty = false;
+        if (is_array($ids)) {
+            foreach ($ids as $id) {
+                if (!empty($id)) {
+                    $isNotEmpty = true;
+                    break;
+                }
+            }
+        }
+        if ($isNotEmpty === false) {
+            throw new \Exception(__('Select licenses to install'));
+            return false;
+        }
+        if ($selectAllRecords !== false) {
+            $request->setMsg(sprintf(__('Trying to install %s licenses'), count($selectAllRecords)));
+        }
+        foreach ($ids as $id) {
+            $data = $modelObj->readLicense($id);
+            $path = module_path($data[$modelObj->alias]['module']);
+            if (!empty($path)) {
+                if (file_put_contents($path . DS . 'license' . DS . str_replace('.', ' ' . date('Y-m-d-H-i-s') . '.',$data['license_filename']), $data['license_key'])) {
+                    $request->setMsg(sprintf(__('License [%s] installed successfully'), $data['license_filename']));
+                    continue;
+                }
+            }
+            $request->setMsg(sprintf(__('License [%s] could not be installed'), $data['license_filename']));
+        }
+        return false;
+    }
+
+}
+
+?>

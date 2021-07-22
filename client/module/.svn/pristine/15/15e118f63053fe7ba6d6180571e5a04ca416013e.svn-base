@@ -1,0 +1,201 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class tracker_log extends \module\excursion\model\tracker_log_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__tracker_log';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'orderID';
+       public $primaryKey = 'id';
+       public $alias = 'tracker_log';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'direction' => 
+  array (
+    'column' => 'direction',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'emailsubject' => 
+  array (
+    'column' => 'emailsubject',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'fromemail' => 
+  array (
+    'column' => 'fromemail',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'string',
+    'length' => '36',
+  ),
+  'invocation' => 
+  array (
+    'column' => 'invocation',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'orderDetailID' => 
+  array (
+    'column' => 'orderDetailID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'orderID' => 
+  array (
+    'column' => 'orderID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'toemail' => 
+  array (
+    'column' => 'toemail',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+);
+       public $associations = array (
+  'orders' => 
+  array (
+    'className' => '\\module\\excursion\\model\\orders',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'orders',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'order_details_notes' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_notes',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_notes',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.orderDetailID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+  'order_details_options_parsed' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_options_parsed',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_options_parsed',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.orderDetailID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+);
+       public $filters = array (
+  'emailsubject' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'fromemail' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'toemail' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

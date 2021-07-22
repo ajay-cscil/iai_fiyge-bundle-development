@@ -1,0 +1,22 @@
+<form name="<?php echo $this->request->controller; ?>"
+      action="<?php echo "{$this->request->base}{$this->request->module}/{$this->request->controller}/{$this->request->action}"; ?>"
+      method="post" enctype="multipart/form-data"
+      data-ajax="false"
+      >
+
+
+    <input type="hidden" name="singleton_key" value="<?php echo $this->get(array('singleton_key')); ?>">
+    <?php
+    echo \tushar\html::start('input', array('type' => 'hidden', 'name' => 'http_referer', 'value' => ($this->get('http_referer', $this->request->param('http_referer', $this->request->server('HTTP_REFERER'))))));
+    ?>
+
+    <?php echo \tushar\html::errors($this->get('errors', array())); ?>
+
+    <div >
+        <input type="submit" data-mini="true"  name="data[action][yes]" value="<?php echo __('Yes'); ?>" data-inline="true" >
+        <input type="submit" data-mini="true"  name="data[action][no]" value="<?php echo __('No'); ?>" data-inline="true" >
+    </div>
+
+
+</form>
+

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class approval_emails_log extends \module\excursion\controller\approval_emails_log_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\approval_emails_log';
+
+
+
+
+
+
+  }

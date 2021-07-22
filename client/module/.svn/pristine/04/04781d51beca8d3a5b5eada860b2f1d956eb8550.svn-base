@@ -1,0 +1,32 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\contracts\model;
+
+class contracts_domain_logic extends \data_model{
+
+    public function beforeSave()
+    {
+
+        $id = isset($this->data[$this->primaryKey]) ? $this->data[$this->primaryKey] : '';
+        $oldTemplateId = '';
+        if (!empty($id)) {
+            $dataOld = current($this->read($id));
+            if (isset($dataOld['template_id'])) {
+                $oldTemplateId = $dataOld['template_id'];
+            }
+        }
+        if (isset($this->data['template_id']) && !empty($this->data['template_id'])) {
+            if ($oldTemplateId != $this->data['template_id']) {
+                $templateInfo = current($this->templates->read($this->data['template_id']));
+                $this->data['content'] = $templateInfo['content'];
+            }
+        }
+        parent::beforeSave();
+    }
+
+}

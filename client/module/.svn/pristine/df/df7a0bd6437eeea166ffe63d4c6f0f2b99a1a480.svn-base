@@ -1,0 +1,55 @@
+<?php
+$form = $this->get('form', false);
+if ($form !== false)
+    \tushar\form::render($this, $form);
+else
+    throw new \Exception(__('Missing form defination in edit view'));
+?>
+<script type="text/javascript">
+    var filters=<?php echo json_encode($this->filters); ?>;
+    var jvar=<?php echo json_encode($this->get('jvar', array())); ?>;
+
+    $(document).ready(function($){
+        $('#<?php echo $this->get('form_uuid'); ?>').submit(function(){
+            var editor = $('[name="data[campaigns][content]"]').cleditor()[0];
+            editor.disable(false);
+        });
+
+<?php
+if ($this->get('is_template_read_only', false) == true)
+    echo "($('[name=\"data[campaigns][content]\"]').cleditor()[0]).disable(true);";
+?>
+
+
+        $('[name="data[campaigns][template_id]"]').change(function(){
+            var href=$('[name="data[campaigns][__template_id]"]').attr('href');
+            href=href.replace('/index','/view');
+            $.get(href+'.json/id:'+$(this).val(),{},function(data){
+                if($.isset(data['data'])){
+                    data=data['data'];
+                    if($.isset(data['email_templates'])){
+                        data['templates']=data['email_templates']
+                    }
+                    if($.isset(data['templates'])){
+                        data=data['templates'];
+                        var isReadOnly=$.isset(data['is_read_only']) && data['is_read_only']==1;
+                        var content=( $.isset(data['content']) ?data['content']:'') ;
+                        $('[name="data[campaigns][content]"]').val(content);
+                        var editor = $('[name="data[campaigns][content]"]').cleditor()[0];
+                        editor.updateFrame();
+                        if(isReadOnly){
+                            editor.disable(true);
+                        }else{
+                            editor.disable(false);
+                        }
+                        if($.isset(data['name']))
+                            $('[name="data[campaigns][name]"]').val(data['name']);
+                    }
+
+                }
+            });
+        });
+        
+    });
+
+</script>

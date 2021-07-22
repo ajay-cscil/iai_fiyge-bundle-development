@@ -1,0 +1,161 @@
+{
+    "version": "1.3.12",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": null,
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Tushar Takkar",
+    "category_id": "2",
+    "company": "Primary Modules",
+    "created": "2015-05-27",
+    "created_by": null,
+    "current_stable_version": "1.0.1",
+    "description": "<span style=\"font-family: Arial, Verdana; font-size: 10pt; line-height: normal;\"><span class=\"GingerNoCheckStart\"><\/span><span class=\"GingerNoCheckStart\"><\/span>Calendar module allows customers to link directly <\/span><font face=\"Helvetica, Arial, sans-serif\"><span style=\"font-size: 12px; line-height: 16px;\">to specific dates and to navigate month by month or year by year in different Time Zones.<\/span><\/font><span class=\"GingerNoCheckEnd\"><\/span><span class=\"GingerNoCheckEnd\"><\/span>",
+    "flags": null,
+    "id": "27261dc7-e746-11e3-aad5-0800275f9930",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": "1",
+    "label": "CRM: Calendar",
+    "latest_version": "1.0.1",
+    "license_agreement": "PMI License<br>",
+    "modified": "2015-05-27 14:29:37",
+    "modified_by": "-1",
+    "name": "calendar",
+    "owned_by": null,
+    "revision": "1",
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/calendar",
+    "__created_by": "",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "",
+    "__category_id": "CRM",
+    "category_id_business_key": "CRM",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "modified_by_model": "modified_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "calendars": "\\module\\calendar\\controller\\calendars",
+        "calendars_acl_cache": "\\module\\calendar\\controller\\calendars_acl_cache",
+        "calendars_group_acl_cache": "\\module\\calendar\\controller\\calendars_group_acl_cache",
+        "config_task_priorities": "\\module\\calendar\\controller\\config_task_priorities",
+        "config_task_status": "\\module\\calendar\\controller\\config_task_status",
+        "configurations": "\\module\\calendar\\controller\\configurations",
+        "events": "\\module\\calendar\\controller\\events",
+        "events_acl_cache": "\\module\\calendar\\controller\\events_acl_cache",
+        "events_group_acl_cache": "\\module\\calendar\\controller\\events_group_acl_cache",
+        "tasks": "\\module\\calendar\\controller\\tasks",
+        "tasks_acl_cache": "\\module\\calendar\\controller\\tasks_acl_cache",
+        "tasks_group_acl_cache": "\\module\\calendar\\controller\\tasks_group_acl_cache"
+    },
+    "models": {
+        "calendar_share_with": "\\module\\calendar\\model\\calendar_share_with",
+        "calendars": "\\module\\calendar\\model\\calendars",
+        "calendars_acl_cache": "\\module\\calendar\\model\\calendars_acl_cache",
+        "calendars_group_acl_cache": "\\module\\calendar\\model\\calendars_group_acl_cache",
+        "config_task_priorities": "\\module\\calendar\\model\\config_task_priorities",
+        "config_task_status": "\\module\\calendar\\model\\config_task_status",
+        "configurations": "\\module\\calendar\\model\\configurations",
+        "event_guests": "\\module\\calendar\\model\\event_guests",
+        "event_related_to": "\\module\\calendar\\model\\event_related_to",
+        "event_reminders": "\\module\\calendar\\model\\event_reminders",
+        "events": "\\module\\calendar\\model\\events",
+        "events_acl_cache": "\\module\\calendar\\model\\events_acl_cache",
+        "events_group_acl_cache": "\\module\\calendar\\model\\events_group_acl_cache",
+        "task_related_to": "\\module\\calendar\\model\\task_related_to",
+        "tasks": "\\module\\calendar\\model\\tasks",
+        "tasks_acl_cache": "\\module\\calendar\\model\\tasks_acl_cache",
+        "tasks_group_acl_cache": "\\module\\calendar\\model\\tasks_group_acl_cache"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "2.1.2"
+            },
+            "crm_base": {
+                "name": "crm_base",
+                "version": "1.2.1"
+            },
+            "crm": {
+                "name": "crm",
+                "version": "1.5.9"
+            },
+            "document_management_base": {
+                "version": "1.4.1",
+                "author": "Tushar Takkar",
+                "company": "Primary Modules"
+            },
+            "cases": {
+                "name": "cases",
+                "version": "1.4.4"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_crm_base_model_email_addresses": "\\module\\crm_base\\model\\email_addresses",
+            "_module_crm_model_accounts": "\\module\\crm\\model\\accounts",
+            "_module_document_management_base_model_attachments": "\\module\\document_management_base\\model\\attachments",
+            "_module_cases_model_cases": "\\module\\cases\\model\\cases",
+            "_module_crm_model_contacts": "\\module\\crm\\model\\contacts"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl"
+        }
+    }
+}

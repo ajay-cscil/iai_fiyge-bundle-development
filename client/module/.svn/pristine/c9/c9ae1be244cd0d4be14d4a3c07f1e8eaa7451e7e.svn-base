@@ -1,0 +1,170 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class cruisecal_ships extends \module\excursion\model\cruisecal_ships_domain_logic
+  {
+       public $displayField = 'lineName';
+       public $primaryKey = 'shipId';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__cruisecal_ships';
+       public $alias = 'cruisecal_ships';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'lineId' => 
+  array (
+    'column' => 'lineId',
+    'ntype' => 'int',
+    'length' => '12',
+  ),
+  'lineName' => 
+  array (
+    'column' => 'lineName',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'modId' => 
+  array (
+    'column' => 'modId',
+    'ntype' => 'int',
+    'length' => '12',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'shipId' => 
+  array (
+    'column' => 'shipId',
+    'ntype' => 'int',
+    'length' => '12',
+  ),
+  'shipName' => 
+  array (
+    'column' => 'shipName',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'shipNameNoSpace' => 
+  array (
+    'column' => 'shipNameNoSpace',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'shipPageHref' => 
+  array (
+    'column' => 'shipPageHref',
+    'ntype' => 'string',
+    'length' => '400',
+  ),
+  'shipPageLink' => 
+  array (
+    'column' => 'shipPageLink',
+    'ntype' => 'string',
+    'length' => '400',
+  ),
+  'shipShort' => 
+  array (
+    'column' => 'shipShort',
+    'ntype' => 'string',
+    'length' => '10',
+  ),
+  'tabId' => 
+  array (
+    'column' => 'tabId',
+    'ntype' => 'int',
+    'length' => '12',
+  ),
+);
+       public $associations = array (
+  'cruisecal_lines' => 
+  array (
+    'className' => '\\module\\excursion\\model\\cruisecal_lines',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'lineId',
+    'associationAlias' => 'cruisecal_lines',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'shipName' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

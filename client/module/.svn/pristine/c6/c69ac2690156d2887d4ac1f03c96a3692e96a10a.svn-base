@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\controller;
+  class actions_notifications extends \module\flexflow\controller\actions_notifications_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow\\model\\actions_notifications';
+
+
+
+
+
+
+  }

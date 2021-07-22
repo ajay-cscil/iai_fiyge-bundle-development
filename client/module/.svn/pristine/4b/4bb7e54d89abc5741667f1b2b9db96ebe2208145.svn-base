@@ -1,0 +1,69 @@
+[
+	{
+		"listviews":{
+			"old_id":"1319",
+			"name":"Product Backlog",
+			"category_id":"11",
+			"query":"{\"fields\":[{\"CONCAT(tickets.id,'')\":{\"__column\":\"CONCAT(tickets.id,'')\",\"alias\":\"ID\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"tickets.title\":{\"__column\":\"tickets.title\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"tickets.config_ticket_priorities.ticket_priority\":{\"__column\":\"tickets.config_ticket_priorities.ticket_priority\",\"alias\":\"Priority\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"tickets.config_ticket_types.ticket_type\":{\"__column\":\"tickets.config_ticket_types.ticket_type\",\"alias\":\"Type\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"tickets.workflow_docs.current_authorized_users\":{\"__column\":\"tickets.workflow_docs.current_authorized_users\",\"alias\":\"Current Actor[s]\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"workflow_docs.current_stages CONTAINS \":\"Product Backlog\"}}]],\"order\":[\"tickets.start_date  ASC\"],\"name\":\"Product Backlog\",\"category_id\":\"11\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Workflow Stage\",\"controller\":\"tickets\\\/tickets\",\"render_as\":\"index\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"4\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"1319\",\"name\":\"Product Backlog\",\"category_id\":\"11\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Workflow Stage\",\"controller\":\"tickets\\\/tickets\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"CONCAT(tickets.id,'')\",\"column_model\":\"schema\",\"__column\":\"CONCAT(tickets.id,'')\",\"alias\":\"ID\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"tickets.title\",\"column_model\":\"schema\",\"__column\":\"tickets.title\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"tickets.config_ticket_priorities.ticket_priority\",\"column_model\":\"schema\",\"__column\":\"tickets.config_ticket_priorities.ticket_priority\",\"alias\":\"Priority\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"4\",\"column\":\"tickets.config_ticket_types.ticket_type\",\"column_model\":\"schema\",\"__column\":\"tickets.config_ticket_types.ticket_type\",\"alias\":\"Type\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"5\":{\"seq\":\"5\",\"column\":\"tickets.workflow_docs.current_authorized_users\",\"column_model\":\"schema\",\"__column\":\"tickets.workflow_docs.current_authorized_users\",\"alias\":\"Current Actor[s]\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"conditions\":{\"1\":{\"search_column\":\"workflow_docs.current_stages\",\"search_column_model\":\"schema\",\"__search_column\":\"workflow_docs.current_stages\",\"search_comparator\":\"CONTAINS\",\"search_value\":\"Product Backlog\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"tickets.start_date\",\"sort_by_model\":\"schema\",\"__sort_by\":\"tickets.start_date\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"4\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\"}",
+			"description":"",
+			"controller":"tickets\/tickets",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2014-05-05 13:06:47",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"tickets.tickets.Product Backlog",
+			"sequence":"4",
+			"primary_acl_group":null,
+			"id":"53678ce7-478c-43c7-8f6a-16ff305cb485",
+			"module_id":"457",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Workflow Stage",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"__module_id":"tickets",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

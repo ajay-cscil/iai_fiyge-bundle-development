@@ -1,0 +1,610 @@
+<?php
+
+/**
+ * This class implements design ACl
+ * Its implements both ARO/ACO logic
+ *
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\flexflow\behaviour;
+
+\library('phpmailer' . DS . 'class.phpmailer.php');
+
+class flexflow extends \tushar\behaviour {
+
+    protected static $settings = array();
+    protected static $settingsForm = array();
+
+    private static function settings($model, $settings = array()) {
+        $settings = array_merge(static::$settings, $settings);
+        return $settings;
+    }
+
+    public static function init($model, $settings) {
+        $assoc = array(
+            'workflow_docs' =>
+            array(
+                'associationAlias' => 'workflow_docs',
+                'className' => '\\module\\flexflow\\model\\docs',
+                'assocType' => 'hasOne',
+                'foreignKey' => 'foreign_key',
+                'on' => array($model->alias . '.' . $model->primaryKey . '=workflow_docs.foreign_key',
+                    '\'' . str_replace(NS, NS . NS, $model->modelClass) . '\' = workflow_docs.foreign_key_model_class_name',
+                )
+        ));
+        $model->bind($assoc);
+    }
+
+    /**
+     * Call back for model, called after executing model save
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     * @param type $created
+     */
+    public static function afterRead($model, $settings = array(), &$data) {
+        if (is_array($data) && isset($data[$model->primaryKey])) {
+            $dt = \select("*")
+                    ->from($model->workflow_docs)
+                    ->inserted()
+                    ->where(
+                            array(
+                                "foreign_key" => $data[$model->primaryKey]
+                                , "foreign_key_model" => $model->alias
+                                , "foreign_key_model_class_name" => $model->modelClass
+                            )
+                    )
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            if (is_array($dt)) {
+                $data['workflow_docs'] = $dt;
+            }
+        }
+    }
+
+    public static function afterProcessData($model, $settings = array()) {
+        $docObject = \module\flexflow\model\docs::getInstance();
+        $docObject->entityObj = $docObject->entityObject = $model;
+        $model->data['is_workflow_log_set'] = 0;
+        if (is_array($model->data) && !empty($model->data)) {
+            $model->data['open_nodes'] = array();
+            if (isset($model->data[$model->primaryKey]) && !empty($model->data[$model->primaryKey])) {
+                $dt = \select(array(
+                            "id as doc_id", "current_stages", "current_stages_id",
+                            "current_authorized_users", "current_authorized_users_id"
+                        ))
+                        ->from($docObject)
+                        ->inserted()
+                        ->where(
+                                array(
+                                    "{$docObject->alias}.foreign_key" => $model->data[$model->primaryKey]
+                                    , "{$docObject->alias}.foreign_key_model" => $model->alias
+                                    , "{$docObject->alias}.foreign_key_model_class_name" => $model->modelClass
+                                )
+                        )
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+
+                if (is_array($dt)) {
+                    $model->data = array_merge($model->data, $dt);
+                    $model->data['docs'] = $docObject->data = \current($docObject->read($dt['doc_id']));
+                    $docObject->id = $dt['doc_id'];
+                    $model->data['is_workflow_log_set'] = (int) $docObject->isLogSet();
+                }
+                if (!empty($docObject->id)) {
+                    $model->data['open_nodes'] = array();
+                    $userID = \tushar\user::read('id');
+                    foreach ($docObject->openNodes(null, true) as $nodeID) {
+                        $node = $docObject->node($nodeID, true);
+                        if (isset($node['edit'][$userID])) {
+                            $model->data['open_nodes'][] = $node;
+                        }
+                    }
+                    if (!empty($model->data['open_nodes']) && !is_path_set("stage_log.node_id", $model->data)) {
+                        $cn = \current($model->data['open_nodes']);
+                        \set_path_value("stage_log.node_id", $model->data, $cn['id']);
+                    }
+                }
+            }
+        }
+
+        $ffSchemasObject = \module\flexflow\model\schemas::getInstance();
+        if (!isset($model->data['schema_id']) || empty($model->data['schema_id'])) {
+            $model->data['schema_id'] = \select("{$ffSchemasObject->alias}.{$ffSchemasObject->primaryKey}")
+                    ->from($ffSchemasObject)
+                    ->inserted()
+                    ->where("{$ffSchemasObject->alias}.{$ffSchemasObject->displayField}", $model->modelClass)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+        }
+        if (!empty($model->data['schema_id']) && (!isset($model->data['type_id']) || empty($model->data['type_id']) )) {
+            //b. Find ffmetatype
+            $model->data['type_id'] = \select(array("types.id"))
+                    ->from($ffSchemasObject)
+                    ->join('types')
+                    ->inserted()
+                    ->where("{$ffSchemasObject->alias}.id", $model->data['schema_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+        }
+
+        //pr($model->data['open_nodes']);
+    }
+
+    public static function beforeValidate($model, $settings = array()) {
+        if (isset($model->data['workflow_docs'])) {
+            $docs = $model->data['workflow_docs'];
+            $model->data = array_merge($docs, $model->data);
+            unset($model->data['workflow_docs']);
+        }
+    }
+
+    public static function afterSave($model, $settings = array(), $created = false) {
+
+        $aclFound = false;
+        foreach ($model->behaviours as $key => $val) {
+            if ($key == "\\module\\access_controls\\behaviour\\acl") {
+                $aclFound = true;
+            }
+            if ($aclFound === true) {
+                if ($key == "\\module\\flexflow\\behaviour\\flexflow") {
+                    throw new \Exception(sprintf(__("ACL behavior should be set after Workflow behavior for model \"%s\""), $model->alias));
+                }
+            }
+        }
+        if ($aclFound === false) {
+            throw new \Exception(sprintf(__("Model \"%s\" does not have ACL behavior attached. Workflow requires ACL behavior."), $model->alias));
+        }
+
+        // Make sure ACL behavior is attached to model.
+        $acl = $model->behaviours["\\module\\access_controls\\behaviour\\acl"];
+        $msg = array();
+        $acl = array_merge(array(
+            'readAccess' => PRIVATE_ACCESS,
+            'editAccess' => INHERIT,
+            'deleteAccess' => INHERIT, 'ownAcl' => 1), $acl
+        );
+        if ($acl["readAccess"] != PRIVATE_ACCESS) {
+            $msg[] = "ACL behavior read access should be set to \"PRIVATE\"";
+        }
+        if ($acl["editAccess"] != PRIVATE_ACCESS) {
+            $msg[] = "ACL behavior edit access should be set to \"PRIVATE\"";
+        }
+        if ($acl["deleteAccess"] != PRIVATE_ACCESS) {
+            $msg[] = "ACL behavior delete Access should be set to \"PRIVATE\"";
+        }
+        if ($acl['ownAcl'] != true) {
+            $msg[] = 'Enable flag "Own ACL" for ACL behavior as its required by workflow behavior';
+        }
+        if (!empty($msg)) {
+            $msg = implode(". ", $msg);
+            throw new \Exception($msg);
+        }
+        // IF model is soft deletable, and is marked as deleted incase of pregenerate ID, then dont exit.
+        if ($model->isSoftDeletable() && isset($model->data[$model->softDeleteColumn]) && $model->data[$model->softDeleteColumn] == 1) {
+            return;
+        }
+        // Read model data in case of partial form submit and merge with form data. Form data will overwrite saved model data.
+        $model->data = array_merge(\select("*")
+                        ->from($model)
+                        ->where($model->primaryKey, $model->id)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC), $model->data);
+
+        $settings = static::settings($model, $settings);
+
+        // Initialize objects.
+        $userObj = \module\access_controls\model\users::getInstance();
+        $engine = \module\brules\model\business_rules::getInstance(array(), true);
+        $docObject = \module\flexflow\model\docs::getInstance();
+        $docObject->entityObject = $docObject->entityObj = $model;
+        $ffNotificationsStagesObject = \module\flexflow\model\notifications_stages::getInstance();
+        $recipients = array();
+        if (isset($docObject->entityObject->data['recipients'])) {
+            $recipients = $docObject->entityObject->data['recipients'];
+        }
+        $docObject->entityObject->acl['_acl'] = array('op' => 'add', 'value' => '');
+        $docObject->data["notifications"] = array();
+        $docObject->data["stages"] = array();
+
+        $ffSchemasObject = \module\flexflow\model\schemas::getInstance();
+        $docObject->data = \select("{$docObject->alias}.*")
+                ->from($docObject)
+                ->inserted()
+                ->where(
+                        array(
+                            "{$docObject->alias}.foreign_key" => $model->id
+                            , "{$docObject->alias}.foreign_key_model" => $model->alias
+                            , "{$docObject->alias}.foreign_key_model_class_name" => $model->modelClass
+                        )
+                )
+                ->execute()
+                ->fetch(\PDO::FETCH_ASSOC);
+        $isDocInitialized = false;
+        if (empty($docObject->data) || !$docObject->isLogSet($docObject->data[$docObject->primaryKey])) {
+            // If doc is not initialized
+            // If schema_id is not provided then compute it.
+            if (!isset($model->data['schema_id'])) {
+                $model->data['schema_id'] = \select("{$ffSchemasObject->alias}.{$ffSchemasObject->primaryKey}")
+                        ->from($ffSchemasObject)
+                        ->inserted()
+                        ->where("{$ffSchemasObject->alias}.{$ffSchemasObject->displayField}", $model->modelClass)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+                if (empty($model->data['schema_id'])) {
+                    throw new \Exception(sprintf(__('Could not locate workflow schema for model "%s", create new schema for "%s"'), $model->alias, $model->modelClass));
+                }
+            }
+
+            // If type id is not provided then compute it.
+            if (!isset($model->data['type_id']) || empty($model->data['type_id'])) {
+                //b. Find ffmetatype
+                $model->data['type_id'] = '';
+                $types = \select(array("types.id"))
+                        ->from($ffSchemasObject)
+                        ->join('types')
+                        ->inserted()
+                        ->where("{$ffSchemasObject->alias}.id", $model->data['schema_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+                if (!empty($types)) {
+                    $model->data['type_id'] = $types;
+                }
+            }
+
+            // Still if type could not be computed/not submitted then throw error.
+            if (empty($model->data['type_id'])) {
+                throw new \Exception(sprintf(__('Could not locate workflow type for model "%s"'), $model->alias));
+            }
+
+            $docID = isset($docObject->data[$docObject->primaryKey]) ? $docObject->data[$docObject->primaryKey] : null;
+
+
+            //e. Initialize doc
+            $docObject->data = array(
+                "schema_id" => $model->data['schema_id'],
+                "type_id" => $model->data['type_id'],
+                "foreign_key_name" => $model->data[$model->displayField],
+                "foreign_key_model" => $model->alias,
+                "foreign_key_model_class_name" => $model->modelClass,
+                "foreign_key" => $model->id,
+                'created_by' => \tushar\user::read('id'),
+                "current_stages" => 'Draft'
+            );
+            if (!is_null($docID)) {
+                $docObject->data[$docObject->primaryKey] = $docID;
+            }
+            $docObject->save($docObject->data, array('atomic' => true));
+            $isDocInitialized = true;
+            $docObject->data["notifications"] = array();
+        } else {
+            $docObject->id = $docObject->data[$docObject->primaryKey];
+            if (isset($docObject->data['type_id']) && isset($model->data['type_id']) && $docObject->data['type_id'] != $model->data['type_id']) {
+                //@todo: reset init log
+            }
+        }
+        $docObject->data['entity'] = &$docObject->entityObject->data;
+        $model->id = $docObject->data['entity'][$model->primaryKey];
+
+        // Check for open stages.
+        // validate current open stages.
+        // If session user can act on these stages.
+        // If Stage is already acted will current browser request is being processed.
+        $systemUserID = \select("id")
+                ->from($userObj)
+                ->inserted()
+                ->where('user_name', 'system-user')
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN);
+
+        if ($isDocInitialized === false) {
+            $userID = \tushar\user::read('id');
+            $openNodes = array();
+            foreach ($docObject->openNodes(null, true) as $nodeID) {
+                $node = $docObject->node($nodeID, true);
+                if (isset($node['edit'][$userID]) || (!empty($systemUserID) && $userID == $systemUserID)) {
+                    $openNodes[] = $node['id'];
+                }
+            }
+            if (!is_array($openNodes)) {
+                $openNodes = array();
+            }
+            if (empty($openNodes)) {
+                $msg = __("This document does not have any open stage to act upon.");
+                $docObject->logError($msg);
+                throw new \Exception($msg);
+            }
+            $nodeID = '';
+            if (isset($docObject->entityObject->data['stage_log']) && isset($docObject->entityObject->data['stage_log']['node_id'])) {
+                $nodeID = $docObject->entityObject->data['stage_log']['node_id'];
+            }
+            if (empty($nodeID) && count($openNodes) == 1) {
+                $nodeID = current($openNodes);
+            }
+            if (empty($nodeID)) {
+                $msg = __("Please provide workflow stage you want to act on");
+                $docObject->logError($msg);
+                throw new \Exception($msg);
+            }
+            $node = $docObject->nodeID($nodeID);
+            if (!in_array($nodeID, $openNodes)) {
+                //@todo: show name of stage.
+                $msg = sprintf(__("Current workflow stage[%s] is already processed"), $node['name']);
+                $docObject->logError($msg);
+                throw new \Exception($msg);
+            }
+            // Set stage as current session stage.
+            $docObject->nodeID($nodeID);
+        }
+        // Find action name user has performed.
+        $actionTriggred = "";
+        if (is_array($docObject->data['entity']['action'])) {
+            $actionTriggred = $docObject->data['action'] = key($docObject->data['entity']['action']);
+        } else {
+            $actionTriggred = $docObject->data['action'] = $docObject->data['entity']['action'];
+        }
+
+        $engine = \module\brules\model\business_rules::getInstance(array(), true);
+        $notifiedUsersLog = \module\flexflow\model\notified_users_log::getInstance(array(), true);
+
+
+        // Detect system user.
+        $systemUser = array();
+        if (!empty($systemUserID)) {
+            $systemUser = $userObj->setCurrentUserSesionInfo($systemUserID, true);
+        }
+        // Preserve session user
+        $sessionUser = \tushar\user::readAll();
+        $lastOpenNodes = array();
+        do {
+            $oldNodeInfo = $docObject->node($docObject->nodeID());
+            $actionObj = $docObject->actionInstance($docObject->data['action']);
+            $docObject->data['action'] = $actionObj->data;
+            // Action notifications.
+            if (isset($docObject->data['action']['name'])) {
+                $notifications = \select(array("notifications.*"
+                            , "actions.name as action_name"
+                            , "actions.id as action_id"
+                            , "actions_notifications.rule_id as rule_id"))
+                        ->from(\module\flexflow\model\actions_notifications::getInstance(array(), true))
+                        ->join('notifications', false, true)
+                        ->join('actions', false, true)
+                        ->inserted()
+                        ->where('actions.id', $docObject->data['action']['id'])
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+                foreach ($notifications as $notificationKey => $notification) {
+                    if (isset($notification['rule_id']) && !empty($notification['rule_id'])) {
+                        $runRules = $engine->process($docObject, array('filter_path' => '*', 'id' => $notification['rule_id']));
+                        if (is_array($runRules)) {
+                            $runRules = array_shift($runRules);
+                            if (!(isset($runRules['is_true_if_condition']) && $runRules['is_true_if_condition'] == true)) {
+                                unset($notifications[$notificationKey]);
+                            }
+                        }
+                    }
+                }
+                $docObject->notifications($notifications, $recipients);
+            }
+            $shouldRUN = false;
+            // Execute rules for action.
+            // Perform the action performed by actor.
+            // If action is set as false then it wont perform any action on document. This can be done via rules attached to action.
+            // What was last action performed under this node.
+            // What is time difference between last and current action time.
+            if (!empty($oldNodeInfo) && isset($oldNodeInfo['id'])) {
+                // Log action message as performed against current stage/node.
+                $docObject->logAction($oldNodeInfo['id']);
+            }
+            // Execute rules for this action
+            $runRules = array();
+            if (isset($docObject->data['action']['id']) && !empty($docObject->data['action']['id'])) {
+                //process the rules for entity for current stage;
+                $runRules = \module\brules\model\business_rules::getInstance(array(), true)
+                        ->process($docObject, array('run_global_rules' => false, 'filter_path' => str_replace(NS, '/', $docObject->entityObject->modelClass), 'action_id' => $docObject->data['action']['id']));
+            }
+            $isActionDefined = false;
+            if (!empty($runRules) && is_array($runRules)) {
+                foreach ($runRules as $rule) {
+                    if (isset($rule['is_true_if_condition']) && $rule['is_true_if_condition'] == true) {
+                        $isActionDefined = true;
+                        break;
+                    }
+                }
+            }
+            if (get_class($actionObj) == 'module\\flexflow\\model\\actions' && $isActionDefined === false) {
+                $node1 = $docObject->node($docObject->nodeID());
+                throw new \Exception(sprintf(__('Workflow action "%s" dont have any business rule attached to define it\'s logic. 
+                    Action performed by user "%s" on stage "%s" of model "%s". Configure Action properly or else document wont have any actors after current stage.')
+                        , (isset($docObject->data['action']['name']) && !empty($docObject->data['action']['name']) ? $docObject->data['action']['name'] : $actionTriggred), \tushar\user::read('name'), (isset($node1['stage_name']) ? $node1['stage_name'] : 'Draft'), $docObject->entityObject->alias));
+            }
+            if ($isActionDefined === false) {
+                $actionObj->process($docObject);
+            }
+            // Check if current stage has an actor who is system user. Then trigger Auto process.
+            // Auto processing of stages.
+            $currentSessionActors = array(\tushar\user::read('id') => \tushar\user::readAll());
+            if (!empty($systemUser)) {
+                $systemUser['is_system_user'] = true;
+                $currentSessionActors[$systemUser['id']] = $systemUser;
+            }
+
+
+            $openNodes = $docObject->openNodes(null, true);
+            $stageToProcess = array_diff($openNodes, $lastOpenNodes);
+            $stageToProcess = count($stageToProcess);
+            if ($stageToProcess != 0) {
+                $lastOpenNodes = $openNodes;
+                // Find all open stages for document.
+                foreach ($openNodes as $node) {
+                    $node = $docObject->node($node, true);
+                    $shouldRUN = false;
+                    // For current user+ system user check following:
+                    foreach ($currentSessionActors as $userID => $userInfo) {
+                        \tushar\user::write($userInfo);
+                        $shouldRUN = false;
+                        // If session user is not editor then check next stage in loop.
+                        if (!isset($node['edit'][$userID])) {
+                            continue;
+                        }
+                        $docObject->data['action'] = '';
+                        // else continue.
+                        // if current user is "system user" OR stage is deemed approved 
+                        // then get default action for "stage" and trigger it on behalf of current user.
+                        if ($userInfo['user_name'] == "system-user" || $node['is_deemed_approved'] == true) {
+                            $docObject->data['action'] = 'approve';
+                            $docObject->entityObject->data['stage_log']['message'] = 'Auto processed';
+                            $actionToPerform = \select('possible_actions.action_id')
+                                    ->from($docObject->stage_log->stages)
+                                    ->joinInner('possible_actions')
+                                    ->where(
+                                            array(
+                                                'stages.id' => $node['stage_id'],
+                                                'possible_actions.is_default' => 1
+                                            )
+                                    )
+                                    ->inserted()
+                                    ->limit(1)
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN);
+                            if ($actionToPerform != false) {
+                                // set action as default action.
+                                $docObject->data['action'] = $actionToPerform;
+                                // set stage to process.
+                                $docObject->addStageToAutoProcessQueue($node['id']);
+                            }
+                        }
+                        // If node is in auto process queue, then delete its stage based notifications.
+                        if ($docObject->isStageInAutoProcessQueue($node['id']) && $docObject->data['action'] != false) {
+                            $shouldRUN = true;
+                            $docObject->unsetStageFromQueue($node['id']);
+                            if (isset($docObject->data["notifications"][$node['stage_id']])) {
+                                // log that notifications are terminated.
+                                foreach ($docObject->data["notifications"][$node['stage_id']] as $notifications) {
+                                    if (!empty($notifications) && is_array($notifications)) {
+                                        foreach ($notifications as $notification) {
+                                            if (isset($notification['notification_to']) && is_array($notification['notification_to'])) {
+                                                foreach ($notification['notification_to'] as $to) {
+                                                    $notifiedUsersLog->save(array($notifiedUsersLog->alias => array('type' => 'insert', 'status' => 'canceled', 'name' => $to['name'], 'stage_id' => $stageID, 'user_id' => $to['id'], 'notification_id' => $notification['id'], 'message' => 'Stage is auto processed'))
+                                                            , array('atomic' => true));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                unset($docObject->data["notifications"][$node['stage_id']]);
+                            }
+                            break;
+                        }
+                    }
+                    if ($docObject->isStageInAutoProcessQueue($node['id'])) {
+                        break;
+                    }
+                }
+            }
+        } while ($shouldRUN);
+
+        \tushar\user::write($sessionUser);
+        // Find all current stages and cache in doc.
+        $stages = array('name' => array(), 'id' => array());
+        $actors = '';
+        foreach (\select(array("{$docObject->stage_log->alias}._acl_edit", "stages.name", "stages.id"))
+                ->from($docObject->stage_log)
+                ->join('stages')
+                ->inserted()
+                ->where("{$docObject->stage_log->alias}.id", $docObject->openNodes(null, true))
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC) as $stage) {
+            $actors .= " {$stage['_acl_edit']}";
+            $stages['name'][] = $stage['name'];
+            $stages['id'][] = $stage['id'];
+        }
+
+        $authorizedUsers = array('name' => array(), 'id' => array());
+        foreach (\module\flexflow\model\actors::getInstance(array(), true)->processACLString($actors, true) as $user) {
+            $authorizedUsers['name'][] = $user['name'];
+            $authorizedUsers['id'][] = $user['id'];
+        }
+        // Update summary of all active stages for current flexflow document ;
+        \update(array(
+            'current_stages' => implode(', ', array_unique($stages['name'])),
+            'current_stages_id' => '[' . implode('][', array_unique($stages['id'])) . ']',
+            'current_authorized_users' => implode(', ', array_unique($authorizedUsers['name'])),
+            'current_authorized_users_id' => '[' . implode('][', array_unique($authorizedUsers['id'])) . ']'
+        ))->from($docObject)->where('id', $docObject->id)->execute();
+
+        // Send notification in queue;
+        $administratorEmail = \tushar\configuration::read('administrator_email');
+        if (isset($docObject->data["notifications"]) && !empty($docObject->data["notifications"])) {
+            if (is_array($docObject->data["notifications"])) {
+                $mailer = new \PHPMailer();
+                $mailer->IsHTML(true);
+                \module\administration\model\global_configurations::setServer($mailer);
+                foreach ($docObject->data["notifications"] as $nodeID => $notifications) {
+                    if (!empty($notifications) && is_array($notifications)) {
+                        foreach ($notifications as $notification) {
+                            $mailer->ClearAddresses();
+                            $mailer->Subject = $notification['notification_subject'];
+                            $mailer->Body = $notification['notification_body'];
+
+                            if (isset($notification['from_email']) && !empty($notification['from_email'])) {
+                                $mailer->From = $notification['from_email'];
+                                if (isset($notification['from_name']) && !empty($notification['from_name'])) {
+                                    $mailer->FromName = $notification['from_name'];
+                                }
+                            } else {
+                                $mailer->From = $administratorEmail;
+                                if (empty($mailer->From)) {
+                                    $msg = 'Please set "administrator_email" config variable';
+                                    $docObject->logError($msg);
+                                    throw new \Exception($msg);
+                                }
+                                $mailer->FromName = 'Flexflow';
+                            }
+                            if (!empty($notification['notification_to']) && is_array($notification['notification_to'])) {
+                                foreach ($notification['notification_to'] as $user) {
+                                    if (!empty($user['email'])) {
+                                        $mailer->AddAddress($user['email']);
+                                    }
+                                }
+                            }
+                            if (!empty($notification['notification_cc']) && is_array($notification['notification_cc'])) {
+                                foreach ($notification['notification_cc'] as $user) {
+                                    if (!empty($user['email'])) {
+                                        $mailer->AddCC($user['email']);
+                                    }
+                                }
+                            }
+                            if (!empty($notification['notification_bcc']) && is_array($notification['notification_bcc'])) {
+                                foreach ($notification['notification_bcc'] as $user) {
+                                    if (!empty($user['email'])) {
+                                        $mailer->AddBCC($user['email']);
+                                    }
+                                }
+                            }
+                            if ($mailer->send()) {
+                                foreach ($notification['notification_to'] as $to) {
+                                    $notifiedUsersLog->save(array($notifiedUsersLog->alias => array('type' => 'insert', 'status' => 'sent', 'name' => $to['name'], 'log_id' => $nodeID, 'user_id' => $to['id'], 'notification_id' => $notification['id'], 'message' => ''))
+                                            , array('atomic' => true));
+                                }
+                            } else {
+                                foreach ($notification['notification_to'] as $to) {
+                                    $notifiedUsersLog->save(array($notifiedUsersLog->alias => array('type' => 'insert', 'status' => 'failed', 'name' => $to['name'], 'log_id' => $nodeID, 'user_id' => $to['id'], 'notification_id' => $notification['id'], 'message' => $mailer->ErrorInfo))
+                                            , array('atomic' => true));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+?>

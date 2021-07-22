@@ -1,0 +1,25 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_submit extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        // if not set, then set draft as current node.
+        //  log is empty
+        if (!$docObject->isLogSet()) {
+            //  set nodes
+            $docObject->setWorkflowLog(array(array('can_edit' => 1, 'foreign_key' => \tushar\user::read('id'), 'foreign_key_model' => 'users')));
+        }
+        //  then set draft as current node.->invoke enter event for current stage
+        $node = $docObject->node($docObject->nodeID());
+        // check if node is valid and exists in log.
+        if ($node['status'] == 'open') {
+            //$docObject->logAction($node['id']);
+            // exit current stage
+            $docObject->exitNode();
+        }
+    }
+
+}
+

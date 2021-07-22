@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com> 
+ */
+
+namespace module\campaigns\source;
+
+class taglist implements \module\campaigns\source\source {
+
+    public static $settings = array();
+
+    public static function process($campaignObj, $tmp, $processor, $data, $params=array()) {
+        static::$settings = array_merge(static::$settings, $params);
+        $tagCloudObj = \module\tags\model\tag_cloud::getInstance();
+
+        $fields = array();
+        if (isset($data['merge_words']) && !empty($data['merge_words'])) {
+            foreach ($data['merge_words'] as $key => $value) {
+                $eKey = explode(".", $key);
+                $eKey = \array_slice($eKey, -2);
+                if (isset($eKey[1])) {
+                    $fields[$value] = implode(".", $eKey);
+                }
+            }
+        }
+        $fields['entity_id'] = 'common.id';
+        $fields['to_email'] = 'common.email';
+
+        foreach (select('campaign_tags.*')
+                ->from($campaignObj)
+                ->joinInner('campaign_tags')
+                ->where(array("{$campaignObj->alias}.id" => $data['source_campaign_id']))
+                ->execute()->fetchAll(\PDO::FETCH_ASSOC) as $taglist) {
+            $controller = explode('/', $taglist['controller']);
+            $controllerClass = "\\module\\{$controller[0]}\\controller\\{$controller[1]}";
+            $modelObj = $controllerClass::getInstance()->modelObj();
+            $schema = $modelObj->schema();
+
+            $emailField = 'email';
+            if (isset($modelObj->primaryEmailField)) {
+                $emailField = $modelObj->primaryEmailField;
+            }
+            if (!isset($schema[$emailField])) {
+                foreach ($modelObj->associations as $assocName => $assocInfo) {
+                    if ($assocInfo['className'] == '\\module\\crm_base\\model\\email_addresses') {
+                        if (!isset($query['where'])) {
+                            $query['where'] = array();
+                        }
+                        $fields['to_email'] = "{$assocName}.email";
+                        $query['where'][] = array("{$assocName}.type" => $emailTypes);
+                        $query['group'] = array("{$modelObj->alias}.{$modelObj->primaryKey}");
+                        break;
+                    }
+                }
+            } else {
+                $fields['to_email'] = 'common.' . $emailField;
+            }
+            $query = array('limit' => 0, 'where' => array("{$tagCloudObj->alias}.entity_id_model" => $modelObj->alias), 'joins' => array($tagCloudObj->alias => array('table' => $tagCloudObj->table, 'type' => 'INNER', 'on' => array("{$modelObj->alias}.{$modelObj->primaryKey}={$tagCloudObj->alias}.entity_id"))));
+            // @todo if id,email not found then catch it. 
+            if (isset($schema['id'])) {
+                $query['fields'] = array();
+                foreach ($fields as $alias => $column) {
+                    $query['fields'][] = \str_ireplace("common.", "{$modelObj->alias}.", $column) . " AS {$alias}";
+                }
+                if (isset($schema['email_opt_out'])) {
+                    $query['where']["{$modelObj->alias}.email_opt_out != "] = 1;
+                }
+
+                $processor->runLog(array(
+                    'campaign_id' => $data['id']
+                    , 'invocation' => $data['invocation']
+                    , 'stage' => 'Processing campaign tag entry: ' . $taglist['id']
+                    , 'message' => "Data SQL " . json_encode($query))
+                );
+
+                $stmt = $modelObj->find($query);
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                    $row['entity_id_model'] = $modelObj->alias;
+                    if (isset($row['to_email'])) {
+                        $row['to_email'] = strtolower(trim($row['to_email']));
+                    }
+                    $tmp->saveModel($row, array('type' => 'insert'));
+                }
+            }
+        }
+    }
+
+}

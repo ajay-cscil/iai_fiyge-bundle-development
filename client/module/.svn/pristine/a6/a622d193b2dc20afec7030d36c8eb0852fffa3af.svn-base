@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\contracts\renderer;
+
+class document implements \Zend_Markup_Renderer_TokenConverterInterface {
+
+    /**
+     *
+     * @var type
+     */
+    public $imageTypes = array('image/png', 'image/jpg', 'image/gif');
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param \Zend_Markup_Token $token
+     * @param type $text
+     * @return type
+     */
+    public function convert(\Zend_Markup_Token $token, $text) {
+        $obj = \module\document_management_base\model\attachments::getInstance(array(), true);
+        $data = $obj->read($text);
+
+        if (empty($data) || !isset($data[$obj->alias])) {
+            return ' !DOCUMENT(' . $text . ') NOT FOUND! ';
+        }
+        $data = $data[$obj->alias];
+        if (in_array($data['mime_type'], $this->imageTypes)) {
+            $path = wds(APP . DS . $data['storage_path'] . $data['path']);
+            return '<?php
+               if(isset($this) && isset($this->request) && isset($this->request->ext) && $this->request->ext =="pdf"){
+                    echo "<img src=\"' . $path . '\" />";
+               }else{
+                    echo "<img src=\"' . \tushar\request::base() . 'document_management_base/attachments/download/id:' . $text . '\" />";
+               }
+                ?>';
+        } else {
+            return '[page-break]MERGE:' . $text . ':' . $data['name'] . ':' . $data['storage_path'] . ':' . $data['path'] . ':' . $data['mime_type'] . '[page-break]';
+        }
+    }
+
+}
+
+?>

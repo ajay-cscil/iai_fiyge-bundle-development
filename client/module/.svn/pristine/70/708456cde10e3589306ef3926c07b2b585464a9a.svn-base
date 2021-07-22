@@ -1,0 +1,71 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\hr\model;
+  class contracts_domain_logic extends \data_model{
+        public function computePossibleWorkingDays($id,$start,$end){
+                $contract=\select("*")
+                ->from($this)
+                ->inserted()
+                ->where('id',$id)
+                ->execute()
+                ->fetch(\PDO::FETCH_ASSOC);
+                
+                $workingSchedule=current($this->working_schedule->read($contract['working_schedule_id']));
+                
+                $dates=$this->getDatesFromRange($start, $end);
+                // If defined then compute;
+                $daysOfWeek=array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+                
+                $holidayScheduleObject=\module\hr\model\holiday_schedule::getInstance();
+                $holidays=select('DATE(holiday_schedule_lines.date)')
+                        ->from($holidayScheduleObject)
+                        ->joinInner('holiday_schedule_lines')
+                        ->inserted()
+                        ->where('holiday_schedule_lines.date between',array($start,$end))
+                        ->where('holiday_schedule.id',$contract['holiday_schedule_id'])
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN);
+        
+
+                
+                if(is_array($workingSchedule['work_schedule_lines'])){
+                        $daysOfWeek=array();
+                        foreach($workingSchedule['work_schedule_lines'] as $line){
+                            $daysOfWeek[]=$line['day_of_week'];
+                        }
+                }
+                $workScheduleRule=(isset($workingSchedule['rule']) && !empty($workingSchedule['rule'])?$workingSchedule['rule']:false);
+                foreach($dates as $dateKey=>$date){
+                        $isValid=false;
+                        // if day name is one of day as per workign schedule.
+                        if(in_array(date('l',strtotime($date)), $daysOfWeek)){
+                                $isValid=true;
+                        }
+                        
+                        if($workScheduleRule !== false){
+                          if(eval($workScheduleRule) === false){
+                                throw new \Exception(__('Could not execute custom "work schedule" rule due to syntext error. Check rule code'));
+                          }
+                        }
+                        // in case its fixed holiday as per holiday schedule then ignore day.
+                        if(in_array($date,$holidays)){
+                                $isValid=false;      
+                        }
+                        if($isValid == false){
+                                unset($dates[$dateKey]);
+                        }
+                }
+                return count($dates);
+        }
+         function getDatesFromRange($start, $end){
+                $dates = array($start);
+                while(end($dates) < $end){
+                        $dates[] = date('Y-m-d', strtotime(end($dates).' +1 day'));
+                }
+                return $dates;
+        }       
+  }

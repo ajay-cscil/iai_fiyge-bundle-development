@@ -1,0 +1,914 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\analytics\controller;
+
+class reports extends \data_controller {
+
+    /**
+     *
+     * @var type
+     */
+    public $paginate = array('fields' => array('reports.name', 'category.name', 'reports.description'), 'actions' => array('view' => array('method' => 'run'), 'edit' => array('ajax_popup' => 1), 'delete'));
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     */
+    private function processPostedData($request) {
+        if (isset($request->data['reports'])) {
+            $modelObj = $this->modelObj();
+            $id = $request->param(array('data', $modelObj->alias, $modelObj->primaryKey), false);
+            $saved = current($modelObj->read($id, array()));
+            $_query = json_decode($saved['_query'], true);
+            if (!is_array($_query)) {
+                $_query = array();
+            }
+            $parts = array('fields' => array(), 'elements' => array(), 'actions' => array(), 'conditions' => array(), 'group_by' => array(), 'sort' => array());
+            if (count(array_intersect_key($request->data['reports'], $parts)) > 0) {
+                $request->data['reports'] = array_merge($request->data['reports'], array_diff_key($parts, $request->data['reports']));
+            }
+            $hiddenFields = array();
+            foreach ($request->data['reports'] as $k => $v) {
+                if (is_string($k) && $k{0} == "_" && $k{1} != "_") {
+                    $hiddenFields[$k] = $k;
+                    $k = substr($k, 1);
+                    $hiddenFields[$k] = $k;
+                }
+            }
+            $_query = array_merge(array_diff_key($_query, $hiddenFields), $request->data['reports']);
+            $query = \module\core\controller\listviews::buildQuery($_query);
+            $request->data['reports']['query'] = json_encode(array_diff_key(
+                            $query['query'], array('_acl' => 1, '_acl_edit' => 1, '_acl_delete' => 1, 'acl' => 1, 'acl_edit' => 1, 'acl_delete' => 1)
+                    ));
+            $request->data['reports']['_query'] = json_encode(
+                    array_diff_key(
+                            $query['_query'], array('_acl' => 1, '_acl_edit' => 1, '_acl_delete' => 1, 'acl' => 1, 'acl_edit' => 1, 'acl_delete' => 1)
+                    )
+            );
+            foreach ($request->data['reports'] as $k => $v) {
+                if (\is_numeric($k)) {
+                    unset($request->data['reports'][$k]);
+                }
+            }
+            
+        }
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    private function processBeforeShow($request) {
+        $data = $request->response('data');
+
+        if (isset($data['reports'])) {
+            if (isset($data['reports']['_query'])) {
+                $_query = json_decode($data['reports']['_query'], true);
+                if (!is_array($_query)) {
+                    $_query = array();
+                }
+                $data['reports'] = array_merge($_query, $data['reports']);
+            }
+        }
+
+        $request->set('data', $data);
+        $controller = "";
+        $getdata = $request->get('data');
+        if (isset($getdata['reports']) && isset($getdata['reports']['controller']))
+            $controller = $getdata['reports']['controller'];
+
+        if (isset($request->data['reports']) && isset($request->data['reports']['controller']))
+            $controller = $request->data['reports']['controller'];
+
+        if (isset($data['reports']) && isset($data['reports']['controller']))
+            $controller = $data['reports']['controller'];
+
+        $searchClass = "";
+        if (!empty($controller)) {
+            $searchClass = explode("/", $controller);
+            $searchClass = '\\module\\' . $searchClass[0] . '\\model\\' . $searchClass[1];
+        }
+        $searchClassColumns = \module\core\model\listviews::getInstance(array(), true)->getColumns($searchClass);
+        //$searchClassColumns['search_comparators'] = \module\core\model\listviews::getInstance(array(), true)->searchComparators();
+        $searchClassColumns['search_comparators'] = \tushar\configuration::read('search_comparators', array());
+        $request->set('jvar', $searchClassColumns);
+
+        $request->set('controller', \module\core\model\listviews::getInstance(array(), true)->controllers($controller, true));
+        $request->set('search_comparators', $searchClassColumns['search_comparators']);
+
+        $request->set('aggregator', \tushar\configuration::read('aggregators', array()));
+        $request->set('column_render_as', \tushar\configuration::read('column_render_as', array()));
+        $request->set('render_as_list', \tushar\configuration::read('render_as_list', array()));
+        $request->set('data_view_helpers', \module\core\model\listviews::getInstance()->dataViewHelpers());
+        $request->set('data_view_graph_helpers', \module\core\model\listviews::getInstance()->dataViewHelpers('graph'));
+        $request->set('sql_logical_operators', \tushar\configuration::read('sql_logical_operators', array()));
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public function edit($request) {
+        $request->set('role_based_groups', 1);
+        $request->layout = 'detail';
+        $action = $this->action($request);
+        $this->processPostedData($request);
+        $this->form = 'default';
+        $return = parent::edit($request);
+        $this->processBeforeShow($request);
+
+        if ($this->action($request) === 'save_and_run') {
+            $modelObj = $this->modelObj();
+            $view = \current($modelObj->read($modelObj->id, false));
+            if (stripos($request->server('HTTP_REFERER'), $view['controller']) !== false) {
+                $request->set('javascript', 'document.location.href="' . \tushar\request::base() . $view['controller'] . '/_report?current_report=' . $view['id'] . '";');
+                return array("{$view['controller']}/_report?current_report={$view['id']}");
+            } else {
+                $request->set('javascript', 'document.location.href="' . \tushar\request::base() . $view['controller'] . '/_report?current_report=' . $view['id'] . '";');
+                $request->set('redirect_to_url', \tushar\request::base() . $view['controller'] . '/_report?current_report=' . $view['id']);
+                return array("{$view['controller']}/_report?current_report={$view['id']}");
+            }
+        }
+        /*
+          if ($this->action($request) === 'save_and_run') {
+          $view = \current($modelObj->read($modelObj->id, false));
+          $request->set('javascript', '
+          if($("[listview_id=' . $this->id($request) . ']").length > 0 ){
+          $("[listview_id=' . $this->id($request) . ']").find(".active-paginate-link").trigger("click");
+          }else{
+          document.location.href="' . \tushar\request::base() . $view['controller'] . '/index?current_listview=' . $view['id'] . '";
+          }
+          ');
+          return array("{$view['controller']}/index?current_listview={$view['id']}");
+          } */
+        /*
+          if (!is_null($return)) {
+          $modelObj = $this->modelObj();
+          if ($action === 'next') {
+          return array("{$request->module}/{$request->controller}/_report_query/id:{$modelObj->id}", true, true);
+          }
+          }
+         * 
+         */
+        return $return;
+    }
+
+    public function edit_selected($request) {
+        $this->form = 'report_query';
+        \set_time_limit(0);
+        $this->render = 'edit';
+        $request->lauout = 'detail';
+        $data = $request->data;
+        $modelObj = $this->modelObj();
+        $schema = $modelObj->schema(false, true);
+        $ids = $this->id($request);
+        if (!is_array($ids)) {
+            $ids = array($ids);
+        }
+
+        $selectAllRecords = $this->selectAllRecords($request);
+        if ($selectAllRecords !== false) {
+            $ids = $selectAllRecords;
+        }
+
+        $isNotEmpty = false;
+        if (is_array($ids)) {
+            foreach ($ids as $id) {
+                if (!empty($id)) {
+                    $isNotEmpty = true;
+                    break;
+                }
+            }
+        }
+        if ($isNotEmpty === false) {
+            throw new \Exception(__('Select records to edit'));
+            return false;
+        }
+
+        $saveHandler = $this->saveHandler;
+        $modelObj->saveHandler = $saveHandler;
+
+        $isValid = true;
+        $successCount = 0;
+        // now save changes.
+        $errors = array();
+        if ($request->is('post')) {
+            // check for singleton insert
+            $isValid = $request->isSingleton();
+            if ($isValid === false) {
+                $errors[] = __('This form has expired, try to create new record.');
+            } else {
+                if (isset($data[$modelObj->alias]) && is_array($data[$modelObj->alias])) {
+                    foreach ($data[$modelObj->alias] as $column => $value) {
+                        if (empty($value) && !is_array($value)) {
+                            if (!is_numeric($value)) {
+                                unset($data[$modelObj->alias][$column]);
+                            }
+                        }
+                    }
+                    if (isset($data[$modelObj->alias]['id'])) {
+                        unset($data[$modelObj->alias]['id']);
+                    }
+                    $query = \module\core\controller\listviews::buildQuery($data[$modelObj->alias], true);
+                    $data[$modelObj->alias] = $query['_query'];
+                }
+                $data = \tushar\locale::normalize($data, $modelObj->schema(false, true, true, true));
+                $modelObj->processRules($data, true);
+                $successCount = 0;
+                if ($selectAllRecords !== false) {
+                    $request->setMsg(sprintf(__('Trying to update %s records'), count($selectAllRecords)));
+                }
+                foreach ($ids as $id) {
+                    // check for editable permission.
+                    $isNot = $modelObj->call('isNotEditable', $id);
+                    if ($isNot !== false) {
+                        $errors[] = $isNot;
+                        continue;
+                    }
+                    if (!empty($id) && $request->is('post') && !empty($request->data)) {
+                        // check for singleton update
+                        if ($isValid === true) {
+                            $isValid = $this->isValidLastModified($request, $id);
+                            if ($isValid === false) {
+                                $errors[] =
+                                        \sprintf(
+                                        __('This record record[%s] has been modified, %d click here %d to view modified record.'), $id, '<a  data-ajax = "false"  href="' . $request->base . $request->module
+                                        . '/' . $request->controller . '/view/' . $id . '">', '</a>'
+                                );
+                            }
+                        }
+
+
+                        if ($isValid === true) {
+                            // if valid request
+                            if ($request->is('post') && !empty($data)) {
+
+                                // try to save data
+                                $isReload = (isset($data['action']) && isset($data['action']['reload']));
+                                if ($isReload === false) {
+                                    $dataCopy = $modelObj->read($id);
+                                    if (!is_array($dataCopy[$modelObj->alias])) {
+                                        $errors[] = sprintf(__('%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
+                                        continue;
+                                    }
+                                    $_query = json_decode($dataCopy[$modelObj->alias]['_query'], true);
+                                    if (!is_array($_query)) {
+                                        $_query = array();
+                                    }
+                                    $dataCopy[$modelObj->alias] = array_merge($dataCopy[$modelObj->alias], $data[$modelObj->alias]);
+                                    $query = \module\core\controller\listviews::buildQuery(array_merge($_query, $data[$modelObj->alias]));
+                                    $dataCopy[$modelObj->alias]['query'] = json_encode($query['query']);
+                                    $dataCopy[$modelObj->alias]['_query'] = json_encode($query['_query']);
+                                    foreach ($dataCopy[$modelObj->alias] as $k => $v) {
+                                        if (\is_numeric($k)) {
+                                            unset($dataCopy[$modelObj->alias][$k]);
+                                        }
+                                    }
+                                    $dataCopy[$modelObj->alias][$modelObj->primaryKey] = $id;
+                                    // set currenty performed form action into data
+                                    $dataCopy[$modelObj->alias]['action'] = $this->action($request);
+                                    $modelObj->id = '';
+                                    \tushar\model::$errors = array();
+                                    $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
+                                    if ($this->saveHandlerOutput) {
+                                        $successCount++;
+                                        $msg = sprintf(__('%s [%s] %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
+                                        $request->setMsg($msg);
+                                        $errors[] = $msg;
+                                    } else {
+                                        $messages = array();
+                                        foreach (\tushar\model::$errors as $k => $v) {
+                                            if (is_array($messages)) {
+                                                $messages = array_merge($messages, $v);
+                                            } else {
+                                                $messages[] = $v;
+                                            }
+                                        }
+                                        $messages = implode(', ', $messages);
+                                        $errors[] = sprintf(__('%s [%s] could not be %s due to validation check: %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'), $messages);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            $this->edit($request);
+        }
+        \tushar\model::$errors = $errors;
+        if ($successCount == count($ids)) {
+            return("{$request->module}/{$request->controller}/index");
+        }
+        $this->processSentData($request, $data);
+        $request->set('primary_key', $modelObj->primaryKey);
+        $request->set('model', $modelObj->alias);
+        $request->set('model_class', $modelObj->modelClass);
+        $request->set('id', $ids);
+        $request->set('singleton_key', $request->singletonKey());
+        $request->set('data', $data);
+        $request->set('schema', $schema);
+        $request->set('filterRules', $modelObj->filterRules($data, true));
+        $request->set('permissions', $modelObj->permissions);
+
+
+        $request->set('model_associations', $modelObj->associations);
+        $request->set('invalid_associations', $modelObj->invalidAssociations);
+        $request->set('model_behaviours', $modelObj->behaviours);
+        $request->set('role_based_groups', 1);
+
+
+        $form = $this->form();
+        if (!empty($form)) {
+            $request->set('form', $form);
+        }
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function _report_query($request) {
+        $modelObj = $this->modelObj();
+        $id = $request->param(array('data', $modelObj->alias, $modelObj->primaryKey), false);
+        if ($id === false)
+            $id = $request->param('id');
+        $action = $this->action($request);
+        if ($action === 'prev')
+            return array("{$request->module}/{$request->controller}/edit/id:{$id}", true, true);
+        $this->processPostedData($request);
+        $modelObj->filters = $modelObj->filtersForQueryForm;
+        $this->form = 'report_query';
+        $return = parent::edit($request);
+
+        $q = json_decode($request->response['data']['reports']['query'], TRUE);
+        if (isset($q['sequence'])) {
+            $request->response['data']['reports']['sequence'] = $q['sequence'];
+        }
+
+        $this->processBeforeShow($request);
+        $this->render = 'edit';
+        if (!is_null($return)) {
+            //if ($action === 'run') {
+            //    $request->set('javascript',"document.location.href='".\tushar\request::base()."{$request->module}/{$request->controller}/run/id:{$id}';");
+            //    $return = array("{$request->module}/{$request->controller}/run/id:{$id}", true);
+            // }
+            if ($action === 'next') {
+                $return = array("{$request->module}/{$request->controller}/index", true);
+            } elseif ($this->action($request) === 'save_and_run') {
+                $data = current($this->read($id, false));
+                $request->set('javascript', ' 
+                                if($("[listview_id=' . $id . ']").length > 0 ){  
+                                        $("[listview_id=' . $id . ']").find(".active-paginate-link").trigger("click");    
+                                }else{  
+                                        document.location.href="' . \tushar\request::base() . $data['controller'] . '/index?current_report=' . $id . '";
+                                }
+                             ');
+                // return array("{$data['controller']}/index?current_listview={$id}");
+            } elseif ($action === 'next_and_run') {
+                $request->set('javascript', 'var ob={};$.ajaxPopup(ob,"' . \tushar\request::base() . $request->data['reports']['controller'] . "/_report/id:{$id}?current_report=" . $id . '");');
+            } else {
+                $request->set('javascript', ' 
+                                if($("[listview_id=' . $id . ']").length > 0 ){  
+                                        $("[listview_id=' . $id . ']").find(".active-paginate-link").trigger("click");    
+                                }
+                             ');
+            }
+            /*
+              elseif ($action === 'next_and_run') {
+              $return = array("{$request->module}/{$request->controller}/run/id:{$id}", true);
+              $request->set('javascript', "document.location.href='/{$request->module}/{$request->controller}/run/id:{$id}';");
+              //$return = array("{$request->module}/{$request->controller}/_custom_search/id:{$id}", true, true);
+              }
+             * 
+             */
+            return $return;
+        }
+
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public function _custom_search($request) {
+        $modelObj = $this->modelObj();
+        $id = $request->param(array('data', $modelObj->alias, $modelObj->primaryKey), false);
+        if ($id === false)
+            $id = $request->param('id');
+        $action = $this->action($request);
+        if ($action === 'prev')
+            return array("{$request->module}/{$request->controller}/_report_query/id:{$id}", true, true);
+        $this->render = 'edit';
+        $this->processPostedData($request);
+        $modelObj->filters = array();
+        $this->form = 'report_custom_search';
+        $return = parent::edit($request);
+        $this->processBeforeShow($request);
+        if (!is_null($return)) {
+            if ($action === 'next') {
+                $return = array("{$request->module}/{$request->controller}/index", true);
+            }
+        }
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function view($request) {
+        $request->set('role_based_groups', 1);
+        $request->layout = 'detail';
+        $modelObj = $this->modelObj();
+        $id = $request->param(array('data', $modelObj->alias, $modelObj->primaryKey), false);
+        if ($id === false)
+            $id = $request->param('id');
+        $action = $this->action($request);
+        if ($action === 'next') {
+            return array("{$request->module}/{$request->controller}/_view_report_query/id:{$id}", true, true);
+        }
+        $this->form = 'default';
+        $return = parent::view($request);
+        $this->processBeforeShow($request);
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function _view_report_query($request) {
+        $modelObj = $this->modelObj();
+        $id = $request->param(array('data', $modelObj->alias, $modelObj->primaryKey), false);
+        if ($id === false)
+            $id = $request->param('id');
+
+        $action = $this->action($request);
+        if ($action === 'prev') {
+            return array("{$request->module}/{$request->controller}/view/id:{$id}", true, true);
+        } elseif ($action === 'next') {
+            return array("{$request->module}/{$request->controller}/index", true);
+        } elseif ($action === 'next_and_run') {
+            $request->set('javascript', "document.location.href='/{$request->module}/{$request->controller}/run/id:{$id}';");
+            return array("{$request->module}/{$request->controller}/run/id:{$id}", true);
+        }
+        $this->form = 'report_query';
+        $return = parent::view($request);
+        $this->processBeforeShow($request);
+        $this->reportQueryForm['permission'] = VIEW;
+        $this->render = 'view';
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function _view_custom_search($request) {
+        $modelObj = $this->modelObj();
+        $id = $request->param(array('data', $modelObj->alias, $modelObj->primaryKey), false);
+        if ($id === false)
+            $id = $request->param('id');
+        $action = $this->action($request);
+        if ($action === 'prev')
+            return array("{$request->module}/{$request->controller}/_view_report_query/id:{$id}", true, true);
+
+        if ($action === 'next')
+            return array("{$request->module}/{$request->controller}/index", true);
+
+        $this->render = 'view';
+        $this->form = 'report_custom_search';
+        $return = parent::view($request);
+        $this->processBeforeShow($request);
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public function get_column_list($request) {
+        $controller = $request->param('controller');
+        $searchClass = "";
+        if (!empty($controller)) {
+            $searchClass = explode("/", $controller);
+            $searchClass = '\\module\\' . $searchClass[0] . '\\model\\' . $searchClass[1];
+        }
+        json(\module\core\model\listviews::getInstance(array(), true)->getColumns($searchClass));
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function run($request) {
+
+        $id = $request->param('id');
+        $modelObj = $this->modelObj();
+        $id = $request->param(array('data', $modelObj->alias, $modelObj->primaryKey), false);
+        if ($id === false) {
+            $id = $request->param('id');
+        }
+        $action = $this->action($request);
+        if ($action === 'edit') {
+            return array("{$request->module}/{$request->controller}/edit/id:{$id}", true, true);
+        }
+
+        if (!empty($id)) {
+            if (empty($action)) {
+                $instance = \tushar\source::getInstance($modelObj->source);
+                $data = array('fields' => array(
+                        "read_count" => "(read_count + 1)"
+                    ),
+                    'table' => array('db' => $modelObj->db, 'table' => $modelObj->table),
+                    'where' => array("{$modelObj->primaryKey}" => $id)
+                );
+                $instance->save($data, true);
+            }
+            $return = parent::view($request);
+            $report = $request->response['data'];
+            $report = (isset($report[$modelObj->alias]) ? $report[$modelObj->alias] : array());
+            if (!empty($report)) {
+                $query = json_decode($report['query'], true);
+                $controller = $report['controller'];
+                $query['name'] = $name = $report['name'];
+                $array = explode("/", $controller);
+                list($module, $controller) = $array;
+                $reports = (isset($request->data[$modelObj->alias]) ? $request->data[$modelObj->alias] : array());
+                $customConditions = isset($reports['custom_conditions']) ? $reports['custom_conditions'] : false;
+                if ($action === 'search' && isset($reports['custom_conditions'])) {
+                    $where = array();
+                    foreach ($reports['custom_conditions'] as $info) {
+                        if (!empty($info['search_column'])) {
+                            $where["{$info['search_column']} " . (array_key_exists('search_comparator', $info) ? $info['search_comparator'] : '') . " "] = ( \array_key_exists('search_value', $info) ? $info['search_value'] : '');
+                        }
+                    }
+                    if (!empty($where)) {
+                        if (!isset($query['where']) || empty($query['where'])) {
+                            $query['where'] = array();
+                        }
+                        $query['where'][] = $where;
+                    }
+                }
+                $panel = array(
+                    //array('helper' => '\\tushar\\form', 'method' => 'submit', 'permission' => EDIT, 'name' => 'edit', 'value' => 'Edit Report'),
+                    array('helper' => '\\tushar\\form', 'method' => 'input', 'permission' => EDIT, 'name' => array('reports', 'controller'), 'type' => 'hidden'),
+                    array('helper' => '\\tushar\\form', 'method' => 'submit', 'permission' => EDIT, 'name' => 'search', 'value' => 'Search')
+                );
+
+                if ($action === 'search') {
+                    $panel[] = array('helper' => '\\tushar\\form', 'method' => 'submit', 'permission' => EDIT, 'name' => 'clear_search', 'value' => 'Clear Search');
+                } else {
+                    $panel[] = array('helper' => '\\tushar\\form', 'method' => 'submit', 'permission' => EDIT, 'name' => 'clear_search', 'value' => 'Clear Search', 'disabled' => 'disabled');
+                }
+
+
+                $query['controller'] = $report['controller'];
+
+
+
+
+
+                $this->form = array();
+                $showSearchPanel = 0;
+                if ($this->action($request) == 'search' || $this->action($request) == 'clear_search') {
+                    $showSearchPanel = 1;
+                }
+                $request->set('show_search_panel', $showSearchPanel);
+                $return = parent::view($request);
+
+                if (isset($query['render_as']) && $query['render_as'] == 'index') {
+                    $panel[] = array('helper' => '\\tushar\\form', 'method' => 'submit', 'ajax' => 1, 'href' => $request->base . $module . '/' . $controller . '?request_url=data_management/exports/add&q=' . \rawurlencode(json_encode($query)), 'type' => 'button', 'permission' => EDIT, 'name' => 'export', 'label' => 'Export', 'value' => 'Export');
+                }
+
+                $this->form = array(
+                    'name' => 'report details',
+                    'permission' => EDIT,
+                    'method' => 'POST',
+                    'children' => array(
+                        array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'tab',
+                            'selected' => 0,
+                            'children' => array(
+                                array(
+                                    'helper' => '\\tushar\\form',
+                                    'method' => 'collection',
+                                    'label' => 'Report',
+                                    'children' => array(
+                                        array(
+                                            'helper' => '\\tushar\\form',
+                                            'method' => 'grid',
+                                            'label' => 'Custom Search criteria',
+                                            'cols' => '2',
+                                            'primary_key' => 'reports.custom_conditions.id',
+                                            'seq' => true,
+                                            'add' => 0,
+                                            'show_collapsed' => 1,
+                                            'children' => array(
+                                                array('helper' => '\\tushar\\form', 'method' => 'popup', 'readonly' => 1, 'label_width' => '30px', 'label' => 'field name', 'name' => array('reports', 'custom_conditions', 'search_column'), 'children' => array(
+                                                        'helper' => '\\tushar\\form', 'method' => 'popupoption', 'model' => 'schema', 'href' => 'core/schema/index'
+                                                    )
+                                                ),
+                                                array('helper' => '\\tushar\\form', 'label_width' => '50px', 'style' => 'width:130px', 'method' => 'select', 'label' => 'comparator', 'type' => 'text', 'name' => array('reports', 'custom_conditions', 'search_comparator'), 'lookup' => 'search_comparators'),
+                                                array('helper' => '\\tushar\\form', 'method' => 'input', 'label' => 'value', 'type' => 'text', 'name' => array('reports', 'custom_conditions', 'search_value'), 'value' => ''),
+                                            )
+                                        ), array(
+                                            'helper' => '\\tushar\\form',
+                                            'method' => 'panel',
+                                            'class' => 'align-left',
+                                            'children' => $panel
+                                        ), array(
+                                            'helper' => '\\tushar\\form',
+                                            'method' => 'listview',
+                                            'auto_build_where' => 0,
+                                            'auto_load' => true,
+                                            'load_menu' => false,
+                                            'disable_search' => 1,
+                                            'label' => $name,
+                                            'module' => $module,
+                                            'controller' => $controller,
+                                            'action' => 'index',
+                                            'q' => $query
+                                        )
+                                    )
+                                )
+                            )
+                        ), array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'javascript',
+                            'require_document_ready' => 1,
+                            'javascript' => '
+
+var config=CONFIG;
+var module=$.isset(config.module)?config.module:\'\';
+var controller=$.isset(config.controller)?config.controller:\'\';
+var base=$.isset(config.base)?config.base:\'\';
+$(\'[name *="[__search_column]"]\').bind(\'beforeSearch\',function(){
+    var q=$(this).data(\'q\');
+    if($(this).attr(\'name\').indexOf(\'search\')  != -1 ){
+         q[\'fetch\']=1;
+    }
+    $(this).closest(\'form\').find(\'[name="data[reports][controller]"]\').each(function(){
+        if(!$.isEmpty($(this).val())){
+            q[\'controller\']=$(this).val();
+        }
+    });
+    $(this).data(\'q\',q);
+});
+
+
+
+
+$(\'[name*="[search_column]"]\').change(function(){
+    var block=$(this).closest(\'.grid-template\');
+    var value=$(this).val();
+    var valueSplit=value.split(\'::\');
+    var val=($.isset(valueSplit[1])?valueSplit[1].split(\'.\'):valueSplit[0].split(\'.\'));
+    var next=$(this).closest(\'td\').next().next();
+    var element=$(this);
+    if(val.length >= 2){
+        var col1=val[(val.length-1)];
+        var model1=val[(val.length-2)];
+
+        $(this).val( (val.length > 2? val.slice(1).join(\'.\'): val.join(\'.\') ) );
+        block.find(\'.popup-autocomplete\').val((val.length > 2? val.slice(1).join(\'.\'): val.join(\'.\') ));
+
+       var controller=$(this).closest(\'form\').find(\'[name="data[reports][controller]"]\').val();
+        if(!$.isEmpty(controller)){
+            var block=$(this).closest(\'.block\');
+            var data=$(block).data(\'controller_form_object\',$(data));
+            if(typeof data != \'object1\'){
+                var href = base+controller+\'/add\'
+                $.get(href,{},function(data){
+                    data=$(data);
+                    $(block).data(\'controller_form_object\',data);
+                    var requiredDom=false;
+                    data.find(\'[name *="[\'+(val[0])+\']"]\').filter(\'[name *="[\'+col1+\']"]\').each(function(){
+                        if(requiredDom === false){
+                            var name=$(this).attr(\'name\');
+                            var length=val.length;
+                            for(var i=1; i < length ; i++){
+                                if(name.indexOf(\'[\'+val[i]+\']\') === -1){
+                                    break;
+                                }
+                            }
+                            if(i == length){
+                                var dom =$(this).parents(\':first\');
+                                if(dom.filter(\'.cell-info\').length >0){
+                                   requiredDom=dom.html();
+                                }else if(dom.filter(\'.cell-info-grid\').length >0){
+                                   requiredDom=dom.html();
+                                }
+
+
+                            }
+                        }else{
+                            return ;
+                        }
+                    });
+                    if(requiredDom!== false){
+                        var fieldsvalues=[];
+                        next.find(\':input\').each(function(){
+                            fieldsvalues.push(new Array($(this).attr(\'name\') ,$(this).val()));
+                        });
+                        requiredDom = requiredDom.replace(\'<select \',\'<select multiple="multiple" \')
+                        .replace(/disabled/gi,\'    \')
+                        .replace(/hasDatepicker/gi,\'\')
+                        .replace(/_X_/gi,\'\');
+                        var isBetween = (element.closest(\'tr\').find(\'[name *="[search_comparator]"]\').val() ==\'between\'? true: false);
+
+                        if(isBetween){
+                            next.html(\'<span class="condition_search_value">\'+requiredDom+\'</span>\'
+                                +\'<div>AND</div> \'+
+                                \'<span class="condition_search_value">\'+requiredDom+\'</span>\');
+                        }else{
+                            next.html(\'<span class="condition_search_value">\'+requiredDom+\'</span>\');
+                        }
+
+                         next
+                        .find(\'[id]\')
+                        .each(function(k,v){
+                            $(this).attr(\'id\',$.uu());
+                        }).end().find(\'.date\').attr(\'is_readonly\',0).end().find(\'.datetime\').attr(\'is_readonly\',0).end();
+
+                        next
+                        .find(\':input\')
+                        .filter(\':visible\')
+                        .each(function(k,v){
+                            var newName =  element.attr(\'name\')
+                            .replace(\'[search_column]\',\'[search_value]\')+(isBetween?\'[\'+k+\']\':\'\')+($(this).is(\'select\')?\'[]\':\'\') ;
+                            if($(this).hasClass("popup-autocomplete") ){
+                                $(this).parents(\':first\').find(\'.popup-hidden\').attr(\'name\',newName);
+                                $(this).attr(\'name\',newName.replace(\'[search_value]\',\'[__search_value]\'));
+                            }else{
+                                $(this).attr(\'name\',newName);
+                            }
+                        });
+
+                        next.find(\':input\').not(\'.popup-autocomplete\').each(function(){
+                            var length =fieldsvalues.length;
+                            var name= $(this).attr(\'name\');
+                            var values= new Array();
+                            for(var j=0;j < length ; j++){
+                                if(fieldsvalues[j][0].indexOf(name.replace(\'[]\',\'\')) != -1){
+                                    values.push(fieldsvalues[j][1]);
+                                }
+                            }
+                            if(values.length == 1){
+                                values =values[0];
+                            }
+                            if($(this).hasClass(\'popup-hidden\') && values.length == 2){
+                                $(this).val(values[0]);
+                                $(this).parents(\':first\').find(\'.popup-autocomplete\').val(values[1]);
+                            }else{
+                                $(this).val(values);
+                            }
+
+                        });
+
+                        if(next.find(\'.number,.date,.datetime,.time\').length == 0){
+                            var rangeOptions= new Array("<",">","<=",">=","between");
+                            element.closest(\'tr\').find(\'[name *="[search_comparator]"]\').find(\'option\').each(function(){
+                                if($.inArray($(this).attr(\'value\') ,rangeOptions)  != -1 ){
+                                    $(this).attr(\'disabled\',\'disabled\');
+                                }
+                            });
+                        }else{
+                            element.closest(\'tr\').find(\'[name *="[search_comparator]"]\').find(\'option\').removeAttr(\'disabled\');
+                        }
+                        $.initFields(next);
+                    }
+                });
+            }
+        }
+    }
+    var searchComparator=$(this).closest(\'td\').next().find(\'[name *="[search_comparator]"]\');
+    if(searchComparator.val() ==\'\'){
+        searchComparator.val(\'=\');
+    }
+    var logicalOperator=$(this).closest(\'.grid-template\').prev().find(\'[name *="[logical_operator]"]\');
+    if(logicalOperator.val() ==  \'\'){
+        logicalOperator.val(\'AND\');
+    }
+});
+
+
+
+$(\'[name *="[search_comparator]"]\').change(function(){
+    var next=$(this).closest(\'td\').next();
+    var name=$(this).attr(\'name\').replace(\'[search_comparator]\',\'[search_value]\');
+    var conditionSearchValue = next.find(\'.condition_search_value\').html().replace(/hasDatepicker/gi,\'\');
+    if($(this).val().toLowerCase().indexOf(\'subquery\') != -1){
+        next.html(\'<span class="condition_search_value"><input class="popup-hidden" name="data[reports][listview_id]" value=""  permission="2" type="hidden">\'+\'<input model="listviews" class="popup-autocomplete display-inline-block \'+\' " href="\'+base+\'core/listviews/index"   name="data[reports][__listview_id]"  name_model="schema" \'+\'  __name="listviews.category_id"  colspan="3" type="text"> \'+\' <span class="popup-add ui-icon ui-icon-folder-open  display-inline-block" title="Click here to select">*</span> \'+\' <span class="popup-clear ui-icon ui-icon-minus  display-inline-block" title="Click here to clear">*</span></span> \');
+
+    }else if($(this).val() == \'between\'){
+        next.html(\'<span class="condition_search_value">\'+conditionSearchValue+\'</span> <div>AND</div> <span class="condition_search_value">\'+conditionSearchValue+\'</span>\');
+    }else{
+        next.html(\'<span class="condition_search_value">\'+conditionSearchValue+\'</span>\');
+    }
+    next=$(this).closest(\'td\').next();
+    var conditionSearchValueLength =next.find(\'.condition_search_value\').length;
+    if( conditionSearchValueLength==1){
+        next.find(\':input\').filter(\':visible\').each(function(){
+            name =name+($(this).is(\'select\')?\'[]\':\'\') ;
+            if($(this).hasClass("popup-autocomplete") ){
+
+                $(this).parents(\':first\').find(\'.popup-hidden\').attr(\'name\',name);
+                $(this).attr(\'name\',name.replace(\'[search_value]\',\'[__search_value]\'));
+            }else{
+                $(this).attr(\'name\',name);
+            }
+        });
+
+    }else if(conditionSearchValueLength ==2 ){
+        next.find(\'.condition_search_value:eq(0)\').find(\':input\').filter(\':visible\').attr(\'name\',name+\'[0]\');
+        next.find(\'.condition_search_value:eq(1)\').find(\':input\').filter(\':visible\').attr(\'name\',name+\'[1]\');
+    }
+    next.find(\'[id]\').each(function(k,v){
+        $(this).attr(\'id\',$.uu());
+    }).end().find(\'.ui-datepicker-trigger, .field-help\').remove();
+
+    $.initFields(next);
+});
+
+
+
+if($(\'[name*="[search_column]"]\').length > 1 ){
+  $(\'[name*="[search_column]"]\').trigger(\'change\');
+}
+
+
+                                         '
+                        )
+                    )
+                );
+
+
+                $this->form = array(
+                    'name' => 'report details',
+                    'permission' => EDIT,
+                    'method' => 'POST',
+                    'children' => array(
+                        array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'tab',
+                            'selected' => 0,
+                            'children' => array(
+                                array(
+                                    'helper' => '\\tushar\\form',
+                                    'method' => 'collection',
+                                    'label' => 'Report',
+                                    'children' => array(
+                                        array(
+                                            'show_collapsed' => 0,
+                                            'helper' => '\\tushar\\form',
+                                            'method' => 'listview',
+                                            'auto_build_where' => 0,
+                                            'auto_load' => true,
+                                            'load_menu' => false,
+                                            'disable_search' => 1,
+                                            //'label' => $name,
+                                            'module' => $module,
+                                            'controller' => $controller,
+                                            'action' => 'index',
+                                            'q' => $query,
+                                            'template_markup' => '{{CONTENT_AREA}}'
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+                $request->layout = 'report_view';
+                $request->set('form', $this->form);
+                $this->processBeforeShow($request);
+
+                if ($this->action($request) != 'clear_search') {
+                    $data = $request->response('data');
+                    if ($customConditions !== false) {
+                        $data['reports']['custom_conditions'] = $customConditions;
+                    }
+                    $request->set('data', $data);
+                }
+
+                $request->set('report_module', $module);
+                $request->set('report_controller', $controller);
+                $request->set('report_q', $query);
+
+                return $return;
+            }
+        }
+    }
+
+}
+
+?>

@@ -1,0 +1,31 @@
+<?php
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+namespace module\campaigns\model;
+
+class campaign_run_status extends \tushar\model {
+
+    public $table = 'campaigns__campaign_run_status';
+    /**
+     *
+     * @var type
+     */
+    public $singular='campaign run status';
+    /**
+     *
+     * @var type
+     */
+    public $primaryKey = 'campaign_id';
+    /**
+     *
+     * @var type
+     */
+    public $associations = array(
+        'campaigns' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'campaign_id'
+            , 'className' => '\\module\\campaigns\\model\\campaigns'
+        )
+    );
+
+}

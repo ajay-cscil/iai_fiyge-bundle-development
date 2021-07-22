@@ -1,0 +1,47 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\dashboards\controller;
+
+class panels_domain_logic extends \tushar\controller{
+
+    public function edit($request)
+    {
+        $request->set('dashboard_list', $this->dashboardList());
+        return parent::edit($request);
+    }
+
+    public function view($request)
+    {
+        $request->set('dashboard_list', $this->dashboardList());
+        return parent::edit($request);
+    }
+
+    private function dashboardList()
+    {
+        $modulesObj = \module\development_base\model\menus::getInstance();
+        $dashboardList = array();
+        $dashboards = \select(array("{$modulesObj->alias}.*"))
+                        ->from($modulesObj)
+                        ->inserted()
+                        ->limit(0)
+                        ->where(array("{$modulesObj->alias}.url LIKE" => '%request_url=dashboards/widgets/dashboard%'))
+                        ->order("{$modulesObj->alias}.lft")
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+                        $options=array();
+        foreach ($dashboards as $dashboard) {
+            $pr = explode('filter:', $dashboard['url']);
+            if (isset($pr[1]) && !isset($options[$pr[1]])) {
+                $options[$pr[1]]=$pr[1];
+                $dashboardList[] = array('text' => $pr[1], 'value' => $pr[1]);
+            }
+        }
+        return $dashboardList;
+    }
+
+}

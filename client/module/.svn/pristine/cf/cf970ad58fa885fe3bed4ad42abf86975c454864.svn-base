@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class vendor_reminder_emails_log extends \module\excursion\controller\vendor_reminder_emails_log_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\vendor_reminder_emails_log';
+
+
+
+
+
+
+  }

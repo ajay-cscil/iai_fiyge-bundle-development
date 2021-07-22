@@ -1,0 +1,190 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\manufacturing\model;
+  class work_center_operations extends \module\manufacturing\model\work_center_operations_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'manufacturing__work_center_operations';
+       public $isSequentialData = 1;
+       public $alias = 'work_center_operations';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'number_of_cycles' => 
+  array (
+    'column' => 'number_of_cycles',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'number_of_hours' => 
+  array (
+    'column' => 'number_of_hours',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'routing_order_id' => 
+  array (
+    'column' => 'routing_order_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'seq' => 
+  array (
+    'column' => 'seq',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'work_center_id' => 
+  array (
+    'column' => 'work_center_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+);
+       public $associations = array (
+  'routing_orders' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\manufacturing\\model\\routing_orders',
+    'foreignKey' => 'routing_order_id',
+    'associationAlias' => 'routing_orders',
+  ),
+  'work_centers' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\manufacturing\\model\\work_centers',
+    'foreignKey' => 'work_center_id',
+    'associationAlias' => 'work_centers',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'routing_order_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'work_center_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

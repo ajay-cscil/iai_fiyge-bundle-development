@@ -1,0 +1,81 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\elections\model;
+  class polling_stations extends \module\elections\model\polling_stations_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'access_controls__groups';
+       public $parentClass = '\\module\\access_controls\\model\\groups';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'polling_stations';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'polling_station_informations' => 
+  array (
+    'assocType' => 'hasOne',
+    'className' => '\\module\\elections\\model\\polling_station_informations',
+    'associationAlias' => 'polling_station_informations',
+    'foreignKey' => 'polling_station_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'election_results' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\elections\\model\\election_results',
+    'associationAlias' => 'election_results',
+    'foreignKey' => 'polling_station_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'addresses' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\addresses',
+    'associationAlias' => 'addresses',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclChild' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '0',
+    'deleteAccess' => '0',
+    'ownAcl' => '0',
+    'cacheClass' => '0',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+);
+  }

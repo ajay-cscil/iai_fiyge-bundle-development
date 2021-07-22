@@ -1,0 +1,101 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "847",
+                    "aro_id_model": "groups",
+                    "aro_id": "847",
+                    "__aro_id": "Region-USA"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"fields\":[{\"column\":\"config_frieght_terms.name\",\"__column\":\"config_frieght_terms.name\"},{\"column\":\"config_frieght_terms.created\",\"__column\":\"config_frieght_terms.created\"},{\"column\":\"config_frieght_terms.modified\",\"__column\":\"config_frieght_terms.modified\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"config_frieght_terms.modified\",\"__column\":\"config_frieght_terms.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"config_frieght_terms.modified\",\"sort_by\":\"config_frieght_terms.modified\"}}",
+            "category_id": "12",
+            "controller": "delivery\/config_frieght_terms",
+            "created": "2013-11-22 15:11:38",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "delivery.config_frieght_terms.Recycle Bin",
+            "id": "528f742a-9454-4fc7-913b-0d0b0aec906d",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "27263a00-e746-11e3-aad5-0800275f9930",
+            "name": "Recycle Bin",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"fields\":[\"config_frieght_terms.name\",\"config_frieght_terms.created\",\"config_frieght_terms.modified\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"config_frieght_terms.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"config_frieght_terms.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "237",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "",
+            "__category_id": "System View",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "delivery",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

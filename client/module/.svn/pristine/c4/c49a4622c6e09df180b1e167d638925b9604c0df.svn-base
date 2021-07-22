@@ -1,0 +1,34 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\elections\model;
+  class accounts extends \module\elections\model\accounts_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'crm__accounts';
+       public $parentClass = '\\module\\crm\\model\\accounts';
+       public $displayField = 'account_name';
+       public $primaryKey = 'id';
+       public $singular = 'company';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $overrideCallToParent = '1';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $associations = array (
+  'company_informations' => 
+  array (
+    'assocType' => 'hasOne',
+    'className' => '\\module\\elections\\model\\company_informations',
+    'associationAlias' => 'company_informations',
+    'foreignKey' => 'company_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+  }

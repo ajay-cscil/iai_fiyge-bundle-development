@@ -1,0 +1,76 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"fields\":[{\"column\":\"instances.first_name\",\"__column\":\"instances.first_name\"},{\"column\":\"instances.job_title\",\"__column\":\"instances.job_title\"},{\"column\":\"instances.message\",\"__column\":\"instances.message\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"instances.modified\",\"__column\":\"instances.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"instances.modified\",\"sort_by\":\"instances.modified\"}}",
+            "category_id": "5",
+            "controller": "cloud\/instances",
+            "created": "2013-12-09 10:16:48",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "cloud.instances.Recycle Bin",
+            "id": "52a59890-15f0-461a-9779-074eefe6350e",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "550d6357-b690-497f-bfc9-5a080a8c00e5",
+            "name": "Recycle Bin",
+            "old_id": null,
+            "owned_by": "1",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[\"instances.first_name\",\"instances.job_title\",\"instances.message\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"instances.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"instances.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "252",
+            "__created_by": "System Admin",
+            "__modified_by": "",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "System Admin",
+            "__primary_acl_group": "",
+            "__module_id": "cloud",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

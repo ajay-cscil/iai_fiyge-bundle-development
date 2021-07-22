@@ -1,0 +1,19 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\webforms\model;
+  class leads extends \module\webforms\model\leads_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'crm__leads';
+       public $parentClass = '\\module\\crm\\model\\leads';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+  }

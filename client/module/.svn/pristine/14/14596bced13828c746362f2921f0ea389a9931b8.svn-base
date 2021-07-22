@@ -1,0 +1,35 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\dashboards\controller;
+
+class widget_permissions_domain_logic extends \tushar\controller{
+
+    public function _update_sequence_number($request)
+    {
+
+        $ids = $request->param('id');
+        var_dump($ids);
+        pr($_REQUEST);
+        $ids = \array_flip($ids);
+        if (!empty($ids)) {
+            $modelObj = $this->modelObj();
+            $idss = $modelObj->find(array(
+                        'fields' => array("{$modelObj->alias}.id", "{$modelObj->alias}.widget_id"),
+                        'where' => array("{$modelObj->alias}.user_id" => \tushar\user::read('id'), "{$modelObj->alias}.widget_id" => \array_keys($ids)),
+                        'limit' => 0
+                    ))->fetchAll(\PDO::FETCH_ASSOC);
+
+            foreach ($idss as $info) {
+                $data = array('id' => $info['id'], 'sequence_number' => ($ids[$info['widget_id']] + 1));
+                $modelObj->saveModel($data);
+            }
+        }
+        return false;
+    }
+
+}

@@ -1,0 +1,139 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class user_action_logs extends \module\excursion\model\user_action_logs_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__user_action_logs';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'logger';
+       public $primaryKey = 'id';
+       public $alias = 'user_action_logs';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'file' => 
+  array (
+    'column' => 'file',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11 unsigned',
+  ),
+  'level' => 
+  array (
+    'column' => 'level',
+    'ntype' => 'string',
+    'length' => '32',
+  ),
+  'line' => 
+  array (
+    'column' => 'line',
+    'ntype' => 'string',
+    'length' => '6',
+  ),
+  'logger' => 
+  array (
+    'column' => 'logger',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'message' => 
+  array (
+    'column' => 'message',
+    'ntype' => 'string',
+    'length' => '9999',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'thread' => 
+  array (
+    'column' => 'thread',
+    'ntype' => 'string',
+    'length' => '32',
+  ),
+  'timestamp' => 
+  array (
+    'column' => 'timestamp',
+    'ntype' => 'string',
+    'length' => '32',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+  }

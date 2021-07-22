@@ -1,0 +1,117 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\brules\model;
+  class business_rule_run_log extends \module\brules\model\business_rule_run_log_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'brules__business_rule_run_log';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+       public $associations = array (
+  'business_rules' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\brules\\model\\business_rules',
+    'associationAlias' => 'business_rules',
+    'foreignKey' => 'business_rule_id',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'created_by_user',
+    'foreignKey' => 'created_by',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $fields = array (
+  'related_to' => 
+  array (
+    'column' => 'related_to',
+    'ntype' => 'string',
+    'length' => '36',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_multi_value' => '0',
+  ),
+  'related_to_model' => 
+  array (
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '__related_to' => 
+  array (
+    'column' => '__related_to',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'related_to_model_class' => 
+  array (
+    'column' => 'related_to_model_class',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'business_rule_id' => 
+  array (
+    'column' => 'business_rule_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'invocation' => 
+  array (
+    'column' => 'invocation',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'is_true_if_condition' => 
+  array (
+    'column' => 'is_true_if_condition',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+  }

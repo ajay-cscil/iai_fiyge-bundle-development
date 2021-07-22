@@ -1,0 +1,172 @@
+{
+    "config_campaign_types": {
+        "model_class": "\\module\\campaigns\\model\\config_campaign_types",
+        "design": [],
+        "schema": {
+            "name": "crm_base__config_campaign_types",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "",
+            "schema": {
+                "columns": {
+                    "created": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "created_by": {
+                        "type": "int(11)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "11",
+                        "ntype": "int"
+                    },
+                    "deleted": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "flags": {
+                        "type": "int(11)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "11",
+                        "ntype": "int"
+                    },
+                    "id": {
+                        "type": "int(11)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": null,
+                        "extra": "auto_increment",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "11",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "modified": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "modified_by": {
+                        "type": "int(11)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "11",
+                        "ntype": "int"
+                    },
+                    "name": {
+                        "type": "varchar(45)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "45",
+                        "ntype": "string"
+                    },
+                    "owned_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "revision": {
+                        "type": "int(11)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "11",
+                        "ntype": "int"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "crm_base__config_campaign_types",
+                            "column": "id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

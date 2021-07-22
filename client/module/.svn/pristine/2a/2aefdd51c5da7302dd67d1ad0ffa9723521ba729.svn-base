@@ -1,0 +1,32 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\hr\model;
+
+class employees_domain_logic extends \tushar\model{
+
+    public function afterRead(&$data) {
+        parent::afterRead($data);
+        $attendanceObject = \module\attendance\model\attendances::getinstance();
+
+         $att= \select("{$attendanceObject->alias}.attendance_action")
+                ->from($attendanceObject)
+                ->inserted()
+                ->where(array("{$attendanceObject->alias}.employee_id" => $data['id']))
+                ->order("{$attendanceObject->alias}.datetime DESC")
+                ->limit(1)
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN);
+                if(isset($att) && $att=='signin'){
+                    $data['attendance']='Present';
+                }
+                if(isset($att) && $att=='signout'){
+                    $data['attendance']='Absent';
+                }
+    }
+
+}

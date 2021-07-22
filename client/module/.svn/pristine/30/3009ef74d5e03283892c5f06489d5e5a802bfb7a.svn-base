@@ -1,0 +1,240 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\stock\model;
+  class warehouse extends \module\stock\model\warehouse_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'stock__warehouse';
+       public $alias = 'warehouse';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'description' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  'isactive' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'isactive',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'address_line_1' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'address_line_1',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'address_line_2' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'address_line_2',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'city' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'city',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'state' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'state',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'country' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'country',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'zip' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'zip',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'code' => 
+  array (
+    'column' => 'code',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+);
+       public $associations = array (
+  'inbound_shipments' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\stock\\model\\inbound_shipments',
+    'foreignKey' => 'warehouse_id',
+    'associationAlias' => 'inbound_shipments',
+  ),
+  'location' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\stock\\model\\location',
+    'foreignKey' => 'warehouse_id',
+    'associationAlias' => 'location',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'states' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\states',
+    'associationAlias' => 'states',
+    'foreignKey' => 'state',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'countries' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\countries',
+    'associationAlias' => 'countries',
+    'foreignKey' => 'country',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'address_line_1' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'code' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

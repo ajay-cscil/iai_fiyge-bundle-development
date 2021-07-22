@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+class TestOfPaginate extends UnitTestCase
+{
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public function testIndex()
+    {
+        $this->assertEqual(true);
+    }
+
+}
+
+?>

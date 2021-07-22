@@ -1,0 +1,84 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\product\model;
+  class products_domain_logic extends \tushar\model{
+
+    public function afterRead(&$data){
+        // this will compute sum of products using stock moves
+        // @todo: unit of measure conversions, once uom conversion factors are in place
+        $qty = 0.0;
+        $outgoing = 0.0;
+        $incoming = 0.0;
+        $forecasted_quantity = 0.0;
+ 
+        if (is_array($data)){
+            $out = \select(array('stock_moves.source_location_id as location', 'sum(stock_moves.quantity) as quantity', 'location_source.type as type'))
+                            ->from('\\module\\stock\\model\\stock_moves')
+                            ->join('location_source')
+                            ->where(array('stock_moves.status' => 'Done',
+                                'stock_moves.product_id' => $data['id']))
+                            ->group(array('stock_moves.product_id', 'stock_moves.source_location_id', 'location_source.type'))
+                            ->limit(0)
+                            ->inserted()->execute()->fetchAll(\PDO::FETCH_ASSOC);
+            $inc = \select(array('stock_moves.destination_location_id as location', 'sum(stock_moves.quantity) as quantity', 'location_destination.type as type'))
+                            ->from('\\module\\stock\\model\\stock_moves')
+                            ->join('location_destination')
+                            ->where(array('stock_moves.status' => 'Done',
+                                'stock_moves.product_id' => $data['id']))
+                            ->group(array('stock_moves.product_id', 'stock_moves.destination_location_id', 'location_destination.type'))
+                            ->limit(0)
+                            ->inserted()->execute()->fetchAll(\PDO::FETCH_ASSOC);
+            $fout = \select(array('stock_moves.source_location_id as location', 'sum(stock_moves.quantity) as quantity', 'location_source.type as type'))
+                            ->from('\\module\\stock\\model\\stock_moves')
+                            ->join('location_source')
+                            ->where(array('stock_moves.status' => array('Available', 'Waiting Availability'),
+                                'stock_moves.product_id' => $data['id']))
+                            ->group(array('stock_moves.product_id', 'stock_moves.source_location_id', 'location_source.type'))
+                            ->limit(0)
+                            ->inserted()->execute()->fetchAll(\PDO::FETCH_ASSOC);
+            $finc = \select(array('stock_moves.destination_location_id as location', 'sum(stock_moves.quantity) as quantity', 'location_destination.type as type'))
+                            ->from('\\module\\stock\\model\\stock_moves')
+                            ->join('location_destination')
+                            ->where(array('stock_moves.status' => array('Available', 'Waiting Availability'),
+                                'stock_moves.product_id' => $data['id']))
+                            ->group(array('stock_moves.product_id', 'stock_moves.destination_location_id', 'location_destination.type'))
+                            ->limit(0)
+                            ->inserted()->execute()->fetchAll(\PDO::FETCH_ASSOC);
+
+            
+            foreach ($inc as $line) {
+                if ($line['type'] == 'Internal Location'){
+                    $qty+=floatval($line['quantity']);
+                }
+            }
+
+            foreach ($out as $line){
+                if ($line['type'] == 'Internal Location') {
+                   $qty-=floatval($line['quantity']);
+                }
+            }
+
+            foreach ($fout as $line){
+                if ($line['type'] == 'Internal Location') {
+                   $outgoing+=floatval($line['quantity']);
+                }
+            }
+
+            foreach ($finc as $line){
+                if ($line['type'] == 'Internal Location') {
+                   $incoming+=floatval($line['quantity']);
+                }
+            }
+        
+        $data['quantity_on_hand'] = $qty;
+        $data['outgoing'] = $outgoing;
+        $data['incoming'] = $incoming;
+        $data['forecasted_quantity'] = $qty+$incoming-$outgoing;
+        }
+    }
+
+        
+  }

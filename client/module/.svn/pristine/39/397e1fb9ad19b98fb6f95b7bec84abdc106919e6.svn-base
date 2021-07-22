@@ -1,0 +1,253 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class sales_receipt_group_acl_cache extends \module\accounting\model\sales_receipt_group_acl_cache_domain_logic
+  {
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $parentClass = '\\acl_model';
+       public $source = 'acl';
+       public $table = 'accounting__sales_receipt_group_acl_cache';
+       public $alias = 'sales_receipt_group_acl_cache';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'group_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'group_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'address_line2' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'address_line2',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'city' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'city',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'state_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'state_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'country_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'country_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'subtotal' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'subtotal',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'tax_total' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tax_total',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'total' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'total',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'balance_due' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'balance_due',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'memo' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'memo',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'zip' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'zip',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'customer_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'customer_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'email' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'email',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'date',
+    'ntype' => 'date',
+  ),
+  'reference_no' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'reference_no',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'account_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'account_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'address_line1' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'address_line1',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'group_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'email' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

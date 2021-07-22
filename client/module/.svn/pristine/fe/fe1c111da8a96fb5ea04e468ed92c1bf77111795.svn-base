@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\controller;
+  class lists extends \module\vrm\controller\lists_domain_logic
+  {
+       public $modelClass = '\\module\\vrm\\model\\lists';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

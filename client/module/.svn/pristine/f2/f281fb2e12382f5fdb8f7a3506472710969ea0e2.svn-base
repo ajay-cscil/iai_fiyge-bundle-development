@@ -1,0 +1,31 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class routing extends \module\mrp\model\routing_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'mrp_routing';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'production' => 
+  array (
+    'className' => '\\module\\mrp\\model\\production',
+    'associationAlias' => 'production',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

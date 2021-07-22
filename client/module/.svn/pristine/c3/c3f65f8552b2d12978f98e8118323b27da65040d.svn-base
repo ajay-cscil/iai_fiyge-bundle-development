@@ -1,0 +1,14 @@
+<?php
+
+namespace module\benchmarking\helper;
+
+class css {
+
+    function fn($request, $paginate, $paginate, $record){
+
+        pr($record);exit;
+    }
+
+}
+
+?>

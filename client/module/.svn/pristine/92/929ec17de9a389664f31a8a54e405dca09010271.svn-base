@@ -1,0 +1,28 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\faq\controller;
+
+class faq_domain_logic extends \tushar\controller{
+
+    function __index($request) {
+        if($request->param('current_listview', false) == false){
+            $request->overwrite(true,'current_listview','category');
+        }
+        
+        $this->render = 'index';
+        $request->layout = 'public';
+        return parent::index($request);
+    }
+
+    function __view($request) {
+        $this->render = 'view';
+        $request->layout = 'public';
+        return parent::view($request);
+      }
+      
+}

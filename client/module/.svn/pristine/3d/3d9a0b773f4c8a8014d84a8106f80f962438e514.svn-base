@@ -1,0 +1,26 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\leave_management\controller;
+
+class leaves_domain_logic extends \data_controller{
+
+    public function _compute_date_diff($request) {
+        $from = $request->param('date_from');
+        $to = $request->param('date_till');
+        $diff = 0;
+        if (!empty($from) && !empty($to)) {
+            $from=  \tushar\locale::normalize($from,DATETIME);
+            $to=  \tushar\locale::normalize($to,DATETIME);
+            $dateFromObj = new \DateTime($from);
+            $dateTillObj = new \DateTime($to);
+            $diff = datetime_diff($dateFromObj->diff($dateTillObj), 'd');
+        }
+        $request->set('date_difference', $diff+1);
+    }
+
+}

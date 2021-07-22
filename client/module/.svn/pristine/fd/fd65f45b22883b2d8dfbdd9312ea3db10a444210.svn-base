@@ -1,0 +1,173 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\kpi\model;
+  class notifications extends \module\kpi\model\notifications_domain_logic
+  {
+       public $displayField = 'title';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'kpi__notifications';
+       public $alias = 'notifications';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'status' => 
+  array (
+    'column' => 'status',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'title' => 
+  array (
+    'column' => 'title',
+    'ntype' => 'string',
+    'length' => '200',
+  ),
+  'business_rule_id' => 
+  array (
+    'column' => 'business_rule_id',
+    'ntype' => 'string',
+    'length' => '36',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'rule_id' => 
+  array (
+    'column' => 'rule_id',
+    'ntype' => 'string',
+    'length' => '36',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'notification_related_to' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\kpi\\model\\notification_related_to',
+    'associationAlias' => 'notification_related_to',
+    'foreignKey' => 'notification_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'business_rules' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\brules\\model\\business_rules',
+    'associationAlias' => 'business_rules',
+    'foreignKey' => 'business_rule_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'status' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'title' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

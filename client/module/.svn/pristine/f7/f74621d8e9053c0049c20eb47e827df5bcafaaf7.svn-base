@@ -1,0 +1,214 @@
+{
+    "version": "1.5.9",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": null,
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Tushar Takkar",
+    "category_id": "2",
+    "company": "Primary Modules",
+    "created": "2015-05-27",
+    "created_by": "-1",
+    "current_stable_version": "1.1.4",
+    "description": "<span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\">CRM <\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\"><\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\">module is used<\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\">&nbsp;to organize, automate, and synchronize sales<\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\">, marketing<\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\">, customer <span class=\"GINGER_SOFATWARE_correct\" ginger_sofatware_uiphraseguid=\"410b3075-78d8-49a1-afd3-effd3fc2d2fd\" ginger_sofatware_markguid=\"5c67b4d1-1f1e-443a-b4fe-b036167fef29\" grcontextid=\"sevices:0\">sevices<\/span>&nbsp;<\/span><span style=\"font-family: sans-serif; line-height: 19.1875px; background-color: rgb(255, 255, 255);\">and technical support.<\/span>",
+    "flags": null,
+    "id": "27260a2d-e746-11e3-aad5-0800275f9930",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": "1",
+    "label": "CRM",
+    "latest_version": null,
+    "license_agreement": "PMI License<br>",
+    "modified": "2015-05-27 14:28:35",
+    "modified_by": "-1",
+    "name": "crm",
+    "owned_by": "-2",
+    "revision": null,
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/crm",
+    "__created_by": "Maax Core Development Team",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "Maax Modules Development Team",
+    "__category_id": "CRM",
+    "category_id_business_key": "CRM",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "created_by_model": "created_by_user",
+    "modified_by_model": "modified_by_user",
+    "owned_by_model": "owned_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "accounts": "\\module\\crm\\controller\\accounts",
+        "accounts_acl_cache": "\\module\\crm\\controller\\accounts_acl_cache",
+        "accounts_group_acl_cache": "\\module\\crm\\controller\\accounts_group_acl_cache",
+        "config_account_types": "\\module\\crm\\controller\\config_account_types",
+        "config_departments": "\\module\\crm\\controller\\config_departments",
+        "config_industries": "\\module\\crm\\controller\\config_industries",
+        "config_lead_sources": "\\module\\crm\\controller\\config_lead_sources",
+        "config_lead_status": "\\module\\crm\\controller\\config_lead_status",
+        "config_lead_type": "\\module\\crm\\controller\\config_lead_type",
+        "config_opportunity_types": "\\module\\crm\\controller\\config_opportunity_types",
+        "config_priorities": "\\module\\crm\\controller\\config_priorities",
+        "config_product_categories": "\\module\\crm\\controller\\config_product_categories",
+        "config_ratings": "\\module\\crm\\controller\\config_ratings",
+        "config_sales_stages": "\\module\\crm\\controller\\config_sales_stages",
+        "configurations": "\\module\\crm\\controller\\configurations",
+        "contacts": "\\module\\crm\\controller\\contacts",
+        "contacts_acl_cache": "\\module\\crm\\controller\\contacts_acl_cache",
+        "contacts_group_acl_cache": "\\module\\crm\\controller\\contacts_group_acl_cache",
+        "leads": "\\module\\crm\\controller\\leads",
+        "leads_acl_cache": "\\module\\crm\\controller\\leads_acl_cache",
+        "leads_group_acl_cache": "\\module\\crm\\controller\\leads_group_acl_cache",
+        "opportunities": "\\module\\crm\\controller\\opportunities",
+        "opportunities_acl_cache": "\\module\\crm\\controller\\opportunities_acl_cache",
+        "opportunities_group_acl_cache": "\\module\\crm\\controller\\opportunities_group_acl_cache",
+        "product_categories": "\\module\\crm\\controller\\product_categories",
+        "products": "\\module\\crm\\controller\\products"
+    },
+    "models": {
+        "accounts": "\\module\\crm\\model\\accounts",
+        "accounts_acl_cache": "\\module\\crm\\model\\accounts_acl_cache",
+        "accounts_group_acl_cache": "\\module\\crm\\model\\accounts_group_acl_cache",
+        "config_account_types": "\\module\\crm\\model\\config_account_types",
+        "config_departments": "\\module\\crm\\model\\config_departments",
+        "config_industries": "\\module\\crm\\model\\config_industries",
+        "config_lead_sources": "\\module\\crm\\model\\config_lead_sources",
+        "config_lead_status": "\\module\\crm\\model\\config_lead_status",
+        "config_lead_type": "\\module\\crm\\model\\config_lead_type",
+        "config_opportunity_types": "\\module\\crm\\model\\config_opportunity_types",
+        "config_priorities": "\\module\\crm\\model\\config_priorities",
+        "config_product_categories": "\\module\\crm\\model\\config_product_categories",
+        "config_ratings": "\\module\\crm\\model\\config_ratings",
+        "config_sales_stages": "\\module\\crm\\model\\config_sales_stages",
+        "configurations": "\\module\\crm\\model\\configurations",
+        "contacts": "\\module\\crm\\model\\contacts",
+        "contacts_acl_cache": "\\module\\crm\\model\\contacts_acl_cache",
+        "contacts_group_acl_cache": "\\module\\crm\\model\\contacts_group_acl_cache",
+        "leads": "\\module\\crm\\model\\leads",
+        "leads_acl_cache": "\\module\\crm\\model\\leads_acl_cache",
+        "leads_group_acl_cache": "\\module\\crm\\model\\leads_group_acl_cache",
+        "leads_revision_log": "\\module\\crm\\model\\leads_revision_log",
+        "opportunities": "\\module\\crm\\model\\opportunities",
+        "opportunities_acl_cache": "\\module\\crm\\model\\opportunities_acl_cache",
+        "opportunities_group_acl_cache": "\\module\\crm\\model\\opportunities_group_acl_cache",
+        "products": "\\module\\crm\\model\\products"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "2.1.2"
+            },
+            "crm_base": {
+                "version": "1.2.1",
+                "author": "Tushar Takkar",
+                "company": "Primary Modules"
+            },
+            "masters": {
+                "name": "masters",
+                "version": "1.3.1"
+            },
+            "document_management_base": {
+                "version": "1.4.1",
+                "author": "Tushar Takkar",
+                "company": "Primary Modules"
+            },
+            "product": {
+                "name": "product",
+                "version": "1.2.6"
+            },
+            "accounting": {
+                "version": "1.1.14",
+                "author": "Tushar Takkar",
+                "company": "PMI"
+            },
+            "campaigns": {
+                "name": "campaigns",
+                "version": "1.4.2"
+            },
+            "sale": {
+                "name": "sale",
+                "version": "0.0.1"
+            },
+            "logging": {
+                "name": "logging",
+                "version": "2.0"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_crm_base_model_addresses": "\\module\\crm_base\\model\\addresses",
+            "_module_crm_base_model_email_addresses": "\\module\\crm_base\\model\\email_addresses",
+            "_module_crm_base_model_phone_numbers": "\\module\\crm_base\\model\\phone_numbers",
+            "_module_masters_model_countries": "\\module\\masters\\model\\countries",
+            "_module_document_management_base_model_attachments": "\\module\\document_management_base\\model\\attachments",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_product_model_pricelists": "\\module\\product\\model\\pricelists",
+            "_module_masters_model_currencies": "\\module\\masters\\model\\currencies",
+            "_module_accounting_model_partner_accounts": "\\module\\accounting\\model\\partner_accounts",
+            "_module_masters_model_config_salutations": "\\module\\masters\\model\\config_salutations",
+            "_module_campaigns_model_campaigns": "\\module\\campaigns\\model\\campaigns",
+            "_module_product_model_products": "\\module\\product\\model\\products",
+            "_module_masters_model_states": "\\module\\masters\\model\\states",
+            "_module_masters_model_config_unit_of_measures": "\\module\\masters\\model\\config_unit_of_measures"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl",
+            "_module_brules_behaviour_business_rules": "\\module\\brules\\behaviour\\business_rules",
+            "_module_crm_base_behaviour_compute_latitude_longitude": "\\module\\crm_base\\behaviour\\compute_latitude_longitude"
+        }
+    }
+}

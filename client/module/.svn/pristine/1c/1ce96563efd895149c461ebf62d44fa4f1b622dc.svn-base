@@ -1,0 +1,134 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tag_cloud\model;
+  class tag_related_to extends \module\tag_cloud\model\tag_related_to_domain_logic
+  {
+       public $displayField = 'related_to_model_class_name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'tag_cloud__tag_related_to';
+       public $alias = 'tag_related_to';
+       public $fields = array (
+  '__related_to' => 
+  array (
+    'column' => '__related_to',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19 unsigned',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'related_to' => 
+  array (
+    'column' => 'related_to',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'related_to_model' => 
+  array (
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'related_to_model_class_name' => 
+  array (
+    'column' => 'related_to_model_class_name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'tag_id' => 
+  array (
+    'column' => 'tag_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'tags' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\tag_cloud\\model\\tags',
+    'associationAlias' => 'tags',
+    'foreignKey' => 'tag_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+  }

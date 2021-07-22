@@ -1,0 +1,4 @@
+<?php $configuration=array (
+  '\\module\\crm\\controller\\accounts' => '\\module\\elections\\controller\\accounts',
+  '\\module\\crm\\controller\\contacts' => '\\module\\elections\\controller\\contacts',
+); ?>

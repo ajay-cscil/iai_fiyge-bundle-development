@@ -1,0 +1,18 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm_cruise\model;
+  class contacts_group_acl_cache extends \module\crm_cruise\model\contacts_group_acl_cache_domain_logic
+  {
+       public $source = 'acl';
+       public $table = 'crm_cruise__contacts_group_acl_cache';
+       public $parentClass = '\\acl_model';
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $paginateAs = 'lazy';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+  }

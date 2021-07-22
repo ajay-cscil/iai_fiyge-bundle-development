@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\dashboards\controller;
+  class widget_permissions extends \module\dashboards\controller\widget_permissions_domain_logic
+  {
+       public $modelClass = '\\module\\dashboards\\model\\widget_permissions';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

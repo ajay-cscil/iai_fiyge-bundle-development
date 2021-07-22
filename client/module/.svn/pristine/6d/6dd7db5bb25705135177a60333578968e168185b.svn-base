@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\stock\controller;
+  class config_delivery_order_status extends \module\stock\controller\config_delivery_order_status_domain_logic
+  {
+       public $modelClass = '\\module\\stock\\model\\config_delivery_order_status';
+
+
+
+
+
+
+  }

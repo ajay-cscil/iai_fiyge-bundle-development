@@ -1,0 +1,42 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class production extends \module\mrp\model\production_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'mrp_production';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'production_workcenter_line' => 
+  array (
+    'className' => '\\module\\mrp\\model\\production_workcenter_line',
+    'associationAlias' => 'production_workcenter_line',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'uom' => 
+  array (
+    'className' => '\\module\\mrp\\model\\uom',
+    'associationAlias' => 'uom',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'product_uom',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

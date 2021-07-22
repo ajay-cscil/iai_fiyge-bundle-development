@@ -1,0 +1,145 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class kits extends \module\excursion\model\kits_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__kits';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'kIT_IsProductCode';
+       public $primaryKey = 'kIT_ID';
+       public $alias = 'kits';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'kIT_ID' => 
+  array (
+    'column' => 'kIT_ID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'kIT_IsProductCode' => 
+  array (
+    'column' => 'kIT_IsProductCode',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'kIT_ProductCode' => 
+  array (
+    'column' => 'kIT_ProductCode',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'kIT_QTY' => 
+  array (
+    'column' => 'kIT_QTY',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'kIT_Type' => 
+  array (
+    'column' => 'kIT_Type',
+    'ntype' => 'string',
+    'length' => '3',
+  ),
+  'kit_OrderBy' => 
+  array (
+    'column' => 'kit_OrderBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModBy' => 
+  array (
+    'column' => 'lastModBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModified' => 
+  array (
+    'column' => 'lastModified',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'kit_links' => 
+  array (
+    'className' => '\\module\\excursion\\model\\kit_links',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'kIT_ID',
+    'associationAlias' => 'kit_links',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+  }

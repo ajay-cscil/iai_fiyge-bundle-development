@@ -1,0 +1,143 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace module\brules\behaviour;
+
+class business_rules extends \tushar\behaviour {
+
+    /**
+     * Call back for model, called from model getInstance
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     * @param type $params
+     */
+    private static $shouldRun = true;
+    private static $initRules = null;
+
+    public static function init($model, $settings) {
+        if (\tushar\configuration::read('is_app_installation_in_progress', 0)) {
+            static::$shouldRun = false;
+        }
+        if (static::$shouldRun == true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            if (is_null(static::$initRules)) {
+                $filter = array();
+                $filter["{$engine->alias}.runlevel >= "] = \tushar\configuration::read('runlevel', 2);
+                $filter["{$engine->alias}.event"] = array('init', 'beforeFind', 'afterProcessData');
+                static::$initRules = $engine->find(array("fields" => array("CONCAT({$engine->alias}.filter_path,':',{$engine->alias}.event)", "{$engine->alias}.*"), "where" => $filter, "limit" => 0, "order" => "lft ASC"))->fetchAll(\PDO::FETCH_ASSOC | \PDO::FETCH_GROUP);
+                static::$initRules = array();
+                if (!is_array(static::$initRules)) {
+                    static::$initRules = array();
+                }
+            }
+            $path = \str_replace(NS, '/', $model->modelClass) . ":" . __FUNCTION__;
+            if (isset(static::$initRules[$path]) && !empty(static::$initRules[$path])) {
+                $engine->process($model, array('event' => __FUNCTION__), array(), static::$initRules[$path]);
+            }
+        }
+    }
+
+    /**
+     * Call back for model, called after executing model validate
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     */
+    public static function beforeValidate($model, $settings=array()) {
+        if (static::$shouldRun === true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            $engine->process($model, array('event' => __FUNCTION__));
+        }
+    }
+
+    /**
+     * Call back for model, called before executing model save
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     */
+    public static function beforeSave($model, $settings=array()) {
+        if (static::$shouldRun === true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            $engine->process($model, array('event' => __FUNCTION__));
+        }
+    }
+
+    /**
+     * Call back for model, called before executing model delete
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     */
+    public static function beforeDelete($model, $settings=array()) {
+        if (static::$shouldRun === true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            $engine->process($model, array('event' => __FUNCTION__));
+        }
+    }
+
+    /**
+     * Call back for model, called after executing model delete
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     */
+    public static function afterDelete($model, $settings=array()) {
+        if (static::$shouldRun === true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            $engine->process($model, array('event' => __FUNCTION__));
+        }
+    }
+
+    /**
+     * Call back for model, called after executing model save
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     * @param type $created
+     */
+    public static function afterSave($model, $settings=array(), $created=false) {
+        if (static::$shouldRun === true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            $engine->process($model, array('event' => __FUNCTION__), array('created' => $created));
+        }
+    }
+
+    /**
+     * Call back for model, called after executing model find all
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     */
+    public static function beforeFind($model, $settings=array()) {
+        if (static::$shouldRun === true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            $path = \str_replace(NS, '/', $model->modelClass) . ":" . __FUNCTION__;
+            if (isset(static::$initRules[$path]) && !empty(static::$initRules[$path])) {
+                $engine->process($model, array('event' => __FUNCTION__), array(), static::$initRules[$path]);
+            }
+        }
+    }
+
+    /**
+     * Call back for model, called after processing data 
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $model
+     * @param type $settings
+     */
+    public static function afterProcessData($model, $settings=array()) {
+        if (static::$shouldRun === true) {
+            $engine = \module\brules\model\business_rules::getInstance(array(), true);
+            $path = \str_replace(NS, '/', $model->modelClass) . ":" . __FUNCTION__;
+            if (isset(static::$initRules[$path]) && !empty(static::$initRules[$path])) {
+                $engine->process($model, array('event' => __FUNCTION__), array(), static::$initRules[$path]);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,46 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\projects\model;
+  class status extends \module\projects\model\status_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'projects__status';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'status';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'status' => 
+  array (
+    'column' => 'status',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+);
+       public $associations = array (
+  'tickets' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\projects\\model\\tickets',
+    'associationAlias' => 'tickets',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

@@ -1,0 +1,215 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class bill_payment_lines extends \module\accounting\model\bill_payment_lines_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'accounting__bill_payment_lines';
+       public $alias = 'bill_payment_lines';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'bill_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'bill_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'due_date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'due_date',
+    'ntype' => 'date',
+  ),
+  'bill_amount' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'bill_amount',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'balance_due' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'balance_due',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'bill_payment_total' => 
+  array (
+    'column' => 'bill_payment_total',
+    'ntype' => 'float',
+    'length' => '10,2',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'bill_payment_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'bill_payment_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'payment' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'payment',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'bill_payment' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'bill_payment',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'discount' => 
+  array (
+    'column' => 'discount',
+    'ntype' => 'float',
+    'length' => '(10,2)',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'bills' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\bills',
+    'associationAlias' => 'bills',
+    'foreignKey' => 'bill_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'bill_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'bill_payment_total' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::integerIfNotEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

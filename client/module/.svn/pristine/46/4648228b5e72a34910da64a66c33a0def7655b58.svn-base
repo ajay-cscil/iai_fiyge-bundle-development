@@ -1,0 +1,155 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class affiliate_users extends \module\excursion\model\affiliate_users_domain_logic
+  {
+       public $displayField = 'affiliateID';
+       public $primaryKey = 'affiliateID';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__affiliate_users';
+       public $alias = 'affiliate_users';
+       public $fields = array (
+  'affiliateGroupID' => 
+  array (
+    'column' => 'affiliateGroupID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'affiliateID' => 
+  array (
+    'column' => 'affiliateID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'emailAddress' => 
+  array (
+    'column' => 'emailAddress',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'isAdmin' => 
+  array (
+    'column' => 'isAdmin',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'affiliate_information' => 
+  array (
+    'className' => '\\module\\excursion\\model\\affiliate_information',
+    'assocType' => 'hasOne',
+    'foreignKey' => 'affiliateID',
+    'associationAlias' => 'affiliate_information',
+  ),
+  'affiliatemap' => 
+  array (
+    'className' => '\\module\\excursion\\model\\affiliateMap',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'affiliateID',
+    'associationAlias' => 'affiliatemap',
+  ),
+  'orders_information' => 
+  array (
+    'className' => '\\module\\excursion\\model\\orders_information',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'affiliateID',
+    'associationAlias' => 'orders_information',
+  ),
+);
+       public $filters = array (
+  'emailAddress' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

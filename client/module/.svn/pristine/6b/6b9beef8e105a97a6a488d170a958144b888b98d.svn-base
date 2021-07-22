@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\elections\controller;
+  class contacts extends \module\elections\controller\contacts_domain_logic
+  {
+       public $modelClass = '\\module\\elections\\model\\contacts';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

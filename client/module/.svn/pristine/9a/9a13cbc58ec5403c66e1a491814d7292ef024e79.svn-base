@@ -1,0 +1,123 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class TestOfAccounts extends WebTestCase {
+
+    public $ignoreColumns = array('created_by', 'modified_by', 'owned_by'
+        , 'created', 'modified', 'deleted', 'revision', 'flags', '_acl'
+        , '_acl_edit', '_acl_delete', '_acl_tmp', '_acl_tmp_edit', '_acl_tmp_delete');
+    public $notEmptyFields = array();
+    protected $schema = array();
+    protected $filterRules = array();
+    public $controllerClass = null;
+    public $create = array(); //'data[accounts][other_zip]' => '32123123'
+    public $update = array();
+
+    public function testCRUD() {
+
+        if (is_null($this->controllerClass)) {
+            $p = explode(DS, dirname(__FILE__));
+            $pos = array_search('module', $p) + 1;
+            $module = $p[$pos];
+            $controller = strtolower(str_ireplace('TestOf', '', get_class($this)));
+            $this->controllerClass = NS . 'module' . NS . $module . NS . 'controller' . NS . $controller;
+        }
+        $p = explode(NS, $this->controllerClass);
+        $module = $p[2];
+        $controller = $p[4];
+
+        $controllerClass = &$this->controllerClass;
+        $modelClass = & $controllerClass::getInstance()->modelClass;
+
+        //    $controllerClass::$paginate = $controllerClass::$paginateMobile;
+        $this->modelObj = $modelClass::getInstance();
+        $this->schema = $this->modelObj->schema(false, true);
+
+        $this->filterRules = $this->modelObj->filterRules();
+        $this->notEmptyFields = array_merge($this->notEmptyFields, \tushar\model::$notEmptyField);
+        $url = "http://" . $_SERVER['HTTP_HOST'] . \tushar\request::base() . $module . '/' . $controller . '/edit?ajax=1';
+
+        $rawdata = array();
+        foreach ($this->schema as $model => $info1) {
+            $rawdata[$model] = array();
+            foreach ($info1 as $column => $info) {
+                $allowEmpty = \tushar\app::search($this->notEmptyFields, array($model, key($info)));
+                $rawdata[$model][$column] = array('allow_empty' => $allowEmpty
+                    , 'value' => $this->data($info['const'])
+                    , 'name' => "data[{$model}][$column]");
+            }
+        }
+        $this->create = array_merge($rawdata, $this->create);
+
+        // login into system.
+        $this->get($url);
+        $this->setFieldByName('data[users][user_name]', 'admin');
+        $this->setFieldByName('data[users][user_password]', 'admin');
+        $this->click('Login');
+
+        // try create with allow empty false
+        $this->get($url);
+        foreach ($this->create as $model => $info1) {
+            foreach ($info1 as $column => $info) {
+                if (!(isset($info['allow_empty']) && $info['allow_empty'] === true)) {
+                    $this->setField($info['name'], $info['value']);
+                }
+            }
+        }
+        $this->click('Submit');
+        
+        $this->get($url);
+        foreach ($this->create as $model => $info1) {
+            foreach ($info1 as $column => $info) {
+                 $this->setFieldByName($info['name'], $info['value']);
+            }
+        }
+        $this->click('Submit');
+        
+        
+        /*
+        // try update
+        $rawdata = array();
+        foreach ($this->schema as $column => $info) {
+            $rawdata[$column] = array('allow_empty' => \tushar\app::search($this->notEmptyFields, array($this->modelObj->alias, $column)), 'value' => $this->data($info['const']), 'name' => "data[{$this->modelObj->alias}][$column]");
+        }
+        //$this->update = array_merge($rawdata, $this->update);
+        //$this->get($url);
+        foreach ($this->update as $column => $info) {
+            if (is_string($column)) {
+                //$this->setFieldByName($column, $info);
+            } else {
+                //$this->setFieldByName($info['name'], $info['value']);
+            }
+        }
+         
+         */
+        //$this->click('Save');
+        // try delete
+    }
+
+    public function data($type) {
+        switch ($type) {
+            case INT:
+                return rand(1, 10000);
+            case FLOAT:
+                return rand(1, 10000) * 1.123;
+            case DATE:
+                return date('Y-m-d');
+            case TIME:
+                return date("H:i:s");
+            case DATETIME:
+                return date('Y-m-d H:i:s');
+            case STRING:
+            default:
+                return uuid();
+        }
+    }
+
+}
+
+?>

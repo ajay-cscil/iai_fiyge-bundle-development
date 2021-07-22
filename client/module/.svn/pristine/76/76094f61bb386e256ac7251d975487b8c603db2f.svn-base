@@ -1,0 +1,461 @@
+[
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Quotes Lost",
+			"category_id":"3",
+			"query":"{\"name\":\"Quotes Lost\",\"category_id\":\"3\",\"category_id_model\":\"category\",\"__category_id\":\"Weekly Reports\",\"controller\":\"sales\\\/quotes\",\"is_public\":\"1\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"fields\":[{\"concat(\\\"Week\\\",\\\" \\\",weekofyear(quotes.effective_to))\":{\"alias\":\"Week of the Year\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"quotes.id\":{\"alias\":\"No Of Quotes\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"quotes.accounts.account_name\":{\"alias\":\"Customer\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"quotes.total_after_discount\":{\"alias\":\"Total revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[\"quotes.effective_to  DESC\"],\"created_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"categorized\",\"modified_by\":\"1\",\"description\":\"<font color=\\\"green\\\">Quotes lost per week<\\\/font>\",\"where\":[{\"op\":\"\",\"value\":{\"quotes.workflow_docs.current_stages = \":\"Closed Lost\"}}],\"collapse_category_columns\":0,\"disable_ui_helper\":0,\"hide_row_actions\":0}",
+			"_query":"{\"id\":\"52a33efe-71e0-40ce-a34f-5d4a0a550b97\",\"name\":\"Quotes Lost\",\"category_id\":\"3\",\"category_id_model\":\"category\",\"__category_id\":\"Weekly Reports\",\"controller\":\"sales\\\/quotes\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Quotes lost per week<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"concat(\\\"Week\\\",\\\" \\\",weekofyear(quotes.effective_to))\",\"column_model\":\"schema\",\"__column\":\"concat(\\\"Week\\\",\\\" \\\",weekofyear(quotes.effective_to))\",\"alias\":\"Week of the Year\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"2\",\"column\":\"quotes.id\",\"column_model\":\"schema\",\"__column\":\"quotes.id\",\"alias\":\"No Of Quotes\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"3\",\"column\":\"quotes.accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"quotes.accounts.account_name\",\"alias\":\"Customer\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"4\",\"column\":\"quotes.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"quotes.total_after_discount\",\"alias\":\"Total revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"sort\":{\"1\":{\"sort_by\":\"quotes.effective_to\",\"sort_by_model\":\"schema\",\"__sort_by\":\"quotes.effective_to\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"conditions\":{\"1\":{\"search_column\":\"quotes.workflow_docs.current_stages\",\"search_column_model\":\"schema\",\"__search_column\":\"quotes.workflow_docs.current_stages\",\"search_comparator\":\"=\",\"search_value\":\"Closed Lost\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\"}",
+			"description":"<font color=\"green\">Quotes lost per week<\/font>",
+			"controller":"sales\/quotes",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-07 15:30:06",
+			"modified":"2013-12-23 17:56:05",
+			"deleted":"0",
+			"revision":"21",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a33efe-71e0-40ce-a34f-5d4a0a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Weekly Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Quotes Won",
+			"category_id":"3",
+			"query":"{\"name\":\"Quotes Won\",\"category_id\":\"3\",\"category_id_model\":\"category\",\"__category_id\":\"Weekly Reports\",\"controller\":\"sales\\\/quotes\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Quotes won each week<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"fields\":[{\"concat(\\\"Week\\\",\\\" \\\",weekofyear(quotes.effective_to))\":{\"alias\":\"Week\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"quotes.id\":{\"alias\":\"No Of Quotes\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"quotes.accounts.account_name\":{\"alias\":\"Customer\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"quotes.total_after_discount\":{\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"where\":[{\"op\":\"\",\"value\":{\"quotes.workflow_docs.current_stages = \":\"Closed Won\"}}],\"order\":[],\"created_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"categorized\",\"modified_by\":\"1\"}",
+			"_query":"{\"id\":\"52a8c143-7ab4-43e5-96f4-08ac0a550b97\",\"name\":\"Quotes Won\",\"category_id\":\"3\",\"category_id_model\":\"category\",\"__category_id\":\"Weekly Reports\",\"controller\":\"sales\\\/quotes\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Quotes won each week<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"concat(\\\"Week\\\",\\\" \\\",weekofyear(quotes.effective_to))\",\"column_model\":\"schema\",\"__column\":\"concat(\\\"Week\\\",\\\" \\\",weekofyear(quotes.effective_to))\",\"alias\":\"Week\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"2\",\"column\":\"quotes.id\",\"column_model\":\"schema\",\"__column\":\"quotes.id\",\"alias\":\"No Of Quotes\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"3\",\"column\":\"quotes.accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"quotes.accounts.account_name\",\"alias\":\"Customer\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"4\",\"column\":\"quotes.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"quotes.total_after_discount\",\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"conditions\":{\"1\":{\"search_column\":\"quotes.workflow_docs.current_stages\",\"search_column_model\":\"schema\",\"__search_column\":\"quotes.workflow_docs.current_stages\",\"search_comparator\":\"=\",\"search_value\":\"Closed Won\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"<font color=\"green\">Quotes won each week<\/font>",
+			"controller":"sales\/quotes",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-11 19:47:15",
+			"modified":"2013-12-11 19:50:49",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a8c143-7ab4-43e5-96f4-08ac0a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Weekly Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Employee Sales Summary",
+			"category_id":"2",
+			"query":"{\"fields\":[{\"sale_orders.owned_by_user.user_name\":{\"__column\":\"sale_orders.owned_by_user.user_name\",\"alias\":\"User\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"sale_orders.accounts.account_name\":{\"__column\":\"sale_orders.accounts.account_name\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"sale_orders.id\":{\"__column\":\"sale_orders.id\",\"alias\":\"No of Sale Orders\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"sale_orders.name\":{\"__column\":\"sale_orders.name\",\"alias\":\"Sale Order\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"sale_orders.total_after_discount\":{\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"Employee Sales Summary\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"sales\\\/sale_orders\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Sales analysis for each Employee<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"52a1e1f4-7df8-4ea8-a098-36590a550b97\",\"name\":\"Employee Sales Summary\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"sales\\\/sale_orders\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Sales analysis for each Employee<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"sale_orders.owned_by_user.user_name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.owned_by_user.user_name\",\"alias\":\"User\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"sale_orders.accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.accounts.account_name\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"sale_orders.id\",\"column_model\":\"schema\",\"__column\":\"sale_orders.id\",\"alias\":\"No of Sale Orders\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"sale_orders.name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.name\",\"alias\":\"Sale Order\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"sale_orders.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"1605\",\"aro_id_model\":\"groups\",\"__aro_id\":\"__sales.Sales Manager\",\"id\":\"1605\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"1605\",\"aro_id_model\":\"groups\",\"__aro_id\":\"__sales.Sales Manager\",\"id\":\"1605\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"1605\",\"aro_id_model\":\"groups\",\"__aro_id\":\"__sales.Sales Manager\",\"id\":\"1605\",\"deleted\":\"\"}],\"elements\":[],\"actions\":[],\"conditions\":[],\"group_by\":[]}",
+			"description":"<font color=\"green\">Sales analysis for each Employee<\/font>",
+			"controller":"sales\/sale_orders",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-06 14:40:52",
+			"modified":"2014-01-07 18:26:30",
+			"deleted":"0",
+			"revision":"25",
+			"flags":null,
+			"is_public":"0",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"1605",
+					"aro_id_model":"groups",
+					"aro_id":"1605",
+					"__aro_id":"__sales.Sales Manager"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"1605",
+					"aro_id_model":"groups",
+					"aro_id":"1605",
+					"__aro_id":"__sales.Sales Manager"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"1605",
+					"aro_id_model":"groups",
+					"aro_id":"1605",
+					"__aro_id":"__sales.Sales Manager"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a1e1f4-7df8-4ea8-a098-36590a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Performance Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Sales Shop Performence",
+			"category_id":"2",
+			"query":"{\"name\":\"Sales Shop Performence\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"sales\\\/sale_orders\",\"is_public\":\"1\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"fields\":[{\"sale_orders.sale_shop.name\":{\"alias\":\"Sales Shop\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"monthname(sale_orders.request_delivery)\":{\"alias\":\"Month\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_orders.id\":{\"alias\":\"No of Sales Order\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_orders.name\":{\"alias\":\"Sale Order\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_orders.total_after_discount\":{\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[\"sale_orders.request_delivery  ASC\"],\"created_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"categorized\",\"modified_by\":\"1\",\"description\":\"<font color=\\\"green\\\">Performance by each sales shop<\\\/font>\",\"collapse_category_columns\":0,\"disable_ui_helper\":0,\"hide_row_actions\":0}",
+			"_query":"{\"id\":\"52a22aa7-d2f4-436b-b825-5ff50a550b97\",\"name\":\"Sales Shop Performence\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"sales\\\/sale_orders\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Performance by each sales shop<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"sale_orders.sale_shop.name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.sale_shop.name\",\"alias\":\"Sales Shop\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"2\",\"column\":\"monthname(sale_orders.request_delivery)\",\"column_model\":\"schema\",\"__column\":\"monthname(sale_orders.request_delivery)\",\"alias\":\"Month\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"3\",\"column\":\"sale_orders.id\",\"column_model\":\"schema\",\"__column\":\"sale_orders.id\",\"alias\":\"No of Sales Order\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"4\",\"column\":\"sale_orders.name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.name\",\"alias\":\"Sale Order\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"5\",\"column\":\"sale_orders.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"sort\":{\"1\":{\"sort_by\":\"sale_orders.request_delivery\",\"sort_by_model\":\"schema\",\"__sort_by\":\"sale_orders.request_delivery\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\"}",
+			"description":"<font color=\"green\">Performance by each sales shop<\/font>",
+			"controller":"sales\/sale_orders",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-06 19:51:03",
+			"modified":"2013-12-23 17:44:54",
+			"deleted":"0",
+			"revision":"8",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a22aa7-d2f4-436b-b825-5ff50a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Performance Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Top Customers",
+			"category_id":"1",
+			"query":"{\"name\":\"Top Customers\",\"category_id\":\"1\",\"category_id_model\":\"category\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"sales\\\/sale_orders\",\"is_public\":\"1\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"fields\":[{\"sale_orders.accounts.account_name\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_orders.total_after_discount\":{\"alias\":\"Total Revenue\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[\"sum(sale_orders.total_after_discount)  DESC\"],\"created_by\":\"1\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\",\"modified_by\":\"1\",\"group\":[\"sale_orders.accounts.account_name\"],\"limit\":\"5\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::bar_chart\",\"description\":\"<font color=\\\"green\\\">Top Sales by Customers<\\\/font>\",\"disable_ui_helper\":0,\"hide_row_actions\":0}",
+			"_query":"{\"id\":\"52a23369-48ec-46eb-80b6-659b0a550b97\",\"name\":\"Top Customers\",\"category_id\":\"1\",\"category_id_model\":\"category\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"sales\\\/sale_orders\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Top Sales by Customers<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"index\",\"fields\":[{\"seq\":\"1\",\"column\":\"sale_orders.accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.accounts.account_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"2\",\"column\":\"sale_orders.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Total Revenue\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"group_by\":{\"1\":{\"column\":\"sale_orders.accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.accounts.account_name\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"sum(sale_orders.total_after_discount)\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"5\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::bar_chart\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"conditions\":[],\"order\":{\"1\":{\"sort_by\":\"sum(sale_orders.total_after_discount)\"}},\"animation--duration\":\"\",\"animation--easing\":\"\",\"axis-titles-position\":\"\",\"background-color\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"chart-area\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"colors\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"h-axis\":\"\",\"h-axis--direction\":\"\",\"h-axis--text-position\":\"\",\"h-axis--text-style\":\"\",\"h-axis--title\":\"\",\"h-axis--title-text-style\":\"\",\"h-axis--slanted-text\":\"\",\"h-axis--slanted-text-angle\":\"\",\"h-axis--max-alternation\":\"\",\"h-axis--show-text-every\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"height\":\"\",\"is-stacked\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"reverse-categories\":\"\",\"series\":\"\",\"theme\":\"\",\"title\":\"\",\"title-position\":\"\",\"title-text-style\":\"\",\"tooltip\":\"\",\"tooltip--show-color-code\":\"\",\"tooltip--text-style\":\"\",\"tooltip--trigger\":\"\",\"v-axes\":\"\",\"v-axis\":\"\",\"v-axis--baseline\":\"\",\"v-axis--baseline-color\":\"\",\"v-axis--direction\":\"\",\"v-axis--format\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"v-axis--log-scale\":\"\",\"v-axis--text-position\":\"\",\"v-axis--text-style\":\"\",\"v-axis--title\":\"\",\"v-axis--title-text-style\":\"\",\"v-axis--max-value\":\"\",\"v-axis--min-value\":\"\",\"v-axis--view-window-mode\":\"\",\"v-axis--view-window\":\"\",\"v-axis--view-window--max\":\"\",\"h-axes\":\"\",\"h-axis--baseline\":\"\",\"h-axis--baseline-color\":\"\",\"h-axis--format\":\"\",\"h-axis--log-scale\":\"\",\"h-axis--max-value\":\"\",\"h-axis--min-value\":\"\",\"h-axis--view-window-mode\":\"\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"1\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"meter animate\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\"}",
+			"description":"<font color=\"green\">Top Sales by Customers<\/font>",
+			"controller":"sales\/sale_orders",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-06 20:28:25",
+			"modified":"2013-12-23 15:05:51",
+			"deleted":"0",
+			"revision":"48",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a23369-48ec-46eb-80b6-659b0a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Ad-hoc Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Monthly Performance by the Company ",
+			"category_id":"4",
+			"query":"{\"fields\":[{\"monthname(sale_orders.request_delivery)\":{\"__column\":\"monthname(sale_orders.request_delivery)\",\"alias\":\"Month\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"sale_orders.total_after_discount\":{\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"sale_orders.total_after_discount\":{\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Avg Revenue\",\"render_type\":\"summary\",\"aggregator\":\"AVG\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"sale_orders.name\":{\"__column\":\"sale_orders.name\",\"alias\":\"Sale Order\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[\"sale_orders.request_delivery  ASC\"],\"name\":\"Monthly Performance by the Company \",\"category_id\":\"4\",\"category_id_model\":\"category\",\"__category_id\":\"Monthly Reports\",\"controller\":\"sales\\\/sale_orders\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Monthly Performance by the Company Generated by the Sale Order<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::line_chart\",\"parent_id_model\":\"parent_listview\",\"disable_ui_helper\":0,\"collapse_category_columns\":0,\"hide_row_actions\":0,\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"52a5d95d-9498-40bb-8d98-6a8b0a550b97\",\"name\":\"Monthly Performance by the Company \",\"category_id\":\"4\",\"category_id_model\":\"category\",\"__category_id\":\"Monthly Reports\",\"controller\":\"sales\\\/sale_orders\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Monthly Performance by the Company Generated by the Sale Order<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"monthname(sale_orders.request_delivery)\",\"column_model\":\"schema\",\"__column\":\"monthname(sale_orders.request_delivery)\",\"alias\":\"Month\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"sale_orders.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Total Revenue\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"sale_orders.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"sale_orders.total_after_discount\",\"alias\":\"Avg Revenue\",\"render_type\":\"summary\",\"aggregator\":\"AVG\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"sale_orders.name\",\"column_model\":\"schema\",\"__column\":\"sale_orders.name\",\"alias\":\"Sale Order\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"sale_orders.request_delivery\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::line_chart\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"animation--duration\":\"\",\"animation--easing\":\"\",\"axis-titles-position\":\"\",\"background-color\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"chart-area\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"colors\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"h-axes\":\"\",\"h-axis\":\"\",\"h-axis--baseline\":\"\",\"h-axis--baseline-color\":\"\",\"h-axis--direction\":\"\",\"h-axis--format\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"h-axis--log-scale\":\"\",\"h-axis--text-style\":\"\",\"h-axis--text-position\":\"\",\"h-axis--title\":\"\",\"h-axis--title-text-style\":\"\",\"h-axis--max-value\":\"\",\"h-axis--min-value\":\"\",\"h-axis--view-window-mode\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"height\":\"\",\"is-stacked\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"order\":{\"1\":{\"sort_by\":\"sale_orders.request_delivery\"}},\"curve-type\":\"\",\"h-axis--gridlines\":\"\",\"h-axis--gridlines--color\":\"\",\"h-axis--gridlines--count\":\"\",\"h-axis--slanted-text\":\"\",\"h-axis--max-alternation\":\"\",\"h-axis--show-text-every\":\"\",\"interpolate-nulls\":\"\",\"line-width\":\"\",\"point-size\":\"\",\"reverse-categories\":\"\",\"series\":\"\",\"theme\":\"\",\"title\":\"\",\"title-position\":\"\",\"title-text-style\":\"\",\"tooltip\":\"\",\"tooltip--show-color-code\":\"\",\"tooltip--text-style\":\"\",\"tooltip--trigger\":\"\",\"v-axes\":\"\",\"v-axis\":\"\",\"v-axis--baseline\":\"\",\"v-axis--baseline-color\":\"\",\"v-axis--direction\":\"\",\"v-axis--log-scale\":\"\",\"v-axis--text-position\":\"\",\"v-axis--text-style\":\"\",\"v-axis--title\":\"\",\"v-axis--title-text-style\":\"\",\"v-axis--max-value\":\"\",\"v-axis--min-value\":\"\",\"v-axis--view-window-mode\":\"\",\"disable_ui_helper\":\"0\",\"collapse_category_columns\":\"0\",\"hide_row_actions\":\"0\"}",
+			"description":"<font color=\"green\">Monthly Performance by the Company Generated by the Sale Order<\/font>",
+			"controller":"sales\/sale_orders",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-09 14:53:17",
+			"modified":"2013-12-26 21:57:05",
+			"deleted":"0",
+			"revision":"33",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a5d95d-9498-40bb-8d98-6a8b0a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Monthly Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Open Sales Order Report",
+			"category_id":"6",
+			"query":"{\"name\":\"Open Sales Order Report\",\"category_id\":\"6\",\"category_id_model\":\"category\",\"__category_id\":\"Admin Reports\",\"controller\":\"sales\\\/sale_order_lines\",\"is_public\":\"1\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"fields\":[{\"sale_order_lines.sale_orders.name\":{\"alias\":\"Sale Order\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.sale_orders.id\":{\"alias\":\"Sale Order Id\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.products.name\":{\"alias\":\"Product\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.description\":{\"alias\":\"Product Description\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.quantity\":{\"alias\":\"Quantity\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.price_per_unit\":{\"alias\":\"Price Per Unit\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.discount\":{\"alias\":\"Discount\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.taxes.tax_code\":{\"alias\":\"Tax Code\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.config_uom.name\":{\"alias\":\"UOM\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"sale_order_lines.total_amount\":{\"alias\":\"Total Amount\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[],\"created_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"categorized\",\"modified_by\":\"1\",\"description\":\"<font color=\\\"green\\\">Sales Orders which are not closed<\\\/font>\"}",
+			"_query":"{\"id\":\"52a20cb8-c298-4df5-8981-56040a550b97\",\"name\":\"Open Sales Order Report\",\"category_id\":\"6\",\"category_id_model\":\"category\",\"__category_id\":\"Admin Reports\",\"controller\":\"sales\\\/sale_order_lines\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Sales Orders which are not closed<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"sale_order_lines.sale_orders.name\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.sale_orders.name\",\"alias\":\"Sale Order\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"2\",\"column\":\"sale_order_lines.sale_orders.id\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.sale_orders.id\",\"alias\":\"Sale Order Id\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"3\",\"column\":\"sale_order_lines.products.name\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.products.name\",\"alias\":\"Product\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"4\",\"column\":\"sale_order_lines.description\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.description\",\"alias\":\"Product Description\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"5\",\"column\":\"sale_order_lines.quantity\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.quantity\",\"alias\":\"Quantity\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"6\",\"column\":\"sale_order_lines.price_per_unit\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.price_per_unit\",\"alias\":\"Price Per Unit\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"7\",\"column\":\"sale_order_lines.discount\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.discount\",\"alias\":\"Discount\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"8\",\"column\":\"sale_order_lines.taxes.tax_code\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.taxes.tax_code\",\"alias\":\"Tax Code\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"9\",\"column\":\"sale_order_lines.config_uom.name\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.config_uom.name\",\"alias\":\"UOM\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"10\",\"column\":\"sale_order_lines.total_amount\",\"column_model\":\"schema\",\"__column\":\"sale_order_lines.total_amount\",\"alias\":\"Total Amount\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"<font color=\"green\">Sales Orders which are not closed<\/font>",
+			"controller":"sales\/sale_order_lines",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-06 17:43:20",
+			"modified":"2013-12-11 21:53:30",
+			"deleted":"0",
+			"revision":"11",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a20cb8-c298-4df5-8981-56040a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Admin Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

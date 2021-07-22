@@ -1,0 +1,15 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+namespace module\campaigns\model;
+class campaign_test_recipients extends \tushar\model{
+    public $displayField='email';
+    public $table = 'campaigns__campaign_test_recipients';
+    public $filters = array(
+          'email' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+    );
+}
+?>

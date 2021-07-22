@@ -1,0 +1,200 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class bills_domain_logic extends \tushar\model{
+
+    public function journalEntryDate(){
+        return $this->data['bill_date'];
+    }
+    
+    public function journalEntries(&$journalEntry) {
+        $journalEntry['journal_entry_lines'] = array();
+        //if (isset($this->data['action']) && strcasecmp($this->data['action'], 'Confirm') == 0) {
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (strcasecmp($actionTriggred, 'Confirm') == 0) {
+
+
+            $journalEntry['journal_type'] = 'purchase';
+            if (!isset($journalEntry['company_id']) || empty($journalEntry['company_id'])) {
+                $journalEntry['company_id'] = \tushar\user::read('company_id');
+            }
+            $journalEntry['currency_id'] = (isset($this->data['currency_id']) ? $this->data['currency_id'] : '');
+            if (!isset($journalEntry['currency_id']) || empty($journalEntry['currency_id'])) {
+                $journalEntry['currency_id'] = \tushar\user::read('currency_id');
+            }
+            $journalEntry['journal_id'] = \module\accounting\model\journals::getInstance()->journalID($journalEntry['journal_type'], $journalEntry['currency_id'], $journalEntry['company_id']);
+            /*
+              bills.partners.partner_accounts.account_payable_id
+              bills.partner_id
+              bills.total
+              credit
+              Open
+              Confirm
+             */
+            $object = $this->partners;
+            $journalEntry['journal_entry_lines'][] = array(
+                'related_to' => $this->data['partner_id'],
+                '__related_to' => \select("{$object->displayField}")
+                        ->from($object)
+                        ->where("{$object->alias}.id", $this->data['partner_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0),
+                'related_to_model' => $object->alias,
+                'related_to_model_class' => $object->modelClass,
+                'account_id' => \select("partner_accounts.account_payable_id")
+                        ->from($object)
+                        ->joinInner('partner_accounts')
+                        ->where("{$object->alias}.id", $this->data['partner_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0),
+                'credit' => $this->data['total']
+            );
+
+
+
+            /*
+              bills.bill_account_lines.account_id
+              bills.bill_account_lines.account_id
+              bills.bill_account_lines.acc_amount
+              debit
+              Open
+              Confirm
+             */
+            if (isset($this->data['bill_account_lines']) && is_array($this->data['bill_account_lines'])) {
+                foreach ($this->data['bill_account_lines'] as $line) {
+                    if (!isset($line['deleted']) || $line['deleted'] != 1) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'related_to' => '',
+                            '__related_to' => '',
+                            'related_to_model' => '',
+                            'related_to_model_class' => '',
+                            'account_id' => $line['account_id'],
+                            'debit' => $line['acc_amount']
+                        );
+                    }
+                }
+            }
+
+            /*
+              bills.bill_lines.products.product_accounts.expense_account_id
+              bills.bill_lines.product_id
+              bills.bill_lines.total_amount
+              debit
+              Open
+              Confirm
+             */
+
+            if (isset($this->data['bill_lines']) && is_array($this->data['bill_lines'])) {
+                $object = $this->bill_lines->products;
+                foreach ($this->data['bill_lines'] as $line) {
+                    if (!isset($line['deleted']) || $line['deleted'] != 1) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'related_to' => $line['product_id'],
+                            '__related_to' => \select("{$object->displayField}")
+                                    ->from($object)
+                                    ->where("{$object->alias}.id", $line['product_id'])
+                                    ->execute()->fetch(\PDO::FETCH_COLUMN, 0),
+                            'related_to_model' => $object->alias,
+                            'related_to_model_class' => $object->modelClass,
+                            'account_id' => \select("product_accounts.expense_account_id")
+                                    ->from($object)
+                                    ->joinInner('product_accounts')
+                                    ->where("{$object->alias}.id", $line['product_id'])
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN, 0),
+                            'debit' => $line['total_amount']
+                        );
+                    }
+                }
+            }
+
+            /*
+              bills.line_taxes_summary.taxes.refund_tax_account_id
+              bills.line_taxes_summary.tax_id
+              bills.line_taxes_summary.tax_amount
+              debit
+              open
+              confirm
+             */
+            if (isset($this->data['line_taxes_summary']) && is_array($this->data['line_taxes_summary'])) {
+                $object = $this->line_taxes_summary->taxes;
+                foreach ($this->data['line_taxes_summary'] as $line) {
+                    if (!isset($line['deleted']) || $line['deleted'] != 1) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'related_to' => $line['tax_id'],
+                            '__related_to' => \select("{$object->displayField}")
+                                    ->from($object)
+                                    ->where("{$object->alias}.id", $line['tax_id'])
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN, 0),
+                            'related_to_model' => $object->alias,
+                            'related_to_model_class' => $object->modelClass,
+                            'account_id' => \select("taxes.refund_tax_account_id")
+                                    ->from($object)
+                                    ->where("{$object->alias}.id", $line['tax_id'])
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN, 0),
+                            'debit' => $line['tax_amount']
+                        );
+                    }
+                }
+            }
+
+            /*
+              bills.discount_amount  [affected account - purchase discount, expense account]
+              credit
+             */
+
+            if (isset($this->data['discount_amount']) && $this->data['discount_amount'] > 0) {
+                $accountID = \tushar\configuration::read('purchase_discount_analytic_account');
+                if (empty($accountID)) {
+                    throw new \Exception(__('Please configure purchase discount analytic account under global configuration', 'module'));
+                }
+                $journalEntry['journal_entry_lines'][] = array(
+                    'related_to' => '',
+                    '__related_to' => '',
+                    'related_to_model' => '',
+                    'related_to_model_class' => '',
+                    'account_id' => $accountID,
+                    'credit' => $this->data['discount_amount']
+                );
+            }
+
+
+            /*
+              bills.shipping_cost[freight charges]
+              debit
+             */
+            if (isset($this->data['shipping_cost']) && $this->data['shipping_cost'] > 0) {
+                $accountID = \tushar\configuration::read('purchase_shipping_analytic_account');
+                if (empty($accountID)) {
+                    throw new \Exception(__('Please configure purchase shipping analytic account under global configuration', 'module'));
+                }
+                $journalEntry['journal_entry_lines'][] = array(
+                    'related_to' => '',
+                    '__related_to' => '',
+                    'related_to_model' => '',
+                    'related_to_model_class' => '',
+                    'account_id' => $accountID,
+                    'debit' => $this->data['shipping_cost']
+                );
+            }
+
+
+
+            return true;
+        }
+    }
+
+}

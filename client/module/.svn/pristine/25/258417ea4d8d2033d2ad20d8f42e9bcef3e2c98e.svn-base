@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\activities\controller;
+  class emails extends \module\activities\controller\emails_domain_logic
+  {
+       public $modelClass = '\\module\\activities\\model\\emails';
+
+
+
+
+
+
+  }

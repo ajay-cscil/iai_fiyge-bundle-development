@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\voip\controller;
+  class cdr extends \module\voip\controller\cdr_domain_logic
+  {
+       public $modelClass = '\\module\\voip\\model\\cdr';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

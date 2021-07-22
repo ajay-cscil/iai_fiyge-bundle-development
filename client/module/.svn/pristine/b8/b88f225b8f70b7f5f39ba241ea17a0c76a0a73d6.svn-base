@@ -1,0 +1,643 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class sales_receipts extends \module\accounting\model\sales_receipts_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'accounting__sales_receipts';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'number';
+       public $primaryKey = 'id';
+       public $alias = 'sales_receipts';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'email' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'email',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'date',
+    'ntype' => 'date',
+  ),
+  'reference_no' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'reference_no',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'account_id' => 
+  array (
+    'column' => 'account_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'city' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'city',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'state_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'state_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'country_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'country_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'sub_total' => 
+  array (
+    'column' => 'sub_total',
+    'ntype' => 'float',
+    'length' => '10,2',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'tax_total' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tax_total',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'total' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'total',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'balance_due' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'balance_due',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'memo' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'memo',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'zip' => 
+  array (
+    'column' => 'zip',
+    'ntype' => 'string',
+    'length' => '50',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'total_before_discount' => 
+  array (
+    'column' => 'total_before_discount',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'total_after_discount' => 
+  array (
+    'column' => 'total_after_discount',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'tax_percent' => 
+  array (
+    'column' => 'tax_percent',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'shipping_cost' => 
+  array (
+    'column' => 'shipping_cost',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'sales_receipt_date' => 
+  array (
+    'column' => 'sales_receipt_date',
+    'ntype' => 'date',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'primary_address_line_1' => 
+  array (
+    'column' => 'primary_address_line_1',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'primary_address_line_2' => 
+  array (
+    'column' => 'primary_address_line_2',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'primary_city' => 
+  array (
+    'column' => 'primary_city',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'primary_state' => 
+  array (
+    'column' => 'primary_state',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'primary_country' => 
+  array (
+    'column' => 'primary_country',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'payment_method' => 
+  array (
+    'column' => 'payment_method',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'partner_id' => 
+  array (
+    'column' => 'partner_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'discount_percent' => 
+  array (
+    'column' => 'discount_percent',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'discount_amount' => 
+  array (
+    'column' => 'discount_amount',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'number' => 
+  array (
+    'column' => 'number',
+    'ntype' => 'string',
+    'length' => '64',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'customer_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'customer_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'address_line1' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'address_line1',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'address_line2' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'address_line2',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'subtotal' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'subtotal',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'currency_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'currency_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'sales_receipts_lines' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\accounting\\model\\sales_receipts_lines',
+    'associationAlias' => 'sales_receipts_lines',
+    'foreignKey' => 'sales_receipt_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'line_taxes_summary' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\accounting\\model\\line_taxes_summary',
+    'associationAlias' => 'line_taxes_summary',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '{{FOREIGN}}.{{FOREIGN_KEY}}_model=\'{{PRIMARY}}\'',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'partner' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\accounts',
+    'associationAlias' => 'partner',
+    'foreignKey' => 'partner_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'currencies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\currencies',
+    'associationAlias' => 'currencies',
+    'foreignKey' => 'currency_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_payment_method' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\sales\\model\\config_payment_method',
+    'associationAlias' => 'config_payment_method',
+    'foreignKey' => 'payment_method',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\accounts',
+    'associationAlias' => 'accounts',
+    'foreignKey' => 'account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'countries' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\countries',
+    'associationAlias' => 'countries',
+    'foreignKey' => 'primary_country',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'attachments' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\document_management_base\\model\\attachments',
+    'associationAlias' => 'attachments',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+      2 => '\'attachment\'={{FOREIGN}}.field_type',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'states' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\states',
+    'associationAlias' => 'states',
+    'foreignKey' => 'primary_state',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\flexflow\\behaviour\\flexflow' => 
+  array (
+    'name' => '\\module\\flexflow\\behaviour\\flexflow',
+  ),
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+  ),
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '4',
+    'deleteAccess' => '4',
+    'ownAcl' => '1',
+    'cacheClass' => '1',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+  '\\module\\crm_base\\behaviour\\auto_sequence' => 
+  array (
+    'name' => '\\module\\crm_base\\behaviour\\auto_sequence',
+    'sequence_column' => 'number',
+  ),
+  '\\module\\accounting\\behaviour\\journal_entries' => 
+  array (
+    'name' => '\\module\\accounting\\behaviour\\journal_entries',
+    'journal_id_model' => 'journals',
+  ),
+);
+       public $filters = array (
+  'email' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'account_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'customer_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'partner_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'date' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

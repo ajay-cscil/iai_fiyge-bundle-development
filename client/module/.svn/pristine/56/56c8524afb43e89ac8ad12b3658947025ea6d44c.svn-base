@@ -1,0 +1,31 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\controller;
+
+class payment_terms_domain_logic extends \tushar\controller {
+
+    public function _compute_due_date($request) {
+        $invoiceDate = $request->param('invoice_date');
+        $dueDate = $request->param('due_date');
+        if (!empty($dueDate) && is_numeric($dueDate) && $dueDate > 0) {
+            if (!empty($invoiceDate)) {
+                $invoiceDate = \tushar\locale::normalize($invoiceDate, DATE);
+            }
+            if (empty($invoiceDate)) {
+                $invoiceDate = \tushar\locale::systemDate();
+            }
+            $invoiceDate = explode('-', $invoiceDate);
+            $dueDate = date('Y-m-d',mktime(01, 01, 01, $invoiceDate[1], $invoiceDate[2] + $dueDate, $invoiceDate[0]));
+            $dueDate = \tushar\locale::localize($dueDate, DATE);
+        } else {
+            $dueDate = \tushar\locale::localize(\tushar\locale::systemDate(), DATE);
+        }
+        $request->set('data', array('due_date' => $dueDate));
+    }
+
+}

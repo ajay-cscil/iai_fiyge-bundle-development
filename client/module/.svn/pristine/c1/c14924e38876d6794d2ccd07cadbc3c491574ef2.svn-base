@@ -1,0 +1,79 @@
+[
+	{
+		"listviews":{
+			"name":"Recycle Bin",
+			"category_id":"12",
+			"query":"{\"fields\":[\"election_results.name\",\"election_results.created\",\"election_results.deleted\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"election_results.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"election_results.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"election_results.name\",\"__column\":\"election_results.name\"},{\"column\":\"election_results.created\",\"__column\":\"election_results.created\"},{\"column\":\"election_results.deleted\",\"__column\":\"election_results.deleted\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"election_results.modified\",\"__column\":\"election_results.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"election_results.modified\",\"sort_by\":\"election_results.modified\"}}",
+			"description":null,
+			"controller":"vrm\/election_results",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2014-07-21 09:15:18",
+			"modified":null,
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Ward-7-8"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"vrm.election_results.Recycle Bin",
+			"sequence":"100254",
+			"primary_acl_group":"847",
+			"id":"53ccda26-3908-4d3a-b485-3e0f0af91b9d",
+			"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Super Admin",
+			"__modified_by":"",
+			"__category_id":"System View",
+			"__parent_id":"",
+			"__owned_by":"Super Admin",
+			"__primary_acl_group":"Ward-7-8",
+			"__module_id":"vrm",
+			"created_by_model":"created_by_user",
+			"category_id_model":"category",
+			"owned_by_model":"owned_by_user",
+			"primary_acl_group_model":"groups",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\controller;
+  class canvass_options extends \module\vrm\controller\canvass_options_domain_logic
+  {
+       public $modelClass = '\\module\\vrm\\model\\canvass_options';
+
+
+
+
+
+
+  }

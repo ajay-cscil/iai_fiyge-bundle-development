@@ -1,0 +1,136 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\hr\model;
+  class projects_acl_cache extends \module\hr\model\projects_acl_cache_domain_logic
+  {
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $parentClass = '\\acl_model';
+       public $source = 'acl';
+       public $table = 'hr__projects_acl_cache';
+       public $fields = array (
+  'user_id' => 
+  array (
+    'column' => 'user_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'from_date' => 
+  array (
+    'column' => 'from_date',
+    'ntype' => 'date',
+  ),
+  'group_id' => 
+  array (
+    'column' => 'group_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'hours' => 
+  array (
+    'column' => 'hours',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'reference' => 
+  array (
+    'column' => 'reference',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'to_date' => 
+  array (
+    'column' => 'to_date',
+    'ntype' => 'date',
+  ),
+  'wage' => 
+  array (
+    'column' => 'wage',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+);
+       public $associations = array (
+  'users' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'users',
+    'foreignKey' => 'user_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'user_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

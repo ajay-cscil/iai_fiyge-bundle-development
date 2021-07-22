@@ -1,0 +1,43 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class stock_picking extends \module\mrp\model\stock_picking_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'stock_picking';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'stock_location_dest' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\mrp\\model\\stock_location',
+    'associationAlias' => 'stock_location_dest',
+    'foreignKey' => 'location_dest_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'stock_location' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\mrp\\model\\stock_location',
+    'associationAlias' => 'stock_location',
+    'foreignKey' => 'location_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

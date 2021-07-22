@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:02:04 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>acl (System Module)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's System Module</h1><span>Class</span>
+
+<h2>module\access_controls\behaviour\acl</h2>
+
+</header><p class="signature">public  class <strong>acl</strong> extends \kernel\behaviour
+
+</p>
+
+<div class="comment"><p></p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#acoID">$acoID</a></p><p class="description"></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#addGroupToContainGroup()">addGroupToContainGroup</a>(type model, type settings, type groupId, type containGroupId)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#addUserToGroup()">addUserToGroup</a>(mixed model, mixed settings, mixed userId, mixed groupId)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterDelete()">afterDelete</a>(type model, type settings)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterFind()">afterFind</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterProcessData()">afterProcessData</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterRead()">afterRead</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterSave()">afterSave</a>(type model, type settings, type created)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeDelete()">beforeDelete</a>(type model, type settings)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeFind()">beforeFind</a>(type model, type settings)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeSave()">beforeSave</a>(type model, type settings, type created)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeValidate()">beforeValidate</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#getAccessGroups()">getAccessGroups</a>(type model, type settings, type groups)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#getSettings()">getSettings</a>(type model, type settings)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#isNotDeletable()">isNotDeletable</a>(type model, type settings, type id)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#isNotEditable()">isNotEditable</a>(type model, type settings, type id)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#isNotReadable()">isNotReadable</a>(type model, type settings, type id)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#removeGroupFromContainGroup()">removeGroupFromContainGroup</a>(type model, type settings, type groupId, type containGroupId)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#removeUserFromGroup()">removeUserFromGroup</a>(type model, type settings, type userId, type groupId)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setPrivateAcl()">setPrivateAcl</a>(type model, type settings, type id, type new, bool created)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setTmpAcl()">setTmpAcl</a>(type model, type settings, type id, type new)</p><p class="description"></p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="acoID">public static  type <strong>$acoID</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="addGroupToContainGroup">public static  void <strong>addGroupToContainGroup</strong>(type model, type settings, type groupId, type containGroupId)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="addUserToGroup">public static  void <strong>addUserToGroup</strong>(mixed model, mixed settings, mixed userId, mixed groupId)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterDelete">public static  void <strong>afterDelete</strong>(type model, type settings)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterFind">public static  void <strong>afterFind</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterProcessData">public static  void <strong>afterProcessData</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterRead">public static  void <strong>afterRead</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterSave">public static  void <strong>afterSave</strong>(type model, type settings, type created)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeDelete">public static  void <strong>beforeDelete</strong>(type model, type settings)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeFind">public static  void <strong>beforeFind</strong>(type model, type settings)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeSave">public static  void <strong>beforeSave</strong>(type model, type settings, type created)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeValidate">public static  void <strong>beforeValidate</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="getAccessGroups">public static  type <strong>getAccessGroups</strong>(type model, type settings, type groups)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getSettings">public static  type <strong>getSettings</strong>(type model, type settings)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isNotDeletable">public static  type <strong>isNotDeletable</strong>(type model, type settings, type id)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isNotEditable">public static  type <strong>isNotEditable</strong>(type model, type settings, type id)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isNotReadable">public static  type <strong>isNotReadable</strong>(type model, type settings, type id)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="removeGroupFromContainGroup">public static  void <strong>removeGroupFromContainGroup</strong>(type model, type settings, type groupId, type containGroupId)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="removeUserFromGroup">public static  void <strong>removeUserFromGroup</strong>(type model, type settings, type userId, type groupId)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setPrivateAcl">public static  void <strong>setPrivateAcl</strong>(type model, type settings, type id, type new, bool created)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setTmpAcl">public static  void <strong>setTmpAcl</strong>(type model, type settings, type id, type new)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

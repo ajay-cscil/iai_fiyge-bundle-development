@@ -1,0 +1,18 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\voip\model;
+  class cdr extends \module\voip\model\cdr_domain_logic
+  {
+       public $source = 'voip';
+       public $table = 'cdr';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'clid';
+       public $primaryKey = 'uniqueid';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+  }

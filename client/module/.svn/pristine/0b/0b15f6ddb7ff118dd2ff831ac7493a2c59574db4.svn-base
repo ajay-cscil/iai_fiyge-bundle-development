@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\admin_module_installer\controller;
+  class modules extends \module\admin_module_installer\controller\modules_domain_logic
+  {
+       public $modelClass = '\\module\\admin_module_installer\\model\\modules';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

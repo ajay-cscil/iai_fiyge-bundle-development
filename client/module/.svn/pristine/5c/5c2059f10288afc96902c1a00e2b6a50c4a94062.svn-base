@@ -1,0 +1,404 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\activities\model;
+  class emails extends \module\activities\model\emails_domain_logic
+  {
+       public $displayField = 'subject';
+       public $primaryKey = 'id';
+       public $parentClass = '\\data_model';
+       public $source = 'default';
+       public $table = 'activities__emails';
+       public $alias = 'emails';
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'ownAcl' => '1',
+    'cacheClass' => '1',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+  ),
+  '\\module\\core\\behaviour\\unified_index' => 
+  array (
+    'name' => '\\module\\core\\behaviour\\unified_index',
+    'map_from_column' => 'related_to',
+    'index_class_name' => '\\module\\cases\\model\\activities',
+    'map_to_column' => 'case_id',
+  ),
+);
+       public $associations = array (
+  'email_to_recipients' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\activities\\model\\email_recipients',
+    'associationAlias' => 'email_to_recipients',
+    'foreignKey' => 'email_id',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'to\'={{FOREIGN}}.recipient_type',
+    ),
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'email_cc_recipients' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\activities\\model\\email_recipients',
+    'associationAlias' => 'email_cc_recipients',
+    'foreignKey' => 'email_id',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'cc\'={{FOREIGN}}.recipient_type',
+    ),
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'email_bcc_recipients' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\activities\\model\\email_recipients',
+    'associationAlias' => 'email_bcc_recipients',
+    'foreignKey' => 'email_id',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'bcc\'={{FOREIGN}}.recipient_type',
+    ),
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'attachments' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\document_management_base\\model\\attachments',
+    'associationAlias' => 'attachments',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'emails\'={{FOREIGN}}.related_to_model',
+    ),
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'groups' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\groups',
+    'associationAlias' => 'groups',
+    'foreignKey' => 'primary_acl_group',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\accounts',
+    'associationAlias' => 'accounts',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'contacts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\contacts',
+    'associationAlias' => 'contacts',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'leads' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\leads',
+    'associationAlias' => 'leads',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $fields = array (
+  'subject' => 
+  array (
+    'column' => 'subject',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'body' => 
+  array (
+    'column' => 'body',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'status' => 
+  array (
+    'column' => 'status',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'primary_acl_group' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_acl_group',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'error_message' => 
+  array (
+    'column' => 'error_message',
+    'ntype' => 'string',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'related_to' => 
+  array (
+    'column' => 'related_to',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'related_to_model' => 
+  array (
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '__related_to' => 
+  array (
+    'column' => '__related_to',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+       public $filters = array (
+  'email_to_recipients' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'subject' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\calls\controller;
+  class logs extends \module\calls\controller\logs_domain_logic
+  {
+       public $modelClass = '\\module\\calls\\model\\logs';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

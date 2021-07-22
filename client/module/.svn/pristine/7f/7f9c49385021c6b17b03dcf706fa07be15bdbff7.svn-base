@@ -1,0 +1,106 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\controller;
+
+class docs_domain_logic extends \tushar\controller{
+
+    public $access = array('process_escalations' => PUBLIC_ACCESS);
+
+    function process_escalations($request) {
+        $modelObj = $this->modelObj();
+        $errors = array();
+        $userObj = \module\access_controls\model\users::getInstance();
+        $systemUserID = \select("id")
+                ->from($userObj)
+                ->inserted()
+                ->where('user_name', 'system-user')
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN);
+        if (empty($systemUserID)) {
+            \tushar\model::$errors[] = array("Could not find system-user. Create a user with user name equal to system-user");
+            return false;
+        }
+        $userObj->setCurrentUserSesionInfo($systemUserID);
+        \tushar\configuration::write('disable_data_acl', 1);
+        $docs = \select(
+                        array(
+                            "{$modelObj->alias}.id AS doc_id",
+                            "{$modelObj->alias}.foreign_key AS entity_id",
+                            "{$modelObj->alias}.foreign_key_model_class_name AS entity_model_class_name",
+                            "stage_log.id AS stage_log_id",
+                            "stage_log.created",
+                            "stage_log.stage_id",
+                            "stages.name as stage_name",
+                            "actions.id as action_id",
+                            "actions.name as action_name",
+                            "actions.escalation_time"
+                        )
+                )
+                ->from($modelObj)
+                ->joinInner('stage_log')
+                ->joinInner('stages')
+                ->joinInner('possible_actions')
+                ->joinInner('actions')
+                ->inserted()
+                ->where('actions.escalation_time > ', '0')
+                ->where('stage_log.status', 'open')
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        foreach ($docs as $doc) {
+            $openTime = round(((strtotime(\tushar\locale::systemDate() . " " . \tushar\locale::systemTime()) - strtotime($doc["created"])) / (60 * 60)), 2);
+            if (
+                    !empty($doc['escalation_time'])
+                    &&
+                    $doc['escalation_time'] > 0
+                    &&
+                    $openTime > $doc['escalation_time']
+                    &&
+                            \select("status")
+                            ->from($modelObj->stage_log)
+                            ->inserted()
+                            ->where("status", 'open')
+                            ->where('id', $doc['stage_log_id'])
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN) == 'open'
+            ) {
+                $entityModelClassName = $doc['entity_model_class_name'];
+                $entityModelObject = $entityModelClassName::getInstance();
+                if (is_object($entityModelObject)) {
+                    $data = \current($entityModelObject->read($doc['entity_id']));
+                    if (empty($data)) {
+                        continue;
+                    }
+                    $data['stage_log'] = array('node_id' => $doc['stage_log_id']);
+                    $data['action'] = $doc['action_id'];
+                    \tushar\model::$errors = array();
+                    $st = $entityModelObject->save($data, array('validate' => false));
+                    if ($st) {
+                        $request->setMsg(
+                                sprintf(__('Triggred "%s" action on "%s" stage of "%s" %s[%s]')
+                                        , $doc['action_name'], $doc['action_name'], $doc['entity_model']
+                                        , $data[$entityModelObject->displayField], $data[$entityModelObject->primaryKey]
+                                )
+                        );
+                    } else {
+                        $request->setMsg(
+                                sprintf(__('Failed "%s" action on "%s" stage of "%s" %s[%s]')
+                                        , $doc['action_name'], $doc['action_name'], $doc['entity_model']
+                                        , $data[$entityModelObject->displayField], $data[$entityModelObject->primaryKey]
+                                )
+                        );
+                        $errors[] = \tushar\model::$errors;
+                    }
+                }
+            }
+        }
+        \tushar\model::$errors = $errors;
+        return false;
+    }
+
+}

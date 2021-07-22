@@ -1,0 +1,84 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class journal_entry_lines_domain_logic extends \data_model{
+
+    public function beforeSave() {
+        parent::beforeSave();
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        $isVoid = strcasecmp($actionTriggred, 'void') == 0;
+        if ($isVoid == false) {
+            $debit = isset($this->data['debit']) ? $this->data['debit'] : 0;
+            $credit = isset($this->data['credit']) ? $this->data['credit'] : 0;
+            if (($debit == 0 && $credit == 0)) {
+                throw new \Exception(__("journal entry line does not contain debit or credit amount."));
+            }
+            if (($debit != 0 && $credit != 0)) {
+                throw new \Exception(__("journal entry line has both debit or credit amount."));
+            }
+        }
+        if (array_key_exists('account_id', $this->data) && empty($this->data['account_id'])) {
+            $msg = __("Analytic account is empty in journal entry line", 'module');
+            if (isset($this->data['__related_to'])) {
+                $msg = sprintf(__("Analytic account is empty in journal entry line for %s %s", "module"), $this->data['related_to_model'], $this->data['__related_to']);
+            }
+            throw new \Exception($msg);
+        }
+
+
+        /*
+          if (!isset($this->data[$this->primaryKey]) || empty($this->data[$this->primaryKey])) {
+          if (!isset($this->data['status_id']) || empty($this->data['status_id'])) {
+          $this->data['status_id'] = $this->{'journal_entry_line_status'}->readBusinessKey('unbalanced');
+          }
+          }
+
+          if (isset($this->data['journal_entry_id']) && !empty($this->data['journal_entry_id'])) {
+          // fetch all entry lines for journal entry ignoring current line.
+          // if current account already exists with opposite polarity (debit/credit), then dont allow submission.
+
+          $accountID = $this->data['account_id'];
+          $entries = \select("*")->from($this)->inserted()
+          ->where('journal_entry_id', $this->data['journal_entry_id'])
+          ->where('id != ', (isset($this->data['id']) ? $this->data['id'] : 0))
+          ->limit(0)
+          ->execute()
+          ->fetchAll(\PDO::FETCH_ASSOC);
+          foreach ($entries as $entry) {
+          if ($debit > 0) {
+          if ($accountID == $entry['account_id'] && $entry['credit'] > 0) {
+          throw new \Exception(__("The account is already credited in parent entry", 'module'));
+          }
+          } else {
+          if ($accountID == $entry['account_id'] && $entry['debit'] > 0) {
+          throw new \Exception(__("The account is already debited in parent entry", 'module'));
+          }
+          }
+          }
+
+
+          $isSet = \select(array('status_id'))->from($this->{'journal_entries'})
+          ->inserted()
+          ->where('id', $this->data['journal_entry_id'])->limit(1)
+          ->execute()
+          ->fetch(\PDO::FETCH_COLUMN, 0);
+          if ($isSet == $this->{'journal_entries'}->{'journal_entry_status'}->readBusinessKey('posted')) {
+          throw new \Exception(__("The selected journal entry is already posted"));
+          }
+          }
+         * 
+         */
+    }
+
+}

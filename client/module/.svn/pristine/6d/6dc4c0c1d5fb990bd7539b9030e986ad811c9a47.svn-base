@@ -1,0 +1,10 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\dashboards\model;
+  class widgets_group_acl_cache_domain_logic extends \acl_model{
+
+
+  }

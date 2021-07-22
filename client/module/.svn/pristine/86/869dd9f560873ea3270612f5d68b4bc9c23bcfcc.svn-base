@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\product\controller;
+  class product_suppliers extends \module\product\controller\product_suppliers_domain_logic
+  {
+       public $modelClass = '\\module\\product\\model\\product_suppliers';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

@@ -1,0 +1,86 @@
+[
+    {
+        "printviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "business_key": "transfer_order",
+            "content": "[php]\r\n\r\n$companyObj = \\module\\crm_base\\model\\companies::getInstance(array(), true);\r\n$companyData = current($companyObj->read(\\tushar\\user::read('company_id')));\r\n\r\n\r\necho '<table>';\r\necho '<tr><td><p><strong style=\"color:#366D9C;border:1px\"><font size=\"20\">' . Transfer . '<br>' . Order . '<\/font><\/strong><\/p><\/td><\/tr>';\r\necho '<\/table>';\r\necho \"<table><tr><td>\r\n\r\n<tr><td >{$this->data('transfer_orders.parent_id')}<\/td><\/tr>\r\n<tr><\/tr><tr><\/tr><tr><td><strong>Account Name <\/strong><\/td><\/tr><tr><td>{$this->data('transfer_orders.__account_id')}<\/td><\/tr>\r\n<tr><\/tr>\r\n<tr><\/tr><tr><\/tr><tr><\/tr><tr><td><strong>Contact Person<\/strong><\/td><\/tr><tr><td>{$this->data('transfer_orders.__contact_person_id')}\r\n<\/td><\/tr>\r\n<\/td>\r\n<td><\/td>\r\n<td>\";\r\necho'          <tr><td><strong>Date : <\/strong>' . date(\"m\/d\/Y\") . ' ';\r\necho\" <\/td> <\/tr>\";\r\necho'   <tr><td><strong>TO No :<\/strong>';\r\necho\" {$this->data('transfer_orders.number')}\";\r\necho '<\/td> <\/tr>';\r\necho '    <tr><td><strong>Order Date :<\/strong> ' . \\tushar\\locale::localize($this->data('transfer_orders.order_date'), DATE) . \"<\/td><\/tr>\";\r\necho'  <tr><td><strong>From :<\/strong> ';\r\necho \"{$this->data('transfer_orders.__from_id')}\";\r\necho \"<\/td> <\/tr> \";\r\necho '<tr><td><strong>To :<\/strong>';\r\necho \" {$this->data('transfer_orders.__to_id')}\";\r\necho \"<\/td> <\/tr>\r\n\r\n\r\n<\/td><\/tr>\r\n<\/table>\";\r\n\r\n\r\n\r\necho '<table><tr>';\r\n\r\nforeach (array('primary') as $type):\r\n\r\n    echo '<td><table><tr><td><strong style=\"color:#366D9C;\">From:<\/strong><\/td><\/tr>';\r\n    if ($this->data('transfer_orders.primary_address_line_1') != \"\") {\r\n        echo\"    <tr><td >{$this->data('transfer_orders.primary_address_line_1')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.primary_address_line_2') != \"\") {\r\n        echo\"    <tr><td >{$this->data('transfer_orders.primary_address_line_2')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.primary_city') != \"\") {\r\n        echo \" <tr><td >{$this->data('transfer_orders.primary_city')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.primary_state') != \"\") {\r\n        echo\"  <tr><td >{$this->data('transfer_orders.primary_state')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.__primary_country') != \"\") {\r\n        echo\"  <tr><td >{$this->data('transfer_orders.__primary_country')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.primary_zip') != \"\") {\r\n        echo\"  <tr><td >{$this->data('transfer_orders.primary_zip')}<\/td><\/tr>\";\r\n    }\r\n    echo\"  <\/table><\/td>\";\r\nendforeach;\r\n\r\nforeach (array('shipping') as $type):\r\n\r\n    echo '<td><\/td><td><table><tr><td><strong style=\"color:#366D9C;\">To:<\/strong><\/td><\/tr>';\r\n    if ($this->data('transfer_orders.shipping_address_line_1') != \"\") {\r\n        echo\"  <tr><td >{$this->data('transfer_orders.shipping_address_line_1')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.shipping_address_line_2') != \"\") {\r\n        echo\"<tr><td >{$this->data('transfer_orders.shipping_address_line_2')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.shipping_city') != \"\") {\r\n        echo \"<tr><td >{$this->data('transfer_orders.shipping_city')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.shipping_state') != \"\") {\r\n        echo\"  <tr><td >{$this->data('transfer_orders.shipping_state')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.__shipping_country') != \"\") {\r\n        echo\"    <tr><td >{$this->data('transfer_orders.__shipping_country')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('transfer_orders.shipping_zip') != \"\") {\r\n        echo\"    <tr><td >{$this->data('transfer_orders.shipping_zip')}<\/td><\/tr>\";\r\n    }\r\n    echo\"    <tr><td>&nbsp;<\/td><\/tr><\/table><\/td>\";\r\n    echo \"<\/tr><\/table>\";\r\nendforeach;\r\n\r\n\r\n\r\necho '<table border=\"1\" cellpadding=\"1\"  height=\"50%\">';\r\n\r\n\r\necho '<tr>\r\n        <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . __('stock_moves.description', 'module') . '<\/font><\/strong><\/td>\r\n        <td align=\"center\" colspan=\"1.5\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . __('stock_moves.quantity', 'module') . '<\/font><\/strong><\/td>\r\n\r\n        <td align=\"center\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . __('stock_moves.uom_id', 'module') . '<\/font><\/strong><\/td>\r\n            <td align=\"center\" colspan=\"1.5\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . __('stock_moves.source', 'module') . '<\/font><\/strong><\/td>\r\n         <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">Source Location<\/font><\/strong><\/td>\r\n        <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">Destination Location<\/font><\/strong><\/td>\r\n    <\/tr>';\r\n$stock_moves = $this->data('transfer_orders.stock_moves');\r\nif (isset($stock_moves) && is_array($stock_moves)):\r\n\r\n    foreach ($stock_moves as $line):\r\n\r\n        echo '<tr>\r\n        <td colspan=\"2\" align=\"center\"><font size=\"10\">' . $line['description'] . '<\/font><\/td>\r\n        <td colspan=\"1.5\" align=\"right\"><font size=\"10\">' . $line['quantity'] . '<\/font><\/td>\r\n            <td align=\"center\"><font size=\"10\">' . $line['__uom_id'] . '<\/font><\/td>\r\n        <td colspan=\"1.5\" align=\"center\"><font size=\"10\">' . $line['source'] . '<\/font><\/td>\r\n        <td colspan=\"2\" align=\"center\"><font size=\"10\">' . $line['__source_location_id'] . '<\/font><\/td>\r\n        <td colspan=\"2\" align=\"center\"><font size=\"10\">' . $line['__destination_location_id'] . '<\/font><\/td>\r\n        <\/tr>';\r\n\r\n    endforeach;\r\n\r\nendif;\r\n\r\necho '<\/table>';\r\n\r\necho '<table>';\r\necho '<tr> <td><\/td><\/tr>';\r\necho '<tr> <td><\/td><\/tr>';\r\necho '<\/table>';\r\n[\/php]",
+            "controller": "stock\/transfer_orders",
+            "created": "2014-01-25 00:18:46",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "footer": null,
+            "header": null,
+            "id": "52e302e6-ecb0-4313-980f-5c6e0ac22bdf",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-04 15:53:33",
+            "modified_by": "1",
+            "module_id": "27263d19-e746-11e3-aad5-0800275f9930",
+            "name": "Transfer Order",
+            "old_id": null,
+            "owned_by": "-2",
+            "revision": "1",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__module_id": "stock",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

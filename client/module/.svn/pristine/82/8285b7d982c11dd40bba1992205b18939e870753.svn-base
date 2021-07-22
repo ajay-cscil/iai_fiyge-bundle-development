@@ -1,0 +1,989 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\model;
+
+class docs_domain_logic extends \tushar\model {
+
+    private $nodeID = null;
+    public $nextNodes = array();
+    private $isStageChanged = false;
+    private $autoProcessQueue = array();
+    public $autoProcessStageWithIgnoreActor = false;
+    private $terminate = false;
+
+    public function terminateSelf($state = null) {
+        if (is_null($state)) {
+            return $this->terminate;
+        } else {
+            $this->terminate = (bool) $state;
+            if (!is_bool($state) && !empty($state)) {
+                throw new \Exception(__("{$state}"));
+            }
+        }
+    }
+
+    public function terminateNodes($nodes, $message = '') {
+        if (empty($message)) {
+            $message = "Terminated";
+        }
+        if (!empty($nodes)) {
+            if (!is_array($nodes)) {
+                $nodes = array($nodes);
+            }
+            $actionID = \select('id')
+                    ->from(\module\flexflow\model\actions::getInstance(array(), true))
+                    ->where('name', 'Mark as Void')
+                    ->inserted()
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+            foreach ($nodes as $nodeID) {
+                \module\flexflow\model\message_log::getInstance(array(), true)
+                        ->save(array(
+                            'created' => '0000-00-00 00:00:00',
+                            'action_id' => $actionID,
+                            'node_id' => $nodeID,
+                            'message' => $message,
+                            'minutes_taken' => '0'
+                                ), array('compute_actors' => false, 'ignore' => true, 'type' => 'insert', 'atomic' => true)
+                );
+            }
+        }
+    }
+
+    public function logError($msg) {
+        $parts = explode(NS, $this->entityObj->modelClass);
+        \tushar\logger::log(array(
+            'module' => $parts[0]
+            , 'controller' => $parts[2]
+            , 'record_id' => $this->entityObj->id
+            , 'event_name' => 'Save'
+            , 'event_type' => 'Exception'
+            , 'message' => $msg
+                ), ERROR, 'root');
+    }
+
+    ////////////////////////////////////UPDATED CODE//////////////////////////////////////////////////
+
+    /**
+     * Acts as factory for generating objects for stage
+     *
+     * @author Tushar Takkar
+     * @param string $stageName
+     * @return object
+     */
+    public function stageInstance($stageID) {
+        $modulePath = \module_path('flexflow');
+        $stage = current($this->stages($stageID));
+        $stageName = str_replace(" ", "_", strtolower($stage['name']));
+        if (\file_exists($modulePath . DS . 'model' . DS . 'stage_' . $stageName . '.php')) {
+            $stageClass = '\\module\\flexflow\\model\\stage_' . $stageName;
+        } else {
+            $stageClass = '\\module\\flexflow\\model\\stages';
+        }
+        if (\tushar\configuration::read('debug', false) == true) {
+            \tushar\logger::log(array("event_name" => __CLASS__ . '::' . __FUNCTION__ . '()', "message" => $stage['name'] . ':' . $stageClass, 'event_type' => 'METHOD', 'params' => array()), DEBUG, 'root');
+        }
+        if (\class_exists($stageClass)) {
+            $stageObject = $stageClass::getInstance();
+        }
+        return $stageObject;
+    }
+
+    /**
+     * Acts as factory for generating action object
+     *
+     * @author Tushar Takkar
+     * @param string $actionName
+     * @return object
+     */
+    public function actionInstance($actionName) {
+        $where = array();
+        if (is_numeric($actionName) || isset($actionName{35})) {
+            $where = array('id' => $actionName);
+        } else {
+            $where = array('name' => $actionName);
+        }
+        $action = \select("*")
+                ->from(\module\flexflow\model\actions::getInstance())
+                ->inserted()
+                ->where($where)
+                ->limit(1)
+                ->execute()
+                ->fetch(\PDO::FETCH_ASSOC);
+        if (!empty($action)) {
+            $actionClassName = str_replace(" ", "_", strtolower(trim($action['name'])));
+        }
+        $modulePath = \module_path('flexflow');
+        if (\file_exists($modulePath . DS . 'model' . DS . 'action_' . $actionClassName . '.php')) {
+            $actionClass = '\\module\\flexflow\\model\\action_' . $actionClassName;
+        } else {
+            $actionClass = '\\module\\flexflow\\model\\actions';
+        }
+        if (\tushar\configuration::read('debug', false) == true) {
+            \tushar\logger::log(array("event_name" => __CLASS__ . '::' . __FUNCTION__ . '()', "message" => $actionName . ':' . $actionClass, 'event_type' => 'METHOD', 'params' => array()), DEBUG, 'root');
+        }
+        $actionObj = null;
+        if (\class_exists($actionClass)) {
+            $actionObj = $actionClass::getInstance();
+            if (empty($actionObj->name)) {
+                $actionObj->name = $actionName;
+            }
+            $actionObj->data = is_array($action) ? $action : array();
+        }
+        return $actionObj;
+    }
+
+    /**
+     * Check if log for current document is initialize
+     * @param int $docID flexflow document ID
+     * @return bool 
+     */
+    public function isLogSet($id = null) {
+        if (is_null($id)) {
+            $id = $this->id;
+        }
+        return (bool) \select("{$this->stage_log->alias}.{$this->stage_log->primaryKey}")
+                        ->from($this->stage_log)
+                        ->where('doc_id', $id)
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+    }
+
+    /**
+     * Initialize log for flexflow document
+     * @return bool
+     */
+    public function setWorkflowLog($actors = array()) {
+        if (\tushar\configuration::read('debug', false) == true) {
+            \tushar\logger::log(array("event_name" => __CLASS__ . '::' . __FUNCTION__ . '()', "message" => 'Type-ID' . $this->data['type_id'] . ', actors:' . json_encode($actors), 'event_type' => 'METHOD', 'params' => array()), DEBUG, 'root');
+        }
+        if (isset($this->data['type_id']) && !empty($this->data['type_id'])) {
+            $stageObject = \module\flexflow\model\stages::getInstance(array(), true);
+            $stage = \select(array("{$this->stage_log->stages->alias}.*"))
+                    ->from($this->stage_log->stages)
+                    ->inserted()
+                    ->where("{$this->stage_log->stages->alias}.type_id", $this->data['type_id'])
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            if (!empty($stage)) {
+                $return = $this->node(
+                        array(
+                            'name' => $stage['name'],
+                            'doc_id' => $this->id,
+                            'type_id' => $this->data['type_id'],
+                            'stage_id' => $stage['id'],
+                            'status' => 'open',
+                            'actors' => $actors
+                ));
+                $this->logAction($return);
+                $this->enterNode();
+                if (\tushar\configuration::read('debug', false) == true) {
+                    \tushar\logger::log(array("event_name" => __CLASS__ . '::' . __FUNCTION__ . '()', "message" => 'initialised workflow log', 'event_type' => 'METHOD', 'params' => array()), DEBUG, 'root');
+                }
+                return $return;
+            }
+        }
+        if (\tushar\configuration::read('debug', false) == true) {
+            \tushar\logger::log(array("event_name" => __CLASS__ . '::' . __FUNCTION__ . '()', "message" => 'Failed initialisation of workflow log as no stage found', 'event_type' => 'METHOD', 'params' => array()), DEBUG, 'root');
+        }
+        return false;
+    }
+
+    public function node($node, $readActors = false) {
+        if (!is_array($node)) {
+            if (empty($node)) {
+                return array();
+            }
+            $return = $this->stage_log->read($node);
+            $return = current($return);
+            if (!empty($return) && is_array($return)) {
+                $return = array_merge($return, \select(
+                                        array(
+                                            'stages.name as stage_name',
+                                            'stages.is_deemed_approved as is_deemed_approved',
+                                            'stages.is_readonly as is_readonly'
+                                ))
+                                ->from($this->stage_log)
+                                ->join('stages', false, true)
+                                ->inserted()
+                                ->where("{$this->stage_log->alias}.id", $node)
+                                ->limit(1)
+                                ->execute()
+                                ->fetch(\PDO::FETCH_ASSOC));
+                $return['action_log'] = \select(array('action_log.*'))
+                        ->from($this->stage_log)
+                        ->joinInner('action_log')
+                        ->inserted()
+                        ->where("{$this->stage_log->alias}.id", $node)
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+                if ($readActors === true) {
+                    $actorsObject = \module\flexflow\model\actors::getInstance(array(), true);
+                    foreach (array('_acl' => 'read', '_acl_edit' => 'edit', '_acl_delete' => 'delete') as $key => $val) {
+                        $return[$val] = array();
+                        foreach ($actorsObject->processACLString($return[$key], true) as $user) {
+                            $return[$val][$user['id']] = $user;
+                        }
+                    }
+                }
+                $return['child_rel'] = \select(
+                                array(
+                                    "{$this->stage_log->alias}.*",
+                                    'child_rel.id as child_rel_id',
+                                    'stages.name as stage_name',
+                                    'stages.is_deemed_approved as is_deemed_approved',
+                                    'stages.is_readonly as is_readonly'
+                                )
+                        )
+                        ->from($this->stage_log)
+                        ->join('stages', false, true)
+                        ->join('child_rel', false, true)
+                        ->inserted()
+                        ->where("child_rel.parent_id", $node)
+                        ->limit(0)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+
+                $return['parent_rel'] = \select(
+                                array(
+                                    "{$this->stage_log->alias}.*",
+                                    'parent_rel.id as parent_rel_id',
+                                    'stages.name as stage_name',
+                                    'stages.is_readonly as is_readonly'
+                                )
+                        )
+                        ->from($this->stage_log)
+                        ->join('stages', false, true)
+                        ->join('parent_rel', false, true)
+                        ->inserted()
+                        ->where("parent_rel.child_id", $node)
+                        ->limit(0)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+            }
+            return $return;
+        } else {
+            if (array_key_exists('actors', $node) && !is_null($node['actors'])) {
+                $authorizedActors = $this->authorizedActors($node['stage_id'], $node['actors']);
+                // process actor list and populate acl permissions for current document.
+                $node['_acl'] = $authorizedActors[0]['read'];
+                $node['_acl_edit'] = $authorizedActors[0]['edit'];
+                $node['_acl_delete'] = $authorizedActors[0]['delete'];
+            }
+            return \module\flexflow\model\stage_log::getInstance()->save($node, array('atomic' => true));
+        }
+    }
+
+    public function logAction($nodeID, $message = '') {
+        if (empty($message)) {
+            $message = isset($this->entityObject->data['stage_log']) && isset($this->entityObject->data['stage_log']['message']) ?
+                    $this->entityObject->data['stage_log']['message'] : '';
+        }
+        $stageLogObj = $this->stage_log;
+        $minutesTaken = \select(array("MAX(action_log.created) AS last_action_time", "{$stageLogObj->alias}.created AS log_time"))
+                ->from($stageLogObj)
+                ->join('action_log')
+                ->inserted()
+                ->where("{$stageLogObj->alias}.id", $nodeID)
+                ->limit(0)
+                ->execute()
+                ->fetch(\PDO::FETCH_ASSOC);
+        if (isset($minutesTaken['last_action_time']) && !empty($minutesTaken['last_action_time'])) {
+            $minutesTaken = $minutesTaken['last_action_time'];
+        } else {
+            $minutesTaken = $minutesTaken['log_time'];
+        }
+        $minutesTaken = round(((strtotime('now') - strtotime($minutesTaken)) / 60), 2);
+        // find last action time on this nodeID.
+        // else created time on of this nodeID 
+        return \module\flexflow\model\action_log::getInstance()
+                        ->save(array(
+                            'log_id' => $nodeID,
+                            'action_id' => $this->data['action']['id'],
+                            'message' => $message,
+                            'minutes_taken' => $minutesTaken
+                                ), array('atomic' => true));
+    }
+
+    /**
+     * Acts as getter and setter for flexflow log entry.
+     * 
+     * @param int $nodeID
+     * @return mixed 
+     */
+    public function nodeID($nodeID = null) {
+        if (is_null($nodeID)) {
+            return $this->nodeID;
+        } else {
+            $this->nodeID = $nodeID;
+        }
+    }
+
+    /**
+     * Will mark current active log entry as complete and next move to stages as active.
+     *
+     * @param array $actors Any actor for next move to stages.
+     */
+    public function exitNode($actors = array(), $nextNodes = array()) {
+        $nodeID = $this->nodeID();
+        $node = $this->node($nodeID);
+        // run on exit rules, inject any stage dynamically.
+        $modelClass = str_replace(NS, '/', $this->entityObject->modelClass);
+        if (isset($node['stage_id']) && !empty($node['stage_id'])) {
+            $stageData = $this->stages($node['stage_id']);
+            $stageData = isset($stageData[$node['stage_id']]) && is_array($stageData[$node['stage_id']]) ? $stageData[$node['stage_id']] : array();
+            //process the rules for entity for current stage;
+            $runRules = \module\brules\model\business_rules::getInstance(array(), true)
+                    ->process($this, array('run_global_rules' => false, 'filter_path' => $modelClass, 'stage_id' => $node['stage_id'], 'event' => 'before_exit'));
+        }
+
+        // If stage exit is not canceled out via rules.
+        if ($this->terminateSelf() === false) {
+            // Mark stage as close.
+            $this->node(array('id' => $nodeID, 'status' => 'close'));
+
+            // Find if move to stages are populated for node.
+            if (!empty($nextNodes)) {
+                $this->nextNodes = $nextNodes;
+            } else {
+                $this->nextNodes = \select("{$this->stage_log->alias}.*")
+                        ->from($this->stage_log)
+                        ->joinInner('child_rel')
+                        ->inserted()
+                        ->where(array("{$this->stage_log->alias}.doc_id" => $this->id, 'child_rel.parent_id' => $nodeID))
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            if (empty($this->nextNodes)) {
+                $nextMoveToStages = $this->nextMoveToStages($nodeID);
+                $mergeWithOpenStages = false;
+                if (!empty($nextMoveToStages)) {
+                    $openNodes = array();
+                    foreach (\select("{$this->stage_log->alias}.*")
+                            ->from($this->stage_log)
+                            ->inserted()
+                            ->where("{$this->stage_log->alias}.doc_id", $this->id)
+                            ->where("{$this->stage_log->alias}.status", 'open')
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC) as $openNode) {
+                        $openNodes[$openNode['stage_id']] = $openNode;
+                    }
+                    foreach ($nextMoveToStages as $kk => $nextMoveToStage) {
+                        $stageID = $nextMoveToStage['id'];
+                        if (isset($openNodes[$stageID])) {
+                            $nextMoveToStages[$kk]['log_id'] = $openNodes[$stageID]['id'];
+                            $nextMoveToStages[$kk]['parent_id'] = $nodeID;
+                            $mergeWithOpenStages = true;
+                        }
+                    }
+                }
+                if ($mergeWithOpenStages == true) {
+                    $this->nextNodes = $this->logNextMoveToStages($nextMoveToStages, $actors, 'open');
+                } else {
+                    // Else compute stage based on stages->possible_actions->move_to_stage
+                    $this->nextNodes = $this->logNextMoveToStages($nodeID, $actors, 'open');
+                }
+            } else {
+                foreach ($this->nextNodes as $key => $node) {
+                    if (empty($node['status']) && $this->node(array('id' => $node['id'], 'status' => 'open', 'actors' => $actors))) {
+                        $this->nextNodes[$key]['status'] = 'open';
+                    }
+                }
+            }
+            $this->enterNode();
+        }
+    }
+
+    public function logNextMoveToStages($nodeID, $actors = array(), $status = '') {
+        $nextNodes = array();
+        foreach ((is_array($nodeID) ? $nodeID : $this->nextMoveToStages($nodeID)) as $key => $nextMoveToStage) {
+            if (!is_array($nextMoveToStage)) {
+                throw new \Exception(sprintf(__("Could not find stage with %s[%s]"), is_numeric($key) ? 'name' : 'id', $key));
+            }
+            $parentID = null;
+            if (isset($nextMoveToStage['parent_id'])) {
+                $parentID = $nextMoveToStage['parent_id'];
+            } else if (!is_array($nodeID)) {
+                $parentID = $nodeID;
+            }
+            $data = array(
+                'name' => $nextMoveToStage['name'],
+                'doc_id' => $this->data[$this->primaryKey],
+                'type_id' => $this->data['type_id'],
+                'stage_id' => $nextMoveToStage['id'],
+                'status' => isset($nextMoveToStage['status']) ? $nextMoveToStage['status'] : $status,
+                'child_rel' => array(array('parent_id' => $parentID)),
+                'actors' => $actors
+            );
+            if (isset($nextMoveToStage['relationship'])) {
+                $data['relationship'] = $nextMoveToStage['relationship'];
+            }
+            if (isset($nextMoveToStage['node_id'])) {
+                $data['id'] = $nextMoveToStage['node_id'];
+            }
+            if (isset($nextMoveToStage['log_id'])) {
+                $data['id'] = $nextMoveToStage['log_id'];
+            }
+            $id = $this->node($data);
+            $nextNodes[] = array_merge(array('id' => $id), $data);
+        }
+        return $nextNodes;
+    }
+
+    public function enterNode() {
+        // Process new stage enter details.
+        $engine = \module\brules\model\business_rules::getInstance(array(), true);
+        $actorsObject = \module\flexflow\model\actors::getInstance(array(), true);
+        $this->entityObject->acl['_acl_edit'] = array('op' => 'new', 'value' => '');
+        $this->entityObject->acl['_acl_delete'] = array('op' => 'new', 'value' => '');
+        foreach ($this->openNodes() as $node) {
+            $this->terminateSelf(false);
+            if (!is_array($node) || !isset($node['id']) || empty($node['id'])) {
+                $msg = sprintf(__('Could not retrieve open nodes for workflow document ID[%s]', 'module'), $this->id);
+                $this->logError($msg);
+                throw new \Exception($msg);
+            }
+
+            $this->nodeID($node['id']);
+            $runRules = \module\brules\model\business_rules::getInstance(array(), true)
+                    ->process($this, array('run_global_rules' => false, 'filter_path' => str_replace(NS, '/', $this->entityObject->modelClass), 'stage_id' => $node['stage_id'], 'event' => 'before_enter'));
+
+            if ($this->terminateSelf() === false) {
+                if ($node['is_readonly'] != 1 && empty($node['_acl_edit'])) {
+                    $msg = sprintf(__('Could not perform action "%s" on stage "%s" does not have any editors'), $this->data['action']['name'], $node['stage_name']);
+                    $this->logError($msg);
+                    throw new \Exception($msg);
+                }
+                $this->entityObject->acl['_acl']['value'] .= " {$node['_acl']}";
+                $this->entityObject->acl['_acl_edit']['value'] .= " {$node['_acl_edit']}";
+                $this->entityObject->acl['_acl_delete']['value'] .= " {$node['_acl_delete']}";
+                $notifications = \select(array(
+                            "notifications.*"
+                            , "stages.name as stage_name"
+                            , "stages.id as stage_id"
+                            , "notifications_stages.rule_id as rule_id"))
+                        ->from(\module\flexflow\model\notifications_stages::getInstance(array(), true))
+                        ->join('notifications', false, true)
+                        ->join('stages', false, true)
+                        ->inserted()
+                        ->where('stages.id', $node['id'])
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+                foreach ($notifications as $notificationKey => $notification) {
+                    if (isset($notification['rule_id']) && !empty($notification['rule_id'])) {
+                        // Each notification has rule attached to it. Notification will be sent only when rule is true.
+                        $runRules = $engine->process($this, array('filter_path' => '*', 'id' => $notification['rule_id']));
+                        if (is_array($runRules)) {
+                            $runRules = array_shift($runRules);
+                            if (!(isset($runRules['is_true_if_condition']) && $runRules['is_true_if_condition'] == true)) {
+                                unset($notifications[$notificationKey]);
+                            }
+                        }
+                    }
+                }
+                if (!empty($notifications)) {
+                    $this->notifications($notifications, $recipients);
+                }
+            } else {
+                $this->terminateNodes($node['id'], sprintf("Terminated by Rule"));
+            }
+        }
+    }
+
+    /**
+     * Find list of next move to stages base on current active log entry stage_id 
+     * 
+     * @return array 
+     */
+    public function nextMoveToStages($nodeID = null, $actionID = null) {
+        $stageObject = \module\flexflow\model\stages::getInstance(array(), true);
+        if (is_null($nodeID)) {
+            $nodeID = $this->nodeID();
+        }
+        if (is_null($actionID)) {
+            $actionID = $this->data['action']['id'];
+        }
+        $where = array("{$this->stage_log->alias}.id" => $nodeID);
+
+        // If all all ove to stages for all actions or only currently performed one.
+        if ($actionID !== false) {
+            $where["possible_actions.action_id"] = $actionID;
+        }
+        $where["move_to_stages.stage_id > "] = 0;
+        $moveToStages = array();
+        foreach (\select(array('move_to_stages.stage_id', 'move_to_stages.relationship'))
+                ->from($this->stage_log)
+                ->joinInner('stages')
+                ->joinInner('possible_actions')
+                ->joinInner('move_to_stages')
+                ->inserted()
+                ->where($where)
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC) as $info) {
+            $moveToStages[$info['stage_id']] = $info;
+        }
+        if (empty($moveToStages)) {
+            return array();
+        }
+        $return = $this->stages(array_keys($moveToStages));
+        foreach ($return as $k => $v) {
+            if (is_array($v) && isset($v['id']) && isset($moveToStages[$v['id']])) {
+                $return[$k] = array_merge($return[$k], $moveToStages[$v['id']]);
+            }
+        }
+        return $return;
+    }
+
+    /**
+     * Searches log entry which as last active with respect to current log entry.
+     * 
+     * @param array $ignore stage names to be ignored while searching previous stages
+     * @return array
+     */
+    public function previousActiveNode($ignore = array()) {
+        if (!is_array($ignore)) {
+            $ignore = array($ignore);
+        }
+        $nodeID = $this->nodeID();
+        $ignore = $this->stages($ignore, true);
+        while (!empty($nodeID)) {
+            $nodeID = \select('child_rel.parent_id')
+                    ->from($this->stage_log)
+                    ->join('child_rel')
+                    ->inserted()
+                    ->where("{$this->stage_log->alias}.id", $nodeID)
+                    ->where("{$this->stage_log->alias}.doc_id", $this->id)
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN);
+            if (empty($nodeID)) {
+                return false;
+            } elseif (!in_array($nodeID, $ignore)) {
+                return $nodeID;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Get details of stages based on stage name within scope of current flexflow document.
+     * 
+     * @param type $stages
+     * @param type $fetchOnlyID
+     * @return type 
+     */
+    public function stages($stages, $returnOnlyID = false, $ignoreTypeID = false) {
+        if (!is_array($stages)) {
+            $stages = array($stages);
+        }
+        $where = array('id' => array(), 'name' => array());
+        foreach ($stages as $stage) {
+            if (is_numeric($stage) || strlen($stage) != 36) {
+                $where['id'][] = $stage;
+            } else {
+                $where['name'][] = $stage;
+            }
+        }
+        if (empty($where['id'])) {
+            unset($where['id']);
+        }
+        if (empty($where['name'])) {
+            unset($where['name']);
+        }
+        if (count($where) == 2) {
+            $where = array('OR' => $where);
+        }
+
+        $data = array();
+        $data1 = array();
+        if (!empty($where)) {
+            if ($ignoreTypeID !== false) {
+                $where['type_id'] = $this->data['type_id'];
+            }
+            foreach (select("*")
+                    ->from(\module\flexflow\model\stages::getInstance(array(), true))
+                    ->inserted()
+                    ->where($where)
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $stage) {
+                $data[$stage["name"]] = ($returnOnlyID === true ? $stage['id'] : $stage);
+                $data1[$stage["id"]] = ($returnOnlyID === true ? $stage['id'] : $stage);
+            }
+        }
+        $return = array();
+        foreach ($stages as $stage) {
+            if (is_numeric($stage) || strlen($stage) != 36) {
+                $return[$stage] = isset($data1[$stage]) ? $data1[$stage] : false;
+            } else {
+                $return[$stage] = isset($data[$stage]) ? $data[$stage] : false;
+            }
+        }
+        return $return;
+    }
+
+    public function actions($actions, $returnOnlyID = false) {
+        if (!is_array($actions)) {
+            $actions = array($actions);
+        }
+        $where = array('id' => array(), 'name' => array());
+        foreach ($actions as $action) {
+            if (is_numeric($action) || strlen($action) == 36) {
+                $where['id'][] = $action;
+            } else {
+                $where['name'][] = $action;
+            }
+        }
+        if (empty($where['id'])) {
+            unset($where['id']);
+        }
+        if (empty($where['name'])) {
+            unset($where['name']);
+        }
+        if (count($where) == 2) {
+            $where = array('OR' => $where);
+        }
+        $data = array();
+        if (!empty($where)) {
+            foreach (select("*")
+                    ->from(\module\flexflow\model\actions::getInstance(array(), true))
+                    ->inserted()
+                    ->where($where)
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $action) {
+                $data[$action["name"]] = ($returnOnlyID === true ? $action['id'] : $action);
+            }
+        }
+        $return = array();
+        foreach ($actions as $action) {
+            $return[$action] = isset($data[$action]) ? $data[$action] : false;
+        }
+        return $return;
+    }
+
+    /**
+     * Set notifications in notification queue. All notifications will be processed as a last step in workflow.
+     * notifications for stages which are auto processed, will not be process. This method also process subject/body for any merge words.
+     *
+     * @author Tushar Takkar
+     * @param array $notifications
+     * @param string $action
+     */
+    public function notifications($notifications = null, $recipients = array()) {
+        if (!empty($notifications)) {
+            $node = $this->node($this->nodeID());
+            $nodeID = $node['id'];
+            if (!isset($notifications[0])) {
+                $notifications = array($notifications);
+            }
+            $data = $this->data;
+            $data['current_user'] = \tushar\user::readAll();
+            $data['base_url'] = \tushar\request::base();
+            if (isset($_SERVER)) {
+                $data['server'] = $_SERVER;
+            }
+            $data['stage_log'] = $this->node($nodeID);
+            $actorObj = \module\flexflow\model\actors::getInstance(array(), true);
+            // process merge words in notification emails.
+            foreach ($notifications as $key => $notification) {
+                foreach (array('notification_subject', 'notification_body') as $type) {
+                    $array = \tushar\string::split($notification[$type], array("merge_words" => "/\{\{[\.\w\-]*\}\}/i"));
+                    list($strings, $extracts) = $array;
+                    if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+                        $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+                        $extracts['merge_words'] = \tushar\string::populateWords($extracts['merge_words'], $data);
+                        $notifications[$key][$type] = \tushar\string::merge($strings, $extracts);
+                    }
+                }
+                if (isset($notification['notification_to']) && !empty($recipients)) {
+                    $notification['notification_to'].= " {$recipients}";
+                }
+                foreach (array('notification_to', 'notification_cc', 'notification_bcc') as $recipient) {
+                    if (!empty($notification[$recipient])) {
+                        $aclEdit = $acl = '';
+                        if (isset($this->entityObj->acl['_acl_edit'])) {
+                            if (is_array($this->entityObj->acl['_acl_edit'])) {
+                                $aclEdit = (isset($this->entityObj->acl['_acl_edit']['value']) ? $this->entityObj->acl['_acl_edit']['value'] : current($this->entityObj->acl['_acl_edit']));
+                            } else {
+                                $aclEdit = $this->entityObj->acl['_acl_edit'];
+                            }
+                        }
+                        if (isset($this->entityObj->acl['_acl'])) {
+                            if (is_array($this->entityObj->acl['_acl'])) {
+                                $acl = (isset($this->entityObj->acl['_acl']['value']) ? $this->entityObj->acl['_acl']['value'] : current($this->entityObj->acl['_acl']));
+                            } else {
+                                $acl = $this->entityObj->acl['_acl'];
+                            }
+                        }
+
+                        $not = str_replace(array('editors', 'readers'), array($aclEdit, $acl), $notification[$recipient]);
+                        $users = $actorObj->processACLString($not, true);
+                        $notifications[$key][$recipient] = array();
+                        $userList = array();
+                        foreach ($users as $user) {
+                            $userList[$user['id']] = $user;
+                        }
+                        foreach (\select(array('email_addresses.email', 'email_addresses.related_to', 'config_email_types.email_type'))
+                                ->from(\module\crm_base\model\email_addresses::getInstance(array(), true))
+                                ->join('config_email_types')
+                                ->inserted()
+                                ->where(array(
+                                    'email_addresses.related_to_model' => 'users',
+                                    'email_addresses.related_to' => array_keys($userList),
+                                    'config_email_types.email_type' => 'Office')
+                                )
+                                ->limit(0)
+                                ->group('related_to')
+                                ->execute()
+                                ->fetchAll(\PDO::FETCH_ASSOC) as $email) {
+                            $email = array_merge($email, $userList[$email['related_to']]);
+                            $notifications[$key][$recipient][] = $email;
+                        }
+                    }
+                }
+            }
+
+            if (!isset($this->data["notifications"][$nodeID])) {
+                $this->data["notifications"][$nodeID] = array();
+            }
+            $this->data["notifications"][$nodeID] = array_merge($this->data["notifications"][$nodeID], $notifications);
+        }
+    }
+
+    public function openNodes($returnUserInfo = false, $returnOnlyID = false) {
+        //$stageLog = \module\flexflow\model\stage_log::getInstance();
+        $ids = \select("{$this->stage_log->alias}.id")
+                ->from($this->stage_log)
+                ->inserted()
+                ->where("{$this->stage_log->alias}.doc_id", $this->id)
+                ->where("{$this->stage_log->alias}.status", 'open')
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN, 0);
+        if (!is_array($ids)) {
+            return array();
+        }
+        if ($returnOnlyID) {
+            return $ids;
+        } else {
+            foreach ($ids as $key => $id) {
+                $ids[$key] = $this->node($id, $returnUserInfo);
+            }
+            return $ids;
+        }
+    }
+
+    public function after($nodeID, $stages, $actors = array(), $relationship = 'is_sibling') {
+        if (isset($stages['id'])) {
+            $stages = array($stages);
+        }
+        // Insert new stages as node.
+        $nodeMap = array();
+        foreach ($stages as $stage) {
+            $logID = $this->node(array(
+                'name' => $stage['name'],
+                'type_id' => $this->data['type_id'],
+                'doc_id' => $this->id,
+                'stage_id' => $stage['id'],
+                'relationship' => $relationship,
+                'child_rel' => array(array('parent_id' => $nodeID)),
+                'actors' => $actors
+            ));
+            if ($logID !== false) {
+                $nodeMap[] = $logID;
+            } else {
+                $msg = sprintf(__("Error while creating new node for stage %s"), $stage['name']);
+                $this->logError($msg);
+                throw new \Exception($msg);
+            }
+        }
+        return $nodeMap;
+    }
+
+    public function hasUserEverActedOnSatge($userID, $stageID) {
+        return (bool) \select("{$this->stage_log->alias}.id")
+                        ->from($this->stage_log)
+                        ->joinInner('action_log')
+                        ->inserted()
+                        ->where("{$this->stage_log->alias}.doc_id", $this->id)
+                        ->where("{$this->stage_log->alias}.stage_id", $stageID)
+                        ->where("action_log.created_by", $userID)
+                        ->limit(1)
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+    }
+
+    public function incomingNodes($nodeID = null) {
+        if (empty($nodeID)) {
+            $nodeID = $this->nodeID();
+        }
+        $nodes = array();
+        $obj = $this->stage_log->child_rel;
+        foreach (\select(array("{$obj->alias}.parent_id"))
+                ->from($obj)
+                ->inserted()
+                ->where("{$obj->alias}.child_id", $nodeID)
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN) as $i => $nodeID) {
+            $nodes[$i] = $this->node($nodeID);
+        }
+        return $nodes;
+    }
+
+    public function outgoingNodes($nodeID = null) {
+        if (empty($nodeID)) {
+            $nodeID = $this->nodeID();
+        }
+        $nodes = array();
+        $obj = $this->stage_log->child_rel;
+        foreach (\select(array("{$obj->alias}.child_id"))
+                ->from($obj)
+                ->inserted()
+                ->where("{$obj->alias}.parent_id", $nodeID)
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN) as $i => $nodeID) {
+            $nodes[$i] = $this->node($nodeID);
+        }
+        return $nodes;
+    }
+
+    public function siblings($nodeID = null) {
+        if (empty($nodeID)) {
+            $nodeID = $this->nodeID();
+        }
+        $nodes = array();
+        $obj = $this->stage_log->child_rel;
+        foreach (\select(array("{$obj->alias}.child_id"))
+                ->from($obj)
+                ->inserted()
+                ->where("{$obj->alias}.parent_id", \select(array("{$obj->alias}.parent_id"))
+                        ->from($obj)
+                        ->inserted()
+                        ->where("{$obj->alias}.child_id", $nodeID)
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN)
+                )
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN) as $i => $nID) {
+            if ($nID != $nodeID) {
+                $nodes[$i] = $this->node($nodeID);
+            }
+        }
+        return $nodes;
+    }
+
+    public function afterSerial($nodeID, $stages, $actors = array()) {
+        $stages = $this->stages($stages);
+        foreach ($stages as $stage) {
+            $nodeID = current($this->after($nodeID, $stage, $actors));
+        }
+    }
+
+    public function authorizedActors($stageID = null, $actors = array()) {
+        $actorsObj = \module\flexflow\model\actors::getInstance(array(), true);
+
+        // Split numeric and non numeric actor ids.
+        $nonNumeric = array();
+        $numeric = array();
+        $incomplete = array();
+        if (!empty($actors)) {
+            foreach ($actors as $actor) {
+                if (is_array($actor) && isset($actor['actor_id'])) {
+                    $numeric[] = $actor['actor_id'];
+                    $incomplete[$actor['actor_id']] = array('can_edit' => (int) (isset($actor['can_edit']) && $actor['can_edit'] == 1 ), 'can_delete' => (int) (isset($actor['can_delete']) && $actor['can_delete'] == 1 ));
+                } else if (is_numeric($actor)) {
+                    $numeric[] = $actor;
+                } else {
+                    $nonNumeric[] = $actor;
+                }
+            }
+        }
+
+
+        // Find actor for Stage ID.
+        $nodeActors = array();
+        $where = array();
+        if (!empty($numeric)) {
+            $where["{$actorsObj->alias}.id"] = $numeric;
+        }
+        if (!empty($stageID)) {
+            if (!empty($where)) {
+                $where = array("OR" => array_merge($where, array('actor_stage.stage_id' => $stageID)));
+            } else {
+                $where = array('actor_stage.stage_id' => $stageID);
+            }
+        }
+        $nodeActors = array();
+        if (!empty($where)) {
+            $nodeActors = \select(array("{$actorsObj->alias}.*", 'actor_stage.can_edit', 'actor_stage.can_delete'))
+                    ->from($actorsObj)
+                    ->join('actor_stage')
+                    ->inserted()
+                    ->where($where)
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC);
+
+            if (!empty($nodeActors)) {
+                foreach ($nodeActors as $ii => $actor) {
+                    if (isset($incomplete[$actor['id']])) {
+                        $nodeActors[$ii] = array_merge($actor, $incomplete[$actor['id']]);
+                    }
+                }
+            }
+        }
+
+        $actors = array_merge($nodeActors, $nonNumeric);
+        // Fetch users+group for actors by permission
+        return $actorsObj->processActors($this, $actors, true);
+    }
+
+    /**
+      foreach ($actorsInfo[1]['read'] as $userID => $userInfo) {
+      $userInfo['log_id'] = $nodeID;
+      $userInfo['can_edit'] = (int) isset($actorsInfo[1]['edit'][$userID]);
+      $userInfo['can_delete'] = (int) isset($actorsInfo[1]['delete'][$userID]);
+      $authorizedUsersLogObj->save($userInfo, array('type' => 'insert', 'atomic' => true, 'ignore' => true));
+      }
+      return $actorsInfo;
+     */
+    public function addStageToAutoProcessQueue($nodeID, $state = true) {
+        $this->autoProcessQueue[$nodeID] = $state;
+    }
+
+    public function unsetStageFromQueue($nodeID) {
+        if (isset($this->autoProcessQueue[$nodeID])) {
+            unset($this->autoProcessQueue[$nodeID]);
+        }
+    }
+
+    public function isStageInAutoProcessQueue($nodeID) {
+        return (bool) (isset($this->autoProcessQueue[$nodeID]) ? $this->autoProcessQueue[$nodeID] : false);
+    }
+
+    public function getStageFromAutoProcessQueue($nodeID = null) {
+        if (!is_null($nodeID)) {
+            return $this->autoProcessQueue[$nodeID];
+        }
+        return $this->autoProcessQueue;
+    }
+
+}

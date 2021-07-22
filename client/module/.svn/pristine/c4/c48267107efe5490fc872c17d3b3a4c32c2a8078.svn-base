@@ -1,0 +1,18 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm\model;
+  class leads_revision_log extends \module\crm\model\leads_revision_log_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'crm__leads_revision_log';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'diff';
+       public $primaryKey = 'id';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+       public $isConfig = '0';
+  }

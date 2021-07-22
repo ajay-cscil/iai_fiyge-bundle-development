@@ -1,0 +1,886 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: maax\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: tushar takkar <ttakkar@primod.com>\n"
+"Language-Team: tushar takkar <tushartakkar@primarymodules.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: INDIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+
+msgid "Access Control List"
+msgstr "Список контроля доступа"
+
+msgid "accounts.account_name"
+msgstr "Имя учетной записи"
+
+msgid "accounts.account_type"
+msgstr "Тип счета"
+
+msgid "accounts.annual_revenue"
+msgstr "Годовой доход"
+
+msgid "accounts.created"
+msgstr "Созданный"
+
+msgid "accounts.created_by"
+msgstr "Создано"
+
+msgid "accounts.deleted"
+msgstr "Удаленный"
+
+msgid "accounts.description"
+msgstr "Описание"
+
+msgid "accounts.email_opt_out"
+msgstr "Email Отказаться от участия"
+
+msgid "accounts.employees"
+msgstr "Сотрудники"
+
+msgid "accounts.fax"
+msgstr "Факс"
+
+msgid "accounts.flags"
+msgstr "Флаги"
+
+msgid "accounts.id"
+msgstr "Id"
+
+msgid "accounts.imported"
+msgstr "Импортированный"
+
+msgid "accounts.imported_by"
+msgstr "Ввозимые"
+
+msgid "accounts.industry"
+msgstr "Промышленность"
+
+msgid "accounts.is_customer"
+msgstr "На клиента"
+
+msgid "accounts.is_supplier"
+msgstr "Является поставщиком"
+
+msgid "accounts.modified"
+msgstr "Модифицированный"
+
+msgid "accounts.modified_by"
+msgstr "Автор изменений"
+
+msgid "accounts.notify_owner"
+msgstr "Уведомлять владельца"
+
+msgid "accounts.owned_by"
+msgstr "Владелец"
+
+msgid "accounts.ownership"
+msgstr "Собственность"
+
+msgid "accounts.parent_id"
+msgstr "Родитель"
+
+msgid "accounts.primary_acl_group"
+msgstr "Первичные группы Acl"
+
+msgid "accounts.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "accounts.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "accounts.primary_city"
+msgstr "Первичный города"
+
+msgid "accounts.primary_country"
+msgstr "Первичная Страна"
+
+msgid "accounts.primary_state"
+msgstr "ОГРН"
+
+msgid "accounts.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "accounts.rating"
+msgstr "Рейтинг"
+
+msgid "accounts.revision"
+msgstr "Пересмотр"
+
+msgid "accounts.sic_code"
+msgstr "Sic кодекса"
+
+msgid "accounts.ticker_symbol"
+msgstr "Ticker Symbol"
+
+msgid "accounts.website"
+msgstr "Веб-сайт"
+
+msgid "accounts._acl"
+msgstr "Acl"
+
+msgid "accounts._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "accounts._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "accounts._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "accounts._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "accounts._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "ACL & Revisions"
+msgstr "ACL и ревизий"
+
+msgid "ACL Permissions"
+msgstr "ACL разрешений"
+
+msgid "add"
+msgstr "Добавлять"
+
+msgid "Add"
+msgstr "добавлять"
+
+msgid "Administration"
+msgstr "Управление"
+
+msgid "app-menu"
+msgstr "приложение-меню"
+
+msgid "Basic Information"
+msgstr "Базовая информация"
+
+msgid "Business Rule Log"
+msgstr "Журнал бизнес-правил"
+
+msgid "Can Delete"
+msgstr "Может Удалить"
+
+msgid "Can Edit"
+msgstr "Может Редактировать"
+
+msgid "Can Read"
+msgstr "Умеет читать"
+
+msgid "Clone"
+msgstr "Клон"
+
+msgid "Configurations"
+msgstr "Конфигурации"
+
+msgid "create"
+msgstr "создавать"
+
+msgid "Create"
+msgstr "создавать"
+
+msgid "createdBy.accesskey"
+msgstr "Accesskey"
+
+msgid "createdBy.currency_id"
+msgstr "Валюта Id"
+
+msgid "createdBy.deleted"
+msgstr "удаленный"
+
+msgid "createdBy.department"
+msgstr "Отдел"
+
+msgid "createdBy.description"
+msgstr "Описание"
+
+msgid "createdBy.fax"
+msgstr "Факс"
+
+msgid "createdBy.first_name"
+msgstr "Имя"
+
+msgid "createdBy.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "createdBy.hour_format"
+msgstr "Часовой формат"
+
+msgid "createdBy.id"
+msgstr "Id"
+
+msgid "createdBy.is_active"
+msgstr "Активен"
+
+msgid "createdBy.last_name"
+msgstr "Фамилия"
+
+msgid "createdBy.locale"
+msgstr "Locale"
+
+msgid "createdBy.owned_by"
+msgstr "Владелец"
+
+msgid "createdBy.parent_id"
+msgstr "Родитель Id"
+
+msgid "createdBy.role_id"
+msgstr "Роль Id"
+
+msgid "createdBy.salutation"
+msgstr "Приветствие"
+
+msgid "createdBy.signature"
+msgstr "Подпись"
+
+msgid "createdBy.skin"
+msgstr "Кожа"
+
+msgid "createdBy.status"
+msgstr "Статус"
+
+msgid "createdBy.theme"
+msgstr "Тема"
+
+msgid "createdBy.time_zone"
+msgstr "Часовой пояс"
+
+msgid "createdBy.title"
+msgstr "Название"
+
+msgid "createdBy.user_name"
+msgstr "Имя пользователя"
+
+msgid "createdBy.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "created_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "created_by_user.company_id"
+msgstr "Компания"
+
+msgid "created_by_user.created"
+msgstr "Созданный"
+
+msgid "created_by_user.created_by"
+msgstr "Создано"
+
+msgid "created_by_user.currency_id"
+msgstr "Валюта"
+
+msgid "created_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "created_by_user.department"
+msgstr "Отдел"
+
+msgid "created_by_user.description"
+msgstr "Описание"
+
+msgid "created_by_user.enable_debug_mode"
+msgstr "Включить режим отладки"
+
+msgid "created_by_user.enable_logger"
+msgstr "Включить Logger"
+
+msgid "created_by_user.ext"
+msgstr "Ext"
+
+msgid "created_by_user.fax"
+msgstr "Факс"
+
+msgid "created_by_user.first_name"
+msgstr "Имя"
+
+msgid "created_by_user.flags"
+msgstr "Флаги"
+
+msgid "created_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "created_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "created_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "created_by_user.id"
+msgstr "Id"
+
+msgid "created_by_user.is_active"
+msgstr "Активен"
+
+msgid "created_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "created_by_user.locale"
+msgstr "Locale"
+
+msgid "created_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "created_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "created_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "created_by_user.name"
+msgstr "Имя"
+
+msgid "created_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "created_by_user.parent_id"
+msgstr "Родитель"
+
+msgid "created_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "created_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "created_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "created_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "created_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "created_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "created_by_user.region_id"
+msgstr "Регион"
+
+msgid "created_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "created_by_user.role_id"
+msgstr "Роль"
+
+msgid "created_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "created_by_user.signature"
+msgstr "Подпись"
+
+msgid "created_by_user.skin"
+msgstr "Кожа"
+
+msgid "created_by_user.src"
+msgstr "Src"
+
+msgid "created_by_user.status"
+msgstr "Статус"
+
+msgid "created_by_user.theme"
+msgstr "Тема"
+
+msgid "created_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "created_by_user.title"
+msgstr "Название"
+
+msgid "created_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "created_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "delete"
+msgstr "Удалять"
+
+msgid "Delete"
+msgstr "удалять"
+
+msgid "Delete Access"
+msgstr "Удалить Access"
+
+msgid "Delete Selected"
+msgstr "удалять выбранные"
+
+msgid "Developer"
+msgstr "Разработчик"
+
+msgid "Document ID"
+msgstr "Документ ID"
+
+msgid "Document Information "
+msgstr "Информация о документе"
+
+msgid "edit"
+msgstr "редактировать"
+
+msgid "Edit"
+msgstr "редактировать"
+
+msgid "Edit Access"
+msgstr "Изменить Access"
+
+msgid "Edit Selected"
+msgstr "Изменить выбранные"
+
+msgid "Effective Read Access Groups"
+msgstr "Эффективное прочитаны Группы доступа"
+
+msgid "Effective Read Access Users"
+msgstr "Эффективное Чтение Пользователи доступа"
+
+msgid "Export Selected"
+msgstr "экспортировать выбранные"
+
+msgid "Flexflow Document Business Rule Log"
+msgstr "FlexFlow Документ Business Rule Войти"
+
+msgid "From"
+msgstr "От"
+
+msgid "Group / User "
+msgstr "Пользователя / группы"
+
+msgid "Group / User"
+msgstr "Пользователя / группы"
+
+msgid "index"
+msgstr "индекс"
+
+msgid "Index"
+msgstr "индекс"
+
+msgid "License Management"
+msgstr "Управление лицензиями"
+
+msgid "Licenses"
+msgstr "Лицензии"
+
+msgid "licenses"
+msgstr "Лицензии"
+
+msgid "licenses.account_id"
+msgstr "Имя учетной записи"
+
+msgid "licenses.created"
+msgstr "Созданный"
+
+msgid "licenses.created_by"
+msgstr "Создано"
+
+msgid "licenses.deleted"
+msgstr "удаленный"
+
+msgid "licenses.description"
+msgstr "Описание"
+
+msgid "licenses.download_link"
+msgstr "Ссылка для скачивания"
+
+msgid "licenses.end"
+msgstr "КОНЕЦ"
+
+msgid "licenses.flags"
+msgstr "Флаги"
+
+msgid "licenses.id"
+msgstr "Id"
+
+msgid "licenses.license_key"
+msgstr "Лицензионный ключ"
+
+msgid "licenses.max_users"
+msgstr "Макс пользователей"
+
+msgid "licenses.modified"
+msgstr "Модифицированный"
+
+msgid "licenses.modified_by"
+msgstr "Автор изменений"
+
+msgid "licenses.module"
+msgstr "Модуль"
+
+msgid "licenses.name"
+msgstr "Имя"
+
+msgid "licenses.owned_by"
+msgstr "Владелец"
+
+msgid "licenses.revision"
+msgstr "Пересмотр"
+
+msgid "licenses.start"
+msgstr "СНВ"
+
+msgid "license_domains"
+msgstr "Лицензия области"
+
+msgid "License_domains"
+msgstr "License_domains"
+
+msgid "license_domains.created"
+msgstr "Созданный"
+
+msgid "license_domains.created_by"
+msgstr "Создано"
+
+msgid "license_domains.deleted"
+msgstr "удаленный"
+
+msgid "license_domains.domain"
+msgstr "Домен"
+
+msgid "license_domains.flags"
+msgstr "Флаги"
+
+msgid "license_domains.id"
+msgstr "Id"
+
+msgid "license_domains.license_id"
+msgstr "Лицензия Id"
+
+msgid "license_domains.modified"
+msgstr "Модифицированный"
+
+msgid "license_domains.modified_by"
+msgstr "Автор изменений"
+
+msgid "license_domains.owned_by"
+msgstr "Владелец"
+
+msgid "license_domains.revision"
+msgstr "Пересмотр"
+
+msgid "license_ips"
+msgstr "Лицензия кадров в секунду"
+
+msgid "License_ips"
+msgstr "License_ips"
+
+msgid "license_ips.created"
+msgstr "Созданный"
+
+msgid "license_ips.created_by"
+msgstr "Создано"
+
+msgid "license_ips.deleted"
+msgstr "удаленный"
+
+msgid "license_ips.flags"
+msgstr "Флаги"
+
+msgid "license_ips.id"
+msgstr "Id"
+
+msgid "license_ips.ip"
+msgstr "Ip"
+
+msgid "license_ips.license_id"
+msgstr "Лицензия Id"
+
+msgid "license_ips.modified"
+msgstr "Модифицированный"
+
+msgid "license_ips.modified_by"
+msgstr "Автор изменений"
+
+msgid "license_ips.owned_by"
+msgstr "Владелец"
+
+msgid "license_ips.revision"
+msgstr "Пересмотр"
+
+msgid "license_management"
+msgstr "Управление лицензиями"
+
+msgid "listviews.created"
+msgstr "Созданный"
+
+msgid "listviews.created_by"
+msgstr "Создано"
+
+msgid "listviews.modified"
+msgstr "Модифицированный"
+
+msgid "listviews.modified_by"
+msgstr "Автор изменений"
+
+msgid "listviews.owned_by"
+msgstr "Владелец"
+
+msgid "listviews.primary_acl_group"
+msgstr "Первичные группы Acl"
+
+msgid "listviews.revision"
+msgstr "Пересмотр"
+
+msgid "modifiedBy.accesskey"
+msgstr "Accesskey"
+
+msgid "modifiedBy.currency_id"
+msgstr "Валюта Id"
+
+msgid "modifiedBy.deleted"
+msgstr "удаленный"
+
+msgid "modifiedBy.department"
+msgstr "Отдел"
+
+msgid "modifiedBy.description"
+msgstr "Описание"
+
+msgid "modifiedBy.fax"
+msgstr "Факс"
+
+msgid "modifiedBy.first_name"
+msgstr "Имя"
+
+msgid "modifiedBy.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "modifiedBy.hour_format"
+msgstr "Часовой формат"
+
+msgid "modifiedBy.id"
+msgstr "Id"
+
+msgid "modifiedBy.is_active"
+msgstr "Активен"
+
+msgid "modifiedBy.last_name"
+msgstr "Фамилия"
+
+msgid "modifiedBy.locale"
+msgstr "Locale"
+
+msgid "modifiedBy.owned_by"
+msgstr "Владелец"
+
+msgid "modifiedBy.parent_id"
+msgstr "Родитель Id"
+
+msgid "modifiedBy.role_id"
+msgstr "Роль Id"
+
+msgid "modifiedBy.salutation"
+msgstr "Приветствие"
+
+msgid "modifiedBy.signature"
+msgstr "Подпись"
+
+msgid "modifiedBy.skin"
+msgstr "Кожа"
+
+msgid "modifiedBy.status"
+msgstr "Статус"
+
+msgid "modifiedBy.theme"
+msgstr "Тема"
+
+msgid "modifiedBy.time_zone"
+msgstr "Часовой пояс"
+
+msgid "modifiedBy.title"
+msgstr "Название"
+
+msgid "modifiedBy.user_name"
+msgstr "Имя пользователя"
+
+msgid "modifiedBy.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "modified_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "modified_by_user.company_id"
+msgstr "Компания"
+
+msgid "modified_by_user.created"
+msgstr "Созданный"
+
+msgid "modified_by_user.created_by"
+msgstr "Создано"
+
+msgid "modified_by_user.currency_id"
+msgstr "Валюта"
+
+msgid "modified_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "modified_by_user.department"
+msgstr "Отдел"
+
+msgid "modified_by_user.description"
+msgstr "Описание"
+
+msgid "modified_by_user.enable_debug_mode"
+msgstr "Включить режим отладки"
+
+msgid "modified_by_user.enable_logger"
+msgstr "Включить Logger"
+
+msgid "modified_by_user.ext"
+msgstr "Ext"
+
+msgid "modified_by_user.fax"
+msgstr "Факс"
+
+msgid "modified_by_user.first_name"
+msgstr "Имя"
+
+msgid "modified_by_user.flags"
+msgstr "Флаги"
+
+msgid "modified_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "modified_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "modified_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "modified_by_user.id"
+msgstr "Id"
+
+msgid "modified_by_user.is_active"
+msgstr "Активен"
+
+msgid "modified_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "modified_by_user.locale"
+msgstr "Locale"
+
+msgid "modified_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "modified_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "modified_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "modified_by_user.name"
+msgstr "Имя"
+
+msgid "modified_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "modified_by_user.parent_id"
+msgstr "Родитель"
+
+msgid "modified_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "modified_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "modified_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "modified_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "modified_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "modified_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "modified_by_user.region_id"
+msgstr "Регион"
+
+msgid "modified_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "modified_by_user.role_id"
+msgstr "Роль"
+
+msgid "modified_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "modified_by_user.signature"
+msgstr "Подпись"
+
+msgid "modified_by_user.skin"
+msgstr "Кожа"
+
+msgid "modified_by_user.src"
+msgstr "Src"
+
+msgid "modified_by_user.status"
+msgstr "Статус"
+
+msgid "modified_by_user.theme"
+msgstr "Тема"
+
+msgid "modified_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "modified_by_user.title"
+msgstr "Название"
+
+msgid "modified_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "modified_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "More"
+msgstr "Больше"
+
+msgid "Place holder"
+msgstr "Место держатель"
+
+msgid "r"
+msgstr "т"
+
+msgid "Read Access"
+msgstr "Прочитано Access"
+
+msgid "Related Information"
+msgstr "Дополнительная информация"
+
+msgid "Revision Log"
+msgstr "Редакция журнала"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "settings-menu"
+msgstr "Настройки меню"
+
+msgid "Some users might be granted access via groups"
+msgstr "Некоторые пользователям может быть предоставлен доступ через группы"
+
+msgid "Submit"
+msgstr "Представлять"
+
+msgid "SYSTEM_ACL_REVISIONS"
+msgstr "SYSTEM ACL ПЕРЕСМОТРЕННЫМ"
+
+msgid "Temporary ACL"
+msgstr "Временные ACL"
+
+msgid "Temporary Delete"
+msgstr "Временные Delete"
+
+msgid "Temporary Edit"
+msgstr "Временные Edit"
+
+msgid "To"
+msgstr "К"
+
+msgid "view"
+msgstr "вид"
+
+msgid "View"
+msgstr "вид"

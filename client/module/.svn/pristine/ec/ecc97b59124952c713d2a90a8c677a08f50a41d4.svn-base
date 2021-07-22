@@ -1,0 +1,313 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\model;
+
+class schemas_domain_logic extends \tushar\model{
+    public $isSystemModel=1;
+    public function exportRelatedModuleData($moduleID, $manifest, $page=null) {
+
+        $ignoreFields = array("old_before_enter_rule_id", "old_before_exit_rule_id", "old_rule_id", "created", "created_by", "modified", "modified_by", "revision", "imported_by", "imported", "lft", "rgt");
+        $schemas = $roles = $groups = $notificationsStages = $types = $business_rules = $stages = $actor_stage = $actors = $xvars = $notifications
+                = $possible_actions = $actions = $actions_notifications = $notifications = $move_to_stages = array();
+
+        $notificationsStagesObject = \module\flexflow\model\notifications_stages::getInstance();
+        $notificationObject = $notificationsStagesObject->notifications;
+        $typeObject = $this->{'types'};
+        $businessRulesObject = $typeObject->{'business_rules'};
+        $stageObject = $typeObject->{'stages'};
+        $actorStageObject = $stageObject->actor_stage;
+        $actorObject = $actorStageObject->actors;
+        $xvarsObject = $actorObject->xvars;
+        $possibleActionsObject = $stageObject->possible_actions;
+        $actionObject = $possibleActionsObject->actions;
+        $actionNotificationObject = $actionObject->actions_notifications;
+        $moveToStagesObject = $possibleActionsObject->move_to_stages;
+        $rolesObject = \module\access_controls\model\roles::getInstance();
+        $groupsObject = \module\access_controls\model\groups::getInstance();
+
+        // Read all schemas.
+        $schemas = \select($this->fieldList($this, $ignoreFields))
+                ->from($this)
+                ->where("{$this->alias}.name LIKE ", "\\\\module\\\\{$manifest['name']}\\\\")
+                ->inserted()
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        foreach ($schemas as $k => $schema) {
+            // Read all types for given schema ID.
+            foreach (\select($this->fieldList($typeObject, $ignoreFields))
+                    ->from($typeObject)
+                    ->where("{$typeObject->alias}.schema_id", $schema['id'])
+                    ->inserted()
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $typeKey => $type) {
+                //Read Types
+                $types[$type['id']] = $type;
+                // Read Type Rule
+                $business_rules[$type['rule_id']] = \select($this->fieldList($businessRulesObject, $ignoreFields))
+                        ->from($businessRulesObject)
+                        ->where("{$businessRulesObject->alias}.id", $type['rule_id'])
+                        ->inserted()
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+                foreach (\select($this->fieldList($stageObject, $ignoreFields))
+                        ->from($stageObject)
+                        ->where("{$stageObject->alias}.type_id", $type['id'])
+                        ->inserted()
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC) as $stageKey => $stage) {
+                    // Read stages
+                    $stages[$stage['id']] = $stage;
+                    foreach (\select($this->fieldList($actorStageObject, $ignoreFields))
+                            ->from($actorStageObject)
+                            ->where("{$actorStageObject->alias}.stage_id", $stage['id'])
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC) as $actorStageKey => $actorStage) {
+                        // Read stage actors                    
+                        $actor_stage[$actorStage['id']] = $actorStage;
+                        // Read actors
+                        $actor = \select($this->fieldList($actorObject, $ignoreFields))
+                                ->from($actorObject)
+                                ->where("{$actorObject->alias}.id", $actorStage['actor_id'])
+                                ->inserted()
+                                ->limit(0)
+                                ->execute()
+                                ->fetch(\PDO::FETCH_ASSOC);
+                        $actors[$actor['id']] = $actor;
+                        // Read xvar
+                        if (isset($actor['foreign_key_model']) && $actor['foreign_key_model'] == 'xvars') {
+                            $xvars[$actor['foreign_key']] = \select($this->fieldList($xvarsObject, $ignoreFields))
+                                    ->from($xvarsObject)
+                                    ->where("{$xvarsObject->alias}.id", $actor['foreign_key'])
+                                    ->inserted()
+                                    ->limit(0)
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_ASSOC);
+                        } else if (isset($actor['foreign_key_model']) && $actor['foreign_key_model'] == 'roles') {
+                            $roles[$actor['foreign_key']] = \select($this->fieldList($rolesObject, $ignoreFields))
+                                    ->from($rolesObject)
+                                    ->where("{$rolesObject->alias}.id", $actor['foreign_key'])
+                                    ->inserted()
+                                    ->limit(0)
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_ASSOC);
+                        } else if (isset($actor['foreign_key_model']) && $actor['foreign_key_model'] == 'groups') {
+                            $groups[$actor['foreign_key']] = \select($this->fieldList($groupsObject, $ignoreFields))
+                                    ->from($groupsObject)
+                                    ->where("{$groupsObject->alias}.id", $actor['foreign_key'])
+                                    ->inserted()
+                                    ->limit(0)
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_ASSOC);
+                        }
+                    }
+                    // Read notifications Stages
+                    foreach (\select($this->fieldList($notificationsStagesObject, $ignoreFields))
+                            ->from($notificationsStagesObject)
+                            ->where("{$notificationsStagesObject->alias}.stage_id", $stage['id'])
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC) as $notificationsStage) {
+                        $notificationsStages[$notificationsStage['id']] = $notificationsStage;
+                    }
+
+                    // Read notification
+                    foreach (\select($this->fieldList($notificationObject, $ignoreFields))
+                            ->from($notificationsStagesObject)
+                            ->join('notifications')
+                            ->where("{$notificationsStagesObject->alias}.stage_id", $stage['id'])
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC) as $notification) {
+                        $notifications[$notification['id']] = $notification;
+                    }
+
+
+                    // read stage rules.
+                    foreach (\select($this->fieldList($businessRulesObject, $ignoreFields))
+                            ->from($businessRulesObject)
+                            ->where("{$businessRulesObject->alias}.stage_id", $stage['id'])
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC) as $business_rule) {
+                        $business_rules[$business_rule['id']] = $business_rule;
+                    }
+
+                    // read stage possible actions
+                    foreach (\select($this->fieldList($possibleActionsObject, $ignoreFields))
+                            ->from($possibleActionsObject)
+                            ->where("{$possibleActionsObject->alias}.stage_id", $stage['id'])
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC) as $possibleActionKey => $possible_action) {
+                        $possible_actions[$possible_action['id']] = $possible_action;
+
+                        // Read action information
+                        $action = \select($this->fieldList($actionObject, $ignoreFields))
+                                ->from($actionObject)
+                                ->where("{$actionObject->alias}.id", $possible_action['action_id'])
+                                ->inserted()
+                                ->limit(0)
+                                ->execute()
+                                ->fetch(\PDO::FETCH_ASSOC);
+                        $actions[$action['id']] = $action;
+
+                        foreach (\select($this->fieldList($actionNotificationObject, $ignoreFields))
+                                ->from($actionNotificationObject)
+                                ->where("actions_notifications.action_id", $possible_action['action_id'])
+                                ->inserted()
+                                ->limit(0)
+                                ->execute()
+                                ->fetchAll(\PDO::FETCH_ASSOC) as $actions_notification) {
+                            $actions_notifications[$actions_notification['id']] = $actions_notification;
+                        }
+
+                        foreach (\select($this->fieldList($notificationObject, $ignoreFields))
+                                ->from($actionNotificationObject)
+                                ->join('notifications')
+                                ->where("actions_notifications.action_id", $possible_action['action_id'])
+                                ->inserted()
+                                ->limit(0)
+                                ->execute()
+                                ->fetchAll(\PDO::FETCH_ASSOC) as $notification) {
+                            $notifications[$notification['id']] = $notification;
+                        }
+                        // Read action rules
+                        foreach (\select($this->fieldList($businessRulesObject, $ignoreFields))
+                                ->from($businessRulesObject)
+                                ->where("{$businessRulesObject->alias}.action_id", $possible_action['action_id'])
+                                ->inserted()
+                                ->limit(0)
+                                ->execute()
+                                ->fetchAll(\PDO::FETCH_ASSOC) as $business_rule) {
+                            $business_rules[$business_rule['id']] = $business_rule;
+                        }
+                        // Read move to stages for current stage
+                        foreach (\select($this->fieldList($moveToStagesObject, $ignoreFields))
+                                ->from($moveToStagesObject)
+                                ->where("{$moveToStagesObject->alias}.possible_action_id", $possible_action['id'])
+                                ->inserted()
+                                ->limit(0)
+                                ->execute()
+                                ->fetchAll(\PDO::FETCH_ASSOC) as $moveToStageKey => $moveToStage) {
+                            $move_to_stages[$moveToStage['id']] = $moveToStage;
+                            foreach (\select($this->fieldList($stageObject, $ignoreFields))
+                                    ->from($stageObject)
+                                    ->where("{$stageObject->alias}.id", $moveToStage['stage_id'])
+                                    ->inserted()
+                                    ->limit(0)
+                                    ->execute()
+                                    ->fetchAll(\PDO::FETCH_ASSOC) as $stage) {
+                                $stages[$stage['id']] = $stage;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return array(
+            'schemas' => $schemas,
+            'types' => $types,
+            'stages' => $stages,
+            'actor_stage' => $actor_stage,
+            'actors' => $actors,
+            'xvars' => $xvars,
+            'roles' => $roles,
+            'groups' => $groups,
+            'possible_actions' => $possible_actions,
+            'actions' => $actions,
+            'notifications' => $notifications,
+            'business_rules' => $business_rules,
+            'move_to_stages' => $move_to_stages,
+            'actions_notifications' => $actions_notifications,
+            'notifications_stages' => $notificationsStages
+        );
+    }
+
+    public function importRelatedModuleData($module, $manifest, $records, $options=array()) {
+        $return = array();
+        $notificationsStagesObject = \module\flexflow\model\notifications_stages::getInstance();
+        $notificationObject = $notificationsStagesObject->notifications;
+        $typeObject = $this->{'types'};
+        $businessRulesObject = $typeObject->{'business_rules'};
+        $stageObject = $typeObject->{'stages'};
+        $actorStageObject = $stageObject->actor_stage;
+        $actorObject = $actorStageObject->actors;
+        $xvarsObject = $actorObject->xvars;
+        $possibleActionsObject = $stageObject->possible_actions;
+        $actionObject = $possibleActionsObject->actions;
+        $actionNotificationObject = $actionObject->actions_notifications;
+        $moveToStagesObject = $possibleActionsObject->move_to_stages;
+        $rolesObject = \module\access_controls\model\roles::getInstance();
+        $groupsObject = \module\access_controls\model\groups::getInstance();
+
+
+
+        $objects = array();
+        $objects['schemas'] = $this;
+        $objects['types'] = $typeObject;
+        $objects['business_rules'] = $businessRulesObject;
+        $objects['stages'] = $stageObject;
+        $objects['actors'] = $actorObject;
+        $objects['xvars'] = $xvarsObject;
+        $objects['roles'] = $rolesObject;
+        $objects['groups'] = $groupsObject;
+        $objects['notifications'] = $notificationObject;
+        $objects['actions'] = $actionObject;
+        $objects['actor_stage'] = $actorStageObject;
+        $objects['possible_actions'] = $possibleActionsObject;
+        $objects['actions_notifications'] = $actionNotificationObject;
+        $objects['move_to_stages'] = $moveToStagesObject;
+        $objects['notifications_stages'] = $notificationsStagesObject;
+
+        try {
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('begin');
+            }
+            foreach ($objects as $key => $object) {
+                if (isset($records[$key]) && is_array($records[$key])) {
+                    foreach ($records[$key] as $k => $record) {
+                        if (isset($record[$object->primaryKey])) {
+                            $recordID = \select("{$object->primaryKey}")
+                                    ->from($object)
+                                    ->inserted()
+                                    ->where($object->primaryKey, $record[$object->primaryKey])
+                                    ->limit(1)
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN, 0);
+                            if (!empty($recordID)) {
+                                continue;
+                            }
+                        }
+                        $object->save($record, array('atomic' => true, 'validate' => false)); //, 'compute_actors' => false
+                    }
+                }
+            }
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('commit');
+            }
+        } catch (\Exception $e) {
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('rollback');
+            }
+            static::$errors[] = $e->getMessage();
+            return false;
+        }
+        return true;
+    }
+
+}

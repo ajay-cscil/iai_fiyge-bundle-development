@@ -1,0 +1,182 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+/**
+ * @author Pooja Pednekar<ppednekar@primarymodules.com>
+ */
+class TestExclusiveChoice extends UnitTestCase
+{
+
+    private $stages = array();
+    private $dataIds = array();
+    private $schemasObject = array();
+    private $metatypesObject = array();
+    private $brulesObj = array();
+    private $typesObject = array();
+    private $stagesObject = array();
+    private $possibleActionsObject = array();
+    private $stageActorsObject = array();
+    private $typesStagesObject = array();
+
+
+    function TestExclusiveChoice()
+    {
+        $this->UnitTestCase('Exclusive Choice Pattern');
+        $this->schemasObject = \module\flexflow\model\ff_schemas::getInstance();
+        $this->schemasObject->data['name'] = 'testExclusiveChoice';
+        $this->schemasObject->data['desc'] = 'testExclusiveChoice';
+        $this->schemasObject->save($this->schemasObject->data, array('atomic' => true));
+        $this->dataIds['schemasObject'][] = $this->schemasObject->data['id'];
+
+        $this->metatypesObject = \module\flexflow\model\ff_metatypes::getInstance();
+        $this->metatypesObject->data['name'] = 'testExclusiveChoice';
+        $this->metatypesObject->data['desc'] = 'testExclusiveChoice';
+        $this->metatypesObject->data['schema_id'] = $this->schemasObject->data['id'];
+        $this->metatypesObject->save($this->metatypesObject->data, array('atomic' => true));
+        $this->dataIds['metatypesObject'][] = $this->metatypesObject->data['id'];
+
+        $this->brulesObj = \module\brules\model\business_rules::getInstance();
+        $this->brulesObj->data['name'] = 'testExclusiveChoice';
+        $this->brulesObj->data['runlevel'] = 2;
+        $this->brulesObj->data['filter_path'] = '*';
+        $this->brulesObj->data['then_condition'] = 'true;';
+        $this->brulesObj->data['if_condition'] = '$object->entityObj->data["ff_schema"] == "testExclusiveChoice"';
+        $this->brulesObj->save($this->brulesObj->data, array('atomic' => true));
+        $this->dataIds['brulesObj'][] = $this->brulesObj->data['id'];
+
+        $this->typesObject = \module\flexflow\model\ff_types::getInstance();
+        $this->typesObject->data['name'] = 'testExclusiveChoice';
+        $this->typesObject->data['desc'] = 'testExclusiveChoice';
+        $this->typesObject->data['ff_metatype_id'] = $this->metatypesObject->data['id'];
+        $this->typesObject->data['ff_rule_id'] = $this->brulesObj->data['id'];
+        $this->typesObject->save($this->typesObject->data, array('atomic' => true));
+        $this->dataIds['typesObject'][] = $this->typesObject->data['id'];
+
+        $this->stagesObject = \module\flexflow\model\ff_stages::getInstance();
+        $this->stagesObject->data['name'] = 'revenue <= 100';
+        $this->stagesObject->data['desc'] = 'revenue <= 100';
+        $this->stagesObject->save($this->stagesObject->data, array('atomic' => true));
+        $this->dataIds['stagesObject'][] = $this->stagesObject->data['id'];
+        $this->stages['revenue <=100'] = $this->stagesObject->data['id'];
+
+
+        $this->possibleActionsObject = \module\flexflow\model\ff_possible_actions::getInstance();
+        $this->possibleActionsObject->data['ff_action_id'] = 2;
+        $this->possibleActionsObject->data['ff_stage_id'] = $this->stagesObject->data['id'];
+        $this->possibleActionsObject->save($this->possibleActionsObject->data, array('atomic' => true));
+        $this->dataIds['possibleActionsObject'][] = $this->possibleActionsObject->data['id'];
+
+        $this->stageActorsObject = \module\flexflow\model\ff_actor_ff_stage::getInstance();
+        $this->stageActorsObject->data['ff_actor_id'] = 8;
+        $this->stageActorsObject->data['ff_stage_id'] = $this->stagesObject->data['id'];
+        $this->stageActorsObject->save($this->stageActorsObject->data, array('atomic' => true));
+        $this->dataIds['stageActorsObject'][] = $this->stageActorsObject->data['id'];
+
+        $this->brulesObj->data = array();
+        $this->brulesObj->data['name'] = 'revenue <=100';
+        $this->brulesObj->data['runlevel'] = 2;
+        $this->brulesObj->data['event'] = 'init';
+        $this->brulesObj->data['filter_path'] = '/module/flexflow/model/action_Submit';
+        $this->brulesObj->data['then_condition'] = '$object->setCurrentStages(array(array("id"=>'.$this->stagesObject->data['id'].')));';
+        $this->brulesObj->data['if_condition'] = 'isset($object->entityObj->data["revenue"]) && $object->entityObj->data["revenue"] <= 100 && $object->entityObj->data["ff_schema"] == "testExclusiveChoice"';
+        $this->brulesObj->save($this->brulesObj->data, array('atomic' => true));
+        $this->dataIds['brulesObj'][] = $this->brulesObj->data['id'];
+
+        $this->stagesObject->data = array();
+        $this->stagesObject->data['name'] = 'revenue > 100';
+        $this->stagesObject->data['desc'] = 'revenue >  100';
+        $this->stagesObject->save($this->stagesObject->data, array('atomic' => true));
+        $this->dataIds['stagesObject'][] = $this->stagesObject->data['id'];
+        $this->stages['revenue > 100'] = $this->stagesObject->data['id'];
+
+        $this->possibleActionsObject->data = array();
+        $this->possibleActionsObject->data['ff_action_id'] = 2;
+        $this->possibleActionsObject->data['ff_stage_id'] = $this->stagesObject->data['id'];
+        $this->possibleActionsObject->save($this->possibleActionsObject->data, array('atomic' => true));
+        $this->dataIds['possibleActionsObject'][] = $this->possibleActionsObject->data['id'];
+
+         $this->stageActorsObject->data = array();
+        $this->stageActorsObject->data['ff_actor_id'] = 8;
+        $this->stageActorsObject->data['ff_stage_id'] = $this->stagesObject->data['id'];
+        $this->stageActorsObject->save($this->stageActorsObject->data, array('atomic' => true));
+        $this->dataIds['stageActorsObject'][] = $this->stageActorsObject->data['id'];
+
+        $this->brulesObj->data = array();
+        $this->brulesObj->data['name'] = 'revenue > 100';
+        $this->brulesObj->data['runlevel'] = 2;
+        $this->brulesObj->data['event'] = 'init';
+        $this->brulesObj->data['filter_path'] = '/module/flexflow/model/action_Submit';
+        $this->brulesObj->data['then_condition'] = '$object->setCurrentStages(array(array("id"=>'.$this->stagesObject->data['id'].')));';
+        $this->brulesObj->data['if_condition'] = 'isset($object->entityObj->data["revenue"]) && $object->entityObj->data["revenue"] > 100 && $object->entityObj->data["ff_schema"] == "testExclusiveChoice"';
+        $this->brulesObj->save($this->brulesObj->data, array('atomic' => true));
+        $this->dataIds['brulesObj'][] = $this->brulesObj->data['id'];
+
+        $this->typesStagesObject = \module\flexflow\model\ff_stage_ff_type::getInstance();
+        $this->typesStagesObject->data['ff_type_id'] = $this->typesObject->data['id'];
+        $this->typesStagesObject->data['ff_stage_id'] = 1;
+        $this->typesStagesObject->save($this->typesStagesObject->data, array('atomic' => true));
+        $this->dataIds['typesStagesObject'][] = $this->typesStagesObject->data['id'];
+        $this->typesStagesObject->data = array();
+        $this->typesStagesObject->data['ff_type_id'] = $this->typesObject->data['id'];
+        $this->typesStagesObject->data['ff_stage_id'] = 4;
+        $this->typesStagesObject->save($this->typesStagesObject->data, array('atomic' => true));
+        $this->dataIds['typesStagesObject'][] = $this->typesStagesObject->data['id'];
+        $this->typesStagesObject->data = array();
+        $this->typesStagesObject->data['ff_type_id'] = $this->typesObject->data['id'];
+        $this->typesStagesObject->data['ff_stage_id'] = 2;
+        $this->typesStagesObject->save($this->typesStagesObject->data, array('atomic' => true));
+        $this->dataIds['typesStagesObject'][] = $this->typesStagesObject->data['id'];
+
+
+        $actorsStagesObject = \module\flexflow\model\ff_actor_ff_stage::getInstance();
+        $this->possibleActionsObject = \module\flexflow\model\ff_possible_actions::getInstance();
+        $authorisedActionsObject = \module\flexflow\model\ff_authorized_actions::getInstance();       
+    }
+
+    /**
+     * @author Pooja Pednekar<ppednekar@primarymodules.com>
+     * @description Done using business rules not ff_rules.
+     */
+    public function testExclusiveChoicePattern()
+    {
+        
+        $testObject = \module\test\model\test::getInstance();
+        $testObject->data['name'] = 'testExclusiveChoice < 100';
+        $testObject->data['revenue'] = 99;
+        $testObject->data['description'] = 'testExclusiveChoice < 100';
+        $testObject->data['ff_schema'] = 'testExclusiveChoice';
+        $testObject->data['action'] = array('Submit' => 'Submit');
+        $testObject->save($testObject->data, array('atomic' => true));
+        $ffCurrentStagesObject = \module\flexflow\model\ff_current_stages::getInstance();
+        $docObject = \module\flexflow\model\ff_docs::getInstance();
+        $stages = \select("{$ffCurrentStagesObject->alias}.*")
+                        ->from($docObject)
+                        ->joinInner('ff_current_stages')
+                        ->inserted()
+                        ->where("{$docObject->alias}.foreign_key", $testObject->data['id'])
+                        ->where("{$docObject->alias}.foreign_key_model", 'test')
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+        if (count($stages) >= 2) {
+            if (!(isset($stages[0]['status']) && ($stages[0]['status'] == 'completed' )
+                    && isset($stages[1]['status']) && ($stages[1]['status'] == 'currently_active' ) && ($stages[1]['ff_stage_id'] == $this->stages['revenue <=100']) )) {
+                $this->assertTrue(false, 'Flex Flow does not support Exclusive Choice.');
+            }
+        } else {
+            $this->assertTrue(false, 'Flex Flow does not support Exclusive Choice.');
+        }
+    }
+
+    function  __destruct()
+    {
+        foreach($this->dataIds as $model=>$modelIds){
+            if(isset($modelIds) && is_array($modelIds)){
+                foreach($modelIds as $id){
+                    $this->$model->delete($id);
+                }
+            }
+        }
+    }
+
+}
+?>

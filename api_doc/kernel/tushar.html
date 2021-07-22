@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:10 +0000">
+
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link rel="start" href="namespaces.html">
+
+<title>kernel (MVC framework)</title>
+
+</head>
+<body id="namespace">
+
+<header><h1>PHP based MVC framework</h1><span>Namespace</span>
+
+<h2>kernel</h2>
+
+</header><table>
+<tr><td><a href="kernel/app.html">app</a></td><td>Global app class. </td></tr>
+<tr><td><a href="kernel/behaviour.html">behaviour</a></td><td></td></tr>
+<tr><td><a href="kernel/cache.html">cache</a></td><td>Base class for handeling cache.</td></tr>
+<tr><td><a href="kernel/class_override_mapping.html">class_override_mapping</a></td><td></td></tr>
+<tr><td><a href="kernel/configuration.html">configuration</a></td><td></td></tr>
+<tr><td><a href="kernel/connection.html">connection</a></td><td>This file contains default data source connections</td></tr>
+<tr><td><a href="kernel/controller.html">controller</a></td><td>Base class for all controller classes.
+</td></tr>
+<tr><td><a href="kernel/dispatcher.html">dispatcher</a></td><td>Handle all requests coming to server and return response to requesting client.</td></tr>
+<tr><td><a href="kernel/driver.html">driver</a></td><td></td></tr>
+<tr><td><a href="kernel/encryption.html">encryption</a></td><td></td></tr>
+<tr><td><a href="kernel/fatal.html">fatal</a></td><td></td></tr>
+<tr><td><a href="kernel/file.html">file</a></td><td></td></tr>
+<tr><td><a href="kernel/form.html">form</a></td><td></td></tr>
+<tr><td><a href="kernel/html.html">html</a></td><td>Base class generated HTML tag markup based on given parameters.</td></tr>
+<tr><td><a href="kernel/http.html">http</a></td><td>Perform curl request.</td></tr>
+<tr><td><a href="kernel/license.html">license</a></td><td></td></tr>
+<tr><td><a href="kernel/locale.html">locale</a></td><td>This class handel's internationalization(normalization/localization) of application</td></tr>
+<tr><td><a href="kernel/logger.html">logger</a></td><td></td></tr>
+<tr><td><a href="kernel/model.html">model</a></td><td>This class implements logic for model part of MVC design patten.
+</td></tr>
+<tr><td><a href="kernel/mql.html">mql</a></td><td>This class provide set of methods for programmatically performing select, join, update operation on model.
+</td></tr>
+<tr><td><a href="kernel/paginate.html">paginate</a></td><td>This class provide set of methods for implementing
+standard, tree, crosstab, categorized, graph based listviews.
+</td></tr>
+<tr><td><a href="kernel/paginate_ui.html">paginate_ui</a></td><td></td></tr>
+<tr><td><a href="kernel/pdf.html">pdf</a></td><td></td></tr>
+<tr><td><a href="kernel/queue.html">queue</a></td><td></td></tr>
+<tr><td><a href="kernel/registry.html">registry</a></td><td>This class implement's CRUD operation for regitry.</td></tr>
+<tr><td><a href="kernel/request.html">request</a></td><td>This class handels parsing of incoming request to dispatcher,
+setting up of envionment variables and then collecting reponse from controller.</td></tr>
+<tr><td><a href="kernel/source.html">source</a></td><td>This class manages all data sources initialization/lifecycle.</td></tr>
+<tr><td><a href="kernel/string.html">string</a></td><td>This class provides set of methods for peforming advance
+string manipulation operation required for mail merge etc.</td></tr>
+<tr><td><a href="kernel/transformation.html">transformation</a></td><td>This class provide methods for data validations in model</td></tr>
+<tr><td><a href="kernel/translation.html">translation</a></td><td>This is registry class for holding current active user information</td></tr>
+<tr><td><a href="kernel/user.html">user</a></td><td>This is registry class for holding current active user information</td></tr>
+<tr><td><a href="kernel/validation.html">validation</a></td><td>This class provide methods for data validations in model</td></tr>
+<tr><td><a href="kernel/view.html">view</a></td><td>This class manages view generation, layout generation and all its dependent functionality</td></tr>
+<tr><td><a href="kernel/xml.html">xml</a></td><td>Manages XML view generation
+Its generates xml markup from PHP array</td></tr>
+</table>
+
+<h3>Globals</h3>
+<table>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#INT">INT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FLOAT">FLOAT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#DATE">DATE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#DATETIME">DATETIME</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#STRING">STRING</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#TIME">TIME</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#INHERIT">INHERIT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#DELETE">DELETE</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#EDIT">EDIT</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#VIEW">VIEW</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#FATAL">FATAL</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#ERROR">ERROR</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#WARN">WARN</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#INFO">INFO</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#DEBUG">DEBUG</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PUBLIC_ACCESS">PUBLIC_ACCESS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PROTECTED_ACCESS">PROTECTED_ACCESS</a></p></td>
+</tr>
+<tr>
+<td class="type">final  int</td>
+<td class="description"><p class="name"><a href="#PRIVATE_ACCESS">PRIVATE_ACCESS</a></p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="INT">public final static  int <strong>INT</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="FLOAT">public final  int <strong>FLOAT</strong> = 1</code>
+<div class="details">
+</div>
+
+<code class="signature" id="DATE">public final  int <strong>DATE</strong> = 2</code>
+<div class="details">
+</div>
+
+<code class="signature" id="DATETIME">public final  int <strong>DATETIME</strong> = 3</code>
+<div class="details">
+</div>
+
+<code class="signature" id="STRING">public final  int <strong>STRING</strong> = 4</code>
+<div class="details">
+</div>
+
+<code class="signature" id="TIME">public final  int <strong>TIME</strong> = 5</code>
+<div class="details">
+</div>
+
+<code class="signature" id="INHERIT">public final  int <strong>INHERIT</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="DELETE">public final  int <strong>DELETE</strong> = 1</code>
+<div class="details">
+</div>
+
+<code class="signature" id="EDIT">public final  int <strong>EDIT</strong> = 2</code>
+<div class="details">
+</div>
+
+<code class="signature" id="VIEW">public final  int <strong>VIEW</strong> = 4</code>
+<div class="details">
+</div>
+
+<code class="signature" id="FATAL">public final  int <strong>FATAL</strong> = 16</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ERROR">public final  int <strong>ERROR</strong> = 8</code>
+<div class="details">
+</div>
+
+<code class="signature" id="WARN">public final  int <strong>WARN</strong> = 4</code>
+<div class="details">
+</div>
+
+<code class="signature" id="INFO">public final  int <strong>INFO</strong> = 2</code>
+<div class="details">
+</div>
+
+<code class="signature" id="DEBUG">public final  int <strong>DEBUG</strong> = 1</code>
+<div class="details">
+</div>
+
+<code class="signature" id="PUBLIC_ACCESS">public final  int <strong>PUBLIC_ACCESS</strong> = 1</code>
+<div class="details">
+</div>
+
+<code class="signature" id="PROTECTED_ACCESS">public final  int <strong>PROTECTED_ACCESS</strong> = 2</code>
+<div class="details">
+</div>
+
+<code class="signature" id="PRIVATE_ACCESS">public final  int <strong>PRIVATE_ACCESS</strong> = 4</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

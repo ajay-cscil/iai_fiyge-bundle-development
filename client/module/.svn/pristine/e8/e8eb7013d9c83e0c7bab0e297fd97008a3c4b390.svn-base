@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm\controller;
+  class config_lead_type extends \module\crm\controller\config_lead_type_domain_logic
+  {
+       public $modelClass = '\\module\\crm\\model\\config_lead_type';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

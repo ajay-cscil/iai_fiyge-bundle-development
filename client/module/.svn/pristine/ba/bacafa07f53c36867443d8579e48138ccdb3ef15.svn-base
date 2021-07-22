@@ -1,0 +1,15 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_approve extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        $node = $docObject->node($docObject->nodeID());
+        if ($node['status'] == 'open') {
+            $docObject->exitNode();
+        }
+    }
+
+}
+

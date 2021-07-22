@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"52cefc5a-e538-46f8-a598-3ed50ac22bdf\",\"name\":\"Monthly Purchase\",\"category_id\":\"4\",\"category_id_model\":\"category\",\"__category_id\":\"Monthly Reports\",\"controller\":\"purchase\\\/purchase_orders\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"Green\\\">Monthly purchase analysis as per user for the current year \",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"monthname(purchase_orders.order_date)\",\"column_model\":\"schema\",\"__column\":\"monthname(purchase_orders.order_date)\",\"alias\":\"Month\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"purchase_orders.total_after_discount\",\"column_model\":\"schema\",\"__column\":\"purchase_orders.total_after_discount\",\"alias\":\"Extended Amount\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"purchase_orders.id\",\"column_model\":\"schema\",\"__column\":\"purchase_orders.id\",\"alias\":\"PO Number\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"purchase_orders.accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"purchase_orders.accounts.account_name\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"purchase_orders.order_date\",\"sort_by_model\":\"schema\",\"__sort_by\":\"purchase_orders.order_date\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"sort_by\":\"purchase_orders.id\",\"sort_by_model\":\"schema\",\"__sort_by\":\"purchase_orders.id\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::line_chart\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"elements\":[],\"actions\":[],\"conditions\":{\"1\":{\"search_column\":\"purchase_orders.order_date\",\"search_column_model\":\"schema\",\"__search_column\":\"purchase_orders.order_date\",\"search_comparator\":\"<=\",\"search_value\":\"XVAR_YEAR\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"search_column\":\"purchase_orders.workflow_docs.current_stages\",\"search_column_model\":\"schema\",\"__search_column\":\"purchase_orders.workflow_docs.current_stages\",\"search_comparator\":\"=\",\"search_value\":\"Done\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":[],\"animation--duration\":\"\",\"animation--easing\":\"\",\"axis-titles-position\":\"\",\"background-color\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"colors\":\"\",\"curve-type\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"h-axis\":\"\",\"h-axis--baseline\":\"\",\"h-axis--baseline-color\":\"\",\"h-axis--direction\":\"\",\"h-axis--gridlines\":\"\",\"h-axis--gridlines--color\":\"\",\"h-axis--gridlines--count\":\"\",\"h-axis--log-scale\":\"\",\"h-axis--text-position\":\"\",\"h-axis--text-style\":\"\",\"h-axis--title\":\"\",\"h-axis--title-text-style\":\"\",\"h-axis--slanted-text\":\"\",\"h-axis--max-alternation\":\"\",\"h-axis--show-text-every\":\"\",\"h-axis--max-value\":\"\",\"h-axis--min-value\":\"\",\"h-axis--view-window-mode\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"height\":\"\",\"interpolate-nulls\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"line-width\":\"\",\"point-size\":\"\",\"reverse-categories\":\"\",\"series\":\"\",\"theme\":\"\",\"title\":\"\",\"title-position\":\"\",\"title-text-style\":\"\",\"tooltip\":\"\",\"tooltip--show-color-code\":\"\",\"tooltip--text-style\":\"\",\"tooltip--trigger\":\"\",\"v-axes\":\"\",\"v-axis\":\"\",\"v-axis--baseline\":\"\",\"v-axis--baseline-color\":\"\",\"v-axis--direction\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"v-axis--log-scale\":\"\",\"v-axis--text-position\":\"\",\"v-axis--text-style\":\"\",\"v-axis--title\":\"\",\"v-axis--title-text-style\":\"\",\"v-axis--max-value\":\"\",\"v-axis--min-value\":\"\",\"v-axis--view-window-mode\":\"\",\"chart-area\":\"\",\"h-axes\":\"\",\"h-axis--format\":\"\",\"is-stacked\":\"\",\"disable_ui_helper\":\"0\"}",
+            "category_id": "4",
+            "controller": "purchase\/purchase_orders",
+            "created": "2014-01-09 19:45:30",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "<font color=\"Green\">Monthly purchase analysis as per user for the current year ",
+            "flags": null,
+            "id": "52cefc5a-e538-46f8-a598-3ed50ac22bdf",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-01-16 17:56:53",
+            "modified_by": "1",
+            "module_id": "27263e01-e746-11e3-aad5-0800275f9930",
+            "name": "Monthly Purchase",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"monthname(purchase_orders.order_date)\":{\"__column\":\"monthname(purchase_orders.order_date)\",\"alias\":\"Month\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"purchase_orders.total_after_discount\":{\"__column\":\"purchase_orders.total_after_discount\",\"alias\":\"Extended Amount\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"purchase_orders.id\":{\"__column\":\"purchase_orders.id\",\"alias\":\"PO Number\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"purchase_orders.accounts.account_name\":{\"__column\":\"purchase_orders.accounts.account_name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"AND\",\"value\":{\"purchase_orders.order_date <= \":\"XVAR_YEAR\"}},{\"op\":\"\",\"value\":{\"purchase_orders.workflow_docs.current_stages = \":\"Done\"}}]],\"order\":[\"purchase_orders.order_date  ASC\",\"purchase_orders.id  ASC\"],\"name\":\"Monthly Purchase\",\"category_id\":\"4\",\"category_id_model\":\"category\",\"__category_id\":\"Monthly Reports\",\"controller\":\"purchase\\\/purchase_orders\",\"is_public\":\"1\",\"description\":\"<font color=\\\"Green\\\">Monthly purchase analysis as per user for the current year \",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::line_chart\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"disable_ui_helper\":0,\"method\":\"categorized\"}",
+            "read_count": null,
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Monthly Reports",
+            "__primary_acl_group": "",
+            "__module_id": "purchase",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

@@ -1,0 +1,333 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\recruitment\model;
+  class applications extends \module\recruitment\model\applications_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'recruitment__applications';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'applications';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'applicants_name' => 
+  array (
+    'column' => 'applicants_name',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'appreciation' => 
+  array (
+    'column' => 'appreciation',
+    'ntype' => 'string',
+    'length' => '36',
+  ),
+  'availability' => 
+  array (
+    'column' => 'availability',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'degree_id' => 
+  array (
+    'column' => 'degree_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'department_id' => 
+  array (
+    'column' => 'department_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  'email' => 
+  array (
+    'column' => 'email',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'expected_salary' => 
+  array (
+    'column' => 'expected_salary',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'interviewer_id' => 
+  array (
+    'column' => 'interviewer_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'job_id' => 
+  array (
+    'column' => 'job_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'mobile' => 
+  array (
+    'column' => 'mobile',
+    'ntype' => 'int',
+    'length' => '20',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'phone' => 
+  array (
+    'column' => 'phone',
+    'ntype' => 'int',
+    'length' => '20',
+  ),
+  'proposed_salary' => 
+  array (
+    'column' => 'proposed_salary',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'refrerred_by' => 
+  array (
+    'column' => 'refrerred_by',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'source_id' => 
+  array (
+    'column' => 'source_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+);
+       public $associations = array (
+  'jobs' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\recruitment\\model\\jobs',
+    'foreignKey' => 'job_id',
+    'associationAlias' => 'jobs',
+  ),
+  'config_degrees' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\recruitment\\model\\config_degrees',
+    'foreignKey' => 'degree_id',
+    'associationAlias' => 'config_degrees',
+  ),
+  'config_sources' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\recruitment\\model\\config_sources',
+    'foreignKey' => 'source_id',
+    'associationAlias' => 'config_sources',
+  ),
+  'config_departments' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\config_departments',
+    'foreignKey' => 'department_id',
+    'associationAlias' => 'config_departments',
+  ),
+  'employees' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\hr\\model\\employees',
+    'foreignKey' => 'interviewer_id',
+    'associationAlias' => 'employees',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\flexflow\\behaviour\\flexflow' => 
+  array (
+    'name' => '\\module\\flexflow\\behaviour\\flexflow',
+  ),
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '4',
+    'deleteAccess' => '4',
+    'ownAcl' => '1',
+    'cacheClass' => '1',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+);
+       public $filters = array (
+  'applicants_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'degree_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'email' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => '\\tushar\\validation::isValidEmail',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'job_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'phone' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

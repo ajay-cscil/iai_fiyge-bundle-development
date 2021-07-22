@@ -1,0 +1,150 @@
+{
+    "bank_account_types": {
+        "model_class": "\\module\\accounting\\model\\bank_account_types",
+        "design": [
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-04-19 13:56:03",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "53528073-0f24-4568-b0a5-26c90af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": "\\module\\accounting\\model\\bank_account_types",
+                "modified": "2014-04-19 13:59:44",
+                "modified_by": "1",
+                "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+                "name": "\\module\\accounting\\model\\bank_account_types",
+                "owned_by": null,
+                "parent_id": null,
+                "properties": "{\"source\":\"default\",\"table\":\"accounting__bank_account_types\",\"parentClass\":\"\\\\tushar\\\\model\",\"displayField\":\"name\",\"primaryKey\":\"id\",\"softDeleteColumn\":\"deleted\",\"sequenceColumnName\":\"seq\",\"isSequentialData\":\"0\",\"isConfig\":\"0\",\"overrideCallToParent\":\"0\"}",
+                "revision": null,
+                "template": "model"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-04-19 13:57:36",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "535280d0-980c-44b3-b101-26eb0af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+                "name": "name",
+                "owned_by": null,
+                "parent_id": "53528073-0f24-4568-b0a5-26c90af91b9d",
+                "properties": "{\"name\":{\"column\":\"name\",\"ntype\":\"string\",\"length\":\"100\",\"is_sortable\":\"0\",\"is_searchable\":\"1\"}}",
+                "revision": null,
+                "template": "fields"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-04-19 15:20:09",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "53529429-9634-4dcb-9fa2-2d5e0af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+                "name": "id",
+                "owned_by": null,
+                "parent_id": "53528073-0f24-4568-b0a5-26c90af91b9d",
+                "properties": "{\"id\":{\"column\":\"id\",\"ntype\":\"int\",\"length\":\"12\",\"is_sortable\":\"0\",\"is_searchable\":\"1\"}}",
+                "revision": null,
+                "template": "fields"
+            }
+        ],
+        "schema": {
+            "name": "accounting__bank_account_types",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "",
+            "schema": {
+                "columns": {
+                    "id": {
+                        "type": "int(12)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": null,
+                        "extra": "auto_increment",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "12",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "name": {
+                        "type": "varchar(100)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "100",
+                        "ntype": "string"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "accounting__bank_account_types",
+                            "column": "id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\sales\controller;
+  class quotelines extends \module\sales\controller\quotelines_domain_logic
+  {
+       public $modelClass = '\\module\\sales\\model\\quotelines';
+
+
+
+
+
+
+  }

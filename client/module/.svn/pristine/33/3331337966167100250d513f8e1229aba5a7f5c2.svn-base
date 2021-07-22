@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\delivery\controller;
+  class config_freight_terms extends \module\delivery\controller\config_freight_terms_domain_logic
+  {
+       public $modelClass = '\\module\\delivery\\model\\config_freight_terms';
+
+
+
+
+
+
+  }

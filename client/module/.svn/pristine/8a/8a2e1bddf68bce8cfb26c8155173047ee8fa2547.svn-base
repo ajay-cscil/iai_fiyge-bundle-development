@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"535103be-9a58-4d87-a669-57d20af91b9d\",\"name\":\"Profit and Loss\",\"category_id\":\"10\",\"category_id_model\":\"category\",\"__category_id\":\"Accounting\",\"controller\":\"accounting\\\/accounts\",\"description\":\"Shows money you earned (income) and money you spent (expenses) so you can see how profitable you are. Also called an income statement.\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"render_as\":\"tree\",\"fields\":[{\"seq\":\"1\",\"column\":\"accounts.created\",\"column_model\":\"schema\",\"__column\":\"accounts.created\",\"alias\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"accounts.name\",\"column_model\":\"schema\",\"__column\":\"accounts.name\",\"alias\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"( \\tSELECT \\t\\t( \\t\\t\\tIF(accounts.full_name LIKE '%Income%',ifnull(SUM(te.credit), 0),IF(accounts.full_name LIKE '%Expense%',-(ifnull(SUM(te.debit), 0)),0)) \\t\\t) \\tFROM \\t\\t`accounting__accounts` AS `asum` \\tLEFT JOIN `accounting__journal_entry_lines` AS `te` ON ( \\t\\t`asum`.`id` = `te`.`account_id` \\t\\tAND `te`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entries` AS `tr` ON ( \\t\\t`tr`.`id` = `te`.`journal_entry_id` \\t\\tAND `tr`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entry_status` AS `ts` ON ( \\t\\t`tr`.`status_id` = `ts`.`id` \\t\\tAND `ts`.deleted != '1' \\t) \\tLEFT JOIN   `flexflow__docs` AS `workflow_docs` ON ( \\t\\ttr.id = workflow_docs.foreign_key \\t\\tAND '\\\\\\\\module\\\\\\\\accounting\\\\\\\\model\\\\\\\\journal_entries' = workflow_docs.foreign_key_model_class_name \\t\\tAND `workflow_docs`.deleted != '1' \\t) \\tWHERE \\t\\t( \\t\\t\\ttr.period_id = '{{PERIOD_ID}}' \\t\\t) \\tAND ( \\t\\tasum.lft >= accounts.lft && asum.lft <= accounts.rgt && asum.rgt <= accounts.rgt \\t) \\tAND (asum.deleted != '1') \\tAND ( \\t\\tworkflow_docs.current_stages = 'Posted' \\t) )\",\"column_model\":\"schema\",\"__column\":\"( \\tSELECT \\t\\t( \\t\\t\\tIF(accounts.full_name LIKE '%Income%',ifnull(SUM(te.credit), 0),IF(accounts.full_name LIKE '%Expense%',-(ifnull(SUM(te.debit), 0)),0)) \\t\\t) \\tFROM \\t\\t`accounting__accounts` AS `asum` \\tLEFT JOIN `accounting__journal_entry_lines` AS `te` ON ( \\t\\t`asum`.`id` = `te`.`account_id` \\t\\tAND `te`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entries` AS `tr` ON ( \\t\\t`tr`.`id` = `te`.`journal_entry_id` \\t\\tAND `tr`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entry_status` AS `ts` ON ( \\t\\t`tr`.`status_id` = `ts`.`id` \\t\\tAND `ts`.deleted != '1' \\t) \\tLEFT JOIN   `flexflow__docs` AS `workflow_docs` ON ( \\t\\ttr.id = workflow_docs.foreign_key \\t\\tAND '\\\\\\\\module\\\\\\\\accounting\\\\\\\\model\\\\\\\\journal_entries' = workflow_docs.foreign_key_model_class_name \\t\\tAND `workflow_docs`.deleted != '1' \\t) \\tWHERE \\t\\t( \\t\\t\\ttr.period_id = '{{PERIOD_ID}}' \\t\\t) \\tAND ( \\t\\tasum.lft >= accounts.lft && asum.lft <= accounts.rgt && asum.rgt <= accounts.rgt \\t) \\tAND (asum.deleted != '1') \\tAND ( \\t\\tworkflow_docs.current_stages = 'Posted' \\t) )\",\"alias\":\"Profit\\\/Loss\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"compute_column_total\":\"1\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"accounts.name\",\"search_column_model\":\"schema\",\"__search_column\":\"accounts.name\",\"search_comparator\":\"<>\",\"search_value\":\"Assets\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"search_column\":\"accounts.name\",\"search_column_model\":\"schema\",\"__search_column\":\"accounts.name\",\"search_comparator\":\"<>\",\"search_value\":\"Liabilities\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"search_column\":\"accounts.name\",\"search_column_model\":\"schema\",\"__search_column\":\"accounts.name\",\"search_comparator\":\"<>\",\"search_value\":\"Equity\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"4\":{\"search_column\":\"accounts.name\",\"search_column_model\":\"schema\",\"__search_column\":\"accounts.name\",\"search_comparator\":\"<>\",\"search_value\":\"Year Closing Accounts\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"sequence\":\"3\",\"elements\":[],\"actions\":[],\"_disable_ui_helper\":\"0\",\"_hide_row_actions\":\"0\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"_is_public\":\"0\",\"is_public\":\"1\"}",
+            "category_id": "10",
+            "controller": "accounting\/accounts",
+            "created": "2014-04-18 10:51:42",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "Shows money you earned (income) and money you spent (expenses) so you can see how profitable you are. Also called an income statement.",
+            "flags": null,
+            "id": "535103be-9a58-4d87-a669-57d20af91b9d",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-05-13 09:42:58",
+            "modified_by": "1",
+            "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+            "name": "Profit and Loss",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"accounts.created\":{\"__column\":\"accounts.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.name\":{\"__column\":\"accounts.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"( \\tSELECT \\t\\t( \\t\\t\\tIF(accounts.full_name LIKE '%Income%',ifnull(SUM(te.credit), 0),IF(accounts.full_name LIKE '%Expense%',-(ifnull(SUM(te.debit), 0)),0)) \\t\\t) \\tFROM \\t\\t`accounting__accounts` AS `asum` \\tLEFT JOIN `accounting__journal_entry_lines` AS `te` ON ( \\t\\t`asum`.`id` = `te`.`account_id` \\t\\tAND `te`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entries` AS `tr` ON ( \\t\\t`tr`.`id` = `te`.`journal_entry_id` \\t\\tAND `tr`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entry_status` AS `ts` ON ( \\t\\t`tr`.`status_id` = `ts`.`id` \\t\\tAND `ts`.deleted != '1' \\t) \\tLEFT JOIN   `flexflow__docs` AS `workflow_docs` ON ( \\t\\ttr.id = workflow_docs.foreign_key \\t\\tAND '\\\\\\\\module\\\\\\\\accounting\\\\\\\\model\\\\\\\\journal_entries' = workflow_docs.foreign_key_model_class_name \\t\\tAND `workflow_docs`.deleted != '1' \\t) \\tWHERE \\t\\t( \\t\\t\\ttr.period_id = '{{PERIOD_ID}}' \\t\\t) \\tAND ( \\t\\tasum.lft >= accounts.lft && asum.lft <= accounts.rgt && asum.rgt <= accounts.rgt \\t) \\tAND (asum.deleted != '1') \\tAND ( \\t\\tworkflow_docs.current_stages = 'Posted' \\t) )\":{\"__column\":\"( \\tSELECT \\t\\t( \\t\\t\\tIF(accounts.full_name LIKE '%Income%',ifnull(SUM(te.credit), 0),IF(accounts.full_name LIKE '%Expense%',-(ifnull(SUM(te.debit), 0)),0)) \\t\\t) \\tFROM \\t\\t`accounting__accounts` AS `asum` \\tLEFT JOIN `accounting__journal_entry_lines` AS `te` ON ( \\t\\t`asum`.`id` = `te`.`account_id` \\t\\tAND `te`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entries` AS `tr` ON ( \\t\\t`tr`.`id` = `te`.`journal_entry_id` \\t\\tAND `tr`.deleted != '1' \\t) \\tLEFT JOIN `accounting__journal_entry_status` AS `ts` ON ( \\t\\t`tr`.`status_id` = `ts`.`id` \\t\\tAND `ts`.deleted != '1' \\t) \\tLEFT JOIN   `flexflow__docs` AS `workflow_docs` ON ( \\t\\ttr.id = workflow_docs.foreign_key \\t\\tAND '\\\\\\\\module\\\\\\\\accounting\\\\\\\\model\\\\\\\\journal_entries' = workflow_docs.foreign_key_model_class_name \\t\\tAND `workflow_docs`.deleted != '1' \\t) \\tWHERE \\t\\t( \\t\\t\\ttr.period_id = '{{PERIOD_ID}}' \\t\\t) \\tAND ( \\t\\tasum.lft >= accounts.lft && asum.lft <= accounts.rgt && asum.rgt <= accounts.rgt \\t) \\tAND (asum.deleted != '1') \\tAND ( \\t\\tworkflow_docs.current_stages = 'Posted' \\t) )\",\"alias\":\"Profit\\\/Loss\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"1\"}}],\"where\":[[{\"op\":\"AND\",\"value\":{\"accounts.name <> \":\"Assets\"}},{\"op\":\"AND\",\"value\":{\"accounts.name <> \":\"Liabilities\"}},{\"op\":\"AND\",\"value\":{\"accounts.name <> \":\"Equity\"}},{\"op\":\"\",\"value\":{\"accounts.name <> \":\"Year Closing Accounts\"}}]],\"order\":[],\"name\":\"Profit and Loss\",\"category_id\":\"10\",\"category_id_model\":\"category\",\"__category_id\":\"Accounting\",\"controller\":\"accounting\\\/accounts\",\"description\":\"Shows money you earned (income) and money you spent (expenses) so you can see how profitable you are. Also called an income statement.\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"render_as\":\"tree\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"3\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"is_public\":\"1\",\"method\":\"tree\"}",
+            "read_count": "3",
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Accounting",
+            "__primary_acl_group": "",
+            "__module_id": "accounting",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

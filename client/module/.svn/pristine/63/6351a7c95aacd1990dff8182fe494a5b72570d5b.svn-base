@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\payroll\controller;
+  class salary_computation_logs extends \module\payroll\controller\salary_computation_logs_domain_logic
+  {
+       public $modelClass = '\\module\\payroll\\model\\salary_computation_logs';
+
+
+
+
+
+
+  }

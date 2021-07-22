@@ -1,0 +1,98 @@
+<?php
+
+namespace module\flexflow\helper\form_view;
+
+class flexflow {
+
+    public static $properties = array();
+
+    public static function flexflow_actions($view, $node, $return=false) {
+        $docObject = \module\flexflow\model\docs::getInstance();
+        $view->anyActiveFlexflowAction = false;
+        $permission = isset($node['permission']) ? $node['permission'] : 0;
+        if (($permission & DELETE) != DELETE) {
+            if ($view->request->action == 'view') {
+                return \tushar\form::menu($view, array(), $return);
+            }
+            $node = $docObject->node($view->data("model.stage_log.node_id"));
+            $stageID = !empty($node) ? $node['stage_id'] : '';
+            $isWorkflowLogSet = $view->data("model.is_workflow_log_set");
+            // Find action for stage
+            $actionsObj = \module\flexflow\model\actions::getInstance(array(), true);
+            $actions = array();
+            $message = \sprintf(__('No actions for current actor on current active stage'));
+            if (empty($stageID) && $isWorkflowLogSet == false) {
+                $where = array('name' => 'draft');
+                $where['type_id'] = $view->data("model.type_id");
+                if (!empty($where['type_id'])) {
+                    $stageID = \select("id")
+                            ->from($docObject->stage_log->stages)
+                            ->inserted()
+                            ->where($where)
+                            ->limit(1)
+                            ->execute()
+                            ->fetch(\PDO::FETCH_COLUMN);
+                } else {
+                    $message = \sprintf(__('Please configure workflow schema, type and draft stage for current model'));
+                }
+            }
+            if (!empty($stageID)) {
+                $actions = \select("{$actionsObj->alias}.*")
+                        ->from($actionsObj)
+                        ->joinInner('possible_actions')
+                        ->joinInner('stages')
+                        ->inserted()
+                        ->where("stages.id", $stageID)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+                if (empty($actions)) {
+                    $message = \sprintf(__('No actions found for stage ID[%s]'), $stageID);
+                }
+            }
+            $performedAction = $view->data('action');
+            if (is_array($performedAction) && isset($performedAction['NMI'])) {
+                $actions = array(array('compute_value' => false, 'name' => 'NMI', 'label' => 'Continue'));
+            }
+            // Find actor for action
+            // See if user is in actor user list.
+            if (!empty($actions)) {
+                $collectionSets = array();
+                foreach ($actions as $action) {
+                    if (!isset($action['collection_set']) || !empty($action['collection_set'])) {
+                        $action['collection_set'] = '_workflow';
+                    }
+                    $params = array();
+                    if (isset($action['compute_value'])) {
+                        $params['compute_value'] = $action['compute_value'];
+                    }
+                    $params['record_id'] = $action['id'];
+                    $params['name'] = array('action', $action['name']);
+                    $params['value'] = $action['label'];
+                    $params = \tushar\form::submit($view, $params, $return);
+
+                    if ($return == true) {
+                        if (!isset($collectionSets[$action['collection_set']])) {
+                            $collectionSets[$action['collection_set']] = array();
+                        }
+                        if (!empty($action['parent_name'])) {
+                            if (!isset($collectionSets[$action['collection_set']][$action['parent_name']])) {
+                                $collectionSets[$action['collection_set']][$action['parent_name']] = array('value' => $action['parent_name'], 'name' => $action['parent_name'], 'children' => array());
+                            }
+                            $collectionSets[$action['collection_set']][$action['parent_name']]['children'][] = $params;
+                        } else {
+                            $collectionSets[$action['collection_set']][] = $params;
+                        }
+                    }
+                }
+                if ($return == true) {
+                    return $collectionSets;
+                }
+            } else {
+                if (stripos($view->request->action, 'add') !== false || stripos($view->request->action, 'create') !== false) {
+                    echo '<span class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-error">' . $message . '</span>';
+                }
+            }
+        }
+    }
+
+}

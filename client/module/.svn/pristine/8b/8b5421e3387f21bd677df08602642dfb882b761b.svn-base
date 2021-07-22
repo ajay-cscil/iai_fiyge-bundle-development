@@ -1,0 +1,292 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\cloud\controller;
+
+class federated_users_domain_logic extends \tushar\controller {
+
+    public function add($request) {
+        if ($request->is('post')) {
+            $application = (isset($request->data['federated_users']) && isset($request->data['federated_users']['application']) ?
+                            $request->data['federated_users']['application'] : '');
+            if (!empty($application)) {
+                if (substr($application, -1) == "/") {
+                    $application = substr($application, 0, -1);
+                }
+                $application = \explode("/", $application);
+                $application = array_pop($application);
+                $instanceObject = \module\cloud\model\instances::getInstance();
+                $request->data['federated_users']['instance_id'] = \select("id")
+                        ->from($instanceObject)
+                        ->where('domain_name', $application)
+                        ->inserted()
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN);
+            }
+        }
+        return parent::add($request);
+    }
+
+    public function delete_application_user($request) {
+        $userName = $request->param('user_name');
+        $application = $request->param('application');
+        $modelObj = $this->modelObj();
+        $id = \select('id')
+                ->from($modelObj)
+                ->inserted()
+                ->where(
+                        array(
+                            'application' => $application,
+                            'user_name' => $userName
+                        )
+                )->limit(1)
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN, 0);
+        if (!empty($id)) {
+            //\tushar\model::$errors[] = sprintf(__("Could not find record with user_name:%s and application:%s"), $userName, $application);
+            //return;
+
+            if ($modelObj->delete($id)) {
+                $request->setMsg(sprintf(__('%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('deleted')));
+            } else {
+                $msg = sprintf(__('%s could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('deleted'));
+                $request->setMsg($msg);
+                \tushar\model::$errors[] = $msg;
+            }
+        } else {
+            \tushar\model::$errors = array();
+        }
+    }
+
+    public function user_exists($request) {
+        $userName = $request->param('user_name');
+        $application = $request->param('application');
+        $modelObj = $this->modelObj();
+        $id = \select('id')
+                ->from($modelObj)
+                ->inserted()
+                ->where(
+                        array(
+                            'application' => $application,
+                            'user_name' => $userName
+                        )
+                )->limit(1)
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN, 0);
+        if (!empty($id)) {
+            $request->set("id", $id);
+        } else {
+            $request->set("id", "");
+        }
+    }
+
+    public function __get_user_applications($request) {
+        $this->get_user_applications($request);
+    }
+
+    public function get_user_applications($request) {
+        $userName = $request->param('user_name');
+        if (empty($userName)) {
+            \tushar\model::$errors[] = sprintf(__("User Name should not be empty"));
+            return;
+        }
+        $modelObj = $this->modelObj();
+        $applications = \select(array("{$modelObj->alias}.application", "instances.disable_instance"))
+                ->from($modelObj)
+                ->join('instances')
+                ->inserted()
+                ->where(
+                        array(
+                            'user_name' => $userName
+                        )
+                )->limit(1)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        if (!empty($applications)) {
+            $list = array();
+            foreach ($applications as $application) {
+                if ($application['disable_instance'] != 1) {
+                    $list[] = $application['application'];
+                }
+            }
+            if (!empty($list)) {
+                $request->set("data", $list);
+                $request->setMsg("application exists");
+            } else {
+                $request->set("data", array());
+                \tushar\model::$errors[] = sprintf(__("This user maax instance has been disabled, contact sales@maaxframe.com"));
+                $request->setMsg("This user maax instance has been disabled, contact sales@maaxframe.com");
+            }
+        } else {
+            $request->set("data", array());
+            $request->setMsg("application does not exists");
+        }
+    }
+
+    public function __update_last_login_datetime($request) {
+        $userName = $request->param('user_name');
+        $application = $request->param('application');
+        $modelObj = $this->modelObj();
+
+        $applications = \select(array("instances.disable_instance"))
+                ->from($modelObj)
+                ->join('instances')
+                ->inserted()
+                ->where(
+                        array(
+                            'application' => $application,
+                            'user_name' => $userName
+                        )
+                )->limit(1)
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN);
+
+        if ($applications == 1) {
+            \tushar\model::$errors[] = sprintf(__("This user maax instance has been disabled, contact sales@maaxframe.com"));
+            $request->setMsg("This user maax instance has been disabled, contact sales@maaxframe.com");
+        }
+
+
+        $lastLoginDatetime = \tushar\locale::systemDate() . ' ' . \tushar\locale::systemTime();
+        \update(array('last_login_datetime' => $lastLoginDatetime))
+                ->from($modelObj)
+                ->where(array(
+                    'application' => $application,
+                    'user_name' => $userName
+                ))
+                ->execute();
+        $request->set('data', array('user_name' => $userName, 'application' => $application, 'last_login_datetime' => $lastLoginDatetime));
+    }
+
+    public function reset_password_for_instance_user($request) {
+        $id = $this->id($request);
+        $modelObj = $this->modelObj();
+        $data = current($modelObj->read($id));
+        if (empty($data) || empty($data['user_name'])) {
+            throw new \Exception(__('Cloud not find selected user(ID) in system'));
+        }
+        $username = $data['user_name'];
+        $data = $modelObj->{'instances'}->read($data['instance_id']);
+        if (empty($data)) {
+            throw new \Exception(__('Cloud not find instance for selected user'));
+        }
+        $data = current($data);
+        $data['user_name'] = $username;
+        //$request->layout = 'default';
+        $passwordForm = array();
+        $passwordForm[] = array('colspan' => 3, 'helper' => '\\tushar\\form', 'method' => 'input', 'not_empty' => 1, 'placeholder' => 'New Password', 'label' => 'new_password', 'type' => 'password', 'name' => array($modelObj->alias, 'user_password'), 'value' => '');
+        //$passwordForm[] = array('helper' => '\\tushar\\form', 'method' => 'checkbox', 'label' => 'Show Password', 'value' => '', 'help' => 'Check to show password');
+        $passwordForm[] = array('colspan' => 3, 'helper' => '\\tushar\\form', 'method' => 'input', 'not_empty' => 1, 'placeholder' => 'Re-type Password', 'label' => 'confirm_password', 'type' => 'password', 'name' => array($modelObj->alias, 'confirm_password'), 'value' => '');
+        $passwordForm[] = array('colspan' => 3, 'helper' => '\\tushar\\form', 'method' => 'radio', 'label' => 'force_password_reset_on_login',
+            'tooltip' => 'Marking this will force reset password on next login. ', 'value' => '0',
+            'name' => array($modelObj->alias, 'force_password_reset_on_login'), 'children' => array(
+                array('text' => 'Yes', 'value' => '1', 'helper' => '\\tushar\\form', 'method' => 'option'),
+                array('text' => 'No', 'value' => '0', 'helper' => '\\tushar\\form', 'method' => 'option')
+            )
+        );
+        $this->form = array(
+            'name' => 'reset password',
+            'method' => 'POST',
+            'children' => array(
+                0 => array(
+                    'helper' => '\\tushar\\form',
+                    'method' => 'tab',
+                    'label' => '',
+                    'children' => array(
+                        'helper' => '\\tushar\\form',
+                        'method' => 'collection',
+                        'label' => 'You are resetting password for user "' . $data['user_name'] . '" of instance "' . $data['domain_name'] . '"',
+                        'children' => array(
+                            array(
+                                'helper' => '\\tushar\\form',
+                                'method' => 'panel',
+                                'class' => 'align-center',
+                                'children' => array(
+                                    array('helper' => '\\tushar\\form', 'method' => 'cancel'),
+                                    array('helper' => '\\tushar\\form', 'method' => 'submit', 'value' => 'Update'),
+                                )
+                            ), array(
+                                'helper' => '\\tushar\\form',
+                                'method' => 'block',
+                                'label' => 'Login Information',
+                                'cols' => '2',
+                                'children' => $passwordForm
+                            )
+                        )
+                    )
+                )
+            )
+        );
+        $this->render = 'edit';
+        $modelObj = $this->modelObj();
+        if ($request->is('post')) {
+            if ($request->data[$modelObj->alias]) {
+                $ud = $request->data[$modelObj->alias];
+                $modelObj->filters = array(
+                    'user_password' => array('required',
+                        array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+                        , array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\module\\access_controls\\model\\users', 'newPassword')))
+                    )
+                    , 'confirm_password' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+                );
+                if ($modelObj->validate($ud)) {
+                    if (!empty($data)) {
+                        $connections = array();
+                        /**
+                         * Build connections file.
+                         */
+                        foreach ($data as $key => $value) {
+                            if (stripos($key, '_database') !== false) {
+                                $source = str_replace('_database', '', $key);
+                                $connections[$source] = array_merge(array('driver' => 'mysql'), array(
+                                    'host' => $data['db_host'],
+                                    'port' => $data['db_port'],
+                                    'login' => $data['db_login'],
+                                    'password' => $data['db_password'],
+                                    'driver' => $data['db_driver'],
+                                    'database' => $value
+                                ));
+                            }
+                        }
+                    }
+                    if (!isset($connections['default']['driver']) || empty($connections['default']['driver'])) {
+                        throw new \Exception(sprintf(__('source driver not found for source "%s" '), 'cloud'));
+                    }
+                    if (stripos($connections['default']['driver'], NS) !== false) {
+                        $className = $connections['default']['driver'];
+                    } else {
+                        $className = NS . 'tushar' . NS . 'drivers' . NS . $connections['default']['driver'];
+                    }
+                    try {
+                        $instance = new $className($connections['default']);
+                    } catch (\Exception $e) {
+                        throw new \Exception(sprintf(__(" error %s"), $e->getMessage()));
+                    }
+                    $pk = \module\access_controls\model\users::encrypt($ud['user_password'], $data['security_salt']);
+                    $find = array(
+                        'fields' => array("user_password" => $pk, 'force_password_reset_on_login' => $ud['force_password_reset_on_login']),
+                        'from' => array(
+                            'db' => $connections['default']['database'],
+                            'table' => 'access_controls__users'
+                        ),
+                        'where' => array('deleted !=' => 1, 'user_name' => $data['user_name']),
+                        'type' => 'update'
+                    );
+                    $instance->save($find);
+                    //if () {
+                        $request->setMsg(sprintf(__('Password is reset for user'), $data['user_name']));
+                        return "{$request->module}/{$request->controller}/index";
+                    //}
+                }
+            }
+            $request->data['action'] = array('reload' => 'reload');
+            //return false;
+        }
+        parent::edit($request);
+    }
+
+}

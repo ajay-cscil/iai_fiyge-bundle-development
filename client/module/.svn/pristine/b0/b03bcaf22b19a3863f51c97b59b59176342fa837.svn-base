@@ -1,0 +1,413 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class bank_accounts extends \module\accounting\model\bank_accounts_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'accounting__bank_accounts';
+       public $parentClass = '\\data_model';
+       public $displayField = 'full_name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'related_to' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'related_to',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'related_to_model' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  '__related_to' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '__related_to',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'account_number' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'account_number',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'opening_date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'opening_date',
+    'ntype' => 'date',
+  ),
+  'closing_date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'closing_date',
+    'ntype' => 'date',
+  ),
+  'bank_account_type_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'bank_account_type_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'currency_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'currency_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'primary_address_line_1' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_address_line_1',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_address_line_2' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_address_line_2',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_city' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_city',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_state' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_state',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_country' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_country',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'primary_zip' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_zip',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'office_email' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'office_email',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'office_phone' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'office_phone',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_acl_group' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_acl_group',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'load_demo_data' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'load_demo_data',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'description' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  '_acl' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_edit' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_delete' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'full_name' => 
+  array (
+    'column' => 'full_name',
+    'ntype' => 'string',
+    'length' => '150',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'cacheClass' => '1',
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'bank_statements' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\accounting\\model\\bank_statements',
+    'associationAlias' => 'bank_statements',
+    'foreignKey' => 'bank_account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'currencies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\currencies',
+    'associationAlias' => 'currencies',
+    'foreignKey' => 'currency_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'companies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm_base\\model\\companies',
+    'associationAlias' => 'companies',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'partners' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\accounts',
+    'associationAlias' => 'partners',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'bank_account_types' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\bank_account_types',
+    'associationAlias' => 'bank_account_types',
+    'foreignKey' => 'bank_account_type_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'office_email' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'account_number' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'bank_account_type_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

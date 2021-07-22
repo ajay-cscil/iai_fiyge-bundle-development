@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\cloud\controller;
+  class instances extends \module\cloud\controller\instances_domain_logic
+  {
+       public $modelClass = '\\module\\cloud\\model\\instances';
+
+
+
+
+
+
+  }

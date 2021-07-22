@@ -1,0 +1,96 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"53bfb36e-8fcc-4d69-98b5-5fe70af91b9d\",\"name\":\"All\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"kpi\\\/group_goals\",\"render_as\":\"categorized\",\"description\":\"Goals defined per Business Division (or HACL group). Month might be blank for Annual Goals.  Year can be left blank for long-term goals.\",\"fields\":[{\"seq\":\"1\",\"field_type\":\"Data-Field\",\"column\":\"group_goals.goal_types.name\",\"column_model\":\"schema\",\"__column\":\"group_goals.goal_types.name\",\"alias\":\"Goal Type\",\"render_type\":\"category\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"field_type\":\"Data-Field\",\"column\":\"group_goals.groups.name\",\"column_model\":\"schema\",\"__column\":\"group_goals.groups.name\",\"alias\":\"HACL Group \\\/ Business Division\",\"render_type\":\"category\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"field_type\":\"Data-Field\",\"column\":\"group_goals.year\",\"column_model\":\"schema\",\"__column\":\"group_goals.year\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"_searchable\":\"0\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"sortable\":\"0\",\"searchable\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"field_type\":\"Data-Field\",\"column\":\"group_goals.month\",\"column_model\":\"schema\",\"__column\":\"group_goals.month\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"_searchable\":\"0\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"sortable\":\"0\",\"searchable\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"field_type\":\"Data-Field\",\"column\":\"group_goals.name\",\"column_model\":\"schema\",\"__column\":\"group_goals.name\",\"alias\":\"Goal Name\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"sortable\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"field_type\":\"Database Command\",\"column\":\"group_goals.value * group_goals.weight \\\/ 100\",\"alias\":\"Weighted Value\",\"render_type\":\"summary\",\"aggregator\":\"AVG\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"_searchable\":\"0\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"sortable\":\"0\",\"searchable\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"7\",\"field_type\":\"Data-Field\",\"column\":\"group_goals.value\",\"column_model\":\"schema\",\"__column\":\"group_goals.value\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"8\",\"field_type\":\"Data-Field\",\"column\":\"group_goals.weight\",\"column_model\":\"schema\",\"__column\":\"group_goals.weight\",\"alias\":\"Weight %\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"sequence\":\"100364\",\"module_id\":\"53bfb307-1f3c-4d0b-b118-5b7d0af91b9d\",\"module_id_model\":\"modules\",\"__module_id\":\"kpi\",\"owned_by\":\"-2\",\"owned_by_model\":\"users\",\"__owned_by\":\"Maax Modules Development Team\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"_is_public\":\"0\",\"is_public\":\"1\",\"_acl\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "kpi\/group_goals",
+            "created": "2014-07-11 09:50:38",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "Goals defined per Business Division (or HACL group). Month might be blank for Annual Goals.  Year can be left blank for long-term goals.",
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "kpi.group_goals.All",
+            "id": "53bfb36e-8fcc-4d69-98b5-5fe70af91b9d",
+            "is_commit_pending": "0",
+            "is_default": "1",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-05-04 19:23:37",
+            "modified_by": "-2",
+            "module_id": "53bfb307-1f3c-4d0b-b118-5b7d0af91b9d",
+            "name": "All",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"fields\":[{\"group_goals.goal_types.name\":{\"field_type\":\"Data-Field\",\"__column\":\"group_goals.goal_types.name\",\"alias\":\"Goal Type\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"group_goals.groups.name\":{\"field_type\":\"Data-Field\",\"__column\":\"group_goals.groups.name\",\"alias\":\"HACL Group \\\/ Business Division\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"group_goals.year\":{\"field_type\":\"Data-Field\",\"__column\":\"group_goals.year\",\"render_type\":\"category\",\"sortable\":\"0\",\"searchable\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"group_goals.month\":{\"field_type\":\"Data-Field\",\"__column\":\"group_goals.month\",\"render_type\":\"info\",\"sortable\":\"0\",\"searchable\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"group_goals.name\":{\"field_type\":\"Data-Field\",\"__column\":\"group_goals.name\",\"alias\":\"Goal Name\",\"render_type\":\"info\",\"sortable\":\"0\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"group_goals.value * group_goals.weight \\\/ 100\":{\"field_type\":\"Database Command\",\"alias\":\"Weighted Value\",\"render_type\":\"summary\",\"aggregator\":\"AVG\",\"sortable\":\"0\",\"searchable\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"group_goals.value\":{\"field_type\":\"Data-Field\",\"__column\":\"group_goals.value\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"group_goals.weight\":{\"field_type\":\"Data-Field\",\"__column\":\"group_goals.weight\",\"alias\":\"Weight %\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"kpi\\\/group_goals\",\"render_as\":\"categorized\",\"description\":\"Goals defined per Business Division (or HACL group). Month might be blank for Annual Goals.  Year can be left blank for long-term goals.\",\"is_default\":\"1\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"sequence\":\"100364\",\"module_id\":\"53bfb307-1f3c-4d0b-b118-5b7d0af91b9d\",\"module_id_model\":\"modules\",\"__module_id\":\"kpi\",\"owned_by\":\"-2\",\"owned_by_model\":\"users\",\"__owned_by\":\"Maax Modules Development Team\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"is_public\":\"1\",\"acl\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+            "revision": "1",
+            "sequence": "100364",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "Maax Modules Development Team",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "kpi",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"53637704-0304-4d99-ba36-20890af91b9d\",\"name\":\"Bank Reconciliation Summary\",\"category_id\":\"10\",\"category_id_model\":\"category\",\"__category_id\":\"Accounting\",\"controller\":\"accounting\\\/bank_reconciliation\",\"description\":\"Reconciliation Summary of different Accounts done per month for the current year\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"MONTHNAME(Date(bank_reconciliation.created))\",\"column_model\":\"schema\",\"__column\":\"MONTHNAME(Date(bank_reconciliation.created))\",\"alias\":\"Month\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"bank_reconciliation.account_accounts.name\",\"column_model\":\"schema\",\"__column\":\"bank_reconciliation.account_accounts.name\",\"alias\":\"Account\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"bank_reconciliation.id\",\"column_model\":\"schema\",\"__column\":\"bank_reconciliation.id\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"bank_reconciliation.starting_balance\",\"column_model\":\"schema\",\"__column\":\"bank_reconciliation.starting_balance\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"bank_reconciliation.ending_balance\",\"column_model\":\"schema\",\"__column\":\"bank_reconciliation.ending_balance\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"bank_reconciliation.ending_date\",\"column_model\":\"schema\",\"__column\":\"bank_reconciliation.ending_date\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"date(bank_reconciliation.created)\",\"search_column_model\":\"schema\",\"__search_column\":\"date(bank_reconciliation.created)\",\"search_comparator\":\"=\",\"search_value\":\"XVAR_YEAR\",\"logical_operator\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"date(bank_reconciliation.created)\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"sort_by\":\"bank_reconciliation.id\",\"sort_by_model\":\"schema\",\"__sort_by\":\"bank_reconciliation.id\",\"sort_order\":\"ASC\"},\"3\":{\"sort_by\":\"bank_reconciliation.account_accounts.name\",\"sort_by_model\":\"schema\",\"__sort_by\":\"bank_reconciliation.account_accounts.name\",\"sort_order\":\"ASC\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"elements\":[],\"actions\":[],\"group_by\":[],\"order\":{\"1\":{\"sort_by\":\"date(bank_reconciliation.created)\"}},\"_is_public\":\"0\",\"is_public\":\"1\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\"}",
+            "category_id": "10",
+            "controller": "accounting\/bank_reconciliation",
+            "created": "2014-05-02 10:44:20",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "Reconciliation Summary of different Accounts done per month for the current year",
+            "flags": null,
+            "id": "53637704-0304-4d99-ba36-20890af91b9d",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-05-13 09:40:56",
+            "modified_by": "1",
+            "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+            "name": "Bank Reconciliation Summary",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"MONTHNAME(Date(bank_reconciliation.created))\":{\"__column\":\"MONTHNAME(Date(bank_reconciliation.created))\",\"alias\":\"Month\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"bank_reconciliation.account_accounts.name\":{\"__column\":\"bank_reconciliation.account_accounts.name\",\"alias\":\"Account\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"bank_reconciliation.id\":{\"__column\":\"bank_reconciliation.id\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"bank_reconciliation.starting_balance\":{\"__column\":\"bank_reconciliation.starting_balance\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"bank_reconciliation.ending_balance\":{\"__column\":\"bank_reconciliation.ending_balance\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"bank_reconciliation.ending_date\":{\"__column\":\"bank_reconciliation.ending_date\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"date(bank_reconciliation.created) = \":\"XVAR_YEAR\"}}]],\"order\":[\"date(bank_reconciliation.created)  ASC\",\"bank_reconciliation.id  ASC\",\"bank_reconciliation.account_accounts.name  ASC\"],\"name\":\"Bank Reconciliation Summary\",\"category_id\":\"10\",\"category_id_model\":\"category\",\"__category_id\":\"Accounting\",\"controller\":\"accounting\\\/bank_reconciliation\",\"description\":\"Reconciliation Summary of different Accounts done per month for the current year\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"is_public\":\"1\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"method\":\"categorized\"}",
+            "read_count": "2",
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Accounting",
+            "__primary_acl_group": "",
+            "__module_id": "accounting",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

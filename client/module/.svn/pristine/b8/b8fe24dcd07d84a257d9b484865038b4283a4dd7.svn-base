@@ -1,0 +1,118 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class deposits_domain_logic extends \tushar\model{
+
+    public function journalEntryDate(){
+        return $this->data['date'];
+    }
+    
+    public function journalEntries(&$journalEntry) {
+        $journalEntry['journal_entry_lines'] = array();
+        //if (isset($this->data['action']) && strcasecmp($this->data['action'], 'validate') == 0) {
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (strcasecmp($actionTriggred, 'validate') == 0) {
+            $journalEntry['journal_type'] = 'general';
+            if (!isset($journalEntry['company_id']) || empty($journalEntry['company_id'])) {
+                $journalEntry['company_id'] = \tushar\user::read('company_id');
+            }
+            $journalEntry['currency_id'] = (isset($this->data['currency_id']) ? $this->data['currency_id'] : '');
+            if (!isset($journalEntry['currency_id']) || empty($journalEntry['currency_id'])) {
+                $journalEntry['currency_id'] = \tushar\user::read('currency_id');
+            }
+            $journalEntry['journal_id'] = \module\accounting\model\journals::getInstance()->journalID($journalEntry['journal_type'], $journalEntry['currency_id'], $journalEntry['company_id']);
+
+//deposits.account_from 
+            //deposits.account_from 
+            //deposits.total 
+            //debit 
+            //posted 
+            //validate
+            $journalEntry['journal_entry_lines'][] = array(
+                'related_to' => '',
+                '__related_to' => '',
+                'related_to_model' => '',
+                'related_to_model_class' => '',
+                'account_id' => $this->data['account_from'],
+                'debit' => $this->data['total']
+            );
+
+
+
+            //deposits.deposit_lines.account_id 
+            //deposits.deposit_lines.account_id 
+            //deposits.deposit_lines.deposit_amount 
+            //credit 
+            //posted 
+            //validate
+
+
+            if (isset($this->data['deposit_lines']) && is_array($this->data['deposit_lines'])) {
+                $object = $this->deposit_lines;
+                foreach ($this->data['deposit_lines'] as $line) {
+                    if (!isset($line['deleted']) || $line['deleted'] != 1) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'related_to' => '',
+                            '__related_to' => '',
+                            'related_to_model' => '',
+                            'related_to_model_class' => '',
+                            'account_id' => $line['account_id'],
+                            'credit' => $line['deposit_amount']
+                        );
+                    }
+                }
+            }
+
+
+
+            //deposits.account_cashback 
+            //deposits.account_cashback 
+            //deposits.amount_cashback 
+            //debit 
+            //posted 
+            //validate
+
+            if (
+                    isset($this->data['amount_cashback'])
+                    &&
+                    $this->data['amount_cashback'] > 0
+                    && (
+                    !isset($this->data['account_cashback'])
+                    ||
+                    empty($this->data['account_cashback'])
+                    )
+            ) {
+                throw new \Exception(__('Please enter cashback account', 'module'));
+            }
+
+            if (isset($this->data['account_cashback'])
+                    && !empty($this->data['account_cashback'])
+                    && isset($this->data['amount_cashback'])
+                    && $this->data['amount_cashback'] > 0) {
+                $journalEntry['journal_entry_lines'][] = array(
+                    'related_to' => '',
+                    '__related_to' => '',
+                    'related_to_model' => '',
+                    'related_to_model_class' => '',
+                    'account_id' => $this->data['account_cashback'],
+                    'debit' => $this->data['amount_cashback']
+                );
+            }
+
+
+            return true;
+        }
+    }
+
+}

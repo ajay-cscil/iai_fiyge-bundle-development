@@ -1,0 +1,222 @@
+{
+    "version": "0.3.2-alpha",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "id": "54eb2ccd-2ed8-49bf-82b7-2b69af4f00b5",
+    "name": "excursion",
+    "label": "Vertical: Ecommerce Backend (Tour Operator)",
+    "license_agreement": null,
+    "description": "volusion backend.",
+    "company": "PMI",
+    "author": "Tushar Takkar",
+    "is_active": "1",
+    "created_by": "-1",
+    "modified_by": "-1",
+    "owned_by": "-1",
+    "is_public": null,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "created": "2015-02-24",
+    "modified": "2015-02-24 05:10:16",
+    "revision": null,
+    "flags": null,
+    "category_id": "6",
+    "industry_id": "3",
+    "latest_version": null,
+    "is_installed": "1",
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/excursion",
+    "current_stable_version": "",
+    "__created_by": "System Admin",
+    "__modified_by": "System Admin",
+    "__owned_by": "",
+    "__category_id": "ERP",
+    "category_id_business_key": "ERP",
+    "__industry_id": "Cruise Industry",
+    "industry_id_business_key": "Cruise Industry",
+    "created_by_model": "created_by_user",
+    "modified_by_model": "modified_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "controllers": {
+        "affiliate_Group": "\\module\\excursion\\controller\\affiliate_Group",
+        "affiliate_information": "\\module\\excursion\\controller\\affiliate_information",
+        "api_authentication": "\\module\\excursion\\controller\\api_authentication",
+        "approval_emails_log": "\\module\\excursion\\controller\\approval_emails_log",
+        "blackout_cruiselines": "\\module\\excursion\\controller\\blackout_cruiselines",
+        "blackout_dates": "\\module\\excursion\\controller\\blackout_dates",
+        "bufferfactors": "\\module\\excursion\\controller\\bufferfactors",
+        "categories": "\\module\\excursion\\controller\\categories",
+        "cruisecal_lines": "\\module\\excursion\\controller\\cruisecal_lines",
+        "cruisecal_ships": "\\module\\excursion\\controller\\cruisecal_ships",
+        "customers": "\\module\\excursion\\controller\\customers",
+        "email_routing": "\\module\\excursion\\controller\\email_routing",
+        "inventory_tours": "\\module\\excursion\\controller\\inventory_tours",
+        "kit_links": "\\module\\excursion\\controller\\kit_links",
+        "kits": "\\module\\excursion\\controller\\kits",
+        "lines": "\\module\\excursion\\controller\\lines",
+        "marketing_customer_data": "\\module\\excursion\\controller\\marketing_customer_data",
+        "option_categories": "\\module\\excursion\\controller\\option_categories",
+        "options": "\\module\\excursion\\controller\\options",
+        "order_confirmations_log": "\\module\\excursion\\controller\\order_confirmations_log",
+        "order_details": "\\module\\excursion\\controller\\order_details",
+        "order_information_changes_queue": "\\module\\excursion\\controller\\order_information_changes_queue",
+        "order_information_details": "\\module\\excursion\\controller\\order_information_details",
+        "orders": "\\module\\excursion\\controller\\orders",
+        "orders_information": "\\module\\excursion\\controller\\orders_information",
+        "packages": "\\module\\excursion\\controller\\packages",
+        "port_timezone_mappings": "\\module\\excursion\\controller\\port_timezone_mappings",
+        "ports": "\\module\\excursion\\controller\\ports",
+        "process_log": "\\module\\excursion\\controller\\process_log",
+        "processes": "\\module\\excursion\\controller\\processes",
+        "product_tour_mappings": "\\module\\excursion\\controller\\product_tour_mappings",
+        "products": "\\module\\excursion\\controller\\products",
+        "retired_ships": "\\module\\excursion\\controller\\retired_ships",
+        "ship_timezone_mappings": "\\module\\excursion\\controller\\ship_timezone_mappings",
+        "time_equivalency": "\\module\\excursion\\controller\\time_equivalency",
+        "tracker_log": "\\module\\excursion\\controller\\tracker_log",
+        "tracker_status_log": "\\module\\excursion\\controller\\tracker_status_log",
+        "user_action_logs": "\\module\\excursion\\controller\\user_action_logs",
+        "vendor_reminder_emails_log": "\\module\\excursion\\controller\\vendor_reminder_emails_log",
+        "vendor_tour_manifest_emails_log": "\\module\\excursion\\controller\\vendor_tour_manifest_emails_log",
+        "vendors": "\\module\\excursion\\controller\\vendors",
+        "voucher_templates": "\\module\\excursion\\controller\\voucher_templates"
+    },
+    "models": {
+        "affiliateMap": "\\module\\excursion\\model\\affiliateMap",
+        "affiliate_Group": "\\module\\excursion\\model\\affiliate_Group",
+        "affiliate_information": "\\module\\excursion\\model\\affiliate_information",
+        "affiliate_users": "\\module\\excursion\\model\\affiliate_users",
+        "api_authentication": "\\module\\excursion\\model\\api_authentication",
+        "approval_emails_log": "\\module\\excursion\\model\\approval_emails_log",
+        "blackout_cruiselines": "\\module\\excursion\\model\\blackout_cruiselines",
+        "blackout_dates": "\\module\\excursion\\model\\blackout_dates",
+        "bufferfactors": "\\module\\excursion\\model\\bufferfactors",
+        "categories": "\\module\\excursion\\model\\categories",
+        "cruisecal_data": "\\module\\excursion\\model\\cruisecal_data",
+        "cruisecal_lines": "\\module\\excursion\\model\\cruisecal_lines",
+        "cruisecal_ships": "\\module\\excursion\\model\\cruisecal_ships",
+        "customer_reminder_emails_log": "\\module\\excursion\\model\\customer_reminder_emails_log",
+        "customer_review_emails_log": "\\module\\excursion\\model\\customer_review_emails_log",
+        "customers": "\\module\\excursion\\model\\customers",
+        "email_routing": "\\module\\excursion\\model\\email_routing",
+        "inventory_tours": "\\module\\excursion\\model\\inventory_tours",
+        "kit_links": "\\module\\excursion\\model\\kit_links",
+        "kits": "\\module\\excursion\\model\\kits",
+        "lines": "\\module\\excursion\\model\\lines",
+        "marketing_customer_data": "\\module\\excursion\\model\\marketing_customer_data",
+        "option_categories": "\\module\\excursion\\model\\option_categories",
+        "options": "\\module\\excursion\\model\\options",
+        "order_confirmations_log": "\\module\\excursion\\model\\order_confirmations_log",
+        "order_details": "\\module\\excursion\\model\\order_details",
+        "order_details_notes": "\\module\\excursion\\model\\order_details_notes",
+        "order_details_options": "\\module\\excursion\\model\\order_details_options",
+        "order_details_options_parsed": "\\module\\excursion\\model\\order_details_options_parsed",
+        "order_details_responses": "\\module\\excursion\\model\\order_details_responses",
+        "order_ids_changed_for_itinerary_logic_log": "\\module\\excursion\\model\\order_ids_changed_for_itinerary_logic_log",
+        "order_information_changes_queue": "\\module\\excursion\\model\\order_information_changes_queue",
+        "order_information_details": "\\module\\excursion\\model\\order_information_details",
+        "orders": "\\module\\excursion\\model\\orders",
+        "orders_information": "\\module\\excursion\\model\\orders_information",
+        "package_costs": "\\module\\excursion\\model\\package_costs",
+        "package_ports": "\\module\\excursion\\model\\package_ports",
+        "packages": "\\module\\excursion\\model\\packages",
+        "port_timezone_mappings": "\\module\\excursion\\model\\port_timezone_mappings",
+        "ports": "\\module\\excursion\\model\\ports",
+        "process_log": "\\module\\excursion\\model\\process_log",
+        "processes": "\\module\\excursion\\model\\processes",
+        "product_tour_mappings": "\\module\\excursion\\model\\product_tour_mappings",
+        "products": "\\module\\excursion\\model\\products",
+        "retired_ships": "\\module\\excursion\\model\\retired_ships",
+        "ship_timezone_mappings": "\\module\\excursion\\model\\ship_timezone_mappings",
+        "time_equivalency": "\\module\\excursion\\model\\time_equivalency",
+        "tracker_log": "\\module\\excursion\\model\\tracker_log",
+        "tracker_status_log": "\\module\\excursion\\model\\tracker_status_log",
+        "user_action_logs": "\\module\\excursion\\model\\user_action_logs",
+        "vendor_costs": "\\module\\excursion\\model\\vendor_costs",
+        "vendor_reminder_emails_log": "\\module\\excursion\\model\\vendor_reminder_emails_log",
+        "vendor_tour_manifest_emails_log": "\\module\\excursion\\model\\vendor_tour_manifest_emails_log",
+        "vendors": "\\module\\excursion\\model\\vendors",
+        "voucher_templates": "\\module\\excursion\\model\\voucher_templates"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "1.1.4"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users"
+        },
+        "controller": [
+        ],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log"
+        }
+    },
+    "role_based_groups": [
+        {
+            "id": "1669",
+            "name": "__excursion.MyOrganization"
+        }
+    ]
+}

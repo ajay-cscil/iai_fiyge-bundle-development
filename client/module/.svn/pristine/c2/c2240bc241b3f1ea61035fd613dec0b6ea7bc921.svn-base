@@ -1,0 +1,2 @@
+<?php $configuration=array (
+); ?>

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\payroll\controller;
+
+class payslips_domain_logic extends \tushar\controller{
+
+    public function compute_payslip($request) {
+        $id = $this->id($request);
+        $modelObj = $this->modelObj();
+        if ($modelObj->computePayslip($id)) {
+            $request->setMsg('Generated payslip');
+        } else {
+            $request->setMsg('Failed payslip generation');
+        }
+        return false;
+        //exit;
+    }
+
+}

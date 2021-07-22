@@ -1,0 +1,167 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\controller;
+
+class list_records extends \tushar\controller {
+
+    /**
+     *
+     * @var type
+     */
+    public $paginate = array(
+        'fields' => array('lists.name', 'list_records.content', 'created_by_user.first_name', 'created_by_user.last_name')
+    );
+    /**
+     *
+     * @var type
+     */
+    public $form = array(
+        'name' => 'List details',
+        'method' => 'POST',
+        'children' => array(
+            'helper' => '\\tushar\\form',
+            'method' => 'tab',
+            'label' => 'list',
+            'children' => array(
+                array(
+                    'helper' => '\\tushar\\form',
+                    'method' => 'collection',
+                    'label' => 'List Record Information',
+                    'children' => array(
+                        array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'panel',
+                            'class' => 'align-center',
+                            'children' => array(
+                                array('helper' => '\\tushar\\form', 'method' => 'cancel', 'permission' => EDIT),
+                                array('helper' => '\\tushar\\form', 'method' => 'menu','permission'=>EDIT),
+                                array('helper' => '\\tushar\\form', 'method' => 'input', 'type' => 'submit', 'name' => 'data[action][submit]', 'value' => 'Submit', 'class' => ''),
+                            )
+                        ),
+                        array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'block',
+                            'label' => 'Basic Information',
+                            'cols' => '2',
+                            'children' => array(
+                                array('helper' => '\\tushar\\form', 'method' => 'popup', 'label' => 'List Name','colspan' => 3, 'name' => array('list_records', 'list_id'), 'children' => array('display_field' => 'name', 'primary_key' => 'id', 'model' => 'lists', 'href' => 'campaigns/lists/index')),
+                            )
+                        )
+                    )
+                ), array(
+                    'helper' => '\\tushar\\form',
+                    'method' => 'collection',
+                    'label' => 'more information',
+                    'children' => array()
+                )
+            )
+        )
+    );
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function modifyForm($request) {
+        $data = $request->response('data');
+        $columnForm = array();
+        if (isset($data['list_records']) && isset($data['list_records']['content'])) {
+            $data['list_records']['columns'] = json_decode($data['list_records']['content'], true);
+            $request->set('data', $data);
+        }
+        if (isset($data['list_records']) && isset($data['list_records']['list_id'])) {
+            $modelClass = $this->modelClass;
+            $lists = $modelClass::getInstance()->lists;
+            $columns = json_decode(select('columns')->from($lists)->where(array("{$lists->primaryKey}" => $data['list_records']['list_id']))->execute()->fetch(\PDO::FETCH_COLUMN, 0), true);
+            $half = ceil(count($columns) / 2);
+            $left = array_slice($columns, 0, $half);
+            $right = array_slice($columns, $half);
+            $columns = array();
+            while (!empty($left)) {
+                $columns[] = array_shift($left);
+                if (!empty($right))
+                    $columns[] = array_shift($right);
+            }
+            foreach ($columns as $column) {
+                $columnForm[] = array('helper' => '\\tushar\\form', 'method' => 'input', 'not_empty' => ($column['is_required'] == 1 ? true : false), 'type' => 'text', 'class' => $column['type'], 'label' => $column['name'], 'name' => array('list_records', 'columns', $column['name']));
+            }
+        }
+
+
+
+        return array(
+            'helper' => '\\tushar\\form',
+            'method' => 'block',
+            'label' => 'Record Information',
+            'cols' => '2',
+            'id' => 'record-information',
+            'children' => $columnForm
+        );
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     */
+    public function list_record_block($request) {
+        $request->data['list_records'] = array('list_id' => $request->param('list_id'));
+        $request->set('data', $request->data);
+        $block = $this->modifyForm($request);
+        $request->set('block', $block);
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function edit($request) {
+        if (!empty($request->data)) {
+            if (isset($request->data['list_records']) && isset($request->data['list_records']['columns']))
+                if (is_array($request->data['list_records']['columns'])) {
+                    $modelClass = $this->modelClass;
+                    $lists = $modelClass::getInstance()->lists;
+                    $listData = $lists->read($request->data['list_records']['list_id']);
+                    $columnList = json_decode(select('columns')->from($lists)->where(array("{$lists->primaryKey}" => $request->data['list_records']['list_id']))->execute()->fetch(\PDO::FETCH_COLUMN, 0), true);
+                    foreach ($columnList as $column) {
+                        if ($column['is_required'] == true) {
+                            if (!isset($request->data['list_records']['columns'][$column['name']]) || empty($request->data['list_records']['columns'][$column['name']]))
+                                \tushar\model::$errors[] = sprintf(__('%s should not be empty'), $column['name']);
+                        }
+                    }
+                    $columns = array();
+                    foreach ($request->data['list_records']['columns'] as $i => $v) {
+                        if (!empty($v))
+                            $columns[$i] = $v;
+                    }
+                    $request->data['list_records']['content'] = json_encode($columns);
+                }
+        }
+        $return = parent::edit($request);
+        $this->form['children']['children'][0]['children'][] = $this->modifyForm($request);
+        $request->set('form', $this->form);
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function view($request) {
+        $return = parent::view($request);
+
+
+        $this->form['children']['children'][0]['children'][] = $this->modifyForm($request);
+        $form = $this->form;
+        $form['permission'] = VIEW;
+        $request->set('form', $form);
+        return $return;
+    }
+
+}

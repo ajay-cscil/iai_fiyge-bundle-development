@@ -1,0 +1,142 @@
+{
+    "version": "1.0.1",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "id": "338",
+    "name": "benchmarking",
+    "license_agreement": "",
+    "description": "",
+    "company": "Primary Modules",
+    "author": "Pooja Pednekar",
+    "is_active": "0",
+    "label": "System: Benchmarking",
+    "created_by": "-1",
+    "modified_by": "-1",
+    "owned_by": "-1",
+    "is_public": null,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "created": "2013-12-15",
+    "modified": "2013-07-05 18:56:10",
+    "revision": null,
+    "flags": null,
+    "category_id": "7",
+    "industry_id": "2",
+    "latest_version": null,
+    "is_installed": "1",
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/benchmarking",
+    "current_stable_version": "0",
+    "__created_by": "",
+    "__modified_by": "Maaxframe Inc.",
+    "modified_by_model": "modified_by_user",
+    "__owned_by": "",
+    "__category_id": "IT & Administration",
+    "category_id_business_key": "IT & Administration",
+    "category_id_model": "module_categories",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "industry_id_model": "module_industries",
+    "controllers": {
+        "config": "\\module\\benchmarking\\controller\\config",
+        "configurations": "\\module\\benchmarking\\controller\\configurations",
+        "jmeter_configuration": "\\module\\benchmarking\\controller\\jmeter_configuration",
+        "jmeter_results": "\\module\\benchmarking\\controller\\jmeter_results",
+        "search_config": "\\module\\benchmarking\\controller\\search_config",
+        "test_case_responses": "\\module\\benchmarking\\controller\\test_case_responses"
+    },
+    "models": {
+        "config_acl_cache": "\\module\\benchmarking\\model\\config_acl_cache",
+        "config_group_acl_cache": "\\module\\benchmarking\\model\\config_group_acl_cache",
+        "config": "\\module\\benchmarking\\model\\config",
+        "configurations": "\\module\\benchmarking\\model\\configurations",
+        "jmeter_configuration_acl_cache": "\\module\\benchmarking\\model\\jmeter_configuration_acl_cache",
+        "jmeter_configuration_group_acl_cache": "\\module\\benchmarking\\model\\jmeter_configuration_group_acl_cache",
+        "jmeter_configuration": "\\module\\benchmarking\\model\\jmeter_configuration",
+        "jmeter_results_acl_cache": "\\module\\benchmarking\\model\\jmeter_results_acl_cache",
+        "jmeter_results_group_acl_cache": "\\module\\benchmarking\\model\\jmeter_results_group_acl_cache",
+        "jmeter_results": "\\module\\benchmarking\\model\\jmeter_results",
+        "search_config_acl_cache": "\\module\\benchmarking\\model\\search_config_acl_cache",
+        "search_config_group_acl_cache": "\\module\\benchmarking\\model\\search_config_group_acl_cache",
+        "search_config": "\\module\\benchmarking\\model\\search_config",
+        "test_case_responses_acl_cache": "\\module\\benchmarking\\model\\test_case_responses_acl_cache",
+        "test_case_responses_group_acl_cache": "\\module\\benchmarking\\model\\test_case_responses_group_acl_cache",
+        "test_case_responses": "\\module\\benchmarking\\model\\test_case_responses"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": [
+            ],
+            "core": [
+            ],
+            "access_controls": {
+                "version": "1.0.3",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "development": {
+                "version": "1.0.0",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            }
+        },
+        "model": {
+            "\\module\\access_controls\\model\\users": "\\module\\access_controls\\model\\users",
+            "\\module\\development\\model\\modules": "\\module\\development\\model\\modules"
+        },
+        "controller": [
+        ],
+        "behaviour": {
+            "\\module\\core\\behaviour\\revision_log": "\\module\\core\\behaviour\\revision_log",
+            "\\module\\access_controls\\behaviour\\acl": "\\module\\access_controls\\behaviour\\acl"
+        }
+    },
+    "role_based_groups": [
+    ]
+}

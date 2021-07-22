@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:11 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>driver (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\driver</h2>
+
+</header><p class="signature">public  class <strong>driver</strong></p>
+
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#char">$char</a></p><p class="description">charector to be use to encode keywords like table columns</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#settings">$settings</a></p><p class="description">Settings for currect pdo connection</p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#__construct()">__construct</a>(mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">protected  type</td>
+<td class="description"><p class="name"><a href="#alias()">alias</a>(type db, type table, type alias)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#check()">check</a>(mixed query)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#condition()">condition</a>(array condition, bool exp)</p><p class="description">Parses array and generates sql</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#db()">db</a>(mixed name, str operation)</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#dbTable()">dbTable</a>(type db, type table)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#delete()">delete</a>(array query)</p><p class="description">Prepare and executes a delete statement</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#deleteSchemaCache()">deleteSchemaCache</a>(mixed db, mixed table)</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#execute()">execute</a>(<a href="../kernel/string.html">string</a> sql)</p><p class="description">Execute user supplied SQL using PDO::exec</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#extract()">extract</a>(type query)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#find()">find</a>(array queries, bool exp)</p><p class="description">Parses and executes all select statements</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#keyword()">keyword</a>(type str)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#keywords()">keywords</a>(type arr, type join)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#offsetLimit()">offsetLimit</a>(int offset, int limit)</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#processCondition()">processCondition</a>(array condition, bool exp, mixed obj)</p><p class="description">This is private helper method for condition method</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#processType()">processType</a>(mixed type)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#query()">query</a>(<a href="../kernel/string.html">string</a> sql)</p><p class="description">Execute user supplied SQL using PDO::query</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#quote()">quote</a>(mixed str)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#save()">save</a>(array query, bool exp)</p><p class="description">Perform INSERT/UPDATE/REPLACE/UPDATE ALL crud operations</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#transaction()">transaction</a>(<a href="../kernel/string.html">string</a> command)</p><p class="description">Handels transaction operation</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="char">public  <a href="../kernel/string.html">string</a> <strong>$char</strong> = &quot;`&quot;</code>
+<div class="details">
+<p>charector to be use to encode keywords like table columns</p></div>
+
+<code class="signature" id="settings">public  array <strong>$settings</strong> = array()</code>
+<div class="details">
+<p>Settings for currect pdo connection</p></div>
+
+<code class="signature" id="__construct">public  void <strong>__construct</strong>(mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="alias">protected  type <strong>alias</strong>(type db, type table, type alias)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="check">protected  void <strong>check</strong>(mixed query)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Todo:</th>
+<td>this method needs to be updated to avoid all possible sql injections.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="condition">public  <a href="../kernel/string.html">string</a> <strong>condition</strong>(array condition, bool exp)</code>
+<div class="details">
+<p>Parses array and generates sql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td></td>
+<td>exp - if true then allow expressions, else treat them as string</td>
+</tr></table>
+</div>
+
+<code class="signature" id="db">public  void <strong>db</strong>(mixed name, str operation)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="dbTable">public  type <strong>dbTable</strong>(type db, type table)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="delete">public static  void <strong>delete</strong>(array query)</code>
+<div class="details">
+<p>Prepare and executes a delete statement</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="deleteSchemaCache">public  void <strong>deleteSchemaCache</strong>(mixed db, mixed table)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="execute">public  mixed <strong>execute</strong>(<a href="../kernel/string.html">string</a> sql)</code>
+<div class="details">
+<p>Execute user supplied SQL using PDO::exec</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Returns</th>
+<td>output of SQL</td>
+</tr></table>
+</div>
+
+<code class="signature" id="extract">public  type <strong>extract</strong>(type query)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="find">public  mixed <strong>find</strong>(array queries, bool exp)</code>
+<div class="details">
+<p>Parses and executes all select statements</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="keyword">public  type <strong>keyword</strong>(type str)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="keywords">public  type <strong>keywords</strong>(type arr, type join)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="offsetLimit">protected  void <strong>offsetLimit</strong>(int offset, int limit)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="processCondition">public static  array <strong>processCondition</strong>(array condition, bool exp, mixed obj)</code>
+<div class="details">
+<p>This is private helper method for condition method</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="processType">public  void <strong>processType</strong>(mixed type)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Todo:</th>
+<td>to be implemented.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="query">public  mixed <strong>query</strong>(<a href="../kernel/string.html">string</a> sql)</code>
+<div class="details">
+<p>Execute user supplied SQL using PDO::query</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Returns</th>
+<td>output of SQL</td>
+</tr></table>
+</div>
+
+<code class="signature" id="quote">public  void <strong>quote</strong>(mixed str)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com> can be used for quoting user supplied parameters.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="save">public  mixed <strong>save</strong>(array query, bool exp)</code>
+<div class="details">
+<p>Perform INSERT/UPDATE/REPLACE/UPDATE ALL crud operations</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>query - array holding information to be saved</td>
+<td>exp - if true then allow expressions, else treat them as string</td>
+</tr></table>
+</div>
+
+<code class="signature" id="transaction">public  void <strong>transaction</strong>(<a href="../kernel/string.html">string</a> command)</code>
+<div class="details">
+<p>Handels transaction operation</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>command - begin/commit/rollback</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

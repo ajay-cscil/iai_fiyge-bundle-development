@@ -1,0 +1,593 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class journal_entry_lines extends \module\accounting\model\journal_entry_lines_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'accounting__journal_entry_lines';
+       public $parentClass = '\\data_model';
+       public $displayField = 'memo';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'statement_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'statement_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'currency_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'currency_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'due_date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'due_date',
+    'ntype' => 'date',
+  ),
+  'partner_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'partner_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'partial_reconcile_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'partial_reconcile_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'analytic_account_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'analytic_account_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'credit' => 
+  array (
+    'column' => 'credit',
+    'ntype' => 'float',
+    'length' => '10,2',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'centralisation' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'centralisation',
+    'ntype' => 'string',
+    'length' => '8',
+  ),
+  'tax_account' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tax_account',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'status' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'status',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'debit' => 
+  array (
+    'column' => 'debit',
+    'ntype' => 'float',
+    'length' => '10,2',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'no_follow_up' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'no_follow_up',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'reference' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'reference',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'account_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'account_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'creation_date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'creation_date',
+    'ntype' => 'date',
+  ),
+  'effective_date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'effective_date',
+    'ntype' => 'date',
+  ),
+  'memo' => 
+  array (
+    'column' => 'memo',
+    'ntype' => 'string',
+    'length' => '64',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'reconcile_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'reconcile_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'tax_amount' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tax_amount',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'product_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'product_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'account_tax_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'account_tax_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'product_uom_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'product_uom_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'amount_currency' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'amount_currency',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'quantity' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'quantity',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'asset_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'asset_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'latest_follow_up_date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'latest_follow_up_date',
+    'ntype' => 'date',
+  ),
+  'follow_up_level' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'follow_up_level',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'status_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'status_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'journal_entry_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'journal_entry_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'balance' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'balance',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  '_acl' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_edit' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_delete' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_acl_group' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_acl_group',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'debits' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'debits',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'credits' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'credits',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'description' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  'related_to' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'related_to',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'related_to_model' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  '__related_to' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '__related_to',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'bank_statements' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\bank_statements',
+    'associationAlias' => 'bank_statements',
+    'foreignKey' => 'statement_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'currencies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\currencies',
+    'associationAlias' => 'currencies',
+    'foreignKey' => 'currency_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'journal_entry_line_status' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\journal_entry_line_status',
+    'associationAlias' => 'journal_entry_line_status',
+    'foreignKey' => 'status_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'journal_entries' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\journal_entries',
+    'associationAlias' => 'journal_entries',
+    'foreignKey' => 'journal_entry_id',
+    'isAclParent' => '1',
+    'show_link' => '1',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'users' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'users',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}
+',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'partners' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\accounts',
+    'associationAlias' => 'partners',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}
+',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'contacts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\contacts',
+    'associationAlias' => 'contacts',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}
+',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'financial_accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\accounts',
+    'associationAlias' => 'financial_accounts',
+    'foreignKey' => 'account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\accounts',
+    'associationAlias' => 'accounts',
+    'foreignKey' => 'account_id',
+    'isAclParent' => '1',
+    'show_link' => '1',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'taxes' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\taxes',
+    'associationAlias' => 'taxes',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'products' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\products',
+    'associationAlias' => 'products',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+  ),
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '4',
+    'deleteAccess' => '4',
+    'ownAcl' => '0',
+    'cacheClass' => '0',
+    'lazyAclCheck' => '1',
+    'recursion' => '2',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+);
+  }

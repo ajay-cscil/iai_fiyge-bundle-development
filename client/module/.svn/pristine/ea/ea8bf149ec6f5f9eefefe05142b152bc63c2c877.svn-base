@@ -1,0 +1,661 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\product\model;
+  class products extends \module\product\model\products_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'product__products';
+       public $alias = 'products';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'product_category_id' => 
+  array (
+    'column' => 'product_category_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'default_price_list_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'default_price_list_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'unit_price' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'unit_price',
+    'ntype' => 'float',
+    'length' => '10,0',
+  ),
+  'sale_price' => 
+  array (
+    'column' => 'sale_price',
+    'ntype' => 'float',
+    'length' => '10,0',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'procurement_method' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'procurement_method',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'supply_method' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'supply_method',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'uom_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'uom_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'storage_location' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'storage_location',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'availability' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'availability',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'weight' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'weight',
+    'ntype' => 'float',
+    'length' => '10,0',
+  ),
+  'volume' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'volume',
+    'ntype' => 'float',
+    'length' => '10,0',
+  ),
+  'min_order_quantity' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'min_order_quantity',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lead_time' => 
+  array (
+    'column' => 'lead_time',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'description' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'currency_id' => 
+  array (
+    'column' => 'currency_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'barcode' => 
+  array (
+    'column' => 'barcode',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'tax_liable' => 
+  array (
+    'column' => 'tax_liable',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'product_type' => 
+  array (
+    'column' => 'product_type',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'tax_type' => 
+  array (
+    'column' => 'tax_type',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'remark' => 
+  array (
+    'column' => 'remark',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'inventory_uom' => 
+  array (
+    'column' => 'inventory_uom',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'sale_uom' => 
+  array (
+    'column' => 'sale_uom',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'purchase_uom' => 
+  array (
+    'column' => 'purchase_uom',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'length' => 
+  array (
+    'column' => 'length',
+    'ntype' => 'float',
+    'length' => '11',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'height' => 
+  array (
+    'column' => 'height',
+    'ntype' => 'float',
+    'length' => '11',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'manage_item_by' => 
+  array (
+    'column' => 'manage_item_by',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'preferred_vendor' => 
+  array (
+    'column' => 'preferred_vendor',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'available' => 
+  array (
+    'column' => 'available',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'inventory_uom_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'inventory_uom_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'purchase_uom_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'purchase_uom_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'sale_uom_id' => 
+  array (
+    'column' => 'sale_uom_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'width' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'width',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'quantity_on_hand' => 
+  array (
+    'column' => 'quantity_on_hand',
+    'ntype' => 'float',
+    'length' => '10,2',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'forecasted_quantity' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'forecasted_quantity',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'order_up_to_level' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'order_up_to_level',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'reorder_point' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'reorder_point',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'incoming' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'incoming',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'outgoing' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'outgoing',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'sale_start' => 
+  array (
+    'column' => 'sale_start',
+    'ntype' => 'date',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'sale_end' => 
+  array (
+    'column' => 'sale_end',
+    'ntype' => 'date',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+  ),
+  'preferred_supplier' => 
+  array (
+    'column' => 'preferred_supplier',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'product_categories' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\product_categories',
+    'associationAlias' => 'product_categories',
+    'foreignKey' => 'product_category_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'pricelists' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\pricelists',
+    'associationAlias' => 'pricelists',
+    'foreignKey' => 'default_price_list_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_uom' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\config_uom',
+    'associationAlias' => 'config_uom',
+    'foreignKey' => 'uom_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'currencies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\currencies',
+    'associationAlias' => 'currencies',
+    'foreignKey' => 'currency_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'sale_config_uom' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\config_uom',
+    'associationAlias' => 'sale_config_uom',
+    'foreignKey' => 'sale_uom_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'purchase_config_uom' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\config_uom',
+    'associationAlias' => 'purchase_config_uom',
+    'foreignKey' => 'purchase_uom_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'inventory_config_uom' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\config_uom',
+    'associationAlias' => 'inventory_config_uom',
+    'foreignKey' => 'inventory_uom_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'warehouse_locations' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\product\\model\\warehouse_locations',
+    'associationAlias' => 'warehouse_locations',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+  ),
+  'line_taxes' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\accounting\\model\\line_taxes',
+    'associationAlias' => 'line_taxes',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '{{FOREIGN}}.{{FOREIGN_KEY}}_model=\'{{PRIMARY}}\'',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'product_accounts' => 
+  array (
+    'assocType' => 'hasOne',
+    'className' => '\\module\\accounting\\model\\product_accounts',
+    'associationAlias' => 'product_accounts',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'sale_order_lines' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\sales\\model\\sale_order_lines',
+    'associationAlias' => 'sale_order_lines',
+    'foreignKey' => 'sale_order_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'product_category_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'unit_price' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'sale_price' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'product_type' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'inventory_uom_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'sale_uom_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'procurement_method' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'purchase_uom_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'description' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

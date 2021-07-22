@@ -1,0 +1,233 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL & ~E_DEPRECATED);
+ini_set('max_execution_time', 12800);
+
+class TestOfAdd extends WebTestCase {
+
+    private $base_url;
+    private $username;
+    private $password;
+    private $exceptions = array(
+        'access_controls/acos/add',
+        'access_controls/aros/add',
+        'access_controls/design_acl/add',
+        'campaigns/campaign_log_summary/add',
+        'access_controls/group_contain_groups/add',
+        'access_controls/users/add',
+        'development_base/menus/add'
+    );
+    private $dynamic_forms = array(
+        'development_base/models/add',
+        'development_base/forms/add',
+        'development_base/controllers/add',
+        'campaigns/list_records/add',
+    );
+
+    function TestOfAdd() {
+        \tushar\configuration::write('test_mode', false);
+        foreach (\module\benchmarking\model\configurations::getInstance()
+                ->find(array('limit' => 0))
+                ->fetch(\PDO::FETCH_ASSOC) as $info) {
+            if (property_exists($this, $info['name'])) {
+                $this->{$info['name']} = $info['value'];
+            }
+        }
+        \tushar\configuration::write('test_mode', true);
+    }
+
+    function testAddmethod() {
+
+        $login = $this->base_url;
+        $this->get($login);
+        $this->setField('data[users][user_name]', $this->username);
+        $this->setField('data[users][user_password]', $this->password);
+        $this->click('Login');
+
+
+        //$webResponseObject = \module\benchmarking\model\web_responses::getInstance();
+        $user = "\\tushar\\user";
+        $userDetails = $user::readAll();
+        $rolesObj = \module\access_controls\model\roles::getInstance();
+        $rolesRecords = $rolesObj->find(array('limit' => 0))->fetchAll(\PDO::FETCH_ASSOC);
+        foreach ($rolesRecords as $role) {
+            if (isset($role[$rolesObj->primaryKey])) {
+                $user::write('role_id', $role[$rolesObj->primaryKey]);
+                $app_menu = "\\module\\development_base\\model\\menus";
+                $appMenuObj = $app_menu::getInstance();
+                $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%add'")))->fetchAll(\PDO::FETCH_ASSOC);
+                if (is_array($urls)) {
+                    foreach ($urls as $url) {
+                        if (isset($url['url']) && !in_array($url['url'], array_merge($this->exceptions, $this->dynamic_forms))) {
+                            $urlParts = explode('/', $url['url']);
+                            if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+                                $fields = array();
+                                try {
+                                    $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+                                    $modelObj = $model::getInstance();
+                                    $model_record = $modelObj->find(array('limit' => 1))->fetchAll(\PDO::FETCH_ASSOC);
+                                    if (!empty($model_record) && isset($model_record[0]) && isset($model_record[0][$modelObj->primaryKey])) {
+
+                                        $to_call_url = $this->base_url . $url['url'];
+                                        $this->get($to_call_url);
+
+                                        $columns_with_validations = array();
+                                        if (isset($modelObj->filters) && is_array($modelObj->filters)) {
+                                            $columns_with_validations = array_keys($modelObj->filters);
+                                        }
+                                        $javaScriptCols = array();
+                                        unset($model_record[0][$modelObj->primaryKey]);
+                                        foreach ($model_record[0] as $colKey => $colValue) {
+                                            $key = 'data[' . $modelObj->alias . '][' . $colKey . ']';
+                                            if (!is_array($colValue)) {
+                                                if (in_array($colKey, $columns_with_validations)) {
+                                                    if (isset($modelObj->filters[$colKey]) && is_array($modelObj->filters[$colKey])) {
+                                                        foreach ($modelObj->filters[$colKey] as $rules) {
+                                                            if (is_array($rules) && isset($rules['params']) && isset($rules['params']['options'])) {
+                                                                if (is_array($rules['params']['options']) && (in_array('notDuplicate', $rules['params']['options']) || in_array('noDuplicate', $rules['params']['options']))) {
+                                                                    $colValue = $colValue . rand();
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                $javaScriptCols[$key] = $colValue;
+                                            }
+                                        }
+
+                                        $this->clickSubmitByName('data[action][submit]', $javaScriptCols);
+
+                                        $server_response_time = '';
+                                        $server_memory = '';
+                                        $responseCode = $this->_browser->getResponseCode();
+                                        $source = $this->_browser->getContent();
+                                        $sourceText = $this->_browser->getContentAsText();
+                                        $matches = array();
+                                        preg_match('/Server response time:.*/i', $sourceText, $matches);
+
+                                        if (is_array($matches) && isset($matches[0])) {
+                                            $dataParts = explode(',', $matches[0]);
+                                            $server_response_time = str_replace('Server response time:', '', $dataParts[0]);
+                                            $server_memory = str_replace('Memory:', '', $dataParts[1]);
+                                            $server_memory = str_replace('Powered ByMaaxFrame', '', $server_memory);
+                                        }
+
+                                        $m = array();
+                                        preg_match("/\d+\.?\d*/ ", $server_response_time, $m);
+                                        $server_response_time_time = (is_array($m) && isset($m[0])) ? $m[0] : $server_response_time;
+                                        $server_response_time_unit = (is_array($m) && isset($m[0])) ? str_replace($m[0], '', $server_response_time) : $server_response_time;
+                                        $m = array();
+                                        preg_match("/\w+/", $server_response_time_unit, $m);
+                                        $server_response_time_unit = (is_array($m) && isset($m[0])) ? $m[0] : $server_response_time_unit;
+
+                                        $m = array();
+                                        preg_match("/\d+\.?\d*/ ", $server_memory, $m);
+                                        $server_memory_size = (is_array($m) && isset($m[0])) ? $m[0] : $server_memory;
+                                        $server_memory_unit = (is_array($m) && isset($m[0])) ? str_replace($m[0], '', $server_memory) : $server_memory;
+                                        $m = array();
+                                        preg_match("/\w\w/", $server_memory_unit, $m);
+                                        $server_memory_unit = (is_array($m) && isset($m[0])) ? $m[0] : $server_memory_unit;
+
+                                        \tushar\configuration::write('test_mode', false);
+                                        $webResponseObject = \module\benchmarking\model\test_case_responses::getInstance();
+
+                                        $webResponseObject->data = array();
+                                        $webResponseObject->data['url'] = $to_call_url;
+                                        $webResponseObject->data['http_code'] = $responseCode;
+                                        $webResponseObject->data['role_id'] = $role[$rolesObj->primaryKey];
+
+                                        $webResponseObject->data['method'] = 'Add';
+                                        $webResponseObject->data['sever_response_time'] = $server_response_time_time;
+                                        $webResponseObject->data['sever_response_time_unit'] = $server_response_time_unit;
+
+                                        $webResponseObject->data['related_module'] = $urlParts[0];
+                                        $webResponseObject->data['related_model'] = $urlParts[1];
+
+
+                                        $webResponseObject->data['memory'] = $server_memory_size;
+                                        $webResponseObject->data['memory_unit'] = $server_memory_unit;
+                                        if (strpos($source, 'saved successfully') === false) {
+                                            $errors = array();
+                                            $error = array();
+                                            preg_match('%<div class="errors-header">.*</ol>%', $source, $errors);
+                                            if (isset($errors[0])) {
+                                                preg_match('%<ol>.*</ol>%', $errors[0], $error);
+                                            }
+                                            $webResponseObject->data['error_message'] = isset($error[0]) ? $error[0] : "Error occured while adding record";
+                                        } else {
+                                            $webResponseObject->data['error_message'] = 'No Error';
+                                        }
+                                        //\tushar\configuration::write('test_mode', false);
+                                        $webResponseObject->save($webResponseObject->data, array('atomic' => true));
+                                        \tushar\configuration::write('test_mode', true);
+                                    }
+                                } catch (Exception $e) {
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        /*   $this->get('http://localhost/benchmarking1/access_controls/dynamic_acl/add');
+          $modelObj = \module\masters\model\lookups::getInstance();
+          $record = $modelObj->find(array('limit' => 1))->fetchAll(\PDO::FETCH_ASSOC);
+          if (isset($modelObj->filters) && is_array($modelObj->filters)) {
+          $columns_with_validations = array_keys($modelObj->filters);
+          }
+          $javaScriptCols = array();
+          //$columns = array();
+          if (isset($record[0]) && is_array($record[0])) {
+          unset($record[0][$modelObj->primaryKey]);
+          //$columns = array_keys($record[0]);
+          foreach ($record[0] as $colKey => $colValue) {
+          $key = 'data[' . $modelObj->alias . '][' . $colKey . ']';
+          if (!is_array($colValue)) {
+          //$custom_field = "__" . $colKey;
+          if (in_array($colKey, $columns_with_validations)) {
+          if (isset($modelObj->filters[$colKey]) && is_array($modelObj->filters[$colKey])) {
+          foreach ($modelObj->filters[$colKey] as $rules) {
+          if (is_array($rules) && isset($rules['params']) && isset($rules['params']['options'])) {
+          if (is_array($rules['params']['options']) && (in_array('notDuplicate', $rules['params']['options']) || in_array('noDuplicate', $rules['params']['options'])) ) {
+          $colValue = $colValue . rand(0,1000);
+          break;
+          }
+          }
+          }
+          }
+          }
+          $javaScriptCols[$key] = $colValue;
+          //     if (in_array($custom_field, $columns)) {
+          //     $javaScriptCols[$key] = $colValue;
+          //     } elseif (strpos($colKey, 'date') !== false) {
+          //     $javaScriptCols[$key] = $colValue;
+          //     } elseif (strpos($colKey, '_id') !== false) {
+          //     $javaScriptCols[$key] = $colValue;
+          //     } else {
+          //      $this->setField($key, $colValue);
+          //     }
+          }
+          }
+          }
+          $this->clickSubmitByName('data[action][submit]', $javaScriptCols);
+          // $this->showSource();
+          //$this->showText();
+          $source = $this->_browser->getContent();
+          ;
+          $errors = array();
+          $error = array();
+          preg_match('%<div class="errors-header">.*</ol>%', $source, $errors);
+          pr($errors);
+          if (isset($errors[0])) {
+          preg_match('%<ol>.*</ol>%', $errors[0], $error);
+          pr($error);
+          } */
+    }
+
+}
+
+?>

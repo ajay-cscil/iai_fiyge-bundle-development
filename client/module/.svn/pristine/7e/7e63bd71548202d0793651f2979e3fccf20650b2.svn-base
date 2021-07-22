@@ -1,0 +1,46 @@
+<form name="<?php echo $this->request->controller; ?>"
+      action="<?php echo "{$this->request->base}{$this->request->module}/{$this->request->controller}/{$this->request->action}"; ?>"
+      method="post" enctype="multipart/form-data">
+    <input type="hidden" name="singleton_key" value="<?php echo $this->get(array('singleton_key')); ?>">
+    <?php
+    echo \tushar\html::start('input', array('type' => 'hidden', 'name' => 'http_referer', 'value' => ($this->get('http_referer', $this->request->param('http_referer', $this->request->server('HTTP_REFERER'))))));
+    ?>
+    <div class="ui-widget-header" style="margin-top:30px;"> &nbsp;</div>
+    <table align="center" style="margin-top: 50px; margin-bottom: 100px;">
+        <tr>
+            <td><?php echo \tushar\html::errors($this->get('errors', array())); ?>
+            </td>
+            </td>
+
+
+        <tr>
+            <td>
+                <div class="ui-widget-content" style=" text-align: center;padding:20px;">
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="background-color:#FFFFFF;border-spacing:0px;">
+                                <img style="float: left;"  src="<?php echo \tushar\html::logo_path(); ?>" border="0"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table class="standard">
+                                    <tr>
+                                        <td colspan="2" class="nowrap align-left">
+                                            Thank you for your interest in our company. You have successfully unsubscribed from our email list.
+                                            <br/>
+                                            Your email has been sent for removal.
+
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+

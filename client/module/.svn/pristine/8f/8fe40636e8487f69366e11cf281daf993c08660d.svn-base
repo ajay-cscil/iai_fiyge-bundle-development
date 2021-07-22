@@ -1,0 +1,429 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\stock\model;
+  class stock_moves extends \module\stock\model\stock_moves_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'stock__stock_moves';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'description';
+       public $primaryKey = 'id';
+       public $alias = 'stock_moves';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'transfer_orders_id' => 
+  array (
+    'column' => 'transfer_orders_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'status' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'status',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'product_id' => 
+  array (
+    'column' => 'product_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'quantity' => 
+  array (
+    'column' => 'quantity',
+    'ntype' => 'float',
+    'length' => '10,2',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'uom_id' => 
+  array (
+    'column' => 'uom_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'memo' => 
+  array (
+    'column' => 'memo',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'refrence' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'refrence',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'type' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'type',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'source_location_id' => 
+  array (
+    'column' => 'source_location_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'destination_location_id' => 
+  array (
+    'column' => 'destination_location_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'fulfillment_date' => 
+  array (
+    'column' => 'fulfillment_date',
+    'ntype' => 'datetime',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'delivery_order_id' => 
+  array (
+    'column' => 'delivery_order_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'inbound_shipment_id' => 
+  array (
+    'column' => 'inbound_shipment_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'related_to' => 
+  array (
+    'column' => 'related_to',
+    'ntype' => 'int',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  '__related_to' => 
+  array (
+    'column' => '__related_to',
+    'ntype' => 'string',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+  'related_to_model' => 
+  array (
+    'column' => 'related_to_model',
+    'ntype' => 'string',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+  ),
+);
+       public $associations = array (
+  'transfer_orders' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\stock\\model\\transfer_orders',
+    'associationAlias' => 'transfer_orders',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'products' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\products',
+    'associationAlias' => 'products',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_uom' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\config_uom',
+    'associationAlias' => 'config_uom',
+    'foreignKey' => 'uom_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'location_source' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\stock\\model\\location',
+    'associationAlias' => 'location_source',
+    'foreignKey' => 'source_location_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'location_destination' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\stock\\model\\location',
+    'associationAlias' => 'location_destination',
+    'foreignKey' => 'destination_location_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'physical_inventory' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\stock\\model\\inventory',
+    'associationAlias' => 'physical_inventory',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'delivery_orders' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\stock\\model\\delivery_orders',
+    'associationAlias' => 'delivery_orders',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'inbound_shipments' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\stock\\model\\inbound_shipments',
+    'associationAlias' => 'inbound_shipments',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.{{FOREIGN_KEY}}_model=\'{{FOREIGN}}\'',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'product_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'quantity' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'uom_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'source_location_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'destination_location_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'description' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

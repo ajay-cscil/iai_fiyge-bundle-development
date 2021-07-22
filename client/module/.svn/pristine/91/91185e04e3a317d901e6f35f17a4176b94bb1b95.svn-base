@@ -1,0 +1,52 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\stock\model;
+  class inbound_shipments_group_acl_cache extends \module\stock\model\inbound_shipments_group_acl_cache_domain_logic
+  {
+       public $source = 'acl';
+       public $table = 'stock__inbound_shipments_group_acl_cache';
+       public $parentClass = '\\acl_model';
+       public $displayField = 'group_id';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'group_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'group_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $filters = array (
+  'group_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

@@ -1,0 +1,132 @@
+{
+	"cdr":[
+		{
+			"listviews":{
+				"id":"1441",
+				"name":"All",
+				"category_id":"1",
+				"query":"{\"actions\":{\"view\":{\"name\":\"view\"}},\"fields\":[{\"cdr.uniqueid\":{\"__column\":\"cdr.uniqueid\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.clid\":{\"__column\":\"cdr.clid\",\"alias\":\"Call\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.src\":{\"__column\":\"cdr.src\",\"alias\":\"Source\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.dst\":{\"__column\":\"cdr.dst\",\"alias\":\"Destination\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.calldate\":{\"__column\":\"cdr.calldate\",\"alias\":\"Call Date\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.duration\":{\"__column\":\"cdr.duration\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.billsec\":{\"__column\":\"cdr.billsec\",\"alias\":\"Bill Sec\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.disposition\":{\"__column\":\"cdr.disposition\",\"alias\":\"Status\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"voip\\\/cdr\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1441\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"voip\\\/cdr\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"cdr.uniqueid\",\"column_model\":\"schema\",\"__column\":\"cdr.uniqueid\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"cdr.clid\",\"column_model\":\"schema\",\"__column\":\"cdr.clid\",\"alias\":\"Call\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"cdr.src\",\"column_model\":\"schema\",\"__column\":\"cdr.src\",\"alias\":\"Source\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"4\",\"column\":\"cdr.dst\",\"column_model\":\"schema\",\"__column\":\"cdr.dst\",\"alias\":\"Destination\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"5\":{\"seq\":\"5\",\"column\":\"cdr.calldate\",\"column_model\":\"schema\",\"__column\":\"cdr.calldate\",\"alias\":\"Call Date\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"6\":{\"seq\":\"6\",\"column\":\"cdr.duration\",\"column_model\":\"schema\",\"__column\":\"cdr.duration\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"7\":{\"seq\":\"7\",\"column\":\"cdr.billsec\",\"column_model\":\"schema\",\"__column\":\"cdr.billsec\",\"alias\":\"Bill Sec\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"8\":{\"seq\":\"8\",\"column\":\"cdr.disposition\",\"column_model\":\"schema\",\"__column\":\"cdr.disposition\",\"alias\":\"Status\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"voip\/cdr",
+				"is_default":"1",
+				"is_public":"1",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-05-31 15:54:54",
+				"modified":"2013-06-19 15:41:07",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"voip.cdr.All",
+				"sequence":"288",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"Corporate Views",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		},
+		{
+			"listviews":{
+				"id":"1449",
+				"name":"By User",
+				"category_id":"12",
+				"query":"{\"fields\":[{\"cdr.clid\":{\"__column\":\"cdr.clid\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.src\":{\"__column\":\"cdr.src\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"cdr.dst\":{\"__column\":\"cdr.dst\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"cdr.clid CONTAINS \":\"CURRENT_USER\"}}]],\"order\":[],\"name\":\"By User\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"voip\\\/cdr\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"295\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+				"_query":"{\"id\":\"1449\",\"name\":\"By User\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"voip\\\/cdr\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"cdr.clid\",\"column_model\":\"schema\",\"__column\":\"cdr.clid\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"cdr.src\",\"column_model\":\"schema\",\"__column\":\"cdr.src\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"cdr.dst\",\"column_model\":\"schema\",\"__column\":\"cdr.dst\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"conditions\":{\"1\":{\"search_column\":\"cdr.clid\",\"search_column_model\":\"schema\",\"__search_column\":\"cdr.clid\",\"search_comparator\":\"CONTAINS\",\"search_value\":\"CURRENT_USER\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"0\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"295\",\"row_template\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+				"description":"",
+				"controller":"voip\/cdr",
+				"is_default":"0",
+				"is_public":"0",
+				"parent_id":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2013-06-07 13:52:40",
+				"modified":"2013-06-19 15:41:35",
+				"deleted":"0",
+				"revision":null,
+				"flags":null,
+				"_acl":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_edit":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_delete":[
+					{
+						"id":"1",
+						"aro_id_model":"users",
+						"aro_id":"1",
+						"__aro_id":"System Admin"
+					}
+				],
+				"_acl_tmp":null,
+				"_acl_tmp_edit":null,
+				"_acl_tmp_delete":null,
+				"full_name":"voip.cdr.By User",
+				"sequence":"295",
+				"primary_acl_group":"0",
+				"__created_by":"System Admin",
+				"created_by_model":"created_by_user",
+				"__modified_by":"System Admin",
+				"modified_by_model":"modified_by_user",
+				"__category_id":"System View",
+				"category_id_model":"category",
+				"__parent_id":"",
+				"__owned_by":"",
+				"__primary_acl_group":"",
+				"temporary_acl":[
+					
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\data_management\controller;
+  class configurations extends \module\data_management\controller\configurations_domain_logic
+  {
+       public $modelClass = '\\module\\data_management\\model\\configurations';
+
+
+
+
+
+
+  }

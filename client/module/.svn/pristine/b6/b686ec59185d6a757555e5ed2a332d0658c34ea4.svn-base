@@ -1,0 +1,264 @@
+[
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"federated_users.user_name\":{\"__column\":\"federated_users.user_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"federated_users.application\":{\"__column\":\"federated_users.application\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"federated_users.created\":{\"__column\":\"federated_users.created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"cloud\\\/federated_users\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"100172\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"created_by\":\"1\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"52a598eb-3ad8-4813-9221-0c00efe6350e\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"cloud\\\/federated_users\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"federated_users.user_name\",\"column_model\":\"schema\",\"__column\":\"federated_users.user_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"federated_users.application\",\"column_model\":\"schema\",\"__column\":\"federated_users.application\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"federated_users.created\",\"column_model\":\"schema\",\"__column\":\"federated_users.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100172\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"cloud\/federated_users",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-09 10:18:19",
+			"modified":"2013-12-11 14:45:16",
+			"deleted":"0",
+			"revision":"9",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"cloud.federated_users.All",
+			"sequence":"100172",
+			"primary_acl_group":"0",
+			"id":"52a598eb-3ad8-4813-9221-0c00efe6350e",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"federated_users.email\",\"federated_users.application\",\"federated_users.created\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"federated_users.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"federated_users.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"federated_users.email\",\"__column\":\"federated_users.email\"},{\"column\":\"federated_users.application\",\"__column\":\"federated_users.application\"},{\"column\":\"federated_users.created\",\"__column\":\"federated_users.created\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"federated_users.modified\",\"__column\":\"federated_users.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"federated_users.modified\",\"sort_by\":\"federated_users.modified\"}}",
+			"description":null,
+			"controller":"cloud\/federated_users",
+			"is_default":null,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-12-09 10:18:19",
+			"modified":null,
+			"deleted":"0",
+			"revision":"8",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"cloud.federated_users.Recycle Bin",
+			"sequence":"253",
+			"primary_acl_group":null,
+			"id":"52a598eb-d010-40b2-a152-0c00efe6350e",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"instances.first_name\",\"instances.job_title\",\"instances.message\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"instances.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"instances.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"instances.first_name\",\"__column\":\"instances.first_name\"},{\"column\":\"instances.job_title\",\"__column\":\"instances.job_title\"},{\"column\":\"instances.message\",\"__column\":\"instances.message\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"instances.modified\",\"__column\":\"instances.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"instances.modified\",\"sort_by\":\"instances.modified\"}}",
+			"description":null,
+			"controller":"cloud\/instances",
+			"is_default":null,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-12-09 10:16:48",
+			"modified":null,
+			"deleted":"0",
+			"revision":"8",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"cloud.instances.Recycle Bin",
+			"sequence":"252",
+			"primary_acl_group":null,
+			"id":"52a59890-15f0-461a-9779-074eefe6350e",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"instances.first_name\":{\"__column\":\"instances.first_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"instances.last_name\":{\"__column\":\"instances.last_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"instances.domain_name\":{\"__column\":\"instances.domain_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"instances.company\":{\"__column\":\"instances.company\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"instances.load_demo_data\":{\"__column\":\"instances.load_demo_data\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"instances.office_email\":{\"__column\":\"instances.office_email\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"cloud\\\/instances\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"100171\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"created_by\":\"1\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"52a59890-9988-4b40-9827-074eefe6350e\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"cloud\\\/instances\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"instances.first_name\",\"column_model\":\"schema\",\"__column\":\"instances.first_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"instances.last_name\",\"column_model\":\"schema\",\"__column\":\"instances.last_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"instances.domain_name\",\"column_model\":\"schema\",\"__column\":\"instances.domain_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"instances.company\",\"column_model\":\"schema\",\"__column\":\"instances.company\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"instances.load_demo_data\",\"column_model\":\"schema\",\"__column\":\"instances.load_demo_data\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"instances.office_email\",\"column_model\":\"schema\",\"__column\":\"instances.office_email\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100171\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"cloud\/instances",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-09 10:16:48",
+			"modified":"2013-12-09 11:04:29",
+			"deleted":"0",
+			"revision":"8",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"cloud.instances.All",
+			"sequence":"100171",
+			"primary_acl_group":"0",
+			"id":"52a59890-9988-4b40-9827-074eefe6350e",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

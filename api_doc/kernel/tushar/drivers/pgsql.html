@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:14 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+<link rel="start" href="../../namespaces.html">
+
+<title>pgsql (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\drivers\pgsql</h2>
+
+</header><p class="signature">public  class <strong>pgsql</strong> extends \kernel\driver
+
+</p>
+
+<div class="comment"><p>Implements CRUD for postgres database</p></div>
+
+<table>
+<tr><th>Todo</th>
+<td>to be implemented</td>
+</tr><tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> <a href="../../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#char">$char</a></p><p class="description">charector use for quoting keywords.</p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#dbTable()">dbTable</a>(type db, type table)</p><p class="description">Overrides parent method and generated output ignores database name.</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#offsetLimit()">offsetLimit</a>(int offset, int limit)</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#processType()">processType</a>(<a href="../../kernel/string.html">string</a> type)</p><p class="description">Computes maax datatype for given pgsql data type.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#schema()">schema</a>(type db, type table, type cacheCopy)</p><p class="description">Generates schema information for pgsql database/table.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setType()">setType</a>(null meta)</p><p class="description">Computes pgsql data types for given maax data type.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#table()">table</a>(type operation, type structure)</p><p class="description">Performs table/columns create, alter, drop, truncate operation.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#tableList()">tableList</a>(<a href="../../kernel/string.html">string</a> db, bool cacheCopy)</p><p class="description">Generated list of table in given database.</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="char">public  <a href="../../kernel/string.html">string</a> <strong>$char</strong> = '&quot;'</code>
+<div class="details">
+<p>charector use for quoting keywords.</p></div>
+
+<code class="signature" id="dbTable">public  type <strong>dbTable</strong>(type db, type table)</code>
+<div class="details">
+<p>Overrides parent method and generated output ignores database name.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="offsetLimit">protected  void <strong>offsetLimit</strong>(int offset, int limit)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="processType">public  array <strong>processType</strong>(<a href="../../kernel/string.html">string</a> type)</code>
+<div class="details">
+<p>Computes maax datatype for given pgsql data type.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>type - Table column data type.</td>
+</tr><tr><th>Returns</th>
+<td>MAAX data type. <code> $type='varchar (15)'; \kernel\source::getInstance('model_source')->processType($type); // Will return array('string',15,constant('STRING')). $type='varchar (300)'; \kernel\source::getInstance('model_source')->processType($type); // Will return array('string',300,constant('STRING')). </code></td>
+</tr></table>
+</div>
+
+<code class="signature" id="schema">public  array <strong>schema</strong>(type db, type table, type cacheCopy)</code>
+<div class="details">
+<p>Generates schema information for pgsql database/table.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>db - Database Name</td>
+<td>table - Table Name</td>
+<td>cacheCopy - If false then schema information is read from actual DB</td>
+</tr><tr><th>Returns</th>
+<td>Schema defination stored in array. <code> $schema = \kernel\source::getInstance('model_source')->schema('database_name','table_name'); pr($schema); // Will generate array with schema information. </code></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setType">public  void <strong>setType</strong>(null meta)</code>
+<div class="details">
+<p>Computes pgsql data types for given maax data type.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>meta - populate table related parameters based on maax data type <code> $meta=array('ntype'=>'int','const'=>CONSTANT('INT'),'length'=>12); \kernel\source::getInstance('model_source')->setType($meta); pr($meta); //Will output array('ntype'=>'int','const'=>CONSTANT('INT'),'length'=>12,'type'=>'int') </code></td>
+</tr></table>
+</div>
+
+<code class="signature" id="table">public  void <strong>table</strong>(type operation, type structure)</code>
+<div class="details">
+<p>Performs table/columns create, alter, drop, truncate operation.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>operation - CRUD operation to be performed on table schema. Option are "add/create","edit/update", "delete/drop", "truncate/empty"</td>
+<td>structure - Table schema changes. Partial or complete. <code> $operation='add'; $structure=array('name'=>'leads','schema'=>array('columns'=> array( 'id'=>array('type'=>'int','key'=>'pri'), 'first_name'=>array('type'=>'varchar','length'=>100,'null'=>'no'), 'last_name'=>array('type'=>'varchar','length'=>100,'null'=>'no'), 'lead_source_id'=>array('type'=>'int','null'=>'no'), ))); \kernel\source::getInstance('model_source')->table($operation, $structure); $operation='update'; $structure=array('name'=>'leads','schema'=>array('columns'=> array( 'lead_first_name'=>array('old_name'=>'first_name','type'=>'varchar','length'=>100,'null'=>'no'), 'lead_last_name'=>array('old_name'=>'last_name','type'=>'varchar','length'=>100,'null'=>'no') ))); $schema = \kernel\source::getInstance('model_source')->table($operation, $structure); </code></td>
+</tr></table>
+</div>
+
+<code class="signature" id="tableList">public  array <strong>tableList</strong>(<a href="../../kernel/string.html">string</a> db, bool cacheCopy)</code>
+<div class="details">
+<p>Generated list of table in given database.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>db - Database name</td>
+<td>cacheCopy - If false then rebuild table list form DB.</td>
+</tr><tr><th>Returns</th>
+<td>List of all table in given database. <code> \kernel\source::getInstance('model_source')->tableList('database_name',false); // Will generate array('table1','table2'). \kernel\source::getInstance('model_source')->tableList('database_name'); // Will return table list from cache. </code></td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

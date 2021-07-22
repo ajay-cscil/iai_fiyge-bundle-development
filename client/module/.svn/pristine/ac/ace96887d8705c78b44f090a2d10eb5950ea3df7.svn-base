@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm\controller;
+  class config_account_types extends \module\crm\controller\config_account_types_domain_logic
+  {
+       public $modelClass = '\\module\\crm\\model\\config_account_types';
+
+
+
+
+
+
+  }

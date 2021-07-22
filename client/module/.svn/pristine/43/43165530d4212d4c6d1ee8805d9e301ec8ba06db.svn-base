@@ -1,0 +1,197 @@
+{
+    "version": "1.3.8",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": null,
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Tarun Behal",
+    "category_id": "1",
+    "company": "Primary Modules",
+    "created": "2015-07-08",
+    "created_by": null,
+    "current_stable_version": "1.0.2",
+    "description": "<span style=\"color: rgb(154, 205, 50); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 9px; background-color: rgb(255, 255, 255);\">Module version currently deployed on this system (major.minor.revision)<\/span><span style=\"color: rgb(154, 205, 50); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 9px; background-color: rgb(255, 255, 255);\">Module version currently deployed on this system (major.minor.revision)<\/span><span style=\"color: rgb(154, 205, 50); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 9px; background-color: rgb(255, 255, 255);\">Module version currently deployed on this system (major.minor.revision)<\/span><span style=\"color: rgb(154, 205, 50); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 9px; background-color: rgb(255, 255, 255);\">Module version currently deployed on this system (major.minor.revision)<\/span>",
+    "flags": null,
+    "id": "272638e3-e746-11e3-aad5-0800275f9930",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": "1",
+    "label": "Sales",
+    "latest_version": null,
+    "license_agreement": null,
+    "modified": "2015-06-16 18:10:12",
+    "modified_by": "-1",
+    "name": "sales",
+    "owned_by": "1",
+    "revision": null,
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/sales",
+    "__created_by": "",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "System Admin",
+    "__category_id": "Sales",
+    "category_id_business_key": "Sales",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "modified_by_model": "modified_by_user",
+    "owned_by_model": "owned_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "config_payment_method": "\\module\\sales\\controller\\config_payment_method",
+        "config_payment_terms": "\\module\\sales\\controller\\config_payment_terms",
+        "config_quote_status": "\\module\\sales\\controller\\config_quote_status",
+        "config_sales_order_status": "\\module\\sales\\controller\\config_sales_order_status",
+        "config_status": "\\module\\sales\\controller\\config_status",
+        "quote_lines": "\\module\\sales\\controller\\quote_lines",
+        "quotelines": "\\module\\sales\\controller\\quotelines",
+        "quotes": "\\module\\sales\\controller\\quotes",
+        "quotes_acl_cache": "\\module\\sales\\controller\\quotes_acl_cache",
+        "quotes_group_acl_cache": "\\module\\sales\\controller\\quotes_group_acl_cache",
+        "sale_order_lines": "\\module\\sales\\controller\\sale_order_lines",
+        "sale_orders": "\\module\\sales\\controller\\sale_orders",
+        "sale_orders_acl_cache": "\\module\\sales\\controller\\sale_orders_acl_cache",
+        "sale_orders_group_acl_cache": "\\module\\sales\\controller\\sale_orders_group_acl_cache",
+        "sale_shop": "\\module\\sales\\controller\\sale_shop",
+        "sales_team": "\\module\\sales\\controller\\sales_team",
+        "sales_team_acl_cache": "\\module\\sales\\controller\\sales_team_acl_cache",
+        "sales_team_group_acl_cache": "\\module\\sales\\controller\\sales_team_group_acl_cache"
+    },
+    "models": {
+        "config_payment_method": "\\module\\sales\\model\\config_payment_method",
+        "config_payment_terms": "\\module\\sales\\model\\config_payment_terms",
+        "config_quote_status": "\\module\\sales\\model\\config_quote_status",
+        "config_sales_order_status": "\\module\\sales\\model\\config_sales_order_status",
+        "quote_lines": "\\module\\sales\\model\\quote_lines",
+        "quotes": "\\module\\sales\\model\\quotes",
+        "quotes_acl_cache": "\\module\\sales\\model\\quotes_acl_cache",
+        "quotes_group_acl_cache": "\\module\\sales\\model\\quotes_group_acl_cache",
+        "sale_order_lines": "\\module\\sales\\model\\sale_order_lines",
+        "sale_orders": "\\module\\sales\\model\\sale_orders",
+        "sale_orders_acl_cache": "\\module\\sales\\model\\sale_orders_acl_cache",
+        "sale_orders_group_acl_cache": "\\module\\sales\\model\\sale_orders_group_acl_cache",
+        "sale_shop": "\\module\\sales\\model\\sale_shop",
+        "sales_team": "\\module\\sales\\model\\sales_team",
+        "sales_team_acl_cache": "\\module\\sales\\model\\sales_team_acl_cache",
+        "sales_team_group_acl_cache": "\\module\\sales\\model\\sales_team_group_acl_cache"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "name": "core",
+                "version": "1.0.2"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "1.2.4"
+            },
+            "product": {
+                "name": "product",
+                "version": "1.2.6"
+            },
+            "accounting": {
+                "name": "accounting",
+                "version": "1.1.7"
+            },
+            "crm": {
+                "name": "crm",
+                "version": "1.4.2"
+            },
+            "delivery": {
+                "name": "delivery",
+                "version": "1.1.2"
+            },
+            "masters": {
+                "name": "masters",
+                "version": "1.2.3"
+            },
+            "crm_base": {
+                "name": "crm_base",
+                "version": "1.1.4"
+            },
+            "flexflow": {
+                "name": "flexflow",
+                "version": "1.2.2"
+            },
+            "stock": {
+                "name": "stock",
+                "version": "1.1.1"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_product_model_config_uom": "\\module\\product\\model\\config_uom",
+            "_module_product_model_products": "\\module\\product\\model\\products",
+            "_module_accounting_model_line_taxes": "\\module\\accounting\\model\\line_taxes",
+            "_module_product_model_pricelists": "\\module\\product\\model\\pricelists",
+            "_module_crm_model_opportunities": "\\module\\crm\\model\\opportunities",
+            "_module_crm_model_accounts": "\\module\\crm\\model\\accounts",
+            "_module_delivery_model_shipping_methods": "\\module\\delivery\\model\\shipping_methods",
+            "_module_accounting_model_payment_terms": "\\module\\accounting\\model\\payment_terms",
+            "_module_accounting_model_fiscal_positions": "\\module\\accounting\\model\\fiscal_positions",
+            "_module_delivery_model_config_incoterms": "\\module\\delivery\\model\\config_incoterms",
+            "_module_product_model_product_categories": "\\module\\product\\model\\product_categories",
+            "_module_masters_model_currencies": "\\module\\masters\\model\\currencies",
+            "_module_crm_base_model_config_address_types": "\\module\\crm_base\\model\\config_address_types",
+            "_module_masters_model_countries": "\\module\\masters\\model\\countries",
+            "_module_flexflow_model_types": "\\module\\flexflow\\model\\types",
+            "_module_delivery_model_config_freight_terms": "\\module\\delivery\\model\\config_freight_terms",
+            "_module_accounting_model_line_taxes_summary": "\\module\\accounting\\model\\line_taxes_summary",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_accounting_model_taxes": "\\module\\accounting\\model\\taxes",
+            "_module_stock_model_warehouse": "\\module\\stock\\model\\warehouse"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_flexflow_behaviour_flexflow": "\\module\\flexflow\\behaviour\\flexflow",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl",
+            "_module_brules_behaviour_business_rules": "\\module\\brules\\behaviour\\business_rules",
+            "_module_crm_base_behaviour_auto_sequence": "\\module\\crm_base\\behaviour\\auto_sequence"
+        }
+    }
+}

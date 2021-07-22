@@ -1,0 +1,96 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"53679425-8458-4f82-a29a-180a305cb485\",\"name\":\"Comment View\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"cases\\\/activities\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"activities.related_to_model\",\"column_model\":\"schema\",\"__column\":\"activities.related_to_model\",\"alias\":\"related_to_model\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::localize\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"activities.__related_to\",\"column_model\":\"schema\",\"__column\":\"activities.__related_to\",\"alias\":\"__related_to\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"created_by_user.name\",\"column_model\":\"schema\",\"__column\":\"created_by_user.name\",\"alias\":\"user_name\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"activities.created\",\"column_model\":\"schema\",\"__column\":\"activities.created\",\"alias\":\"created\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"activities.cases.id\",\"column_model\":\"schema\",\"__column\":\"activities.cases.id\",\"alias\":\"cases_id\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"activities.cases.title\",\"column_model\":\"schema\",\"__column\":\"activities.cases.title\",\"alias\":\"title\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"7\",\"column\":\"CONCAT(activities.created_by_user.images.storage_path,activities.created_by_user.images.path)\",\"column_model\":\"schema\",\"__column\":\"CONCAT(activities.created_by_user.images.storage_path,activities.created_by_user.images.path)\",\"alias\":\"profile_picture\",\"aggregator\":\"\",\"style\":\"path\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::profile_picture\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"8\",\"column\":\"CONCAT('{{BASE}}',activities.related_to_model_url,'\\\/view?id=',activities.related_to)\",\"column_model\":\"schema\",\"__column\":\"CONCAT('{{BASE}}',activities.related_to_model_url,'\\\/view?id=',activities.related_to)\",\"alias\":\"url\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"9\",\"column\":\"activities.description\",\"column_model\":\"schema\",\"__column\":\"activities.description\",\"alias\":\"description\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"activities.created\",\"sort_by_model\":\"schema\",\"__sort_by\":\"activities.created\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"_do_not_inherit\":\"0\",\"sequence\":\"100326\",\"row_template\":\"<p>\\r\\n<div style=\\\"display:inline-block; margin-right:15px; margin-left: 15px; )\\\">{{profile_picture}}<\\\/div>\\r\\n<div  style=\\\"display:inline-block; vertical-align:top\\\"><font face=\\\"Helvetica\\\">\\r\\n    <div>{{user_name}} created <a href=\\\"{{url}}\\\" class=\\\"ajax-popup\\\"><font color=\\\"#0084B4\\\">{{related_to_model}}<\\\/font><\\\/a> at: <font color=\\\"#FF6347\\\" >{{created}}<\\\/font><\\\/div>\\r\\n    <div><a href=\\\"{{url}}\\\" class=\\\"ajax-popup\\\"><b><font color=\\\"#0084B4\\\">{{__related_to}}<\\\/font><\\\/b><\\\/a><\\\/div>\\r\\n    <div><font color=\\\"grey\\\">{{description}}<\\\/font><\\\/div>\\r\\n<\\\/div>\\r\\n<\\\/p>\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Jhon Smith\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Jhon Smith\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Jhon Smith\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Jhon Smith\",\"id\":\"1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "cases\/activities",
+            "created": "2014-05-05 13:37:41",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "cases.activities.Comment View",
+            "id": "53679425-8458-4f82-a29a-180a305cb485",
+            "is_commit_pending": "0",
+            "is_default": "1",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-03-18 22:45:01",
+            "modified_by": "1",
+            "module_id": "27264b27-e746-11e3-aad5-0800275f9930",
+            "name": "Comment View",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"actions\":{\"view\":{\"name\":\"view\"}},\"fields\":[{\"activities.related_to_model\":{\"__column\":\"activities.related_to_model\",\"alias\":\"related_to_model\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::localize\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"activities.__related_to\":{\"__column\":\"activities.__related_to\",\"alias\":\"__related_to\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"created_by_user.name\":{\"__column\":\"created_by_user.name\",\"alias\":\"user_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"activities.created\":{\"__column\":\"activities.created\",\"alias\":\"created\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"activities.cases.id\":{\"__column\":\"activities.cases.id\",\"alias\":\"cases_id\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"activities.cases.title\":{\"__column\":\"activities.cases.title\",\"alias\":\"title\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"CONCAT(activities.created_by_user.images.storage_path,activities.created_by_user.images.path)\":{\"__column\":\"CONCAT(activities.created_by_user.images.storage_path,activities.created_by_user.images.path)\",\"alias\":\"profile_picture\",\"style\":\"path\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::profile_picture\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"CONCAT('{{BASE}}',activities.related_to_model_url,'\\\/view?id=',activities.related_to)\":{\"__column\":\"CONCAT('{{BASE}}',activities.related_to_model_url,'\\\/view?id=',activities.related_to)\",\"alias\":\"url\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"activities.description\":{\"__column\":\"activities.description\",\"alias\":\"description\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[\"activities.created  DESC\"],\"name\":\"Comment View\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"cases\\\/activities\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"do_not_inherit\":\"0\",\"sequence\":\"100326\",\"row_template\":\"<p>\\r\\n<div style=\\\"display:inline-block; margin-right:15px; margin-left: 15px; )\\\">{{profile_picture}}<\\\/div>\\r\\n<div  style=\\\"display:inline-block; vertical-align:top\\\"><font face=\\\"Helvetica\\\">\\r\\n    <div>{{user_name}} created <a href=\\\"{{url}}\\\" class=\\\"ajax-popup\\\"><font color=\\\"#0084B4\\\">{{related_to_model}}<\\\/font><\\\/a> at: <font color=\\\"#FF6347\\\" >{{created}}<\\\/font><\\\/div>\\r\\n    <div><a href=\\\"{{url}}\\\" class=\\\"ajax-popup\\\"><b><font color=\\\"#0084B4\\\">{{__related_to}}<\\\/font><\\\/b><\\\/a><\\\/div>\\r\\n    <div><font color=\\\"grey\\\">{{description}}<\\\/font><\\\/div>\\r\\n<\\\/div>\\r\\n<\\\/p>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Jhon Smith\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Jhon Smith\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Jhon Smith\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Jhon Smith\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "100326",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "cases",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\analytics\model;
+
+class report_categories extends \tushar\model {
+
+    public $table = 'analytics__report_categories';
+    public $source = 'design';
+    public $limitForInstallation = 0;
+    public $filters = array(
+        'name' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+    );
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'groups' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'primary_acl_group'
+            , 'className' => '\\module\\access_controls\\model\\groups'
+        )
+    );
+
+}
+
+?>

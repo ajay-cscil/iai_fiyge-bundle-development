@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"5477191d-d3e8-43c8-8011-3aba0a8c00e5\",\"name\":\"Proposal Register\",\"category_id\":\"10\",\"category_id_model\":\"category\",\"__category_id\":\"Accounting\",\"controller\":\"sales\\\/quote_lines\",\"description\":\"This report provides information about Accepted\\\/rejected proposals by customers along with Customer name and amount.\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"quotelines.products.accounts.quotes.name\",\"column_model\":\"schema\",\"__column\":\"quotelines.products.accounts.quotes.name\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"1\",\"column_model\":\"schema\",\"__column\":\"1\",\"alias\":\"\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"quotelines.products.name\",\"column_model\":\"schema\",\"__column\":\"quotelines.products.name\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":[],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::pie_chart\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"sequence\":\"\",\"row_template\":\"\",\"owned_by\":\"0\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"elements\":[],\"actions\":[],\"conditions\":[],\"font-size\":\"\",\"font-name\":\"\",\"height\":\"\",\"is-3-d\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"slices\":\"\",\"pie-slice-border-color\":\"\",\"pie-slice-text\":\"\",\"pie-slice-text-style\":\"\",\"reverse-categories\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"colors\":\"\",\"background-color\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"chart-area\":\"\",\"_collapse_category_columns\":\"0\",\"_disable_ui_helper\":\"0\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\"}",
+            "category_id": "10",
+            "controller": "sales\/quote_lines",
+            "created": "2014-11-27 12:29:17",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "This report provides information about Accepted\/rejected proposals by customers along with Customer name and amount.",
+            "flags": null,
+            "id": "5477191d-d3e8-43c8-8011-3aba0a8c00e5",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-11-28 11:01:08",
+            "modified_by": "1",
+            "module_id": "272638e3-e746-11e3-aad5-0800275f9930",
+            "name": "Proposal Register",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"quotelines.products.accounts.quotes.name\":{\"__column\":\"quotelines.products.accounts.quotes.name\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"1\":{\"__column\":\"1\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"quotelines.products.name\":{\"__column\":\"quotelines.products.name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"Proposal Register\",\"category_id\":\"10\",\"category_id_model\":\"category\",\"__category_id\":\"Accounting\",\"controller\":\"sales\\\/quote_lines\",\"description\":\"This report provides information about Accepted\\\/rejected proposals by customers along with Customer name and amount.\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::pie_chart\",\"parent_id_model\":\"parent_listview\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"is_public\":\"1\",\"method\":\"categorized\"}",
+            "read_count": "1",
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Accounting",
+            "__primary_acl_group": "",
+            "__module_id": "sales",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

@@ -1,0 +1,51 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\controller;
+
+class schemas_domain_logic extends \tushar\controller{
+
+    private function models() {
+        $options = array();
+        foreach (array(APP . DS . 'module', PLATFORM . DS . 'module') as $dir) {
+            foreach (\scandir($dir) as $module) {
+                if (is_dir($dir . DS . $module) && stripos($module, '.') === false && is_dir($dir . DS . $module . DS . 'model')) {
+                    if (!isset($options[$module]))
+                        $options[$module] = array();
+                    foreach (\scandir($dir . DS . $module . DS . 'model') as $model) {
+                        if (is_file($dir . DS . $module . DS . 'model' . DS . $model)) {
+                            $className = explode('.', $model);
+                            $s=NS;
+                            $modelClass = $s.'module'.$s. $module . $s.'model'.$s. $className[0];
+                            if (stripos($modelClass, '_domain_logic') === false
+                                    &&
+                                    stripos($modelClass, '_acl_cache') === false) {
+                                $options[$module][$modelClass] = array('text' => __($modelClass), 'value' => $modelClass);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        \ksort($options);
+        foreach ($options as $module => $info) {
+            $options[$module] = \array_values($info);
+        }
+        return $options;
+    }
+
+    public function edit($request) {
+        $request->set('association_models', $this->models());
+        return parent::edit($request);
+    }
+
+    public function view($request) {
+        $request->set('association_models', $this->models());
+        return parent::view($request);
+    }
+
+}

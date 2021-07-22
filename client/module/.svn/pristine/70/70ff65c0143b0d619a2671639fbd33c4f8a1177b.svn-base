@@ -1,0 +1,139 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\crm\controller;
+
+class contacts_domain_logic extends \data_controller{
+
+    public function convert_to_contact($request) {
+        $this->render = 'edit';
+        $entityId = $request->param('id');
+        $modelObj = $this->modelObj();
+        $alias = $modelObj->alias;
+        $data = false;
+        if (!empty($entityId) && !$request->is('post')) {
+            $primaryKey = $modelObj->primaryKey;
+            $from = $request->get('from');
+            $fromModel = "\\module\\crm\\model\\{$from}";
+            $entityObj = $fromModel::getInstance();
+            $entityObj->cloned = true;
+            $entityData = $entityObj->read($entityId);
+
+
+            $converted = isset($entityData[$entityObj->alias]) && isset($entityData[$entityObj->alias]['converted']) ? $entityData[$entityObj->alias]['converted'] : 0;
+            if ($converted == 1) {
+                $request->setMsg(sprintf(__('This %s is already converted', 'module'), __($entityObj->singular, 'module')));
+                return false;
+            }
+            $data = $modelObj->mapModelData($from, $entityObj, $entityData);
+            $request->overwrite('params', 'id', null);
+            $data['contacts']['related_to'] = $entityId;
+        } else if ($request->is('post')) {//
+            $d = $request->data['contacts'];
+            $d['opportunities']['create_opportunity'] = 1;
+            if(\tushar\request::$mobile) {
+                $fromModel = "\\module\\crm\\model\\leads";
+                $entityObj = $fromModel::getInstance();
+                $entityObj->cloned = true;
+                $entityData = $entityObj->read($request->data['contacts']['related_to']);
+                $data = $this->modelObj()->mapModelData($from, $entityObj, $entityData);
+                if (!isset($d['phone_numbers']) && isset($data['contacts']['phone_numbers'])) {
+                    $d['phone_numbers'] = $data['contacts']['phone_numbers'];
+                }
+                if (!isset($d['email_addresses']) && isset($data['contacts']['email_addresses'])) {
+                    $d['email_addresses'] = $data['contacts']['email_addresses'];
+                }
+                if (!isset($d['addresses']) && isset($data['contacts']['addresses'])) {
+                    $d['addresses'] = $data['contacts']['addresses'];
+                }
+                if(!isset($d['currency']) && isset($data['contacts']['currency'])) {
+                    $d['currency'] = $data['contacts']['currency'];
+                    $d['opportunities']['currency'] = $data['contacts']['currency'];
+                }
+                if(!isset($d['currency_model']) && isset($data['contacts']['currency_model'])) {
+                    $d['currency_model'] = $data['contacts']['currency_model'];
+                    $d['opportunities']['currency_model'] = $data['contacts']['currency_model'];
+                }
+                if(!isset($d['__currency']) && isset($data['contacts']['__currency'])) {
+                    $d['__currency'] = $data['contacts']['__currency'];
+                    $d['opportunities']['__currency'] = $data['contacts']['__currency'];
+                }
+                if (!isset($d['industry']) && isset($data['contacts']['industry'])) {
+                    $d['industry'] = $data['contacts']['industry'];
+                }
+                if (!isset($d['industry_model']) && isset($data['contacts']['industry_model'])) {
+                    $d['industry_model'] = $data['contacts']['industry_model'];
+                }
+                if (!isset($d['__industry']) && isset($data['contacts']['__industry'])) {
+                    $d['__industry'] = $data['contacts']['__industry'];
+                }
+                if (!isset($d['title']) && isset($data['contacts']['job_title'])) {
+                    $d['title'] = $data['contacts']['job_title'];
+                }
+                if (!isset($d['opportunities']['lead_source']) && isset($data['contacts']['lead_source'])) {
+                    $d['opportunities']['lead_source'] = $data['contacts']['lead_source'];
+                }
+                if (!isset($d['opportunities']['__lead_source']) && isset($data['contacts']['__lead_source'])) {
+                    $d['opportunities']['__lead_source'] = $data['contacts']['__lead_source'];
+                }
+                if (!isset($d['opportunities']['lead_source_model']) && isset($data['contacts']['lead_source_model'])) {
+                    $d['opportunities']['lead_source_model'] = $data['contacts']['lead_source_model'];
+                }
+                if (!isset($d['opportunities']['name']) && isset($data['contacts']['name'])) {
+                    $d['opportunities']['name'] = $data['contacts']['name'];
+                }
+                if (!isset($d['opportunities']['amount']) && isset($data['contacts']['annual_revenue'])) {
+                    $d['opportunities']['amount'] = $data['contacts']['annual_revenue'];
+                }
+                }
+            $dSet['contacts'] = $d;
+            $request->data = $dSet;
+            $request->overwrite(true,'data',$dSet);
+            $request->overwrite('get','data',array());
+        }
+        $return = parent::edit($request);
+        if ($data !== false) {
+            $request->set('data', $data);
+        }
+        try {
+            $taskObj = \module\calendar\model\tasks::getInstance(array(), true);
+            $taskObj->filterRules(is_array($data) ? $data : array(), true);
+            if (
+                    isset(\tushar\model::$notEmptyField[$alias]) &&
+                    isset(\tushar\model::$notEmptyField[$taskObj->alias])
+            ) {
+                \tushar\model::$notEmptyField[$alias][$taskObj->alias] = \tushar\model::$notEmptyField[$taskObj->alias];
+            }
+        } catch (\Exception $e) {
+            
+        }
+        try {
+            $opportunityObj = \module\crm\model\opportunities::getInstance(array(), true);
+            $opportunityObj->filterRules(is_array($data) ? $data : array(), true);
+            if (
+                    isset(\tushar\model::$notEmptyField[$alias]) &&
+                    isset(\tushar\model::$notEmptyField[$opportunityObj->alias])
+            ) {
+                \tushar\model::$notEmptyField[$alias][$opportunityObj->alias] = \tushar\model::$notEmptyField[$opportunityObj->alias];
+            }
+        } catch (\Exception $e) {
+            
+        }
+        $opID = 0;
+        if (isset($opportunityObj->data['id']) && !empty($opportunityObj->data['id'])) {
+            $opID = $opportunityObj->data['id'];
+        }
+        if ($request->is('post') && $this->saveHandlerOutput != false) {
+            $request->setMsg(sprintf(__('Converted to opportunity, click %s to open', 'module')
+                            , '<a ajax=1 href="' . $request->base . 'crm/opportunities/view/id:' . $opID . '">'
+                            . __('Here', 'module') . '</a>'), TRUE);
+        }
+        $request->set('id', '');
+        return $return;
+    }
+
+}

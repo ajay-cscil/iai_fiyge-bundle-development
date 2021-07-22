@@ -1,0 +1,29 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\contracts\controller;
+
+class contracts_domain_logic extends \data_controller{
+
+    public function export_contract($request)
+    {
+        $id = $this->id($request);
+        $data = array();
+        if ($id != false && !empty($id)) {
+            $modelObj = $this->modelObj();
+            $data = $modelObj->read($id);
+            if (empty($data[$modelObj->alias]['content'])) {
+                $request->setMsg(__('Invalid Document for export'));
+                return false;
+            } else {
+                \module\contracts\controller\process::getInstance()->execute($request, null,
+                                                                             $data[$modelObj->alias]['content']);
+            }
+        }
+        $request->set('data', $data);
+    }
+}

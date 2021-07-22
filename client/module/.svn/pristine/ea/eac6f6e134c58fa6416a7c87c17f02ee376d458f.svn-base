@@ -1,0 +1,50 @@
+<?php
+
+namespace module\vrm\install;
+
+class script {
+
+    public function beforeInstall($request, $manifest) {
+        
+    }
+
+    public function afterInstall($request, $manifest) {
+        $menusObject = \module\development_base\model\menus::getInstance();
+        $ids = \select('id')
+        ->from($menusObject)
+        ->inserted()
+        ->where('name',array('CRM','Accounting','Sales','Stock','Purchases','Products','Email Intelligence','Tag Cloud'))
+        ->limit(0)
+        ->execute()
+        ->fetchAll(\PDO::FETCH_COLUMN);
+        if (!empty($ids)) {
+                foreach($ids as $id){          
+                        $menusObject->saveModel(array(
+                        'id' => $id, 
+                        'is_active' => 0
+                        ), array('atomic' => true));
+                }
+        }
+    }
+
+    public function beforeUninstall($request, $manifest) {
+        
+    }
+
+    public function afterUninstall($request, $manifest) {
+        $menusObject = \module\development_base\model\menus::getInstance();
+        $ids = \select('id')
+        ->from($menusObject)
+        ->inserted()
+        ->where('name',array('CRM','Accounting','Sales','Stock','Purchases','Products','Email Intelligence','Tag Cloud'))
+        ->limit(0)
+        ->execute()
+        ->fetchAll(\PDO::FETCH_COLUMN);
+        if (!empty($ids)) {
+              foreach($ids as $id){          
+                        $menusObject->saveModel(array('id' => $id, 'is_active' => 1), array('atomic' => true));
+              }
+        }
+    }
+
+}

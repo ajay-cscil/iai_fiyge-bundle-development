@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:14 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../../stylesheet.css">
+<link rel="start" href="../../../../namespaces.html">
+
+<title>listview (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\view\helper\presentation\listview</h2>
+
+</header><p class="signature">public  class <strong>listview</strong></p>
+
+<div class="comment"><p></p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#idColumn()">idColumn</a>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request)</p><p class="description">Generates markup for listing id column</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#image()">image</a>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#inlineListview()">inlineListview</a>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record)</p><p class="description">Generates markup for showing inline listview in main listview</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../../../../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#multiRow()">multiRow</a>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record, mixed val)</p><p class="description">Generates markup for presenting has many associated records in main listview</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#profile()">profile</a>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record)</p><p class="description">Listview helper for generating profile picture</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="idColumn">public static  type <strong>idColumn</strong>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request)</code>
+<div class="details">
+<p>Generates markup for listing id column</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>value - value of current column cell</td>
+<td>column - current column name</td>
+<td>request - request object</td>
+</tr></table>
+</div>
+
+<code class="signature" id="image">public static  void <strong>image</strong>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>value - value of current column cell</td>
+<td>column - current column name</td>
+<td>request - request object</td>
+<td>paginate - whole paginate array</td>
+<td>primaryKey - primary column name</td>
+<td>record - current row data</td>
+</tr></table>
+</div>
+
+<code class="signature" id="inlineListview">public static  type <strong>inlineListview</strong>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record)</code>
+<div class="details">
+<p>Generates markup for showing inline listview in main listview</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>value - value of current column cell</td>
+<td>column - current column name</td>
+<td>request - request object</td>
+<td>paginate - whole paginate array</td>
+<td>primaryKey - primary column name</td>
+<td>record - current row data</td>
+</tr></table>
+</div>
+
+<code class="signature" id="multiRow">public static  <a href="../../../../kernel/string.html">string</a> <strong>multiRow</strong>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record, mixed val)</code>
+<div class="details">
+<p>Generates markup for presenting has many associated records in main listview</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>value - value of current column cell</td>
+<td>column - current column name</td>
+<td>request - request object</td>
+<td>paginate - whole paginate array</td>
+<td>primaryKey - primary column name</td>
+<td>record - current row data</td>
+</tr></table>
+</div>
+
+<code class="signature" id="profile">public static  type <strong>profile</strong>(mixed value, <a href="../../../../kernel/string.html">string</a> column, \kernel\request request, array paginate, <a href="../../../../kernel/string.html">string</a> primaryKey, array record)</code>
+<div class="details">
+<p>Listview helper for generating profile picture</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>value - value of current column cell</td>
+<td>column - current column name</td>
+<td>request - request object</td>
+<td>paginate - whole paginate array</td>
+<td>primaryKey - primary column name</td>
+<td>record - current row data</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

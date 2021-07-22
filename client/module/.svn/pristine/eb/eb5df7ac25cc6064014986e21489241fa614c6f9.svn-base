@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\kpi\controller;
+  class goal_types extends \module\kpi\controller\goal_types_domain_logic
+  {
+       public $modelClass = '\\module\\kpi\\model\\goal_types';
+
+
+
+
+
+
+  }

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm_cruise\controller;
+  class contacts extends \module\crm_cruise\controller\contacts_domain_logic
+  {
+       public $modelClass = '\\module\\crm_cruise\\model\\contacts';
+
+
+
+
+
+
+  }

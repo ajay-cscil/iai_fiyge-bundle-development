@@ -1,0 +1,665 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\campaigns\model;
+  class campaigns extends \module\campaigns\model\campaigns_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'campaigns__campaigns';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'created_by_user',
+    'foreignKey' => 'created_by',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'modified_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'modified_by_user',
+    'foreignKey' => 'modified_by',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'owned_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'owned_by_user',
+    'foreignKey' => 'owned_by',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'sender' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'sender',
+    'foreignKey' => 'sender_id',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'templates' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\core\\model\\email_templates',
+    'associationAlias' => 'templates',
+    'foreignKey' => 'template_id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'campaign_listviews' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\campaigns\\model\\campaign_listviews',
+    'associationAlias' => 'campaign_listviews',
+    'foreignKey' => 'campaign_id',
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'campaign_tags' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\campaigns\\model\\campaign_tags',
+    'associationAlias' => 'campaign_tags',
+    'foreignKey' => 'campaign_id',
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'csv_recipients' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\campaigns\\model\\csv_recipients',
+    'associationAlias' => 'csv_recipients',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '
+\'campaigns\'={{FOREIGN}}.related_to_model',
+      2 => '
+\'csv_recipient\'={{FOREIGN}}.field_type',
+    ),
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'attachments' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\document_management_base\\model\\attachments',
+    'associationAlias' => 'attachments',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '
+                \'campaigns\'={{FOREIGN}}.related_to_model',
+      2 => '
+                \'attachment\'={{FOREIGN}}.field_type',
+    ),
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'campaign_lists' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\campaigns\\model\\campaign_lists',
+    'associationAlias' => 'campaign_lists',
+    'foreignKey' => 'campaign_id',
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'campaign_log' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\campaigns\\model\\campaign_log',
+    'associationAlias' => 'campaign_log',
+    'foreignKey' => 'campaign_id',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'campaign_log_summary' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\campaigns\\model\\campaign_log_summary',
+    'associationAlias' => 'campaign_log_summary',
+    'foreignKey' => 'campaign_id',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'scheduler' => 
+  array (
+    'assocType' => 'hasOne',
+    'className' => '\\module\\crm_base\\model\\scheduler',
+    'associationAlias' => 'scheduler',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '
+                \'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'campaign_chaining' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\campaigns\\model\\campaign_chaining',
+    'associationAlias' => 'campaign_chaining',
+    'foreignKey' => 'campaign_id',
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+  ),
+  'groups' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\groups',
+    'associationAlias' => 'groups',
+    'foreignKey' => 'primary_acl_group',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_campaigns_types' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\campaigns\\model\\config_campaigns_types',
+    'associationAlias' => 'config_campaigns_types',
+    'foreignKey' => 'campaigns_types',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'leads' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\leads',
+    'associationAlias' => 'leads',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\core\\behaviour\\revision_log' => 
+  array (
+    'name' => '\\module\\core\\behaviour\\revision_log',
+  ),
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'cacheClass' => '1',
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+  ),
+);
+       public $fields = array (
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'sender_id' => 
+  array (
+    'column' => 'sender_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'reply_to' => 
+  array (
+    'column' => 'reply_to',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'cc' => 
+  array (
+    'column' => 'cc',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'bcc' => 
+  array (
+    'column' => 'bcc',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'expected_revenue' => 
+  array (
+    'column' => 'expected_revenue',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'expected_response_count' => 
+  array (
+    'column' => 'expected_response_count',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'expected_sales_count' => 
+  array (
+    'column' => 'expected_sales_count',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'expected_roi' => 
+  array (
+    'column' => 'expected_roi',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'expected_response' => 
+  array (
+    'column' => 'expected_response',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'budget_cost' => 
+  array (
+    'column' => 'budget_cost',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'actual_cost' => 
+  array (
+    'column' => 'actual_cost',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'sponsor' => 
+  array (
+    'column' => 'sponsor',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'target_audience' => 
+  array (
+    'column' => 'target_audience',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'target_size' => 
+  array (
+    'column' => 'target_size',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'subject' => 
+  array (
+    'column' => 'subject',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'priority' => 
+  array (
+    'column' => 'priority',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'append_signature' => 
+  array (
+    'column' => 'append_signature',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'custom_message' => 
+  array (
+    'column' => 'custom_message',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'template_id' => 
+  array (
+    'column' => 'template_id',
+    'ntype' => 'string',
+    'length' => '36',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'run_in_test_mode' => 
+  array (
+    'column' => 'run_in_test_mode',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'status' => 
+  array (
+    'column' => 'status',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'smtp_server' => 
+  array (
+    'column' => 'smtp_server',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'imported' => 
+  array (
+    'column' => 'imported',
+    'ntype' => 'datetime',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'business_key' => 
+  array (
+    'column' => 'business_key',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'campaigns_types' => 
+  array (
+    'column' => 'campaigns_types',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'content' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'content',
+    'ntype' => 'string',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'imported_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'imported_by',
+    'ntype' => 'datetime',
+  ),
+  'primary_acl_group' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'primary_acl_group',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'sender_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'subject' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'content' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

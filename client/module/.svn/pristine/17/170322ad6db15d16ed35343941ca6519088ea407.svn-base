@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\source;
+
+class csv implements \module\campaigns\source\source {
+
+    /**
+     *
+     * @var type
+     */
+    public static $settings = array();
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $data
+     * @param type $params
+     */
+    public static function process($campaignObj, $tmp, $processor, $data, $params = array()) {
+        static::$settings = array_merge(static::$settings, $params);
+        $fields = (isset($data['merge_words']) && !empty($data['merge_words']) ? $data['merge_words'] : array());
+        $fields['entity_id_model'] = 'entity_id_model';
+        $fields['entity_id'] = 'entity_id';
+        $fields['to_email'] = 'to_email';
+
+        $length = (isset($params['length']) ? $params['length'] : 0);
+        $delimiter = (isset($params['delimiter']) ? $params['delimiter'] : ',');
+        $enclosure = (isset($params['enclosure']) ? $params['enclosure'] : '"');
+        $escape = (isset($params['escape']) ? $params['escape'] : '\\');
+
+        $sql = select('csv_recipients.id')
+                ->from($campaignObj)
+                ->joinInner('csv_recipients')
+                ->where(array("{$campaignObj->alias}.id" => $data['source_campaign_id']))
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN);
+        $sqls = $campaignObj->csv_recipients->readFiles($sql);
+
+
+        foreach ($sql as $path=>$csv) {
+            $handle = \fopen($path, 'r');
+            $processor->runLog(array(
+                'campaign_id' => $data['id']
+                , 'invocation' => $data['invocation']
+                , 'stage' => 'Processing CSV: ' . $csv['name'] . ' (' . $csv['id'] . ')'
+                , 'message' => ""
+                    )
+            );
+            $columnsList = fgetcsv($handle, $length, $delimiter, $enclosure, $escape);
+            if (!is_array($columnsList)) {
+                throw new \Exception(
+                sprintf(__("Could not read records from CSV file %s"), $csv['storage_path'] . $csv['path'])
+                );
+            }
+            $columns = array();
+            foreach ($columnsList as $k => $column) {
+                $columns[] = isset($fields[$column]) ? $fields[$column] : $column;
+            }
+            while ($values = fgetcsv($handle, $length, $delimiter, $enclosure, $escape)) {
+                $row = \array_combine($columns, $values);
+                if (!isset($row['entity_id_model'])) {
+                    $row['entity_id_model'] = 'CSV';
+                }
+                if (isset($row['to_email'])) {
+                    $row['to_email'] = strtolower(trim($row['to_email']));
+                }
+                $tmp->saveModel($row, array('type' => 'insert'));
+            }
+        }
+    }
+
+}

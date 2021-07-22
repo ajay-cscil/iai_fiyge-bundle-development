@@ -1,0 +1,32 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\vrm\controller;
+
+class households_domain_logic extends \data_controller {
+
+    public function _update_household($request) {
+        ini_set('display_errors', 1);
+        $modelObj = $this->modelObj();
+        echo $path = module_path('vrm') . DS . 'install' . DS . 'ethnicity-phones.json';
+        $content = file_get_contents($path);
+        $content = json_decode($content, true);
+        if (!empty($content) && is_array($content)) {
+            foreach ($content as $k => $v) {
+                foreach ($v as $kk => $vv) {
+                    if (!empty($vv) && is_array($vv)) {
+                        echo "<br>" . $kk;
+                        pr($vv);
+                        $modelObj->saveModel(array("id" => $kk, "phone_number_assigned_to"=>$vv[0],"notes" => "Owner name as per white-pages \"{$vv[0]}\".", "phone_number" => $vv[1]), array('atomic' => true));
+                    }
+                }
+            }
+        }
+        exit;
+    }
+
+}

@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tickets\controller;
+  class actors extends \module\tickets\controller\actors_domain_logic
+  {
+       public $modelClass = '\\module\\tickets\\model\\actors';
+       public $preGenerateID = '1';
+
+
+
+
+
+
+  }

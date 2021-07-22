@@ -1,0 +1,43 @@
+[
+    {
+        "email_templates": {
+            "_acl": null,
+            "_acl_delete": null,
+            "_acl_edit": null,
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "business_key": "send_quote_to_client_email",
+            "category": "Others",
+            "content": "\r\n    <meta charset=\"utf-8\">\r\n    <title>Welcome to MaaxFrame<\/title>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta name=\"description\" content=\"\">\r\n    <meta name=\"author\" content=\"\">\r\n\r\n\r\n    <link href=\"\/\/netdna.bootstrapcdn.com\/twitter-bootstrap\/2.3.2\/css\/bootstrap-combined.min.css\" rel=\"stylesheet\">\r\n\r\n\r\n<div>\r\n    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n        <tbody>\r\n        <tr>\r\n            <td>\r\n                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\r\n                    <tbody>\r\n                    <tr>\r\n                        <td valign=\"top\">\r\n                            <div style=\"font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-weight:bold;margin:0px\">\r\n                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\r\n                                    <tbody>\r\n                                    <tr>\r\n                                        <td align=\"left\" width=\"132\">\r\n                                            <img valign=\"middle\" alt=\"MaaxFrame\" src=\"http:\/\/www.maaxframe.com\/assets\/img\/Maax-logo-and-text-250x64.png\" height=\"64\" width=\"250\">\r\n                                        <\/td>\r\n                                        <td align=\"right\">\r\n                                            Contact us\r\n                                            <a target=\"_blank\" style=\"text-decoration:none;font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#0066b3;font-weight:bold\" href=\"http:\/\/www.maaxframe.com\/contactus.php\"> online<\/a>\r\n                                            or\r\n                                            <br>\r\n                                            Call +1 647 476 2714\r\n                                        <\/td>\r\n                                    <\/tr>\r\n                                    <\/tbody>\r\n                                <\/table>\r\n                            <\/div>\r\n                        <\/td>\r\n                    <\/tr>\r\n                    <tr>\r\n                        <td height=\"15\"><br><\/td>\r\n                    <\/tr>\r\n                    <tr>\r\n                        <td bgcolor=\"#0066b3\" height=\"9\"><br><\/td>\r\n                    <\/tr>\r\n                    <tr>\r\n                        <td height=\"30\"><br><\/td>\r\n                    <\/tr>\r\n                    <\/tbody>\r\n                <\/table>\r\n                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\r\n                    <tbody>\r\n                    <tr>\r\n                        <td valign=\"top\" width=\"100%\">\r\n                            <p>Hello {{entity.__account_id}},<\/p>\r\n    \r\n    <p>Here is your copy of Quotation <\/p>\r\n\r\n    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\r\n       &nbsp;&nbsp;<strong>REFERENCES<\/strong><br>\r\n       &nbsp;&nbsp;Order number: {{entity.id}}<br>\r\n       &nbsp;&nbsp;Order total: {{entity.total_after_discount}}<br>\r\n       &nbsp;&nbsp;Order date: {{entity.effective_from}}<br>\r\n       &nbsp;&nbsp;Your reference: {{entity.customer_refrence_number}}<br>\r\n    <\/p>\r\n    <br>\r\n    <p>This quotation is valid till {{entity.effective_to}}. If you have any question, do not hesitate to contact us.<\/p>\r\n    <p><i>Thank you for choosing {{companies.name}}. <\/i><\/p>\r\n    <br>  \r\n\r\n                            <p style=\"font-weight:normal;font-size:14px;font-family:Arial,Helvetica,sans-serif;color:#555555\">\r\n                                <b>{{users.signature}}<\/b>\r\n                                <br>\r\n                            <\/p>\r\n                        <\/td>\r\n                    <\/tr>\r\n                    <\/tbody>\r\n                <\/table>\r\n            \r\n    <div class=\"yj6qo\"><\/div>\r\n    <div class=\"adL\"> <\/div>\r\n\r\n<div class=\"adL\"> <\/div>\r\n\r\n\r\n    <\/td><\/tr><\/tbody><\/table><\/div>",
+            "controller": "sales\/quotes",
+            "created": "2014-07-29 19:44:46",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "footer": null,
+            "header": null,
+            "id": "53d7f9ae-b2d8-4f4e-974f-34df0af91b9d",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "0",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "name": "Quotation # {{entity.id}}",
+            "owned_by": "1",
+            "revision": "1",
+            "__created_by": "System Admin",
+            "__modified_by": "",
+            "__owned_by": "System Admin",
+            "created_by_model": "created_by_user",
+            "owned_by_model": "owned_by_user",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

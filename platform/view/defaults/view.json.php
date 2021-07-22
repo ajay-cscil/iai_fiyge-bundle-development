@@ -1,0 +1,1 @@
+<?php echo $this->request->jsonp(json_encode($this->request->response), true); ?>

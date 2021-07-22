@@ -1,0 +1,2155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: maax\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: tushar takkar <ttakkar@primod.com>\n"
+"Language-Team: tushar takkar <tushartakkar@primarymodules.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: INDIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+
+msgid "1"
+msgstr "1"
+
+msgid "Access Control List"
+msgstr "Access Control List"
+
+msgid "accounts.account_name"
+msgstr "Account Name"
+
+msgid "accounts.account_type"
+msgstr "Account-Typ"
+
+msgid "accounts.annual_revenue"
+msgstr "Jährlicher Umsatz"
+
+msgid "accounts.created"
+msgstr "Erstellt"
+
+msgid "accounts.created_by"
+msgstr "Erstellt von"
+
+msgid "accounts.deleted"
+msgstr "Deleted"
+
+msgid "accounts.description"
+msgstr "Beschreibung"
+
+msgid "accounts.email_opt_out"
+msgstr "Email Opt Out"
+
+msgid "accounts.employees"
+msgstr "Mitarbeiter"
+
+msgid "accounts.fax"
+msgstr "Fax"
+
+msgid "accounts.flags"
+msgstr "Flags"
+
+msgid "accounts.id"
+msgstr "Identifikation"
+
+msgid "accounts.imported"
+msgstr "Importiert"
+
+msgid "accounts.imported_by"
+msgstr "Importiert von"
+
+msgid "accounts.industry"
+msgstr "Industrie"
+
+msgid "accounts.modified"
+msgstr "Geändert"
+
+msgid "accounts.modified_by"
+msgstr "Geändert von"
+
+msgid "accounts.notify_owner"
+msgstr "Benachrichtigen Sie Besitzer"
+
+msgid "accounts.owned_by"
+msgstr "Owned By"
+
+msgid "accounts.ownership"
+msgstr "Eigentum"
+
+msgid "accounts.parent_id"
+msgstr "Elternteil"
+
+msgid "accounts.primary_acl_group"
+msgstr "Primäre ACL-Gruppe"
+
+msgid "accounts.primary_address_line_1"
+msgstr "Primary Address Line 1"
+
+msgid "accounts.primary_address_line_2"
+msgstr "Primary Address Line 2"
+
+msgid "accounts.primary_city"
+msgstr "Primary City"
+
+msgid "accounts.primary_country"
+msgstr "Primäre Land"
+
+msgid "accounts.primary_state"
+msgstr "Primäre Staat"
+
+msgid "accounts.primary_zip"
+msgstr "Primäre Zip"
+
+msgid "accounts.rating"
+msgstr "Rating"
+
+msgid "accounts.revision"
+msgstr "Revision"
+
+msgid "accounts.sic_code"
+msgstr "SIC-Code"
+
+msgid "accounts.ticker_symbol"
+msgstr "Ticker Symbol"
+
+msgid "accounts.website"
+msgstr "Webseite"
+
+msgid "accounts._acl"
+msgstr "Acl"
+
+msgid "accounts._acl_delete"
+msgstr "Acl löschen"
+
+msgid "accounts._acl_edit"
+msgstr "ACL bearbeiten"
+
+msgid "accounts._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "accounts._acl_tmp_delete"
+msgstr "Acl Tmp löschen"
+
+msgid "accounts._acl_tmp_edit"
+msgstr "Acl Tmp bearbeiten"
+
+msgid "ACL & Revisions"
+msgstr "ACL & Revisions"
+
+msgid "ACL Permissions"
+msgstr "ACL Berechtigungen"
+
+msgid "add"
+msgstr "hinzufügen"
+
+msgid "Add"
+msgstr "hinzufügen"
+
+msgid "Answers"
+msgstr "Antworten"
+
+msgid "app-menu"
+msgstr "app-Menü"
+
+msgid "Basic Information"
+msgstr "Grundlegende Informationen"
+
+msgid "Business Rule Log"
+msgstr "Business Rule Anmelden"
+
+msgid "campaigns.actual_cost"
+msgstr "Tatsächliche Kosten"
+
+msgid "campaigns.append_signature"
+msgstr "Signatur anfügen"
+
+msgid "campaigns.bcc"
+msgstr "Bcc"
+
+msgid "campaigns.budget_cost"
+msgstr "Budget Cost"
+
+msgid "campaigns.campaign_type"
+msgstr "Campaign Type"
+
+msgid "campaigns.cc"
+msgstr "Cc"
+
+msgid "campaigns.content"
+msgstr "Inhalt"
+
+msgid "campaigns.created"
+msgstr "Erstellt"
+
+msgid "campaigns.created_by"
+msgstr "Erstellt von"
+
+msgid "campaigns.custom_message"
+msgstr "Custom Message"
+
+msgid "campaigns.deleted"
+msgstr "Deleted"
+
+msgid "campaigns.end"
+msgstr "Ende"
+
+msgid "campaigns.expected_response"
+msgstr "Erwartete Antwort"
+
+msgid "campaigns.expected_response_count"
+msgstr "Erwartete Antwort Count"
+
+msgid "campaigns.expected_revenue"
+msgstr "Erwarteter Ertrag"
+
+msgid "campaigns.expected_roi"
+msgstr "Erwartete Roi"
+
+msgid "campaigns.expected_sales_count"
+msgstr "Erwarteter Umsatz Graf"
+
+msgid "campaigns.flags"
+msgstr "Flags"
+
+msgid "campaigns.id"
+msgstr "Identifikation"
+
+msgid "campaigns.imported"
+msgstr "Importiert"
+
+msgid "campaigns.imported_by"
+msgstr "Importiert von"
+
+msgid "campaigns.modified"
+msgstr "Geändert"
+
+msgid "campaigns.modified_by"
+msgstr "Geändert von"
+
+msgid "campaigns.name"
+msgstr "Name"
+
+msgid "campaigns.on_after"
+msgstr "On After"
+
+msgid "campaigns.owned_by"
+msgstr "Owned By"
+
+msgid "campaigns.priority"
+msgstr "Priorität"
+
+msgid "campaigns.reply_to"
+msgstr "Beantworten"
+
+msgid "campaigns.revision"
+msgstr "Revision"
+
+msgid "campaigns.run_in_test_mode"
+msgstr "Run In Test Mode"
+
+msgid "campaigns.sender_id"
+msgstr "Sender ID"
+
+msgid "campaigns.send_after"
+msgstr "Send Nach"
+
+msgid "campaigns.send_on"
+msgstr "Send On"
+
+msgid "campaigns.smtp_server"
+msgstr "Smtp Server"
+
+msgid "campaigns.sponsor"
+msgstr "Sponsor"
+
+msgid "campaigns.start"
+msgstr "Start"
+
+msgid "campaigns.status"
+msgstr "Status"
+
+msgid "campaigns.subject"
+msgstr "Thema"
+
+msgid "campaigns.target_audience"
+msgstr "Zielgruppe"
+
+msgid "campaigns.target_size"
+msgstr "Zielgröße"
+
+msgid "campaigns.template_id"
+msgstr "Template Id"
+
+msgid "campaigns._acl"
+msgstr "Acl"
+
+msgid "campaigns._acl_delete"
+msgstr "Acl löschen"
+
+msgid "campaigns._acl_edit"
+msgstr "ACL bearbeiten"
+
+msgid "campaigns._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "campaigns._acl_tmp_delete"
+msgstr "Acl Tmp löschen"
+
+msgid "campaigns._acl_tmp_edit"
+msgstr "Acl Tmp bearbeiten"
+
+msgid "Can Delete"
+msgstr "Kann löschen"
+
+msgid "Can Edit"
+msgstr "Kann bearbeiten"
+
+msgid "Can Read"
+msgstr "Lesen können"
+
+msgid "category"
+msgstr "Kategorie"
+
+msgid "Clone"
+msgstr "Klon"
+
+msgid "Configuration Information"
+msgstr "Informationen zur Konfiguration von"
+
+msgid "Configurations"
+msgstr "Konfigurationen"
+
+msgid "configurations"
+msgstr "Konfigurationen"
+
+msgid "configurations.comment"
+msgstr "Kommentar"
+
+msgid "configurations.created"
+msgstr "Erstellt"
+
+msgid "configurations.created_by"
+msgstr "Erstellt von"
+
+msgid "configurations.deleted"
+msgstr "Deleted"
+
+msgid "configurations.flags"
+msgstr "Flags"
+
+msgid "configurations.id"
+msgstr "Identifikation"
+
+msgid "configurations.modified"
+msgstr "Geändert"
+
+msgid "configurations.modified_by"
+msgstr "Geändert von"
+
+msgid "configurations.name"
+msgstr "Name"
+
+msgid "configurations.revision"
+msgstr "Revision"
+
+msgid "configurations.value"
+msgstr "Wert"
+
+msgid "configurations_domain_logic"
+msgstr "Konfigurationen Domain Logic"
+
+msgid "contacts.account_id"
+msgstr "Konto-ID"
+
+msgid "contacts.assistant"
+msgstr "Assistent"
+
+msgid "contacts.birthday"
+msgstr "Geburtstag"
+
+msgid "contacts.contact_no"
+msgstr "Kontakt No"
+
+msgid "contacts.contact_type"
+msgstr "Kontakt Type"
+
+msgid "contacts.created"
+msgstr "Erstellt"
+
+msgid "contacts.created_by"
+msgstr "Erstellt von"
+
+msgid "contacts.deleted"
+msgstr "Deleted"
+
+msgid "contacts.department"
+msgstr "Abteilung"
+
+msgid "contacts.description"
+msgstr "Beschreibung"
+
+msgid "contacts.do_not_call"
+msgstr "Do Not Call"
+
+msgid "contacts.email_opt_out"
+msgstr "Email Opt Out"
+
+msgid "contacts.fax"
+msgstr "Fax"
+
+msgid "contacts.first_name"
+msgstr "Vorname"
+
+msgid "contacts.flags"
+msgstr "Flags"
+
+msgid "contacts.id"
+msgstr "Identifikation"
+
+msgid "contacts.imagename"
+msgstr "Bildname"
+
+msgid "contacts.imported"
+msgstr "Importiert"
+
+msgid "contacts.imported_by"
+msgstr "Importiert von"
+
+msgid "contacts.industry"
+msgstr "Industrie"
+
+msgid "contacts.last_name"
+msgstr "Nachname"
+
+msgid "contacts.last_stay_in_touch_request"
+msgstr "Letzte Bleiben Sie in Kontakt anfordern"
+
+msgid "contacts.last_stay_in_touch_save_date"
+msgstr "Letzten Aufenthalt in Tippen Sie auf Speichern Datum"
+
+msgid "contacts.lead_source"
+msgstr "Lead-Source"
+
+msgid "contacts.modified"
+msgstr "Geändert"
+
+msgid "contacts.modified_by"
+msgstr "Geändert von"
+
+msgid "contacts.name"
+msgstr "Name"
+
+msgid "contacts.notify_owner"
+msgstr "Benachrichtigen Sie Besitzer"
+
+msgid "contacts.owned_by"
+msgstr "Owned By"
+
+msgid "contacts.parent_id"
+msgstr "Parent ID"
+
+msgid "contacts.primary_acl_group"
+msgstr "Primäre ACL-Gruppe"
+
+msgid "contacts.primary_address_line_1"
+msgstr "Primary Address Line 1"
+
+msgid "contacts.primary_address_line_2"
+msgstr "Primary Address Line 2"
+
+msgid "contacts.primary_city"
+msgstr "Primary City"
+
+msgid "contacts.primary_country"
+msgstr "Primäre Land"
+
+msgid "contacts.primary_state"
+msgstr "Primäre Staat"
+
+msgid "contacts.primary_zip"
+msgstr "Primäre Zip"
+
+msgid "contacts.reference"
+msgstr "Referenz"
+
+msgid "contacts.related_to"
+msgstr "Related To"
+
+msgid "contacts.related_to_model"
+msgstr "Zusammenhang mit der Modellentwicklung"
+
+msgid "contacts.revision"
+msgstr "Revision"
+
+msgid "contacts.salutation"
+msgstr "Gruß"
+
+msgid "contacts.title"
+msgstr "Titel"
+
+msgid "contacts.training"
+msgstr "Training"
+
+msgid "contacts.user_type"
+msgstr "User Type"
+
+msgid "contacts._acl"
+msgstr "Acl"
+
+msgid "contacts._acl_delete"
+msgstr "Acl löschen"
+
+msgid "contacts._acl_edit"
+msgstr "ACL bearbeiten"
+
+msgid "contacts._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "contacts._acl_tmp_delete"
+msgstr "Acl Tmp löschen"
+
+msgid "contacts._acl_tmp_edit"
+msgstr "Acl Tmp bearbeiten"
+
+msgid "createdBy.accesskey"
+msgstr "Accesskey"
+
+msgid "createdBy.currency_id"
+msgstr "Currency Id"
+
+msgid "createdBy.deleted"
+msgstr "Deleted"
+
+msgid "createdBy.department"
+msgstr "Abteilung"
+
+msgid "createdBy.description"
+msgstr "Beschreibung"
+
+msgid "createdBy.fax"
+msgstr "Fax"
+
+msgid "createdBy.first_name"
+msgstr "Vorname"
+
+msgid "createdBy.hash_key"
+msgstr "Hash Key"
+
+msgid "createdBy.home_page"
+msgstr "Home Page"
+
+msgid "createdBy.hour_format"
+msgstr "Stunden-Format"
+
+msgid "createdBy.id"
+msgstr "Identifikation"
+
+msgid "createdBy.is_active"
+msgstr "Ist Aktiv"
+
+msgid "createdBy.last_name"
+msgstr "Nachname"
+
+msgid "createdBy.locale"
+msgstr "Ort"
+
+msgid "createdBy.mobile_home_page"
+msgstr "Mobil Home Page"
+
+msgid "createdBy.name"
+msgstr "Name"
+
+msgid "createdBy.owned_by"
+msgstr "Owned By"
+
+msgid "createdBy.parent_id"
+msgstr "Parent ID"
+
+msgid "createdBy.region_id"
+msgstr "Region Id"
+
+msgid "createdBy.role_id"
+msgstr "Role Id"
+
+msgid "createdBy.salutation"
+msgstr "Gruß"
+
+msgid "createdBy.signature"
+msgstr "Unterschrift"
+
+msgid "createdBy.skin"
+msgstr "Haut"
+
+msgid "createdBy.status"
+msgstr "Status"
+
+msgid "createdBy.theme"
+msgstr "Thema"
+
+msgid "createdBy.time_zone"
+msgstr "Time Zone"
+
+msgid "createdBy.title"
+msgstr "Titel"
+
+msgid "createdBy.user_name"
+msgstr "Benutzername"
+
+msgid "createdBy.user_password"
+msgstr "User Password"
+
+msgid "created_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "created_by_user.company_id"
+msgstr "Firma"
+
+msgid "created_by_user.created"
+msgstr "Erstellt"
+
+msgid "created_by_user.created_by"
+msgstr "Erstellt von"
+
+msgid "created_by_user.currency_id"
+msgstr "Währung"
+
+msgid "created_by_user.deleted"
+msgstr "Deleted"
+
+msgid "created_by_user.department"
+msgstr "Abteilung"
+
+msgid "created_by_user.description"
+msgstr "Beschreibung"
+
+msgid "created_by_user.ext"
+msgstr "Ext"
+
+msgid "created_by_user.fax"
+msgstr "Fax"
+
+msgid "created_by_user.first_name"
+msgstr "Vorname"
+
+msgid "created_by_user.flags"
+msgstr "Flags"
+
+msgid "created_by_user.hash_key"
+msgstr "Hash Key"
+
+msgid "created_by_user.home_page"
+msgstr "Home Page"
+
+msgid "created_by_user.hour_format"
+msgstr "Stunden-Format"
+
+msgid "created_by_user.id"
+msgstr "Identifikation"
+
+msgid "created_by_user.is_active"
+msgstr "Ist Aktiv"
+
+msgid "created_by_user.last_name"
+msgstr "Nachname"
+
+msgid "created_by_user.locale"
+msgstr "Ort"
+
+msgid "created_by_user.mobile_home_page"
+msgstr "Mobil Home Page"
+
+msgid "created_by_user.modified"
+msgstr "Geändert"
+
+msgid "created_by_user.modified_by"
+msgstr "Geändert von"
+
+msgid "created_by_user.name"
+msgstr "Name"
+
+msgid "created_by_user.owned_by"
+msgstr "Owned By"
+
+msgid "created_by_user.parent_id"
+msgstr "Elternteil"
+
+msgid "created_by_user.primary_address_line_1"
+msgstr "Primary Address Line 1"
+
+msgid "created_by_user.primary_address_line_2"
+msgstr "Primary Address Line 2"
+
+msgid "created_by_user.primary_city"
+msgstr "Primary City"
+
+msgid "created_by_user.primary_country"
+msgstr "Primäre Land"
+
+msgid "created_by_user.primary_state"
+msgstr "Primäre Staat"
+
+msgid "created_by_user.primary_zip"
+msgstr "Primäre Zip"
+
+msgid "created_by_user.region_id"
+msgstr "Region"
+
+msgid "created_by_user.revision"
+msgstr "Revision"
+
+msgid "created_by_user.role_id"
+msgstr "Rolle"
+
+msgid "created_by_user.salutation"
+msgstr "Gruß"
+
+msgid "created_by_user.signature"
+msgstr "Unterschrift"
+
+msgid "created_by_user.skin"
+msgstr "Haut"
+
+msgid "created_by_user.src"
+msgstr "Src"
+
+msgid "created_by_user.status"
+msgstr "Status"
+
+msgid "created_by_user.theme"
+msgstr "Thema"
+
+msgid "created_by_user.time_zone"
+msgstr "Time Zone"
+
+msgid "created_by_user.title"
+msgstr "Titel"
+
+msgid "created_by_user.user_name"
+msgstr "Benutzername"
+
+msgid "created_by_user.user_password"
+msgstr "User Password"
+
+msgid "Delete"
+msgstr "löschen"
+
+msgid "Delete Access"
+msgstr "Löschen Zugang"
+
+msgid "delete selected"
+msgstr "Löschen von ausgewählten"
+
+msgid "Delete Selected"
+msgstr "Löschen von ausgewählten"
+
+msgid "Document ID"
+msgstr "Dokument-ID"
+
+msgid "Document Information"
+msgstr "Document Information"
+
+msgid "Document Information "
+msgstr "Document Information"
+
+msgid "edit"
+msgstr "bearbeiten"
+
+msgid "Edit"
+msgstr "bearbeiten"
+
+msgid "Edit Access"
+msgstr "Bearbeiten Zugriff"
+
+msgid "edit selected"
+msgstr "Bearbeiten ausgewählter"
+
+msgid "Edit Selected"
+msgstr "Bearbeiten ausgewählter"
+
+msgid "Effective Read Access Groups"
+msgstr "Effektive Lesezugriff Gruppen"
+
+msgid "Effective Read Access Users"
+msgstr "Effektive Lesezugriff Benutzer"
+
+msgid "Export Selected"
+msgstr "Export ausgewählter"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "faq"
+msgstr "FAQ"
+
+msgid "Faq"
+msgstr "FAQ"
+
+msgid "faq answer"
+msgstr "Faq Antwort"
+
+msgid "FAQ Answer Information"
+msgstr "FAQ Antwort Informationen"
+
+msgid "Faq answers"
+msgstr "FAQ Antworten"
+
+msgid "Faq Answers"
+msgstr "FAQ Antworten"
+
+msgid "Faq Categories"
+msgstr "FAQ Kategorien"
+
+msgid "Faq Category Information"
+msgstr "Faq Kategorie Information"
+
+msgid "FAQ Information"
+msgstr "FAQ Information"
+
+msgid "faq.created"
+msgstr "Erstellt"
+
+msgid "faq.created_by"
+msgstr "Erstellt von"
+
+msgid "faq.deleted"
+msgstr "Deleted"
+
+msgid "faq.faq_category_id"
+msgstr "Faq-Kategorie-ID"
+
+msgid "faq.flags"
+msgstr "Flags"
+
+msgid "faq.id"
+msgstr "Identifikation"
+
+msgid "faq.modified"
+msgstr "Geändert"
+
+msgid "faq.modified_by"
+msgstr "Geändert von"
+
+msgid "faq.owned_by"
+msgstr "Owned By"
+
+msgid "faq.question"
+msgstr "Frage"
+
+msgid "faq.revision"
+msgstr "Revision"
+
+msgid "faqAnswer.answer"
+msgstr "Antwort"
+
+msgid "faqAnswer.created"
+msgstr "Erstellt"
+
+msgid "faqAnswer.created_by"
+msgstr "Erstellt von"
+
+msgid "faqAnswer.deleted"
+msgstr "Deleted"
+
+msgid "faqAnswer.faq_id"
+msgstr "FAQ-ID"
+
+msgid "faqAnswer.flags"
+msgstr "Flags"
+
+msgid "faqAnswer.id"
+msgstr "Identifikation"
+
+msgid "faqAnswer.modified"
+msgstr "Geändert"
+
+msgid "faqAnswer.modified_by"
+msgstr "Geändert von"
+
+msgid "faqAnswer.owned_by"
+msgstr "Owned By"
+
+msgid "faqAnswer.revision"
+msgstr "Revision"
+
+msgid "faqCategory.created"
+msgstr "Erstellt"
+
+msgid "faqCategory.created_by"
+msgstr "Erstellt von"
+
+msgid "faqCategory.deleted"
+msgstr "Deleted"
+
+msgid "faqCategory.flags"
+msgstr "Flags"
+
+msgid "faqCategory.id"
+msgstr "Identifikation"
+
+msgid "faqCategory.modified"
+msgstr "Geändert"
+
+msgid "faqCategory.modified_by"
+msgstr "Geändert von"
+
+msgid "faqCategory.name"
+msgstr "Name"
+
+msgid "faqCategory.owned_by"
+msgstr "Owned By"
+
+msgid "faqCategory.revision"
+msgstr "Revision"
+
+msgid "faq_answers"
+msgstr "FAQ Antworten"
+
+msgid "faq_answers.answer"
+msgstr "Antwort"
+
+msgid "faq_answers.created"
+msgstr "Erstellt"
+
+msgid "faq_answers.created_by"
+msgstr "Erstellt von"
+
+msgid "faq_answers.deleted"
+msgstr "Deleted"
+
+msgid "faq_answers.faq_id"
+msgstr "FAQ-ID"
+
+msgid "faq_answers.flags"
+msgstr "Flags"
+
+msgid "faq_answers.id"
+msgstr "Identifikation"
+
+msgid "faq_answers.modified"
+msgstr "Geändert"
+
+msgid "faq_answers.modified_by"
+msgstr "Geändert von"
+
+msgid "faq_answers.owned_by"
+msgstr "Owned By"
+
+msgid "faq_answers.question"
+msgstr "Frage"
+
+msgid "faq_answers.revision"
+msgstr "Revision"
+
+msgid "faq_answers_domain_logic"
+msgstr "FAQ Antworten Domain Logic"
+
+msgid "faq_categories"
+msgstr "FAQ Kategorien"
+
+msgid "faq_categories.created"
+msgstr "Erstellt"
+
+msgid "faq_categories.created_by"
+msgstr "Erstellt von"
+
+msgid "faq_categories.deleted"
+msgstr "Deleted"
+
+msgid "faq_categories.flags"
+msgstr "Flags"
+
+msgid "faq_categories.id"
+msgstr "Identifikation"
+
+msgid "faq_categories.modified"
+msgstr "Geändert"
+
+msgid "faq_categories.modified_by"
+msgstr "Geändert von"
+
+msgid "faq_categories.name"
+msgstr "Name"
+
+msgid "faq_categories.owned_by"
+msgstr "Owned By"
+
+msgid "faq_categories.revision"
+msgstr "Revision"
+
+msgid "faq_categories_domain_logic"
+msgstr "FAQ-Kategorien Domain Logic"
+
+msgid "faq_domain_logic"
+msgstr "Faq Domain Logic"
+
+msgid "Flexflow Document Business Rule Log"
+msgstr "FlexFlow Document Business Rule Anmelden"
+
+msgid "From"
+msgstr "Von"
+
+msgid "Group / User "
+msgstr "Gruppe / User"
+
+msgid "Group / User"
+msgstr "Gruppe / User"
+
+msgid "help"
+msgstr "Hilfe"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "index"
+msgstr "Index"
+
+msgid "Index"
+msgstr "Index"
+
+msgid "leads.annual_revenue"
+msgstr "Jährlicher Umsatz"
+
+msgid "leads.assign_lead_chk"
+msgstr "Weisen Blei Chk"
+
+msgid "leads.assistant_email"
+msgstr "Assistent Email"
+
+msgid "leads.assistant_phone"
+msgstr "Mitarbeiterin Telefon"
+
+msgid "leads.campaign"
+msgstr "Kampagne"
+
+msgid "leads.campaign_id"
+msgstr "Kampagne"
+
+msgid "leads.comments"
+msgstr "Kommentare"
+
+msgid "leads.company"
+msgstr "Firma"
+
+msgid "leads.converted"
+msgstr "Converted"
+
+msgid "leads.created"
+msgstr "Erstellt"
+
+msgid "leads.created_by"
+msgstr "Erstellt von"
+
+msgid "leads.currency"
+msgstr "Währung"
+
+msgid "leads.deleted"
+msgstr "Deleted"
+
+msgid "leads.demo_request"
+msgstr "Demo anfordern"
+
+msgid "leads.description"
+msgstr "Beschreibung"
+
+msgid "leads.designation"
+msgstr "Bezeichnung"
+
+msgid "leads.do_not_call"
+msgstr "Do Not Call"
+
+msgid "leads.email_opt_out"
+msgstr "Email Opt Out"
+
+msgid "leads.evaluation_status"
+msgstr "Evaluation-Status"
+
+msgid "leads.fax"
+msgstr "Fax"
+
+msgid "leads.first_name"
+msgstr "Vorname"
+
+msgid "leads.flags"
+msgstr "Flags"
+
+msgid "leads.funding_situation"
+msgstr "Finanzierungssituation"
+
+msgid "leads.home_phone"
+msgstr "Home Phone"
+
+msgid "leads.id"
+msgstr "Identifikation"
+
+msgid "leads.imported"
+msgstr "Importiert"
+
+msgid "leads.imported_by"
+msgstr "Importiert von"
+
+msgid "leads.industry"
+msgstr "Industrie"
+
+msgid "leads.interest"
+msgstr "Interesse"
+
+msgid "leads.last_name"
+msgstr "Nachname"
+
+msgid "leads.lead_no"
+msgstr "Blei keine"
+
+msgid "leads.lead_source"
+msgstr "Lead-Source"
+
+msgid "leads.lead_status"
+msgstr "Lead-Status"
+
+msgid "leads.licence_key_status"
+msgstr "Licence Key-Status"
+
+msgid "leads.mail_date"
+msgstr "Profis aufgenommen"
+
+msgid "leads.mobile"
+msgstr "Handy"
+
+msgid "leads.modified"
+msgstr "Geändert"
+
+msgid "leads.modified_by"
+msgstr "Geändert von"
+
+msgid "leads.name"
+msgstr "Name"
+
+msgid "leads.next_step_date"
+msgstr "Next Step Date"
+
+msgid "leads.no_of_employees"
+msgstr "Anzahl Mitarbeiter"
+
+msgid "leads.office_email"
+msgstr "Office-Email"
+
+msgid "leads.office_phone"
+msgstr "Office Phone"
+
+msgid "leads.other_phone"
+msgstr "Anderes Telefon"
+
+msgid "leads.owned_by"
+msgstr "Owned By"
+
+msgid "leads.parent_id"
+msgstr "Parent ID"
+
+msgid "leads.partner_contact"
+msgstr "Partner Kontakt"
+
+msgid "leads.personal_email"
+msgstr "Persönliche E-Mail"
+
+msgid "leads.primary_acl_group"
+msgstr "Primäre ACL-Gruppe"
+
+msgid "leads.primary_address_line_1"
+msgstr "Primary Address Line 1"
+
+msgid "leads.primary_address_line_2"
+msgstr "Primary Address Line 2"
+
+msgid "leads.primary_city"
+msgstr "Primary City"
+
+msgid "leads.primary_country"
+msgstr "Primäre Land"
+
+msgid "leads.primary_state"
+msgstr "Primäre Staat"
+
+msgid "leads.primary_zip"
+msgstr "Primäre Zip"
+
+msgid "leads.priority"
+msgstr "Priorität"
+
+msgid "leads.product"
+msgstr "Produkt"
+
+msgid "leads.product_id"
+msgstr "Produkt"
+
+msgid "leads.product_version"
+msgstr "Product Version"
+
+msgid "leads.purpose"
+msgstr "Zweck"
+
+msgid "leads.rating"
+msgstr "Rating"
+
+msgid "leads.revenue_type"
+msgstr "Revenue Type"
+
+msgid "leads.revision"
+msgstr "Revision"
+
+msgid "leads.salutation"
+msgstr "Gruß"
+
+msgid "leads.space"
+msgstr "Raum"
+
+msgid "leads.test123"
+msgstr "Test123"
+
+msgid "leads.title"
+msgstr "Titel"
+
+msgid "leads.transfer_date"
+msgstr "Termin für die Überstellung"
+
+msgid "leads.website"
+msgstr "Webseite"
+
+msgid "leads._acl"
+msgstr "Acl"
+
+msgid "leads._acl_delete"
+msgstr "Acl löschen"
+
+msgid "leads._acl_edit"
+msgstr "ACL bearbeiten"
+
+msgid "leads._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "leads._acl_tmp_delete"
+msgstr "Acl Tmp löschen"
+
+msgid "leads._acl_tmp_edit"
+msgstr "Acl Tmp bearbeiten"
+
+msgid "listviews.created"
+msgstr "Erstellt"
+
+msgid "listviews.created_by"
+msgstr "Erstellt von"
+
+msgid "listviews.modified"
+msgstr "Geändert"
+
+msgid "listviews.modified_by"
+msgstr "Geändert von"
+
+msgid "listviews.owned_by"
+msgstr "Owned By"
+
+msgid "listviews.primary_acl_group"
+msgstr "Primäre ACL-Gruppe"
+
+msgid "listviews.revision"
+msgstr "Revision"
+
+msgid "modifiedBy.accesskey"
+msgstr "Accesskey"
+
+msgid "modifiedBy.currency_id"
+msgstr "Currency Id"
+
+msgid "modifiedBy.deleted"
+msgstr "Deleted"
+
+msgid "modifiedBy.department"
+msgstr "Abteilung"
+
+msgid "modifiedBy.description"
+msgstr "Beschreibung"
+
+msgid "modifiedBy.fax"
+msgstr "Fax"
+
+msgid "modifiedBy.first_name"
+msgstr "Vorname"
+
+msgid "modifiedBy.hash_key"
+msgstr "Hash Key"
+
+msgid "modifiedBy.home_page"
+msgstr "Home Page"
+
+msgid "modifiedBy.hour_format"
+msgstr "Stunden-Format"
+
+msgid "modifiedBy.id"
+msgstr "Identifikation"
+
+msgid "modifiedBy.is_active"
+msgstr "Ist Aktiv"
+
+msgid "modifiedBy.last_name"
+msgstr "Nachname"
+
+msgid "modifiedBy.locale"
+msgstr "Ort"
+
+msgid "modifiedBy.mobile_home_page"
+msgstr "Mobil Home Page"
+
+msgid "modifiedBy.name"
+msgstr "Name"
+
+msgid "modifiedBy.owned_by"
+msgstr "Owned By"
+
+msgid "modifiedBy.parent_id"
+msgstr "Parent ID"
+
+msgid "modifiedBy.region_id"
+msgstr "Region Id"
+
+msgid "modifiedBy.role_id"
+msgstr "Role Id"
+
+msgid "modifiedBy.salutation"
+msgstr "Gruß"
+
+msgid "modifiedBy.signature"
+msgstr "Unterschrift"
+
+msgid "modifiedBy.skin"
+msgstr "Haut"
+
+msgid "modifiedBy.status"
+msgstr "Status"
+
+msgid "modifiedBy.theme"
+msgstr "Thema"
+
+msgid "modifiedBy.time_zone"
+msgstr "Time Zone"
+
+msgid "modifiedBy.title"
+msgstr "Titel"
+
+msgid "modifiedBy.user_name"
+msgstr "Benutzername"
+
+msgid "modifiedBy.user_password"
+msgstr "User Password"
+
+msgid "modified_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "modified_by_user.company_id"
+msgstr "Firma"
+
+msgid "modified_by_user.created"
+msgstr "Erstellt"
+
+msgid "modified_by_user.created_by"
+msgstr "Erstellt von"
+
+msgid "modified_by_user.currency_id"
+msgstr "Währung"
+
+msgid "modified_by_user.deleted"
+msgstr "Deleted"
+
+msgid "modified_by_user.department"
+msgstr "Abteilung"
+
+msgid "modified_by_user.description"
+msgstr "Beschreibung"
+
+msgid "modified_by_user.ext"
+msgstr "Ext"
+
+msgid "modified_by_user.fax"
+msgstr "Fax"
+
+msgid "modified_by_user.first_name"
+msgstr "Vorname"
+
+msgid "modified_by_user.flags"
+msgstr "Flags"
+
+msgid "modified_by_user.hash_key"
+msgstr "Hash Key"
+
+msgid "modified_by_user.home_page"
+msgstr "Home Page"
+
+msgid "modified_by_user.hour_format"
+msgstr "Stunden-Format"
+
+msgid "modified_by_user.id"
+msgstr "Identifikation"
+
+msgid "modified_by_user.is_active"
+msgstr "Ist Aktiv"
+
+msgid "modified_by_user.last_name"
+msgstr "Nachname"
+
+msgid "modified_by_user.locale"
+msgstr "Ort"
+
+msgid "modified_by_user.mobile_home_page"
+msgstr "Mobil Home Page"
+
+msgid "modified_by_user.modified"
+msgstr "Geändert"
+
+msgid "modified_by_user.modified_by"
+msgstr "Geändert von"
+
+msgid "modified_by_user.name"
+msgstr "Name"
+
+msgid "modified_by_user.owned_by"
+msgstr "Owned By"
+
+msgid "modified_by_user.parent_id"
+msgstr "Elternteil"
+
+msgid "modified_by_user.primary_address_line_1"
+msgstr "Primary Address Line 1"
+
+msgid "modified_by_user.primary_address_line_2"
+msgstr "Primary Address Line 2"
+
+msgid "modified_by_user.primary_city"
+msgstr "Primary City"
+
+msgid "modified_by_user.primary_country"
+msgstr "Primäre Land"
+
+msgid "modified_by_user.primary_state"
+msgstr "Primäre Staat"
+
+msgid "modified_by_user.primary_zip"
+msgstr "Primäre Zip"
+
+msgid "modified_by_user.region_id"
+msgstr "Region"
+
+msgid "modified_by_user.revision"
+msgstr "Revision"
+
+msgid "modified_by_user.role_id"
+msgstr "Rolle"
+
+msgid "modified_by_user.salutation"
+msgstr "Gruß"
+
+msgid "modified_by_user.signature"
+msgstr "Unterschrift"
+
+msgid "modified_by_user.skin"
+msgstr "Haut"
+
+msgid "modified_by_user.src"
+msgstr "Src"
+
+msgid "modified_by_user.status"
+msgstr "Status"
+
+msgid "modified_by_user.theme"
+msgstr "Thema"
+
+msgid "modified_by_user.time_zone"
+msgstr "Time Zone"
+
+msgid "modified_by_user.title"
+msgstr "Titel"
+
+msgid "modified_by_user.user_name"
+msgstr "Benutzername"
+
+msgid "modified_by_user.user_password"
+msgstr "User Password"
+
+msgid "more information"
+msgstr "Weitere Informationen"
+
+msgid "note"
+msgstr "Note"
+
+msgid "Note Categories"
+msgstr "Hinweis Kategorien"
+
+msgid "Note Category Information"
+msgstr "Hinweis Informationen zur Kategorie"
+
+msgid "Note Information"
+msgstr "Hinweis: Informationen"
+
+msgid "noteCategory.created"
+msgstr "Erstellt"
+
+msgid "noteCategory.created_by"
+msgstr "Erstellt von"
+
+msgid "noteCategory.deleted"
+msgstr "Deleted"
+
+msgid "noteCategory.flags"
+msgstr "Flags"
+
+msgid "noteCategory.id"
+msgstr "Identifikation"
+
+msgid "noteCategory.modified"
+msgstr "Geändert"
+
+msgid "noteCategory.modified_by"
+msgstr "Geändert von"
+
+msgid "noteCategory.name"
+msgstr "Name"
+
+msgid "noteCategory.owned_by"
+msgstr "Owned By"
+
+msgid "noteCategory.revision"
+msgstr "Revision"
+
+msgid "Notes"
+msgstr "Hinweise"
+
+msgid "notes"
+msgstr "Hinweise"
+
+msgid "notes.content"
+msgstr "Inhalt"
+
+msgid "notes.created"
+msgstr "Erstellt"
+
+msgid "notes.created_by"
+msgstr "Erstellt von"
+
+msgid "notes.deleted"
+msgstr "Deleted"
+
+msgid "notes.flags"
+msgstr "Flags"
+
+msgid "notes.id"
+msgstr "Identifikation"
+
+msgid "notes.modified"
+msgstr "Geändert"
+
+msgid "notes.modified_by"
+msgstr "Geändert von"
+
+msgid "notes.note_category_id"
+msgstr "Beachten Sie Kategorie-ID"
+
+msgid "notes.note_no"
+msgstr "Hinweis: Keine"
+
+msgid "notes.owned_by"
+msgstr "Owned By"
+
+msgid "notes.related_to"
+msgstr "Related To"
+
+msgid "notes.related_to_model"
+msgstr "Zusammenhang mit der Modellentwicklung"
+
+msgid "notes.revision"
+msgstr "Revision"
+
+msgid "notes.title"
+msgstr "Titel"
+
+msgid "notes.__related_to"
+msgstr "Related To"
+
+msgid "notes_domain_logic"
+msgstr "Hinweise Domain Logic"
+
+msgid "note_categories"
+msgstr "Hinweis Kategorien"
+
+msgid "note_categories.created"
+msgstr "Erstellt"
+
+msgid "note_categories.created_by"
+msgstr "Erstellt von"
+
+msgid "note_categories.deleted"
+msgstr "Deleted"
+
+msgid "note_categories.flags"
+msgstr "Flags"
+
+msgid "note_categories.id"
+msgstr "Identifikation"
+
+msgid "note_categories.modified"
+msgstr "Geändert"
+
+msgid "note_categories.modified_by"
+msgstr "Geändert von"
+
+msgid "note_categories.name"
+msgstr "Name"
+
+msgid "note_categories.owned_by"
+msgstr "Owned By"
+
+msgid "note_categories.revision"
+msgstr "Revision"
+
+msgid "note_categories_domain_logic"
+msgstr "Hinweis Kategorien Domain Logic"
+
+msgid "opportunities.account_id"
+msgstr "Konto-ID"
+
+msgid "opportunities.amount"
+msgstr "Höhe"
+
+msgid "opportunities.campaign_id"
+msgstr "Kampagnen-ID"
+
+msgid "opportunities.closing_date"
+msgstr "Closing Date"
+
+msgid "opportunities.created"
+msgstr "Erstellt"
+
+msgid "opportunities.created_by"
+msgstr "Erstellt von"
+
+msgid "opportunities.currency"
+msgstr "Währung"
+
+msgid "opportunities.deleted"
+msgstr "Deleted"
+
+msgid "opportunities.description"
+msgstr "Beschreibung"
+
+msgid "opportunities.do_not_call"
+msgstr "Do Not Call"
+
+msgid "opportunities.email_opt_out"
+msgstr "Email Opt Out"
+
+msgid "opportunities.evaluation_status"
+msgstr "Evaluation-Status"
+
+msgid "opportunities.fax"
+msgstr "Fax"
+
+msgid "opportunities.first_name"
+msgstr "Vorname"
+
+msgid "opportunities.flags"
+msgstr "Flags"
+
+msgid "opportunities.follow_update"
+msgstr "Folgen Sie aktualisieren"
+
+msgid "opportunities.fore_cast_category"
+msgstr "Fore Cast Kategorie"
+
+msgid "opportunities.id"
+msgstr "Identifikation"
+
+msgid "opportunities.imported"
+msgstr "Importiert"
+
+msgid "opportunities.imported_by"
+msgstr "Importiert von"
+
+msgid "opportunities.interest"
+msgstr "Interesse"
+
+msgid "opportunities.last_name"
+msgstr "Nachname"
+
+msgid "opportunities.lead_source"
+msgstr "Lead-Source"
+
+msgid "opportunities.modified"
+msgstr "Geändert"
+
+msgid "opportunities.modified_by"
+msgstr "Geändert von"
+
+msgid "opportunities.name"
+msgstr "Name"
+
+msgid "opportunities.next_step"
+msgstr "Next Step"
+
+msgid "opportunities.opportunity_no"
+msgstr "Potenzielle No"
+
+msgid "opportunities.opportunity_type"
+msgstr "Potenzielle Type"
+
+msgid "opportunities.outcome_analysis"
+msgstr "Outcome-Analyse"
+
+msgid "opportunities.owned_by"
+msgstr "Owned By"
+
+msgid "opportunities.partner_contact"
+msgstr "Partner Kontakt"
+
+msgid "opportunities.primary_acl_group"
+msgstr "Primäre ACL-Gruppe"
+
+msgid "opportunities.private"
+msgstr "Privat"
+
+msgid "opportunities.probability"
+msgstr "Wahrscheinlichkeit"
+
+msgid "opportunities.product_id"
+msgstr "Produkt-ID"
+
+msgid "opportunities.product_version"
+msgstr "Product Version"
+
+msgid "opportunities.quotation_ref"
+msgstr "Zitat Ref"
+
+msgid "opportunities.related_to"
+msgstr "Related To"
+
+msgid "opportunities.remarks"
+msgstr "Bemerkungen"
+
+msgid "opportunities.revision"
+msgstr "Revision"
+
+msgid "opportunities.run_time_fee"
+msgstr "Run Time Fee"
+
+msgid "opportunities.sales_stage"
+msgstr "Vertrieb Bühne"
+
+msgid "opportunities.salutation"
+msgstr "Gruß"
+
+msgid "opportunities.type_of_revenue"
+msgstr "Art der Einnahmen"
+
+msgid "opportunities._acl"
+msgstr "Acl"
+
+msgid "opportunities._acl_delete"
+msgstr "Acl löschen"
+
+msgid "opportunities._acl_edit"
+msgstr "ACL bearbeiten"
+
+msgid "opportunities._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "opportunities._acl_tmp_delete"
+msgstr "Acl Tmp löschen"
+
+msgid "opportunities._acl_tmp_edit"
+msgstr "Acl Tmp bearbeiten"
+
+msgid "ownedBy.accesskey"
+msgstr "Accesskey"
+
+msgid "ownedBy.currency_id"
+msgstr "Currency Id"
+
+msgid "ownedBy.deleted"
+msgstr "Deleted"
+
+msgid "ownedBy.department"
+msgstr "Abteilung"
+
+msgid "ownedBy.description"
+msgstr "Beschreibung"
+
+msgid "ownedBy.fax"
+msgstr "Fax"
+
+msgid "ownedBy.first_name"
+msgstr "Vorname"
+
+msgid "ownedBy.hash_key"
+msgstr "Hash Key"
+
+msgid "ownedBy.home_page"
+msgstr "Home Page"
+
+msgid "ownedBy.hour_format"
+msgstr "Stunden-Format"
+
+msgid "ownedBy.id"
+msgstr "Identifikation"
+
+msgid "ownedBy.is_active"
+msgstr "Ist Aktiv"
+
+msgid "ownedBy.last_name"
+msgstr "Nachname"
+
+msgid "ownedBy.locale"
+msgstr "Ort"
+
+msgid "ownedBy.mobile_home_page"
+msgstr "Mobil Home Page"
+
+msgid "ownedBy.name"
+msgstr "Name"
+
+msgid "ownedBy.owned_by"
+msgstr "Owned By"
+
+msgid "ownedBy.parent_id"
+msgstr "Parent ID"
+
+msgid "ownedBy.region_id"
+msgstr "Region Id"
+
+msgid "ownedBy.role_id"
+msgstr "Role Id"
+
+msgid "ownedBy.salutation"
+msgstr "Gruß"
+
+msgid "ownedBy.signature"
+msgstr "Unterschrift"
+
+msgid "ownedBy.skin"
+msgstr "Haut"
+
+msgid "ownedBy.status"
+msgstr "Status"
+
+msgid "ownedBy.theme"
+msgstr "Thema"
+
+msgid "ownedBy.time_zone"
+msgstr "Time Zone"
+
+msgid "ownedBy.title"
+msgstr "Titel"
+
+msgid "ownedBy.user_name"
+msgstr "Benutzername"
+
+msgid "ownedBy.user_password"
+msgstr "User Password"
+
+msgid "owned_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "owned_by_user.company_id"
+msgstr "Firma"
+
+msgid "owned_by_user.created"
+msgstr "Erstellt"
+
+msgid "owned_by_user.created_by"
+msgstr "Erstellt von"
+
+msgid "owned_by_user.currency_id"
+msgstr "Währung"
+
+msgid "owned_by_user.deleted"
+msgstr "Deleted"
+
+msgid "owned_by_user.department"
+msgstr "Abteilung"
+
+msgid "owned_by_user.description"
+msgstr "Beschreibung"
+
+msgid "owned_by_user.ext"
+msgstr "Ext"
+
+msgid "owned_by_user.fax"
+msgstr "Fax"
+
+msgid "owned_by_user.first_name"
+msgstr "Vorname"
+
+msgid "owned_by_user.flags"
+msgstr "Flags"
+
+msgid "owned_by_user.hash_key"
+msgstr "Hash Key"
+
+msgid "owned_by_user.home_page"
+msgstr "Home Page"
+
+msgid "owned_by_user.hour_format"
+msgstr "Stunden-Format"
+
+msgid "owned_by_user.id"
+msgstr "Identifikation"
+
+msgid "owned_by_user.is_active"
+msgstr "Ist Aktiv"
+
+msgid "owned_by_user.last_name"
+msgstr "Nachname"
+
+msgid "owned_by_user.locale"
+msgstr "Ort"
+
+msgid "owned_by_user.mobile_home_page"
+msgstr "Mobil Home Page"
+
+msgid "owned_by_user.modified"
+msgstr "Geändert"
+
+msgid "owned_by_user.modified_by"
+msgstr "Geändert von"
+
+msgid "owned_by_user.name"
+msgstr "Name"
+
+msgid "owned_by_user.owned_by"
+msgstr "Owned By"
+
+msgid "owned_by_user.parent_id"
+msgstr "Elternteil"
+
+msgid "owned_by_user.primary_address_line_1"
+msgstr "Primary Address Line 1"
+
+msgid "owned_by_user.primary_address_line_2"
+msgstr "Primary Address Line 2"
+
+msgid "owned_by_user.primary_city"
+msgstr "Primary City"
+
+msgid "owned_by_user.primary_country"
+msgstr "Primäre Land"
+
+msgid "owned_by_user.primary_state"
+msgstr "Primäre Staat"
+
+msgid "owned_by_user.primary_zip"
+msgstr "Primäre Zip"
+
+msgid "owned_by_user.region_id"
+msgstr "Region"
+
+msgid "owned_by_user.revision"
+msgstr "Revision"
+
+msgid "owned_by_user.role_id"
+msgstr "Rolle"
+
+msgid "owned_by_user.salutation"
+msgstr "Gruß"
+
+msgid "owned_by_user.signature"
+msgstr "Unterschrift"
+
+msgid "owned_by_user.skin"
+msgstr "Haut"
+
+msgid "owned_by_user.src"
+msgstr "Src"
+
+msgid "owned_by_user.status"
+msgstr "Status"
+
+msgid "owned_by_user.theme"
+msgstr "Thema"
+
+msgid "owned_by_user.time_zone"
+msgstr "Time Zone"
+
+msgid "owned_by_user.title"
+msgstr "Titel"
+
+msgid "owned_by_user.user_name"
+msgstr "Benutzername"
+
+msgid "owned_by_user.user_password"
+msgstr "User Password"
+
+msgid "r"
+msgstr "r"
+
+msgid "Read Access"
+msgstr "Lesezugriff"
+
+msgid "Related Information"
+msgstr "Weiterführende Informationen"
+
+msgid "Revision Log"
+msgstr "Änderungshistorie"
+
+msgid "Some users might be granted access via groups"
+msgstr "Einige Benutzer Zugriff über Gruppen erteilt werden"
+
+msgid "Submit"
+msgstr "Einreichen"
+
+msgid "SYSTEM_ACL_REVISIONS"
+msgstr "SYSTEM ACL REVISIONS"
+
+msgid "Temporary ACL"
+msgstr "Temporäre ACL"
+
+msgid "Temporary Delete"
+msgstr "Vorübergehend Löschen"
+
+msgid "Temporary Edit"
+msgstr "Temporäre Bearbeiten"
+
+msgid "To"
+msgstr "Um"
+
+msgid "users.accesskey"
+msgstr "Accesskey"
+
+msgid "users.company_id"
+msgstr "Firma"
+
+msgid "users.created"
+msgstr "Erstellt"
+
+msgid "users.created_by"
+msgstr "Erstellt von"
+
+msgid "users.currency_id"
+msgstr "Currency Id"
+
+msgid "users.deleted"
+msgstr "Deleted"
+
+msgid "users.department"
+msgstr "Abteilung"
+
+msgid "users.description"
+msgstr "Beschreibung"
+
+msgid "users.ext"
+msgstr "Ext"
+
+msgid "users.fax"
+msgstr "Fax"
+
+msgid "users.first_name"
+msgstr "Vorname"
+
+msgid "users.flags"
+msgstr "Flags"
+
+msgid "users.hash_key"
+msgstr "Hash Key"
+
+msgid "users.home_page"
+msgstr "Home Page"
+
+msgid "users.hour_format"
+msgstr "Stunden-Format"
+
+msgid "users.id"
+msgstr "Identifikation"
+
+msgid "users.is_active"
+msgstr "Ist Aktiv"
+
+msgid "users.last_name"
+msgstr "Nachname"
+
+msgid "users.locale"
+msgstr "Ort"
+
+msgid "users.mobile_home_page"
+msgstr "Mobil Home Page"
+
+msgid "users.modified"
+msgstr "Geändert"
+
+msgid "users.modified_by"
+msgstr "Geändert von"
+
+msgid "users.name"
+msgstr "Name"
+
+msgid "users.owned_by"
+msgstr "Owned By"
+
+msgid "users.parent_id"
+msgstr "Parent ID"
+
+msgid "users.primary_address_line_1"
+msgstr "Primary Address Line 1"
+
+msgid "users.primary_address_line_2"
+msgstr "Primary Address Line 2"
+
+msgid "users.primary_city"
+msgstr "Primary City"
+
+msgid "users.primary_country"
+msgstr "Primäre Land"
+
+msgid "users.primary_state"
+msgstr "Primäre Staat"
+
+msgid "users.primary_zip"
+msgstr "Primäre Zip"
+
+msgid "users.region_id"
+msgstr "Region Id"
+
+msgid "users.revision"
+msgstr "Revision"
+
+msgid "users.role_id"
+msgstr "Role Id"
+
+msgid "users.salutation"
+msgstr "Gruß"
+
+msgid "users.signature"
+msgstr "Unterschrift"
+
+msgid "users.skin"
+msgstr "Haut"
+
+msgid "users.src"
+msgstr "Src"
+
+msgid "users.status"
+msgstr "Status"
+
+msgid "users.theme"
+msgstr "Thema"
+
+msgid "users.time_zone"
+msgstr "Time Zone"
+
+msgid "users.title"
+msgstr "Titel"
+
+msgid "users.user_name"
+msgstr "Benutzername"
+
+msgid "users.user_password"
+msgstr "User Password"
+
+msgid "view"
+msgstr "Blick"
+
+msgid "View"
+msgstr "Blick"

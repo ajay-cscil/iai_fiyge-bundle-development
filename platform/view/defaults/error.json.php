@@ -1,0 +1,1 @@
+<?php echo $this->request->jsonp(json_encode(array('errors' => $this->get('errors', array()))),true); ?>

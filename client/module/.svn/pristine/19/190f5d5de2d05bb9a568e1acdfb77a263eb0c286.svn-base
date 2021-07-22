@@ -1,0 +1,78 @@
+[
+	{
+		"listviews":{
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[\"company_information.name\",\"company_information.created\",\"company_information.deleted\",{\"created_by_user.name\":{\"alias\":\"Created By User\"}},\"company_information.created\"],\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"company_information.name\",\"__column\":\"company_information.name\"},{\"column\":\"company_information.created\",\"__column\":\"company_information.created\"},{\"column\":\"company_information.deleted\",\"__column\":\"company_information.deleted\"},{\"column\":\"created_by_user.name\",\"__column\":\"created_by_user.name\"},{\"column\":\"company_information.created\",\"__column\":\"company_information.created\"}],\"render_as\":\"index\"}",
+			"description":null,
+			"controller":"elections\/company_informations",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2014-06-23 14:06:15",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Ward-7-8"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"elections.company_informations.All",
+			"sequence":"100363",
+			"primary_acl_group":"847",
+			"id":"53a83457-eb88-4e24-b804-37e30af91b9d",
+			"module_id":"",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Gael Miles",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Gael Miles",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Ward-7-8",
+			"primary_acl_group_model":"groups",
+			"__module_id":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

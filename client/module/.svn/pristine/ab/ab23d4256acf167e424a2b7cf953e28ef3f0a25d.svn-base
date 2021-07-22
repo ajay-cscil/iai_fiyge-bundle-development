@@ -1,0 +1,160 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\benchmarking\controller;
+
+class jmeter_configuration_domain_logic extends \data_controller{
+
+    private $number_of_threads = 1;
+    private $attributes = array(
+        't' => 'load_time',
+        'lt' => 'latency',
+        'lb' => 'name',
+        'by' => 'size_in_bytes',
+        'ts' => 'ts',
+        'rc' => 'http_code',
+        'rm' => 'response_message'
+    );
+    private $server_port = 8082;
+    private $wait_time = 20;
+
+    function clear_history($request) {
+        $resultsObject = \module\benchmarking\model\jmeter_results::getInstance();
+        $resultsObject->delete(array('deleted' => 0));
+        $request->setMsg(sprintf(dgettext('module', 'History is cleared')));
+        return false;
+    }
+
+    function do_stress_test() {
+        
+    }
+
+    function _do_stress_testing($request) {
+        $request->push(__("Process Started", "module"));
+        $entityID = $request->param('id');
+        if (!empty($entityID)) {
+            $alias = $this->modelObj()->alias;
+            $data = current($this->modelObj()->read($entityID));
+            $jmx_file_content = $this->modelObj()->generate_jmx_file($data);
+            $number_of_threads = isset($data['number_of_threads']) ? $data['number_of_threads'] : $this->number_of_threads;
+            $serverPath = isset($data['jmeter_executable_path']) ?
+                    $data['jmeter_executable_path'] :
+                    $request->push(__("Path to Jmeter Executable cannot be empty", "module"));
+            $serverPort = isset($data['jmeter_port']) ? $data['jmeter_port'] : $this->server_port;
+            $test_module = 'module';
+            if (isset($data['test_module'])) {
+                $test_module = $data['test_module'];
+            }
+            $module = '';
+            if (isset($data['module']) && $data['module'] != "all") {
+                $module = $data['module'];
+            }
+            $msg = '';
+            if ($test_module == 'module') {
+                $view = 'view';
+                if (isset($data['view_id'])) {
+                    $view = strtolower(\implode("_", \explode(" ", $data['view_id'])));
+                }
+                if (empty($module)) {
+                    $msg = "Stress testing for view '{$view}' has started";
+                } else {
+                    $msg = "Stress testing for module {$module}, view '{$view}' has started";
+                }
+            } elseif ($test_module == 'test_case') {
+                $tests = 'test_index';
+                if (isset($data['test_case'])) {
+                    $tests = strtolower(\implode("_", \explode(" ", $data['test_case'])));
+                }
+                $msg = "Stress testing for test_cases has started";
+            }
+            $jmx_file = tempnam(TMP, "test_{$data['id']}_request_");
+            file_put_contents($jmx_file, $jmx_file_content);
+            unset($jmx_file_content);
+            $file = tempnam(TMP, "test_{$data['id']}_response_");
+            $handle = fopen($file, "w+");
+            if (file_exists($jmx_file)) {
+                $number_of_users = 0;
+                $request->push(__($msg, "module"));
+                $output = array();
+                exec("{$serverPath}jmeter  -Gport={$serverPort} -n -t {$jmx_file} -l {$file}", $output);
+                if (is_array($output)) {
+                    foreach ($output as $message) {
+                        $request->push(__($message, "module"));
+                    }
+                }
+                \sleep($this->wait_time);
+                @chmod($file, 0777);
+                if (isset($handle)) {
+                    \fclose($handle);
+                }
+                if (trim($output[count($output) - 1]) == '... end of run') {
+                    $resultsObject = \module\benchmarking\model\jmeter_results::getInstance();
+                    if (\file_exists($file)) {
+                        $jmx_xml = \simplexml_load_string(\file_get_contents($jmx_file));
+                        foreach ($jmx_xml->children() as $nodes) {
+                            if ((string) $nodes->hashTree->ThreadGroup->stringProp->attributes()->name == 'ThreadGroup.num_threads') {
+                                $number_of_users = (int) $nodes->hashTree->ThreadGroup->stringProp;
+                            }
+                        }
+                        $xml = \simplexml_load_string(\file_get_contents($file));
+                        foreach ($xml->children() as $tag => $properties) {
+                            if ($tag == 'httpSample') {
+                                $resultsObject->data = array();
+                                foreach ($properties->attributes() as $attribute => $attributeValue) {
+                                    if (isset($this->attributes[$attribute])) {
+                                        if ($attribute == 'lb') {
+                                            $params = \explode("__", (string) $attributeValue);
+                                            $resultsObject->data['related_module'] = isset($params[0]) ? $params[0] : null;
+                                            $resultsObject->data['related_model'] = isset($params[1]) ? $params[1] : null;
+                                            $resultsObject->data['related_action'] = isset($params[2]) ? $params[2] : null;
+                                        }
+                                        $resultsObject->data[$this->attributes[$attribute]] = (string) $attributeValue;
+                                    }
+                                }
+                                $resultsObject->data['no_of_requests'] = $number_of_users;
+                                $resultsObject->save($resultsObject->data, array('atomic' => true));
+                            }
+                        }
+                    }
+                    $request->push(sprintf(dgettext('module', 'Benchmarking Results have been saved to Jmeter Results Module')));
+                }
+            } else {
+                $request->pushError(sprintf(dgettext('module', 'You need to generate jmx file "' . $jmx_file . '", for doing stress testing')));
+            }
+            if (file_exists($file)) {
+                unlink($file);
+            }
+            if (file_exists($jmx_file)) {
+                unlink($jmx_file);
+            }
+        } else {
+            $request->pushError("Entity Id cannot be empty");
+        }
+        $request->push(__("End Of Process", "module"));
+        exit;
+    }
+
+    private function modules($request) {
+        $modules = array(array('text' => 'All', 'value' => 'all'));
+        foreach (\module\development_base\model\modules::getInstance()->find(array("where" => array("is_installed" => 1), "limit" => 0))
+                ->fetchAll(\PDO::FETCH_ASSOC) as $module) {
+            $modules[] = array('text' => $module['name'], 'value' => $module['name']);
+        }
+        $request->set('module_list', $modules);
+    }
+
+    public function edit($request) {
+        $this->modules($request);
+        return parent::edit($request);
+    }
+
+    public function view($request) {
+        $this->modules($request);
+        return parent::view($request);
+    }
+
+}

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\cloud\controller;
+  class federated_users extends \module\cloud\controller\federated_users_domain_logic
+  {
+       public $modelClass = '\\module\\cloud\\model\\federated_users';
+
+
+
+
+
+
+  }

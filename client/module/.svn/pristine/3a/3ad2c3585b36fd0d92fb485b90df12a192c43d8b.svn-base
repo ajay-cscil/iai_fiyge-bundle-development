@@ -1,0 +1,4237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: maax\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: tushar takkar <ttakkar@primod.com>\n"
+"Language-Team: tushar takkar <tushartakkar@primarymodules.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: INDIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+
+msgid "1"
+msgstr "1"
+
+msgid "Access Control List for this Document"
+msgstr "Список контроля доступа для данного документа"
+
+msgid "Access(Read) Log"
+msgstr "Доступа (чтение) Вход"
+
+msgid "Account Information"
+msgstr "Информация об учетной записи"
+
+msgid "Accounts"
+msgstr "Счета"
+
+msgid "accounts"
+msgstr "Счета"
+
+msgid "accounts.account_name"
+msgstr "Имя учетной записи"
+
+msgid "accounts.account_no"
+msgstr "№ счета"
+
+msgid "accounts.account_type"
+msgstr "Тип счета"
+
+msgid "accounts.annual_revenue"
+msgstr "Годовой доход"
+
+msgid "accounts.created"
+msgstr "Созданный"
+
+msgid "accounts.created_by"
+msgstr "Создано"
+
+msgid "accounts.deleted"
+msgstr "Удаленный"
+
+msgid "accounts.description"
+msgstr "Описание"
+
+msgid "accounts.email_opt_out"
+msgstr "Email Отказаться от участия"
+
+msgid "accounts.employees"
+msgstr "Сотрудники"
+
+msgid "accounts.fax"
+msgstr "Факс"
+
+msgid "accounts.flags"
+msgstr "Флаги"
+
+msgid "accounts.id"
+msgstr "Id"
+
+msgid "accounts.imported"
+msgstr "Импортированный"
+
+msgid "accounts.imported_by"
+msgstr "Ввозимые"
+
+msgid "accounts.industry"
+msgstr "Промышленность"
+
+msgid "accounts.modified"
+msgstr "Модифицированный"
+
+msgid "accounts.modified_by"
+msgstr "Автор изменений"
+
+msgid "accounts.notify_owner"
+msgstr "Уведомлять владельца"
+
+msgid "accounts.owned_by"
+msgstr "Владелец"
+
+msgid "accounts.ownership"
+msgstr "Собственность"
+
+msgid "accounts.parent_id"
+msgstr "Родитель Id"
+
+msgid "accounts.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "accounts.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "accounts.primary_city"
+msgstr "Первичный города"
+
+msgid "accounts.primary_country"
+msgstr "Первичная Страна"
+
+msgid "accounts.primary_state"
+msgstr "ОГРН"
+
+msgid "accounts.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "accounts.rating"
+msgstr "Рейтинг"
+
+msgid "accounts.revision"
+msgstr "Пересмотр"
+
+msgid "accounts.sic_code"
+msgstr "Sic кодекса"
+
+msgid "accounts.ticker_symbol"
+msgstr "Ticker Symbol"
+
+msgid "accounts.website"
+msgstr "Веб-сайт"
+
+msgid "accounts._acl"
+msgstr "Acl"
+
+msgid "accounts._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "accounts._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "accounts._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "accounts._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "accounts._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "accounts_acl_cache.id"
+msgstr "Id"
+
+msgid "accounts_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "accounts_domain_logic"
+msgstr "Счета логики предметной области"
+
+msgid "accounts_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "accounts_group_acl_cache.id"
+msgstr "Id"
+
+msgid "ACL & Revisions"
+msgstr "ACL и ревизий"
+
+msgid "action history"
+msgstr "Действие истории"
+
+msgid "add"
+msgstr "добавлять"
+
+msgid "Add"
+msgstr "добавлять"
+
+msgid "Address Information"
+msgstr "Адрес информация"
+
+msgid "Address Line 1"
+msgstr "Адресная строка 1"
+
+msgid "Address Line 2"
+msgstr "Адресная строка 2"
+
+msgid "Addresses"
+msgstr "Адреса"
+
+msgid "addresses"
+msgstr "Адреса"
+
+msgid "addresses.address_line_1"
+msgstr "Адресная строка 1"
+
+msgid "addresses.address_line_2"
+msgstr "Адресная строка 2"
+
+msgid "addresses.city"
+msgstr "Город"
+
+msgid "addresses.country"
+msgstr "Страна"
+
+msgid "addresses.created"
+msgstr "Созданный"
+
+msgid "addresses.created_by"
+msgstr "Создано"
+
+msgid "addresses.deleted"
+msgstr "Удаленный"
+
+msgid "addresses.flags"
+msgstr "Флаги"
+
+msgid "addresses.id"
+msgstr "Id"
+
+msgid "addresses.imported"
+msgstr "Импортированный"
+
+msgid "addresses.imported_by"
+msgstr "Ввозимые"
+
+msgid "addresses.modified"
+msgstr "Модифицированный"
+
+msgid "addresses.modified_by"
+msgstr "Автор изменений"
+
+msgid "addresses.owned_by"
+msgstr "Владелец"
+
+msgid "addresses.related_to"
+msgstr "Связанный С"
+
+msgid "addresses.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "addresses.revision"
+msgstr "Пересмотр"
+
+msgid "addresses.state"
+msgstr "Состояние"
+
+msgid "addresses.type"
+msgstr "Тип"
+
+msgid "addresses.zip"
+msgstr "Zip"
+
+msgid "addresses._acl"
+msgstr "Acl"
+
+msgid "addresses._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "addresses._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "addresses._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "addresses._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "addresses._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "addresses.__related_to"
+msgstr "Связанный С"
+
+msgid "app-menu"
+msgstr "приложение-меню"
+
+msgid "attachments.created"
+msgstr "Созданный"
+
+msgid "attachments.created_by"
+msgstr "Создано"
+
+msgid "attachments.deleted"
+msgstr "Удаленный"
+
+msgid "attachments.description"
+msgstr "Описание"
+
+msgid "attachments.field_type"
+msgstr "Тип поля"
+
+msgid "attachments.flags"
+msgstr "Флаги"
+
+msgid "attachments.id"
+msgstr "Id"
+
+msgid "attachments.imported"
+msgstr "Импортированный"
+
+msgid "attachments.imported_by"
+msgstr "Ввозимые"
+
+msgid "attachments.mime_type"
+msgstr "Тип Mime"
+
+msgid "attachments.modified"
+msgstr "Модифицированный"
+
+msgid "attachments.modified_by"
+msgstr "Автор изменений"
+
+msgid "attachments.name"
+msgstr "Имя"
+
+msgid "attachments.owned_by"
+msgstr "Владелец"
+
+msgid "attachments.path"
+msgstr "Путь"
+
+msgid "attachments.related_to"
+msgstr "Связанный С"
+
+msgid "attachments.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "attachments.related_to_model_class_name"
+msgstr ", Относящиеся к модели Имя класса"
+
+msgid "attachments.revision"
+msgstr "Пересмотр"
+
+msgid "attachments.storage_path"
+msgstr "Хранение Путь"
+
+msgid "Basic Information"
+msgstr "Базовая информация"
+
+msgid "campaigns.actual_cost"
+msgstr "Фактическая стоимость"
+
+msgid "campaigns.append_signature"
+msgstr "Добавить подпись"
+
+msgid "campaigns.bcc"
+msgstr "СК"
+
+msgid "campaigns.budget_cost"
+msgstr "Сметная стоимость"
+
+msgid "campaigns.campaign_type"
+msgstr "Тип кампании"
+
+msgid "campaigns.cc"
+msgstr "Копия"
+
+msgid "campaigns.content"
+msgstr "Содержание"
+
+msgid "campaigns.created"
+msgstr "Созданный"
+
+msgid "campaigns.created_by"
+msgstr "Создано"
+
+msgid "campaigns.custom_message"
+msgstr "Составьте сообщение"
+
+msgid "campaigns.deleted"
+msgstr "Удаленный"
+
+msgid "campaigns.end"
+msgstr "Конец"
+
+msgid "campaigns.expected_response"
+msgstr "Ожидаемый ответ"
+
+msgid "campaigns.expected_response_count"
+msgstr "Ожидаемый ответ графа"
+
+msgid "campaigns.expected_revenue"
+msgstr "Ожидаемый доход"
+
+msgid "campaigns.expected_roi"
+msgstr "Ожидаемые Roi"
+
+msgid "campaigns.expected_sales_count"
+msgstr "Ожидаемые продажи графа"
+
+msgid "campaigns.flags"
+msgstr "Флаги"
+
+msgid "campaigns.id"
+msgstr "Id"
+
+msgid "campaigns.imported"
+msgstr "Импортированный"
+
+msgid "campaigns.imported_by"
+msgstr "Ввозимые"
+
+msgid "campaigns.modified"
+msgstr "Модифицированный"
+
+msgid "campaigns.modified_by"
+msgstr "Автор изменений"
+
+msgid "campaigns.name"
+msgstr "Имя"
+
+msgid "campaigns.on_after"
+msgstr "На После"
+
+msgid "campaigns.owned_by"
+msgstr "Владелец"
+
+msgid "campaigns.priority"
+msgstr "Приоритет"
+
+msgid "campaigns.reply_to"
+msgstr "Отвечать на"
+
+msgid "campaigns.revision"
+msgstr "Пересмотр"
+
+msgid "campaigns.run_in_test_mode"
+msgstr "Запуск в тестовом режиме"
+
+msgid "campaigns.sender_id"
+msgstr "Отправитель"
+
+msgid "campaigns.send_after"
+msgstr "Отправить После"
+
+msgid "campaigns.send_on"
+msgstr "Отправить С"
+
+msgid "campaigns.smtp_server"
+msgstr "SMTP Server"
+
+msgid "campaigns.sponsor"
+msgstr "Спонсор"
+
+msgid "campaigns.start"
+msgstr "Начало"
+
+msgid "campaigns.status"
+msgstr "Статус"
+
+msgid "campaigns.subject"
+msgstr "Тема"
+
+msgid "campaigns.target_audience"
+msgstr "Целевая аудитория"
+
+msgid "campaigns.target_size"
+msgstr "Target Size"
+
+msgid "campaigns.template_id"
+msgstr "Шаблон"
+
+msgid "campaigns._acl"
+msgstr "Acl"
+
+msgid "campaigns._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "campaigns._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "campaigns._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "campaigns._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "campaigns._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "City"
+msgstr "Город"
+
+msgid "Clone"
+msgstr "Клон"
+
+msgid "clone"
+msgstr "Клон"
+
+msgid "Comments"
+msgstr "Комментарии"
+
+msgid "Config Account Type Information"
+msgstr "Config информация Тип аккаунта"
+
+msgid "Config Account Types"
+msgstr "Config Типы счетов"
+
+msgid "Config Department Information"
+msgstr "Config Отдел информации"
+
+msgid "Config Departments"
+msgstr "Config Отделы"
+
+msgid "Config Industries"
+msgstr "Config Industries"
+
+msgid "Config Industry Information"
+msgstr "Config информационной индустрии"
+
+msgid "Config Lead Source Information"
+msgstr "Config ведущий источник информации"
+
+msgid "Config Lead Sources"
+msgstr "Config Ведущий источников"
+
+msgid "Config Lead Status"
+msgstr "Config Ведущий статус"
+
+msgid "Config Lead Status Information"
+msgstr "Config Ведущий информации о статусе"
+
+msgid "Config Opportunity Type Information"
+msgstr "Config информация Тип возможностей"
+
+msgid "Config Opportunity Types"
+msgstr "Config типы возможностей"
+
+msgid "Config Priority Information"
+msgstr "Config информация приоритет"
+
+msgid "Config Product Categories"
+msgstr "Config категории продуктов"
+
+msgid "Config Product Category Information"
+msgstr "Config информация категориям продуктов"
+
+msgid "Config Rating Information"
+msgstr "Config Информация рейтинг"
+
+msgid "Config Ratings"
+msgstr "Config рейтинг"
+
+msgid "Config Sales Stage Information"
+msgstr "Config Этап информации о продажах"
+
+msgid "Config Sales Stages"
+msgstr "Config этапы продаж"
+
+msgid "Config Ticket Categories"
+msgstr "Config категории билетов"
+
+msgid "Config Ticket Category Information"
+msgstr "Config информация категория билетов"
+
+msgid "Config Ticket Priorities"
+msgstr "Config приоритеты билетов"
+
+msgid "Config Ticket Priority Information"
+msgstr "Config информация Приоритет билетов"
+
+msgid "Config Ticket Severities"
+msgstr "Config Severities билетов"
+
+msgid "Config Ticket Severity Information"
+msgstr "Config информация Серьезность билетов"
+
+msgid "Config Ticket Status"
+msgstr "Config Статус билетов"
+
+msgid "Config Ticket Status Information"
+msgstr "Config информация о статусе билетов"
+
+msgid "Configuration Information"
+msgstr "Сведения о конфигурации"
+
+msgid "Configurations"
+msgstr "Конфигурации"
+
+msgid "configurations"
+msgstr "Конфигурации"
+
+msgid "configurations.comment"
+msgstr "Комментировать"
+
+msgid "configurations.created"
+msgstr "Созданный"
+
+msgid "configurations.created_by"
+msgstr "Создано"
+
+msgid "configurations.deleted"
+msgstr "Удаленный"
+
+msgid "configurations.flags"
+msgstr "Флаги"
+
+msgid "configurations.id"
+msgstr "Id"
+
+msgid "configurations.modified"
+msgstr "Модифицированный"
+
+msgid "configurations.modified_by"
+msgstr "Автор изменений"
+
+msgid "configurations.name"
+msgstr "Имя"
+
+msgid "configurations.owned_by"
+msgstr "Владелец"
+
+msgid "configurations.revision"
+msgstr "Пересмотр"
+
+msgid "configurations.value"
+msgstr "Значение"
+
+msgid "configurations_domain_logic"
+msgstr "Конфигурации предметной области"
+
+msgid "config_account_types"
+msgstr "Config Типы счетов"
+
+msgid "config_account_types.account_type"
+msgstr "Тип счета"
+
+msgid "config_account_types.created"
+msgstr "Созданный"
+
+msgid "config_account_types.created_by"
+msgstr "Создано"
+
+msgid "config_account_types.deleted"
+msgstr "Удаленный"
+
+msgid "config_account_types.flags"
+msgstr "Флаги"
+
+msgid "config_account_types.id"
+msgstr "Id"
+
+msgid "config_account_types.modified"
+msgstr "Модифицированный"
+
+msgid "config_account_types.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_account_types.owned_by"
+msgstr "Владелец"
+
+msgid "config_account_types.revision"
+msgstr "Пересмотр"
+
+msgid "config_account_types_domain_logic"
+msgstr "Config типы счетов предметной области"
+
+msgid "config_departments"
+msgstr "Config Отделы"
+
+msgid "config_departments.created"
+msgstr "Созданный"
+
+msgid "config_departments.created_by"
+msgstr "Создано"
+
+msgid "config_departments.deleted"
+msgstr "Удаленный"
+
+msgid "config_departments.department"
+msgstr "Отдел"
+
+msgid "config_departments.flags"
+msgstr "Флаги"
+
+msgid "config_departments.id"
+msgstr "Id"
+
+msgid "config_departments.modified"
+msgstr "Модифицированный"
+
+msgid "config_departments.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_departments.owned_by"
+msgstr "Владелец"
+
+msgid "config_departments.revision"
+msgstr "Пересмотр"
+
+msgid "config_departments_domain_logic"
+msgstr "Config домена Отделы Logic"
+
+msgid "config_industries"
+msgstr "Config Industries"
+
+msgid "config_industries.created"
+msgstr "Созданный"
+
+msgid "config_industries.created_by"
+msgstr "Создано"
+
+msgid "config_industries.deleted"
+msgstr "Удаленный"
+
+msgid "config_industries.flags"
+msgstr "Флаги"
+
+msgid "config_industries.id"
+msgstr "Id"
+
+msgid "config_industries.industry"
+msgstr "Промышленность"
+
+msgid "config_industries.modified"
+msgstr "Модифицированный"
+
+msgid "config_industries.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_industries.owned_by"
+msgstr "Владелец"
+
+msgid "config_industries.revision"
+msgstr "Пересмотр"
+
+msgid "config_industries_domain_logic"
+msgstr "Config Industries предметной области"
+
+msgid "config_lead_sources"
+msgstr "Config Ведущий источников"
+
+msgid "config_lead_sources.created"
+msgstr "Созданный"
+
+msgid "config_lead_sources.created_by"
+msgstr "Создано"
+
+msgid "config_lead_sources.deleted"
+msgstr "Удаленный"
+
+msgid "config_lead_sources.flags"
+msgstr "Флаги"
+
+msgid "config_lead_sources.id"
+msgstr "Id"
+
+msgid "config_lead_sources.lead_source"
+msgstr "Ведущий источник"
+
+msgid "config_lead_sources.modified"
+msgstr "Модифицированный"
+
+msgid "config_lead_sources.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_lead_sources.owned_by"
+msgstr "Владелец"
+
+msgid "config_lead_sources.revision"
+msgstr "Пересмотр"
+
+msgid "config_lead_sources_domain_logic"
+msgstr "Config Ведущий Источники предметной области"
+
+msgid "config_lead_status"
+msgstr "Config Ведущий статус"
+
+msgid "config_lead_status.created"
+msgstr "Созданный"
+
+msgid "config_lead_status.created_by"
+msgstr "Создано"
+
+msgid "config_lead_status.deleted"
+msgstr "Удаленный"
+
+msgid "config_lead_status.flags"
+msgstr "Флаги"
+
+msgid "config_lead_status.id"
+msgstr "Id"
+
+msgid "config_lead_status.lead_status"
+msgstr "Ведущий статус"
+
+msgid "config_lead_status.modified"
+msgstr "Модифицированный"
+
+msgid "config_lead_status.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_lead_status.owned_by"
+msgstr "Владелец"
+
+msgid "config_lead_status.revision"
+msgstr "Пересмотр"
+
+msgid "config_lead_status_domain_logic"
+msgstr "Config Ведущий Logic статус домена"
+
+msgid "config_opportunity_types"
+msgstr "Config типы возможностей"
+
+msgid "config_opportunity_types.created"
+msgstr "Созданный"
+
+msgid "config_opportunity_types.created_by"
+msgstr "Создано"
+
+msgid "config_opportunity_types.deleted"
+msgstr "Удаленный"
+
+msgid "config_opportunity_types.flags"
+msgstr "Флаги"
+
+msgid "config_opportunity_types.id"
+msgstr "Id"
+
+msgid "config_opportunity_types.modified"
+msgstr "Модифицированный"
+
+msgid "config_opportunity_types.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_opportunity_types.opportunity_type"
+msgstr "Типа потенциала"
+
+msgid "config_opportunity_types.revision"
+msgstr "Пересмотр"
+
+msgid "config_opportunity_types_domain_logic"
+msgstr "Config возможность типы логики предметной области"
+
+msgid "config_priorities"
+msgstr "Config приоритеты"
+
+msgid "config_priorities.created"
+msgstr "Созданный"
+
+msgid "config_priorities.created_by"
+msgstr "Создано"
+
+msgid "config_priorities.deleted"
+msgstr "Удаленный"
+
+msgid "config_priorities.flags"
+msgstr "Флаги"
+
+msgid "config_priorities.id"
+msgstr "Id"
+
+msgid "config_priorities.modified"
+msgstr "Модифицированный"
+
+msgid "config_priorities.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_priorities.owned_by"
+msgstr "Владелец"
+
+msgid "config_priorities.priority"
+msgstr "Приоритет"
+
+msgid "config_priorities.revision"
+msgstr "Пересмотр"
+
+msgid "config_priorities_domain_logic"
+msgstr "Config домена приоритеты Logic"
+
+msgid "config_product_categories"
+msgstr "Config категории продуктов"
+
+msgid "config_product_categories.business_key"
+msgstr "Бизнес-Ключ"
+
+msgid "config_product_categories.created"
+msgstr "Созданный"
+
+msgid "config_product_categories.created_by"
+msgstr "Создано"
+
+msgid "config_product_categories.deleted"
+msgstr "Удаленный"
+
+msgid "config_product_categories.flags"
+msgstr "Флаги"
+
+msgid "config_product_categories.id"
+msgstr "Id"
+
+msgid "config_product_categories.modified"
+msgstr "Модифицированный"
+
+msgid "config_product_categories.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_product_categories.owned_by"
+msgstr "Владелец"
+
+msgid "config_product_categories.product_category"
+msgstr "Категория продукта"
+
+msgid "config_product_categories.revision"
+msgstr "Пересмотр"
+
+msgid "config_product_categories_domain_logic"
+msgstr "Config категории продуктов предметной области"
+
+msgid "config_ratings"
+msgstr "Config рейтинг"
+
+msgid "config_ratings.created"
+msgstr "Созданный"
+
+msgid "config_ratings.created_by"
+msgstr "Создано"
+
+msgid "config_ratings.deleted"
+msgstr "Удаленный"
+
+msgid "config_ratings.flags"
+msgstr "Флаги"
+
+msgid "config_ratings.id"
+msgstr "Id"
+
+msgid "config_ratings.modified"
+msgstr "Модифицированный"
+
+msgid "config_ratings.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_ratings.owned_by"
+msgstr "Владелец"
+
+msgid "config_ratings.rating"
+msgstr "Рейтинг"
+
+msgid "config_ratings.revision"
+msgstr "Пересмотр"
+
+msgid "config_ratings_domain_logic"
+msgstr "Config домена рейтинг Logic"
+
+msgid "config_sales_stages"
+msgstr "Config этапы продаж"
+
+msgid "config_sales_stages.created"
+msgstr "Созданный"
+
+msgid "config_sales_stages.created_by"
+msgstr "Создано"
+
+msgid "config_sales_stages.deleted"
+msgstr "Удаленный"
+
+msgid "config_sales_stages.flags"
+msgstr "Флаги"
+
+msgid "config_sales_stages.id"
+msgstr "Id"
+
+msgid "config_sales_stages.modified"
+msgstr "Модифицированный"
+
+msgid "config_sales_stages.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_sales_stages.owned_by"
+msgstr "Владелец"
+
+msgid "config_sales_stages.probability"
+msgstr "Вероятность"
+
+msgid "config_sales_stages.revision"
+msgstr "Пересмотр"
+
+msgid "config_sales_stages.sales_stage"
+msgstr "Продажи этап"
+
+msgid "config_sales_stages_domain_logic"
+msgstr "Config этапов продаж предметной области"
+
+msgid "config_salutations.created"
+msgstr "Созданный"
+
+msgid "config_salutations.created_by"
+msgstr "Создано"
+
+msgid "config_salutations.deleted"
+msgstr "Удаленный"
+
+msgid "config_salutations.flags"
+msgstr "Флаги"
+
+msgid "config_salutations.id"
+msgstr "Id"
+
+msgid "config_salutations.modified"
+msgstr "Модифицированный"
+
+msgid "config_salutations.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_salutations.owned_by"
+msgstr "Владелец"
+
+msgid "config_salutations.revision"
+msgstr "Пересмотр"
+
+msgid "config_salutations.salutation"
+msgstr "Приветствие"
+
+msgid "config_ticket_categories"
+msgstr "Config категории билетов"
+
+msgid "config_ticket_categories.created"
+msgstr "Созданный"
+
+msgid "config_ticket_categories.created_by"
+msgstr "Создано"
+
+msgid "config_ticket_categories.deleted"
+msgstr "Удаленный"
+
+msgid "config_ticket_categories.flags"
+msgstr "Флаги"
+
+msgid "config_ticket_categories.id"
+msgstr "Id"
+
+msgid "config_ticket_categories.modified"
+msgstr "Модифицированный"
+
+msgid "config_ticket_categories.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_ticket_categories.owned_by"
+msgstr "Владелец"
+
+msgid "config_ticket_categories.revision"
+msgstr "Пересмотр"
+
+msgid "config_ticket_categories.ticket_category"
+msgstr "Билет категории"
+
+msgid "config_ticket_categories_domain_logic"
+msgstr "Config билетов категории предметной области"
+
+msgid "config_ticket_priorities"
+msgstr "Config приоритеты билетов"
+
+msgid "config_ticket_priorities.created"
+msgstr "Созданный"
+
+msgid "config_ticket_priorities.created_by"
+msgstr "Создано"
+
+msgid "config_ticket_priorities.deleted"
+msgstr "Удаленный"
+
+msgid "config_ticket_priorities.flags"
+msgstr "Флаги"
+
+msgid "config_ticket_priorities.id"
+msgstr "Id"
+
+msgid "config_ticket_priorities.modified"
+msgstr "Модифицированный"
+
+msgid "config_ticket_priorities.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_ticket_priorities.owned_by"
+msgstr "Владелец"
+
+msgid "config_ticket_priorities.revision"
+msgstr "Пересмотр"
+
+msgid "config_ticket_priorities.ticket_priority"
+msgstr "Билет приоритет"
+
+msgid "config_ticket_priorities_domain_logic"
+msgstr "Config билетов приоритеты предметной области"
+
+msgid "config_ticket_severities"
+msgstr "Config Severities билетов"
+
+msgid "config_ticket_severities.created"
+msgstr "Созданный"
+
+msgid "config_ticket_severities.created_by"
+msgstr "Создано"
+
+msgid "config_ticket_severities.deleted"
+msgstr "Удаленный"
+
+msgid "config_ticket_severities.flags"
+msgstr "Флаги"
+
+msgid "config_ticket_severities.id"
+msgstr "Id"
+
+msgid "config_ticket_severities.modified"
+msgstr "Модифицированный"
+
+msgid "config_ticket_severities.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_ticket_severities.owned_by"
+msgstr "Владелец"
+
+msgid "config_ticket_severities.revision"
+msgstr "Пересмотр"
+
+msgid "config_ticket_severities.ticket_severity"
+msgstr "Билет Серьезность"
+
+msgid "config_ticket_severities_domain_logic"
+msgstr "Config билетов Severities предметной области"
+
+msgid "config_ticket_status"
+msgstr "Config Статус билетов"
+
+msgid "config_ticket_status.created"
+msgstr "Созданный"
+
+msgid "config_ticket_status.created_by"
+msgstr "Создано"
+
+msgid "config_ticket_status.deleted"
+msgstr "Удаленный"
+
+msgid "config_ticket_status.flags"
+msgstr "Флаги"
+
+msgid "config_ticket_status.id"
+msgstr "Id"
+
+msgid "config_ticket_status.modified"
+msgstr "Модифицированный"
+
+msgid "config_ticket_status.modified_by"
+msgstr "Автор изменений"
+
+msgid "config_ticket_status.owned_by"
+msgstr "Владелец"
+
+msgid "config_ticket_status.revision"
+msgstr "Пересмотр"
+
+msgid "config_ticket_status.ticket_status"
+msgstr "Статус заявки"
+
+msgid "config_ticket_status_domain_logic"
+msgstr "Config билетов статус домена Logic"
+
+msgid "Contact Addresses"
+msgstr "Контактные адреса"
+
+msgid "Contact Information"
+msgstr "Контактная информация"
+
+msgid "Contacts"
+msgstr "Связи"
+
+msgid "contacts"
+msgstr "Связи"
+
+msgid "contacts.account_id"
+msgstr "Идентификатор аккаунта"
+
+msgid "contacts.assistant"
+msgstr "Помощник"
+
+msgid "contacts.birthday"
+msgstr "День рождения"
+
+msgid "contacts.company"
+msgstr "Компания"
+
+msgid "contacts.contact_no"
+msgstr "Контакт Нет"
+
+msgid "contacts.contact_type"
+msgstr "Тип контакта"
+
+msgid "contacts.created"
+msgstr "Созданный"
+
+msgid "contacts.created_by"
+msgstr "Создано"
+
+msgid "contacts.create_opportunity"
+msgstr "Создать Потенциальные"
+
+msgid "contacts.create_task"
+msgstr "Создание задачи"
+
+msgid "contacts.deleted"
+msgstr "Удаленный"
+
+msgid "contacts.department"
+msgstr "Отдел"
+
+msgid "contacts.description"
+msgstr "Описание"
+
+msgid "contacts.do_not_call"
+msgstr "Do Not Call"
+
+msgid "contacts.email_opt_out"
+msgstr "Email Отказаться от участия"
+
+msgid "contacts.fax"
+msgstr "Факс"
+
+msgid "contacts.first_name"
+msgstr "Имя"
+
+msgid "contacts.flags"
+msgstr "Флаги"
+
+msgid "contacts.id"
+msgstr "Id"
+
+msgid "contacts.imagename"
+msgstr "Название изображения"
+
+msgid "contacts.imported"
+msgstr "Импортированный"
+
+msgid "contacts.imported_by"
+msgstr "Ввозимые"
+
+msgid "contacts.industry"
+msgstr "Промышленность"
+
+msgid "contacts.last_name"
+msgstr "Фамилия"
+
+msgid "contacts.last_stay_in_touch_request"
+msgstr "Последнее Stay In Touch Запрос"
+
+msgid "contacts.last_stay_in_touch_save_date"
+msgstr "Последнее Stay In Дата Коснитесь Сохранить"
+
+msgid "contacts.lead_source"
+msgstr "Ведущий источник"
+
+msgid "contacts.modified"
+msgstr "Модифицированный"
+
+msgid "contacts.modified_by"
+msgstr "Автор изменений"
+
+msgid "contacts.name"
+msgstr "Имя"
+
+msgid "contacts.notify_owner"
+msgstr "Уведомлять владельца"
+
+msgid "contacts.owned_by"
+msgstr "Владелец"
+
+msgid "contacts.parent_id"
+msgstr "Родитель Id"
+
+msgid "contacts.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "contacts.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "contacts.primary_city"
+msgstr "Первичный города"
+
+msgid "contacts.primary_country"
+msgstr "Первичная Страна"
+
+msgid "contacts.primary_state"
+msgstr "ОГРН"
+
+msgid "contacts.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "contacts.reference"
+msgstr "Ссылка"
+
+msgid "contacts.related_to"
+msgstr "Связанный С"
+
+msgid "contacts.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "contacts.revision"
+msgstr "Пересмотр"
+
+msgid "contacts.salutation"
+msgstr "Приветствие"
+
+msgid "contacts.title"
+msgstr "Название"
+
+msgid "contacts.training"
+msgstr "Обучение"
+
+msgid "contacts.user_type"
+msgstr "Тип пользователя"
+
+msgid "contacts._acl"
+msgstr "Acl"
+
+msgid "contacts._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "contacts._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "contacts._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "contacts._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "contacts._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "contacts_acl_cache.id"
+msgstr "Id"
+
+msgid "contacts_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "contacts_domain_logic"
+msgstr "Контакты логики предметной области"
+
+msgid "contacts_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "contacts_group_acl_cache.id"
+msgstr "Id"
+
+msgid "convert"
+msgstr "конвертировать"
+
+msgid "Convert"
+msgstr "конвертировать"
+
+msgid "convert to contact"
+msgstr "преобразовать в контакте"
+
+msgid "convert to opportunity"
+msgstr "преобразовать в потенциальных"
+
+msgid "Converted to contact, click %s to open"
+msgstr "Старинная связаться, нажмите кнопку, чтобы открыть %s"
+
+msgid "Converted to opportunity, click %s to open"
+msgstr "Старинная к возможностям, нажмите кнопку, чтобы открыть %s"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "Create Opportunity"
+msgstr "Создать Потенциальные"
+
+msgid "Create task"
+msgstr "Создание задачи"
+
+msgid "created_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "created_by_user.access_key"
+msgstr "Ключ доступа"
+
+msgid "created_by_user.created"
+msgstr "Созданный"
+
+msgid "created_by_user.created_by"
+msgstr "Создано"
+
+msgid "created_by_user.currency_id"
+msgstr "Валюта Id"
+
+msgid "created_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "created_by_user.department"
+msgstr "Отдел"
+
+msgid "created_by_user.description"
+msgstr "Описание"
+
+msgid "created_by_user.fax"
+msgstr "Факс"
+
+msgid "created_by_user.first_name"
+msgstr "Имя"
+
+msgid "created_by_user.flags"
+msgstr "Флаги"
+
+msgid "created_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "created_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "created_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "created_by_user.id"
+msgstr "Id"
+
+msgid "created_by_user.is_active"
+msgstr "Активен"
+
+msgid "created_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "created_by_user.locale"
+msgstr "Locale"
+
+msgid "created_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "created_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "created_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "created_by_user.name"
+msgstr "Имя"
+
+msgid "created_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "created_by_user.parent_id"
+msgstr "Родитель Id"
+
+msgid "created_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "created_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "created_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "created_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "created_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "created_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "created_by_user.region_id"
+msgstr "Регион Id"
+
+msgid "created_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "created_by_user.role_id"
+msgstr "Роль Id"
+
+msgid "created_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "created_by_user.signature"
+msgstr "Подпись"
+
+msgid "created_by_user.skin"
+msgstr "Кожа"
+
+msgid "created_by_user.status"
+msgstr "Статус"
+
+msgid "created_by_user.theme"
+msgstr "Тема"
+
+msgid "created_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "created_by_user.title"
+msgstr "Название"
+
+msgid "created_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "created_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "crm"
+msgstr "Crm"
+
+msgid "Crm"
+msgstr "Crm"
+
+msgid "CRM"
+msgstr "Crm"
+
+msgid "Crm Cruise"
+msgstr "Crm Cruise"
+
+msgid "crm_cruise"
+msgstr "crm_cruise"
+
+msgid "Cruise Crm"
+msgstr "Круиз Crm"
+
+msgid "currencies.created"
+msgstr "Созданный"
+
+msgid "currencies.created_by"
+msgstr "Создано"
+
+msgid "currencies.currency_code"
+msgstr "Код валюты"
+
+msgid "currencies.currency_name"
+msgstr "Название валюты"
+
+msgid "currencies.currency_symbol"
+msgstr "Символ валюты"
+
+msgid "currencies.deleted"
+msgstr "Удаленный"
+
+msgid "currencies.flags"
+msgstr "Флаги"
+
+msgid "currencies.id"
+msgstr "Id"
+
+msgid "currencies.modified"
+msgstr "Модифицированный"
+
+msgid "currencies.modified_by"
+msgstr "Автор изменений"
+
+msgid "currencies.owned_by"
+msgstr "Владелец"
+
+msgid "currencies.revision"
+msgstr "Пересмотр"
+
+msgid "delete"
+msgstr "удалять"
+
+msgid "Delete"
+msgstr "удалять"
+
+msgid "Delete Access"
+msgstr "Удалить Access"
+
+msgid "delete selected"
+msgstr "удалять выбранные"
+
+msgid "Delete Selected"
+msgstr "удалять выбранные"
+
+msgid "Description Information"
+msgstr "Описание информации"
+
+msgid "Document Information"
+msgstr "Информация о документе"
+
+msgid "Document Information "
+msgstr "Информация о документе"
+
+msgid "edit"
+msgstr "редактировать"
+
+msgid "Edit"
+msgstr "редактировать"
+
+msgid "Edit Access"
+msgstr "Изменить Access"
+
+msgid "edit selected"
+msgstr "Изменить выбранные"
+
+msgid "Edit Selected"
+msgstr "Изменить выбранные"
+
+msgid "Email Address"
+msgstr "Адрес электронной почты"
+
+msgid "Email Addresses"
+msgstr "Адреса электронной почты"
+
+msgid "email_addresses.created"
+msgstr "Созданный"
+
+msgid "email_addresses.created_by"
+msgstr "Создано"
+
+msgid "email_addresses.deleted"
+msgstr "Удаленный"
+
+msgid "email_addresses.email"
+msgstr "Email"
+
+msgid "email_addresses.flags"
+msgstr "Флаги"
+
+msgid "email_addresses.id"
+msgstr "Id"
+
+msgid "email_addresses.modified"
+msgstr "Модифицированный"
+
+msgid "email_addresses.modified_by"
+msgstr "Автор изменений"
+
+msgid "email_addresses.owned_by"
+msgstr "Владелец"
+
+msgid "email_addresses.related_to"
+msgstr "Связанный С"
+
+msgid "email_addresses.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "email_addresses.revision"
+msgstr "Пересмотр"
+
+msgid "email_addresses.type"
+msgstr "Тип"
+
+msgid "email_addresses._acl"
+msgstr "Acl"
+
+msgid "email_addresses._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "email_addresses._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "email_addresses._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "email_addresses._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "email_addresses._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "email_addresses.__related_to"
+msgstr "Связанный С"
+
+msgid "email_address_book"
+msgstr "Адресная книга электронной почты"
+
+msgid "email_address_book.created"
+msgstr "Созданный"
+
+msgid "email_address_book.created_by"
+msgstr "Создано"
+
+msgid "email_address_book.deleted"
+msgstr "Удаленный"
+
+msgid "email_address_book.email"
+msgstr "Email"
+
+msgid "email_address_book.flags"
+msgstr "Флаги"
+
+msgid "email_address_book.id"
+msgstr "Id"
+
+msgid "email_address_book.modified"
+msgstr "Модифицированный"
+
+msgid "email_address_book.modified_by"
+msgstr "Автор изменений"
+
+msgid "email_address_book.owned_by"
+msgstr "Владелец"
+
+msgid "email_address_book.related_to"
+msgstr "Связанный С"
+
+msgid "email_address_book.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "email_address_book.revision"
+msgstr "Пересмотр"
+
+msgid "email_address_book.type"
+msgstr "Тип"
+
+msgid "email_address_book._acl"
+msgstr "Acl"
+
+msgid "email_address_book._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "email_address_book._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "email_address_book._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "email_address_book._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "email_address_book._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "email_address_book.__related_to"
+msgstr "Связанный С"
+
+msgid "export selected"
+msgstr "экспортировать выбранные"
+
+msgid "Export Selected"
+msgstr "экспортировать выбранные"
+
+msgid "goals.account_id"
+msgstr "Идентификатор аккаунта"
+
+msgid "goals.agency_id"
+msgstr "Агентство"
+
+msgid "goals.amount"
+msgstr "Количество"
+
+msgid "goals.booking_type"
+msgstr "Бронирование Тип"
+
+msgid "goals.brand"
+msgstr "Марка"
+
+msgid "goals.created"
+msgstr "Созданный"
+
+msgid "goals.created_by"
+msgstr "Создано"
+
+msgid "goals.flags"
+msgstr "Флаги"
+
+msgid "goals.goals"
+msgstr "Целей"
+
+msgid "goals.id"
+msgstr "Id"
+
+msgid "goals.modified"
+msgstr "Модифицированный"
+
+msgid "goals.modified_by"
+msgstr "Автор изменений"
+
+msgid "goals.owned_by"
+msgstr "Владелец"
+
+msgid "goals.region"
+msgstr "Регион"
+
+msgid "goals.revision"
+msgstr "Пересмотр"
+
+msgid "goals.role"
+msgstr "Роль"
+
+msgid "goals.territory"
+msgstr "Территория"
+
+msgid "goals.transaction_month"
+msgstr "Транзакция месяц"
+
+msgid "goals.transaction_qtr"
+msgstr "Транзакция квартале"
+
+msgid "goals.transaction_type"
+msgstr "Вид операции"
+
+msgid "goals.transaction_year"
+msgstr "Транзакция год"
+
+msgid "Help"
+msgstr "Помощь"
+
+msgid "Here"
+msgstr "Здесь"
+
+msgid "Hours"
+msgstr "Часов"
+
+msgid "Hours Spent"
+msgstr "Время, затраченное"
+
+msgid "imported_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "imported_by_user.access_key"
+msgstr "Ключ доступа"
+
+msgid "imported_by_user.created"
+msgstr "Созданный"
+
+msgid "imported_by_user.created_by"
+msgstr "Создано"
+
+msgid "imported_by_user.currency_id"
+msgstr "Валюта Id"
+
+msgid "imported_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "imported_by_user.department"
+msgstr "Отдел"
+
+msgid "imported_by_user.description"
+msgstr "Описание"
+
+msgid "imported_by_user.fax"
+msgstr "Факс"
+
+msgid "imported_by_user.first_name"
+msgstr "Имя"
+
+msgid "imported_by_user.flags"
+msgstr "Флаги"
+
+msgid "imported_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "imported_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "imported_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "imported_by_user.id"
+msgstr "Id"
+
+msgid "imported_by_user.is_active"
+msgstr "Активен"
+
+msgid "imported_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "imported_by_user.locale"
+msgstr "Locale"
+
+msgid "imported_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "imported_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "imported_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "imported_by_user.name"
+msgstr "Имя"
+
+msgid "imported_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "imported_by_user.parent_id"
+msgstr "Родитель Id"
+
+msgid "imported_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "imported_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "imported_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "imported_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "imported_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "imported_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "imported_by_user.region_id"
+msgstr "Регион Id"
+
+msgid "imported_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "imported_by_user.role_id"
+msgstr "Роль Id"
+
+msgid "imported_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "imported_by_user.signature"
+msgstr "Подпись"
+
+msgid "imported_by_user.skin"
+msgstr "Кожа"
+
+msgid "imported_by_user.status"
+msgstr "Статус"
+
+msgid "imported_by_user.theme"
+msgstr "Тема"
+
+msgid "imported_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "imported_by_user.title"
+msgstr "Название"
+
+msgid "imported_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "imported_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "index"
+msgstr "индекс"
+
+msgid "Index"
+msgstr "индекс"
+
+msgid "Lead Information"
+msgstr "Генеральный Информационный"
+
+msgid "Leads"
+msgstr "Ведет"
+
+msgid "leads"
+msgstr "Ведет"
+
+msgid "leads.annual_revenue"
+msgstr "Годовой доход"
+
+msgid "leads.assign_lead_chk"
+msgstr "Назначение Ведущий Chk"
+
+msgid "leads.assistant_email"
+msgstr "Помощник e-mail"
+
+msgid "leads.assistant_phone"
+msgstr "Помощник телефонов"
+
+msgid "leads.campaign"
+msgstr "Кампания"
+
+msgid "leads.campaign_id"
+msgstr "Кампания"
+
+msgid "leads.comments"
+msgstr "Комментарии"
+
+msgid "leads.company"
+msgstr "Компания"
+
+msgid "leads.converted"
+msgstr "Старинная"
+
+msgid "leads.created"
+msgstr "Созданный"
+
+msgid "leads.created_by"
+msgstr "Создано"
+
+msgid "leads.currency"
+msgstr "Валюта"
+
+msgid "leads.deleted"
+msgstr "Удаленный"
+
+msgid "leads.demo_request"
+msgstr "Демо-запрос"
+
+msgid "leads.description"
+msgstr "Описание"
+
+msgid "leads.designation"
+msgstr "Обозначение"
+
+msgid "leads.do_not_call"
+msgstr "Do Not Call"
+
+msgid "leads.email_opt_out"
+msgstr "Email Отказаться от участия"
+
+msgid "leads.evaluation_status"
+msgstr "Оценка статуса"
+
+msgid "leads.fax"
+msgstr "Факс"
+
+msgid "leads.first_name"
+msgstr "Имя"
+
+msgid "leads.flags"
+msgstr "Флаги"
+
+msgid "leads.funding_situation"
+msgstr "Ситуация с финансированием"
+
+msgid "leads.home_phone"
+msgstr "Домашний телефон"
+
+msgid "leads.id"
+msgstr "Id"
+
+msgid "leads.imported"
+msgstr "Импортированный"
+
+msgid "leads.imported_by"
+msgstr "Ввозимые"
+
+msgid "leads.industry"
+msgstr "Промышленность"
+
+msgid "leads.interest"
+msgstr "Интерес"
+
+msgid "leads.last_name"
+msgstr "Фамилия"
+
+msgid "leads.lead_no"
+msgstr "Ведущий Нет"
+
+msgid "leads.lead_source"
+msgstr "Ведущий источник"
+
+msgid "leads.lead_status"
+msgstr "Ведущий статус"
+
+msgid "leads.licence_key_status"
+msgstr "Лицензия Основные статус"
+
+msgid "leads.mail_date"
+msgstr "Почта дате"
+
+msgid "leads.mobile"
+msgstr "Мобильный"
+
+msgid "leads.modified"
+msgstr "Модифицированный"
+
+msgid "leads.modified_by"
+msgstr "Автор изменений"
+
+msgid "leads.name"
+msgstr "Имя"
+
+msgid "leads.next_step_date"
+msgstr "Дата следующего шага"
+
+msgid "leads.no_of_employees"
+msgstr "Кол-во сотрудников"
+
+msgid "leads.office_email"
+msgstr "Управление e-mail"
+
+msgid "leads.office_phone"
+msgstr "Телефон офиса"
+
+msgid "leads.other_phone"
+msgstr "Другой телефон"
+
+msgid "leads.owned_by"
+msgstr "Владелец"
+
+msgid "leads.parent_id"
+msgstr "Родитель Id"
+
+msgid "leads.partner_contact"
+msgstr "Партнер Контакт"
+
+msgid "leads.personal_email"
+msgstr "Личный e-mail"
+
+msgid "leads.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "leads.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "leads.primary_city"
+msgstr "Первичный города"
+
+msgid "leads.primary_country"
+msgstr "Первичная Страна"
+
+msgid "leads.primary_state"
+msgstr "ОГРН"
+
+msgid "leads.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "leads.priority"
+msgstr "Приоритет"
+
+msgid "leads.product"
+msgstr "Продукт"
+
+msgid "leads.product_id"
+msgstr "Продукт"
+
+msgid "leads.product_version"
+msgstr "Версия продукта"
+
+msgid "leads.purpose"
+msgstr "Цель"
+
+msgid "leads.rating"
+msgstr "Рейтинг"
+
+msgid "leads.revenue_type"
+msgstr "Доход Тип"
+
+msgid "leads.revision"
+msgstr "Пересмотр"
+
+msgid "leads.salutation"
+msgstr "Приветствие"
+
+msgid "leads.space"
+msgstr "Пространство"
+
+msgid "leads.test123"
+msgstr "Test123"
+
+msgid "leads.title"
+msgstr "Название"
+
+msgid "leads.transfer_date"
+msgstr "Передача дате"
+
+msgid "leads.website"
+msgstr "Веб-сайт"
+
+msgid "leads._acl"
+msgstr "Acl"
+
+msgid "leads._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "leads._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "leads._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "leads._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "leads._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "leads_acl_cache.id"
+msgstr "Id"
+
+msgid "leads_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "leads_domain_logic"
+msgstr "Ведет логики предметной области"
+
+msgid "leads_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "leads_group_acl_cache.id"
+msgstr "Id"
+
+msgid "leads_revision_log.created"
+msgstr "Созданный"
+
+msgid "leads_revision_log.created_by"
+msgstr "Создано"
+
+msgid "leads_revision_log.deleted"
+msgstr "Удаленный"
+
+msgid "leads_revision_log.diff"
+msgstr "Разница"
+
+msgid "leads_revision_log.flags"
+msgstr "Флаги"
+
+msgid "leads_revision_log.id"
+msgstr "Id"
+
+msgid "leads_revision_log.modified"
+msgstr "Модифицированный"
+
+msgid "leads_revision_log.modified_by"
+msgstr "Автор изменений"
+
+msgid "leads_revision_log.related_to"
+msgstr "Связанный С"
+
+msgid "leads_revision_log.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "leads_revision_log.revision"
+msgstr "Пересмотр"
+
+msgid "listviews.created"
+msgstr "Созданный"
+
+msgid "listviews.created_by"
+msgstr "Создано"
+
+msgid "listviews.modified"
+msgstr "Модифицированный"
+
+msgid "listviews.modified_by"
+msgstr "Автор изменений"
+
+msgid "listviews.revision"
+msgstr "Пересмотр"
+
+msgid "Logo"
+msgstr "Логотип"
+
+msgid "modified_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "modified_by_user.access_key"
+msgstr "Ключ доступа"
+
+msgid "modified_by_user.created"
+msgstr "Созданный"
+
+msgid "modified_by_user.created_by"
+msgstr "Создано"
+
+msgid "modified_by_user.currency_id"
+msgstr "Валюта Id"
+
+msgid "modified_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "modified_by_user.department"
+msgstr "Отдел"
+
+msgid "modified_by_user.description"
+msgstr "Описание"
+
+msgid "modified_by_user.fax"
+msgstr "Факс"
+
+msgid "modified_by_user.first_name"
+msgstr "Имя"
+
+msgid "modified_by_user.flags"
+msgstr "Флаги"
+
+msgid "modified_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "modified_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "modified_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "modified_by_user.id"
+msgstr "Id"
+
+msgid "modified_by_user.is_active"
+msgstr "Активен"
+
+msgid "modified_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "modified_by_user.locale"
+msgstr "Locale"
+
+msgid "modified_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "modified_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "modified_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "modified_by_user.name"
+msgstr "Имя"
+
+msgid "modified_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "modified_by_user.parent_id"
+msgstr "Родитель Id"
+
+msgid "modified_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "modified_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "modified_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "modified_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "modified_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "modified_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "modified_by_user.region_id"
+msgstr "Регион Id"
+
+msgid "modified_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "modified_by_user.role_id"
+msgstr "Роль Id"
+
+msgid "modified_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "modified_by_user.signature"
+msgstr "Подпись"
+
+msgid "modified_by_user.skin"
+msgstr "Кожа"
+
+msgid "modified_by_user.status"
+msgstr "Статус"
+
+msgid "modified_by_user.theme"
+msgstr "Тема"
+
+msgid "modified_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "modified_by_user.title"
+msgstr "Название"
+
+msgid "modified_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "modified_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "More Information"
+msgstr "Дополнительная информация"
+
+msgid "more information"
+msgstr "Дополнительная информация"
+
+msgid "Note Information"
+msgstr "Информационная записка"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "notes.content"
+msgstr "Содержание"
+
+msgid "notes.created"
+msgstr "Созданный"
+
+msgid "notes.created_by"
+msgstr "Создано"
+
+msgid "notes.deleted"
+msgstr "Удаленный"
+
+msgid "notes.flags"
+msgstr "Флаги"
+
+msgid "notes.id"
+msgstr "Id"
+
+msgid "notes.modified"
+msgstr "Модифицированный"
+
+msgid "notes.modified_by"
+msgstr "Автор изменений"
+
+msgid "notes.note_category_id"
+msgstr "Id Примечание категории"
+
+msgid "notes.note_no"
+msgstr "Обратите внимание, нет"
+
+msgid "notes.owned_by"
+msgstr "Владелец"
+
+msgid "notes.related_to"
+msgstr "Связанный С"
+
+msgid "notes.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "notes.revision"
+msgstr "Пересмотр"
+
+msgid "notes.title"
+msgstr "Название"
+
+msgid "notes.__related_to"
+msgstr "Связанный С"
+
+msgid "Opportunities"
+msgstr "Потенциалы"
+
+msgid "opportunities"
+msgstr "Потенциалы"
+
+msgid "opportunities.account_id"
+msgstr "Идентификатор аккаунта"
+
+msgid "opportunities.amount"
+msgstr "Количество"
+
+msgid "opportunities.campaign_id"
+msgstr "Идентификатор кампании"
+
+msgid "opportunities.closing_date"
+msgstr "Дата закрытия"
+
+msgid "opportunities.created"
+msgstr "Созданный"
+
+msgid "opportunities.created_by"
+msgstr "Создано"
+
+msgid "opportunities.currency"
+msgstr "Валюта"
+
+msgid "opportunities.deleted"
+msgstr "Удаленный"
+
+msgid "opportunities.description"
+msgstr "Описание"
+
+msgid "opportunities.do_not_call"
+msgstr "Do Not Call"
+
+msgid "opportunities.email_opt_out"
+msgstr "Email Отказаться от участия"
+
+msgid "opportunities.evaluation_status"
+msgstr "Оценка статуса"
+
+msgid "opportunities.fax"
+msgstr "Факс"
+
+msgid "opportunities.first_name"
+msgstr "Имя"
+
+msgid "opportunities.flags"
+msgstr "Флаги"
+
+msgid "opportunities.follow_update"
+msgstr "Следуйте обновление"
+
+msgid "opportunities.fore_cast_category"
+msgstr "Категория Передние ролях"
+
+msgid "opportunities.id"
+msgstr "Id"
+
+msgid "opportunities.imported"
+msgstr "Импортированный"
+
+msgid "opportunities.imported_by"
+msgstr "Ввозимые"
+
+msgid "opportunities.interest"
+msgstr "Интерес"
+
+msgid "opportunities.last_name"
+msgstr "Фамилия"
+
+msgid "opportunities.lead_source"
+msgstr "Ведущий источник"
+
+msgid "opportunities.modified"
+msgstr "Модифицированный"
+
+msgid "opportunities.modified_by"
+msgstr "Автор изменений"
+
+msgid "opportunities.name"
+msgstr "Имя"
+
+msgid "opportunities.next_step"
+msgstr "Следующий шаг"
+
+msgid "opportunities.opportunity_no"
+msgstr "Потенциальные Нет"
+
+msgid "opportunities.opportunity_type"
+msgstr "Типа потенциала"
+
+msgid "opportunities.outcome_analysis"
+msgstr "Результат анализа"
+
+msgid "opportunities.owned_by"
+msgstr "Владелец"
+
+msgid "opportunities.partner_contact"
+msgstr "Партнер Контакт"
+
+msgid "opportunities.private"
+msgstr "Частный"
+
+msgid "opportunities.probability"
+msgstr "Вероятность"
+
+msgid "opportunities.product_id"
+msgstr "Product ID"
+
+msgid "opportunities.product_version"
+msgstr "Версия продукта"
+
+msgid "opportunities.quotation_ref"
+msgstr "Цитата работе"
+
+msgid "opportunities.related_to"
+msgstr "Связанный С"
+
+msgid "opportunities.remarks"
+msgstr "Замечания"
+
+msgid "opportunities.revision"
+msgstr "Пересмотр"
+
+msgid "opportunities.run_time_fee"
+msgstr "Run Time Плата"
+
+msgid "opportunities.sales_stage"
+msgstr "Продажи этап"
+
+msgid "opportunities.salutation"
+msgstr "Приветствие"
+
+msgid "opportunities.type_of_revenue"
+msgstr "Тип доходов"
+
+msgid "opportunities._acl"
+msgstr "Acl"
+
+msgid "opportunities._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "opportunities._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "opportunities._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "opportunities._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "opportunities._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "opportunities_acl_cache.id"
+msgstr "Id"
+
+msgid "opportunities_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "opportunities_domain_logic"
+msgstr "Потенциалы логики предметной области"
+
+msgid "opportunities_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "opportunities_group_acl_cache.id"
+msgstr "Id"
+
+msgid "Opportunity Information"
+msgstr "Потенциальные информации"
+
+msgid "Other Information"
+msgstr "Другая информация"
+
+msgid "owned_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "owned_by_user.access_key"
+msgstr "Ключ доступа"
+
+msgid "owned_by_user.created"
+msgstr "Созданный"
+
+msgid "owned_by_user.created_by"
+msgstr "Создано"
+
+msgid "owned_by_user.currency_id"
+msgstr "Валюта Id"
+
+msgid "owned_by_user.deleted"
+msgstr "Удаленный"
+
+msgid "owned_by_user.department"
+msgstr "Отдел"
+
+msgid "owned_by_user.description"
+msgstr "Описание"
+
+msgid "owned_by_user.fax"
+msgstr "Факс"
+
+msgid "owned_by_user.first_name"
+msgstr "Имя"
+
+msgid "owned_by_user.flags"
+msgstr "Флаги"
+
+msgid "owned_by_user.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "owned_by_user.home_page"
+msgstr "Главная страница"
+
+msgid "owned_by_user.hour_format"
+msgstr "Часовой формат"
+
+msgid "owned_by_user.id"
+msgstr "Id"
+
+msgid "owned_by_user.is_active"
+msgstr "Активен"
+
+msgid "owned_by_user.last_name"
+msgstr "Фамилия"
+
+msgid "owned_by_user.locale"
+msgstr "Locale"
+
+msgid "owned_by_user.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "owned_by_user.modified"
+msgstr "Модифицированный"
+
+msgid "owned_by_user.modified_by"
+msgstr "Автор изменений"
+
+msgid "owned_by_user.name"
+msgstr "Имя"
+
+msgid "owned_by_user.owned_by"
+msgstr "Владелец"
+
+msgid "owned_by_user.parent_id"
+msgstr "Родитель Id"
+
+msgid "owned_by_user.primary_address_line_1"
+msgstr "Первичная линия Адрес 1"
+
+msgid "owned_by_user.primary_address_line_2"
+msgstr "Первичная линия Адрес 2"
+
+msgid "owned_by_user.primary_city"
+msgstr "Первичный города"
+
+msgid "owned_by_user.primary_country"
+msgstr "Первичная Страна"
+
+msgid "owned_by_user.primary_state"
+msgstr "ОГРН"
+
+msgid "owned_by_user.primary_zip"
+msgstr "Первичный Zip"
+
+msgid "owned_by_user.region_id"
+msgstr "Регион Id"
+
+msgid "owned_by_user.revision"
+msgstr "Пересмотр"
+
+msgid "owned_by_user.role_id"
+msgstr "Роль Id"
+
+msgid "owned_by_user.salutation"
+msgstr "Приветствие"
+
+msgid "owned_by_user.signature"
+msgstr "Подпись"
+
+msgid "owned_by_user.skin"
+msgstr "Кожа"
+
+msgid "owned_by_user.status"
+msgstr "Статус"
+
+msgid "owned_by_user.theme"
+msgstr "Тема"
+
+msgid "owned_by_user.time_zone"
+msgstr "Часовой пояс"
+
+msgid "owned_by_user.title"
+msgstr "Название"
+
+msgid "owned_by_user.user_name"
+msgstr "Имя пользователя"
+
+msgid "owned_by_user.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "Parent Company"
+msgstr "Материнская компания"
+
+msgid "parent_account.Parent account_name"
+msgstr "Имя Родитель счета"
+
+msgid "parent_account.Parent account_no"
+msgstr "Родитель № счета"
+
+msgid "parent_account.Parent account_type"
+msgstr "Тип Родитель счета"
+
+msgid "parent_account.Parent annual_revenue"
+msgstr "Родитель Годовой доход"
+
+msgid "parent_account.Parent created"
+msgstr "Родитель Созданный"
+
+msgid "parent_account.Parent created_by"
+msgstr "Родитель Создано"
+
+msgid "parent_account.Parent deleted"
+msgstr "Родитель Удаленные"
+
+msgid "parent_account.Parent description"
+msgstr "Родитель Описание"
+
+msgid "parent_account.Parent email_opt_out"
+msgstr "Родитель Email Отказаться от участия"
+
+msgid "parent_account.Parent employees"
+msgstr "Родитель Сотрудники"
+
+msgid "parent_account.Parent fax"
+msgstr "Родитель Факс"
+
+msgid "parent_account.Parent flags"
+msgstr "Родитель Флаги"
+
+msgid "parent_account.Parent id"
+msgstr "Родитель Id"
+
+msgid "parent_account.Parent imported"
+msgstr "Родитель Импортные"
+
+msgid "parent_account.Parent imported_by"
+msgstr "Родитель ввозимые"
+
+msgid "parent_account.Parent industry"
+msgstr "Родитель промышленности"
+
+msgid "parent_account.Parent modified"
+msgstr "Родитель изменения"
+
+msgid "parent_account.Parent modified_by"
+msgstr "Родитель Автор изменений"
+
+msgid "parent_account.Parent notify_owner"
+msgstr "Владелец Родитель Уведомить"
+
+msgid "parent_account.Parent owned_by"
+msgstr "Родитель Принадлежавший"
+
+msgid "parent_account.Parent ownership"
+msgstr "Родитель собственности"
+
+msgid "parent_account.Parent parent_id"
+msgstr "Id Родитель Родитель"
+
+msgid "parent_account.Parent primary_address_line_1"
+msgstr "Родитель основная линия Адрес 1"
+
+msgid "parent_account.Parent primary_address_line_2"
+msgstr "Родитель основная линия Адрес 2"
+
+msgid "parent_account.Parent primary_city"
+msgstr "Родитель первичный Город"
+
+msgid "parent_account.Parent primary_country"
+msgstr "Родитель Первичная Страна"
+
+msgid "parent_account.Parent primary_state"
+msgstr "Родитель ОГРН"
+
+msgid "parent_account.Parent primary_zip"
+msgstr "Родитель первичной Zip"
+
+msgid "parent_account.Parent rating"
+msgstr "Родитель Рейтинг"
+
+msgid "parent_account.Parent revision"
+msgstr "Родитель Версия"
+
+msgid "parent_account.Parent sic_code"
+msgstr "Кодекс Родитель Sic"
+
+msgid "parent_account.Parent ticker_symbol"
+msgstr "Родитель Ticker Symbol"
+
+msgid "parent_account.Parent website"
+msgstr "Родитель сайта"
+
+msgid "parent_account.Parent _acl"
+msgstr "Родитель Acl"
+
+msgid "parent_account.Parent _acl_delete"
+msgstr "Родитель Acl Удалить"
+
+msgid "parent_account.Parent _acl_edit"
+msgstr "Родитель Acl Редактировать"
+
+msgid "parent_account.Parent _acl_tmp"
+msgstr "Тпл Родитель Acl"
+
+msgid "parent_account.Parent _acl_tmp_delete"
+msgstr "Тпл Родитель Acl Удалить"
+
+msgid "parent_account.Parent _acl_tmp_edit"
+msgstr "Родитель Редактировать Acl Tmp"
+
+msgid "parent_contact.Parent account_id"
+msgstr "Id Родитель счета"
+
+msgid "parent_contact.Parent assistant"
+msgstr "Родитель помощник"
+
+msgid "parent_contact.Parent birthday"
+msgstr "Родитель День рождения"
+
+msgid "parent_contact.Parent contact_no"
+msgstr "Родитель Контакт Нет"
+
+msgid "parent_contact.Parent contact_type"
+msgstr "Тип Родитель Контакт"
+
+msgid "parent_contact.Parent created"
+msgstr "Родитель Созданный"
+
+msgid "parent_contact.Parent created_by"
+msgstr "Родитель Создано"
+
+msgid "parent_contact.Parent deleted"
+msgstr "Родитель Удаленные"
+
+msgid "parent_contact.Parent department"
+msgstr "Родитель Департаментом"
+
+msgid "parent_contact.Parent description"
+msgstr "Родитель Описание"
+
+msgid "parent_contact.Parent do_not_call"
+msgstr "Родитель Do Not Call"
+
+msgid "parent_contact.Parent email_opt_out"
+msgstr "Родитель Email Отказаться от участия"
+
+msgid "parent_contact.Parent fax"
+msgstr "Родитель Факс"
+
+msgid "parent_contact.Parent first_name"
+msgstr "Родитель Имя"
+
+msgid "parent_contact.Parent flags"
+msgstr "Родитель Флаги"
+
+msgid "parent_contact.Parent id"
+msgstr "Родитель Id"
+
+msgid "parent_contact.Parent imagename"
+msgstr "Родитель Название изображения"
+
+msgid "parent_contact.Parent imported"
+msgstr "Родитель Импортные"
+
+msgid "parent_contact.Parent imported_by"
+msgstr "Родитель ввозимые"
+
+msgid "parent_contact.Parent industry"
+msgstr "Родитель промышленности"
+
+msgid "parent_contact.Parent last_name"
+msgstr "Родитель Фамилия"
+
+msgid "parent_contact.Parent last_stay_in_touch_request"
+msgstr "Родитель Последнее Оставайтесь на связи запрос"
+
+msgid "parent_contact.Parent last_stay_in_touch_save_date"
+msgstr "Родитель последнего пребывания в Дата Коснитесь Сохранить"
+
+msgid "parent_contact.Parent lead_source"
+msgstr "Источник Родитель Ведущий"
+
+msgid "parent_contact.Parent modified"
+msgstr "Родитель изменения"
+
+msgid "parent_contact.Parent modified_by"
+msgstr "Родитель Автор изменений"
+
+msgid "parent_contact.Parent name"
+msgstr "Родитель Имя"
+
+msgid "parent_contact.Parent notify_owner"
+msgstr "Владелец Родитель Уведомить"
+
+msgid "parent_contact.Parent owned_by"
+msgstr "Родитель Принадлежавший"
+
+msgid "parent_contact.Parent parent_id"
+msgstr "Id Родитель Родитель"
+
+msgid "parent_contact.Parent primary_address_line_1"
+msgstr "Родитель основная линия Адрес 1"
+
+msgid "parent_contact.Parent primary_address_line_2"
+msgstr "Родитель основная линия Адрес 2"
+
+msgid "parent_contact.Parent primary_city"
+msgstr "Родитель первичный Город"
+
+msgid "parent_contact.Parent primary_country"
+msgstr "Родитель Первичная Страна"
+
+msgid "parent_contact.Parent primary_state"
+msgstr "Родитель ОГРН"
+
+msgid "parent_contact.Parent primary_zip"
+msgstr "Родитель первичной Zip"
+
+msgid "parent_contact.Parent reference"
+msgstr "Родитель Ссылка"
+
+msgid "parent_contact.Parent related_to"
+msgstr "Родитель Связанный С"
+
+msgid "parent_contact.Parent related_to_model"
+msgstr "Родитель Связанные Для модели"
+
+msgid "parent_contact.Parent revision"
+msgstr "Родитель Версия"
+
+msgid "parent_contact.Parent salutation"
+msgstr "Родитель Обращение"
+
+msgid "parent_contact.Parent title"
+msgstr "Родитель Название"
+
+msgid "parent_contact.Parent training"
+msgstr "Обучение родителей"
+
+msgid "parent_contact.Parent user_type"
+msgstr "Тип Родитель Пользователь"
+
+msgid "parent_contact.Parent _acl"
+msgstr "Родитель Acl"
+
+msgid "parent_contact.Parent _acl_delete"
+msgstr "Родитель Acl Удалить"
+
+msgid "parent_contact.Parent _acl_edit"
+msgstr "Родитель Acl Редактировать"
+
+msgid "parent_contact.Parent _acl_tmp"
+msgstr "Тпл Родитель Acl"
+
+msgid "parent_contact.Parent _acl_tmp_delete"
+msgstr "Тпл Родитель Acl Удалить"
+
+msgid "parent_contact.Parent _acl_tmp_edit"
+msgstr "Родитель Редактировать Acl Tmp"
+
+msgid "parent_lead.Parent annual_revenue"
+msgstr "Родитель Годовой доход"
+
+msgid "parent_lead.Parent assistant_email"
+msgstr "E-mail родительский помощник"
+
+msgid "parent_lead.Parent assistant_phone"
+msgstr "Телефон родительский помощник"
+
+msgid "parent_lead.Parent campaign_id"
+msgstr "Родитель кампании"
+
+msgid "parent_lead.Parent company"
+msgstr "Материнская компания"
+
+msgid "parent_lead.Parent converted"
+msgstr "Родитель Старинная"
+
+msgid "parent_lead.Parent created"
+msgstr "Родитель Созданный"
+
+msgid "parent_lead.Parent created_by"
+msgstr "Родитель Создано"
+
+msgid "parent_lead.Parent currency"
+msgstr "Родитель валют"
+
+msgid "parent_lead.Parent deleted"
+msgstr "Родитель Удаленные"
+
+msgid "parent_lead.Parent demo_request"
+msgstr "Запрос родительский Demo"
+
+msgid "parent_lead.Parent description"
+msgstr "Родитель Описание"
+
+msgid "parent_lead.Parent do_not_call"
+msgstr "Родитель Do Not Call"
+
+msgid "parent_lead.Parent email_opt_out"
+msgstr "Родитель Email Отказаться от участия"
+
+msgid "parent_lead.Parent fax"
+msgstr "Родитель Факс"
+
+msgid "parent_lead.Parent first_name"
+msgstr "Родитель Имя"
+
+msgid "parent_lead.Parent flags"
+msgstr "Родитель Флаги"
+
+msgid "parent_lead.Parent home_phone"
+msgstr "Телефон родителя Главная"
+
+msgid "parent_lead.Parent id"
+msgstr "Родитель Id"
+
+msgid "parent_lead.Parent imported"
+msgstr "Родитель Импортные"
+
+msgid "parent_lead.Parent imported_by"
+msgstr "Родитель ввозимые"
+
+msgid "parent_lead.Parent industry"
+msgstr "Родитель промышленности"
+
+msgid "parent_lead.Parent last_name"
+msgstr "Родитель Фамилия"
+
+msgid "parent_lead.Parent lead_source"
+msgstr "Источник Родитель Ведущий"
+
+msgid "parent_lead.Parent lead_status"
+msgstr "Статус родителя Ведущий"
+
+msgid "parent_lead.Parent mail_date"
+msgstr "Дата родителя почты"
+
+msgid "parent_lead.Parent mobile"
+msgstr "Родитель мобильный"
+
+msgid "parent_lead.Parent modified"
+msgstr "Родитель изменения"
+
+msgid "parent_lead.Parent modified_by"
+msgstr "Родитель Автор изменений"
+
+msgid "parent_lead.Parent name"
+msgstr "Родитель Имя"
+
+msgid "parent_lead.Parent next_step_date"
+msgstr "Родитель Дата следующего шага"
+
+msgid "parent_lead.Parent no_of_employees"
+msgstr "Родитель не работников"
+
+msgid "parent_lead.Parent office_email"
+msgstr "E-mail Родитель офиса"
+
+msgid "parent_lead.Parent office_phone"
+msgstr "Телефон родительский офис"
+
+msgid "parent_lead.Parent other_phone"
+msgstr "Родитель Другой телефон"
+
+msgid "parent_lead.Parent owned_by"
+msgstr "Родитель Принадлежавший"
+
+msgid "parent_lead.Parent parent_id"
+msgstr "Parent Parent"
+
+msgid "parent_lead.Parent personal_email"
+msgstr "Родитель личной электронной почты"
+
+msgid "parent_lead.Parent primary_address_line_1"
+msgstr "Родитель основная линия Адрес 1"
+
+msgid "parent_lead.Parent primary_address_line_2"
+msgstr "Родитель основная линия Адрес 2"
+
+msgid "parent_lead.Parent primary_city"
+msgstr "Родитель первичный Город"
+
+msgid "parent_lead.Parent primary_country"
+msgstr "Родитель Первичная Страна"
+
+msgid "parent_lead.Parent primary_state"
+msgstr "Родитель ОГРН"
+
+msgid "parent_lead.Parent primary_zip"
+msgstr "Родитель первичной Zip"
+
+msgid "parent_lead.Parent product_id"
+msgstr "Родитель продуктов"
+
+msgid "parent_lead.Parent rating"
+msgstr "Родитель Рейтинг"
+
+msgid "parent_lead.Parent revision"
+msgstr "Родитель Версия"
+
+msgid "parent_lead.Parent salutation"
+msgstr "Родитель Обращение"
+
+msgid "parent_lead.Parent title"
+msgstr "Родитель Название"
+
+msgid "parent_lead.Parent website"
+msgstr "Родитель сайта"
+
+msgid "parent_lead.Parent _acl"
+msgstr "Родитель Acl"
+
+msgid "parent_lead.Parent _acl_delete"
+msgstr "Родитель Acl Удалить"
+
+msgid "parent_lead.Parent _acl_edit"
+msgstr "Родитель Acl Редактировать"
+
+msgid "parent_lead.Parent _acl_tmp"
+msgstr "Тпл Родитель Acl"
+
+msgid "parent_lead.Parent _acl_tmp_delete"
+msgstr "Тпл Родитель Acl Удалить"
+
+msgid "parent_lead.Parent _acl_tmp_edit"
+msgstr "Родитель Редактировать Acl Tmp"
+
+msgid "parent_ticket.Parent approved_hours"
+msgstr "Родитель Утвержден часов"
+
+msgid "parent_ticket.Parent category"
+msgstr "Родитель категории"
+
+msgid "parent_ticket.Parent created"
+msgstr "Родитель Созданный"
+
+msgid "parent_ticket.Parent created_by"
+msgstr "Родитель Создано"
+
+msgid "parent_ticket.Parent days"
+msgstr "Родитель дней"
+
+msgid "parent_ticket.Parent deleted"
+msgstr "Родитель Удаленные"
+
+msgid "parent_ticket.Parent end"
+msgstr "Родитель End"
+
+msgid "parent_ticket.Parent estimated_hours"
+msgstr "Родитель Приблизительная часов"
+
+msgid "parent_ticket.Parent flags"
+msgstr "Родитель Флаги"
+
+msgid "parent_ticket.Parent hours"
+msgstr "Родитель часов"
+
+msgid "parent_ticket.Parent id"
+msgstr "Родитель Id"
+
+msgid "parent_ticket.Parent imported_by"
+msgstr "Родитель ввозимые"
+
+msgid "parent_ticket.Parent modified"
+msgstr "Родитель изменения"
+
+msgid "parent_ticket.Parent modified_by"
+msgstr "Родитель Автор изменений"
+
+msgid "parent_ticket.Parent owned_by"
+msgstr "Родитель Принадлежавший"
+
+msgid "parent_ticket.Parent parent_id"
+msgstr "Id Родитель Родитель"
+
+msgid "parent_ticket.Parent priority"
+msgstr "Родитель Приоритет"
+
+msgid "parent_ticket.Parent problem"
+msgstr "Родитель проблемы"
+
+msgid "parent_ticket.Parent product_id"
+msgstr "Id Родитель продукта"
+
+msgid "parent_ticket.Parent reported_by"
+msgstr "Родитель сообщает"
+
+msgid "parent_ticket.Parent reported_by_model"
+msgstr "Родитель сообщает Модель"
+
+msgid "parent_ticket.Parent revision"
+msgstr "Родитель Версия"
+
+msgid "parent_ticket.Parent severity"
+msgstr "Родитель Серьезность"
+
+msgid "parent_ticket.Parent solution"
+msgstr "Родитель решения"
+
+msgid "parent_ticket.Parent start"
+msgstr "Родитель начало"
+
+msgid "parent_ticket.Parent start_date"
+msgstr "Дата начала Родителя"
+
+msgid "parent_ticket.Parent status"
+msgstr "Родитель статус"
+
+msgid "parent_ticket.Parent ticket_no"
+msgstr "Родитель билетов нет"
+
+msgid "parent_ticket.Parent title"
+msgstr "Родитель Название"
+
+msgid "parent_ticket.Parent total_spent_hours"
+msgstr "Родитель Всего часами"
+
+msgid "parent_ticket.Parent version_id"
+msgstr "Id Родитель версия"
+
+msgid "parent_ticket.Parent _acl"
+msgstr "Родитель Acl"
+
+msgid "parent_ticket.Parent _acl_delete"
+msgstr "Родитель Acl Удалить"
+
+msgid "parent_ticket.Parent _acl_edit"
+msgstr "Родитель Acl Редактировать"
+
+msgid "parent_ticket.Parent _acl_tmp"
+msgstr "Тпл Родитель Acl"
+
+msgid "parent_ticket.Parent _acl_tmp_delete"
+msgstr "Тпл Родитель Acl Удалить"
+
+msgid "parent_ticket.Parent _acl_tmp_edit"
+msgstr "Родитель Редактировать Acl Tmp"
+
+msgid "parent_ticket.Parent __reported_by"
+msgstr "Родитель сообщает"
+
+msgid "Phone Numbers"
+msgstr "Номера телефонов"
+
+msgid "phone_numbers"
+msgstr "Номера телефонов"
+
+msgid "phone_numbers.created"
+msgstr "Созданный"
+
+msgid "phone_numbers.created_by"
+msgstr "Создано"
+
+msgid "phone_numbers.deleted"
+msgstr "Удаленный"
+
+msgid "phone_numbers.flags"
+msgstr "Флаги"
+
+msgid "phone_numbers.id"
+msgstr "Id"
+
+msgid "phone_numbers.modified"
+msgstr "Модифицированный"
+
+msgid "phone_numbers.modified_by"
+msgstr "Автор изменений"
+
+msgid "phone_numbers.number"
+msgstr "Номер"
+
+msgid "phone_numbers.owned_by"
+msgstr "Владелец"
+
+msgid "phone_numbers.related_to"
+msgstr "Связанный С"
+
+msgid "phone_numbers.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "phone_numbers.revision"
+msgstr "Пересмотр"
+
+msgid "phone_numbers.type"
+msgstr "Тип"
+
+msgid "phone_numbers._acl"
+msgstr "Acl"
+
+msgid "phone_numbers._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "phone_numbers._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "phone_numbers._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "phone_numbers._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "phone_numbers._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "phone_numbers.__related_to"
+msgstr "Связанный С"
+
+msgid "phone_number_book"
+msgstr "Телефонная книга Количество"
+
+msgid "phone_number_book.created"
+msgstr "Созданный"
+
+msgid "phone_number_book.created_by"
+msgstr "Создано"
+
+msgid "phone_number_book.deleted"
+msgstr "Удаленный"
+
+msgid "phone_number_book.flags"
+msgstr "Флаги"
+
+msgid "phone_number_book.id"
+msgstr "Id"
+
+msgid "phone_number_book.modified"
+msgstr "Модифицированный"
+
+msgid "phone_number_book.modified_by"
+msgstr "Автор изменений"
+
+msgid "phone_number_book.number"
+msgstr "Номер"
+
+msgid "phone_number_book.owned_by"
+msgstr "Владелец"
+
+msgid "phone_number_book.related_to"
+msgstr "Связанный С"
+
+msgid "phone_number_book.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "phone_number_book.revision"
+msgstr "Пересмотр"
+
+msgid "phone_number_book.type"
+msgstr "Тип"
+
+msgid "phone_number_book._acl"
+msgstr "Acl"
+
+msgid "phone_number_book._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "phone_number_book._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "phone_number_book._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "phone_number_book._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "phone_number_book._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "phone_number_book.__related_to"
+msgstr "Связанный С"
+
+msgid "Place holder"
+msgstr "Место держатель"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Primary Address"
+msgstr "Первичный адрес"
+
+msgid "primary_countries.country_name"
+msgstr "Название страны"
+
+msgid "primary_countries.created"
+msgstr "Созданный"
+
+msgid "primary_countries.created_by"
+msgstr "Создано"
+
+msgid "primary_countries.deleted"
+msgstr "Удаленный"
+
+msgid "primary_countries.flags"
+msgstr "Флаги"
+
+msgid "primary_countries.id"
+msgstr "Id"
+
+msgid "primary_countries.iso2"
+msgstr "ISO2"
+
+msgid "primary_countries.iso3"
+msgstr "Iso3"
+
+msgid "primary_countries.modified"
+msgstr "Модифицированный"
+
+msgid "primary_countries.modified_by"
+msgstr "Автор изменений"
+
+msgid "primary_countries.owned_by"
+msgstr "Владелец"
+
+msgid "primary_countries.revision"
+msgstr "Пересмотр"
+
+msgid "Problem Information"
+msgstr "Проблема информации"
+
+msgid "Products"
+msgstr "Продукты"
+
+msgid "products"
+msgstr "Продукты"
+
+msgid "Products Information"
+msgstr "Информация продукции"
+
+msgid "products.category"
+msgstr "Категория"
+
+msgid "products.code"
+msgstr "Код"
+
+msgid "products.commission_method"
+msgstr "Комиссия методом"
+
+msgid "products.commission_rate"
+msgstr "Ставка комиссионного вознаграждения"
+
+msgid "products.cost_factor"
+msgstr "Фактор стоимости"
+
+msgid "products.created"
+msgstr "Созданный"
+
+msgid "products.created_by"
+msgstr "Создано"
+
+msgid "products.currency_id"
+msgstr "Валюта Id"
+
+msgid "products.deleted"
+msgstr "Удаленный"
+
+msgid "products.description"
+msgstr "Описание"
+
+msgid "products.discontinued"
+msgstr "Прекращенный"
+
+msgid "products.expiry_date"
+msgstr "Срок действия"
+
+msgid "products.flags"
+msgstr "Флаги"
+
+msgid "products.glacct"
+msgstr "Glacct"
+
+msgid "products.handler"
+msgstr "Обработчик"
+
+msgid "products.id"
+msgstr "Id"
+
+msgid "products.imported_by"
+msgstr "Ввозимые"
+
+msgid "products.manufacturer"
+msgstr "Производитель"
+
+msgid "products.mfr_part_no"
+msgstr "Произв Часть Нет"
+
+msgid "products.modified"
+msgstr "Модифицированный"
+
+msgid "products.modified_by"
+msgstr "Автор изменений"
+
+msgid "products.owned_by"
+msgstr "Владелец"
+
+msgid "products.pack_size"
+msgstr "Размер пакета"
+
+msgid "products.product_name"
+msgstr "Наименование"
+
+msgid "products.product_no"
+msgstr "Номер изделия"
+
+msgid "products.product_sheet"
+msgstr "Описание продукции"
+
+msgid "products.qty_in_demand"
+msgstr "Количество спроса"
+
+msgid "products.qty_in_stock"
+msgstr "Количество на складе"
+
+msgid "products.qty_per_unit"
+msgstr "Количество на единицу"
+
+msgid "products.reorder_level"
+msgstr "Изменить порядок уровня"
+
+msgid "products.revision"
+msgstr "Пересмотр"
+
+msgid "products.sales_end_date"
+msgstr "Продажи Дата окончания"
+
+msgid "products.sales_start_date"
+msgstr "Дата начала продаж"
+
+msgid "products.serial_no"
+msgstr "Серийный номер"
+
+msgid "products.start_date"
+msgstr "Дата начала"
+
+msgid "products.tax_class"
+msgstr "Налоговый класс"
+
+msgid "products.unit_price"
+msgstr "Цена за единицу товара"
+
+msgid "products.usage_unit"
+msgstr "Использование группы"
+
+msgid "products.vendor_part_no"
+msgstr "Часть поставщиков Нет"
+
+msgid "products.website"
+msgstr "Веб-сайт"
+
+msgid "products.weight"
+msgstr "Вес"
+
+msgid "products_domain_logic"
+msgstr "Продукты логики предметной области"
+
+msgid "product_categories"
+msgstr "Категории продуктов"
+
+msgid "Purchases"
+msgstr "Закупки"
+
+msgid "r"
+msgstr "т"
+
+msgid "Read Access"
+msgstr "Прочитано Access"
+
+msgid "Related Information"
+msgstr "Дополнительная информация"
+
+msgid "Related information"
+msgstr "Дополнительная информация"
+
+msgid "Sales"
+msgstr "Реализация"
+
+msgid "Sales Information"
+msgstr "Информация о продаже"
+
+msgid "Solution Information"
+msgstr "Решение информация"
+
+msgid "Spent Hours"
+msgstr "Отработанные часы"
+
+msgid "State"
+msgstr "Состояние"
+
+msgid "subform"
+msgstr "Подчиненной"
+
+msgid "Submit"
+msgstr "Представлять"
+
+msgid "SYSTEM_ACL_REVISIONS"
+msgstr "SYSTEM ACL ПЕРЕСМОТРЕННЫМ"
+
+msgid "Task Information"
+msgstr "Сведения о задаче"
+
+msgid "Tasks"
+msgstr "Задачи"
+
+msgid "tasks.calendar_id"
+msgstr "Календарь Id"
+
+msgid "tasks.created"
+msgstr "Созданный"
+
+msgid "tasks.created_by"
+msgstr "Создано"
+
+msgid "tasks.deleted"
+msgstr "Удаленный"
+
+msgid "tasks.description"
+msgstr "Описание"
+
+msgid "tasks.end"
+msgstr "Конец"
+
+msgid "tasks.flags"
+msgstr "Флаги"
+
+msgid "tasks.id"
+msgstr "Id"
+
+msgid "tasks.modified"
+msgstr "Модифицированный"
+
+msgid "tasks.modified_by"
+msgstr "Автор изменений"
+
+msgid "tasks.name"
+msgstr "Имя"
+
+msgid "tasks.owned_by"
+msgstr "Владелец"
+
+msgid "tasks.priorities"
+msgstr "Приоритеты"
+
+msgid "tasks.related_to"
+msgstr "Связанный С"
+
+msgid "tasks.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "tasks.revision"
+msgstr "Пересмотр"
+
+msgid "tasks.start"
+msgstr "Начало"
+
+msgid "tasks.status"
+msgstr "Статус"
+
+msgid "tasks._acl"
+msgstr "Acl"
+
+msgid "tasks._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "tasks._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "tasks._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "tasks._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "tasks._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "tasks.__related_to"
+msgstr "Связанный С"
+
+msgid "task_related_to.created"
+msgstr "Созданный"
+
+msgid "task_related_to.created_by"
+msgstr "Создано"
+
+msgid "task_related_to.deleted"
+msgstr "Удаленный"
+
+msgid "task_related_to.flags"
+msgstr "Флаги"
+
+msgid "task_related_to.id"
+msgstr "Id"
+
+msgid "task_related_to.modified"
+msgstr "Модифицированный"
+
+msgid "task_related_to.modified_by"
+msgstr "Автор изменений"
+
+msgid "task_related_to.owned_by"
+msgstr "Владелец"
+
+msgid "task_related_to.related_to"
+msgstr "Связанный С"
+
+msgid "task_related_to.related_to_model"
+msgstr "Связанные Для модели"
+
+msgid "task_related_to.revision"
+msgstr "Пересмотр"
+
+msgid "task_related_to.task_id"
+msgstr "Задача"
+
+msgid "task_related_to.__related_to"
+msgstr "Связанный С"
+
+msgid "Temporary Delete"
+msgstr "Временные Delete"
+
+msgid "Temporary Edit"
+msgstr "Временные Edit"
+
+msgid "Temporary Read"
+msgstr "Временные прочитанными"
+
+msgid "This %s is already converted"
+msgstr "Это %s уже преобразованы"
+
+msgid "This lead is already converted"
+msgstr "Это привело уже преобразованы"
+
+msgid "ticket comments"
+msgstr "Билет Комментарии"
+
+msgid "Ticket Comments"
+msgstr "Билет Комментарии"
+
+msgid "Ticket Information"
+msgstr "Информация о билетах"
+
+msgid "Ticket Spent Hours"
+msgstr "Билет часами"
+
+msgid "Tickets"
+msgstr "Билеты"
+
+msgid "tickets"
+msgstr "Билеты"
+
+msgid "tickets.approved_hours"
+msgstr "Утвержден часов"
+
+msgid "tickets.category"
+msgstr "Категория"
+
+msgid "tickets.created"
+msgstr "Созданный"
+
+msgid "tickets.created_by"
+msgstr "Создано"
+
+msgid "tickets.days"
+msgstr "Дней"
+
+msgid "tickets.deleted"
+msgstr "Удаленный"
+
+msgid "tickets.end"
+msgstr "Конец"
+
+msgid "tickets.estimated_hours"
+msgstr "Расчетное часов"
+
+msgid "tickets.flags"
+msgstr "Флаги"
+
+msgid "tickets.hours"
+msgstr "Часов"
+
+msgid "tickets.id"
+msgstr "Id"
+
+msgid "tickets.imported_by"
+msgstr "Ввозимые"
+
+msgid "tickets.modified"
+msgstr "Модифицированный"
+
+msgid "tickets.modified_by"
+msgstr "Автор изменений"
+
+msgid "tickets.owned_by"
+msgstr "Владелец"
+
+msgid "tickets.parent_id"
+msgstr "Родитель Id"
+
+msgid "tickets.priority"
+msgstr "Приоритет"
+
+msgid "tickets.problem"
+msgstr "Проблема"
+
+msgid "tickets.product_id"
+msgstr "Product ID"
+
+msgid "tickets.reported_by"
+msgstr "Об этом сообщает"
+
+msgid "tickets.reported_by_model"
+msgstr "Отчет по модели"
+
+msgid "tickets.revision"
+msgstr "Пересмотр"
+
+msgid "tickets.severity"
+msgstr "Строгость"
+
+msgid "tickets.solution"
+msgstr "Решение"
+
+msgid "tickets.start"
+msgstr "Начало"
+
+msgid "tickets.start_date"
+msgstr "Дата начала"
+
+msgid "tickets.status"
+msgstr "Статус"
+
+msgid "tickets.ticket_no"
+msgstr "Нет билетов"
+
+msgid "tickets.title"
+msgstr "Название"
+
+msgid "tickets.total_spent_hours"
+msgstr "Всего часами"
+
+msgid "tickets.version_id"
+msgstr "Версия Id"
+
+msgid "tickets._acl"
+msgstr "Acl"
+
+msgid "tickets._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "tickets._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "tickets._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "tickets._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "tickets._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "tickets.__reported_by"
+msgstr "Об этом сообщает"
+
+msgid "tickets_acl_cache.id"
+msgstr "Id"
+
+msgid "tickets_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "tickets_domain_logic"
+msgstr "Билеты логики предметной области"
+
+msgid "tickets_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "tickets_group_acl_cache.id"
+msgstr "Id"
+
+msgid "ticket_comments"
+msgstr "Билет комментарии"
+
+msgid "ticket_comments.created"
+msgstr "Созданный"
+
+msgid "ticket_comments.created_by"
+msgstr "Создано"
+
+msgid "ticket_comments.deleted"
+msgstr "Удаленный"
+
+msgid "ticket_comments.description"
+msgstr "Описание"
+
+msgid "ticket_comments.flags"
+msgstr "Флаги"
+
+msgid "ticket_comments.id"
+msgstr "Id"
+
+msgid "ticket_comments.modified"
+msgstr "Модифицированный"
+
+msgid "ticket_comments.modified_by"
+msgstr "Автор изменений"
+
+msgid "ticket_comments.owned_by"
+msgstr "Владелец"
+
+msgid "ticket_comments.revision"
+msgstr "Пересмотр"
+
+msgid "ticket_comments.ticket_id"
+msgstr "Запрос ID"
+
+msgid "ticket_comments_domain_logic"
+msgstr "Билет Комментарии логики предметной области"
+
+msgid "ticket_spent_hours"
+msgstr "Билет часами"
+
+msgid "ticket_spent_hours.comment"
+msgstr "Комментировать"
+
+msgid "ticket_spent_hours.created"
+msgstr "Созданный"
+
+msgid "ticket_spent_hours.created_by"
+msgstr "Создано"
+
+msgid "ticket_spent_hours.deleted"
+msgstr "Удаленный"
+
+msgid "ticket_spent_hours.flags"
+msgstr "Флаги"
+
+msgid "ticket_spent_hours.hours"
+msgstr "Часов"
+
+msgid "ticket_spent_hours.hours_for"
+msgstr "Часов"
+
+msgid "ticket_spent_hours.id"
+msgstr "Id"
+
+msgid "ticket_spent_hours.modified"
+msgstr "Модифицированный"
+
+msgid "ticket_spent_hours.modified_by"
+msgstr "Автор изменений"
+
+msgid "ticket_spent_hours.owned_by"
+msgstr "Владелец"
+
+msgid "ticket_spent_hours.revision"
+msgstr "Пересмотр"
+
+msgid "ticket_spent_hours.ticket_id"
+msgstr "Билет"
+
+msgid "ticket_spent_hours_domain_logic"
+msgstr "Билет часами предметной области"
+
+msgid "unread_records.action"
+msgstr "Действие"
+
+msgid "unread_records.controller"
+msgstr "Контроллер"
+
+msgid "unread_records.created"
+msgstr "Созданный"
+
+msgid "unread_records.created_by"
+msgstr "Создано"
+
+msgid "unread_records.id"
+msgstr "Id"
+
+msgid "unread_records.invocation"
+msgstr "Вызов"
+
+msgid "unread_records.level"
+msgstr "Уровень"
+
+msgid "unread_records.logger"
+msgstr "Лесоруб"
+
+msgid "unread_records.login_session_id"
+msgstr "Войти сессии"
+
+msgid "unread_records.message"
+msgstr "Сообщение"
+
+msgid "unread_records.module"
+msgstr "Модуль"
+
+msgid "unread_records.params"
+msgstr "Params"
+
+msgid "unread_records.record_id"
+msgstr "Запись Id"
+
+msgid "unread_records.referer"
+msgstr "Referer"
+
+msgid "unread_records.return"
+msgstr "Возвращение"
+
+msgid "users.accesskey"
+msgstr "Accesskey"
+
+msgid "users.created"
+msgstr "Созданный"
+
+msgid "users.created_by"
+msgstr "Создано"
+
+msgid "users.currency_id"
+msgstr "Валюта Id"
+
+msgid "users.deleted"
+msgstr "Удаленный"
+
+msgid "users.department"
+msgstr "Отдел"
+
+msgid "users.description"
+msgstr "Описание"
+
+msgid "users.fax"
+msgstr "Факс"
+
+msgid "users.first_name"
+msgstr "Имя"
+
+msgid "users.flags"
+msgstr "Флаги"
+
+msgid "users.hash_key"
+msgstr "Хэш-ключа"
+
+msgid "users.home_page"
+msgstr "Главная страница"
+
+msgid "users.hour_format"
+msgstr "Часовой формат"
+
+msgid "users.id"
+msgstr "Id"
+
+msgid "users.is_active"
+msgstr "Активен"
+
+msgid "users.last_name"
+msgstr "Фамилия"
+
+msgid "users.locale"
+msgstr "Locale"
+
+msgid "users.mobile_home_page"
+msgstr "Мобильный Домашняя страница"
+
+msgid "users.modified"
+msgstr "Модифицированный"
+
+msgid "users.modified_by"
+msgstr "Автор изменений"
+
+msgid "users.name"
+msgstr "Имя"
+
+msgid "users.owned_by"
+msgstr "Владелец"
+
+msgid "users.parent_id"
+msgstr "Родитель Id"
+
+msgid "users.region_id"
+msgstr "Регион Id"
+
+msgid "users.revision"
+msgstr "Пересмотр"
+
+msgid "users.role_id"
+msgstr "Роль Id"
+
+msgid "users.salutation"
+msgstr "Приветствие"
+
+msgid "users.signature"
+msgstr "Подпись"
+
+msgid "users.skin"
+msgstr "Кожа"
+
+msgid "users.status"
+msgstr "Статус"
+
+msgid "users.theme"
+msgstr "Тема"
+
+msgid "users.time_zone"
+msgstr "Часовой пояс"
+
+msgid "users.title"
+msgstr "Название"
+
+msgid "users.user_name"
+msgstr "Имя пользователя"
+
+msgid "users.user_password"
+msgstr "Пользователь Пароль"
+
+msgid "Vendor Information"
+msgstr "Информация о продавце"
+
+msgid "Vendors"
+msgstr "Продавцы"
+
+msgid "vendors"
+msgstr "Продавцы"
+
+msgid "vendors.category"
+msgstr "Категория"
+
+msgid "vendors.created"
+msgstr "Созданный"
+
+msgid "vendors.created_by"
+msgstr "Создано"
+
+msgid "vendors.deleted"
+msgstr "Удаленный"
+
+msgid "vendors.description"
+msgstr "Описание"
+
+msgid "vendors.flags"
+msgstr "Флаги"
+
+msgid "vendors.glacct"
+msgstr "Glacct"
+
+msgid "vendors.id"
+msgstr "Id"
+
+msgid "vendors.imported_by"
+msgstr "Ввозимые"
+
+msgid "vendors.modified"
+msgstr "Модифицированный"
+
+msgid "vendors.modified_by"
+msgstr "Автор изменений"
+
+msgid "vendors.name"
+msgstr "Имя"
+
+msgid "vendors.owned_by"
+msgstr "Владелец"
+
+msgid "vendors.rivision"
+msgstr "Rivision"
+
+msgid "vendors.vendor_no"
+msgstr "Продавца нет"
+
+msgid "vendors.website"
+msgstr "Веб-сайт"
+
+msgid "vendors._acl"
+msgstr "Acl"
+
+msgid "vendors._acl_delete"
+msgstr "Acl Удалить"
+
+msgid "vendors._acl_edit"
+msgstr "Acl Редактировать"
+
+msgid "vendors._acl_tmp"
+msgstr "Acl Tmp"
+
+msgid "vendors._acl_tmp_delete"
+msgstr "Acl Tmp Удалить"
+
+msgid "vendors._acl_tmp_edit"
+msgstr "Изменить Acl Tmp"
+
+msgid "vendors_acl_cache.id"
+msgstr "Id"
+
+msgid "vendors_acl_cache.user_id"
+msgstr "Идентификатор пользователя"
+
+msgid "vendors_domain_logic"
+msgstr "Продавцы логики предметной области"
+
+msgid "vendors_group_acl_cache.group_id"
+msgstr "Идентификатор группы"
+
+msgid "vendors_group_acl_cache.id"
+msgstr "Id"
+
+msgid "view"
+msgstr "вид"
+
+msgid "View"
+msgstr "вид"
+
+msgid "Zip / Postal Code"
+msgstr "Zip / Postal Code"

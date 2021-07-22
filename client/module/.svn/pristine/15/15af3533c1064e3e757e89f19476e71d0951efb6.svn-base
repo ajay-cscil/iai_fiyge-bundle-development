@@ -1,0 +1,2439 @@
+{
+	"_acl":null,
+	"_acl_delete":null,
+	"_acl_edit":null,
+	"_acl_tmp":null,
+	"_acl_tmp_delete":null,
+	"_acl_tmp_edit":null,
+	"description":"",
+	"id":"148",
+	"locale_type":"LC_MESSAGES",
+	"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d",
+	"name":"en_US",
+	"locale_translations":[
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250775",
+			"locale_id":"148",
+			"msgid":"ACL & Revisions",
+			"msgstr":"ACL & Revisions"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250734",
+			"locale_id":"148",
+			"msgid":"Account Type",
+			"msgstr":"Account Type"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250754",
+			"locale_id":"148",
+			"msgid":"Add People to List",
+			"msgstr":"Add People to List"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250869",
+			"locale_id":"148",
+			"msgid":"Address",
+			"msgstr":"Address"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250777",
+			"locale_id":"148",
+			"msgid":"Addresses",
+			"msgstr":"Addresses"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250780",
+			"locale_id":"148",
+			"msgid":"Advance Information",
+			"msgstr":"Advance Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250760",
+			"locale_id":"148",
+			"msgid":"All",
+			"msgstr":"All"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250762",
+			"locale_id":"148",
+			"msgid":"All Map View",
+			"msgstr":"All Map View"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250774",
+			"locale_id":"148",
+			"msgid":"Basic Information",
+			"msgstr":"Basic Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250781",
+			"locale_id":"148",
+			"msgid":"Canvass",
+			"msgstr":"Canvass"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250810",
+			"locale_id":"148",
+			"msgid":"Canvass History",
+			"msgstr":"Canvass History"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250741",
+			"locale_id":"148",
+			"msgid":"Canvass Options",
+			"msgstr":"Canvass Options"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250743",
+			"locale_id":"148",
+			"msgid":"Canvass Year",
+			"msgstr":"Canvass Year"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250782",
+			"locale_id":"148",
+			"msgid":"Canvassing",
+			"msgstr":"Canvassing"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250792",
+			"locale_id":"148",
+			"msgid":"Cases",
+			"msgstr":"Cases"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250804",
+			"locale_id":"148",
+			"msgid":"Check this box to relate this person to a system user",
+			"msgstr":"Check this box to relate this person to a system user"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250728",
+			"locale_id":"148",
+			"msgid":"Clone",
+			"msgstr":"Clone"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250785",
+			"locale_id":"148",
+			"msgid":"Comm Log",
+			"msgstr":"Comm Log"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250735",
+			"locale_id":"148",
+			"msgid":"Configurations",
+			"msgstr":"Configurations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250727",
+			"locale_id":"148",
+			"msgid":"Create New",
+			"msgstr":"Create New"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250744",
+			"locale_id":"148",
+			"msgid":"Current Canvass Options",
+			"msgstr":"Current Canvass Options"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250808",
+			"locale_id":"148",
+			"msgid":"Current Canvass feedback",
+			"msgstr":"Current Canvass Feedback"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250729",
+			"locale_id":"148",
+			"msgid":"Delete",
+			"msgstr":"Delete"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250730",
+			"locale_id":"148",
+			"msgid":"Delete Selected",
+			"msgstr":"Delete Selected"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250745",
+			"locale_id":"148",
+			"msgid":"Donors",
+			"msgstr":"Donors"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250796",
+			"locale_id":"148",
+			"msgid":"Donors at this Address",
+			"msgstr":"Donors At This Address"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250807",
+			"locale_id":"148",
+			"msgid":"Door Knocking or Phone Bank",
+			"msgstr":"Door Knocking Or Phone Bank"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250731",
+			"locale_id":"148",
+			"msgid":"Edit",
+			"msgstr":"Edit"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250732",
+			"locale_id":"148",
+			"msgid":"Edit Selected",
+			"msgstr":"Edit Selected"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250746",
+			"locale_id":"148",
+			"msgid":"Election Results",
+			"msgstr":"Election Results"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250779",
+			"locale_id":"148",
+			"msgid":"Emails",
+			"msgstr":"Emails"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250791",
+			"locale_id":"148",
+			"msgid":"Events",
+			"msgstr":"Events"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250733",
+			"locale_id":"148",
+			"msgid":"Export Selected",
+			"msgstr":"Export Selected"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250820",
+			"locale_id":"148",
+			"msgid":"Geographic Information",
+			"msgstr":"Geographic Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250819",
+			"locale_id":"148",
+			"msgid":"Geographical Information",
+			"msgstr":"Geographical Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250764",
+			"locale_id":"148",
+			"msgid":"Groups & Orgs",
+			"msgstr":"Groups & Orgs"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250795",
+			"locale_id":"148",
+			"msgid":"Groups & Orgs at this Address",
+			"msgstr":"Groups & Orgs At This Address"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250874",
+			"locale_id":"148",
+			"msgid":"HHs cat by Voter count",
+			"msgstr":"HHs cat by Voter count"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250771",
+			"locale_id":"148",
+			"msgid":"Had a Yard Sign",
+			"msgstr":"Had a Yard Sign"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250748",
+			"locale_id":"148",
+			"msgid":"Households",
+			"msgstr":"Households"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250866",
+			"locale_id":"148",
+			"msgid":"If someone is in-eligible to vote in this area, please uncheck",
+			"msgstr":"If someone is in-eligible to vote in this area, please uncheck"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250868",
+			"locale_id":"148",
+			"msgid":"If this person is a volunnteer, select what type of volunteer he is",
+			"msgstr":"If this person is a volunnteer, select what type of volunteer he is"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250786",
+			"locale_id":"148",
+			"msgid":"Incoming Calls",
+			"msgstr":"Incoming Calls"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250739",
+			"locale_id":"148",
+			"msgid":"Index",
+			"msgstr":"Index"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250763",
+			"locale_id":"148",
+			"msgid":"Individual",
+			"msgstr":"Individual"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250749",
+			"locale_id":"148",
+			"msgid":"Key Contacts",
+			"msgstr":"Key Contacts"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250797",
+			"locale_id":"148",
+			"msgid":"Key Contacts at this Address",
+			"msgstr":"Key Contacts At This Address"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250765",
+			"locale_id":"148",
+			"msgid":"Labour Unit",
+			"msgstr":"Labour Unit"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250816",
+			"locale_id":"148",
+			"msgid":"List",
+			"msgstr":"List"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250800",
+			"locale_id":"148",
+			"msgid":"List Information",
+			"msgstr":"List Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250751",
+			"locale_id":"148",
+			"msgid":"List Type",
+			"msgstr":"List Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250750",
+			"locale_id":"148",
+			"msgid":"Lists",
+			"msgstr":"Lists"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250803",
+			"locale_id":"148",
+			"msgid":"Mention different kind of candidate list",
+			"msgstr":"Mention different kind of candidate list"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250726",
+			"locale_id":"148",
+			"msgid":"More",
+			"msgstr":"More"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250798",
+			"locale_id":"148",
+			"msgid":"More Information",
+			"msgstr":"More Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250766",
+			"locale_id":"148",
+			"msgid":"NGO",
+			"msgstr":"NGO"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250812",
+			"locale_id":"148",
+			"msgid":"No promotional emails, transactional email will still be sent",
+			"msgstr":"No promotional emails, transactional email will still be sent"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250871",
+			"locale_id":"148",
+			"msgid":"Number of People",
+			"msgstr":"Number Of People"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250736",
+			"locale_id":"148",
+			"msgid":"Organisations",
+			"msgstr":"Organisations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250787",
+			"locale_id":"148",
+			"msgid":"Outgoing Calls",
+			"msgstr":"Outgoing Calls"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250742",
+			"locale_id":"148",
+			"msgid":"People",
+			"msgstr":"People"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250752",
+			"locale_id":"148",
+			"msgid":"People Canvasses",
+			"msgstr":"Household Canvasses"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250753",
+			"locale_id":"148",
+			"msgid":"People Current Canvass",
+			"msgstr":"Household Current Canvass"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250811",
+			"locale_id":"148",
+			"msgid":"People Information",
+			"msgstr":"Household Information"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250755",
+			"locale_id":"148",
+			"msgid":"People Lists",
+			"msgstr":"Household Lists"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250756",
+			"locale_id":"148",
+			"msgid":"People Organisations",
+			"msgstr":"Household Organisations"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250767",
+			"locale_id":"148",
+			"msgid":"People Under List",
+			"msgstr":"People Under List"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250794",
+			"locale_id":"148",
+			"msgid":"People at this Address",
+			"msgstr":"Peolpe At This Address"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250778",
+			"locale_id":"148",
+			"msgid":"Phone Numbers",
+			"msgstr":"Phone Numbers"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250814",
+			"locale_id":"148",
+			"msgid":"Polling Station",
+			"msgstr":"Polling Station"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250747",
+			"locale_id":"148",
+			"msgid":"Polling Stations",
+			"msgstr":"Polling Stations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250872",
+			"locale_id":"148",
+			"msgid":"Polling station for this household",
+			"msgstr":"Polling station for this household"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250761",
+			"locale_id":"148",
+			"msgid":"Recycle Bin",
+			"msgstr":"Recycle Bin"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250867",
+			"locale_id":"148",
+			"msgid":"Relate this person to a system user",
+			"msgstr":"Relate this person to a system user"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250789",
+			"locale_id":"148",
+			"msgid":"Related Info",
+			"msgstr":"Related Info"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250801",
+			"locale_id":"148",
+			"msgid":"Related Information",
+			"msgstr":"Related Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250790",
+			"locale_id":"148",
+			"msgid":"Related To",
+			"msgstr":"Related To"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250768",
+			"locale_id":"148",
+			"msgid":"Requests a Sign",
+			"msgstr":"Requests a Sign"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250788",
+			"locale_id":"148",
+			"msgid":"Sent Emails",
+			"msgstr":"Sent Emails"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250809",
+			"locale_id":"148",
+			"msgid":"Specifies type of canvass done ex. supporter",
+			"msgstr":"Specifies type of canvass done ex. supporter"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250784",
+			"locale_id":"148",
+			"msgid":"Specifies type of canvass done ex. supporter or had a sign",
+			"msgstr":"Specifies type of canvass done ex. supporter or had a sign"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250773",
+			"locale_id":"148",
+			"msgid":"Submit",
+			"msgstr":"Submit"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250770",
+			"locale_id":"148",
+			"msgid":"Supporter",
+			"msgstr":"Supporter"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250783",
+			"locale_id":"148",
+			"msgid":"Survey",
+			"msgstr":"Survey"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250757",
+			"locale_id":"148",
+			"msgid":"Survey Options",
+			"msgstr":"Survey Options"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250805",
+			"locale_id":"148",
+			"msgid":"System User",
+			"msgstr":"System User"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250815",
+			"locale_id":"148",
+			"msgid":"Tasks",
+			"msgstr":"Tasks"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250802",
+			"locale_id":"148",
+			"msgid":"Tasks Related to this List",
+			"msgstr":"Tasks Related To This List"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250817",
+			"locale_id":"148",
+			"msgid":"This is supervising volunteer for delivering this polling station",
+			"msgstr":"This is supervising volunteer for delivering this polling station"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250806",
+			"locale_id":"148",
+			"msgid":"Usually signifies a supporter",
+			"msgstr":"Usually signifies a supporter"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250737",
+			"locale_id":"148",
+			"msgid":"VRM",
+			"msgstr":"VRM"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250740",
+			"locale_id":"148",
+			"msgid":"View",
+			"msgstr":"View"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250758",
+			"locale_id":"148",
+			"msgid":"Volunteer Type",
+			"msgstr":"Volunteer Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250772",
+			"locale_id":"148",
+			"msgid":"Volunteers",
+			"msgstr":"Volunteers"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250793",
+			"locale_id":"148",
+			"msgid":"Votes Gained(%)",
+			"msgstr":"Votes Gained(%)"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250769",
+			"locale_id":"148",
+			"msgid":"Wants to Volunteer",
+			"msgstr":"Wants to Volunteer"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250759",
+			"locale_id":"148",
+			"msgid":"Wards",
+			"msgstr":"Wards"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250666",
+			"locale_id":"148",
+			"msgid":"\\",
+			"msgstr":"\\"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250695",
+			"locale_id":"148",
+			"msgid":"__contact_id",
+			"msgstr":"Contact"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250636",
+			"locale_id":"148",
+			"msgid":"__people_id",
+			"msgstr":"People"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250676",
+			"locale_id":"148",
+			"msgid":"__related_to",
+			"msgstr":"Related To"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250621",
+			"locale_id":"148",
+			"msgid":"_acl",
+			"msgstr":"Acl"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250622",
+			"locale_id":"148",
+			"msgid":"_acl_delete",
+			"msgstr":"Acl Delete"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250623",
+			"locale_id":"148",
+			"msgid":"_acl_edit",
+			"msgstr":"Acl Edit"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250624",
+			"locale_id":"148",
+			"msgid":"_acl_tmp",
+			"msgstr":"Acl Tmp"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250625",
+			"locale_id":"148",
+			"msgid":"_acl_tmp_delete",
+			"msgstr":"Acl Tmp Delete"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250626",
+			"locale_id":"148",
+			"msgid":"_acl_tmp_edit",
+			"msgstr":"Acl Tmp Edit"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250582",
+			"locale_id":"148",
+			"msgid":"access_key",
+			"msgstr":"Access Key"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250583",
+			"locale_id":"148",
+			"msgid":"accesskey",
+			"msgstr":"Accesskey"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250696",
+			"locale_id":"148",
+			"msgid":"account_id",
+			"msgstr":"Account"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250822",
+			"locale_id":"148",
+			"msgid":"account_type",
+			"msgstr":"Account Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250821",
+			"locale_id":"148",
+			"msgid":"account_type_domain_logic",
+			"msgstr":"Account Type Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250641",
+			"locale_id":"148",
+			"msgid":"address_line_1",
+			"msgstr":"Address Line 1"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250642",
+			"locale_id":"148",
+			"msgid":"address_line_2",
+			"msgstr":"Address Line 2"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250627",
+			"locale_id":"148",
+			"msgid":"age",
+			"msgstr":"Age"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250738",
+			"locale_id":"148",
+			"msgid":"app-menu",
+			"msgstr":"app-menu"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250705",
+			"locale_id":"148",
+			"msgid":"body",
+			"msgstr":"Body"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250667",
+			"locale_id":"148",
+			"msgid":"boundary_properties",
+			"msgstr":"Boundary Properties"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250873",
+			"locale_id":"148",
+			"msgid":"business_key",
+			"msgstr":"Business Key"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250716",
+			"locale_id":"148",
+			"msgid":"calendar_id",
+			"msgstr":"Calendar"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250634",
+			"locale_id":"148",
+			"msgid":"canvass_id",
+			"msgstr":"Canvass"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250635",
+			"locale_id":"148",
+			"msgid":"canvass_option_id",
+			"msgstr":"Canvass Option"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250824",
+			"locale_id":"148",
+			"msgid":"canvass_options",
+			"msgstr":"Canvass Options"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250823",
+			"locale_id":"148",
+			"msgid":"canvass_options_domain_logic",
+			"msgstr":"Canvass Options Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250664",
+			"locale_id":"148",
+			"msgid":"canvass_options_id",
+			"msgstr":"Canvass Options"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250826",
+			"locale_id":"148",
+			"msgid":"canvass_year",
+			"msgstr":"Canvass Year"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250825",
+			"locale_id":"148",
+			"msgid":"canvass_year_domain_logic",
+			"msgstr":"Canvass Year Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250688",
+			"locale_id":"148",
+			"msgid":"case_id",
+			"msgstr":"Case"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250689",
+			"locale_id":"148",
+			"msgid":"cases_id",
+			"msgstr":"Cases"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250628",
+			"locale_id":"148",
+			"msgid":"category",
+			"msgstr":"Category"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250643",
+			"locale_id":"148",
+			"msgid":"city",
+			"msgstr":"City"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250584",
+			"locale_id":"148",
+			"msgid":"company_id",
+			"msgstr":"Company"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250818",
+			"locale_id":"148",
+			"msgid":"contact information",
+			"msgstr":"Contact Information"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250697",
+			"locale_id":"148",
+			"msgid":"contact_id",
+			"msgstr":"Contact"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250698",
+			"locale_id":"148",
+			"msgid":"contact_id_model",
+			"msgstr":"Contact Id Model"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250690",
+			"locale_id":"148",
+			"msgid":"content",
+			"msgstr":"Content"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250870",
+			"locale_id":"148",
+			"msgid":"count",
+			"msgstr":"Count"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250644",
+			"locale_id":"148",
+			"msgid":"country",
+			"msgstr":"Country"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250677",
+			"locale_id":"148",
+			"msgid":"country_id",
+			"msgstr":"Country"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250722",
+			"locale_id":"148",
+			"msgid":"country_name",
+			"msgstr":"Country Name"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250572",
+			"locale_id":"148",
+			"msgid":"created",
+			"msgstr":"Created"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250573",
+			"locale_id":"148",
+			"msgid":"created_by",
+			"msgstr":"Created By"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250673",
+			"locale_id":"148",
+			"msgid":"currency_code",
+			"msgstr":"Currency Code"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250585",
+			"locale_id":"148",
+			"msgid":"currency_id",
+			"msgstr":"Currency"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250674",
+			"locale_id":"148",
+			"msgid":"currency_name",
+			"msgstr":"Currency Name"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250675",
+			"locale_id":"148",
+			"msgid":"currency_symbol",
+			"msgstr":"Currency Symbol"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250828",
+			"locale_id":"148",
+			"msgid":"current_canvass_options",
+			"msgstr":"Current Canvass Options"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250827",
+			"locale_id":"148",
+			"msgid":"current_canvass_options_domain_logic",
+			"msgstr":"Current Canvass Options Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250574",
+			"locale_id":"148",
+			"msgid":"deleted",
+			"msgstr":"Deleted"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250586",
+			"locale_id":"148",
+			"msgid":"department",
+			"msgstr":"Department"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250587",
+			"locale_id":"148",
+			"msgid":"description",
+			"msgstr":"Description"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250686",
+			"locale_id":"148",
+			"msgid":"do_not_call",
+			"msgstr":"Do Not Call"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250645",
+			"locale_id":"148",
+			"msgid":"donor",
+			"msgstr":"Donor"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250830",
+			"locale_id":"148",
+			"msgid":"donors",
+			"msgstr":"Donors"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250829",
+			"locale_id":"148",
+			"msgid":"donors_domain_logic",
+			"msgstr":"Donors Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250691",
+			"locale_id":"148",
+			"msgid":"duration",
+			"msgstr":"Duration"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250799",
+			"locale_id":"148",
+			"msgid":"eg. Calling or Door Knocking",
+			"msgstr":"eg. Calling or Door Knocking"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250832",
+			"locale_id":"148",
+			"msgid":"election_results",
+			"msgstr":"Election Results"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250831",
+			"locale_id":"148",
+			"msgid":"election_results_domain_logic",
+			"msgstr":"Election Results Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250710",
+			"locale_id":"148",
+			"msgid":"election_year",
+			"msgstr":"Election Year"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250685",
+			"locale_id":"148",
+			"msgid":"email",
+			"msgstr":"Email"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250629",
+			"locale_id":"148",
+			"msgid":"email_opt_out",
+			"msgstr":"Email Opt Out"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250588",
+			"locale_id":"148",
+			"msgid":"enable_debug_mode",
+			"msgstr":"Enable Debug Mode"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250589",
+			"locale_id":"148",
+			"msgid":"enable_logger",
+			"msgstr":"Enable Logger"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250717",
+			"locale_id":"148",
+			"msgid":"end",
+			"msgstr":"End"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250706",
+			"locale_id":"148",
+			"msgid":"error_message",
+			"msgstr":"Error Message"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250630",
+			"locale_id":"148",
+			"msgid":"ethnicity",
+			"msgstr":"Ethnicity"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250709",
+			"locale_id":"148",
+			"msgid":"event_id",
+			"msgstr":"Event"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250590",
+			"locale_id":"148",
+			"msgid":"ext",
+			"msgstr":"Ext"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250591",
+			"locale_id":"148",
+			"msgid":"fax",
+			"msgstr":"Fax"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250592",
+			"locale_id":"148",
+			"msgid":"first_name",
+			"msgstr":"First Name"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250575",
+			"locale_id":"148",
+			"msgid":"flags",
+			"msgstr":"Flags"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250593",
+			"locale_id":"148",
+			"msgid":"force_password_reset_on_login",
+			"msgstr":"Force Password Reset On Login"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250631",
+			"locale_id":"148",
+			"msgid":"gender",
+			"msgstr":"Gender"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250646",
+			"locale_id":"148",
+			"msgid":"geocode_status",
+			"msgstr":"Geocode Status"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250647",
+			"locale_id":"148",
+			"msgid":"geocode_type",
+			"msgstr":"Geocode Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250668",
+			"locale_id":"148",
+			"msgid":"geometric_boundary",
+			"msgstr":"Geometric Boundary"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250665",
+			"locale_id":"148",
+			"msgid":"group_id",
+			"msgstr":"Group"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250648",
+			"locale_id":"148",
+			"msgid":"has_a_yard_sign",
+			"msgstr":"Has A Yard Sign"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250594",
+			"locale_id":"148",
+			"msgid":"hash_key",
+			"msgstr":"Hash Key"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250649",
+			"locale_id":"148",
+			"msgid":"home_email",
+			"msgstr":"Home Email"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250595",
+			"locale_id":"148",
+			"msgid":"home_page",
+			"msgstr":"Home Page"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250650",
+			"locale_id":"148",
+			"msgid":"home_phone",
+			"msgstr":"Home Phone"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250596",
+			"locale_id":"148",
+			"msgid":"hour_format",
+			"msgstr":"Hour Format"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250834",
+			"locale_id":"148",
+			"msgid":"households",
+			"msgstr":"Households"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250833",
+			"locale_id":"148",
+			"msgid":"households_domain_logic",
+			"msgstr":"Households Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250576",
+			"locale_id":"148",
+			"msgid":"id",
+			"msgstr":"Id"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250678",
+			"locale_id":"148",
+			"msgid":"imported",
+			"msgstr":"Imported"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250679",
+			"locale_id":"148",
+			"msgid":"imported_by",
+			"msgstr":"Imported By"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250597",
+			"locale_id":"148",
+			"msgid":"is_active",
+			"msgstr":"Is Active"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250723",
+			"locale_id":"148",
+			"msgid":"iso2",
+			"msgstr":"Iso2"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250724",
+			"locale_id":"148",
+			"msgid":"iso3",
+			"msgstr":"Iso3"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250836",
+			"locale_id":"148",
+			"msgid":"key_contacts",
+			"msgstr":"Key Contacts"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250835",
+			"locale_id":"148",
+			"msgid":"key_contacts_domain_logic",
+			"msgstr":"Key Contacts Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250598",
+			"locale_id":"148",
+			"msgid":"last_name",
+			"msgstr":"Last Name"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250651",
+			"locale_id":"148",
+			"msgid":"latitude",
+			"msgstr":"Latitude"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250720",
+			"locale_id":"148",
+			"msgid":"lattitude",
+			"msgstr":"Lattitude"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250715",
+			"locale_id":"148",
+			"msgid":"list_id",
+			"msgstr":"List"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250840",
+			"locale_id":"148",
+			"msgid":"list_type",
+			"msgstr":"List Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250839",
+			"locale_id":"148",
+			"msgid":"list_type_domain_logic",
+			"msgstr":"List Type Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250714",
+			"locale_id":"148",
+			"msgid":"list_type_id",
+			"msgstr":"List Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250838",
+			"locale_id":"148",
+			"msgid":"lists",
+			"msgstr":"Lists"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250837",
+			"locale_id":"148",
+			"msgid":"lists_domain_logic",
+			"msgstr":"Lists Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250599",
+			"locale_id":"148",
+			"msgid":"locale",
+			"msgstr":"Locale"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250652",
+			"locale_id":"148",
+			"msgid":"location_type",
+			"msgstr":"Location Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250653",
+			"locale_id":"148",
+			"msgid":"longitude",
+			"msgstr":"Longitude"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250813",
+			"locale_id":"148",
+			"msgid":"mention nationality of a person eg. indian or american",
+			"msgstr":"mention nationality of a person eg. indian or american"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250600",
+			"locale_id":"148",
+			"msgid":"mobile_home_page",
+			"msgstr":"Mobile Home Page"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250577",
+			"locale_id":"148",
+			"msgid":"modified",
+			"msgstr":"Modified"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250578",
+			"locale_id":"148",
+			"msgid":"modified_by",
+			"msgstr":"Modified By"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250579",
+			"locale_id":"148",
+			"msgid":"name",
+			"msgstr":"Name"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250692",
+			"locale_id":"148",
+			"msgid":"note_category_id",
+			"msgstr":"Note Category"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250693",
+			"locale_id":"148",
+			"msgid":"note_no",
+			"msgstr":"Note No"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250687",
+			"locale_id":"148",
+			"msgid":"number",
+			"msgstr":"Number"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250654",
+			"locale_id":"148",
+			"msgid":"office_email",
+			"msgstr":"Office Email"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250655",
+			"locale_id":"148",
+			"msgid":"office_phone",
+			"msgstr":"Office Phone"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250721",
+			"locale_id":"148",
+			"msgid":"organisation_id",
+			"msgstr":"Organisation"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250632",
+			"locale_id":"148",
+			"msgid":"organisation_type_id",
+			"msgstr":"Organisation Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250842",
+			"locale_id":"148",
+			"msgid":"organisations",
+			"msgstr":"Organisations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250841",
+			"locale_id":"148",
+			"msgid":"organisations_domain_logic",
+			"msgstr":"Organisations Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250580",
+			"locale_id":"148",
+			"msgid":"owned_by",
+			"msgstr":"Owned By"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250601",
+			"locale_id":"148",
+			"msgid":"parent_id",
+			"msgstr":"Parent"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250852",
+			"locale_id":"148",
+			"msgid":"people",
+			"msgstr":"People"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250844",
+			"locale_id":"148",
+			"msgid":"people_canvasses",
+			"msgstr":"People Canvasses"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250843",
+			"locale_id":"148",
+			"msgid":"people_canvasses_domain_logic",
+			"msgstr":"People Canvasses Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250846",
+			"locale_id":"148",
+			"msgid":"people_current_canvass",
+			"msgstr":"People Current Canvass"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250845",
+			"locale_id":"148",
+			"msgid":"people_current_canvass_domain_logic",
+			"msgstr":"People Current Canvass Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250847",
+			"locale_id":"148",
+			"msgid":"people_domain_logic",
+			"msgstr":"People Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250637",
+			"locale_id":"148",
+			"msgid":"people_id",
+			"msgstr":"People"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250638",
+			"locale_id":"148",
+			"msgid":"people_id_model",
+			"msgstr":"People Id Model"
+		},
+		{
+			"description":"",
+			"en_msgstr":null,
+			"id":"250865",
+			"locale_id":"148",
+			"msgid":"people_list",
+			"msgstr":"People"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250849",
+			"locale_id":"148",
+			"msgid":"people_lists",
+			"msgstr":"People Lists"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250848",
+			"locale_id":"148",
+			"msgid":"people_lists_domain_logic",
+			"msgstr":"People Lists Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250851",
+			"locale_id":"148",
+			"msgid":"people_organisations",
+			"msgstr":"People Organisations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250850",
+			"locale_id":"148",
+			"msgid":"people_organisations_domain_logic",
+			"msgstr":"People Organisations Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250656",
+			"locale_id":"148",
+			"msgid":"personal_contact",
+			"msgstr":"Personal Contact"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250856",
+			"locale_id":"148",
+			"msgid":"polling_station",
+			"msgstr":"Polling Station"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250853",
+			"locale_id":"148",
+			"msgid":"polling_station_domain_logic",
+			"msgstr":"Polling Station Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250669",
+			"locale_id":"148",
+			"msgid":"polling_station_id",
+			"msgstr":"Polling Station"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250855",
+			"locale_id":"148",
+			"msgid":"polling_station_informations",
+			"msgstr":"Polling Station Informations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250854",
+			"locale_id":"148",
+			"msgid":"polling_station_informations_domain_logic",
+			"msgstr":"Polling Station Informations Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250858",
+			"locale_id":"148",
+			"msgid":"polling_stations",
+			"msgstr":"Polling Stations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250857",
+			"locale_id":"148",
+			"msgid":"polling_stations_domain_logic",
+			"msgstr":"Polling Stations Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250633",
+			"locale_id":"148",
+			"msgid":"polling_stations_id",
+			"msgstr":"Polling Stations"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250707",
+			"locale_id":"148",
+			"msgid":"primary_acl_group",
+			"msgstr":"Primary Acl Group"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250602",
+			"locale_id":"148",
+			"msgid":"primary_address_line_1",
+			"msgstr":"Primary Address Line 1"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250603",
+			"locale_id":"148",
+			"msgid":"primary_address_line_2",
+			"msgstr":"Primary Address Line 2"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250604",
+			"locale_id":"148",
+			"msgid":"primary_city",
+			"msgstr":"Primary City"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250605",
+			"locale_id":"148",
+			"msgid":"primary_country",
+			"msgstr":"Primary Country"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250606",
+			"locale_id":"148",
+			"msgid":"primary_state",
+			"msgstr":"Primary State"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250670",
+			"locale_id":"148",
+			"msgid":"primary_volunteer_id",
+			"msgstr":"Primary Volunteer"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250607",
+			"locale_id":"148",
+			"msgid":"primary_zip",
+			"msgstr":"Primary Zip"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250718",
+			"locale_id":"148",
+			"msgid":"priorities",
+			"msgstr":"Priorities"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250699",
+			"locale_id":"148",
+			"msgid":"priority_id",
+			"msgstr":"Priority"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250700",
+			"locale_id":"148",
+			"msgid":"product_id",
+			"msgstr":"Product"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250608",
+			"locale_id":"148",
+			"msgid":"region_id",
+			"msgstr":"Region"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250680",
+			"locale_id":"148",
+			"msgid":"related_to",
+			"msgstr":"Related To"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250681",
+			"locale_id":"148",
+			"msgid":"related_to_model",
+			"msgstr":"Related To Model"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250703",
+			"locale_id":"148",
+			"msgid":"related_to_model_class_name",
+			"msgstr":"Related To Model Class Name"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250609",
+			"locale_id":"148",
+			"msgid":"reset_password_token",
+			"msgstr":"Reset Password Token"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250610",
+			"locale_id":"148",
+			"msgid":"reset_password_token_created",
+			"msgstr":"Reset Password Token Created"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250581",
+			"locale_id":"148",
+			"msgid":"revision",
+			"msgstr":"Revision"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250611",
+			"locale_id":"148",
+			"msgid":"salutation",
+			"msgstr":"Salutation"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250612",
+			"locale_id":"148",
+			"msgid":"signature",
+			"msgstr":"Signature"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250613",
+			"locale_id":"148",
+			"msgid":"skin",
+			"msgstr":"Skin"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250614",
+			"locale_id":"148",
+			"msgid":"src",
+			"msgstr":"Src"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250719",
+			"locale_id":"148",
+			"msgid":"start",
+			"msgstr":"Start"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250694",
+			"locale_id":"148",
+			"msgid":"start_date",
+			"msgstr":"Start Date"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250657",
+			"locale_id":"148",
+			"msgid":"state",
+			"msgstr":"State"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250682",
+			"locale_id":"148",
+			"msgid":"state_id",
+			"msgstr":"State"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250615",
+			"locale_id":"148",
+			"msgid":"status",
+			"msgstr":"Status"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250701",
+			"locale_id":"148",
+			"msgid":"status_id",
+			"msgstr":"Status"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250708",
+			"locale_id":"148",
+			"msgid":"subject",
+			"msgstr":"Subject"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250639",
+			"locale_id":"148",
+			"msgid":"survey",
+			"msgstr":"Survey"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250860",
+			"locale_id":"148",
+			"msgid":"survey_options",
+			"msgstr":"Survey Options"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250859",
+			"locale_id":"148",
+			"msgid":"survey_options_domain_logic",
+			"msgstr":"Survey Options Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250658",
+			"locale_id":"148",
+			"msgid":"system_user",
+			"msgstr":"System User"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250704",
+			"locale_id":"148",
+			"msgid":"tag_id",
+			"msgstr":"Tag"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250776",
+			"locale_id":"148",
+			"msgid":"tag_list",
+			"msgstr":"Tag List"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250725",
+			"locale_id":"148",
+			"msgid":"task_id",
+			"msgstr":"Task"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250616",
+			"locale_id":"148",
+			"msgid":"theme",
+			"msgstr":"Theme"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250617",
+			"locale_id":"148",
+			"msgid":"time_zone",
+			"msgstr":"Time Zone"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250618",
+			"locale_id":"148",
+			"msgid":"title",
+			"msgstr":"Title"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250711",
+			"locale_id":"148",
+			"msgid":"total_votes",
+			"msgstr":"Total Votes"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250683",
+			"locale_id":"148",
+			"msgid":"type",
+			"msgstr":"Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250702",
+			"locale_id":"148",
+			"msgid":"type_id",
+			"msgstr":"Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250659",
+			"locale_id":"148",
+			"msgid":"user_id",
+			"msgstr":"User"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250619",
+			"locale_id":"148",
+			"msgid":"user_name",
+			"msgstr":"User Name"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250620",
+			"locale_id":"148",
+			"msgid":"user_password",
+			"msgstr":"User Password"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250660",
+			"locale_id":"148",
+			"msgid":"volunteer",
+			"msgstr":"Volunteer"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250671",
+			"locale_id":"148",
+			"msgid":"volunteer_id",
+			"msgstr":"Volunteer"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250661",
+			"locale_id":"148",
+			"msgid":"volunteer_type",
+			"msgstr":"Volunteer Type"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250861",
+			"locale_id":"148",
+			"msgid":"volunteer_type_domain_logic",
+			"msgstr":"Volunteer Type Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250662",
+			"locale_id":"148",
+			"msgid":"voter",
+			"msgstr":"Voter"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250712",
+			"locale_id":"148",
+			"msgid":"votes_gained",
+			"msgstr":"Votes Gained"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250713",
+			"locale_id":"148",
+			"msgid":"votes_gained_percent",
+			"msgstr":"Votes Gained Percent"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250864",
+			"locale_id":"148",
+			"msgid":"vrm",
+			"msgstr":"Vrm"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250672",
+			"locale_id":"148",
+			"msgid":"ward_id",
+			"msgstr":"Ward"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250863",
+			"locale_id":"148",
+			"msgid":"wards",
+			"msgstr":"Wards"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250862",
+			"locale_id":"148",
+			"msgid":"wards_domain_logic",
+			"msgstr":"Wards Domain Logic"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250640",
+			"locale_id":"148",
+			"msgid":"year",
+			"msgstr":"Year"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250684",
+			"locale_id":"148",
+			"msgid":"zip",
+			"msgstr":"Zip"
+		},
+		{
+			"description":null,
+			"en_msgstr":null,
+			"id":"250663",
+			"locale_id":"148",
+			"msgid":"zip_code",
+			"msgstr":"Zip Code"
+		}
+	]
+}

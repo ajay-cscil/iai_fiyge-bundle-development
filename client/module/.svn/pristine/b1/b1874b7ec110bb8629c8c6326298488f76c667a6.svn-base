@@ -1,0 +1,907 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\cloud\controller;
+
+class instances_domain_logic extends \tushar\controller {
+
+    public function upgrade($request) {
+        if (!is_array($request->data)) {
+            $request->data = array();
+        }
+        $id = $this->id($request);
+        $request->data['action'] = array('reload' => 'reload');
+        $upgradeToVersion = null;
+        if (!empty($request->data) && isset($request->data['instances'])) {
+            $upgradeToVersion = $request->data['instances']['version'];
+            if (empty($upgradeToVersion)) {
+                \tushar\model::$errors[] = __("Select version to be upgraded to", "module");
+            }
+        }
+        if (empty($upgradeToVersion) || !empty(\tushar\model::$errors)) {
+            $this->render = 'edit';
+            $this->form = 'upgrade_instance';
+            parent::edit($request);
+        }
+        $availableVersions = array();
+        $versionRoot = dirname(ROOT);
+        foreach (scandir($versionRoot) as $version) {
+            if ($version{0} != "." && $version{0} == "m") {
+                $availableVersions[] = array('text' => $version, 'value' => $version);
+            }
+        }
+        $request->set('available_versions', $availableVersions);
+        $request->set('version', $upgradeToVersion);
+        $request->set('id', $id);
+    }
+
+    public function upgrade_progress($request) {
+        $id = $this->id($request);
+        $version = $request->get('version');
+        $path = dirname(ROOT) . DS . $version;
+        $instanceObject = $this->modelObj();
+        $instance = current($instanceObject->read($id, false));
+        $connections = array();
+        $request->push(sprintf(__('START')));
+        $domainName = $instance['domain_name'];
+        /**
+         * Build connections file.
+         */
+        foreach ($instance as $key => $value) {
+            if (stripos($key, '_database') !== false) {
+                $source = str_replace('_database', '', $key);
+                $connections[$source] = array_merge(array('driver' => 'mysql'), array(
+                    'host' => $instance['db_host'],
+                    'port' => $instance['db_port'],
+                    'login' => $instance['db_login'],
+                    'password' => $instance['db_password'],
+                    'driver' => $instance['db_driver'],
+                    'database' => $value
+                ));
+            }
+        }
+        foreach ($connections as $connection => $info) {
+            \tushar\connection::write("{$domainName}_" . $connection, $info);
+        }
+        $request->push(sprintf(__('Updating schema changes for following installed modules...')));
+        $importModulesClassObject = \tushar\model::getInstance(array('source' => "{$domainName}_design", 'table' => 'development_base__modules', 'db' => $connections['design']['database'], 'alias' => 'modules'));
+        $installedModules = select('name')->from($importModulesClassObject)->inserted()->limit(0)->where('is_installed', 1)->execute()->fetchAll(\PDO::FETCH_COLUMN);
+        $installedModules = array_diff($installedModules, array('admin_module_installer'));
+// read model JSON
+        foreach (array($path . DS . 'maax' . DS . 'module', $path . DS . 'app1' . DS . 'module') as $moduleroot) {
+            foreach (scandir($moduleroot) as $module) {
+                if ($module{0} != "." && in_array($module, $installedModules)) {
+                    $request->push(sprintf(__('%s'), $module));
+                    $modelsPath = $moduleroot . DS . $module . DS . 'install' . DS . 'models';
+                    foreach (scandir($modelsPath) as $modelPath) {
+                        $jsonPath = $modelsPath . DS . $modelPath;
+                        $models = json_decode(file_get_contents($jsonPath), true);
+                        if (isset($models) && is_array($models)) {
+                            foreach ($models as $model => $modelInfo) {
+                                if (is_array($modelInfo) && isset($modelInfo['model_class'])) {
+                                    $importModelClassParts = explode(NS, $modelInfo['model_class']);
+                                    if (in_array($importModelClassParts[4], array('table_comments', 'db_session_handler', 'acos', 'aros', 'acos_aros', 'design_acl'))) {
+                                        continue;
+                                    }
+                                    $importModelClassFile = $moduleroot . DS . $module . DS . 'model' . DS . $importModelClassParts[4] . ".php";
+                                    $importModelClassFileContent = file_get_contents($importModelClassFile);
+                                    $matches = array();
+                                    preg_match('/public \$source.*/', $importModelClassFileContent, $matches);
+                                    $source = null;
+                                    if (isset($matches[0])) {
+                                        $source = explode("'", $matches[0]);
+                                        if (isset($source[2])) {
+                                            $source = $source[1];
+                                        } else {
+                                            $source = explode('"', $matches[0]);
+                                            if (isset($source[2])) {
+                                                $source = $source[1];
+                                            } else {
+                                                $source = null;
+                                            }
+                                        }
+                                    }
+
+                                    $tableMatch = array();
+                                    preg_match('/public \$table.*/', $importModelClassFileContent, $tableMatch);
+                                    $table = null;
+                                    if (isset($tableMatch[0])) {
+                                        $table = explode("'", $tableMatch[0]);
+                                        if (isset($table[2])) {
+                                            $table = $table[1];
+                                        } else {
+                                            $table = explode('"', $tableMatch[0]);
+                                            if (isset($table[2])) {
+                                                $table = $table[1];
+                                            } else {
+                                                $table = '';
+                                            }
+                                        }
+                                    }
+                                    if (empty($source) || empty($table)) {
+                                        continue;
+                                    }
+
+
+                                    if (empty($source) || !isset($connections[$source])) {
+                                        continue;
+                                    }
+                                    $importModelClassObject = \tushar\model::getInstance(array('source' => "{$domainName}_{$source}", 'table' => $table, 'db' => $connections[$source]['database'], 'alias' => $importModelClassParts[4]));
+                                    try {
+                                        $action = 'add';
+                                        if (isset($modelInfo['schema'])) {
+                                            $schema = $modelInfo['schema'];
+                                            if (!empty($schema)) {
+                                                try {
+                                                    // In case table already created/populated then ignore it.
+                                                    \select('*')->from($importModelClassObject)->limit(1)->execute();
+                                                    $action = 'edit';
+                                                } catch (\Exception $e) {
+                                                    
+                                                }
+                                                if ($action === 'add') {
+                                                    if (isset($schema['auto_increment'])) {
+                                                        $schema['auto_increment'] = 1;
+                                                    }
+                                                    if (!isset($schema['schema']['columns']['is_demo_data'])) {
+                                                        $schema['schema']['columns']['is_demo_data'] = array('action' => 'add', 'null' => 'NO', 'default' => 0, 'length' => '1', 'ntype' => 'int');
+                                                    }
+                                                } else if ($action === 'edit') {
+                                                    $modelSchema = $importModelClassObject->schema(false, false, false);
+                                                    if (empty($modelSchema)) {
+                                                        continue;
+                                                    }
+                                                    // add columns
+                                                    $columns = array();
+                                                    if (isset($schema['schema']) && isset($schema['schema']['columns'])) {
+                                                        foreach (\array_diff_key($schema['schema']['columns'], $modelSchema) as $col => $colInfo) {
+                                                            $colInfo['action'] = 'add';
+                                                            $columns[$col] = $colInfo;
+                                                        }
+                                                        // update columns
+                                                        foreach (\array_intersect_key($schema['schema']['columns'], $modelSchema) as $col => $colInfo) {
+                                                            if ($colInfo['length'] != $modelSchema[$col]['length'] ||
+                                                                    $colInfo['ntype'] != $modelSchema[$col]['ntype'] ||
+                                                                    $colInfo['null'] != $modelSchema[$col]['null']
+                                                            ) {
+                                                                $colInfo['old_name'] = $col;
+                                                                $colInfo['action'] = 'edit';
+                                                                $columns[$col] = $colInfo;
+                                                            }
+                                                        }
+                                                        //!$importModelClassObject->isSystemModel() && 
+                                                        if (!isset($modelSchema['is_demo_data'])) {
+                                                            $columns['is_demo_data'] = array('action' => 'add', 'null' => 'NO', 'default' => 0, 'length' => '1', 'ntype' => 'int');
+                                                        }
+                                                    }
+                                                    if (!empty($columns)) {
+                                                        $schema['schema']['columns'] = $columns;
+                                                    } else {
+                                                        continue;
+                                                    }
+                                                }
+                                                $schema['db'] = $importModelClassObject->db;
+                                                if ($action === 'edit') {
+                                                    $request->push('&nbsp;&nbsp;' . sprintf(__('Upgrading table for model %s'), $importModelClassObject->alias));
+                                                } else {
+                                                    $request->push('&nbsp;&nbsp;' . sprintf(__('Creating table for model %s'), $importModelClassObject->alias));
+                                                }
+                                                \tushar\source::getInstance($importModelClassObject->source)->table($action, $schema);
+                                            }
+                                        }
+                                    } catch (\Exception $e) {
+                                        $request->pushError(sprintf(__('Failed %s of table schema for model %s, %s'), ($action == "add" ? 'creation' : 'update'), $importModelClassObject->alias, $e->getMessage()));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //exit;
+        $request->push(sprintf(__('END')));
+        exit;
+    }
+
+    function add($request) {
+        \tushar\configuration::write('debug', false);
+        $instances = array();
+        if ($request->is('post') && isset($request->data['instances'])) {
+            $instances = &$request->data['instances'];
+            if (isset($instances['name']) && !isset($instances['first_name'])) {
+                $name = \explode(' ', $instances['name']);
+                $instances['first_name'] = \array_shift($name);
+                $instances['last_name'] = \implode(' ', $name);
+                if (empty($instances['last_name'])) {
+                    $instances['last_name'] = '...';
+                }
+            }
+            if (!isset($instances['name']) && isset($instances['first_name'])) {
+                $instances['name'] = $instances['first_name'] . " " . $instances['last_name'];
+            }
+        }
+        $return = parent::add($request);
+        if ($request->is('post')) {
+            if ($this->saveHandlerOutput) {
+                $request->setMsg(\sprintf(__('Instance created successfully', 'module')), true);
+                if (
+                        !empty($instances) &&
+                        isset($instances['form_name']) &&
+                        $instances['form_name'] == 'trial' &&
+                        isset($instances['domain_name'])
+                ) {
+                    if ($request->ext == 'json') {
+
+                        ignore_user_abort(true); // optional
+                        header("Connection: close");
+                        if (ob_get_level() == 0) {
+                            ob_start();
+                        }
+                        header('Content-Type:application/json');
+                        $response = $request->response;
+                        $response['schema'] = null;
+                        $response['model_associations'] = null;
+                        $response['filterRules'] = null;
+                        $response['form'] = null;
+
+                        $response['user_id'] = \tushar\user::read('id');
+                        $response['user_fullname'] = \tushar\user::read('name');
+                        $response['message'] = $request->getMsg(true);
+                        $response['errors'] = \tushar\model::$errors;
+                        $response['data'] = $request->response('data');
+                        if (empty($response['data'])) {
+                            $response['data'] = $request->data;
+                        }
+                        $request->jsonp(json_encode($response));
+                        $size = ob_get_length();
+                        header("Content-Length: $size");
+                        ob_flush();
+                        flush();
+                        session_write_close();
+                        //exit;
+                    }
+                    $modelObj = $this->modelObj();
+                    $instances['id'] = $modelObj->id;
+                    $return = $this->deploy($request, $instances);
+                    //list($return, $response) = $rt;
+                    if ($request->ext == 'json') {
+                        exit(0);
+                    }
+                }
+            } else {
+                $request->setMsg(\sprintf(__('Lead could not be created', 'module')), true);
+            }
+        }
+        return $return;
+    }
+
+    public function setup_new_instance($request) {
+        $modelObj = $this->modelObj();
+        $id = $this->id($request);
+        $request->set('id', $id);
+        $this->render = 'comet';
+        $request->set('title', __('Setup Instance'));
+        $request->set('pull_request_url', "{$request->module}/{$request->controller}/setup_new_instance_progress?id={$id}");
+    }
+
+    public function setup_new_instance_progress($request) {
+        set_time_limit(0);
+        $modelObj = $this->modelObj();
+        $id = $this->id($request);
+        $request->push(sprintf(__('Start')));
+        $request->push(sprintf(__('Searching record %s'), $id));
+        $instances = \current($modelObj->read($id, false));
+        if (!empty($instances)) {
+            $request->push(sprintf(__('Instance is being created... This may take 2-5 minutes...'), $id));
+            $instances['manual_instance_setup'] = 1;
+            
+            $return = $this->deploy($request, $instances);
+            /*
+            list($return, $response) = $rt;
+            if (is_array($response)) {
+                foreach ($response as $res) {
+                    $request->push($res);
+                }
+            }
+            */
+            if ($return) {
+                $request->push(sprintf(__('Instance is created successfuly'), $id));
+            } else {
+                $request->push(sprintf(__('Instance could not be created'), $id));
+            }
+        } else {
+            $request->push(sprintf(__('Could not find record "%s"'), $id));
+        }
+        $request->push(sprintf(__('End')));
+        exit;
+    }
+
+    private function deploy($request, $instance) {
+        set_time_limit(500);
+        $response = array();
+        $modelObj = $this->modelObj();
+        $manualInstanceSetup = isset($instances['manual_instance_setup']);
+        $return = false;
+        if (isset($instance['domain_name']) && !empty($instance['domain_name'])) {
+            $instanceID = $instance['id'];
+            $maaxInstanceSetup = array('domain_url' => \tushar\configuration::read('new_instance_domain_url'));
+
+            $preInstallEmail = \module\core\model\email_templates::getInstance()->template('pre_install_email', 'cloud/instances');
+            $maaxInstanceSetup['pre_install_email'] = array('email_subject' => $preInstallEmail['name'], 'email_body' => $preInstallEmail['content']);
+            $postInstallEmail = \module\core\model\email_templates::getInstance()->template('post_install_email', 'cloud/instances');
+            $maaxInstanceSetup['post_install_email'] = array('email_subject' => $postInstallEmail['name'], 'email_body' => $postInstallEmail['content']);
+
+
+            $cloudManagerEmail = \tushar\configuration::read('cloud_manager_email');
+            $managerNotification = array();
+            if (!empty($cloudManagerEmail)) {
+                $notificationEmail = \module\core\model\email_templates::getInstance()->template('cloud_manager_notification', 'cloud/instances');
+                $managerNotification = array('email_subject' => $notificationEmail['name'], 'email_body' => $notificationEmail['content'], 'email_to_recipients' => $cloudManagerEmail);
+            }
+
+
+            $maaxInstanceSetupDefault = array('pre_install_email' => array(), 'post_install_email' => array());
+            if (!is_array($maaxInstanceSetup)) {
+                $maaxInstanceSetup = array();
+            }
+
+            $maaxInstanceSetup = array_merge(array_diff_key($maaxInstanceSetupDefault, $maaxInstanceSetup), $maaxInstanceSetup);
+
+            // Pre Install Email.
+            $userID = \tushar\user::read('id');
+
+            if (!empty($maaxInstanceSetup['pre_install_email'])) {
+                $instance1 = array_merge($instance, array_diff_key($maaxInstanceSetup, $maaxInstanceSetupDefault), $maaxInstanceSetup['pre_install_email']);
+                $email = array();
+                if (empty($userID)) {
+                    $email['from_name'] = \tushar\configuration::read('administrator_name');
+                    $email['from_email'] = \tushar\configuration::read('administrator_email');
+                }
+                $email['email_to_recipients'] = $instance['office_email'];
+                $email['subject'] = (isset($instance1['email_subject']) && !empty($instance1['email_subject']) ? $instance1['email_subject'] : "Maaxframe Signup");
+                $email['body'] = "Thanks for signing up with maaxframe.com";
+                if (isset($instance1['email_body']) && !empty($instance1['email_body'])) {
+                    $email['body'] = $instance1['email_body'];
+                }
+                $array = \tushar\string::split($email['body'], array("merge_words" => "/\{\{[\.\w\-]*\}\}/i"));
+                list($strings, $extracts) = $array;
+                if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+                    $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+                    $extracts['merge_words'] = \tushar\string::populateWords($extracts['merge_words'], $instance1);
+                    $email['body'] = \tushar\string::merge($strings, $extracts);
+                }
+                if ($manualInstanceSetup) {
+                    $email = \module\activities\model\emails::getInstance()->saveAndSend($email, array('atomic' => true, 'validate' => false));
+                    $request->push(sprintf(__('%s pre-install email to "%s"'), $email['status'], $instance['office_email']));
+                }
+            }
+
+            if (!empty($notificationEmail)) {
+                $email = array();
+                if (empty($userID)) {
+                    $email['from_name'] = \tushar\configuration::read('administrator_name');
+                    $email['from_email'] = \tushar\configuration::read('administrator_email');
+                }
+                $email['email_to_recipients'] = $managerNotification['email_to_recipients'];
+                $email['subject'] = (isset($managerNotification['email_subject']) && !empty($managerNotification['email_subject']) ? $managerNotification['email_subject'] : "New Maaxframe Signup");
+                $email['body'] = "New client has registered on na.maaxframe.com/console";
+                if (isset($managerNotification['email_body']) && !empty($managerNotification['email_body'])) {
+                    $email['body'] = $managerNotification['email_body'];
+                }
+                $array = \tushar\string::split($email['body'], array("merge_words" => "/\{\{[\.\w\-]*\}\}/i"));
+                list($strings, $extracts) = $array;
+                if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+                    $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+                    $extracts['merge_words'] = \tushar\string::populateWords($extracts['merge_words'], $instance);
+                    $email['body'] = \tushar\string::merge($strings, $extracts);
+                }
+                if ($manualInstanceSetup == false) {
+                    $email = \module\activities\model\emails::getInstance()->saveAndSend($email, array('atomic' => true, 'validate' => false));
+                }
+            }
+
+            $instance = array_merge($instance, array_diff_key($maaxInstanceSetup, $maaxInstanceSetupDefault), $maaxInstanceSetup['post_install_email']);
+            $app_url = isset($instance['domain_url']) && !empty($instance['domain_url']) ? $instance['domain_url'] : 'app.maaxframe.com/';
+            if (substr($app_url, -1) != "/") {
+                $app_url .="/";
+            }
+            $version = explode("/", $app_url);
+            array_pop($version);
+            $version = array_pop($version);
+            if ($version{0} != 'v') {
+                $version = '';
+            }
+            $app_url .= $instance['domain_name'];
+            $modelObj->save(array('id' => $instance['id'], 'application_url' => $app_url, 'maax_version' => $version));
+
+            $security_salt = uuid();
+            $name = $instance['first_name'];
+            if ($instance['last_name'] !== '...') {
+                $name .= '_' . $instance['last_name'];
+            }
+            $admin_user_name = $instance['office_email']; //strtolower(str_replace(' ', '_', $name));
+            $admin_user_password = substr(uuid(), 0, 8);
+            $admin_pass_hash = \module\access_controls\model\users_domain_logic::encrypt($admin_user_password, $security_salt);
+            $default_pass = $instance['domain_name'] . '123';
+            $default_pass_hash = \module\access_controls\model\users_domain_logic::encrypt($default_pass, $security_salt);
+            $output = $status = '';
+            //$admin_user_password = 'primod123';
+            $request->push(sprintf(__('Application URL: "%s"'), $app_url));
+            $request->push(sprintf(__('User Name: "%s"'), $admin_user_name));
+            $request->push(sprintf(__('Password: "%s"'), $admin_user_password));
+            $modelObj->saveModel(array('id' => $instanceID, 'application_admin_password' => $admin_user_password), array('type' => 'update', 'atomic' => true));
+
+            //db_prefix=$(echo $instance_name | sed 's/[^a-zA-Z0-9]//g')
+
+            $dbPrefix = preg_replace('/\W/', '', $instance['domain_name']);
+            $cloudInstance = new \tushar\cloud();
+            $instanceDatabaseExists = $cloudInstance->instanceDatabaseExists($dbPrefix . "_app");
+            if ($instanceDatabaseExists) {
+                $request->pushWarning(sprintf(__('Already exists as instance with name "%s"'), $app_url));
+                return true;
+            }
+            $shellFile = 'localcall2.sh';
+            if (file_exists(PLATFORM . '/shell/' . $shellFile)) {
+                $command = PLATFORM . "/shell/{$shellFile} " .
+                        " '{$instance['domain_name']}' " .
+                        " '{$app_url}' " .
+                        " '{$security_salt}' " .
+                        " '{$admin_user_name}' " .
+                        " '{$admin_pass_hash}' " .
+                        "'" . (isset($instance['load_demo_data']) && $instance['load_demo_data'] == 1 ? "1" : "0" ) . "'" .
+                        " '{$instance['first_name']}' " .
+                        " '{$instance['last_name']}' " .
+                        " '{$instance['office_email']}' " .
+                        " '{$admin_user_password}' " .
+                        "'" . uniqid(substr($instance['domain_name'], 0, 2)) . "'" .
+                        "  '{$default_pass_hash}' " .
+                        " '{$instance['id']}' " .
+                        " '{$modelObj->dbTable}' " .
+                        " '0' " .
+                        " '{$version}' " .
+                        " '{$dbPrefix}' ";
+                $request->push(sprintf(__('Calling script ' . $command)));
+                \exec($command, $output, $status);
+                $request->push(sprintf(__('Ran shell script')));
+                $output = json_encode($output);
+
+                if (stripos($output, 'SETUP-DONE') !== false) {
+                    $request->push(sprintf(__('Shell script ran successfully')));
+                    $leadModelObject = \module\crm\model\leads::getInstance();
+                    if (!isset($instance['lead_id']) || empty($instance['lead_id'])) {
+                        $leadID = $leadModelObject->save($instance, array('atomic' => true, 'validate' => false));
+                        $modelObj->saveModel(array('id' => $instanceID, 'lead_id' => $leadID), array('type' => 'update', 'atomic' => true));
+                        $request->push(sprintf(__('Lead created')));
+                        $data = $leadModelObject->read($leadID);
+                    } else {
+                        $data = $leadModelObject->read($instance['lead_id']);
+                    }
+
+                    $contact = array();
+                    if (
+                            isset($data['leads']) && !(isset($data['leads']['is_converted']) && $data['leads']['is_converted'] == 1)
+                    ) {
+                        $contactModelObject = \module\crm\model\contacts::getInstance();
+                        $contact = $contactModelObject->mapModelData('leads', $leadModelObject, $data);
+                        $contact['contacts']['opportunities']['create_opportunity'] = 1;
+                        if (!empty($contact)) {
+                            $contactModelObject->save($contact, array('atomic' => true, 'validate' => false));
+                            $request->push(sprintf(__('Lead converted to contact')));
+                            \tushar\model::$errors = array();
+                        }
+                    }
+                    $lead = current($data);
+                    $lead['admin_user_name'] = $admin_user_name;
+                    $lead['admin_user_password'] = $admin_user_password;
+                    $lead['app_url'] = $app_url;
+                    $lead['contacts'] = current($contact);
+
+                    // make rest call to update user information
+                    $url = $app_url;
+                    $federatedUser = $admin_user_name;
+                    $federatedUserPassword = $admin_user_password;
+                    $request->push(sprintf(__('Updating user profile for user "%s" on server "%s"'), $admin_user_name, $url));
+
+                    $instanceUserList = array($admin_user_name);
+                    $instanceUserListHTML = "";
+                    if (!empty($url)) {
+                        $http = \tushar\http::getInstance();
+                        $request->push(sprintf(__('Connecting "%s" ...'), $url));
+                        $response = $http->postJSON(
+                                $url . "/access_controls/users.json"
+                                , array('_method' => 'login',
+                            'data' => array(
+                                "users" => array(
+                                    "user_name" => $federatedUser
+                                    , "user_password" => $federatedUserPassword
+                                )))
+                        );
+                        if (empty($response['errors'])) {
+                            $userID = $response['user_id'];
+                            $cookie = array($response['session_name'] => $response['session_id']);
+                            // read user
+                            $request->push(sprintf(__('Reading user information "%s" ...'), $admin_user_name));
+                            $userList = $http->getJSON(
+                                    $url . "/access_controls/users/index.json", array(
+                                'q' => rawurlencode(json_encode(array(
+                                    'method' => 'find',
+                                    'where' => array('users.id !=' => 1, 'users.deleted' => 0)
+                                    , 'fields' => array("users.user_name", "users.roles_users.roles.name"))))
+                                    ), $cookie
+                            );
+                            if (isset($userList['paginate']) && isset($userList['paginate']['data'])) {
+                                foreach ($userList['paginate']['data'] as $list) {
+                                    $instanceUserList[] = $list['user_name'];
+                                    $instanceUserListHTML .="<tr><td>" . htmlentities($list['user_name']) . "</td><td>{$default_pass}</td><td>{$list['name']}</td></tr>";
+                                }
+                            }
+
+                            $response = $http->getJSON(
+                                    $url . "/access_controls/users/edit.json", array('id' => $userID), $cookie
+                            );
+
+
+
+                            // delete existing email_addresses.
+                            if (!isset($response['data']['users']['email_addresses'])) {
+                                $response['data']['users']['email_addresses'] = array();
+                            }
+                            foreach ($response['data']['users']['email_addresses'] as $kkk => $info) {
+                                $response['data']['users']['email_addresses'][$kkk]['deleted'] = 1;
+                            }
+                            // create new email_addresses.
+                            $configEmailTypesObject = \module\crm_base\model\config_email_types::getInstance();
+                            $officeEmailTypeID = \select($configEmailTypesObject->primaryKey)
+                                    ->from($configEmailTypesObject)
+                                    ->where(array('email_type' => 'office'))
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN);
+                            $response['data']['users']['email_addresses'][] = array('email' => $instance['office_email'], 'type' => $officeEmailTypeID);
+
+
+
+                            // delete existing phone_numbers.
+                            if (!isset($response['data']['users']['phone_numbers'])) {
+                                $response['data']['users']['phone_numbers'] = array();
+                            }
+                            foreach ($response['data']['users']['phone_numbers'] as $kkk => $info) {
+                                $response['data']['users']['phone_numbers'][$kkk]['deleted'] = 1;
+                            }
+                            // created new phone_numbers.
+                            $configPhoneTypesObject = \module\crm_base\model\config_phone_types::getInstance();
+                            $officePhoneTypeID = \select($configPhoneTypesObject->primaryKey)
+                                    ->from($configPhoneTypesObject)
+                                    ->where(array('phone_type' => 'office'))
+                                    ->execute()
+                                    ->fetch(\PDO::FETCH_COLUMN);
+                            $response['data']['users']['phone_numbers'][] = array('number' => $instance['office_phone'], 'type' => $officePhoneTypeID);
+
+                            // delete existing addresses.
+                            if (!isset($response['data']['users']['addresses'])) {
+                                $response['data']['users']['addresses'] = array();
+                            }
+                            foreach ($response['data']['users']['addresses'] as $kkk => $info) {
+                                $response['data']['users']['addresses'][$kkk]['deleted'] = 1;
+                            }
+
+
+                            // update users details.
+                            $response = $http->postJSON(
+                                    $url . "/access_controls/users/edit.json", array('data' => $response['data']), $cookie
+                            );
+                            if (empty($response['errors'])) {
+                                $request->push(sprintf("Updated user profile"));
+                            } else {
+                                $request->pushError(sprintf("Could not update user profile due to errors: %s", json_encode($response['errors'])));
+                            }
+
+                            // update user default company.
+                            $companyID = $response['data']['users']['company_id'];
+                            $companyInfo = array(
+                                'data' => array(
+                                    'companies' => array(
+                                        'name' => $lead['company'],
+                                        'email' => $lead['office_email'],
+                                        'website' => $lead['website'],
+                                        'currency_id' => 119
+                                    )
+                                )
+                            );
+                            if (!empty($companyID)) {
+                                $companyInfo['data']['companies']['id'] = $companyID;
+                            }
+                            $response = $http->postJSON(
+                                    $url . "/crm_base/companies/" . (!empty($companyID) ? "edit" : "add"), $companyInfo, $cookie
+                            );
+                            if (empty($response['errors'])) {
+                                $request->push(sprintf("Updated user company details"));
+                            } else {
+                                $request->pushError(sprintf("Could not update user company details due to errors: %s", json_encode($response['errors'])));
+                            }
+                        } else {
+                            $request->pushError(sprintf("Could not connect to \"%s\" due to errors:", $url));
+                            if (!empty($response['errors'])) {
+                                $request->pushError(sprintf("Could not complete action due to: %s", json_encode($response['errors'])));
+                            }
+                        }
+                    }
+                    $instanceUserList = array_unique($instanceUserList);
+                    foreach ($instanceUserList as $ul) {
+                        \module\cloud\model\federated_users::getInstance()->save(array('instance_id' => $instanceID, 'application' => $url, 'user_name' => $ul), array('atomic' => true));
+                    }
+                    if (!empty($instanceUserListHTML)) {
+                        $instanceUserListHTML = "<table border='1' cellspacing='0' cellpadding='5'>
+                                <tr><td><b>User Name</b></td><td><b>Password<b/></td><td><b>Role</b></td></tr>
+                                " . $instanceUserListHTML . "
+                                    </table>";
+                        $lead['instance_user_list'] = $instanceUserListHTML;
+                    }
+                    // Post Install Email.
+                    if (!empty($maaxInstanceSetup['post_install_email'])) {
+                        $response = $http->getJSON($url . "/development_base/modules/__build_cache");
+                        $email = array();
+                        $userID = \tushar\user::read('id');
+                        if (empty($userID)) {
+                            $email['from_name'] = \tushar\configuration::read('administrator_name');
+                            $email['from_email'] = \tushar\configuration::read('administrator_email');
+                        }
+                        $email['email_to_recipients'] = $instance['office_email'];
+                        $email['subject'] = (isset($instance['email_subject']) && !empty($instance['email_subject']) ? $instance['email_subject'] : "Your Maaxframe Instance is ready");
+                        $email['body'] = "<div>User Name: {{admin_user_name}}</div><div>Password: {{admin_user_password}}</div><div>Login URL: <a href='{{app_url}}'>{{app_url}}</a></div>";
+                        if (isset($instance['email_body']) && !empty($instance['email_body'])) {
+                            $email['body'] = $instance['email_body'];
+                        }
+                        //$email['body'] .= 
+                        $xxx = json_encode($userList['paginate']);
+                        $array = \tushar\string::split($email['body'], array("merge_words" => "/\{\{[\.\w\-]*\}\}/i"));
+                        list($strings, $extracts) = $array;
+                        if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+                            $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+                            $extracts['merge_words'] = \tushar\string::populateWords($extracts['merge_words'], $lead);
+                            $email['body'] = \tushar\string::merge($strings, $extracts);
+                        }
+                        if ($manualInstanceSetup == false) {
+                            $email = \module\activities\model\emails::getInstance()
+                                    ->saveAndSend($email, array('atomic' => true, 'validate' => false));
+                            $request->push(sprintf(__('%s sending post install email to "%s"'), $email['status'], $instance['office_email']));
+                        }
+                    }
+                    $return = true;
+                } else {
+                    $request->push(sprintf(__('Shell script failed... Status code:"%s"'), $status));
+                    $request->push(sprintf(__('Response for script is: %s'), $output));
+                    $email = array();
+                    $userID = \tushar\user::read('id');
+                    if (empty($userID)) {
+                        $email['from_name'] = \tushar\configuration::read('administrator_name');
+                        $email['from_email'] = \tushar\configuration::read('administrator_email');
+                    }
+                    $email['email_to_recipients'] = 'admins@primarymodules.com';
+                    $email['subject'] = "New maaaframe instance for lead " . $instance['name'];
+                    $email['body'] = "
+                        Could not setup new maax instance for lead <a href='" . \tushar\request::$baseURL . "crm/leads/view?id={{id}}'>{{name}} [{{id}}]</a>
+                        <div>Shell Call:  exec(" . PLATFORM . "/shell/{$shellFile} " . $app_url . " " . $security_salt . " " . $admin_user_name . " " . $admin_pass_hash . "  )</div>
+                        <div>Response:  {$output}</div>    
+                        <div>Status Code:  {$status}</div>    
+                        <div>&nbsp;</div>";
+                    $array = \tushar\string::split($email['body'], array("merge_words" => "/\{\{[\.\w\-]*\}\}/i"));
+                    list($strings, $extracts) = $array;
+                    if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+                        $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+                        $extracts['merge_words'] = \tushar\string::populateWords($extracts['merge_words'], $instance);
+                        $email['body'] = \tushar\string::merge($strings, $extracts);
+                    }
+                    if ($manualInstanceSetup == false) {
+                        \module\activities\model\emails::getInstance()->saveAndSend($email, array('atomic' => true, 'validate' => false));
+                        $email = $request->push(sprintf(__('%s notified email admin[%s] on shell script failure'), $email['status'], $email['from_email']));
+                    }
+                    $return = false;
+                }
+            }
+        }
+        return $return;
+    }
+
+    public function __update_instance_user_list($request) {
+        $instanceObject = \module\cloud\model\instances::getInstance();
+        $federatedUserObj = \module\cloud\model\federated_users::getInstance();
+        foreach (\select(array("id", "user_name", "application"))
+                ->from($federatedUserObj)
+                ->inserted()
+                ->where(array('OR' => array('instance_id IS NULL', 'instance_id' => '')))
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC) as $user) {
+            $application = $user['application'];
+            if (substr($application, -1) == "/") {
+                $application = substr($application, 0, -1);
+            }
+            $application = \explode("/", $application);
+            $application = array_pop($application);
+            $instanceID = \select("id")
+                    ->from($instanceObject)
+                    ->where('domain_name', $application)
+                    ->order('id DESC')
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN);
+            if (!empty($instanceID)) {
+
+                $federatedUserObj->saveModel(
+                        array(
+                    'instance_id' => $instanceID,
+                    'id' => $user['id']
+                        ), array('atomic' => true)
+                );
+
+
+                echo "<br/><b style='color:red'>&nbsp;&nbsp;&nbsp;&nbsp;Updated -> " . $user['user_name'] . ':' . $instanceID . '</b>';
+            }
+        }
+    }
+
+    public function __update_list($request) {
+        $www = dirname(ROOT);
+        $modelObj = $this->modelObj();
+        $deleted = $request->param('deleted');
+        $federatedUserObj = \module\cloud\model\federated_users::getInstance();
+
+        if ($deleted == 1) {
+            $domains = \select(array("id", "domain_name"))
+                    ->from($modelObj)
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC);
+        } else {
+            $domains = \select(array("id", "domain_name"))
+                    ->from($modelObj)
+                    ->inserted()
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC);
+        }
+        foreach ($domains as $domain) {
+            if (!empty($domain['domain_name']) && !is_dir($www . DS . $domain['domain_name'])) {
+                echo "<br/><b style='color:red'>Marked domain name as deleted -> " . $www . DS . $domain['domain_name'] . '</b>';
+                //mark instance deleted. 
+                $modelObj->saveModel(array('deleted' => 1, 'id' => $domain['id']), array('atomic' => true));
+                // mark users deleted.
+                foreach (select(array("id", "user_name"))
+                        ->from($federatedUserObj)
+                        ->inserted()
+                        ->where('instance_id', $domain['id'])
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC) as $user) {
+                    $federatedUserObj->saveModel(array('deleted' => 1, 'id' => $user['id']), array('atomic' => true));
+                    echo "<br/><b style='color:red'>&nbsp;&nbsp;&nbsp;&nbsp;Marked user name as deleted -> " . $user['user_name'] . '</b>';
+                }
+            } else {
+
+
+                echo "<br/>Found domain name on filesystem -> " . $www . DS . $domain['domain_name'];
+            }
+        }
+        exit;
+    }
+
+    public function reset_password_for_instance($request) {
+        $id = $this->id($request);
+        $modelObj = $this->modelObj();
+        $data = current($modelObj->read($id));
+        //$request->layout = 'default';
+        $passwordForm = array();
+        $passwordForm[] = array('colspan' => 3, 'helper' => '\\tushar\\form', 'method' => 'input', 'not_empty' => 1, 'placeholder' => 'New Password', 'label' => 'new_password', 'type' => 'password', 'name' => array($modelObj->alias, 'user_password'), 'value' => '');
+        //$passwordForm[] = array('helper' => '\\tushar\\form', 'method' => 'checkbox', 'label' => 'Show Password', 'value' => '', 'help' => 'Check to show password');
+        $passwordForm[] = array('colspan' => 3, 'helper' => '\\tushar\\form', 'method' => 'input', 'not_empty' => 1, 'placeholder' => 'Re-type Password', 'label' => 'confirm_password', 'type' => 'password', 'name' => array($modelObj->alias, 'confirm_password'), 'value' => '');
+        $passwordForm[] = array('colspan' => 3, 'helper' => '\\tushar\\form', 'method' => 'radio', 'label' => 'force_password_reset_on_login',
+            'tooltip' => 'Marking this will force reset password on next login. ', 'value' => '0',
+            'name' => array($modelObj->alias, 'force_password_reset_on_login'), 'children' => array(
+                array('text' => 'Yes', 'value' => '1', 'helper' => '\\tushar\\form', 'method' => 'option'),
+                array('text' => 'No', 'value' => '0', 'helper' => '\\tushar\\form', 'method' => 'option')
+            )
+        );
+        $this->form = array(
+            'name' => 'reset password',
+            'method' => 'POST',
+            'children' => array(
+                0 => array(
+                    'helper' => '\\tushar\\form',
+                    'method' => 'tab',
+                    'label' => '',
+                    'children' => array(
+                        'helper' => '\\tushar\\form',
+                        'method' => 'collection',
+                        'label' => 'You are resetting password for all user of instance "' . $data['domain_name'] . '"',
+                        'children' => array(
+                            array(
+                                'helper' => '\\tushar\\form',
+                                'method' => 'panel',
+                                'class' => 'align-center',
+                                'children' => array(
+                                    array('helper' => '\\tushar\\form', 'method' => 'cancel'),
+                                    array('helper' => '\\tushar\\form', 'method' => 'submit', 'value' => 'Update'),
+                                )
+                            ), array(
+                                'helper' => '\\tushar\\form',
+                                'method' => 'block',
+                                'label' => 'Login Information',
+                                'cols' => '2',
+                                'children' => $passwordForm
+                            )
+                        )
+                    )
+                )
+            )
+        );
+        $this->render = 'edit';
+        $modelObj = $this->modelObj();
+        if ($request->is('post')) {
+            if ($request->data[$modelObj->alias]) {
+                $ud = $request->data[$modelObj->alias];
+                $modelObj->filters = array(
+                    'user_password' => array('required',
+                        array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+                        , array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\module\\access_controls\\model\\users', 'newPassword')))
+                    )
+                    , 'confirm_password' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+                );
+                if ($modelObj->validate($ud)) {
+                    if (!empty($data)) {
+                        $connections = array();
+                        /**
+                         * Build connections file.
+                         */
+                        foreach ($data as $key => $value) {
+                            if (stripos($key, '_database') !== false) {
+                                $source = str_replace('_database', '', $key);
+                                $connections[$source] = array_merge(array('driver' => 'mysql'), array(
+                                    'host' => $data['db_host'],
+                                    'port' => $data['db_port'],
+                                    'login' => $data['db_login'],
+                                    'password' => $data['db_password'],
+                                    'driver' => $data['db_driver'],
+                                    'database' => $value
+                                ));
+                            }
+                        }
+                    }
+                    if (!isset($connections['default']['driver']) || empty($connections['default']['driver'])) {
+                        throw new \Exception(sprintf(__('source driver not found for source "%s" '), 'cloud'));
+                    }
+                    if (stripos($connections['default']['driver'], NS) !== false) {
+                        $className = $connections['default']['driver'];
+                    } else {
+                        $className = NS . 'tushar' . NS . 'drivers' . NS . $connections['default']['driver'];
+                    }
+                    try {
+                        $instance = new $className($connections['default']);
+                    } catch (\Exception $e) {
+                        throw new \Exception(sprintf(__(" error %s"), $e->getMessage()));
+                    }
+                    $pk = \module\access_controls\model\users::encrypt($ud['user_password'], $data['security_salt']);
+                    $find = array(
+                        'fields' => array("user_password" => $pk, 'force_password_reset_on_login' => $ud['force_password_reset_on_login']),
+                        'from' => array(
+                            'db' => $connections['default']['database'],
+                            'table' => 'access_controls__users'
+                        ),
+                        'where' => array('deleted !=' => 1),
+                        'type' => 'update'
+                    );
+                    $instance->save($find);
+                    //if () {
+                    $request->setMsg(sprintf(__('Password is reset for all users of instance %s'), $data['domain_name']));
+                    return "{$request->module}/{$request->controller}/index";
+                    //}
+                }
+            }
+            $request->data['action'] = array('reload' => 'reload');
+            //return false;
+        }
+        parent::edit($request);
+    }
+
+}

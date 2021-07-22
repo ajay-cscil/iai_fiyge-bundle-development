@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\projects\controller;
+  class status extends \module\projects\controller\status_domain_logic
+  {
+       public $modelClass = '\\module\\projects\\model\\status';
+
+
+
+
+
+
+  }

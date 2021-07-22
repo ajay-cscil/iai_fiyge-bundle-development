@@ -1,0 +1,198 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\model;
+
+class actors_domain_logic extends \tushar\model {
+
+    public $isSystemModel = 1;
+
+    public function processActors($object, $actors, $fetchUserInfo = false) {
+        $accessControlList = array('read' => array(), 'edit' => array(), 'delete' => array());
+        $userObj = \module\access_controls\model\users::getInstance();
+        $groupObj = \module\access_controls\model\groups::getInstance();
+        if (is_array($actors)) {
+            $ffXvarsObj = \module\flexflow\model\xvars::getInstance();
+            foreach ($actors as $actor) {
+                $acl = array();
+                switch ($actor['foreign_key_model']) {
+                    case 'users':
+                        $acl[] = "u{$actor['foreign_key']}";
+                        break;
+                    case 'roles':
+                        foreach (\select("{$userObj->roles_users->alias}.user_id")
+                                ->from($userObj->roles_users)
+                                ->inserted()
+                                ->where($userObj->roles_users->alias . '.role_id', $actor['foreign_key'])
+                                ->limit(0)
+                                ->execute()
+                                ->fetchAll(\PDO::FETCH_COLUMN, 0) as $userID) {
+                            $acl[] = "u{$userID}";
+                        }
+                        break;
+                    case 'groups':
+                        $acl[] = "g{$actor['foreign_key']}";
+                        break;
+                    case 'xvars':
+                        foreach (\select(array($ffXvarsObj->alias . '.xvar', $ffXvarsObj->alias . '.name'))
+                                ->from($ffXvarsObj)
+                                ->inserted()
+                                ->where($ffXvarsObj->alias . '.' . $ffXvarsObj->primaryKey, $actor['foreign_key'])
+                                ->limit(0)
+                                ->execute()
+                                ->fetchAll(\PDO::FETCH_ASSOC) as $xvarInfo) {
+                            $xvar = $xvarInfo['xvar'];
+                            if (!empty($xvar)) {
+                                $xvar .=';';
+                                $stat = eval($xvar);
+                                if ($stat === false) {
+                                    throw new \Exception(sprintf(__('Evaluation of xvar "%s" returned error, please check for code syntax', 'module'), $xvarInfo['name']));
+                                }
+                            }
+                        }
+                        break;
+                }
+                if (!empty($acl)) {
+                    $accessControlList['read'] = array_merge($accessControlList['read'], $acl);
+                    if (isset($actor['can_edit']) && $actor['can_edit'] == 1) {
+                        $accessControlList['edit'] = array_merge($accessControlList['edit'], $acl);
+                    }
+                    if (isset($actor['can_delete']) && $actor['can_delete'] == 1) {
+                        $accessControlList['delete'] = array_merge($accessControlList['delete'], $acl);
+                    }
+                }
+            }
+        }
+
+
+        $userInfo = array('read' => array(), 'edit' => array(), 'delete' => array());
+        foreach ($accessControlList as $op => $acl) {
+            // varify if users and groups exists...
+            $users = $groups = array();
+            foreach ($acl as $i) {
+                $i = trim($i);
+                if (!empty($i)) {
+                    if ($i{0} == 'u') {
+                        $users[] = substr($i, 1);
+                    } else if ($i{0} == 'g') {
+                        $groups[] = substr($i, 1);
+                    }
+                }
+            }
+            $acl = array();
+            // check if users exists...
+            if (!empty($users)) {
+                foreach (\select("$userObj->alias.id")
+                        ->from($userObj)
+                        ->where("$userObj->alias.id", $users)
+                        ->inserted()
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN, 0) as $userID) {
+                    $acl[] = "u{$userID}";
+                }
+            }
+            // check if groups exists...
+            if (!empty($groups)) {
+                foreach (\select("$groupObj->alias.id")
+                        ->from($groupObj)
+                        ->where("$groupObj->alias.id", $groups)
+                        ->inserted()
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN, 0) as $groupID) {
+                    $acl[] = "g{$groupID}";
+                }
+            }
+
+
+            if ($fetchUserInfo === true) {
+                $users = $groups = array();
+                foreach ($acl as $i) {
+                    $i = trim($i);
+                    if (!empty($i)) {
+                        if ($i{0} == 'u') {
+                            $users[] = substr($i, 1);
+                        } else if ($i{0} == 'g') {
+                            $groups[] = substr($i, 1);
+                        }
+                    }
+                }
+                if (!empty($groups)) {
+                    $u = \select("users.id")
+                            ->from(\module\access_controls\model\groups_users::getInstance(array(), true))
+                            ->joinInner('users')
+                            ->where('group_id', $groups)
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_COLUMN, 0);
+                    if (is_array($u)) {
+                        $users = array_merge($users, $u);
+                    }
+                }
+                if (!empty($users)) {
+                    foreach (\select("id AS user_id,name")
+                            ->from(\module\access_controls\model\users::getInstance(array(), true))
+                            ->where('id', $users)
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC) as $info) {
+                        $userInfo[$op][$info['user_id']] = $info;
+                    }
+                }
+            }
+            $accessControlList[$op] = implode(' ', $acl);
+        }
+        return array($accessControlList, $userInfo);
+    }
+
+    public function processACLString($string, $fetchUserInfo = false) {
+        $users = $groups = array();
+        foreach (explode(" ", $string) as $i) {
+            $i = trim($i);
+            if (!empty($i)) {
+                if ($i{0} == 'u') {
+                    $users[] = substr($i, 1);
+                } else if ($i{0} == 'g') {
+                    $groups[] = substr($i, 1);
+                }
+            }
+        }
+        if (!empty($groups)) {
+            $u = \select("user_id")->from(\module\access_controls\model\groups_users::getInstance(array(), true))
+                    ->where('group_id', $groups)
+                    ->inserted()
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_COLUMN, 0);
+            if (!is_array($u)) {
+                $users = array_merge($users, $u);
+            }
+        }
+        if ($fetchUserInfo === false) {
+            return $users;
+        }
+
+        return \select("*")->from(\module\access_controls\model\users::getInstance(array(), true))
+                        ->where('id', $users)
+                        ->inserted()
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function exportRelatedModuleData($moduleID, $manifest, $page = null) {
+        return array();
+    }
+
+    public function importRelatedModuleData($module, $manifest, $records, $options = array()) {
+        return true;
+    }
+
+}

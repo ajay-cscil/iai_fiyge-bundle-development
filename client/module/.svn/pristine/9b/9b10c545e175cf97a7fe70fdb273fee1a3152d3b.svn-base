@@ -1,0 +1,19 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class bank_accounts_domain_logic extends \data_model {
+
+    public function beforeSave() {
+        if (isset($this->data['name']) && isset($this->data['account_number'])) {
+            $this->data['full_name'] = "{$this->data['name']} - {$this->data['account_number']} ({$this->data['__bank_account_type_id']})";
+        }
+        parent::beforeSave();
+    }
+
+}

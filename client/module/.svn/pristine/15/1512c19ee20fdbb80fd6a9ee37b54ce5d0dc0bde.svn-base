@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\controller;
+  class account_type extends \module\vrm\controller\account_type_domain_logic
+  {
+       public $modelClass = '\\module\\vrm\\model\\account_type';
+
+
+
+
+
+
+  }

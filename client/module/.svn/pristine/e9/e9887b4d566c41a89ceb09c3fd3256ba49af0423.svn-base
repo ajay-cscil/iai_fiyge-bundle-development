@@ -1,0 +1,100 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\tag_cloud\model;
+
+class tag_related_to_domain_logic extends \tushar\model {
+
+    private $tagList = array();
+
+    public function beforeValidate() {
+        if (isset($this->data['tag_list'])) {
+            $this->data['is_set_tag_list'] = 1;
+            $this->tagList = explode(',', $this->data['tag_list']);
+            $tagids = array();
+            if (!empty($this->tagList)) {
+                $tagids = \select("id")
+                        ->from($this->tags)
+                        ->inserted()
+                        ->where('name', $this->tagList)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN);
+            }
+            $requestAction = \tushar\registry::read('request_action');
+            if ($requestAction != 'edit_selected' && !empty($tagids)) {
+                $ids = select("id")
+                        ->from($this)
+                        ->inserted()
+                        ->where(array('tag_id NOT ' => $tagids, 'related_to' => $this->data['related_to'], 'related_to_model' => $this->data['related_to_model']))
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN);
+                $this->delete($ids, array('atomic' => true));
+            }
+        }
+        $tag = '';
+        if (!empty($this->tagList)) {
+            $this->data['__tag_id'] = trim(array_shift($this->tagList));
+        }
+        if (isset($this->data['__tag_id']) && !empty($this->data['__tag_id'])) {
+            $tag = $this->data['__tag_id'];
+            $tagID = \select("id")
+                    ->from($this->tags)
+                    ->inserted()
+                    ->where('name', $this->data['__tag_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN);
+            if ($tagID == false) {
+                $this->data['tag_id'] = $this->tags->saveModel(array('name' => $tag), array('atomic' => true));
+            } else {
+                $this->data['tag_id'] = $tagID;
+            }
+        }
+        if (isset($this->data['tag_id']) && !empty($this->data['tag_id'])) {
+            $tagID = $this->data['tag_id'];
+        }
+        if (isset($this->data['is_set_tag_list']) && isset($this->data['id'])) {
+            unset($this->data['id']);
+        }
+        if (isset($this->data['is_set_tag_list'])) {
+            $id = select("id")
+                    ->from($this)
+                    ->inserted()
+                    ->where(array('tag_id' => $tagID, 'related_to' => $this->data['related_to'], 'related_to_model' => $this->data['related_to_model']))
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN);
+            if (!empty($id)) {
+                $this->data['id'] = $id;
+            }
+        }
+        if (isset($this->data['tag_list'])) {
+            unset($this->data['tag_list']);
+        }
+    }
+
+    public function afterSave($created) {
+        $a = !empty($this->tagList);
+        while (!empty($this->tagList)) {
+            $tag = array_shift($this->tagList);
+            $modelObj = \module\tag_cloud\model\tag_related_to::getInstance();
+            $modelObj->save(array('is_set_tag_list' => 1, '__related_to' => $this->data['__related_to'], 'related_to' => $this->data['related_to'], 'related_to_model_class_name' => $this->data['related_to_model_class_name'], 'related_to_model' => $this->data['related_to_model'], '__tag_id' => $tag), array('atomic' => true));
+        }
+    }
+
+    public function afterRead(&$data) {
+        if (!empty($data) && is_array($data) && isset($data['related_to'])) {
+            $tags = select("tags.name")
+                    ->from($this)
+                    ->joinInner('tags')
+                    ->inserted()
+                    ->where(array('related_to' => $data['related_to'], 'related_to_model' => $data['related_to_model']))
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_COLUMN);
+            $data['tag_list'] = implode(', ', $tags);
+        }
+    }
+
+}

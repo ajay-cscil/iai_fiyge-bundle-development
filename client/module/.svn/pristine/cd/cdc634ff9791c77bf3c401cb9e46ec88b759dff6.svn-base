@@ -1,0 +1,938 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm\model;
+  class leads extends \module\crm\model\leads_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'crm__leads';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $paginateAs = 'lazy';
+       public $singular = 'lead';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'created_by_user',
+    'foreignKey' => 'created_by',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'modified_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'modified_by_user',
+    'foreignKey' => 'modified_by',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'owned_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'owned_by_user',
+    'foreignKey' => 'owned_by',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'imported_by_user' => 
+  array (
+    'associationAlias' => 'imported_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'imported_by',
+  ),
+  'config_salutations' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\config_salutations',
+    'associationAlias' => 'config_salutations',
+    'foreignKey' => 'salutation',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_industries' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\config_industries',
+    'associationAlias' => 'config_industries',
+    'foreignKey' => 'industry',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_ratings' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\config_ratings',
+    'associationAlias' => 'config_ratings',
+    'foreignKey' => 'rating',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_lead_sources' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\config_lead_sources',
+    'associationAlias' => 'config_lead_sources',
+    'foreignKey' => 'lead_source',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_lead_status' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\config_lead_status',
+    'associationAlias' => 'config_lead_status',
+    'foreignKey' => 'lead_status',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'notes' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\help\\model\\notes',
+    'associationAlias' => 'notes',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclChild' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isSubModel' => '0',
+  ),
+  'accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\accounts',
+    'associationAlias' => 'accounts',
+    'foreignKey' => 'parent_id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'unread_records' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\logging\\model\\action_history',
+    'associationAlias' => 'unread_records',
+    'foreignKey' => 'record_id',
+    'on' => 
+    array (
+      0 => '{{FOREIGN}}.controller=\'{{PRIMARY}}\'',
+      1 => ' {{FOREIGN}}.record_id={{PRIMARY}}.{{PRIMARY_KEY}}',
+      2 => '{{FOREIGN}}.created_by={{CURRENT_USER}}',
+    ),
+    'show_link' => '0',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'currencies' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\currencies',
+    'associationAlias' => 'currencies',
+    'foreignKey' => 'currency',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'parent_lead' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\leads',
+    'associationAlias' => 'parent_lead',
+    'foreignKey' => 'parent_id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'primary_countries' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\countries',
+    'associationAlias' => 'primary_countries',
+    'foreignKey' => 'primary_country',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'groups' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\groups',
+    'associationAlias' => 'groups',
+    'foreignKey' => 'primary_acl_group',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'campaigns' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\campaigns\\model\\campaigns',
+    'associationAlias' => 'campaigns',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_lead_type' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\config_lead_type',
+    'associationAlias' => 'config_lead_type',
+    'foreignKey' => 'type_id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'products' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\products',
+    'associationAlias' => 'products',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'states' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\states',
+    'associationAlias' => 'states',
+    'foreignKey' => 'primary_state_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '4',
+    'deleteAccess' => '4',
+    'cacheClass' => '1',
+    'ownAcl' => '1',
+    'isSearchable' => '0',
+  ),
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+    'isSearchable' => '0',
+  ),
+  '\\module\\core\\behaviour\\revision_log' => 
+  array (
+    'name' => '\\module\\core\\behaviour\\revision_log',
+  ),
+  '\\module\\crm_base\\behaviour\\compute_latitude_longitude' => 
+  array (
+    'name' => '\\module\\crm_base\\behaviour\\compute_latitude_longitude',
+  ),
+);
+       public $fields = array (
+  'salutation' => 
+  array (
+    'column' => 'salutation',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'first_name' => 
+  array (
+    'column' => 'first_name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'last_name' => 
+  array (
+    'column' => 'last_name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'company' => 
+  array (
+    'column' => 'company',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'annual_revenue' => 
+  array (
+    'column' => 'annual_revenue',
+    'ntype' => 'float',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'industry' => 
+  array (
+    'column' => 'industry',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'campaign_id' => 
+  array (
+    'column' => 'campaign_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'rating' => 
+  array (
+    'column' => 'rating',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'lead_status' => 
+  array (
+    'column' => 'lead_status',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'lead_source' => 
+  array (
+    'column' => 'lead_source',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'converted' => 
+  array (
+    'column' => 'converted',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'title' => 
+  array (
+    'column' => 'title',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'demo_request' => 
+  array (
+    'column' => 'demo_request',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'product_id' => 
+  array (
+    'column' => 'product_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'mail_date' => 
+  array (
+    'column' => 'mail_date',
+    'ntype' => 'date',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'next_step_date' => 
+  array (
+    'column' => 'next_step_date',
+    'ntype' => 'date',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'no_of_employees' => 
+  array (
+    'column' => 'no_of_employees',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'fax' => 
+  array (
+    'column' => 'fax',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'website' => 
+  array (
+    'column' => 'website',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'do_not_call' => 
+  array (
+    'column' => 'do_not_call',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'email_opt_out' => 
+  array (
+    'column' => 'email_opt_out',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'imported' => 
+  array (
+    'column' => 'imported',
+    'ntype' => 'datetime',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'currency' => 
+  array (
+    'column' => 'currency',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'primary_address_line_1' => 
+  array (
+    'column' => 'primary_address_line_1',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'primary_address_line_2' => 
+  array (
+    'column' => 'primary_address_line_2',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'primary_city' => 
+  array (
+    'column' => 'primary_city',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'primary_state' => 
+  array (
+    'column' => 'primary_state',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'primary_country' => 
+  array (
+    'column' => 'primary_country',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'primary_zip' => 
+  array (
+    'column' => 'primary_zip',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'office_email' => 
+  array (
+    'column' => 'office_email',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'personal_email' => 
+  array (
+    'column' => 'personal_email',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'assistant_email' => 
+  array (
+    'column' => 'assistant_email',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'office_phone' => 
+  array (
+    'column' => 'office_phone',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'home_phone' => 
+  array (
+    'column' => 'home_phone',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'other_phone' => 
+  array (
+    'column' => 'other_phone',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'mobile' => 
+  array (
+    'column' => 'mobile',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'assistant_phone' => 
+  array (
+    'column' => 'assistant_phone',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'primary_acl_group' => 
+  array (
+    'column' => 'primary_acl_group',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'parent_id' => 
+  array (
+    'column' => 'parent_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'imported_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'imported_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'lead_status_id' => 
+  array (
+    'column' => 'lead_status_id',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'assistant' => 
+  array (
+    'column' => 'assistant',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'job_title' => 
+  array (
+    'column' => 'job_title',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'type_id' => 
+  array (
+    'column' => 'type_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'domain_name' => 
+  array (
+    'column' => 'domain_name',
+    'ntype' => 'string',
+    'length' => '100',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_exportable' => '0',
+  ),
+  'load_demo_data' => 
+  array (
+    'column' => 'load_demo_data',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'primary_state_id' => 
+  array (
+    'column' => 'primary_state_id',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_fulltext' => 
+  array (
+    'column' => '_fulltext',
+    'ntype' => 'string',
+    'length' => '1000',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $filters = array (
+  'first_name' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'email_opt_out' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'last_name' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'office_email' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::isValidEmail',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'personal_email' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '\\tushar\\validation::isValidEmail',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'assistant_email' => 
+  array (
+    0 => 
+    array (
+      'rule' => '274',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'office_phone' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::isValidPhoneNumber',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'home_phone' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::isValidPhoneNumber',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'other_phone' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::isValidPhoneNumber',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'assistant_phone' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::isValidPhoneNumber',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\transformation',
+          1 => 'name',
+        ),
+      ),
+      'sanitize' => 1,
+    ),
+  ),
+);
+  }

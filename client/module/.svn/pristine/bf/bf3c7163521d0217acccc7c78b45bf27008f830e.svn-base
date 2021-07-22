@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\helper;
+
+class campaigns
+{
+
+    public static function cssToStyle($request, $html)
+    {
+
+        if (\tushar\configuration::read('css_to_style', false) === true && \class_exists('Emogrifier')) {
+            $emogrifier = \tushar\registry::read('emogrifier', null);
+            if (is_null($emogrifier)) {
+                $emogrifier = new \Emogrifier();
+                $css = '';
+                $uiStyle = \tushar\html::getPath($request, 'jquery-ui', 'css');
+                if (!empty($uiStyle)) $css .= file_get_contents($uiStyle[2]);
+                $style = \tushar\html::getPath($request, 'style', 'css');
+                if (!empty($style)) $css .= file_get_contents($style[2]);
+
+                $emogrifier->setCSS($css);
+                \tushar\registry::read('emogrifier', $emogrifier);
+            }
+            $emogrifier->setHTML($html);
+            return $emogrifier->emogrify();
+        }
+        return $html;
+    }
+
+}
+

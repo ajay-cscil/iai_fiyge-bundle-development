@@ -1,0 +1,181 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class processes extends \module\excursion\model\processes_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__processes';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'processes';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'last_reported' => 
+  array (
+    'column' => 'last_reported',
+    'ntype' => 'datetime',
+  ),
+  'lock_key' => 
+  array (
+    'column' => 'lock_key',
+    'ntype' => 'string',
+    'length' => '36',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+);
+       public $associations = array (
+  'affiliate_information' => 
+  array (
+    'className' => '\\module\\excursion\\model\\affiliate_information',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'name',
+    'associationAlias' => 'affiliate_information',
+  ),
+  'email_routing' => 
+  array (
+    'className' => '\\module\\excursion\\model\\email_routing',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'name',
+    'associationAlias' => 'email_routing',
+  ),
+  'lines' => 
+  array (
+    'className' => '\\module\\excursion\\model\\lines',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'name',
+    'associationAlias' => 'lines',
+  ),
+  'ports' => 
+  array (
+    'className' => '\\module\\excursion\\model\\ports',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'name',
+    'associationAlias' => 'ports',
+  ),
+  'time_equivalency' => 
+  array (
+    'className' => '\\module\\excursion\\model\\time_equivalency',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'name',
+    'associationAlias' => 'time_equivalency',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'lock_key' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

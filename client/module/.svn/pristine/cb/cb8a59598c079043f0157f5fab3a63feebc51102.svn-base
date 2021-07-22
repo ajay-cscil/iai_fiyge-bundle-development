@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\manufacturing\controller;
+  class bill_of_materials extends \module\manufacturing\controller\bill_of_materials_domain_logic
+  {
+       public $modelClass = '\\module\\manufacturing\\model\\bill_of_materials';
+
+
+
+
+
+
+  }

@@ -1,0 +1,49 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\vrm\model;
+
+class people_lists_domain_logic extends \tushar\model{
+
+    private $listRecords = array();
+
+    public function beforeSave() {
+        if (isset($_REQUEST['list_record']) && !empty($_REQUEST['list_record'])) {
+            $this->listRecords = $_REQUEST['list_record'];
+        }
+        if (!empty($this->listRecords)) {
+            $this->data['people_id'] = array_shift($this->listRecords);
+            $this->setPrimaryKeyValue($this->data);
+        }
+    }
+
+    public function afterSave($created) {
+        $class = $this->modelClass;
+        while (!empty($this->listRecords)) {
+            $data = array('list_id' => $this->data['list_id'], 'people_id' => array_shift($this->listRecords));
+            $this->setPrimaryKeyValue($data);
+            $modelObj = $class::getInstance()->saveModel($data, array('atomic' => true));
+        }
+    }
+
+    public function setPrimaryKeyValue(&$data) {
+        if (!isset($data['id']) || empty($data['id'])) {
+            if (isset($data['list_id']) && isset($data['people_id']) && !empty($data['list_id']) && !empty($data['people_id'])) {
+                $find = array(
+                    "fields" => array("{$this->alias}.id"),
+                    "limit" => 1,
+                    "where" => array(
+                        "{$this->alias}.list_id" => $data['list_id'],
+                        "{$this->alias}.people_id" => $data['people_id']
+                    )
+                );
+                $data['id'] = $this->find($find)->fetch(\PDO::FETCH_COLUMN);
+            }
+        }
+    }
+
+}

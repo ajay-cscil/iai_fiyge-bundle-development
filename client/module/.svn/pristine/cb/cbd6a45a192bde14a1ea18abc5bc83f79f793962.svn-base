@@ -1,0 +1,16 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\test\model;
+  class test_domain_logic extends \data_model{
+
+      public function beforeSave(){
+          if(!isset($this->data['ff_schema'])){
+              $this->data['ff_schema']='testMultiChoice';
+          }
+
+      }
+
+  }

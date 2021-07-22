@@ -1,0 +1,121 @@
+{
+    "version": "1.1.1",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": null,
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "author": "Sanket Khanna",
+    "category_id": "7",
+    "company": "Primary Modules",
+    "created": "2015-05-25",
+    "created_by": null,
+    "current_stable_version": null,
+    "description": "The documentation module provides information about maaxframe it has been done in a way to target different categories of audience. Users are also provided an option to add comments for adding relevant information to the topic description.",
+    "flags": null,
+    "id": "272632ac-e746-11e3-aad5-0800275f9930",
+    "industry_id": "2",
+    "is_active": "1",
+    "is_demo_data": null,
+    "is_installed": "1",
+    "is_public": null,
+    "label": "System: Documentation",
+    "latest_version": null,
+    "license_agreement": null,
+    "modified": "2015-05-25 18:28:39",
+    "modified_by": "-1",
+    "name": "documentation",
+    "owned_by": "-2",
+    "revision": null,
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/documentation",
+    "__created_by": "",
+    "__modified_by": "Maax Core Development Team",
+    "__owned_by": "Maax Modules Development Team",
+    "__category_id": "IT & Administration",
+    "category_id_business_key": "IT & Administration",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "modified_by_model": "modified_by_user",
+    "owned_by_model": "owned_by_user",
+    "category_id_model": "module_categories",
+    "industry_id_model": "module_industries",
+    "temporary_acl": [],
+    "message_error": "",
+    "inherited_read_acl": "",
+    "controllers": {
+        "comments": "\\module\\documentation\\controller\\comments",
+        "related_topics": "\\module\\documentation\\controller\\related_topics",
+        "topics": "\\module\\documentation\\controller\\topics"
+    },
+    "models": {
+        "comments": "\\module\\documentation\\model\\comments",
+        "comments_acl_cache": "\\module\\documentation\\model\\comments_acl_cache",
+        "comments_group_acl_cache": "\\module\\documentation\\model\\comments_group_acl_cache",
+        "related_topics": "\\module\\documentation\\model\\related_topics",
+        "topics": "\\module\\documentation\\model\\topics",
+        "topics_acl_cache": "\\module\\documentation\\model\\topics_acl_cache",
+        "topics_group_acl_cache": "\\module\\documentation\\model\\topics_group_acl_cache"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "name": "access_controls",
+                "version": "1.2.4"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users"
+        },
+        "controller": [],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl",
+            "_tushar_behaviour_tree": "\\tushar\\behaviour\\tree"
+        }
+    }
+}

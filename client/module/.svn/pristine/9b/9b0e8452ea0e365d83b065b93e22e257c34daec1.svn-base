@@ -1,0 +1,87 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\calendar\controller;
+
+class events_domain_logic extends \data_controller{
+
+    public function index($request, $query = array()) {
+        if ($request->ext == 'json') {
+            $presentation = \tushar\configuration::read('presentation', array());
+            if (isset($presentation['DATETIME'])) {
+                unset($presentation['DATETIME']);
+            }
+            \tushar\configuration::write('presentation', $presentation);
+        }
+        return parent::index($request, $query);
+    }
+
+    public function add($request) {
+        $return = parent::add($request);
+        $data = $request->response('data');
+        $modelObj = $this->modelObj();
+
+        if (!isset($data[$modelObj->alias])) {
+            $data[$modelObj->alias] = array();
+        }
+        if (!isset($data[$modelObj->alias]['start'])) {
+            $data[$modelObj->alias]['start'] = \tushar\locale::systemDate(false) . ' ' . \tushar\locale::systemTime(false);
+        }
+        if (!isset($data[$modelObj->alias]['end'])) {
+            $str = strtotime($data[$modelObj->alias]['start']) + 1800;
+            $data[$modelObj->alias]['end'] = date('Y-m-d H:i:s', $str);
+        }
+
+
+        $relatedID = $request->param('related_id');
+        $relatedModel = $request->param('related_model');
+        $relatedModelClass = $request->param('related_model_class');
+
+        if (!empty($relatedModelClass) && !$request->is('post')) {
+            if (class_exists($relatedModelClass)) {
+                if (in_array($relatedModel, array('leads', 'accounts', 'opportunities'))) {
+                    if (!isset($data[$modelObj->alias]['event_related_to'])) {
+                        $data[$modelObj->alias]['event_related_to'] = array();
+                    }
+                    $relatedModelObj = $relatedModelClass::getInstance();
+                    $dt = current($relatedModelObj->read($relatedID, array()));
+                    $data[$modelObj->alias]['event_related_to'][] = array(
+                        'related_to' => $relatedID
+                        , 'related_to_model' => $relatedModelObj->alias
+                        , '__related_to' => $dt[$relatedModelObj->displayField]);
+                }
+                if (!isset($data[$modelObj->alias]['event_guests'])) {
+                    $data[$modelObj->alias]['event_guests'] = array();
+                }
+                $relatedModelObj = $relatedModelClass::getInstance();
+
+                $emailAddressesObj = \module\crm_base\model\email_addresses::getInstance();
+
+                $dt = $emailAddressesObj->find(array(
+                            'fields' => array(
+                                "{$emailAddressesObj->alias}.{$emailAddressesObj->primaryKey}",
+                                "{$emailAddressesObj->alias}.{$emailAddressesObj->displayField}"
+                            ), 'where' => array(
+                                "{$emailAddressesObj->alias}.related_to" => $relatedID,
+                                "{$emailAddressesObj->alias}.related_to_model" => $relatedModelObj->alias
+                            ), 'limit' => 1
+                                )
+                        )
+                        ->fetch(\PDO::FETCH_ASSOC);
+                $data[$modelObj->alias]['event_guests'][] = array(
+                    'guest_id' => $dt[$emailAddressesObj->primaryKey],
+                    '__guest_id' => $dt[$emailAddressesObj->displayField]
+                );
+            }
+        }
+
+
+        $request->set('data', $data);
+        return $return;
+    }
+
+}

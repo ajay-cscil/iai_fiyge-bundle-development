@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\hr\controller;
+  class job_positions extends \module\hr\controller\job_positions_domain_logic
+  {
+       public $modelClass = '\\module\\hr\\model\\job_positions';
+
+
+
+
+
+
+  }

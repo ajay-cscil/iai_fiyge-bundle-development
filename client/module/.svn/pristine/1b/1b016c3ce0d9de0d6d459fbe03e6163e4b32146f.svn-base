@@ -1,0 +1,289 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\payroll\model;
+
+class payslips_domain_logic extends \tushar\model{
+
+    public function computePayslip($id) {
+        $payslip = current($this->read($id, false));
+        if(empty($payslip)){
+            return;
+        }
+        $contract = \select("*")
+        ->from($this->contracts)
+        ->inserted()
+        ->where('id',$payslip['contract_id'])
+        ->execute()
+        ->fetch(\PDO::FETCH_ASSOC);
+        
+        
+        $payslip['total_working_days']=$this->contracts->computePossibleWorkingDays($payslip['contract_id'] ,$payslip['from_date'],$payslip['to_date']);
+        $this->saveModel(array('total_working_days'=>$payslip['total_working_days'],'id'=>$payslip['id']),array('atomic'=>true));
+        
+        // computed work days
+        $leaveObject=\module\leave_management\model\leaves::getInstance();
+        $leaves=select(array("'{$id}' as payslip_id","leaves.*","leave_type.code","leave_type.name as 'name'"))
+        ->from($leaveObject)
+        ->join('leave_type')
+        ->join('workflow_docs',false,true)
+        ->inserted()
+        ->where('workflow_docs.current_stages LIKE ','%Approved%')
+        ->where('leaves.employee_id',$payslip['employee_id'])
+        ->where(
+        array(
+          'OR'=>array(
+                array(
+                        'leaves.date_from <='=>$payslip['from_date'],
+                        'leaves.date_till >=' =>$payslip['from_date']
+                ),array(
+                        'leaves.date_from <=' => $payslip['to_date'],
+                        'leaves.date_till >=' => $payslip['to_date']
+                ),array(
+                        'leaves.date_from <=' => $payslip['from_date'],
+                        'leaves.date_till >=' => $payslip['to_date']
+                ),array(
+                       'leaves.date_from >=' =>$payslip['from_date'],
+                        'leaves.date_till <=' =>$payslip['to_date'] 
+                )
+           )
+          )
+        )->limit(0)
+        ->execute()
+        ->fetchAll(\PDO::FETCH_ASSOC);
+        
+       
+        
+        //pr($leaves);
+        //exit;
+        $fd=strtotime($payslip['from_date']);
+        $td=strtotime($payslip['to_date']);
+        $workDays=array();
+        if(!empty($leaves)){
+                foreach($leaves as $leave){
+                                $df=strtotime($leave['date_from']);
+                                $dt=strtotime($leave['date_till']);
+                                $days=0;
+                                //pr($leave);
+                                if($df  >= $fd && $dt <= $td){
+                                    $days=$this->dateDifference($leave['date_till'],$leave['date_from'])+1;
+                                }else if($df <= $fd && $dt >= $td){
+                                    $days=$this->dateDifference($payslip['to_date'],$payslip['from_date'])+1;
+                                }else if($df <= $td && $dt >= $td){
+                                     $days= $this->dateDifference($payslip['to_date'],$leave['date_from'])+1;
+                                }else if($df <= $fd && $dt >= $fd){
+                                     $days= $this->dateDifference($leave['date_from'],$payslip['from_date'])+1;
+                                }
+                                //pr($days);
+                                $ltid=$leave['leave_type_id'];
+                                if(!isset($workDays[$ltid])){
+                                        $workDays[$ltid]=$leave;
+                                        $workDays[$ltid]['number_of_days']=0;
+                                }
+                                $workDays[$ltid]['number_of_days'] += $days;
+                }
+        }
+        \delete(array())->from($this->worked_days)->where('payslip_id',$id)->execute();
+        
+        $leaveTypes=array();
+        
+        foreach(\select(array("leave_type.id as leave_type_id",
+        "leave_type.code",
+        "leave_type.name as name",
+        "0 as number_of_days",
+        "0 as number_of_hours",
+        "'{$id}' as payslip_id",
+        "leave_type.id as leave_type_id"
+        ))
+        ->from($leaveObject->leave_type)
+        ->inserted()
+        ->limit(0)
+        ->execute()
+        ->fetchAll(\PDO::FETCH_ASSOC) as $lt){
+                if(!isset($workDays[$lt['leave_type_id']])){
+                     $workDays[$lt['leave_type_id']]=$lt;
+                }
+        }
+        
+        $attendanceObject=\module\attendance\model\attendances::getInstance();
+        
+       // \tushar\configuration::write('debug', 1);
+       // \tushar\logger::enable(false);
+        $actualWorkingDays=0;
+        if(strtolower($contract['days_computation']) == 'attendance'){
+                $attendance=\select('DATE(attendances.datetime)')
+                ->from($attendanceObject)
+                ->inserted()
+                ->where('attendances.employee_id',$payslip['employee_id'])
+                ->where('attendances.attendance_action','signin')
+                ->where('attendances.datetime between',array($payslip['from_date'],$payslip['to_date']))
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN);
+                //pr($attendance);
+                //exit;
+                // echo sql_log();
+              //  \tushar\configuration::write('debug', 0);
+               //  \tushar\logger::enable(false);
+               $actualWorkingDays=count(array_unique($attendance));
+
+        }else if(strtolower($contract['days_computation']) == 'timesheet'){
+                $timesheetObject=\module\hr\model\timesheets::getInstance();
+                $attendance=\select("DATE('timesheet_lines.date')")
+                ->from($timesheetObject)
+                ->joinInner('timesheet_lines')
+                ->inserted()
+                ->where("employee_id",$payslip['employee_id'])
+                ->where('timesheet_lines.date between',array($payslip['from_date'],$payslip['to_date']))
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN);
+                $actualWorkingDays=count(array_unique($attendance));
+        
+        }
+        
+        array_unshift($workDays,array(
+                              'name'=>'Normal Working Days paid at 100%',
+                              'code'=>'WORK100',
+                              'number_of_days'=>$actualWorkingDays,
+                              'number_of_hours'=>0,
+                              'payslip_id'=>$id,
+                              'leave_type_id'=>0
+                              ));
+        
+
+
+        if(!empty($workDays)){
+                foreach($workDays as $day){
+                      $day=array_intersect_key($day,
+                        array(
+                              'name'=>1,
+                              'code'=>1,
+                              'number_of_days'=>1,
+                              'number_of_hours'=>1,
+                              'payslip_id'=>1,
+                              'leave_type_id'=>1
+                        )
+                      );
+                      $this->worked_days->saveModel($day,array('atomic'=>true));          
+                }
+        
+        }
+        
+        
+        $sid = $contract['salary_structure_id'];
+        $ssObj = $this->contracts->salary_structures;
+        $ssids = array();
+        while (!empty($sid)) {
+            $ssids[] = $sid;
+            $sid = select("parent_id")
+                    ->from($ssObj)
+                    ->inserted()
+                    ->where('id', $sid)
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN);
+        }
+
+        $rules = select(array("salary_rules.*", "salary_rule_categories.name as category"))
+                ->from($ssObj->salary_rules)
+                ->join('salary_rule_categories')
+                ->inserted()
+                ->where("salary_structure_id", $ssids)
+                ->order("sequence ASC")
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        $rules = $this->_computePayslip($payslip, $contract, $rules,$workDays);
+//pr($rules);
+        $salaryComputationLogsObj = \module\payroll\model\salary_computation_logs::getInstance();
+        $keys = array_flip($this->standardColumns);
+        $keys[$salaryComputationLogsObj->primaryKey] = 1;
+
+        foreach (select('id')
+                ->from($salaryComputationLogsObj)
+                ->inserted()
+                ->where('payslip_id', $payslip['id'])
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_COLUMN) as $logID
+        ) {
+            $salaryComputationLogsObj->delete($logID, array('atomic' => true));
+        }
+        foreach ($rules as $rulek => $rule) {
+            $rule['salary_rule_id'] = $rule['id'];
+            $rule['payslip_id'] = $payslip['id'];
+            $rule = array_diff_key($rule, $keys);
+            \module\payroll\model\salary_computation_logs::getInstance()->saveModel($rule, array('atomic' => true));
+        }
+        return true;
+    }
+
+    private function _computePayslip($payslip, $contract, $rules,$workDays) {
+        $variables=array();
+        foreach($workDays as $wd){
+           $variables[$wd['code'].'_DAYS']=$wd['number_of_days'];
+           $variables[$wd['code'].'_HOURS']=$wd['number_of_hours'];
+        }
+        extract($variables);
+        foreach ($rules as $rulek => $rule) {
+            $code = str_replace(" ", "", strtoupper($rule['code']));
+            $$code = 0;
+            $rules[$rulek]['code_var'] = $code;
+            $rules[$rulek]['computation_type'] = strtolower($rule['computation_type']);
+        }
+        foreach ($rules as $rulek => $rule) {
+            $amount = 0;
+            switch ($rule['computation_type']) {
+                case 'percentage':
+                    $toDateObj = new \DateTime($payslip['to_date']);
+                    $fromDateObj = new \DateTime($payslip['from_date']);
+                    $quantity = datetime_diff($fromDateObj->diff($toDateObj), 'm');
+                    $amount = ($payslip['wage'] / 100) * $rule['percentage'] * ($quantity);
+                    break;
+                case 'fixed':
+                    $amount = $rule['fixed_amount'];
+                    break;
+                case 'code':
+                    if (substr($rule['rule'], -1) != ";") {
+                        $rule['rule'].=";";
+                    }
+                    eval($rule['rule']);
+                    break;
+            }
+            $$rule['code_var'] = $rules[$rulek]['amount'] = $amount;
+        }
+        return $rules;
+    }
+
+    public function amount($rules, $categories) {
+        $amount = 0;
+        if (!is_array($categories)) {
+            if (!empty($categories)) {
+                $categories = array($categories);
+            } else {
+                $categories = array();
+            }
+        }
+        if (!empty($categories) && is_array($rules)) {
+            foreach ($rules as $rule) {
+                if (in_array($rule['category'], $categories)) {
+                    $amount += $rule['amount'];
+                }
+            }
+        }
+        return $amount;
+    }
+    function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' ){
+                $datetime1 = date_create($date_1);
+                $datetime2 = date_create($date_2); 
+                $interval = date_diff($datetime1, $datetime2);
+                return $interval->format($differenceFormat);
+    
+        }
+
+}

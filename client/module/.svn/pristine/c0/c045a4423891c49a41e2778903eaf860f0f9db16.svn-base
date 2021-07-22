@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm_cruise\controller;
+  class config_industries extends \module\crm_cruise\controller\config_industries_domain_logic
+  {
+       public $modelClass = '\\module\\crm_cruise\\model\\config_industries';
+
+
+
+
+
+
+  }

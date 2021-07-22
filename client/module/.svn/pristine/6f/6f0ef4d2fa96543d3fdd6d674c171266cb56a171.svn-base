@@ -1,0 +1,359 @@
+[
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Requests a Sign",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53d0316c-2128-40c8-bcee-55490af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Requests a Sign",
+			"sequence_number":"1",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2014-07-28 22:39:49",
+			"modified":null,
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53d6d135-ea64-48a0-b60f-2aff0af91b9d",
+			"__created_by":"Super Admin",
+			"__modified_by":"",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"__primary_acl_group":"",
+			"created_by_model":"created_by_user",
+			"panel_id_model":"panels",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"widget_permissions":false,
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null,
+				"__created_by":"Super Admin",
+				"__modified_by":"Super Admin",
+				"__owned_by":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Wants to Volunteer",
+			"panel_id":"24",
+			"old_related_to":null,
+			"related_to":"53d03212-5bdc-4871-9884-56a10af91b9d",
+			"related_to_model":"listviews",
+			"__related_to":"Wants to Volunteer",
+			"sequence_number":"1",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":null,
+			"created":"2014-07-28 22:40:36",
+			"modified":"2014-07-28 22:58:14",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53d6d164-93c8-4c7a-a95c-2b520af91b9d",
+			"__created_by":"Super Admin",
+			"__modified_by":"Super Admin",
+			"__owned_by":"",
+			"__panel_id":"My Dashboard",
+			"__primary_acl_group":"",
+			"created_by_model":"created_by_user",
+			"modified_by_model":"modified_by_user",
+			"panel_id_model":"panels",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"widget_permissions":false,
+			"panel_information":{
+				"id":"24",
+				"panel_name":"My Dashboard",
+				"dashboard_name":"Home",
+				"sequence_number":"0",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-05-21 08:32:26",
+				"modified":"2012-08-22 03:09:07",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null,
+				"__created_by":"Super Admin",
+				"__modified_by":"Super Admin",
+				"__owned_by":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":"32",
+			"widget_name":"Doors Knocked vs Target",
+			"panel_id":"27",
+			"old_related_to":"1422",
+			"related_to":"53d66a46-feb8-4584-bf89-1efc0af91b9d",
+			"related_to_model":"reports",
+			"__related_to":"Doors Knocked Target",
+			"sequence_number":"2",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":"categorized",
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2012-08-22 01:16:18",
+			"modified":"2014-07-28 23:36:09",
+			"deleted":"0",
+			"revision":"6",
+			"flags":null,
+			"primary_acl_group":"0",
+			"id":"52611fd2-874c-44f3-943b-1d890acef1b9",
+			"__created_by":"Super Admin",
+			"__modified_by":"Super Admin",
+			"__owned_by":"",
+			"__panel_id":"My Score Card",
+			"__primary_acl_group":"",
+			"created_by_model":"created_by_user",
+			"modified_by_model":"modified_by_user",
+			"panel_id_model":"panels",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"widget_permissions":{
+				"id":"130",
+				"old_widget_id":"32",
+				"user_id":"1",
+				"is_active":"1",
+				"sequence_number":null,
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":null,
+				"created":"2012-08-22 02:55:18",
+				"modified":"2014-07-28 21:46:11",
+				"deleted":"0",
+				"revision":"6",
+				"flags":null,
+				"widget_id":"52611fd2-874c-44f3-943b-1d890acef1b9",
+				"__user_id":"Super Admin",
+				"__widget_id":"",
+				"__created_by":"Super Admin",
+				"__modified_by":"Super Admin",
+				"__owned_by":"",
+				"user_id_model":"users",
+				"created_by_model":"created_by_user",
+				"modified_by_model":"modified_by_user"
+			},
+			"panel_information":{
+				"id":"27",
+				"panel_name":"My Score Card",
+				"dashboard_name":"Home",
+				"sequence_number":"6",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-08-22 00:56:20",
+				"modified":"2012-08-22 03:10:59",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null,
+				"__created_by":"Super Admin",
+				"__modified_by":"Super Admin",
+				"__owned_by":null
+			}
+		}
+	},
+	{
+		"widgets":{
+			"old_id":null,
+			"widget_name":"Signs Placed vs Target for August",
+			"panel_id":"27",
+			"old_related_to":null,
+			"related_to":"53d6df8d-994c-4671-8cdd-3db60af91b9d",
+			"related_to_model":"reports",
+			"__related_to":"Sign Target for August",
+			"sequence_number":"2",
+			"column_span":"6",
+			"is_public":"1",
+			"type_of_view":null,
+			"pagination_limit":"0",
+			"description":"",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2014-07-28 23:52:58",
+			"modified":null,
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"primary_acl_group":null,
+			"id":"53d6e25a-d668-4715-a535-431f0af91b9d",
+			"__created_by":"Super Admin",
+			"__modified_by":"",
+			"__owned_by":"",
+			"__panel_id":"My Score Card",
+			"__primary_acl_group":"",
+			"created_by_model":"created_by_user",
+			"panel_id_model":"panels",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL",
+			"widget_permissions":false,
+			"panel_information":{
+				"id":"27",
+				"panel_name":"My Score Card",
+				"dashboard_name":"Home",
+				"sequence_number":"6",
+				"created_by":"1",
+				"modified_by":"1",
+				"owned_by":"0",
+				"created":"2012-08-22 00:56:20",
+				"modified":"2012-08-22 03:10:59",
+				"deleted":"0",
+				"revision":"1",
+				"flags":null,
+				"__created_by":"Super Admin",
+				"__modified_by":"Super Admin",
+				"__owned_by":null
+			}
+		}
+	}
+]

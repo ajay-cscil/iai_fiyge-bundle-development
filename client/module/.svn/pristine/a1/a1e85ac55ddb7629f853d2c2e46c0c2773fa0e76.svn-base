@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class credit_memos extends \module\accounting\controller\credit_memos_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\credit_memos';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

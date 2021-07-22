@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\controller;
+
+class templates extends \tushar\controller {
+
+    /**
+     *
+     * @var type
+     */
+    public $paginate = array(
+        'fields' => array('templates.id', 'templates.name', 'templates.subject', 'created_by_user.first_name', 'created_by_user.last_name')
+    );
+
+
+    
+
+}

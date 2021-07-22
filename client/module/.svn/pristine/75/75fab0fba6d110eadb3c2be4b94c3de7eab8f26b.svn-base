@@ -1,0 +1,86 @@
+[
+    {
+        "printviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "business_key": "payment",
+            "content": "[php]\r\n\r\n$companyObj = \\module\\crm_base\\model\\companies::getInstance(array(), true);\r\n$companyID=\\tushar\\user::read('company_id');\r\n$companyData = select(\"*\")->from($companyObj)->where('id',$companyID)->execute()->fetch(\\PDO::FETCH_ASSOC);\r\n$companyData['images']=select(\"*\")\r\n->from($companyObj->images)->where(array('related_to'=>$companyID,'related_to_model'=>'companies'))\r\n->execute()->fetch(\\PDO::FETCH_ASSOC);\r\n\r\n$currencyObj = \\module\\masters\\model\\currencies::getInstance(array(), true);\r\n$currencyData = current($currencyObj->read($this->data('payments.currency_id')));\r\n\r\necho '<table>';\r\necho '<tr><td><p><strong style=\"color:#366D9C;border:1px\"><font size=\"20\">' . Receive .' '.Payment . '<\/font><\/strong><\/p><\/td><\/tr>';\r\necho '<\/table>';\r\necho \"<table><tr><td>\r\n\r\n<tr><td >{$this->data('payments.parent_id')}<\/td><\/tr>\r\n<tr><\/tr><tr><\/tr><tr><td><strong>Customer Name<\/strong><\/td><\/tr><tr><\/tr><tr>{$this->data('payments.__payment_customer')}<\/tr>\r\n\r\n\r\n<\/td>\r\n<td><\/td>\r\n<td>\";\r\necho' <tr><td><strong>Payment Date : <\/strong>' . date(\"m\/d\/Y\") . ' ';\r\necho\" <\/td> <\/tr>\";\r\necho'   <tr><td><strong>Payment No :<\/strong>';\r\necho\" {$this->data('payments.number')}\";\r\necho '<\/td> <\/tr>';\r\n\r\n\r\necho'   <tr><td><strong>Payment Ref :<\/strong>';\r\necho\" {$this->data('payments.payment_reference')}\";\r\necho '<\/td> <\/tr>';\r\n\r\necho '<tr><td><strong>Status :<\/strong>';\r\necho\" {$this->data('payments.current_stages')}\";\r\necho \"<\/td> <\/tr>\r\n                 \r\n                 \r\n<\/td><\/tr>\r\n<\/table>\";\r\n\r\n\r\n\r\necho '<table><tr>';\r\nforeach (array('primary') as $type):\r\n\r\n    echo '<td><table><tr><td><strong style=\"color:#366D9C;\"><\/strong><\/td><\/tr>';\r\n    if ($this->data('payments.' . $type . '_address_line_1') != \"\") {\r\n        echo\"    <tr><td >{$this->data('payments.' . $type . '_address_line_1')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('payments.' . $type . '_address_line_2') != \"\") {\r\n        echo\"    <tr><td >{$this->data('payments.' . $type . '_address_line_2')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('payments.' . $type . '_city') != \"\") {\r\n        echo \" <tr><td >{$this->data('payments.' . $type . '_city')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('payments.primary_state') != \"\") {\r\n        echo\"  <tr><td >{$this->data('payments.primary_state')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('payments.__primary_country') != \"\") {\r\n        echo\"  <tr><td >{$this->data('payments.__primary_country')}<\/td><\/tr>\";\r\n    }\r\n    if ($this->data('payments.' . $type . '_zip') != \"\") {\r\n        echo\"  <tr><td >{$this->data('payments.' . $type . '_zip')}<\/td><\/tr>\";\r\n    }\r\n    echo\"  <\/table><\/td>\";\r\nendforeach;\r\n\r\nforeach (array('shipping') as $type):\r\n\r\n    \r\n    echo\"  <tr><td>&nbsp;<\/td><\/tr><\/table><\/td>\";\r\n    echo \"<\/tr><\/table>\";\r\nendforeach;\r\n\r\n\r\n\r\necho '<table border=\"1\" cellpadding=\"1\"  height=\"50%\">';\r\n\r\n\r\necho '<tr>\r\n        <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . __('invoices_payments.invoice_id', 'module') . '<\/font><\/strong><\/td>\r\n        <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . __('invoices_payments.due_date', 'module') . '<\/font><\/strong><\/td>\r\n\r\n        <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . Original . ' ' . Amount . '<\/font><\/strong><\/td>        \r\n        <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . __('invoices_payments.balance_due', 'module') . '<\/font><\/strong><\/td>\r\n        \r\n        <td align=\"center\" colspan=\"2\" style=\"background-color:#92989A;\"><strong><font size=\"10\">' . Payment . '<\/font><\/strong><\/td>        \r\n        \r\n        \r\n        \r\n    <\/tr>';\r\n$invoices_payments = $this->data('payments.invoices_payments');\r\nif (isset($invoices_payments) && is_array($invoices_payments)):\r\n\r\n    foreach ($invoices_payments as $line):\r\n\r\n        echo '<tr>\r\n        <td colspan=\"2\" align=\"center\"><font size=\"10\">' . $line['__invoice_id'] . '<\/font><\/td>\r\n        <td colspan=\"2\" align=\"center\"><font size=\"10\">' . $line['due_date'] . '<\/font><\/td>\r\n        <td colspan=\"2\" align=\"right\"><font size=\"10\">' . $line['total_after_discount'] . '<\/font><\/td>\r\n\r\n        <td colspan=\"2\" align=\"right\"><font size=\"10\">' . $line['balance_due'] . '<\/font><\/td>\r\n        <td align=\"right\" colspan=\"2\"><font size=\"10\">' . $line['total_amount'] . '<\/font><\/td>';\r\n        \r\n        if (isset($line['line_taxes']) && is_array($line['line_taxes'])):\r\n            foreach ($line['line_taxes'] as $taxes) :\r\n                \r\n            endforeach;\r\n        endif;\r\n        echo '<td colspan=\"2\" align=\"center\"><font size=\"10\"><\/font><\/td>\r\n        <\/tr>';\r\n\r\n    endforeach;\r\n\r\nendif;\r\n\r\necho '<\/table>';\r\n\r\necho '<p><table cellpadding=\"2\" align=\"right\">';\r\n\r\necho '<tr>\r\n\r\n        <td colspan=\"5\"><\/td>\r\n\r\n        <td align=\"left\" colspan=\"2\"><font size=\"10\"><strong>Total<\/strong><\/font><\/td>';\r\nif ($this->data('payments.amount_to_apply') != \"\") {\r\n    echo'  <td align=\"right\" colspan=\"2\"><font size=\"10\"><strong>' . $currencyData['currency_symbol'] . ' ' . $this->data('payments.amount_to_apply') . '<\/strong><\/font><\/td>';\r\n} else {\r\n    echo' <td align=\"right\" colspan=\"2\"><font size=\"10\"><strong>0.00' . ' ' . '%' . '<\/strong><\/font><\/td>';\r\n}\r\necho' <\/tr>';\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n$InvoiceTaxes = $this->data('payments.line_taxes_summary');\r\nif (isset($InvoiceTaxes) && is_array($InvoiceTaxes)):\r\n    echo '<tr><td colspan=\"5\"><\/td>';\r\necho' <td align=\"left\" colspan=\"2\"><font size=\"10\"><strong>' . 'Taxes' . '<\/strong><\/font><\/td>';\r\necho '<td colspan=\"2\"><\/td><\/tr>';\r\n    foreach ($InvoiceTaxes as $taxLine):\r\n   \r\necho '<tr><td colspan=\"5\"><\/td>';\r\n\r\n                \r\n            echo'   <td align=\"left\" colspan=\"2\"><font size=\"9\"><strong>&nbsp;&nbsp;&nbsp;&nbsp;' . $taxLine['__tax_id'] . '<\/strong><\/font><\/td>';\r\n        echo'   <td align=\"right\" colspan=\"2\"><font size=\"9\"><strong>' . $currencyData['currency_symbol'] . ' ' . $taxLine['tax_amount'] . '<\/strong><\/font><\/td><\/tr>';\r\n               \r\n\r\n    endforeach;\r\nendif;\r\n\r\necho '<\/table>';\r\n\r\necho '<table>';\r\necho '<tr> <td><\/td><\/tr>';\r\necho '<tr> <td><\/td><\/tr>';\r\necho '<\/table>';\r\n\r\n[\/php]",
+            "controller": "accounting\/payments",
+            "created": "2014-04-11 07:59:11",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "footer": null,
+            "header": null,
+            "id": "5347a0cf-5c48-42af-ac24-66620af91b9d",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-11 13:37:09",
+            "modified_by": "1",
+            "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+            "name": "payment",
+            "old_id": null,
+            "owned_by": "-2",
+            "revision": "1",
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__module_id": "accounting",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

@@ -1,0 +1,472 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class orders_information extends \module\excursion\model\orders_information_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__orders_information';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'affiliateName';
+       public $primaryKey = 'orderInformationID';
+       public $alias = 'orders_information';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'affiliateBCC' => 
+  array (
+    'column' => 'affiliateBCC',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'affiliateBranding' => 
+  array (
+    'column' => 'affiliateBranding',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'affiliateBrandingID' => 
+  array (
+    'column' => 'affiliateBrandingID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'affiliateData' => 
+  array (
+    'column' => 'affiliateData',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'affiliateEmailAddress' => 
+  array (
+    'column' => 'affiliateEmailAddress',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'affiliateGroupID' => 
+  array (
+    'column' => 'affiliateGroupID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'affiliateID' => 
+  array (
+    'column' => 'affiliateID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'affiliateName' => 
+  array (
+    'column' => 'affiliateName',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'cruiseDuration' => 
+  array (
+    'column' => 'cruiseDuration',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'cruiseLine' => 
+  array (
+    'column' => 'cruiseLine',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'cruiseLineID' => 
+  array (
+    'column' => 'cruiseLineID',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'cruiseShip' => 
+  array (
+    'column' => 'cruiseShip',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'cruiseShipID' => 
+  array (
+    'column' => 'cruiseShipID',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'cruiseStartDate' => 
+  array (
+    'column' => 'cruiseStartDate',
+    'ntype' => 'datetime',
+  ),
+  'customerEmailAddress' => 
+  array (
+    'column' => 'customerEmailAddress',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'customerEmailConfirmed' => 
+  array (
+    'column' => 'customerEmailConfirmed',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'customerID' => 
+  array (
+    'column' => 'customerID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'customerNotes' => 
+  array (
+    'column' => 'customerNotes',
+    'ntype' => 'string',
+  ),
+  'customerPhoneNumber' => 
+  array (
+    'column' => 'customerPhoneNumber',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'firstName' => 
+  array (
+    'column' => 'firstName',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'holdEmailsForOrder' => 
+  array (
+    'column' => 'holdEmailsForOrder',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'lastName' => 
+  array (
+    'column' => 'lastName',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'lastUpdated' => 
+  array (
+    'column' => 'lastUpdated',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'notesToVendor' => 
+  array (
+    'column' => 'notesToVendor',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'orderDate' => 
+  array (
+    'column' => 'orderDate',
+    'ntype' => 'datetime',
+  ),
+  'orderID' => 
+  array (
+    'column' => 'orderID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'orderInformationID' => 
+  array (
+    'column' => 'orderInformationID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'orderNotes' => 
+  array (
+    'column' => 'orderNotes',
+    'ntype' => 'string',
+  ),
+  'orderStatus' => 
+  array (
+    'column' => 'orderStatus',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'paymentRecieved' => 
+  array (
+    'column' => 'paymentRecieved',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'reviewEmailAuthorized' => 
+  array (
+    'column' => 'reviewEmailAuthorized',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'orders' => 
+  array (
+    'className' => '\\module\\excursion\\model\\orders',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'orders',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'affiliate_information' => 
+  array (
+    'className' => '\\module\\excursion\\model\\affiliate_information',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'affiliateID',
+    'associationAlias' => 'affiliate_information',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.affiliateID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+  'affiliate_users' => 
+  array (
+    'className' => '\\module\\excursion\\model\\affiliate_users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'affiliateID',
+    'associationAlias' => 'affiliate_users',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.affiliateID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+);
+       public $filters = array (
+  'affiliateBCC' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'affiliateEmailAddress' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'customerEmailAddress' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'customerEmailConfirmed' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'customerID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'holdEmailsForOrder' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'lastUpdated' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'orderDate' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'orderInformationID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'paymentRecieved' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'reviewEmailAuthorized' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'orderID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

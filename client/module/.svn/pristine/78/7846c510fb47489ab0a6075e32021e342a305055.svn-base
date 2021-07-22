@@ -1,0 +1,7 @@
+<?php
+
+echo '<table border="0" class="width-100 container"><tr><td style="width:10%;">';
+echo '<img src="' . $this->request->base . 'module/flexflow/img/flexflow.gif" border="0">';
+echo '</td><td class="sub-container">';
+\tushar\html::paginate($this, $this->get('paginate', array(), false));
+echo '</td></tr></table>';

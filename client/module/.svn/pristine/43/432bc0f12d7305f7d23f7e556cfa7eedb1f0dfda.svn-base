@@ -1,0 +1,19 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class product_uom_categ extends \module\mrp\model\product_uom_categ_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'product_uom_categ';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+  }

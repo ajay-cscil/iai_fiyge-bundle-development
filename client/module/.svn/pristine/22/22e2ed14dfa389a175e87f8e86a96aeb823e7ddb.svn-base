@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class bank_account_types extends \module\accounting\controller\bank_account_types_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\bank_account_types';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

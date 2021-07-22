@@ -1,0 +1,198 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class vendor_tour_manifest_emails_log extends \module\excursion\model\vendor_tour_manifest_emails_log_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__vendor_tour_manifest_emails_log';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'orderID';
+       public $primaryKey = 'ID';
+       public $alias = 'vendor_tour_manifest_emails_log';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'ID' => 
+  array (
+    'column' => 'ID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'orderDetailID' => 
+  array (
+    'column' => 'orderDetailID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'orderID' => 
+  array (
+    'column' => 'orderID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'queued' => 
+  array (
+    'column' => 'queued',
+    'ntype' => 'datetime',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'vendorID' => 
+  array (
+    'column' => 'vendorID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+);
+       public $associations = array (
+  'orders' => 
+  array (
+    'className' => '\\module\\excursion\\model\\orders',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'orders',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'order_details_notes' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_notes',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_notes',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.orderDetailID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+  'order_details_options_parsed' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_options_parsed',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_options_parsed',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.orderDetailID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+);
+       public $filters = array (
+  'orderDetailID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'orderID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'queued' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

@@ -1,0 +1,48 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class journals_domain_logic extends \data_model{
+
+    public $isSystemModel = 1;
+
+    public function journalID($journalType, $currencyID, $companyID) {
+        return \select(array("journals.{$this->primaryKey}"))
+                        ->from($this)
+                        ->join('journal_types')
+                        ->where(array('journals.company_id' => $companyID, 'journals.currency_id' => $currencyID, 'journal_types.business_key' => $journalType))
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+    }
+
+    public function setDefaultACL() {
+        $acl = array();
+        if (isset($this->data['company_id']) && !empty($this->data['company_id'])) {
+            $aclDefault = \select("*")
+                    ->from($this->companies)
+                    ->inserted()
+                    ->where('id', $this->data['company_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+
+            if (isset($aclDefault['default_read_acl_group_id'])) {
+                foreach (array(
+            '_acl' => $aclDefault['default_read_acl_group_id'],
+            '_acl_edit' => $aclDefault['default_edit_acl_group_id'],
+            '_acl_delete' => $aclDefault['default_delete_acl_group_id']) as $k => $a) {
+                    if (!empty($a)) {
+                        $acl[$k][] = array('op' => 'new', 'value' => "g" . $a);
+                    }
+                }
+            }
+        }
+        return $acl;
+    }
+
+}

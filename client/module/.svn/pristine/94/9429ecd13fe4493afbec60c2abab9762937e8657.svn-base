@@ -1,0 +1,123 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+/**
+ * @author Pooja Pednekar<ppednekar@primarymodules.com>
+ */
+class TestParallelSplitPatterns extends UnitTestCase
+{
+
+    private $stages = array();
+    private $dataIds = array();
+    private $schemasObject = array();
+    private $metatypesObject = array();
+    private $brulesObj = array();
+    private $typesObject = array();
+    private $typesStagesObject = array();
+
+    function TestParallelSplitPatterns()
+    {
+        $this->UnitTestCase('Parallel Split Patterns');
+        $this->schemasObject = \module\flexflow\model\ff_schemas::getInstance();
+        $this->schemasObject->data['name'] = 'testParalletSplit';
+        $this->schemasObject->data['desc'] = 'testParalletSplit';
+        $this->schemasObject->save($this->schemasObject->data, array('atomic' => true));
+        $this->dataIds['schemasObject'][] = $this->schemasObject->data['id'];
+
+        $this->metatypesObject = \module\flexflow\model\ff_metatypes::getInstance();
+        $this->metatypesObject->data['name'] = 'testParalletSplit';
+        $this->metatypesObject->data['desc'] = 'testParalletSplit';
+        $this->metatypesObject->data['schema_id'] = $this->schemasObject->data['id'];
+        $this->metatypesObject->save($this->metatypesObject->data, array('atomic' => true));
+        $this->dataIds['metatypesObject'][] = $this->metatypesObject->data['id'];
+
+        $this->brulesObj = \module\brules\model\business_rules::getInstance();
+        $this->brulesObj->data['name'] = 'testParalletSplit';
+        $this->brulesObj->data['runlevel'] = 2;
+        $this->brulesObj->data['filter_path'] = '*';
+        $this->brulesObj->data['then_condition'] = 'true;';
+        $this->brulesObj->data['if_condition'] = '$object->entityObj->data["ff_schema"] == "testParalletSplit"';
+        $this->brulesObj->save($this->brulesObj->data, array('atomic' => true));
+        $this->dataIds['brulesObj'][] = $this->brulesObj->data['id'];
+
+        $this->typesObject = \module\flexflow\model\ff_types::getInstance();
+        $this->typesObject->data['name'] = 'testParalletSplit';
+        $this->typesObject->data['desc'] = 'testParalletSplit';
+        $this->typesObject->data['ff_metatype_id'] = $this->metatypesObject->data['id'];
+        $this->typesObject->data['ff_rule_id'] = $this->brulesObj->data['id'];
+        $this->typesObject->save($this->typesObject->data, array('atomic' => true));
+        $this->dataIds['typesObject'][] = $this->typesObject->data['id'];
+
+        $this->brulesObj->data = array();
+        $this->brulesObj->data['name'] = 'testParalletSplit-I';
+        $this->brulesObj->data['runlevel'] = 2;
+        $this->brulesObj->data['filter_path'] = '/module/flexflow/model/stage_Pending Approval';
+        $this->brulesObj->data['then_condition'] = '$object->setCurrentStages(array(array("id"=>5)))';
+        $this->brulesObj->data['if_condition'] = '$object->entityObj->data["ff_schema"] == "testParalletSplit"';
+        $this->brulesObj->save($this->brulesObj->data, array('atomic' => true));
+        $this->dataIds['brulesObj'][] = $this->brulesObj->data['id'];
+
+        $this->typesStagesObject = \module\flexflow\model\ff_stage_ff_type::getInstance();
+        $this->typesStagesObject->data['ff_type_id'] = $this->typesObject->data['id'];
+        $this->typesStagesObject->data['ff_stage_id'] = 1;
+        $this->typesStagesObject->save($this->typesStagesObject->data, array('atomic' => true));
+        $this->dataIds['typesStagesObject'][] = $this->typesStagesObject->data['id'];
+        $this->typesStagesObject->data = array();
+        $this->typesStagesObject->data['ff_type_id'] = $this->typesObject->data['id'];
+        $this->typesStagesObject->data['ff_stage_id'] = 4;
+        $this->typesStagesObject->save($this->typesStagesObject->data, array('atomic' => true));
+        $this->dataIds['typesStagesObject'][] = $this->typesStagesObject->data['id'];
+        $this->typesStagesObject->data = array();
+        $this->typesStagesObject->data['ff_type_id'] = $this->typesObject->data['id'];
+        $this->typesStagesObject->data['ff_stage_id'] = 2;
+        $this->typesStagesObject->save($this->typesStagesObject->data, array('atomic' => true));
+        $this->dataIds['typesStagesObject'][] = $this->typesStagesObject->data['id'];
+    }
+
+    /**
+     * @author Pooja Pednekar<ppednekar@primarymodules.com>
+     */
+    public function testParalletSplit()
+    {
+        $testObject = \module\test\model\test::getInstance();
+        $testObject->data['name'] = 'testParalletSplit';
+        $testObject->data['revenue'] = 100;
+        $testObject->data['description'] = 'testParalletSplit';
+        $testObject->data['ff_schema'] = 'testParalletSplit';
+        $testObject->data['action'] = array('Submit' => 'Submit');
+        $testObject->save($testObject->data, array('atomic' => true));
+        $ffCurrentStagesObject = \module\flexflow\model\ff_current_stages::getInstance();
+        $docObject = \module\flexflow\model\ff_docs::getInstance();
+        $stages = \select("{$ffCurrentStagesObject->alias}.*")
+                        ->from($docObject)
+                        ->joinInner('ff_current_stages')
+                        ->inserted()
+                        ->where("{$docObject->alias}.foreign_key", $testObject->data['id'])
+                        ->where("{$docObject->alias}.foreign_key_model", 'test')
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+        if (count($stages) >= 3) {
+            if (!(isset($stages[0]['status']) && ($stages[0]['status'] == 'completed' )
+                    && isset($stages[1]['status']) && ($stages[1]['status'] == 'currently_active' ) && isset($stages[2]['status']) && ($stages[2]['status'] == 'currently_active' ) )) {
+                $this->assertTrue(false, 'Flex Flow does not support Parallel Split.');
+            }
+        } else {
+            $this->assertTrue(false, 'Flex Flow does not support Parallel Split.');
+        }
+    }
+
+    function __destruct()
+    {
+        foreach ($this->dataIds as $model => $modelIds) {
+            if (isset($modelIds) && is_array($modelIds)) {
+                foreach ($modelIds as $id) {
+                    $this->$model->delete($id);
+                }
+            }
+        }
+    }
+
+}
+?>

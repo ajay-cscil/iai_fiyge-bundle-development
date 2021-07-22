@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class depreciation_lines extends \module\accounting\controller\depreciation_lines_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\depreciation_lines';
+
+
+
+
+
+
+  }

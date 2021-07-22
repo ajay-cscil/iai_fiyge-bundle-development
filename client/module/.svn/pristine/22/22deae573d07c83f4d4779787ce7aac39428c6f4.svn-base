@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\appraisal\controller;
+  class appraisal_plans extends \module\appraisal\controller\appraisal_plans_domain_logic
+  {
+       public $modelClass = '\\module\\appraisal\\model\\appraisal_plans';
+
+
+
+
+
+
+  }

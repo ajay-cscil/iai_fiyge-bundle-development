@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tickets\controller;
+  class config_ticket_priorities extends \module\tickets\controller\config_ticket_priorities_domain_logic
+  {
+       public $modelClass = '\\module\\tickets\\model\\config_ticket_priorities';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

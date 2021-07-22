@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:11 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>form (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\form</h2>
+
+</header><p class="signature">public  class <strong>form</strong></p>
+
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#properties">$properties</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#action_list()">action_list</a>(<a href="../kernel/view.html">view</a> view, array node, bool return)</p><p class="description">Calls given children in sequence</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#autocomplete()">autocomplete</a>(mixed view, mixed node)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#block()">block</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Generates form block markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#cancel()">cancel</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params, bool return)</p><p class="description">Generates form cancel button markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#checkbox()">checkbox</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</p><p class="description">Generates form checkbox input markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#collection()">collection</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Calls given children in sequence</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#currency()">currency</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#date()">date</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#datetime()">datetime</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#element()">element</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Calls given element</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#email()">email</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#empty_cell()">empty_cell</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Generates empty field</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#file()">file</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</p><p class="description">Generates form file input markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#grid()">grid</a>(type view, type node)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#grid_footer()">grid_footer</a>(mixed view, mixed node)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#horizontal_block()">horizontal_block</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Calls given children in sequence</p></td>
+</tr>
+<tr>
+<td class="type">static  null</td>
+<td class="description"><p class="name"><a href="#hyperlink()">hyperlink</a>(\kernel\view view, array node)</p><p class="description">UI for html a tag</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#input()">input</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</p><p class="description">Generates form input markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#javascript()">javascript</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#listview()">listview</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Calls given listview</p></td>
+</tr>
+<tr>
+<td class="type">protected static  type</td>
+<td class="description"><p class="name"><a href="#lookups()">lookups</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#menu()">menu</a>(type view, type node, bool return)</p><p class="description">Generated UI markup for view subaction menu</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#multiinput()">multiinput</a>(mixed view, mixed node)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#number()">number</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#optgroup()">optgroup</a>(type view, type node)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#page()">page</a>(type view, type node)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#panel()">panel</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Generates form panel markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#phone_number()">phone_number</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#placeholder()">placeholder</a>(type view, type node)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#popup()">popup</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Generate markup for popup element.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#radio()">radio</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</p><p class="description">Generates form radio input markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#render()">render</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Generates form markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#select()">select</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</p><p class="description">Generates form select input markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">protected static  void</td>
+<td class="description"><p class="name"><a href="#setPermission()">setPermission</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#string()">string</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</p><p class="description">Generates field containing given markup</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#subform()">subform</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Generates markup for subform and injects in current form.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#submit()">submit</a>(type view, type params, bool return)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#tab()">tab</a>(<a href="../kernel/view.html">view</a> view, array node)</p><p class="description">Generates form tab markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#taginput()">taginput</a>(mixed view, mixed node)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#textarea()">textarea</a>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</p><p class="description">Generates form testarea markup base on input</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#time()">time</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#url()">url</a>(type view, type params)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#video()">video</a>(type view, type node)</p><p class="description"></p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="properties">public static  mixed <strong>$properties</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="action_list">public static  void <strong>action_list</strong>(<a href="../kernel/view.html">view</a> view, array node, bool return)</code>
+<div class="details">
+<p>Calls given children in sequence</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - $node[children]=array() $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="autocomplete">public static  void <strong>autocomplete</strong>(mixed view, mixed node)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="block">public static  void <strong>block</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Generates form block markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form block $node[cols]=2 $node[children]=array() $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="cancel">public static  void <strong>cancel</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params, bool return)</code>
+<div class="details">
+<p>Generates form cancel button markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form cancel button $node[name]=array $node[id]=string $node[value]= $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="checkbox">public static  void <strong>checkbox</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</code>
+<div class="details">
+<p>Generates form checkbox input markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form checkbox input $node[lookup]=string $node[name]=array $node[id]=string $node[value]= $node[children]=array() $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="collection">public static  void <strong>collection</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Calls given children in sequence</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - $node[children]=array() $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="currency">public static  void <strong>currency</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="date">public static  void <strong>date</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="datetime">public static  void <strong>datetime</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="element">public static  void <strong>element</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Calls given element</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for element $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="email">public static  void <strong>email</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="empty_cell">public static  void <strong>empty_cell</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Generates empty field</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for markup $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="file">public static  void <strong>file</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</code>
+<div class="details">
+<p>Generates form file input markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form file input $node[name]=array $node[id]=string $node[value]= $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="grid">public static  type <strong>grid</strong>(type view, type node)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="grid_footer">public static  void <strong>grid_footer</strong>(mixed view, mixed node)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="horizontal_block">public static  void <strong>horizontal_block</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Calls given children in sequence</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - $node[children]=array() $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="hyperlink">public static  null <strong>hyperlink</strong>(\kernel\view view, array node)</code>
+<div class="details">
+<p>UI for html a tag</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="input">public static  void <strong>input</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</code>
+<div class="details">
+<p>Generates form input markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form input $node[type]=valid html input type $node[name]=array $node[id]=string $node[value]= $node[children]=array() $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="javascript">public static  void <strong>javascript</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="listview">public static  void <strong>listview</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Calls given listview</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - $node[related_model]= $node[auto_load]=1/0 $node[load_menu]=1/0 $node[listview]= listview id $node[module]= $node[controller]= $node[action]= $node[q]= array() $node[pfooter]= 1/0 $node[template_markup]= html $node[label]= $node[children]=array() $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="lookups">protected static  type <strong>lookups</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="menu">public static  void <strong>menu</strong>(type view, type node, bool return)</code>
+<div class="details">
+<p>Generated UI markup for view subaction menu</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="multiinput">public static  void <strong>multiinput</strong>(mixed view, mixed node)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="number">public static  void <strong>number</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="optgroup">public static  void <strong>optgroup</strong>(type view, type node)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="page">public static  type <strong>page</strong>(type view, type node)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="panel">public static  void <strong>panel</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Generates form panel markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form panel $node[children]=array() $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="phone_number">public static  void <strong>phone_number</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="placeholder">public static  type <strong>placeholder</strong>(type view, type node)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="popup">public static  void <strong>popup</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Generate markup for popup element.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - $node[label]= $node[link]=1/0 $node[children]=array() $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="radio">public static  void <strong>radio</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</code>
+<div class="details">
+<p>Generates form radio input markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form radio input $node[lookup]=string $node[name]=array $node[id]=string $node[value]= $node[children]=array() $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="render">public static  void <strong>render</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Generates form markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form $node[action]=>Specifies where to send the form-data when a form is submitted $node[method]=>get/post $node[name]=> $node[target]=> $node[enctype]=>application/x-www-form-urlencoded,multipart/form-data,text/plain $node[container]=> $node[children]=array() $node[class]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="select">public static  void <strong>select</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</code>
+<div class="details">
+<p>Generates form select input markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form select input $node[lookup]=string $node[name]=array $node[id]=string $node[value]= $node[children]=array() $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setPermission">protected static  void <strong>setPermission</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="string">public static  void <strong>string</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</code>
+<div class="details">
+<p>Generates field containing given markup</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for markup $node[name]=array $node[string]= $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="subform">public static  void <strong>subform</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Generates markup for subform and injects in current form.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - $node[controller]=> $node[module]=> $node[name]=array $node[helper]=> $node[method]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="submit">public static  void <strong>submit</strong>(type view, type params, bool return)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Parameters</th>
+<td></td>
+<td>params - $node[name]=array $node[id]=string $node[value]= $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="tab">public static  void <strong>tab</strong>(<a href="../kernel/view.html">view</a> view, array node)</code>
+<div class="details">
+<p>Generates form tab markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form tab $node[children]=array() $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="taginput">public static  void <strong>taginput</strong>(mixed view, mixed node)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="textarea">public static  void <strong>textarea</strong>(<a href="../kernel/view.html">view</a> view, array node, mixed params)</code>
+<div class="details">
+<p>Generates form testarea markup base on input</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>view - current view object</td>
+<td>node - attributes for form textarea $node[editor]= $node[format]= $node[wordwrap]= $node[name]=array $node[id]=string $node[value]= $node[class]=> $node[helper]=> $node[method]=> $node[label]=> $node[permission]=>READ/EDIT/DELETE $node[override]=></td>
+</tr></table>
+</div>
+
+<code class="signature" id="time">public static  void <strong>time</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="url">public static  void <strong>url</strong>(type view, type params)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="video">public static  void <strong>video</strong>(type view, type node)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"52611fce-37f8-41f9-8812-1d890acef1b9\",\"name\":\"Leads Generated\",\"category_id\":\"4\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Monthly Reports\",\"controller\":\"crm\\\/leads\",\"owned_by\":\"24\",\"owned_by_model\":\"users\",\"__owned_by\":\"Michael James\",\"description\":\"<font color=\\\"green\\\"> Count Of leads in 2013<\\\/font>\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"MONTHNAME(leads.created)\",\"column_model\":\"schema\",\"__column\":\"MONTHNAME(leads.created)\",\"alias\":\"MONTH\",\"render_type\":\"category\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"1\",\"column_model\":\"schema\",\"__column\":\"1\",\"alias\":\"Count Of Leads\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"render_type\":\"\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::gauge\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"created_by\":\"24\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"show_has_many_records\":\"one\",\"sequence\":\"0\",\"red-from\":\"900\",\"green-from\":\"700\",\"red-to\":\"10000\",\"green-to\":\"899\",\"red-color\":\"#DC3912\",\"green-color\":\"#109618\",\"yellow-from\":\"0\",\"yellow-color\":\"#FF9900\",\"yellow-to\":\"699\",\"max\":\"1000\",\"min\":\"0\",\"major-ticks\":\"\",\"minor-ticks\":\"2\",\"conditions\":{\"1\":{\"search_column\":\"YEAR(leads.created)\",\"search_column_model\":\"schema\",\"__search_column\":\"YEAR(leads.created)\",\"search_comparator\":\"=\",\"search_value\":\"2013\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"elements\":[],\"actions\":[],\"group_by\":[],\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"_is_public\":\"0\",\"is_public\":\"1\",\"_collapse_category_columns\":\"0\",\"_disable_ui_helper\":\"0\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"_do_not_inherit\":\"0\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\"}",
+            "category_id": "4",
+            "controller": "crm\/leads",
+            "created": "2012-09-04 11:43:10",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "<font color=\"green\"> Count Of leads in 2013<\/font>",
+            "flags": null,
+            "id": "52611fce-37f8-41f9-8812-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-21 20:48:34",
+            "modified_by": "1",
+            "module_id": "27260a2d-e746-11e3-aad5-0800275f9930",
+            "name": "Leads Generated",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"MONTHNAME(leads.created)\":{\"__column\":\"MONTHNAME(leads.created)\",\"alias\":\"MONTH\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"1\":{\"__column\":\"1\",\"alias\":\"Count Of Leads\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"YEAR(leads.created) = \":\"2013\"}}]],\"order\":[],\"name\":\"Leads Generated\",\"category_id\":\"4\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Monthly Reports\",\"controller\":\"crm\\\/leads\",\"owned_by\":\"24\",\"owned_by_model\":\"users\",\"__owned_by\":\"Michael James\",\"description\":\"<font color=\\\"green\\\"> Count Of leads in 2013<\\\/font>\",\"render_as\":\"categorized\",\"is_default\":\"0\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::gauge\",\"parent_id_model\":\"parent_listview\",\"created_by\":\"24\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"show_has_many_records\":\"one\",\"red-from\":\"900\",\"green-from\":\"700\",\"red-to\":\"10000\",\"green-to\":\"899\",\"red-color\":\"#DC3912\",\"green-color\":\"#109618\",\"yellow-color\":\"#FF9900\",\"yellow-to\":\"699\",\"max\":\"1000\",\"minor-ticks\":\"2\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"is_public\":\"1\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"1\",\"do_not_inherit\":\"0\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\",\"method\":\"categorized\"}",
+            "read_count": "16",
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Monthly Reports",
+            "__primary_acl_group": "",
+            "__module_id": "crm",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

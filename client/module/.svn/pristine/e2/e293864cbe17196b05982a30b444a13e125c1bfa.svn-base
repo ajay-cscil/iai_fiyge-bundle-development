@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+    <HEAD>
+        <TITLE><?php echo \tushar\configuration::read('document_title'); ?></TITLE>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link REL="MaaxFrame Icon" HREF="<?php echo $this->request->base ?>img/favicon.ico" />
+        <?php include $this->element('init', true); ?>
+        <?php echo $resourceForLayout; ?>
+        <script type="text/javascript">
+            jQuery(function(){
+                $('.load').live('click',function(event){
+                    var href=$(this).attr('href');
+                    href=href.split('?')[0];
+                    href=href.split(':').pop();
+                    document.location.href="<?php echo $this->request->base . $this->request->module . '/' . $this->request->controller . '/index?current_listview='; ?>"+href;
+
+                    event.stopPropagation();
+                    return false;
+
+                });
+
+            });
+        </script>
+        <script type="text/javascript">
+            jQuery(function(){
+<?php echo $scriptForLayout; ?>
+    });
+        </script>
+    </HEAD>
+    <BODY class="ui-widget">
+        <div id="header-panel">
+            <?php include $this->element('application_menu', true); ?>
+            <?php include $this->element('user_menu', true); ?>
+        </div>
+
+        <table width="100%" class="no-mp main-panel" >
+            <tbody  class="no-mp">
+                <tr   class="no-mp">
+                    <td  style="width:20%;"  class="no-mp logo-panel">
+                        <img src="<?php echo \tushar\html::logo_path();?>" border="0">
+                    </td>
+                    <td style="width:80%;"  valign="top" class="no-mp" colspan="2">
+                        <table style="width:100%" class="no-mp"><tr  class="no-mp"><td  class="no-mp">
+                                    <div class="search-panel"  style="clear:both;">
+                                        <?php include $this->element('search_panel', true); ?>
+                                    </div>
+
+                                    <?php
+                                    $msg = $this->request->getMsg(true);
+                                    $hasMsg = $this->request->hasMsg();
+                                    ?>
+                                    <div class="message-panel-container" align="center">
+                                        <div id="message-panel" class="ui-state-highlight
+                                             <?php echo($hasMsg ? "" : " ui-helper-hidden ") ?>"><?php
+                                             echo (is_array($msg) ? implode('<br />', $msg) : $msg);
+                                             ?>
+                                        </div>
+                                    </div>
+                                </td></tr><tr><td>
+
+
+                                </td></tr></table>
+                    </td>
+                </tr>
+                <tr   class="no-mp">
+                    <td class="container"  style="width:20%;"  valign="top"  class="no-mp">
+                        <div id="left-panel" style="clear: both">
+                            <?php
+                            $controllers = array("{$this->request->module}/{$this->request->controller}");
+                            $aros = \tushar\user::read('aros', false);
+                            $views = array();
+                            foreach (\module\analytics\model\reports::getInstance()->find(array(
+                                'fields' => array("category.name as 'category'", "reports._acl_edit",
+                                    "reports._acl_delete", "reports.name",
+                                    "reports.query", "reports.id", "reports.controller")
+                                , 'order' => array("category.sequence", "reports.controller")
+                                , 'limit' => 0
+                            ))->fetchAll(\PDO::FETCH_ASSOC)
+                            as $info
+                            ) {
+                                set_path_value($info['category'], $views, $info, true);
+                            }
+                            echo "<table class='listview  ui-listview categorized sub-listview '>";
+                            echo '<tr class="ui-state-default  header-row">
+        <th data_type="VAR_STRING"  class=" ui-li-highlight VAR_STRING  category  left-to-right " > ' . __('Reports') . '</th>
+        <th class="list-row-action-label" style="width: 12%;"></th>
+        </tr>';
+
+                            $currentListview = $this->request->get('current_listview', $this->get('current_listview'));
+                            $links = array();
+                            $links['view'] = "analytics/reports/run?id=";
+                            $links['edit'] = 'analytics/reports/edit/id:';
+                            $links['delete'] = 'analytics/reports/delete/id:';
+                            \module\core\helper\data_view\tree::build($this, $views, $links, $currentListview);
+                            echo "</table>";
+                            ?>
+
+
+
+                        </div>
+                    </td>
+                    <td style="width:80%;"  valign="top" class="no-mp">
+                        <div id="content-panel" style="clear: both"><?php echo $contentForLayout; ?></div>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+        <?php include $this->element('footer', true); ?>
+    </BODY>
+</HTML>

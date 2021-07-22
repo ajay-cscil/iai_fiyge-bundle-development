@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class cheques extends \module\accounting\controller\cheques_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\cheques';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

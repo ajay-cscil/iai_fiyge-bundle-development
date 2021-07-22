@@ -1,0 +1,20 @@
+<?php
+$form = $this->get('form', false);
+if ($form !== false)
+    \tushar\form::render($this, $form);
+else
+    throw new \Exception(__('Missing form defination in edit view'));
+?>
+<script type="text/javascript">
+    var filters=<?php echo json_encode($this->filters); ?>;
+    var jvar=<?php echo json_encode($this->get('jvar', array())); ?>;
+
+    $(document).ready(function(){
+        $('[name="data[list_records][list_id]"]').change(function(){
+            console.log('341234213');
+            $('#record-information').load("<?php echo $this->request->base . $this->request->module . '/' . $this->request->controller . '/list_record_block?list_id='; ?>"+$(this).val());
+        });
+		
+
+    });
+</script>

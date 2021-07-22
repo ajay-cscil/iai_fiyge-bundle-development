@@ -1,0 +1,18 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\benchmarking\controller;
+  class jmeter_results extends \module\benchmarking\controller\jmeter_results_domain_logic
+  {
+       public $modelClass = '\\module\\benchmarking\\model\\jmeter_results';
+       public $access = '4';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

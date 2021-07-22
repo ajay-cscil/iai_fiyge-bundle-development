@@ -1,0 +1,85 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class bill_payments_domain_logic extends \tushar\model{
+
+    public function journalEntryDate(){
+        return $this->data['payment_date'];
+    }
+    public function journalEntries(&$journalEntry) {
+        $journalEntry['journal_entry_lines'] = array();
+
+
+        //if (isset($this->data['action']) && strcasecmp($this->data['action'], 'Confirm and Mark Paid') == 0) {
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (strcasecmp($actionTriggred, 'Confirm and Mark Paid') == 0) {
+
+            $journalEntry['journal_type'] = 'purchase';
+            if (!isset($journalEntry['company_id']) || empty($journalEntry['company_id'])) {
+                $journalEntry['company_id'] = \tushar\user::read('company_id');
+            }
+            $journalEntry['currency_id'] = (isset($this->data['currency_id']) ? $this->data['currency_id'] : '');
+            if (!isset($journalEntry['currency_id']) || empty($journalEntry['currency_id'])) {
+                $journalEntry['currency_id'] = \tushar\user::read('currency_id');
+            }
+            $journalEntry['journal_id'] = \module\accounting\model\journals::getInstance()->journalID($journalEntry['journal_type'], $journalEntry['currency_id'], $journalEntry['company_id']);
+            /*
+              bill_payments.supplier.partner_accounts.account_payable_id
+              bill_payments.supplier_id
+              bill_payments.total
+              debit
+              Paid
+              Confirm and Mark Paid
+             */
+            $object = $this->supplier;
+            $journalEntry['journal_entry_lines'][] = array(
+                'related_to' => $this->data['supplier_id'],
+                '__related_to' => \select("{$object->displayField}")
+                        ->from($object)
+                        ->where("{$object->alias}.id", $this->data['supplier_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0),
+                'related_to_model' => $object->alias,
+                'related_to_model_class' => $object->modelClass,
+                'account_id' => \select("partner_accounts.account_payable_id")
+                        ->from($object)
+                        ->joinInner('partner_accounts')
+                        ->where("{$object->alias}.id", $this->data['supplier_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0),
+                'debit' => $this->data['total']
+            );
+
+            /*
+              bill_payments.received_from
+              bill_payments.received_from
+              bill_payments.total
+              credit
+              Paid Confirm and Mark Paid
+             */
+            $journalEntry['journal_entry_lines'][] = array(
+                'related_to' => '',
+                '__related_to' => '',
+                'related_to_model' => '',
+                'related_to_model_class' => '',
+                'account_id' => $this->data['received_from'],
+                'credit' => $this->data['total']
+            );
+
+
+            return true;
+        }
+    }
+
+}

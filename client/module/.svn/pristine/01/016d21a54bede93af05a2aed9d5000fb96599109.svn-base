@@ -1,0 +1,29 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\campaigns\model;
+
+class campaign_actions_domain_logic extends \tushar\model{
+
+    private $campaignActions = null;
+
+    public function code($actionName) {
+        if (is_null($this->campaignActions)) {
+            foreach (\select(array('action_name', 'action_code'))
+                    ->from($this)
+                    ->inserted()
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $info) {
+                $this->campaignActions[$info['action_name']] = $info['action_code'];
+            }
+        }
+        if (\array_key_exists($actionName, $this->campaignActions)) {
+            return $this->campaignActions[$actionName];
+        }
+    }
+
+}

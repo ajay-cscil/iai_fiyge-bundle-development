@@ -1,0 +1,238 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\payroll\model;
+  class salary_computation_logs extends \module\payroll\model\salary_computation_logs_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'payroll__salary_computation_logs';
+       public $alias = 'salary_computation_logs';
+       public $fields = array (
+  'amount' => 
+  array (
+    'column' => 'amount',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'category_id' => 
+  array (
+    'column' => 'category_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'code_id' => 
+  array (
+    'column' => 'code_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'quantity' => 
+  array (
+    'column' => 'quantity',
+    'ntype' => 'float',
+    'length' => '(10,2)',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'rate' => 
+  array (
+    'column' => 'rate',
+    'ntype' => 'float',
+    'length' => '3,2',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'total' => 
+  array (
+    'column' => 'total',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'payslip_id' => 
+  array (
+    'column' => 'payslip_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'salary_rule_id' => 
+  array (
+    'column' => 'salary_rule_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'code' => 
+  array (
+    'column' => 'code',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'computation_type' => 
+  array (
+    'column' => 'computation_type',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'sequence' => 
+  array (
+    'column' => 'sequence',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'percentage_based_on' => 
+  array (
+    'column' => 'percentage_based_on',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'fixed_amount' => 
+  array (
+    'column' => 'fixed_amount',
+    'ntype' => 'float',
+    'length' => '(10,2)',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'percentage' => 
+  array (
+    'column' => 'percentage',
+    'ntype' => 'float',
+    'length' => '(10,2)',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'rule' => 
+  array (
+    'column' => 'rule',
+    'ntype' => 'string',
+    'length' => '1000',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'salary_rules' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\payroll\\model\\salary_rules',
+    'associationAlias' => 'salary_rules',
+    'foreignKey' => 'salary_rule_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'payslips' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\payroll\\model\\payslips',
+    'associationAlias' => 'payslips',
+    'foreignKey' => 'payslip_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'salary_rule_categories' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\payroll\\model\\salary_rule_categories',
+    'associationAlias' => 'salary_rule_categories',
+    'foreignKey' => 'category_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+  }

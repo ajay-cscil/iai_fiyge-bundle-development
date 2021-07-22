@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\campaigns\controller;
+  class campaigns extends \module\campaigns\controller\campaigns_domain_logic
+  {
+       public $modelClass = '\\module\\campaigns\\model\\campaigns';
+       public $preGenerateID = '1';
+
+
+
+
+
+
+  }

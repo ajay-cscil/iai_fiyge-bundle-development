@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:02:29 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>controllers (System Module)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's System Module</h1><span>Class</span>
+
+<h2>module\development_base\model\controllers</h2>
+
+</header><p class="signature">public  class <strong>controllers</strong> extends \design_model
+
+</p>
+
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#associations">$associations</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#displayField">$displayField</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#filters">$filters</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#limitForInstallation">$limitForInstallation</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#paginateAs">$paginateAs</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#singular">$singular</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#source">$source</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#table">$table</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#bake()">bake</a>(mixed controllerClass)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#controllerList()">controllerList</a>(str findModule, bool savedAsFile)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#exportRelatedModuleData()">exportRelatedModuleData</a>(mixed moduleID, mixed manifest)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#exportRelatedModuleDataChildren()">exportRelatedModuleDataChildren</a>(mixed parentID, mixed data)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#importRelatedModuleData()">importRelatedModuleData</a>(mixed module, mixed manifest, mixed records, mixed options)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#permittedControllerList()">permittedControllerList</a>(str search)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#validateParentTemplate()">validateParentTemplate</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="associations">public  type <strong>$associations</strong> = array(...)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="displayField">public  type <strong>$displayField</strong> = 'template'</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="filters">public  mixed <strong>$filters</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="limitForInstallation">public  mixed <strong>$limitForInstallation</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="paginateAs">public  type <strong>$paginateAs</strong> = 'lazy'</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="singular">public  type <strong>$singular</strong> = 'model'</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="source">public  mixed <strong>$source</strong> = 'design'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="table">public  mixed <strong>$table</strong> = 'development_base__controllers'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="bake">public  void <strong>bake</strong>(mixed controllerClass)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="controllerList">public  void <strong>controllerList</strong>(str findModule, bool savedAsFile)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="exportRelatedModuleData">public  void <strong>exportRelatedModuleData</strong>(mixed moduleID, mixed manifest)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="exportRelatedModuleDataChildren">public  void <strong>exportRelatedModuleDataChildren</strong>(mixed parentID, mixed data)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="importRelatedModuleData">public  void <strong>importRelatedModuleData</strong>(mixed module, mixed manifest, mixed records, mixed options)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="permittedControllerList">public  void <strong>permittedControllerList</strong>(str search)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="validateParentTemplate">public static  void <strong>validateParentTemplate</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

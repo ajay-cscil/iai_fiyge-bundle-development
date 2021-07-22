@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\sales\controller;
+  class sale_orders_acl_cache extends \module\sales\controller\sale_orders_acl_cache_domain_logic
+  {
+       public $modelClass = '\\module\\sales\\model\\sale_orders_acl_cache';
+
+
+
+
+
+
+  }

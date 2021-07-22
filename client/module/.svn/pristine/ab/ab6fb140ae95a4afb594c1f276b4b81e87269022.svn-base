@@ -1,0 +1,170 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace module\campaigns\controller;
+
+class tracker extends \tushar\controller {
+
+    public $access = PUBLIC_ACCESS;
+    public $modelClass = false;
+    public $defaultAction = "log";
+
+    const ACTION_SENT = 1;
+    const ACTION_OPEN = 2;
+    const ACTION_CLICKED = 3;
+    const ACTION_HARDBOUNCE = 4;
+    const ACTION_SOFTBOUNCE = 5;
+    const ACTION_FEED_MARK_SPAM = 6;
+    const ACTION_UNSUBSCRIBE = 7;
+    const ACTION_DUPLICATE = 8;
+    const ACTION_INVALID_EMAIL = 9;
+    const ACTION_FAILED = 10;
+
+    public function log($request) {
+        $c = $request->param('c', '');
+        $i = base64_decode($request->param('i', ''));
+        $o = base64_decode($request->param('o', ''));
+        $r = base64_decode($request->param('r', ''));
+        $a = $request->param('a', '');
+        $s = base64_decode($request->param('s', ''));
+        $t = base64_decode($request->param('t', ''));
+        $u = base64_decode($request->param('u', ''));
+        $ei = $request->param('ei', '');
+        $et = $request->param('et', '');
+        $return = "";
+
+        $data = array('campaign_id' => $c,
+            'invocation' => $i,
+            'originator' => $o,
+            'receiver' => $r,
+            'action' => $a,
+            'sub_action' => $s,
+            'subject' => $t,
+            'uid' => $u,
+            'ip' => \real_ip_address(),
+            'entity_id' => $ei,
+            'entity_type' => $et,
+            'count' => 1);
+        try {
+            if (\module\campaigns\model\campaign_log::getInstance()->saveModel($data, array('type' => 'insert'))) {
+                \module\campaigns\model\campaign_log_summary::getInstance()
+                        ->saveModel($data, array(
+                            'exp' => true
+                            , 'type' => 'insert'
+                            , 'on_duplicate_key' => array('count' => "(count+1)")
+                                )
+                );
+            }
+        } catch (\Exception $e) {
+            
+        }
+
+        switch ($a) {
+            case self::ACTION_SENT:
+                break;
+            case self::ACTION_OPEN:
+                \header('Content-Type: image/gif');
+                \header('Content-Length: ' . filesize(APP . DS . 'webroot' . DS . 'img' . DS . 'blank.gif'));
+                \readfile(APP . DS . 'webroot' . DS . 'img' . DS . 'blank.gif');
+                \flush();
+                break;
+            case self::ACTION_CLICKED:
+                \header("HTTP/1.1 301 Moved Permanently");
+                \header("Location: {$s}");
+                exit;
+                break;
+            case self::ACTION_HARDBOUNCE:
+            case self::ACTION_SOFTBOUNCE:
+            case self::ACTION_FEED_MARK_SPAM:
+                break;
+            case self::ACTION_UNSUBSCRIBE:
+                $return = array("campaigns/tracker/unsubscribe/ei:{$ei}/et:{$et}", true);
+                break;
+            default:
+                echo "invalid action";
+        }
+    }
+
+    public function modelClass() {
+        return '';
+    }
+
+    public function unsubscribe($request) {
+        $request->layout = 'login';
+        if ($request->is('post')) {
+            $data = (isset($request->data['tracker']) ? $request->data['tracker'] : array());
+
+            if ($this->action($request) == 'no') {
+                return array('http://maaxframe.com');
+            }
+            if (!empty($data)) {
+                $data['ip'] = \real_ip_address();
+                $data['count'] = 1;
+                try {
+                    if (\module\campaigns\model\campaign_log::getInstance()->saveModel($data, array('type' => 'insert'))) {
+                        \module\campaigns\model\campaign_log_summary::getInstance()
+                                ->saveModel($data, array(
+                                    'exp' => true
+                                    , 'type' => 'insert'
+                                    , 'on_duplicate_key' => array('count' => "(count+1)")
+                                        )
+                        );
+                    }
+                } catch (\Exception $e) {
+                    
+                }
+
+                if (!empty($data['entity_id']) && !empty($data['entity_type'])) {
+                    $unsubscribeUserData = array('id' => $data['entity_id'],
+                        'email_opt_out' => '1'
+                    );
+
+                    switch ($data['entity_type']) {
+                        case "leads";
+                            \module\crm\model\leads::getInstance()
+                                    ->saveModel($unsubscribeUserData, array('type' => 'update'));
+                            break;
+                        case "accounts";
+                            \module\crm\model\accounts::getInstance()
+                                    ->saveModel($unsubscribeUserData, array('type' => 'update'));
+                            break;
+                        case "contacts";
+                            \module\crm\model\contacts::getInstance()
+                                    ->saveModel($unsubscribeUserData, array('type' => 'update'));
+                            break;
+                    }
+                }
+                $this->render = 'unsubscribe_success';
+            }
+        } else {
+            $c = $request->param('c', '');
+            $i = base64_decode($request->param('i', ''));
+            $o = base64_decode($request->param('o', ''));
+            $r = base64_decode($request->param('r', ''));
+            $a = $request->param('a', '');
+            $s = base64_decode($request->param('s', ''));
+            $t = base64_decode($request->param('t', ''));
+            $u = base64_decode($request->param('u', ''));
+            $ei = $request->param('ei', '');
+            $et = $request->param('et', '');
+            $data = array('campaign_id' => $c,
+                'invocation' => $i,
+                'originator' => $o,
+                'receiver' => $r,
+                'action' => $a,
+                'sub_action' => $s,
+                'subject' => $t,
+                'uid' => $u,
+                'entity_id' => $ei,
+                'entity_type' => $et);
+            $request->set('data', array('tracker' => $data));
+        }
+    }
+
+}
+
+?>

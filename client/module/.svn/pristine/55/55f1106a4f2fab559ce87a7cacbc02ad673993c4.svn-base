@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\payroll\controller;
+  class salary_rule_categories extends \module\payroll\controller\salary_rule_categories_domain_logic
+  {
+       public $modelClass = '\\module\\payroll\\model\\salary_rule_categories';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

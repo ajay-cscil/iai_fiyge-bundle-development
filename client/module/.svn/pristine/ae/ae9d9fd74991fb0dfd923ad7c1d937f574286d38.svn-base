@@ -1,0 +1,68 @@
+[
+	{
+		"listviews":{
+			"old_id":"276",
+			"name":"Categories",
+			"category_id":"0",
+			"query":"{\"fields\":[{\"faq_categories.full_name\":{\"__column\":\"faq_categories.full_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[\"faq_categories.lft  ASC\"],\"name\":\"Categories\",\"category_id\":\"\\ufffd\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"tickets\\\/faq_categories\",\"render_as\":\"tree\",\"is_default\":\"1\",\"parent_id_model\":\"parent_listview\",\"method\":\"tree\"}",
+			"_query":"{\"id\":\"276\",\"name\":\"Categories\",\"category_id\":\"\\ufffd\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"tickets\\\/faq_categories\",\"render_as\":\"tree\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"faq_categories.full_name\",\"column_model\":\"schema\",\"__column\":\"faq_categories.full_name\",\"alias\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},{\"seq\":\"2\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"sort\":{\"1\":{\"sort_by\":\"faq_categories.lft\",\"sort_by_model\":\"schema\",\"__sort_by\":\"faq_categories.lft\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"created_by\":\"\",\"modified_by\":\"\"}",
+			"description":"",
+			"controller":"tickets\/faq_categories",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2014-05-05 13:06:46",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"tickets.faq_categories.Categories",
+			"sequence":"1",
+			"primary_acl_group":null,
+			"id":"53678ce6-86c8-4bd8-8d4c-16ff305cb485",
+			"module_id":"457",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"__module_id":"tickets",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\hr\controller;
+  class contracts extends \module\hr\controller\contracts_domain_logic
+  {
+       public $modelClass = '\\module\\hr\\model\\contracts';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

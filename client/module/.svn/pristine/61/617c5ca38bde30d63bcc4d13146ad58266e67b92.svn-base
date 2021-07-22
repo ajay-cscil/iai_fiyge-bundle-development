@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class order_information_changes_queue extends \module\excursion\controller\order_information_changes_queue_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\order_information_changes_queue';
+
+
+
+
+
+
+  }

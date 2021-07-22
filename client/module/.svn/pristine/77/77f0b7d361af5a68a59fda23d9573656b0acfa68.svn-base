@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class expenses extends \module\accounting\controller\expenses_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\expenses';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

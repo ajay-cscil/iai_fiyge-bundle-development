@@ -1,0 +1,43 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class uom extends \module\mrp\model\uom_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'product_uom';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'production' => 
+  array (
+    'className' => '\\module\\mrp\\model\\production',
+    'associationAlias' => 'production',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'product_uom_categ' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\mrp\\model\\product_uom_categ',
+    'associationAlias' => 'product_uom_categ',
+    'foreignKey' => 'category_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

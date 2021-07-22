@@ -1,0 +1,29 @@
+<?php
+$form = $this->get('form', false);
+if ($form !== false)
+    \tushar\form::render($this, $form);
+else
+    throw new \Exception(__('Missing form defination in edit view'));
+?>
+<script type="text/javascript">
+    var filters=<?php echo json_encode($this->filters); ?>;
+    var jvar=<?php echo json_encode($this->get('jvar', array())); ?>;
+
+    jQuery(document).ready(function($){
+      $('[name *="[render_type]"]').change(function(){
+            if($(this).is(':disabled') == false){
+                if($(this).val() =='summary'){
+                    $(this).next().removeAttr('disabled');
+                }else{
+                    $(this).next().val("").attr('disabled','disabled');
+                }
+            }
+        }).trigger('change');
+
+
+
+
+    });
+
+
+</script>

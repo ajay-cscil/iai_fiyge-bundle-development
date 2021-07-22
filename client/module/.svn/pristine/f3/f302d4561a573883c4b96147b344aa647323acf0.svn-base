@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\controller;
+  class people_organisations extends \module\vrm\controller\people_organisations_domain_logic
+  {
+       public $modelClass = '\\module\\vrm\\model\\people_organisations';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

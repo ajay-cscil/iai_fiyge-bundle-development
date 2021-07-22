@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\elections\controller;
+  class voter_informations extends \module\elections\controller\voter_informations_domain_logic
+  {
+       public $modelClass = '\\module\\elections\\model\\voter_informations';
+
+
+
+
+
+
+  }

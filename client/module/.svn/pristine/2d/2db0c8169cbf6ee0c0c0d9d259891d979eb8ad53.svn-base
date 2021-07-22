@@ -1,0 +1,31 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of graph
+ *
+ * @author admin
+ */
+
+namespace module\faq\helper\data_view;
+
+class tree {
+
+    public static function build($viewObj, $views, $links, $currentListview) {
+
+        $aros = \tushar\user::read('aros', array());
+        foreach ($views as $k => $v) {
+            echo "<tr ><td  colspan='2'>" . str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;", substr_count($v['full_name'], '.'))
+            . "<div class='twisty-fopen'></div>
+            <a href='" . $viewObj->request->base . $links['view'] . $currentListview . "&reset=1&q=" . urlencode(json_encode(array('where' => array('faq_categories.full_name' => $v['full_name'])))) . "'>{$v['name']}</a></td></tr>";
+            if (isset($v['children']) && is_array($v['children'])) {
+                static::build($viewObj, $v['children'], $links, $currentListview);
+            }
+        }
+    }
+
+}

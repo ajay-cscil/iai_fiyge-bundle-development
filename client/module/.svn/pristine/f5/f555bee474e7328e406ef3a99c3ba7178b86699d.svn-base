@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\elections\controller;
+  class accounts extends \module\elections\controller\accounts_domain_logic
+  {
+       public $modelClass = '\\module\\elections\\model\\accounts';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

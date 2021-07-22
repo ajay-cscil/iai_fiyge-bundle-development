@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:12 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>request (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\request</h2>
+
+</header><p class="signature">public  class <strong>request</strong></p>
+
+<div class="comment"><p>This class handels parsing of incoming request to dispatcher,
+setting up of envionment variables and then collecting reponse from controller.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#_GET">$_GET</a></p><p class="description">placeholder for $_GET environment variable</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#_POST">$_POST</a></p><p class="description">placeholder for $_POST environment variable</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#_REQUEST">$_REQUEST</a></p><p class="description">placeholder for $_REQUEST environment variable</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#_SERVER">$_SERVER</a></p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#_SESSION">$_SESSION</a></p><p class="description">placeholder for $_SESSION environment variable</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#action">$action</a></p><p class="description">Current action name</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#base">$base</a></p><p class="description">Base for Application</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#baseURL">$baseURL</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#comet">$comet</a></p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#compressions">$compressions</a></p><p class="description">list of supported compressions</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#controller">$controller</a></p><p class="description">Current controller name</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#controllerOverwritten">$controllerOverwritten</a></p><p class="description">Current controller name</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#data">$data</a></p><p class="description">holds content of $_REQUEST['data']</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#ext">$ext</a></p><p class="description">Extension base view switching</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#isDefaultPageSet">$isDefaultPageSet</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#layout">$layout</a></p><p class="description">layout name in current skin</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#locale">$locale</a></p><p class="description">locale for request</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#logOutput">$logOutput</a></p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#mobile">$mobile</a></p><p class="description">If true then request is from one of mobile platform device</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#module">$module</a></p><p class="description">Current module name</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#moduleDir">$moduleDir</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#moduleInScope">$moduleInScope</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#moduleOverwritten">$moduleOverwritten</a></p><p class="description">Current module name</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#partialAjax">$partialAjax</a></p><p class="description">If true then request is made via hidden iframe, else normal http request</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#referrer">$referrer</a></p><p class="description">Hold referrer url in case of auto redirection of request</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#render">$render</a></p><p class="description">name of view file</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#requestID">$requestID</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#requested">$requested</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#requestedAction">$requestedAction</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#requestedController">$requestedController</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#requestedModule">$requestedModule</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#requestedURL">$requestedURL</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#resourcePaths">$resourcePaths</a></p><p class="description">resource path for current request output</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#response">$response</a></p><p class="description">holds data injected by controller into view</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#return">$return</a></p><p class="description">Switch output returned base on this value</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#rpc">$rpc</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#skin">$skin</a></p><p class="description">Skin for current request output</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#subPanelElements">$subPanelElements</a></p><p class="description">Holds all possible elements path for current request</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#theme">$theme</a></p><p class="description">Skin for current request output</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#viewPaths">$viewPaths</a></p><p class="description">Holds all possible view paths for current request</p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#__construct()">__construct</a>(int return)</p><p class="description">Initializes \kernel\request object</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#all()">all</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Read request params</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#apply()">apply</a>()</p><p class="description">Apply back stashed url and load that request</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#authenticate()">authenticate</a>(<a href="../kernel/request.html">request</a> request)</p><p class="description">Check if current request is authentic request.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#base()">base</a>()</p><p class="description">Call base statically</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#computeBase()">computeBase</a>()</p><p class="description">returns base path from current http request</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#etag()">etag</a>(<a href="../kernel/string.html">string</a> etag)</p><p class="description">Implements caching of html content based on etag concept</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#get()">get</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Read get params</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#getInstance()">getInstance</a>()</p><p class="description">If internal request then use placeholder environment variable</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#getMsg()">getMsg</a>(bool all)</p><p class="description">Return's message</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getStaticURL()">getStaticURL</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#getURL()">getURL</a>()</p><p class="description">Returns current request url</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#hasMsg()">hasMsg</a>()</p><p class="description">Checks if messages are set</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#is()">is</a>(<a href="../kernel/string.html">string</a> type, bool supportAllMethods)</p><p class="description">check if request is of type get,post.</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#isAjax()">isAjax</a>(bool ignorePartial)</p><p class="description">Check if ajax request</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isMobile()">isMobile</a>()</p><p class="description">If true then request is generated by mobile platform device</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isSingleton()">isSingleton</a>()</p><p class="description">Check if current form support's singleton form submission</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isSoap()">isSoap</a>()</p><p class="description">If its soap request then true</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#jsonp()">jsonp</a>(mixed json, bool return)</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#named()">named</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Getter for named params</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#overwrite()">overwrite</a>(<a href="../kernel/string.html">string</a> type, <a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Overwrite variable from request</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#param()">param</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Getter for named, request params</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#parse()">parse</a>(<a href="../kernel/string.html">string</a> url)</p><p class="description">Parse url to extract out defferent component of it</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#post()">post</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Read post params</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#processUploadedFiles()">processUploadedFiles</a>()</p><p class="description">If request contain submitted FILES then parse them and populate into $this->data</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#push()">push</a>(<a href="../kernel/string.html">string</a> str, bool script)</p><p class="description">Pushes output to client in case of comet</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#pushError()">pushError</a>(<a href="../kernel/string.html">string</a> str, bool script)</p><p class="description">Pushes Error message to client in case of comet</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#pushScript()">pushScript</a>(<a href="../kernel/string.html">string</a> script)</p><p class="description">Pushes Script to client in case of comet</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#pushWarning()">pushWarning</a>(<a href="../kernel/string.html">string</a> str, bool script)</p><p class="description">Pushes Warning message to client in case of comet</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#response()">response</a>(<a href="../kernel/string.html">string</a> key, mixed value)</p><p class="description">Read data to be injected into view</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#search()">search</a>(array data, <a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Searches given path into array</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#server()">server</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Read server params</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#session()">session</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Read session info</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#sessionDelete()">sessionDelete</a>(<a href="../kernel/string.html">string</a> name)</p><p class="description">Deletes perticular session item by its name</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#sessionDestroy()">sessionDestroy</a>()</p><p class="description">Erases all items in session</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#sessionStart()">sessionStart</a>()</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#sessionWrite()">sessionWrite</a>(<a href="../kernel/string.html">string</a> name, mixed val)</p><p class="description">Setter for sessions</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#set()">set</a>(mixed key, mixed value)</p><p class="description">Inject data to be push into view</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setMsg()">setMsg</a>(<a href="../kernel/string.html">string</a> msg, bool reset)</p><p class="description">Set message  from user</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setRequestModuleController()">setRequestModuleController</a>(<a href="../kernel/string.html">string</a> module, <a href="../kernel/string.html">string</a> controller)</p><p class="description">Set module, controller for current request</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#setStaticURL()">setStaticURL</a>(mixed url)</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#singletonKey()">singletonKey</a>()</p><p class="description">Generate new unique singleton key for form</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#stash()">stash</a>()</p><p class="description">Backup current request url, incase of url redirection</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="_GET">public  array <strong>$_GET</strong> = array()</code>
+<div class="details">
+<p>placeholder for $_GET environment variable</p></div>
+
+<code class="signature" id="_POST">public  array <strong>$_POST</strong> = array()</code>
+<div class="details">
+<p>placeholder for $_POST environment variable</p></div>
+
+<code class="signature" id="_REQUEST">public  array <strong>$_REQUEST</strong> = array()</code>
+<div class="details">
+<p>placeholder for $_REQUEST environment variable</p></div>
+
+<code class="signature" id="_SERVER">public  mixed <strong>$_SERVER</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="_SESSION">public  array <strong>$_SESSION</strong> = array()</code>
+<div class="details">
+<p>placeholder for $_SESSION environment variable</p></div>
+
+<code class="signature" id="action">public  <a href="../kernel/string.html">string</a> <strong>$action</strong> = &quot;&quot;</code>
+<div class="details">
+<p>Current action name</p></div>
+
+<code class="signature" id="base">public  <a href="../kernel/string.html">string</a> <strong>$base</strong> = &quot;&quot;</code>
+<div class="details">
+<p>Base for Application</p></div>
+
+<code class="signature" id="baseURL">public static  mixed <strong>$baseURL</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="comet">public  mixed <strong>$comet</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="compressions">public static  array <strong>$compressions</strong> = array('zip')</code>
+<div class="details">
+<p>list of supported compressions</p></div>
+
+<code class="signature" id="controller">public  <a href="../kernel/string.html">string</a> <strong>$controller</strong> = &quot;&quot;</code>
+<div class="details">
+<p>Current controller name</p></div>
+
+<code class="signature" id="controllerOverwritten">public  <a href="../kernel/string.html">string</a> <strong>$controllerOverwritten</strong> = &quot;&quot;</code>
+<div class="details">
+<p>Current controller name</p></div>
+
+<code class="signature" id="data">public  array <strong>$data</strong> = array()</code>
+<div class="details">
+<p>holds content of $_REQUEST['data']</p></div>
+
+<code class="signature" id="ext">public  <a href="../kernel/string.html">string</a> <strong>$ext</strong> = &quot;&quot;</code>
+<div class="details">
+<p>Extension base view switching</p></div>
+
+<code class="signature" id="isDefaultPageSet">public  mixed <strong>$isDefaultPageSet</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="layout">public  <a href="../kernel/string.html">string</a> <strong>$layout</strong> = null</code>
+<div class="details">
+<p>layout name in current skin</p></div>
+
+<code class="signature" id="locale">public static  <a href="../kernel/string.html">string</a> <strong>$locale</strong> = ''</code>
+<div class="details">
+<p>locale for request</p></div>
+
+<code class="signature" id="logOutput">public  mixed <strong>$logOutput</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="mobile">public static  bool <strong>$mobile</strong> = false</code>
+<div class="details">
+<p>If true then request is from one of mobile platform device</p></div>
+
+<code class="signature" id="module">public  <a href="../kernel/string.html">string</a> <strong>$module</strong> = &quot;&quot;</code>
+<div class="details">
+<p>Current module name</p></div>
+
+<code class="signature" id="moduleDir">public  mixed <strong>$moduleDir</strong> = ''</code>
+<div class="details">
+</div>
+
+<code class="signature" id="moduleInScope">public  mixed <strong>$moduleInScope</strong> = ''</code>
+<div class="details">
+</div>
+
+<code class="signature" id="moduleOverwritten">public  <a href="../kernel/string.html">string</a> <strong>$moduleOverwritten</strong> = &quot;&quot;</code>
+<div class="details">
+<p>Current module name</p></div>
+
+<code class="signature" id="partialAjax">public static  bool <strong>$partialAjax</strong> = false</code>
+<div class="details">
+<p>If true then request is made via hidden iframe, else normal http request</p></div>
+
+<code class="signature" id="referrer">public  <a href="../kernel/string.html">string</a> <strong>$referrer</strong> = false</code>
+<div class="details">
+<p>Hold referrer url in case of auto redirection of request</p></div>
+
+<code class="signature" id="render">public  <a href="../kernel/string.html">string</a> <strong>$render</strong> = &quot;&quot;</code>
+<div class="details">
+<p>name of view file</p></div>
+
+<code class="signature" id="requestID">public static  mixed <strong>$requestID</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="requested">public  mixed <strong>$requested</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="requestedAction">public  mixed <strong>$requestedAction</strong> = &quot;&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="requestedController">public  mixed <strong>$requestedController</strong> = &quot;&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="requestedModule">public  mixed <strong>$requestedModule</strong> = &quot;&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="requestedURL">public  mixed <strong>$requestedURL</strong> = &quot;&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="resourcePaths">public  <a href="../kernel/string.html">string</a> <strong>$resourcePaths</strong> = array()</code>
+<div class="details">
+<p>resource path for current request output</p></div>
+
+<code class="signature" id="response">public  array <strong>$response</strong> = array()</code>
+<div class="details">
+<p>holds data injected by controller into view</p></div>
+
+<code class="signature" id="return">public  mixed <strong>$return</strong> = false</code>
+<div class="details">
+<p>Switch output returned base on this value</p></div>
+
+<code class="signature" id="rpc">public  mixed <strong>$rpc</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="skin">public  <a href="../kernel/string.html">string</a> <strong>$skin</strong> = null</code>
+<div class="details">
+<p>Skin for current request output</p></div>
+
+<code class="signature" id="subPanelElements">public  array <strong>$subPanelElements</strong> = array()</code>
+<div class="details">
+<p>Holds all possible elements path for current request</p></div>
+
+<code class="signature" id="theme">public  <a href="../kernel/string.html">string</a> <strong>$theme</strong> = null</code>
+<div class="details">
+<p>Skin for current request output</p></div>
+
+<code class="signature" id="viewPaths">public  array <strong>$viewPaths</strong> = array()</code>
+<div class="details">
+<p>Holds all possible view paths for current request</p></div>
+
+<code class="signature" id="__construct">public  void <strong>__construct</strong>(int return)</code>
+<div class="details">
+<p>Initializes \kernel\request object</p></div>
+
+<code class="signature" id="all">public  mixed <strong>all</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Read request params</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="apply">public  void <strong>apply</strong>()</code>
+<div class="details">
+<p>Apply back stashed url and load that request</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="authenticate">public static  bool <strong>authenticate</strong>(<a href="../kernel/request.html">request</a> request)</code>
+<div class="details">
+<p>Check if current request is authentic request.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>request - Request object encapsulating all information.</td>
+</tr><tr><th>Returns</th>
+<td>true/false.</td>
+</tr><tr><th>Todo:</th>
+<td>find any more secure way if possible</td>
+</tr></table>
+</div>
+
+<code class="signature" id="base">public static  <a href="../kernel/string.html">string</a> <strong>base</strong>()</code>
+<div class="details">
+<p>Call base statically</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="computeBase">public  <a href="../kernel/string.html">string</a> <strong>computeBase</strong>()</code>
+<div class="details">
+<p>returns base path from current http request</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="etag">public  void <strong>etag</strong>(<a href="../kernel/string.html">string</a> etag)</code>
+<div class="details">
+<p>Implements caching of html content based on etag concept</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="get">public  mixed <strong>get</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Read get params</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getInstance">public static  void <strong>getInstance</strong>()</code>
+<div class="details">
+<p>If internal request then use placeholder environment variable</p></div>
+
+<code class="signature" id="getMsg">public  <a href="../kernel/string.html">string</a> <strong>getMsg</strong>(bool all)</code>
+<div class="details">
+<p>Return's message</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getStaticURL">public  void <strong>getStaticURL</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="getURL">public  <a href="../kernel/string.html">string</a> <strong>getURL</strong>()</code>
+<div class="details">
+<p>Returns current request url</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="hasMsg">public  bool <strong>hasMsg</strong>()</code>
+<div class="details">
+<p>Checks if messages are set</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="is">public static  bool <strong>is</strong>(<a href="../kernel/string.html">string</a> type, bool supportAllMethods)</code>
+<div class="details">
+<p>check if request is of type get,post.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isAjax">public static  bool <strong>isAjax</strong>(bool ignorePartial)</code>
+<div class="details">
+<p>Check if ajax request</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isMobile">public  bool <strong>isMobile</strong>()</code>
+<div class="details">
+<p>If true then request is generated by mobile platform device</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isSingleton">public  bool <strong>isSingleton</strong>()</code>
+<div class="details">
+<p>Check if current form support's singleton form submission</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isSoap">public  bool <strong>isSoap</strong>()</code>
+<div class="details">
+<p>If its soap request then true</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="jsonp">public  void <strong>jsonp</strong>(mixed json, bool return)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="named">public  mixed <strong>named</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Getter for named params</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>name - To be search</td>
+<td>val - If not found then return this value</td>
+</tr></table>
+</div>
+
+<code class="signature" id="overwrite">public  void <strong>overwrite</strong>(<a href="../kernel/string.html">string</a> type, <a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Overwrite variable from request</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>type - get/post/request/named/true(all)</td>
+<td></td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="param">public  mixed <strong>param</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Getter for named, request params</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="parse">public  void <strong>parse</strong>(<a href="../kernel/string.html">string</a> url)</code>
+<div class="details">
+<p>Parse url to extract out defferent component of it</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Eg</th>
+<td>: /crm/accounts/index.pdf.zip/page:a/xa:aaaa?q=%7B%22 method%22%3A%22crosstab%22%2C%22fields%22%3A%5B%7B%22accounts.annual_revenue%22%3A%7B%22 column%22%3A%22accounts.annual_revenue%22%2C%22alias%22%3A%22Revenue%22%2C%22aggregator%22%3A%22 SUM%22%7D%7D%5D%2C%22columns%22%3A%5B%7B%22ratingLookup.name%22%3A%7B%22column%22%3A%22 ratingLookup.name%22%2C%22alias%22%3A%22Rating%22%7D%7D%2C%7B%22industryLookup.name%22%3A%7B%22 column%22%3A%22industryLookup.name%22%2C%22alias%22%3A%22Industry%22%7D%7D%5D%2C%22group%22%3A%5B%22 accountTypeLookup.name%22%5D%2C%22order%22%3A%5B%5D%2C%22compute_column_total%22%3A%221%22%2C%22 compute_row_total%22%3A%221%22%2C%22limit%22%3A%223%22%2C%22pfooter%22%3A0%7D</td>
+</tr></table>
+</div>
+
+<code class="signature" id="post">public  mixed <strong>post</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Read post params</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="processUploadedFiles">public  void <strong>processUploadedFiles</strong>()</code>
+<div class="details">
+<p>If request contain submitted FILES then parse them and populate into $this->data</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="push">public static  void <strong>push</strong>(<a href="../kernel/string.html">string</a> str, bool script)</code>
+<div class="details">
+<p>Pushes output to client in case of comet</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="pushError">public  void <strong>pushError</strong>(<a href="../kernel/string.html">string</a> str, bool script)</code>
+<div class="details">
+<p>Pushes Error message to client in case of comet</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="pushScript">public  void <strong>pushScript</strong>(<a href="../kernel/string.html">string</a> script)</code>
+<div class="details">
+<p>Pushes Script to client in case of comet</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="pushWarning">public  void <strong>pushWarning</strong>(<a href="../kernel/string.html">string</a> str, bool script)</code>
+<div class="details">
+<p>Pushes Warning message to client in case of comet</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="response">public  mixed <strong>response</strong>(<a href="../kernel/string.html">string</a> key, mixed value)</code>
+<div class="details">
+<p>Read data to be injected into view</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="search">public  mixed <strong>search</strong>(array data, <a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Searches given path into array</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="server">public  mixed <strong>server</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Read server params</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="session">public static  mixed <strong>session</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Read session info</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="sessionDelete">public static  void <strong>sessionDelete</strong>(<a href="../kernel/string.html">string</a> name)</code>
+<div class="details">
+<p>Deletes perticular session item by its name</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="sessionDestroy">public static  void <strong>sessionDestroy</strong>()</code>
+<div class="details">
+<p>Erases all items in session</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="sessionStart">public static  void <strong>sessionStart</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="sessionWrite">public static  void <strong>sessionWrite</strong>(<a href="../kernel/string.html">string</a> name, mixed val)</code>
+<div class="details">
+<p>Setter for sessions</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="set">public  void <strong>set</strong>(mixed key, mixed value)</code>
+<div class="details">
+<p>Inject data to be push into view</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setMsg">public static  void <strong>setMsg</strong>(<a href="../kernel/string.html">string</a> msg, bool reset)</code>
+<div class="details">
+<p>Set message  from user</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setRequestModuleController">public static  void <strong>setRequestModuleController</strong>(<a href="../kernel/string.html">string</a> module, <a href="../kernel/string.html">string</a> controller)</code>
+<div class="details">
+<p>Set module, controller for current request</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="setStaticURL">public  void <strong>setStaticURL</strong>(mixed url)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="singletonKey">public  <a href="../kernel/string.html">string</a> <strong>singletonKey</strong>()</code>
+<div class="details">
+<p>Generate new unique singleton key for form</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="stash">public  void <strong>stash</strong>()</code>
+<div class="details">
+<p>Backup current request url, incase of url redirection</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

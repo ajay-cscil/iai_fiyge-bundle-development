@@ -1,0 +1,226 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\manufacturing\model;
+  class work_centers extends \module\manufacturing\model\work_centers_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'manufacturing__work_centers';
+       public $alias = 'work_centers';
+       public $fields = array (
+  'capacity_per_cycle' => 
+  array (
+    'column' => 'capacity_per_cycle',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'code' => 
+  array (
+    'column' => 'code',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'cost_per_cycle' => 
+  array (
+    'column' => 'cost_per_cycle',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'cost_per_hour' => 
+  array (
+    'column' => 'cost_per_hour',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  'efficiency_factor' => 
+  array (
+    'column' => 'efficiency_factor',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'is_active' => 
+  array (
+    'column' => 'is_active',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'resource_type' => 
+  array (
+    'column' => 'resource_type',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'time_after_production' => 
+  array (
+    'column' => 'time_after_production',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'time_before_production' => 
+  array (
+    'column' => 'time_before_production',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'time_for_1_cycle' => 
+  array (
+    'column' => 'time_for_1_cycle',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'work_center_product_id' => 
+  array (
+    'column' => 'work_center_product_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'working_time' => 
+  array (
+    'column' => 'working_time',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+);
+       public $associations = array (
+  'work_center_operations' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\manufacturing\\model\\work_center_operations',
+    'foreignKey' => 'work_center_id',
+    'associationAlias' => 'work_center_operations',
+  ),
+  'products' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\products',
+    'foreignKey' => 'work_center_product_id',
+    'associationAlias' => 'products',
+  ),
+  'work_orders' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\manufacturing\\model\\work_orders',
+    'foreignKey' => 'work_center_id',
+    'associationAlias' => 'work_orders',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'resource_type' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

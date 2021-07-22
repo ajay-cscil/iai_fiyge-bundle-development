@@ -1,0 +1,841 @@
+[
+	{
+		"listviews":{
+			"old_id":"107",
+			"name":"Recycle Bin",
+			"category_id":"12",
+			"query":"{\"actions\":{\"restore\":{\"name\":\"restore\",\"class\":\"ajax-popup\"}},\"fields\":[{\"reports.name\":{\"__column\":\"reports.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.controller\":{\"__column\":\"reports.controller\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"category.name\":{\"__column\":\"category.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.modified\":{\"__column\":\"reports.modified\",\"alias\":\"Deleted On\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.modified_by_user.user_name\":{\"__column\":\"reports.modified_by_user.user_name\",\"alias\":\"Deleted By\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"reports.deleted = \":\"1\"}}]],\"order\":[],\"name\":\"Recycle Bin\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"index\",\"is_public\":\"1\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"11\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"52611fb5-3150-4713-ad75-1d890acef1b9\",\"name\":\"Recycle Bin\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"category.name\",\"column_model\":\"schema\",\"__column\":\"category.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"reports.modified\",\"column_model\":\"schema\",\"__column\":\"reports.modified\",\"alias\":\"Deleted On\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"reports.modified_by_user.user_name\",\"column_model\":\"schema\",\"__column\":\"reports.modified_by_user.user_name\",\"alias\":\"Deleted By\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"reports.deleted\",\"search_column_model\":\"schema\",\"__search_column\":\"reports.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"11\",\"row_template\":\"\",\"actions\":{\"4\":{\"seq\":\"1\",\"name\":\"restore\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2013-02-17 17:59:04",
+			"modified":"2013-11-07 15:39:43",
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.Recycle Bin",
+			"sequence":"11",
+			"primary_acl_group":"0",
+			"id":"52611fb5-3150-4713-ad75-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"System View",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"402",
+			"name":"All",
+			"category_id":"12",
+			"query":"{\"actions\":{\"view\":{\"name\":\"view\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\"},\"edit\":{\"name\":\"edit\",\"class\":\"ajax-popup\"},\"delete\":{\"name\":\"delete\",\"class\":\"ajax-popup\"}},\"fields\":[{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.controller\":{\"__column\":\"reports.controller\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"category.name\":{\"__column\":\"category.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"created_by_user.name\":{\"__column\":\"created_by_user.name\",\"alias\":\"Created By\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.description\":{\"__column\":\"reports.description\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"1\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+			"_query":"{\"id\":\"52611fb5-32d8-4ca6-8ce0-1d890acef1b9\",\"name\":\"All\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"category.name\",\"column_model\":\"schema\",\"__column\":\"category.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"created_by_user.name\",\"column_model\":\"schema\",\"__column\":\"created_by_user.name\",\"alias\":\"Created By\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"reports.description\",\"column_model\":\"schema\",\"__column\":\"reports.description\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"row_template\":\"\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"name\":\"edit\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"name\":\"delete\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2013-02-17 17:59:04",
+			"modified":"2014-01-07 15:45:05",
+			"deleted":"0",
+			"revision":"6",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.All",
+			"sequence":"1",
+			"primary_acl_group":"0",
+			"id":"52611fb5-32d8-4ca6-8ce0-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"System View",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"1424",
+			"name":"Module Reports",
+			"category_id":"12",
+			"query":"{\"fields\":[{\"reports.controller\":{\"__column\":\"reports.controller\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.category.name\":{\"__column\":\"reports.category.name\",\"alias\":\"Category\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"Module Reports\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"1\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"52611fb5-a0d4-469e-96b8-1d890acef1b9\",\"name\":\"Module Reports\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"reports.category.name\",\"column_model\":\"schema\",\"__column\":\"reports.category.name\",\"alias\":\"Category\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"0",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2013-05-28 22:20:14",
+			"modified":"2013-11-08 13:21:13",
+			"deleted":"0",
+			"revision":"4",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.Module Reports",
+			"sequence":"1",
+			"primary_acl_group":"0",
+			"id":"52611fb5-a0d4-469e-96b8-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"System View",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"145",
+			"name":"Reports Tree View",
+			"category_id":"12",
+			"query":"{\"fields\":[{\"reports.category.name\":{\"__column\":\"reports.category.name\",\"alias\":\"Reports\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\" \",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.query\":{\"__column\":\"reports.query\",\"render_type\":\"info\",\"is_invisible\":\"1\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"Reports Tree View\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"1\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"6\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"52611fb5-bdf0-4be1-b5ce-1d890acef1b9\",\"name\":\"Reports Tree View\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.category.name\",\"column_model\":\"schema\",\"__column\":\"reports.category.name\",\"alias\":\"Reports\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\" \",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"reports.query\",\"column_model\":\"schema\",\"__column\":\"reports.query\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"is_invisible\":\"1\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"0\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"collapse_category_columns\":\"1\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"6\",\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"0",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2013-02-17 17:59:04",
+			"modified":"2013-11-08 13:21:22",
+			"deleted":"0",
+			"revision":"2",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.Reports Tree View",
+			"sequence":"6",
+			"primary_acl_group":"0",
+			"id":"52611fb5-bdf0-4be1-b5ce-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"System View",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"CRM Reports",
+			"category_id":"1",
+			"query":"{\"actions\":{\"view\":{\"name\":\"view\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\"},\"edit\":{\"name\":\"edit\",\"class\":\"ajax-popup\"},\"delete\":{\"name\":\"delete\",\"class\":\"ajax-popup\"}},\"fields\":[{\"reports.controller\":{\"__column\":\"reports.controller\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.description\":{\"__column\":\"reports.description\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"reports.category.name = \":\"CRM Reports\"}}]],\"order\":[],\"name\":\"CRM Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"is_public\":\"1\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"1\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"527e48f7-50b4-4788-8184-08920aec906d\",\"name\":\"CRM Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"reports.description\",\"column_model\":\"schema\",\"__column\":\"reports.description\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"reports.category.name\",\"search_column_model\":\"schema\",\"__search_column\":\"reports.category.name\",\"search_comparator\":\"=\",\"search_value\":\"CRM Reports\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"name\":\"edit\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"name\":\"delete\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2013-11-09 14:38:47",
+			"modified":"2013-11-09 14:43:30",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.CRM Reports",
+			"sequence":"1",
+			"primary_acl_group":"0",
+			"id":"527e48f7-50b4-4788-8184-08920aec906d",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Ad-hoc Reports",
+			"category_id":"1",
+			"query":"{\"actions\":{\"view\":{\"name\":\"view\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\"},\"edit\":{\"name\":\"edit\",\"class\":\"ajax-popup\"},\"delete\":{\"name\":\"delete\",\"class\":\"ajax-popup\"}},\"fields\":[{\"reports.controller\":{\"__column\":\"reports.controller\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.description\":{\"__column\":\"reports.description\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"reports.category.name = \":\"Ad-hoc Reports\"}}]],\"order\":[],\"name\":\"Ad-hoc Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"is_public\":\"1\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"1\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"method\":\"categorized\"}",
+			"_query":"{\"name\":\"Ad-hoc Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"reports.description\",\"column_model\":\"schema\",\"__column\":\"reports.description\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"reports.category.name\",\"search_column_model\":\"schema\",\"__search_column\":\"reports.category.name\",\"search_comparator\":\"=\",\"search_value\":\"Ad-hoc Reports\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"name\":\"edit\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"name\":\"delete\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"0",
+			"created":"2013-11-09 14:44:36",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.Ad-hoc Reports",
+			"sequence":"1",
+			"primary_acl_group":"0",
+			"id":"527e4a54-e2c0-40c6-a98a-07ec0aec906d",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Monthly Reports",
+			"category_id":"1",
+			"query":"{\"actions\":{\"view\":{\"name\":\"view\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\"},\"edit\":{\"name\":\"edit\",\"class\":\"ajax-popup\"},\"delete\":{\"name\":\"delete\",\"class\":\"ajax-popup\"}},\"fields\":[{\"reports.controller\":{\"__column\":\"reports.controller\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.description\":{\"__column\":\"reports.description\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"reports.category.name = \":\"Monthly Reports\"}}]],\"order\":[],\"name\":\"Monthly Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"is_public\":\"1\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"1\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"method\":\"categorized\"}",
+			"_query":"{\"name\":\"Monthly Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"reports.description\",\"column_model\":\"schema\",\"__column\":\"reports.description\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"reports.category.name\",\"search_column_model\":\"schema\",\"__search_column\":\"reports.category.name\",\"search_comparator\":\"=\",\"search_value\":\"Monthly Reports\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"name\":\"edit\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"name\":\"delete\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"0",
+			"created":"2013-11-09 14:46:16",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.Monthly Reports",
+			"sequence":"1",
+			"primary_acl_group":"0",
+			"id":"527e4ab8-d200-4e93-afb0-07ec0aec906d",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Weekly Reports",
+			"category_id":"1",
+			"query":"{\"actions\":{\"view\":{\"name\":\"view\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\"},\"edit\":{\"name\":\"edit\",\"class\":\"ajax-popup\"},\"delete\":{\"name\":\"delete\",\"class\":\"ajax-popup\"}},\"fields\":[{\"reports.controller\":{\"__column\":\"reports.controller\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.description\":{\"__column\":\"reports.description\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"reports.category.name = \":\"Weekly Reports\"}}]],\"order\":[],\"name\":\"Weekly Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"is_public\":\"1\",\"parent_id_model\":\"parent_listview\",\"sequence\":\"1\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"method\":\"categorized\"}",
+			"_query":"{\"name\":\"Weekly Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"reports.description\",\"column_model\":\"schema\",\"__column\":\"reports.description\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"reports.category.name\",\"search_column_model\":\"schema\",\"__search_column\":\"reports.category.name\",\"search_comparator\":\"=\",\"search_value\":\"Weekly Reports\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"name\":\"edit\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"name\":\"delete\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"0",
+			"created":"2013-11-09 14:47:10",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.Weekly Reports",
+			"sequence":"1",
+			"primary_acl_group":"0",
+			"id":"527e4aee-1d40-4a82-bfe6-07ec0aec906d",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"0",
+			"name":"Performance Reports",
+			"category_id":"1",
+			"query":"{\"actions\":{\"view\":{\"name\":\"view\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\"},\"edit\":{\"name\":\"edit\",\"class\":\"ajax-popup\"},\"delete\":{\"name\":\"delete\",\"class\":\"ajax-popup\"}},\"fields\":[{\"reports.controller\":{\"__column\":\"reports.controller\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.name\":{\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"reports.description\":{\"__column\":\"reports.description\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"reports.category.name CONTAINS \":\"Performance\"}}]],\"order\":[],\"name\":\"Performance Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"is_default\":\"0\",\"is_public\":\"1\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"1\",\"owned_by_model\":\"users\",\"primary_acl_group_model\":\"groups\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"527e4b48-44bc-4060-96bf-18590aec906d\",\"name\":\"Performance Reports\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/reports\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"reports.controller\",\"column_model\":\"schema\",\"__column\":\"reports.controller\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"reports.name\",\"column_model\":\"schema\",\"__column\":\"reports.name\",\"alias\":\"Report Name\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"reports.description\",\"column_model\":\"schema\",\"__column\":\"reports.description\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"1\":{\"search_column\":\"reports.category.name\",\"search_column_model\":\"schema\",\"__search_column\":\"reports.category.name\",\"search_comparator\":\"CONTAINS\",\"search_value\":\"Performance\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"1\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"view\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\\\\module\\\\analytics\\\\helper\\\\presentation\\\\reports::run\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"name\":\"edit\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"name\":\"delete\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"owned_by\":\"\",\"owned_by_model\":\"users\",\"__owned_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"analytics\/reports",
+			"is_default":"0",
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"0",
+			"created":"2013-11-09 14:48:40",
+			"modified":"2014-01-07 14:27:01",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports.Performance Reports",
+			"sequence":"1",
+			"primary_acl_group":"0",
+			"id":"527e4b48-44bc-4060-96bf-18590aec906d",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"1405",
+			"name":"All",
+			"category_id":"12",
+			"query":"{\"fields\":[{\"reports_acl_cache.users.name\":{\"__column\":\"reports_acl_cache.users.name\",\"alias\":\"Name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports_acl_cache\",\"render_as\":\"index\",\"description\":\"Some users might be granted access via groups\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"\",\"name\":\"All\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports_acl_cache\",\"render_as\":\"index\",\"description\":\"Some users might be granted access via groups\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"reports_acl_cache.users.name\",\"column_model\":\"schema\",\"__column\":\"reports_acl_cache.users.name\",\"alias\":\"Name\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_acl\":\"\",\"_acl_model\":\"\",\"___acl\":\"\",\"_acl_edit\":\"\",\"_acl_edit_model\":\"\",\"___acl_edit\":\"\",\"_acl_delete\":\"\",\"_acl_delete_model\":\"\",\"___acl_delete\":\"\"}",
+			"description":"Some users might be granted access via groups",
+			"controller":"analytics\/reports_acl_cache",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"0",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2013-05-24 11:33:00",
+			"modified":null,
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports_acl_cache.All",
+			"sequence":"271",
+			"primary_acl_group":null,
+			"id":"52611fb5-38ec-4cb4-b875-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"System View",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"1406",
+			"name":"All",
+			"category_id":"12",
+			"query":"{\"fields\":[{\"reports_group_acl_cache.groups.name\":{\"__column\":\"reports_group_acl_cache.groups.name\",\"alias\":\"Group Name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[],\"name\":\"All\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports_group_acl_cache\",\"render_as\":\"index\",\"description\":\"Some groups might be granted access via parent groups\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"1\",\"primary_acl_group_model\":\"groups\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"1406\",\"name\":\"All\",\"category_id\":\"12\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"System View\",\"controller\":\"analytics\\\/reports_group_acl_cache\",\"render_as\":\"index\",\"description\":\"Some groups might be granted access via parent groups\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"reports_group_acl_cache.groups.name\",\"column_model\":\"schema\",\"__column\":\"reports_group_acl_cache.groups.name\",\"alias\":\"Group Name\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"hide_row_actions\":\"1\",\"sequence\":\"\",\"row_template\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\"}",
+			"description":"Some groups might be granted access via parent groups",
+			"controller":"analytics\/reports_group_acl_cache",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":null,
+			"created":"2013-05-24 11:33:54",
+			"modified":"2013-05-25 14:44:20",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.reports_group_acl_cache.All",
+			"sequence":"272",
+			"primary_acl_group":"0",
+			"id":"52611fb5-3e00-4115-b5e4-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"System View",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"400",
+			"name":"Recycle Bin",
+			"category_id":"1",
+			"query":"{\"actions\":{\"restore\":{\"name\":\"restore\",\"class\":\"ajax-popup\"}},\"fields\":[{\"report_categories.name\":[]},{\"report_categories.modified\":{\"alias\":\"Deleted On\"}},{\"report_categories.modified_by\":{\"alias\":\"Deleted By\"}}],\"where\":[[{\"op\":\"\",\"value\":{\"report_categories.deleted = \":\"1\"}}]],\"order\":[\"report_categories.created  DESC\"],\"name\":\"Recycle Bin\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/report_categories\",\"render_as\":\"index\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"400\",\"name\":\"Recycle Bin\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/report_categories\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"report_categories.name\",\"column_model\":\"schema\",\"__column\":\"report_categories.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"report_categories.modified\",\"column_model\":\"schema\",\"__column\":\"report_categories.modified\",\"alias\":\"Deleted On\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"report_categories.modified_by\",\"column_model\":\"schema\",\"__column\":\"report_categories.modified_by\",\"alias\":\"Deleted By\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"conditions\":{\"1\":{\"search_column\":\"report_categories.deleted\",\"search_column_model\":\"schema\",\"__search_column\":\"report_categories.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"report_categories.created\",\"sort_by_model\":\"schema\",\"__sort_by\":\"report_categories.created\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"row_template\":\"\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"restore\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"ajax-popup\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}}}",
+			"description":"",
+			"controller":"analytics\/report_categories",
+			"is_default":"0",
+			"is_public":"1",
+			"parent_id":"0",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2013-02-17 17:59:04",
+			"modified":null,
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.report_categories.Recycle Bin",
+			"sequence":"100000",
+			"primary_acl_group":null,
+			"id":"52611fb5-27e8-42d0-bc3b-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"listviews":{
+			"old_id":"750",
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"report_categories.name\":[]},{\"report_categories.created\":[]}],\"order\":[\"report_categories.name  ASC\"],\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/report_categories\",\"render_as\":\"index\",\"is_default\":\"1\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"\",\"name\":\"All\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"analytics\\\/report_categories\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"report_categories.name\",\"column_model\":\"schema\",\"__column\":\"report_categories.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"report_categories.created\",\"column_model\":\"schema\",\"__column\":\"report_categories.created\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"report_categories.name\",\"sort_by_model\":\"schema\",\"__sort_by\":\"report_categories.name\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"is_default\":\"1\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"row_template\":\"\"}",
+			"description":"",
+			"controller":"analytics\/report_categories",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":"0",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2013-02-17 17:59:04",
+			"modified":null,
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"analytics.report_categories.All",
+			"sequence":null,
+			"primary_acl_group":null,
+			"id":"52611fb5-f9ac-42b8-980a-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

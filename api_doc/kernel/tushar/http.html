@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:11 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>http (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\http</h2>
+
+</header><p class="signature">public  class <strong>http</strong></p>
+
+<div class="comment"><p>Perform curl request.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#call()">call</a>(<a href="../kernel/string.html">string</a> url, array payload, <a href="../kernel/string.html">string</a> request, array cookies)</p><p class="description">Send HTTP request to server.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#close()">close</a>()</p><p class="description">Closes curl connection to server</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#delete()">delete</a>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</p><p class="description">Send HTTP/DELETE request to server.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#deleteJSON()">deleteJSON</a>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</p><p class="description">Send HTTP/DELETE request to server. </p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#get()">get</a>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</p><p class="description">Send HTTP/GET request to server.</p></td>
+</tr>
+<tr>
+<td class="type">static  self</td>
+<td class="description"><p class="name"><a href="#getInstance()">getInstance</a>()</p><p class="description">Function to instantiate http request.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#getJSON()">getJSON</a>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</p><p class="description">Send HTTP/GET request to server. </p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#post()">post</a>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</p><p class="description">Send HTTP/POST request to server.</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#postJSON()">postJSON</a>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</p><p class="description">Send HTTP/POST request to server. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#reduce()">reduce</a>(array source, array target, <a href="../kernel/string.html">string</a> path, bool ignorePrivate, bool ignoreCache)</p><p class="description">Reduces a multi dimentional array into single dimention.
+</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="call">public  <a href="../kernel/string.html">string</a> <strong>call</strong>(<a href="../kernel/string.html">string</a> url, array payload, <a href="../kernel/string.html">string</a> request, array cookies)</code>
+<div class="details">
+<p>Send HTTP request to server.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - URL to server.</td>
+<td>payload - Data to be send to server.</td>
+<td>request - HTTP REQUEST METHOD</td>
+<td>cookies - Cookies to be send to server.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="close">public  void <strong>close</strong>()</code>
+<div class="details">
+<p>Closes curl connection to server</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="delete">public  <a href="../kernel/string.html">string</a> <strong>delete</strong>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</code>
+<div class="details">
+<p>Send HTTP/DELETE request to server.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - URL to server.</td>
+<td>payload - Data to be send to server.</td>
+<td>cookies - Cookies to be send to server.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="deleteJSON">public  array <strong>deleteJSON</strong>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</code>
+<div class="details">
+<p>Send HTTP/DELETE request to server. Decodes reponse as JSON.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - URL to server.</td>
+<td>payload - Data to be send to server.</td>
+<td>cookies - Cookies to be send to server.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="get">public  <a href="../kernel/string.html">string</a> <strong>get</strong>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</code>
+<div class="details">
+<p>Send HTTP/GET request to server.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - URL to server.</td>
+<td>payload - Data to be send to server.</td>
+<td>cookies - Cookies to be send to server.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="getInstance">public static  self <strong>getInstance</strong>()</code>
+<div class="details">
+<p>Function to instantiate http request.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getJSON">public  array <strong>getJSON</strong>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</code>
+<div class="details">
+<p>Send HTTP/GET request to server. Decodes reponse as JSON.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - URL to server.</td>
+<td>payload - Data to be send to server.</td>
+<td>cookies - Cookies to be send to server.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="post">public  <a href="../kernel/string.html">string</a> <strong>post</strong>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</code>
+<div class="details">
+<p>Send HTTP/POST request to server.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - URL to server.</td>
+<td>payload - Data to be send to server.</td>
+<td>cookies - Cookies to be send to server.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="postJSON">public  array <strong>postJSON</strong>(<a href="../kernel/string.html">string</a> url, array payload, array cookies)</code>
+<div class="details">
+<p>Send HTTP/POST request to server. Decodes reponse as JSON.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - URL to server.</td>
+<td>payload - Data to be send to server.</td>
+<td>cookies - Cookies to be send to server.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="reduce">public  void <strong>reduce</strong>(array source, array target, <a href="../kernel/string.html">string</a> path, bool ignorePrivate, bool ignoreCache)</code>
+<div class="details">
+<p>Reduces a multi dimentional array into single dimention.
+concats all keys to form key path</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>source - array to be reduced</td>
+<td>target - results are store in this array</td>
+<td>path - used internally by recursive function</td>
+<td>ignorePrivate - If true then fields starting with "_" will be filtered out from result set</td>
+<td>ignoreCache - If true then fields starting with "__" will be filtered out from result set</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

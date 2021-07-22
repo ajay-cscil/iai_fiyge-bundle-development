@@ -1,0 +1,76 @@
+[
+	{
+		"listviews":{
+			"old_id":"2119",
+			"name":"All",
+			"category_id":"1",
+			"query":"{\"fields\":[\"article_topics.topic\",\"article_topics.lft\",\"article_topics.rgt\",{\"created_by_user.name\":{\"alias\":\"Created By User\"}},\"article_topics.created\"],\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"article_topics.topic\",\"__column\":\"article_topics.topic\"},{\"column\":\"article_topics.lft\",\"__column\":\"article_topics.lft\"},{\"column\":\"article_topics.rgt\",\"__column\":\"article_topics.rgt\"},{\"column\":\"created_by_user.name\",\"__column\":\"created_by_user.name\"},{\"column\":\"article_topics.created\",\"__column\":\"article_topics.created\"}],\"render_as\":\"index\"}",
+			"description":null,
+			"controller":"wiki\/article_topics",
+			"is_default":"1",
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-10-03 11:21:41",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"wiki.article_topics.All",
+			"sequence":"100067",
+			"primary_acl_group":"847",
+			"id":"52611fb5-cdbc-4cfd-a74e-1d890acef1b9",
+			"module_id":"",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"__module_id":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

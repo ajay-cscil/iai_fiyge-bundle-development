@@ -1,0 +1,132 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\brules\controller;
+
+class business_rules_domain_logic extends \design_controller {
+
+    private function models() {
+        $options = array();
+        foreach (array(APP . DS . 'module', PLATFORM . DS . 'module') as $dir) {
+            foreach (\scandir($dir) as $module) {
+                if (is_dir($dir . DS . $module) && stripos($module, '.') === false && is_dir($dir . DS . $module . DS . 'model')) {
+                    $moduleHumanize = humanize($module);
+                    if (!isset($options[$moduleHumanize]))
+                        $options[$moduleHumanize] = array();
+                    foreach (\scandir($dir . DS . $module . DS . 'model') as $model) {
+                        if (is_php_file($dir . DS . $module . DS . 'model' . DS . $model)) {
+                            $className = explode('.', $model);
+                            $modelClass = '/module/' . $module . '/model/' . $className[0];
+                            if (stripos($modelClass, '_domain_logic') === false
+                                    &&
+                                    stripos($modelClass, '_acl_cache') === false) {
+                                $class = "\\module\\{$module}\\model\\{$className[0]}";
+                                $classObj = $class::getInstance();
+                                if (
+                                        isset($classObj->behaviours['\\module\\brules\\behaviour\\business_rules'])
+                                        || isset($classObj->behaviours['\\module\\flexflow\\behaviour\\flexflow'])
+                                ) {
+                                    $options[$moduleHumanize][$modelClass] = array('text' => __($modelClass), 'value' => $modelClass);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        \ksort($options);
+        foreach ($options as $module => $info) {
+            if (empty($info)) {
+                unset($options[$module]);
+            } else {
+                $options[$module] = \array_values($info);
+            }
+        }
+
+        $options = array_merge(array(array('text' => "-", 'value' => "-"), array('text' => "remote_procedure_call", 'value' => "remote_procedure_call")), $options);
+        return $options;
+    }
+
+    public function edit($request) {
+        $request->set('association_models', $this->models());
+
+
+        $return = parent::edit($request);
+
+        $request->set('flexflow', 0);
+        $data = $request->response('data');
+        if (isset($data['business_rules']) && isset($data['business_rules']['filter_path'])) {
+            $modelClass = str_replace('/', '\\', $data['business_rules']['filter_path']);
+            if (stripos($modelClass, '\\model\\') !== false) {
+                $modelObj = $modelClass::getInstance();
+                if (is_object($modelObj) && isset($modelObj->behaviours['\\module\\flexflow\\behaviour\\flexflow'])) {
+                    $request->set('flexflow', 1);
+                }
+            }
+        }
+
+
+
+        return $return;
+    }
+
+    public function view($request) {
+        $request->set('association_models', $this->models());
+        $return = parent::view($request);
+
+        $request->set('flexflow', 0);
+        $data = $request->response('data');
+        if (isset($data['business_rules']) && isset($data['business_rules']['filter_path'])) {
+            $modelClass = str_replace('/', '\\', $data['business_rules']['filter_path']);
+            if (stripos($modelClass, '\\model\\') !== false) {
+                $modelObj = $modelClass::getInstance();
+                if (is_object($modelObj) && isset($modelObj->behaviours['\\module\\flexflow\\behaviour\\flexflow'])) {
+                    $request->set('flexflow', 1);
+                }
+            }
+        }
+
+        return $return;
+    }
+
+    public function __process($request) {
+        $this->process($request);
+    }
+
+    public function process($request) {
+        $filter = array();
+        $object = null;
+        $filter = $request->param('q');
+        if (empty($filter)) {
+            throw new \Exception("Provide a valid filter to select processing rules");
+        }
+        if (count(array_intersect_key($filter, array('where' => '', 'having' => '', 'group' => '', 'limit' => ''))) == 0) {
+            throw new \Exception('Provide a valid filter to select processing rules Eg: {"select":[""],"where":[],"limit":"0"}');
+        }
+        $parameters = isset($request->rpc['params']) ? $request->rpc['params'] : array();
+        $rules = $this->modelObj()->process($request, $filter, $parameters);
+    }
+
+    public function execute($request) {
+        $engine = \module\brules\model\business_rules::getInstance(array(), true);
+        $id = $this->id($request);
+        if (!empty($id)) {
+            $data = current($engine->read($id));
+            if (!empty($data)) {
+                $path = \str_replace(NS, '/', $model->modelClass);
+                $engine->process($engine, array(), array(), array($data));
+                $request->setMsg(sprintf(__('Rule "%s" successfully ran'),$data['name']));
+            } else {
+                $request->setMsg(sprintf(__("Could not locate rule with ID %s"),$id));
+            }
+        } else {
+            $request->setMsg(__("Please specify valid rule ID to be run"));
+        }
+        return false;
+    }
+
+}

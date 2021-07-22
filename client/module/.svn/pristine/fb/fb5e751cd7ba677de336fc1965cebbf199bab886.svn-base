@@ -1,0 +1,4237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: maax\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: tushar takkar <ttakkar@primod.com>\n"
+"Language-Team: tushar takkar <tushartakkar@primarymodules.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: INDIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+
+msgid "1"
+msgstr "1"
+
+msgid "Access Control List for this Document"
+msgstr "רשימת בקרת גישה למסמך זה"
+
+msgid "Access(Read) Log"
+msgstr "גישה (קריאה) התחבר"
+
+msgid "Account Information"
+msgstr "פרטי חשבון"
+
+msgid "Accounts"
+msgstr "חשבונות"
+
+msgid "accounts"
+msgstr "חשבונות"
+
+msgid "accounts.account_name"
+msgstr "שם חשבון"
+
+msgid "accounts.account_no"
+msgstr "חשבון לא"
+
+msgid "accounts.account_type"
+msgstr "סוג חשבון"
+
+msgid "accounts.annual_revenue"
+msgstr "הפדיון השנתי"
+
+msgid "accounts.created"
+msgstr "נוצר"
+
+msgid "accounts.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "accounts.deleted"
+msgstr "נמחק"
+
+msgid "accounts.description"
+msgstr "תאור"
+
+msgid "accounts.email_opt_out"
+msgstr "דוא\"ל Opt Out"
+
+msgid "accounts.employees"
+msgstr "עובדים"
+
+msgid "accounts.fax"
+msgstr "פקס"
+
+msgid "accounts.flags"
+msgstr "דגלים"
+
+msgid "accounts.id"
+msgstr "תעודת זהות"
+
+msgid "accounts.imported"
+msgstr "מיובא"
+
+msgid "accounts.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "accounts.industry"
+msgstr "תעשיה"
+
+msgid "accounts.modified"
+msgstr "השתנה"
+
+msgid "accounts.modified_by"
+msgstr "שונה על ידי"
+
+msgid "accounts.notify_owner"
+msgstr "תודיעו בעלים"
+
+msgid "accounts.owned_by"
+msgstr "בבעלות"
+
+msgid "accounts.ownership"
+msgstr "בעלות"
+
+msgid "accounts.parent_id"
+msgstr "אב עיד"
+
+msgid "accounts.primary_address_line_1"
+msgstr "קו כתובת ראשית 1"
+
+msgid "accounts.primary_address_line_2"
+msgstr "קו הכתובת ראשי 2"
+
+msgid "accounts.primary_city"
+msgstr "עיר ראשית"
+
+msgid "accounts.primary_country"
+msgstr "מדינה עיקרית"
+
+msgid "accounts.primary_state"
+msgstr "מדינה עיקרית"
+
+msgid "accounts.primary_zip"
+msgstr "מיקוד עיקרי"
+
+msgid "accounts.rating"
+msgstr "דירוג"
+
+msgid "accounts.revision"
+msgstr "גרסה"
+
+msgid "accounts.sic_code"
+msgstr "סיק קוד"
+
+msgid "accounts.ticker_symbol"
+msgstr "סימן Ticker"
+
+msgid "accounts.website"
+msgstr "אתר אינטרנט"
+
+msgid "accounts._acl"
+msgstr "ACL"
+
+msgid "accounts._acl_delete"
+msgstr "ACL מחק"
+
+msgid "accounts._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "accounts._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "accounts._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "accounts._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "accounts_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "accounts_acl_cache.user_id"
+msgstr "קוד זיהוי משתמש"
+
+msgid "accounts_domain_logic"
+msgstr "חשבונות תחום Logic"
+
+msgid "accounts_group_acl_cache.group_id"
+msgstr "זיהוי קבוצת"
+
+msgid "accounts_group_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "ACL & Revisions"
+msgstr "ACL ומהדורות"
+
+msgid "action history"
+msgstr "פעולה היסטוריה"
+
+msgid "add"
+msgstr "להוסיף"
+
+msgid "Add"
+msgstr "להוסיף"
+
+msgid "Address Information"
+msgstr "מידע כתובת"
+
+msgid "Address Line 1"
+msgstr "שורת כתובת 1"
+
+msgid "Address Line 2"
+msgstr "שורת כתובת 2"
+
+msgid "Addresses"
+msgstr "כתובות"
+
+msgid "addresses"
+msgstr "כתובות"
+
+msgid "addresses.address_line_1"
+msgstr "שורת כתובת 1"
+
+msgid "addresses.address_line_2"
+msgstr "שורת כתובת 2"
+
+msgid "addresses.city"
+msgstr "עיר"
+
+msgid "addresses.country"
+msgstr "מדינה"
+
+msgid "addresses.created"
+msgstr "נוצר"
+
+msgid "addresses.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "addresses.deleted"
+msgstr "נמחק"
+
+msgid "addresses.flags"
+msgstr "דגלים"
+
+msgid "addresses.id"
+msgstr "תעודת זהות"
+
+msgid "addresses.imported"
+msgstr "מיובא"
+
+msgid "addresses.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "addresses.modified"
+msgstr "השתנה"
+
+msgid "addresses.modified_by"
+msgstr "שונה על ידי"
+
+msgid "addresses.owned_by"
+msgstr "בבעלות"
+
+msgid "addresses.related_to"
+msgstr "לגבי"
+
+msgid "addresses.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "addresses.revision"
+msgstr "גרסה"
+
+msgid "addresses.state"
+msgstr "מדינה"
+
+msgid "addresses.type"
+msgstr "סוג"
+
+msgid "addresses.zip"
+msgstr "רוכסן"
+
+msgid "addresses._acl"
+msgstr "ACL"
+
+msgid "addresses._acl_delete"
+msgstr "ACL מחק"
+
+msgid "addresses._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "addresses._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "addresses._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "addresses._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "addresses.__related_to"
+msgstr "לגבי"
+
+msgid "app-menu"
+msgstr "האפליקציה תפריט"
+
+msgid "attachments.created"
+msgstr "נוצר"
+
+msgid "attachments.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "attachments.deleted"
+msgstr "נמחק"
+
+msgid "attachments.description"
+msgstr "תאור"
+
+msgid "attachments.field_type"
+msgstr "סוג שדה"
+
+msgid "attachments.flags"
+msgstr "דגלים"
+
+msgid "attachments.id"
+msgstr "תעודת זהות"
+
+msgid "attachments.imported"
+msgstr "מיובא"
+
+msgid "attachments.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "attachments.mime_type"
+msgstr "סוג החקיין"
+
+msgid "attachments.modified"
+msgstr "השתנה"
+
+msgid "attachments.modified_by"
+msgstr "שונה על ידי"
+
+msgid "attachments.name"
+msgstr "שם"
+
+msgid "attachments.owned_by"
+msgstr "בבעלות"
+
+msgid "attachments.path"
+msgstr "נתיב"
+
+msgid "attachments.related_to"
+msgstr "לגבי"
+
+msgid "attachments.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "attachments.related_to_model_class_name"
+msgstr "הקשורים לשם מחלקת המודל"
+
+msgid "attachments.revision"
+msgstr "גרסה"
+
+msgid "attachments.storage_path"
+msgstr "אחסון Path"
+
+msgid "Basic Information"
+msgstr "מידע בסיסי"
+
+msgid "campaigns.actual_cost"
+msgstr "עלות בפועל"
+
+msgid "campaigns.append_signature"
+msgstr "צרף חתימה"
+
+msgid "campaigns.bcc"
+msgstr "עותק מוסתר"
+
+msgid "campaigns.budget_cost"
+msgstr "תקציב עלות"
+
+msgid "campaigns.campaign_type"
+msgstr "סוג מסע הפרסום"
+
+msgid "campaigns.cc"
+msgstr "עותק"
+
+msgid "campaigns.content"
+msgstr "תוכן"
+
+msgid "campaigns.created"
+msgstr "נוצר"
+
+msgid "campaigns.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "campaigns.custom_message"
+msgstr "הודעה אישית"
+
+msgid "campaigns.deleted"
+msgstr "נמחק"
+
+msgid "campaigns.end"
+msgstr "סוף"
+
+msgid "campaigns.expected_response"
+msgstr "צפוי תגובה"
+
+msgid "campaigns.expected_response_count"
+msgstr "התגובה הצפויה הרוזן"
+
+msgid "campaigns.expected_revenue"
+msgstr "צפויות הכנסות"
+
+msgid "campaigns.expected_roi"
+msgstr "צפוי רועי"
+
+msgid "campaigns.expected_sales_count"
+msgstr "צפויות מכירות הרוזן"
+
+msgid "campaigns.flags"
+msgstr "דגלים"
+
+msgid "campaigns.id"
+msgstr "תעודת זהות"
+
+msgid "campaigns.imported"
+msgstr "מיובא"
+
+msgid "campaigns.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "campaigns.modified"
+msgstr "השתנה"
+
+msgid "campaigns.modified_by"
+msgstr "שונה על ידי"
+
+msgid "campaigns.name"
+msgstr "שם"
+
+msgid "campaigns.on_after"
+msgstr "ביום אחרי"
+
+msgid "campaigns.owned_by"
+msgstr "בבעלות"
+
+msgid "campaigns.priority"
+msgstr "עדיפות"
+
+msgid "campaigns.reply_to"
+msgstr "הגב כדי"
+
+msgid "campaigns.revision"
+msgstr "גרסה"
+
+msgid "campaigns.run_in_test_mode"
+msgstr "הפעלה במצב בדיקה"
+
+msgid "campaigns.sender_id"
+msgstr "שולח"
+
+msgid "campaigns.send_after"
+msgstr "שלח לאחר"
+
+msgid "campaigns.send_on"
+msgstr "שלח ביום"
+
+msgid "campaigns.smtp_server"
+msgstr "שרת ה-SMTP"
+
+msgid "campaigns.sponsor"
+msgstr "לתת חסות"
+
+msgid "campaigns.start"
+msgstr "התחלה"
+
+msgid "campaigns.status"
+msgstr "מעמד"
+
+msgid "campaigns.subject"
+msgstr "נושא"
+
+msgid "campaigns.target_audience"
+msgstr "קהל היעד"
+
+msgid "campaigns.target_size"
+msgstr "יעד גודל"
+
+msgid "campaigns.template_id"
+msgstr "תבנית"
+
+msgid "campaigns._acl"
+msgstr "ACL"
+
+msgid "campaigns._acl_delete"
+msgstr "ACL מחק"
+
+msgid "campaigns._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "campaigns._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "campaigns._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "campaigns._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "City"
+msgstr "עיר"
+
+msgid "Clone"
+msgstr "Clone"
+
+msgid "clone"
+msgstr "Clone"
+
+msgid "Comments"
+msgstr "תגובות"
+
+msgid "Config Account Type Information"
+msgstr "מידע סוג החשבון config"
+
+msgid "Config Account Types"
+msgstr "סוגי החשבון Config"
+
+msgid "Config Department Information"
+msgstr "מידע המחלקה config"
+
+msgid "Config Departments"
+msgstr "מחלקות Config"
+
+msgid "Config Industries"
+msgstr "תעשיות Config"
+
+msgid "Config Industry Information"
+msgstr "מידע התעשייה config"
+
+msgid "Config Lead Source Information"
+msgstr "Config להוביל מידע מקור"
+
+msgid "Config Lead Sources"
+msgstr "Config עופרת מקורות"
+
+msgid "Config Lead Status"
+msgstr "Config עופרת מצב"
+
+msgid "Config Lead Status Information"
+msgstr "פרטי סטטוס config עופרת"
+
+msgid "Config Opportunity Type Information"
+msgstr "מידע סוג ההזדמנות config"
+
+msgid "Config Opportunity Types"
+msgstr "סוגי ההזדמנות Config"
+
+msgid "Config Priority Information"
+msgstr "מידע עדיפות config"
+
+msgid "Config Product Categories"
+msgstr "קטגוריות מוצרים Config"
+
+msgid "Config Product Category Information"
+msgstr "מידע קטגוריית מוצרים config"
+
+msgid "Config Rating Information"
+msgstr "מידע דירוג config"
+
+msgid "Config Ratings"
+msgstr "דירוג Config"
+
+msgid "Config Sales Stage Information"
+msgstr "מכירות מידע שלב config"
+
+msgid "Config Sales Stages"
+msgstr "שלבי מכירות Config"
+
+msgid "Config Ticket Categories"
+msgstr "קטגוריות מכירת כרטיסי Config"
+
+msgid "Config Ticket Category Information"
+msgstr "מידע קטגורית כרטיסי config"
+
+msgid "Config Ticket Priorities"
+msgstr "עדיפויות מכירת כרטיסי Config"
+
+msgid "Config Ticket Priority Information"
+msgstr "מידע עדיפות כרטיסי config"
+
+msgid "Config Ticket Severities"
+msgstr "חומרות מכירת כרטיסי Config"
+
+msgid "Config Ticket Severity Information"
+msgstr "מידע חומרת כרטיסי config"
+
+msgid "Config Ticket Status"
+msgstr "מצב כרטיסים config"
+
+msgid "Config Ticket Status Information"
+msgstr "פרטי סטטוס כרטיסי config"
+
+msgid "Configuration Information"
+msgstr "מידע תצורה"
+
+msgid "Configurations"
+msgstr "תצורות"
+
+msgid "configurations"
+msgstr "תצורות"
+
+msgid "configurations.comment"
+msgstr "הערה"
+
+msgid "configurations.created"
+msgstr "נוצר"
+
+msgid "configurations.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "configurations.deleted"
+msgstr "נמחק"
+
+msgid "configurations.flags"
+msgstr "דגלים"
+
+msgid "configurations.id"
+msgstr "תעודת זהות"
+
+msgid "configurations.modified"
+msgstr "השתנה"
+
+msgid "configurations.modified_by"
+msgstr "שונה על ידי"
+
+msgid "configurations.name"
+msgstr "שם"
+
+msgid "configurations.owned_by"
+msgstr "בבעלות"
+
+msgid "configurations.revision"
+msgstr "גרסה"
+
+msgid "configurations.value"
+msgstr "ערך"
+
+msgid "configurations_domain_logic"
+msgstr "תצורות היגיון דומיין"
+
+msgid "config_account_types"
+msgstr "סוגי החשבון Config"
+
+msgid "config_account_types.account_type"
+msgstr "סוג חשבון"
+
+msgid "config_account_types.created"
+msgstr "נוצר"
+
+msgid "config_account_types.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_account_types.deleted"
+msgstr "נמחק"
+
+msgid "config_account_types.flags"
+msgstr "דגלים"
+
+msgid "config_account_types.id"
+msgstr "תעודת זהות"
+
+msgid "config_account_types.modified"
+msgstr "השתנה"
+
+msgid "config_account_types.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_account_types.owned_by"
+msgstr "בבעלות"
+
+msgid "config_account_types.revision"
+msgstr "גרסה"
+
+msgid "config_account_types_domain_logic"
+msgstr "סוגי היגיון החשבון config דומיין"
+
+msgid "config_departments"
+msgstr "מחלקות Config"
+
+msgid "config_departments.created"
+msgstr "נוצר"
+
+msgid "config_departments.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_departments.deleted"
+msgstr "נמחק"
+
+msgid "config_departments.department"
+msgstr "מחלקה"
+
+msgid "config_departments.flags"
+msgstr "דגלים"
+
+msgid "config_departments.id"
+msgstr "תעודת זהות"
+
+msgid "config_departments.modified"
+msgstr "השתנה"
+
+msgid "config_departments.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_departments.owned_by"
+msgstr "בבעלות"
+
+msgid "config_departments.revision"
+msgstr "גרסה"
+
+msgid "config_departments_domain_logic"
+msgstr "מחלקות Logic תצורת דומיין"
+
+msgid "config_industries"
+msgstr "תעשיות Config"
+
+msgid "config_industries.created"
+msgstr "נוצר"
+
+msgid "config_industries.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_industries.deleted"
+msgstr "נמחק"
+
+msgid "config_industries.flags"
+msgstr "דגלים"
+
+msgid "config_industries.id"
+msgstr "תעודת זהות"
+
+msgid "config_industries.industry"
+msgstr "תעשיה"
+
+msgid "config_industries.modified"
+msgstr "השתנה"
+
+msgid "config_industries.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_industries.owned_by"
+msgstr "בבעלות"
+
+msgid "config_industries.revision"
+msgstr "גרסה"
+
+msgid "config_industries_domain_logic"
+msgstr "היגיון תחום תעשיות config"
+
+msgid "config_lead_sources"
+msgstr "Config עופרת מקורות"
+
+msgid "config_lead_sources.created"
+msgstr "נוצר"
+
+msgid "config_lead_sources.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_lead_sources.deleted"
+msgstr "נמחק"
+
+msgid "config_lead_sources.flags"
+msgstr "דגלים"
+
+msgid "config_lead_sources.id"
+msgstr "תעודת זהות"
+
+msgid "config_lead_sources.lead_source"
+msgstr "עופרת מקור"
+
+msgid "config_lead_sources.modified"
+msgstr "השתנה"
+
+msgid "config_lead_sources.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_lead_sources.owned_by"
+msgstr "בבעלות"
+
+msgid "config_lead_sources.revision"
+msgstr "גרסה"
+
+msgid "config_lead_sources_domain_logic"
+msgstr "Config עופרת היגיון תחום מקורות"
+
+msgid "config_lead_status"
+msgstr "Config עופרת מצב"
+
+msgid "config_lead_status.created"
+msgstr "נוצר"
+
+msgid "config_lead_status.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_lead_status.deleted"
+msgstr "נמחק"
+
+msgid "config_lead_status.flags"
+msgstr "דגלים"
+
+msgid "config_lead_status.id"
+msgstr "תעודת זהות"
+
+msgid "config_lead_status.lead_status"
+msgstr "עופרת מצב"
+
+msgid "config_lead_status.modified"
+msgstr "השתנה"
+
+msgid "config_lead_status.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_lead_status.owned_by"
+msgstr "בבעלות"
+
+msgid "config_lead_status.revision"
+msgstr "גרסה"
+
+msgid "config_lead_status_domain_logic"
+msgstr "היגיון דומיין מצב config עופרת"
+
+msgid "config_opportunity_types"
+msgstr "סוגי ההזדמנות Config"
+
+msgid "config_opportunity_types.created"
+msgstr "נוצר"
+
+msgid "config_opportunity_types.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_opportunity_types.deleted"
+msgstr "נמחק"
+
+msgid "config_opportunity_types.flags"
+msgstr "דגלים"
+
+msgid "config_opportunity_types.id"
+msgstr "תעודת זהות"
+
+msgid "config_opportunity_types.modified"
+msgstr "השתנה"
+
+msgid "config_opportunity_types.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_opportunity_types.opportunity_type"
+msgstr "פוטנציאל סוג"
+
+msgid "config_opportunity_types.revision"
+msgstr "גרסה"
+
+msgid "config_opportunity_types_domain_logic"
+msgstr "סוגי היגיון הזדמנות config דומיין"
+
+msgid "config_priorities"
+msgstr "עדיפויות Config"
+
+msgid "config_priorities.created"
+msgstr "נוצר"
+
+msgid "config_priorities.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_priorities.deleted"
+msgstr "נמחק"
+
+msgid "config_priorities.flags"
+msgstr "דגלים"
+
+msgid "config_priorities.id"
+msgstr "תעודת זהות"
+
+msgid "config_priorities.modified"
+msgstr "השתנה"
+
+msgid "config_priorities.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_priorities.owned_by"
+msgstr "בבעלות"
+
+msgid "config_priorities.priority"
+msgstr "עדיפות"
+
+msgid "config_priorities.revision"
+msgstr "גרסה"
+
+msgid "config_priorities_domain_logic"
+msgstr "עדיפויות Logic תצורת דומיין"
+
+msgid "config_product_categories"
+msgstr "קטגוריות מוצרים Config"
+
+msgid "config_product_categories.business_key"
+msgstr "מפתח עסקים"
+
+msgid "config_product_categories.created"
+msgstr "נוצר"
+
+msgid "config_product_categories.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_product_categories.deleted"
+msgstr "נמחק"
+
+msgid "config_product_categories.flags"
+msgstr "דגלים"
+
+msgid "config_product_categories.id"
+msgstr "תעודת זהות"
+
+msgid "config_product_categories.modified"
+msgstr "השתנה"
+
+msgid "config_product_categories.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_product_categories.owned_by"
+msgstr "בבעלות"
+
+msgid "config_product_categories.product_category"
+msgstr "קטגורית מוצר"
+
+msgid "config_product_categories.revision"
+msgstr "גרסה"
+
+msgid "config_product_categories_domain_logic"
+msgstr "קטגוריות המוצרים Logic Config דומיין"
+
+msgid "config_ratings"
+msgstr "דירוג Config"
+
+msgid "config_ratings.created"
+msgstr "נוצר"
+
+msgid "config_ratings.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_ratings.deleted"
+msgstr "נמחק"
+
+msgid "config_ratings.flags"
+msgstr "דגלים"
+
+msgid "config_ratings.id"
+msgstr "תעודת זהות"
+
+msgid "config_ratings.modified"
+msgstr "השתנה"
+
+msgid "config_ratings.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_ratings.owned_by"
+msgstr "בבעלות"
+
+msgid "config_ratings.rating"
+msgstr "דירוג"
+
+msgid "config_ratings.revision"
+msgstr "גרסה"
+
+msgid "config_ratings_domain_logic"
+msgstr "הדירוג Logic תצורת דומיין"
+
+msgid "config_sales_stages"
+msgstr "שלבי מכירות Config"
+
+msgid "config_sales_stages.created"
+msgstr "נוצר"
+
+msgid "config_sales_stages.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_sales_stages.deleted"
+msgstr "נמחק"
+
+msgid "config_sales_stages.flags"
+msgstr "דגלים"
+
+msgid "config_sales_stages.id"
+msgstr "תעודת זהות"
+
+msgid "config_sales_stages.modified"
+msgstr "השתנה"
+
+msgid "config_sales_stages.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_sales_stages.owned_by"
+msgstr "בבעלות"
+
+msgid "config_sales_stages.probability"
+msgstr "הסתברות"
+
+msgid "config_sales_stages.revision"
+msgstr "גרסה"
+
+msgid "config_sales_stages.sales_stage"
+msgstr "מכירות שלב"
+
+msgid "config_sales_stages_domain_logic"
+msgstr "מכירות שלבים Logic תצורת דומיין"
+
+msgid "config_salutations.created"
+msgstr "נוצר"
+
+msgid "config_salutations.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_salutations.deleted"
+msgstr "נמחק"
+
+msgid "config_salutations.flags"
+msgstr "דגלים"
+
+msgid "config_salutations.id"
+msgstr "תעודת זהות"
+
+msgid "config_salutations.modified"
+msgstr "השתנה"
+
+msgid "config_salutations.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_salutations.owned_by"
+msgstr "בבעלות"
+
+msgid "config_salutations.revision"
+msgstr "גרסה"
+
+msgid "config_salutations.salutation"
+msgstr "דברי ברכה"
+
+msgid "config_ticket_categories"
+msgstr "קטגוריות מכירת כרטיסי Config"
+
+msgid "config_ticket_categories.created"
+msgstr "נוצר"
+
+msgid "config_ticket_categories.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_ticket_categories.deleted"
+msgstr "נמחק"
+
+msgid "config_ticket_categories.flags"
+msgstr "דגלים"
+
+msgid "config_ticket_categories.id"
+msgstr "תעודת זהות"
+
+msgid "config_ticket_categories.modified"
+msgstr "השתנה"
+
+msgid "config_ticket_categories.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_ticket_categories.owned_by"
+msgstr "בבעלות"
+
+msgid "config_ticket_categories.revision"
+msgstr "גרסה"
+
+msgid "config_ticket_categories.ticket_category"
+msgstr "קטגורית כרטיסים"
+
+msgid "config_ticket_categories_domain_logic"
+msgstr "קטגוריות היגיון כרטיסי config דומיין"
+
+msgid "config_ticket_priorities"
+msgstr "עדיפויות מכירת כרטיסי Config"
+
+msgid "config_ticket_priorities.created"
+msgstr "נוצר"
+
+msgid "config_ticket_priorities.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_ticket_priorities.deleted"
+msgstr "נמחק"
+
+msgid "config_ticket_priorities.flags"
+msgstr "דגלים"
+
+msgid "config_ticket_priorities.id"
+msgstr "תעודת זהות"
+
+msgid "config_ticket_priorities.modified"
+msgstr "השתנה"
+
+msgid "config_ticket_priorities.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_ticket_priorities.owned_by"
+msgstr "בבעלות"
+
+msgid "config_ticket_priorities.revision"
+msgstr "גרסה"
+
+msgid "config_ticket_priorities.ticket_priority"
+msgstr "עדיפות כרטיסים"
+
+msgid "config_ticket_priorities_domain_logic"
+msgstr "עדיפויות היגיון כרטיסי config דומיין"
+
+msgid "config_ticket_severities"
+msgstr "חומרות מכירת כרטיסי Config"
+
+msgid "config_ticket_severities.created"
+msgstr "נוצר"
+
+msgid "config_ticket_severities.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_ticket_severities.deleted"
+msgstr "נמחק"
+
+msgid "config_ticket_severities.flags"
+msgstr "דגלים"
+
+msgid "config_ticket_severities.id"
+msgstr "תעודת זהות"
+
+msgid "config_ticket_severities.modified"
+msgstr "השתנה"
+
+msgid "config_ticket_severities.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_ticket_severities.owned_by"
+msgstr "בבעלות"
+
+msgid "config_ticket_severities.revision"
+msgstr "גרסה"
+
+msgid "config_ticket_severities.ticket_severity"
+msgstr "חומרת כרטיסים"
+
+msgid "config_ticket_severities_domain_logic"
+msgstr "חומרות היגיון כרטיסי config דומיין"
+
+msgid "config_ticket_status"
+msgstr "מצב כרטיסים config"
+
+msgid "config_ticket_status.created"
+msgstr "נוצר"
+
+msgid "config_ticket_status.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "config_ticket_status.deleted"
+msgstr "נמחק"
+
+msgid "config_ticket_status.flags"
+msgstr "דגלים"
+
+msgid "config_ticket_status.id"
+msgstr "תעודת זהות"
+
+msgid "config_ticket_status.modified"
+msgstr "השתנה"
+
+msgid "config_ticket_status.modified_by"
+msgstr "שונה על ידי"
+
+msgid "config_ticket_status.owned_by"
+msgstr "בבעלות"
+
+msgid "config_ticket_status.revision"
+msgstr "גרסה"
+
+msgid "config_ticket_status.ticket_status"
+msgstr "מצב כרטיסים"
+
+msgid "config_ticket_status_domain_logic"
+msgstr "היגיון דומיין מצב כרטיסים config"
+
+msgid "Contact Addresses"
+msgstr "צור כתובות"
+
+msgid "Contact Information"
+msgstr "יצירת קשר"
+
+msgid "Contacts"
+msgstr "אנשי קשר"
+
+msgid "contacts"
+msgstr "אנשי קשר"
+
+msgid "contacts.account_id"
+msgstr "זיהוי החשבון"
+
+msgid "contacts.assistant"
+msgstr "עוזר"
+
+msgid "contacts.birthday"
+msgstr "יום הולדת"
+
+msgid "contacts.company"
+msgstr "חברה"
+
+msgid "contacts.contact_no"
+msgstr "צור לא"
+
+msgid "contacts.contact_type"
+msgstr "צור סוג"
+
+msgid "contacts.created"
+msgstr "נוצר"
+
+msgid "contacts.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "contacts.create_opportunity"
+msgstr "יצירת פוטנציאל"
+
+msgid "contacts.create_task"
+msgstr "יצירת משימה"
+
+msgid "contacts.deleted"
+msgstr "נמחק"
+
+msgid "contacts.department"
+msgstr "מחלקה"
+
+msgid "contacts.description"
+msgstr "תאור"
+
+msgid "contacts.do_not_call"
+msgstr "אל תקרא"
+
+msgid "contacts.email_opt_out"
+msgstr "דוא\"ל Opt Out"
+
+msgid "contacts.fax"
+msgstr "פקס"
+
+msgid "contacts.first_name"
+msgstr "שם פרטי"
+
+msgid "contacts.flags"
+msgstr "דגלים"
+
+msgid "contacts.id"
+msgstr "תעודת זהות"
+
+msgid "contacts.imagename"
+msgstr "Imagename"
+
+msgid "contacts.imported"
+msgstr "מיובא"
+
+msgid "contacts.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "contacts.industry"
+msgstr "תעשיה"
+
+msgid "contacts.last_name"
+msgstr "שם משפחה"
+
+msgid "contacts.last_stay_in_touch_request"
+msgstr "הישארו אחרונה בבקשה Touch"
+
+msgid "contacts.last_stay_in_touch_save_date"
+msgstr "הישארו אחרונה ב תאריך שמור Touch"
+
+msgid "contacts.lead_source"
+msgstr "עופרת מקור"
+
+msgid "contacts.modified"
+msgstr "השתנה"
+
+msgid "contacts.modified_by"
+msgstr "שונה על ידי"
+
+msgid "contacts.name"
+msgstr "שם"
+
+msgid "contacts.notify_owner"
+msgstr "תודיעו בעלים"
+
+msgid "contacts.owned_by"
+msgstr "בבעלות"
+
+msgid "contacts.parent_id"
+msgstr "אב עיד"
+
+msgid "contacts.primary_address_line_1"
+msgstr "קו כתובת ראשית 1"
+
+msgid "contacts.primary_address_line_2"
+msgstr "קו הכתובת ראשי 2"
+
+msgid "contacts.primary_city"
+msgstr "עיר ראשית"
+
+msgid "contacts.primary_country"
+msgstr "מדינה עיקרית"
+
+msgid "contacts.primary_state"
+msgstr "מדינה עיקרית"
+
+msgid "contacts.primary_zip"
+msgstr "מיקוד עיקרי"
+
+msgid "contacts.reference"
+msgstr "הפניה"
+
+msgid "contacts.related_to"
+msgstr "לגבי"
+
+msgid "contacts.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "contacts.revision"
+msgstr "גרסה"
+
+msgid "contacts.salutation"
+msgstr "דברי ברכה"
+
+msgid "contacts.title"
+msgstr "כותרת"
+
+msgid "contacts.training"
+msgstr "הכשרה"
+
+msgid "contacts.user_type"
+msgstr "סוג משתמש"
+
+msgid "contacts._acl"
+msgstr "ACL"
+
+msgid "contacts._acl_delete"
+msgstr "ACL מחק"
+
+msgid "contacts._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "contacts._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "contacts._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "contacts._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "contacts_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "contacts_acl_cache.user_id"
+msgstr "קוד זיהוי משתמש"
+
+msgid "contacts_domain_logic"
+msgstr "קשר דומיין Logic"
+
+msgid "contacts_group_acl_cache.group_id"
+msgstr "זיהוי קבוצת"
+
+msgid "contacts_group_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "convert"
+msgstr "להמיר"
+
+msgid "Convert"
+msgstr "להמיר"
+
+msgid "convert to contact"
+msgstr "להמיר ליצור קשר עם"
+
+msgid "convert to opportunity"
+msgstr "להמיר את הפוטנציאל"
+
+msgid "Converted to contact, click %s to open"
+msgstr "הומר לאיש הקשר, לחץ כדי לפתוח %s"
+
+msgid "Converted to opportunity, click %s to open"
+msgstr "הומר להזדמנות, לחץ כדי לפתוח %s"
+
+msgid "Country"
+msgstr "מדינה"
+
+msgid "Create Opportunity"
+msgstr "יצירת פוטנציאל"
+
+msgid "Create task"
+msgstr "יצירת משימה"
+
+msgid "created_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "created_by_user.access_key"
+msgstr "לגשת למפתח"
+
+msgid "created_by_user.created"
+msgstr "נוצר"
+
+msgid "created_by_user.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "created_by_user.currency_id"
+msgstr "מטבע עיד"
+
+msgid "created_by_user.deleted"
+msgstr "נמחק"
+
+msgid "created_by_user.department"
+msgstr "מחלקה"
+
+msgid "created_by_user.description"
+msgstr "תאור"
+
+msgid "created_by_user.fax"
+msgstr "פקס"
+
+msgid "created_by_user.first_name"
+msgstr "שם פרטי"
+
+msgid "created_by_user.flags"
+msgstr "דגלים"
+
+msgid "created_by_user.hash_key"
+msgstr "Hash Key"
+
+msgid "created_by_user.home_page"
+msgstr "דף הבית"
+
+msgid "created_by_user.hour_format"
+msgstr "שעה פורמט"
+
+msgid "created_by_user.id"
+msgstr "תעודת זהות"
+
+msgid "created_by_user.is_active"
+msgstr "פעיל"
+
+msgid "created_by_user.last_name"
+msgstr "שם משפחה"
+
+msgid "created_by_user.locale"
+msgstr "אזור"
+
+msgid "created_by_user.mobile_home_page"
+msgstr "בית נייד עמוד"
+
+msgid "created_by_user.modified"
+msgstr "השתנה"
+
+msgid "created_by_user.modified_by"
+msgstr "שונה על ידי"
+
+msgid "created_by_user.name"
+msgstr "שם"
+
+msgid "created_by_user.owned_by"
+msgstr "בבעלות"
+
+msgid "created_by_user.parent_id"
+msgstr "אב עיד"
+
+msgid "created_by_user.primary_address_line_1"
+msgstr "קו כתובת ראשית 1"
+
+msgid "created_by_user.primary_address_line_2"
+msgstr "קו הכתובת ראשי 2"
+
+msgid "created_by_user.primary_city"
+msgstr "עיר ראשית"
+
+msgid "created_by_user.primary_country"
+msgstr "מדינה עיקרית"
+
+msgid "created_by_user.primary_state"
+msgstr "מדינה עיקרית"
+
+msgid "created_by_user.primary_zip"
+msgstr "מיקוד עיקרי"
+
+msgid "created_by_user.region_id"
+msgstr "אזור עיד"
+
+msgid "created_by_user.revision"
+msgstr "גרסה"
+
+msgid "created_by_user.role_id"
+msgstr "תפקיד עיד"
+
+msgid "created_by_user.salutation"
+msgstr "דברי ברכה"
+
+msgid "created_by_user.signature"
+msgstr "חתימה"
+
+msgid "created_by_user.skin"
+msgstr "עור"
+
+msgid "created_by_user.status"
+msgstr "מעמד"
+
+msgid "created_by_user.theme"
+msgstr "נושא"
+
+msgid "created_by_user.time_zone"
+msgstr "אזור זמן"
+
+msgid "created_by_user.title"
+msgstr "כותרת"
+
+msgid "created_by_user.user_name"
+msgstr "שם משתמש"
+
+msgid "created_by_user.user_password"
+msgstr "משתמש סיסמא"
+
+msgid "crm"
+msgstr "Crm"
+
+msgid "Crm"
+msgstr "Crm"
+
+msgid "CRM"
+msgstr "Crm"
+
+msgid "Crm Cruise"
+msgstr "Crm קרוז"
+
+msgid "crm_cruise"
+msgstr "crm_cruise"
+
+msgid "Cruise Crm"
+msgstr "קרוז Crm"
+
+msgid "currencies.created"
+msgstr "נוצר"
+
+msgid "currencies.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "currencies.currency_code"
+msgstr "קוד מטבע"
+
+msgid "currencies.currency_name"
+msgstr "שם מטבע"
+
+msgid "currencies.currency_symbol"
+msgstr "מטבע סמל"
+
+msgid "currencies.deleted"
+msgstr "נמחק"
+
+msgid "currencies.flags"
+msgstr "דגלים"
+
+msgid "currencies.id"
+msgstr "תעודת זהות"
+
+msgid "currencies.modified"
+msgstr "השתנה"
+
+msgid "currencies.modified_by"
+msgstr "שונה על ידי"
+
+msgid "currencies.owned_by"
+msgstr "בבעלות"
+
+msgid "currencies.revision"
+msgstr "גרסה"
+
+msgid "delete"
+msgstr "למחוק"
+
+msgid "Delete"
+msgstr "למחוק"
+
+msgid "Delete Access"
+msgstr "מחק את הגישה"
+
+msgid "delete selected"
+msgstr "למחוק נבחרים"
+
+msgid "Delete Selected"
+msgstr "למחוק נבחרים"
+
+msgid "Description Information"
+msgstr "תיאור מידע"
+
+msgid "Document Information"
+msgstr "פרטי מסמך"
+
+msgid "Document Information "
+msgstr "פרטי מסמך"
+
+msgid "edit"
+msgstr "לערוך"
+
+msgid "Edit"
+msgstr "לערוך"
+
+msgid "Edit Access"
+msgstr "ערוך גישה"
+
+msgid "edit selected"
+msgstr "לערוך נבחרים"
+
+msgid "Edit Selected"
+msgstr "לערוך נבחרים"
+
+msgid "Email Address"
+msgstr "כתובת דוא\"ל"
+
+msgid "Email Addresses"
+msgstr "כתובות דוא\"ל"
+
+msgid "email_addresses.created"
+msgstr "נוצר"
+
+msgid "email_addresses.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "email_addresses.deleted"
+msgstr "נמחק"
+
+msgid "email_addresses.email"
+msgstr "דוא\"ל"
+
+msgid "email_addresses.flags"
+msgstr "דגלים"
+
+msgid "email_addresses.id"
+msgstr "תעודת זהות"
+
+msgid "email_addresses.modified"
+msgstr "השתנה"
+
+msgid "email_addresses.modified_by"
+msgstr "שונה על ידי"
+
+msgid "email_addresses.owned_by"
+msgstr "בבעלות"
+
+msgid "email_addresses.related_to"
+msgstr "לגבי"
+
+msgid "email_addresses.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "email_addresses.revision"
+msgstr "גרסה"
+
+msgid "email_addresses.type"
+msgstr "סוג"
+
+msgid "email_addresses._acl"
+msgstr "ACL"
+
+msgid "email_addresses._acl_delete"
+msgstr "ACL מחק"
+
+msgid "email_addresses._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "email_addresses._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "email_addresses._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "email_addresses._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "email_addresses.__related_to"
+msgstr "לגבי"
+
+msgid "email_address_book"
+msgstr "ספר כתובות הדוא\"ל"
+
+msgid "email_address_book.created"
+msgstr "נוצר"
+
+msgid "email_address_book.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "email_address_book.deleted"
+msgstr "נמחק"
+
+msgid "email_address_book.email"
+msgstr "דוא\"ל"
+
+msgid "email_address_book.flags"
+msgstr "דגלים"
+
+msgid "email_address_book.id"
+msgstr "תעודת זהות"
+
+msgid "email_address_book.modified"
+msgstr "השתנה"
+
+msgid "email_address_book.modified_by"
+msgstr "שונה על ידי"
+
+msgid "email_address_book.owned_by"
+msgstr "בבעלות"
+
+msgid "email_address_book.related_to"
+msgstr "לגבי"
+
+msgid "email_address_book.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "email_address_book.revision"
+msgstr "גרסה"
+
+msgid "email_address_book.type"
+msgstr "סוג"
+
+msgid "email_address_book._acl"
+msgstr "ACL"
+
+msgid "email_address_book._acl_delete"
+msgstr "ACL מחק"
+
+msgid "email_address_book._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "email_address_book._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "email_address_book._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "email_address_book._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "email_address_book.__related_to"
+msgstr "לגבי"
+
+msgid "export selected"
+msgstr "לייצא נבחר"
+
+msgid "Export Selected"
+msgstr "לייצא נבחר"
+
+msgid "goals.account_id"
+msgstr "זיהוי החשבון"
+
+msgid "goals.agency_id"
+msgstr "סוכנות"
+
+msgid "goals.amount"
+msgstr "כמות"
+
+msgid "goals.booking_type"
+msgstr "סוג ההזמנה"
+
+msgid "goals.brand"
+msgstr "סוג"
+
+msgid "goals.created"
+msgstr "נוצר"
+
+msgid "goals.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "goals.flags"
+msgstr "דגלים"
+
+msgid "goals.goals"
+msgstr "מטרות"
+
+msgid "goals.id"
+msgstr "תעודת זהות"
+
+msgid "goals.modified"
+msgstr "השתנה"
+
+msgid "goals.modified_by"
+msgstr "שונה על ידי"
+
+msgid "goals.owned_by"
+msgstr "בבעלות"
+
+msgid "goals.region"
+msgstr "אזור"
+
+msgid "goals.revision"
+msgstr "גרסה"
+
+msgid "goals.role"
+msgstr "תפקיד"
+
+msgid "goals.territory"
+msgstr "טריטוריה"
+
+msgid "goals.transaction_month"
+msgstr "חודש עסקה"
+
+msgid "goals.transaction_qtr"
+msgstr "עסקת מתחם"
+
+msgid "goals.transaction_type"
+msgstr "סוג העסקה"
+
+msgid "goals.transaction_year"
+msgstr "שנת עסקה"
+
+msgid "Help"
+msgstr "עזרה"
+
+msgid "Here"
+msgstr "כאן"
+
+msgid "Hours"
+msgstr "שעות"
+
+msgid "Hours Spent"
+msgstr "שעות שהייה"
+
+msgid "imported_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "imported_by_user.access_key"
+msgstr "לגשת למפתח"
+
+msgid "imported_by_user.created"
+msgstr "נוצר"
+
+msgid "imported_by_user.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "imported_by_user.currency_id"
+msgstr "מטבע עיד"
+
+msgid "imported_by_user.deleted"
+msgstr "נמחק"
+
+msgid "imported_by_user.department"
+msgstr "מחלקה"
+
+msgid "imported_by_user.description"
+msgstr "תאור"
+
+msgid "imported_by_user.fax"
+msgstr "פקס"
+
+msgid "imported_by_user.first_name"
+msgstr "שם פרטי"
+
+msgid "imported_by_user.flags"
+msgstr "דגלים"
+
+msgid "imported_by_user.hash_key"
+msgstr "Hash Key"
+
+msgid "imported_by_user.home_page"
+msgstr "דף הבית"
+
+msgid "imported_by_user.hour_format"
+msgstr "שעה פורמט"
+
+msgid "imported_by_user.id"
+msgstr "תעודת זהות"
+
+msgid "imported_by_user.is_active"
+msgstr "פעיל"
+
+msgid "imported_by_user.last_name"
+msgstr "שם משפחה"
+
+msgid "imported_by_user.locale"
+msgstr "אזור"
+
+msgid "imported_by_user.mobile_home_page"
+msgstr "בית נייד עמוד"
+
+msgid "imported_by_user.modified"
+msgstr "השתנה"
+
+msgid "imported_by_user.modified_by"
+msgstr "שונה על ידי"
+
+msgid "imported_by_user.name"
+msgstr "שם"
+
+msgid "imported_by_user.owned_by"
+msgstr "בבעלות"
+
+msgid "imported_by_user.parent_id"
+msgstr "אב עיד"
+
+msgid "imported_by_user.primary_address_line_1"
+msgstr "קו כתובת ראשית 1"
+
+msgid "imported_by_user.primary_address_line_2"
+msgstr "קו הכתובת ראשי 2"
+
+msgid "imported_by_user.primary_city"
+msgstr "עיר ראשית"
+
+msgid "imported_by_user.primary_country"
+msgstr "מדינה עיקרית"
+
+msgid "imported_by_user.primary_state"
+msgstr "מדינה עיקרית"
+
+msgid "imported_by_user.primary_zip"
+msgstr "מיקוד עיקרי"
+
+msgid "imported_by_user.region_id"
+msgstr "אזור עיד"
+
+msgid "imported_by_user.revision"
+msgstr "גרסה"
+
+msgid "imported_by_user.role_id"
+msgstr "תפקיד עיד"
+
+msgid "imported_by_user.salutation"
+msgstr "דברי ברכה"
+
+msgid "imported_by_user.signature"
+msgstr "חתימה"
+
+msgid "imported_by_user.skin"
+msgstr "עור"
+
+msgid "imported_by_user.status"
+msgstr "מעמד"
+
+msgid "imported_by_user.theme"
+msgstr "נושא"
+
+msgid "imported_by_user.time_zone"
+msgstr "אזור זמן"
+
+msgid "imported_by_user.title"
+msgstr "כותרת"
+
+msgid "imported_by_user.user_name"
+msgstr "שם משתמש"
+
+msgid "imported_by_user.user_password"
+msgstr "משתמש סיסמא"
+
+msgid "index"
+msgstr "מדד"
+
+msgid "Index"
+msgstr "מדד"
+
+msgid "Lead Information"
+msgstr "עופרת מידע"
+
+msgid "Leads"
+msgstr "הובלות"
+
+msgid "leads"
+msgstr "הובלות"
+
+msgid "leads.annual_revenue"
+msgstr "הפדיון השנתי"
+
+msgid "leads.assign_lead_chk"
+msgstr "הקצאת עופרת Chk"
+
+msgid "leads.assistant_email"
+msgstr "אימייל עוזר"
+
+msgid "leads.assistant_phone"
+msgstr "טלפון עוזר"
+
+msgid "leads.campaign"
+msgstr "מסע"
+
+msgid "leads.campaign_id"
+msgstr "מסע"
+
+msgid "leads.comments"
+msgstr "תגובות"
+
+msgid "leads.company"
+msgstr "חברה"
+
+msgid "leads.converted"
+msgstr "המרה"
+
+msgid "leads.created"
+msgstr "נוצר"
+
+msgid "leads.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "leads.currency"
+msgstr "מטבע"
+
+msgid "leads.deleted"
+msgstr "נמחק"
+
+msgid "leads.demo_request"
+msgstr "הדגמה בקש"
+
+msgid "leads.description"
+msgstr "תאור"
+
+msgid "leads.designation"
+msgstr "יעוד"
+
+msgid "leads.do_not_call"
+msgstr "אל תקרא"
+
+msgid "leads.email_opt_out"
+msgstr "דוא\"ל Opt Out"
+
+msgid "leads.evaluation_status"
+msgstr "הערכת מצב"
+
+msgid "leads.fax"
+msgstr "פקס"
+
+msgid "leads.first_name"
+msgstr "שם פרטי"
+
+msgid "leads.flags"
+msgstr "דגלים"
+
+msgid "leads.funding_situation"
+msgstr "מימון מצב"
+
+msgid "leads.home_phone"
+msgstr "טלפון בבית"
+
+msgid "leads.id"
+msgstr "תעודת זהות"
+
+msgid "leads.imported"
+msgstr "מיובא"
+
+msgid "leads.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "leads.industry"
+msgstr "תעשיה"
+
+msgid "leads.interest"
+msgstr "אינטרס"
+
+msgid "leads.last_name"
+msgstr "שם משפחה"
+
+msgid "leads.lead_no"
+msgstr "עופרת לא"
+
+msgid "leads.lead_source"
+msgstr "עופרת מקור"
+
+msgid "leads.lead_status"
+msgstr "עופרת מצב"
+
+msgid "leads.licence_key_status"
+msgstr "מצב מפתח רישיון"
+
+msgid "leads.mail_date"
+msgstr "דואר תאריך"
+
+msgid "leads.mobile"
+msgstr "נייד"
+
+msgid "leads.modified"
+msgstr "השתנה"
+
+msgid "leads.modified_by"
+msgstr "שונה על ידי"
+
+msgid "leads.name"
+msgstr "שם"
+
+msgid "leads.next_step_date"
+msgstr "הצעד הבא תאריך"
+
+msgid "leads.no_of_employees"
+msgstr "אין עובדים"
+
+msgid "leads.office_email"
+msgstr "דוא\"ל משרד"
+
+msgid "leads.office_phone"
+msgstr "טלפון משרד"
+
+msgid "leads.other_phone"
+msgstr "טלפון אחר"
+
+msgid "leads.owned_by"
+msgstr "בבעלות"
+
+msgid "leads.parent_id"
+msgstr "אב עיד"
+
+msgid "leads.partner_contact"
+msgstr "פרטנר צור"
+
+msgid "leads.personal_email"
+msgstr "אימייל אישי"
+
+msgid "leads.primary_address_line_1"
+msgstr "קו כתובת ראשית 1"
+
+msgid "leads.primary_address_line_2"
+msgstr "קו הכתובת ראשי 2"
+
+msgid "leads.primary_city"
+msgstr "עיר ראשית"
+
+msgid "leads.primary_country"
+msgstr "מדינה עיקרית"
+
+msgid "leads.primary_state"
+msgstr "מדינה עיקרית"
+
+msgid "leads.primary_zip"
+msgstr "מיקוד עיקרי"
+
+msgid "leads.priority"
+msgstr "עדיפות"
+
+msgid "leads.product"
+msgstr "מוצר"
+
+msgid "leads.product_id"
+msgstr "מוצר"
+
+msgid "leads.product_version"
+msgstr "גרסת המוצר"
+
+msgid "leads.purpose"
+msgstr "מטרה"
+
+msgid "leads.rating"
+msgstr "דירוג"
+
+msgid "leads.revenue_type"
+msgstr "הכנסות סוג"
+
+msgid "leads.revision"
+msgstr "גרסה"
+
+msgid "leads.salutation"
+msgstr "דברי ברכה"
+
+msgid "leads.space"
+msgstr "מרחב"
+
+msgid "leads.test123"
+msgstr "Test123"
+
+msgid "leads.title"
+msgstr "כותרת"
+
+msgid "leads.transfer_date"
+msgstr "העברה תאריך"
+
+msgid "leads.website"
+msgstr "אתר אינטרנט"
+
+msgid "leads._acl"
+msgstr "ACL"
+
+msgid "leads._acl_delete"
+msgstr "ACL מחק"
+
+msgid "leads._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "leads._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "leads._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "leads._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "leads_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "leads_acl_cache.user_id"
+msgstr "קוד זיהוי משתמש"
+
+msgid "leads_domain_logic"
+msgstr "הובלות ההיגיון דומיין"
+
+msgid "leads_group_acl_cache.group_id"
+msgstr "זיהוי קבוצת"
+
+msgid "leads_group_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "leads_revision_log.created"
+msgstr "נוצר"
+
+msgid "leads_revision_log.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "leads_revision_log.deleted"
+msgstr "נמחק"
+
+msgid "leads_revision_log.diff"
+msgstr "הבדל"
+
+msgid "leads_revision_log.flags"
+msgstr "דגלים"
+
+msgid "leads_revision_log.id"
+msgstr "תעודת זהות"
+
+msgid "leads_revision_log.modified"
+msgstr "השתנה"
+
+msgid "leads_revision_log.modified_by"
+msgstr "שונה על ידי"
+
+msgid "leads_revision_log.related_to"
+msgstr "לגבי"
+
+msgid "leads_revision_log.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "leads_revision_log.revision"
+msgstr "גרסה"
+
+msgid "listviews.created"
+msgstr "נוצר"
+
+msgid "listviews.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "listviews.modified"
+msgstr "השתנה"
+
+msgid "listviews.modified_by"
+msgstr "שונה על ידי"
+
+msgid "listviews.revision"
+msgstr "גרסה"
+
+msgid "Logo"
+msgstr "סמל"
+
+msgid "modified_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "modified_by_user.access_key"
+msgstr "לגשת למפתח"
+
+msgid "modified_by_user.created"
+msgstr "נוצר"
+
+msgid "modified_by_user.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "modified_by_user.currency_id"
+msgstr "מטבע עיד"
+
+msgid "modified_by_user.deleted"
+msgstr "נמחק"
+
+msgid "modified_by_user.department"
+msgstr "מחלקה"
+
+msgid "modified_by_user.description"
+msgstr "תאור"
+
+msgid "modified_by_user.fax"
+msgstr "פקס"
+
+msgid "modified_by_user.first_name"
+msgstr "שם פרטי"
+
+msgid "modified_by_user.flags"
+msgstr "דגלים"
+
+msgid "modified_by_user.hash_key"
+msgstr "Hash Key"
+
+msgid "modified_by_user.home_page"
+msgstr "דף הבית"
+
+msgid "modified_by_user.hour_format"
+msgstr "שעה פורמט"
+
+msgid "modified_by_user.id"
+msgstr "תעודת זהות"
+
+msgid "modified_by_user.is_active"
+msgstr "פעיל"
+
+msgid "modified_by_user.last_name"
+msgstr "שם משפחה"
+
+msgid "modified_by_user.locale"
+msgstr "אזור"
+
+msgid "modified_by_user.mobile_home_page"
+msgstr "בית נייד עמוד"
+
+msgid "modified_by_user.modified"
+msgstr "השתנה"
+
+msgid "modified_by_user.modified_by"
+msgstr "שונה על ידי"
+
+msgid "modified_by_user.name"
+msgstr "שם"
+
+msgid "modified_by_user.owned_by"
+msgstr "בבעלות"
+
+msgid "modified_by_user.parent_id"
+msgstr "אב עיד"
+
+msgid "modified_by_user.primary_address_line_1"
+msgstr "קו כתובת ראשית 1"
+
+msgid "modified_by_user.primary_address_line_2"
+msgstr "קו הכתובת ראשי 2"
+
+msgid "modified_by_user.primary_city"
+msgstr "עיר ראשית"
+
+msgid "modified_by_user.primary_country"
+msgstr "מדינה עיקרית"
+
+msgid "modified_by_user.primary_state"
+msgstr "מדינה עיקרית"
+
+msgid "modified_by_user.primary_zip"
+msgstr "מיקוד עיקרי"
+
+msgid "modified_by_user.region_id"
+msgstr "אזור עיד"
+
+msgid "modified_by_user.revision"
+msgstr "גרסה"
+
+msgid "modified_by_user.role_id"
+msgstr "תפקיד עיד"
+
+msgid "modified_by_user.salutation"
+msgstr "דברי ברכה"
+
+msgid "modified_by_user.signature"
+msgstr "חתימה"
+
+msgid "modified_by_user.skin"
+msgstr "עור"
+
+msgid "modified_by_user.status"
+msgstr "מעמד"
+
+msgid "modified_by_user.theme"
+msgstr "נושא"
+
+msgid "modified_by_user.time_zone"
+msgstr "אזור זמן"
+
+msgid "modified_by_user.title"
+msgstr "כותרת"
+
+msgid "modified_by_user.user_name"
+msgstr "שם משתמש"
+
+msgid "modified_by_user.user_password"
+msgstr "משתמש סיסמא"
+
+msgid "More Information"
+msgstr "מידע נוסף"
+
+msgid "more information"
+msgstr "מידע נוסף"
+
+msgid "Note Information"
+msgstr "הערה מידע"
+
+msgid "Notes"
+msgstr "הערות"
+
+msgid "notes.content"
+msgstr "תוכן"
+
+msgid "notes.created"
+msgstr "נוצר"
+
+msgid "notes.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "notes.deleted"
+msgstr "נמחק"
+
+msgid "notes.flags"
+msgstr "דגלים"
+
+msgid "notes.id"
+msgstr "תעודת זהות"
+
+msgid "notes.modified"
+msgstr "השתנה"
+
+msgid "notes.modified_by"
+msgstr "שונה על ידי"
+
+msgid "notes.note_category_id"
+msgstr "קטגוריה הערה עיד"
+
+msgid "notes.note_no"
+msgstr "הערה לא"
+
+msgid "notes.owned_by"
+msgstr "בבעלות"
+
+msgid "notes.related_to"
+msgstr "לגבי"
+
+msgid "notes.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "notes.revision"
+msgstr "גרסה"
+
+msgid "notes.title"
+msgstr "כותרת"
+
+msgid "notes.__related_to"
+msgstr "לגבי"
+
+msgid "Opportunities"
+msgstr "פוטנציאלים"
+
+msgid "opportunities"
+msgstr "פוטנציאלים"
+
+msgid "opportunities.account_id"
+msgstr "זיהוי החשבון"
+
+msgid "opportunities.amount"
+msgstr "כמות"
+
+msgid "opportunities.campaign_id"
+msgstr "זהות מסע פרסום"
+
+msgid "opportunities.closing_date"
+msgstr "תאריך סגירה"
+
+msgid "opportunities.created"
+msgstr "נוצר"
+
+msgid "opportunities.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "opportunities.currency"
+msgstr "מטבע"
+
+msgid "opportunities.deleted"
+msgstr "נמחק"
+
+msgid "opportunities.description"
+msgstr "תאור"
+
+msgid "opportunities.do_not_call"
+msgstr "אל תקרא"
+
+msgid "opportunities.email_opt_out"
+msgstr "דוא\"ל Opt Out"
+
+msgid "opportunities.evaluation_status"
+msgstr "הערכת מצב"
+
+msgid "opportunities.fax"
+msgstr "פקס"
+
+msgid "opportunities.first_name"
+msgstr "שם פרטי"
+
+msgid "opportunities.flags"
+msgstr "דגלים"
+
+msgid "opportunities.follow_update"
+msgstr "בצע עדכון"
+
+msgid "opportunities.fore_cast_category"
+msgstr "משתתפות הפורה קטגוריה"
+
+msgid "opportunities.id"
+msgstr "תעודת זהות"
+
+msgid "opportunities.imported"
+msgstr "מיובא"
+
+msgid "opportunities.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "opportunities.interest"
+msgstr "אינטרס"
+
+msgid "opportunities.last_name"
+msgstr "שם משפחה"
+
+msgid "opportunities.lead_source"
+msgstr "עופרת מקור"
+
+msgid "opportunities.modified"
+msgstr "השתנה"
+
+msgid "opportunities.modified_by"
+msgstr "שונה על ידי"
+
+msgid "opportunities.name"
+msgstr "שם"
+
+msgid "opportunities.next_step"
+msgstr "שלב הבא"
+
+msgid "opportunities.opportunity_no"
+msgstr "פוטנציאל לא"
+
+msgid "opportunities.opportunity_type"
+msgstr "פוטנציאל סוג"
+
+msgid "opportunities.outcome_analysis"
+msgstr "תוצאות ניתוח"
+
+msgid "opportunities.owned_by"
+msgstr "בבעלות"
+
+msgid "opportunities.partner_contact"
+msgstr "פרטנר צור"
+
+msgid "opportunities.private"
+msgstr "פרטי"
+
+msgid "opportunities.probability"
+msgstr "הסתברות"
+
+msgid "opportunities.product_id"
+msgstr "קוד זיהוי מוצר"
+
+msgid "opportunities.product_version"
+msgstr "גרסת המוצר"
+
+msgid "opportunities.quotation_ref"
+msgstr "התבטאות שופט"
+
+msgid "opportunities.related_to"
+msgstr "לגבי"
+
+msgid "opportunities.remarks"
+msgstr "הערות"
+
+msgid "opportunities.revision"
+msgstr "גרסה"
+
+msgid "opportunities.run_time_fee"
+msgstr "דמי הפעלה זמן"
+
+msgid "opportunities.sales_stage"
+msgstr "מכירות שלב"
+
+msgid "opportunities.salutation"
+msgstr "דברי ברכה"
+
+msgid "opportunities.type_of_revenue"
+msgstr "סוג של הכנסות"
+
+msgid "opportunities._acl"
+msgstr "ACL"
+
+msgid "opportunities._acl_delete"
+msgstr "ACL מחק"
+
+msgid "opportunities._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "opportunities._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "opportunities._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "opportunities._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "opportunities_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "opportunities_acl_cache.user_id"
+msgstr "קוד זיהוי משתמש"
+
+msgid "opportunities_domain_logic"
+msgstr "פוטנציאלים דומיין Logic"
+
+msgid "opportunities_group_acl_cache.group_id"
+msgstr "זיהוי קבוצת"
+
+msgid "opportunities_group_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "Opportunity Information"
+msgstr "הפוטנציאל מידע"
+
+msgid "Other Information"
+msgstr "מידע אחר"
+
+msgid "owned_by_user.accesskey"
+msgstr "Accesskey"
+
+msgid "owned_by_user.access_key"
+msgstr "לגשת למפתח"
+
+msgid "owned_by_user.created"
+msgstr "נוצר"
+
+msgid "owned_by_user.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "owned_by_user.currency_id"
+msgstr "מטבע עיד"
+
+msgid "owned_by_user.deleted"
+msgstr "נמחק"
+
+msgid "owned_by_user.department"
+msgstr "מחלקה"
+
+msgid "owned_by_user.description"
+msgstr "תאור"
+
+msgid "owned_by_user.fax"
+msgstr "פקס"
+
+msgid "owned_by_user.first_name"
+msgstr "שם פרטי"
+
+msgid "owned_by_user.flags"
+msgstr "דגלים"
+
+msgid "owned_by_user.hash_key"
+msgstr "Hash Key"
+
+msgid "owned_by_user.home_page"
+msgstr "דף הבית"
+
+msgid "owned_by_user.hour_format"
+msgstr "שעה פורמט"
+
+msgid "owned_by_user.id"
+msgstr "תעודת זהות"
+
+msgid "owned_by_user.is_active"
+msgstr "פעיל"
+
+msgid "owned_by_user.last_name"
+msgstr "שם משפחה"
+
+msgid "owned_by_user.locale"
+msgstr "אזור"
+
+msgid "owned_by_user.mobile_home_page"
+msgstr "בית נייד עמוד"
+
+msgid "owned_by_user.modified"
+msgstr "השתנה"
+
+msgid "owned_by_user.modified_by"
+msgstr "שונה על ידי"
+
+msgid "owned_by_user.name"
+msgstr "שם"
+
+msgid "owned_by_user.owned_by"
+msgstr "בבעלות"
+
+msgid "owned_by_user.parent_id"
+msgstr "אב עיד"
+
+msgid "owned_by_user.primary_address_line_1"
+msgstr "קו כתובת ראשית 1"
+
+msgid "owned_by_user.primary_address_line_2"
+msgstr "קו הכתובת ראשי 2"
+
+msgid "owned_by_user.primary_city"
+msgstr "עיר ראשית"
+
+msgid "owned_by_user.primary_country"
+msgstr "מדינה עיקרית"
+
+msgid "owned_by_user.primary_state"
+msgstr "מדינה עיקרית"
+
+msgid "owned_by_user.primary_zip"
+msgstr "מיקוד עיקרי"
+
+msgid "owned_by_user.region_id"
+msgstr "אזור עיד"
+
+msgid "owned_by_user.revision"
+msgstr "גרסה"
+
+msgid "owned_by_user.role_id"
+msgstr "תפקיד עיד"
+
+msgid "owned_by_user.salutation"
+msgstr "דברי ברכה"
+
+msgid "owned_by_user.signature"
+msgstr "חתימה"
+
+msgid "owned_by_user.skin"
+msgstr "עור"
+
+msgid "owned_by_user.status"
+msgstr "מעמד"
+
+msgid "owned_by_user.theme"
+msgstr "נושא"
+
+msgid "owned_by_user.time_zone"
+msgstr "אזור זמן"
+
+msgid "owned_by_user.title"
+msgstr "כותרת"
+
+msgid "owned_by_user.user_name"
+msgstr "שם משתמש"
+
+msgid "owned_by_user.user_password"
+msgstr "משתמש סיסמא"
+
+msgid "Parent Company"
+msgstr "חברה האם"
+
+msgid "parent_account.Parent account_name"
+msgstr "חשבון ההורה שם"
+
+msgid "parent_account.Parent account_no"
+msgstr "האם אין חשבון"
+
+msgid "parent_account.Parent account_type"
+msgstr "האם סוג החשבון"
+
+msgid "parent_account.Parent annual_revenue"
+msgstr "אב שנתית הכנסות"
+
+msgid "parent_account.Parent created"
+msgstr "האם נוצר"
+
+msgid "parent_account.Parent created_by"
+msgstr "האם נבנה ע\"י"
+
+msgid "parent_account.Parent deleted"
+msgstr "אב שנמחקו"
+
+msgid "parent_account.Parent description"
+msgstr "האם תיאור"
+
+msgid "parent_account.Parent email_opt_out"
+msgstr "דוא\"ל אב Opt Out"
+
+msgid "parent_account.Parent employees"
+msgstr "הורים עובדים"
+
+msgid "parent_account.Parent fax"
+msgstr "אב פקס"
+
+msgid "parent_account.Parent flags"
+msgstr "האם דגלים"
+
+msgid "parent_account.Parent id"
+msgstr "אב עיד"
+
+msgid "parent_account.Parent imported"
+msgstr "האם יבוא"
+
+msgid "parent_account.Parent imported_by"
+msgstr "הורים אשר יובאו על ידי"
+
+msgid "parent_account.Parent industry"
+msgstr "האם התעשייה"
+
+msgid "parent_account.Parent modified"
+msgstr "האם השתנה"
+
+msgid "parent_account.Parent modified_by"
+msgstr "אב שונה על ידי"
+
+msgid "parent_account.Parent notify_owner"
+msgstr "תודיעו אב בעלים"
+
+msgid "parent_account.Parent owned_by"
+msgstr "האם בבעלות"
+
+msgid "parent_account.Parent ownership"
+msgstr "האם הבעלות"
+
+msgid "parent_account.Parent parent_id"
+msgstr "אב אב עיד"
+
+msgid "parent_account.Parent primary_address_line_1"
+msgstr "קו כתובת ראשית הורה 1"
+
+msgid "parent_account.Parent primary_address_line_2"
+msgstr "קו כתובת ראשית הורה 2"
+
+msgid "parent_account.Parent primary_city"
+msgstr "עיר ההורה ראשית"
+
+msgid "parent_account.Parent primary_country"
+msgstr "מדינת ההורה ראשית"
+
+msgid "parent_account.Parent primary_state"
+msgstr "מדינת ההורה ראשית"
+
+msgid "parent_account.Parent primary_zip"
+msgstr "מיקוד ההורה ראשי"
+
+msgid "parent_account.Parent rating"
+msgstr "האם דירוג"
+
+msgid "parent_account.Parent revision"
+msgstr "האם גרסה"
+
+msgid "parent_account.Parent sic_code"
+msgstr "סיק קוד הורים"
+
+msgid "parent_account.Parent ticker_symbol"
+msgstr "אב סימן Ticker"
+
+msgid "parent_account.Parent website"
+msgstr "האם אתר אינטרנט"
+
+msgid "parent_account.Parent _acl"
+msgstr "אב ACL"
+
+msgid "parent_account.Parent _acl_delete"
+msgstr "אב ACL מחק"
+
+msgid "parent_account.Parent _acl_edit"
+msgstr "אב ACL ערוך"
+
+msgid "parent_account.Parent _acl_tmp"
+msgstr "ACL Tmp אב"
+
+msgid "parent_account.Parent _acl_tmp_delete"
+msgstr "Tmp ACL אב מחק"
+
+msgid "parent_account.Parent _acl_tmp_edit"
+msgstr "אב ACL Tmp ערוך"
+
+msgid "parent_contact.Parent account_id"
+msgstr "חשבון ההורה עיד"
+
+msgid "parent_contact.Parent assistant"
+msgstr "אב עוזר"
+
+msgid "parent_contact.Parent birthday"
+msgstr "האם יום הולדת"
+
+msgid "parent_contact.Parent contact_no"
+msgstr "האם אין קשר"
+
+msgid "parent_contact.Parent contact_type"
+msgstr "צור הורה סוג"
+
+msgid "parent_contact.Parent created"
+msgstr "האם נוצר"
+
+msgid "parent_contact.Parent created_by"
+msgstr "האם נבנה ע\"י"
+
+msgid "parent_contact.Parent deleted"
+msgstr "אב שנמחקו"
+
+msgid "parent_contact.Parent department"
+msgstr "האם המחלקה"
+
+msgid "parent_contact.Parent description"
+msgstr "האם תיאור"
+
+msgid "parent_contact.Parent do_not_call"
+msgstr "האם לא להתקשר"
+
+msgid "parent_contact.Parent email_opt_out"
+msgstr "דוא\"ל אב Opt Out"
+
+msgid "parent_contact.Parent fax"
+msgstr "אב פקס"
+
+msgid "parent_contact.Parent first_name"
+msgstr "אב שם פרטי"
+
+msgid "parent_contact.Parent flags"
+msgstr "האם דגלים"
+
+msgid "parent_contact.Parent id"
+msgstr "אב עיד"
+
+msgid "parent_contact.Parent imagename"
+msgstr "אב Imagename"
+
+msgid "parent_contact.Parent imported"
+msgstr "האם יבוא"
+
+msgid "parent_contact.Parent imported_by"
+msgstr "הורים אשר יובאו על ידי"
+
+msgid "parent_contact.Parent industry"
+msgstr "האם התעשייה"
+
+msgid "parent_contact.Parent last_name"
+msgstr "האם שם משפחה"
+
+msgid "parent_contact.Parent last_stay_in_touch_request"
+msgstr "האם תישאר אחרונה בבקשה Touch"
+
+msgid "parent_contact.Parent last_stay_in_touch_save_date"
+msgstr "האם תישאר אחרונה ב תאריך שמור Touch"
+
+msgid "parent_contact.Parent lead_source"
+msgstr "עופרת האם מקור"
+
+msgid "parent_contact.Parent modified"
+msgstr "האם השתנה"
+
+msgid "parent_contact.Parent modified_by"
+msgstr "אב שונה על ידי"
+
+msgid "parent_contact.Parent name"
+msgstr "שם אב"
+
+msgid "parent_contact.Parent notify_owner"
+msgstr "תודיעו אב בעלים"
+
+msgid "parent_contact.Parent owned_by"
+msgstr "האם בבעלות"
+
+msgid "parent_contact.Parent parent_id"
+msgstr "אב אב עיד"
+
+msgid "parent_contact.Parent primary_address_line_1"
+msgstr "קו כתובת ראשית הורה 1"
+
+msgid "parent_contact.Parent primary_address_line_2"
+msgstr "קו כתובת ראשית הורה 2"
+
+msgid "parent_contact.Parent primary_city"
+msgstr "עיר ההורה ראשית"
+
+msgid "parent_contact.Parent primary_country"
+msgstr "מדינת ההורה ראשית"
+
+msgid "parent_contact.Parent primary_state"
+msgstr "מדינת ההורה ראשית"
+
+msgid "parent_contact.Parent primary_zip"
+msgstr "מיקוד ההורה ראשי"
+
+msgid "parent_contact.Parent reference"
+msgstr "האם הפניה"
+
+msgid "parent_contact.Parent related_to"
+msgstr "הורים נוספים כדי"
+
+msgid "parent_contact.Parent related_to_model"
+msgstr "האם התייחס לדוגמא"
+
+msgid "parent_contact.Parent revision"
+msgstr "האם גרסה"
+
+msgid "parent_contact.Parent salutation"
+msgstr "האם ברכה"
+
+msgid "parent_contact.Parent title"
+msgstr "האם כותרת"
+
+msgid "parent_contact.Parent training"
+msgstr "הורים הדרכה"
+
+msgid "parent_contact.Parent user_type"
+msgstr "המשתמש הורה סוג"
+
+msgid "parent_contact.Parent _acl"
+msgstr "אב ACL"
+
+msgid "parent_contact.Parent _acl_delete"
+msgstr "אב ACL מחק"
+
+msgid "parent_contact.Parent _acl_edit"
+msgstr "אב ACL ערוך"
+
+msgid "parent_contact.Parent _acl_tmp"
+msgstr "ACL Tmp אב"
+
+msgid "parent_contact.Parent _acl_tmp_delete"
+msgstr "Tmp ACL אב מחק"
+
+msgid "parent_contact.Parent _acl_tmp_edit"
+msgstr "אב ACL Tmp ערוך"
+
+msgid "parent_lead.Parent annual_revenue"
+msgstr "אב שנתית הכנסות"
+
+msgid "parent_lead.Parent assistant_email"
+msgstr "אימייל עוזר הורה"
+
+msgid "parent_lead.Parent assistant_phone"
+msgstr "טלפון עוזר הורה"
+
+msgid "parent_lead.Parent campaign_id"
+msgstr "קמפיין ההורה"
+
+msgid "parent_lead.Parent company"
+msgstr "חברה האם"
+
+msgid "parent_lead.Parent converted"
+msgstr "האם המרה"
+
+msgid "parent_lead.Parent created"
+msgstr "האם נוצר"
+
+msgid "parent_lead.Parent created_by"
+msgstr "האם נבנה ע\"י"
+
+msgid "parent_lead.Parent currency"
+msgstr "מטבע ההורה"
+
+msgid "parent_lead.Parent deleted"
+msgstr "אב שנמחקו"
+
+msgid "parent_lead.Parent demo_request"
+msgstr "בקשת הדגמת הורה"
+
+msgid "parent_lead.Parent description"
+msgstr "האם תיאור"
+
+msgid "parent_lead.Parent do_not_call"
+msgstr "האם לא להתקשר"
+
+msgid "parent_lead.Parent email_opt_out"
+msgstr "דוא\"ל אב Opt Out"
+
+msgid "parent_lead.Parent fax"
+msgstr "אב פקס"
+
+msgid "parent_lead.Parent first_name"
+msgstr "אב שם פרטי"
+
+msgid "parent_lead.Parent flags"
+msgstr "האם דגלים"
+
+msgid "parent_lead.Parent home_phone"
+msgstr "טלפון בבית הורים"
+
+msgid "parent_lead.Parent id"
+msgstr "אב עיד"
+
+msgid "parent_lead.Parent imported"
+msgstr "האם יבוא"
+
+msgid "parent_lead.Parent imported_by"
+msgstr "הורים אשר יובאו על ידי"
+
+msgid "parent_lead.Parent industry"
+msgstr "האם התעשייה"
+
+msgid "parent_lead.Parent last_name"
+msgstr "האם שם משפחה"
+
+msgid "parent_lead.Parent lead_source"
+msgstr "עופרת האם מקור"
+
+msgid "parent_lead.Parent lead_status"
+msgstr "מצב עופרת הורה"
+
+msgid "parent_lead.Parent mail_date"
+msgstr "תאריך Mail הורה"
+
+msgid "parent_lead.Parent mobile"
+msgstr "הורה נייד"
+
+msgid "parent_lead.Parent modified"
+msgstr "האם השתנה"
+
+msgid "parent_lead.Parent modified_by"
+msgstr "אב שונה על ידי"
+
+msgid "parent_lead.Parent name"
+msgstr "שם אב"
+
+msgid "parent_lead.Parent next_step_date"
+msgstr "תאריך השלב הבא ההורה"
+
+msgid "parent_lead.Parent no_of_employees"
+msgstr "אף הורה לא של עובדים"
+
+msgid "parent_lead.Parent office_email"
+msgstr "דוא\"ל משרד הורה"
+
+msgid "parent_lead.Parent office_phone"
+msgstr "טלפון משרד הורה"
+
+msgid "parent_lead.Parent other_phone"
+msgstr "טלפון ההורה שני"
+
+msgid "parent_lead.Parent owned_by"
+msgstr "האם בבעלות"
+
+msgid "parent_lead.Parent parent_id"
+msgstr "האם ההורה"
+
+msgid "parent_lead.Parent personal_email"
+msgstr "אימייל הורה אישית"
+
+msgid "parent_lead.Parent primary_address_line_1"
+msgstr "קו כתובת ראשית הורה 1"
+
+msgid "parent_lead.Parent primary_address_line_2"
+msgstr "קו כתובת ראשית הורה 2"
+
+msgid "parent_lead.Parent primary_city"
+msgstr "עיר ההורה ראשית"
+
+msgid "parent_lead.Parent primary_country"
+msgstr "מדינת ההורה ראשית"
+
+msgid "parent_lead.Parent primary_state"
+msgstr "מדינת ההורה ראשית"
+
+msgid "parent_lead.Parent primary_zip"
+msgstr "מיקוד ההורה ראשי"
+
+msgid "parent_lead.Parent product_id"
+msgstr "מוצרי הורה"
+
+msgid "parent_lead.Parent rating"
+msgstr "האם דירוג"
+
+msgid "parent_lead.Parent revision"
+msgstr "האם גרסה"
+
+msgid "parent_lead.Parent salutation"
+msgstr "האם ברכה"
+
+msgid "parent_lead.Parent title"
+msgstr "האם כותרת"
+
+msgid "parent_lead.Parent website"
+msgstr "האם אתר אינטרנט"
+
+msgid "parent_lead.Parent _acl"
+msgstr "אב ACL"
+
+msgid "parent_lead.Parent _acl_delete"
+msgstr "אב ACL מחק"
+
+msgid "parent_lead.Parent _acl_edit"
+msgstr "אב ACL ערוך"
+
+msgid "parent_lead.Parent _acl_tmp"
+msgstr "ACL Tmp אב"
+
+msgid "parent_lead.Parent _acl_tmp_delete"
+msgstr "Tmp ACL אב מחק"
+
+msgid "parent_lead.Parent _acl_tmp_edit"
+msgstr "אב ACL Tmp ערוך"
+
+msgid "parent_ticket.Parent approved_hours"
+msgstr "הורה מאושר שעות"
+
+msgid "parent_ticket.Parent category"
+msgstr "הורים קטגוריה"
+
+msgid "parent_ticket.Parent created"
+msgstr "האם נוצר"
+
+msgid "parent_ticket.Parent created_by"
+msgstr "האם נבנה ע\"י"
+
+msgid "parent_ticket.Parent days"
+msgstr "הורים ימים"
+
+msgid "parent_ticket.Parent deleted"
+msgstr "אב שנמחקו"
+
+msgid "parent_ticket.Parent end"
+msgstr "סוף ההורה"
+
+msgid "parent_ticket.Parent estimated_hours"
+msgstr "שעות הוריות משוערות"
+
+msgid "parent_ticket.Parent flags"
+msgstr "האם דגלים"
+
+msgid "parent_ticket.Parent hours"
+msgstr "האם שעות"
+
+msgid "parent_ticket.Parent id"
+msgstr "אב עיד"
+
+msgid "parent_ticket.Parent imported_by"
+msgstr "הורים אשר יובאו על ידי"
+
+msgid "parent_ticket.Parent modified"
+msgstr "האם השתנה"
+
+msgid "parent_ticket.Parent modified_by"
+msgstr "אב שונה על ידי"
+
+msgid "parent_ticket.Parent owned_by"
+msgstr "האם בבעלות"
+
+msgid "parent_ticket.Parent parent_id"
+msgstr "אב אב עיד"
+
+msgid "parent_ticket.Parent priority"
+msgstr "האם עדיפות"
+
+msgid "parent_ticket.Parent problem"
+msgstr "האם הבעיה"
+
+msgid "parent_ticket.Parent product_id"
+msgstr "מוצר אב עיד"
+
+msgid "parent_ticket.Parent reported_by"
+msgstr "הורים מדווחים על ידי"
+
+msgid "parent_ticket.Parent reported_by_model"
+msgstr "הורים מדווחים על ידי המודל"
+
+msgid "parent_ticket.Parent revision"
+msgstr "האם גרסה"
+
+msgid "parent_ticket.Parent severity"
+msgstr "האם סיכון"
+
+msgid "parent_ticket.Parent solution"
+msgstr "האם הפתרון"
+
+msgid "parent_ticket.Parent start"
+msgstr "התחל הורה"
+
+msgid "parent_ticket.Parent start_date"
+msgstr "תאריך התחלת הורה"
+
+msgid "parent_ticket.Parent status"
+msgstr "האם מצב"
+
+msgid "parent_ticket.Parent ticket_no"
+msgstr "האם אין כרטיסים"
+
+msgid "parent_ticket.Parent title"
+msgstr "האם כותרת"
+
+msgid "parent_ticket.Parent total_spent_hours"
+msgstr "שעות הוריות סה\"כ זמן"
+
+msgid "parent_ticket.Parent version_id"
+msgstr "גרסה אב עיד"
+
+msgid "parent_ticket.Parent _acl"
+msgstr "אב ACL"
+
+msgid "parent_ticket.Parent _acl_delete"
+msgstr "אב ACL מחק"
+
+msgid "parent_ticket.Parent _acl_edit"
+msgstr "אב ACL ערוך"
+
+msgid "parent_ticket.Parent _acl_tmp"
+msgstr "ACL Tmp אב"
+
+msgid "parent_ticket.Parent _acl_tmp_delete"
+msgstr "Tmp ACL אב מחק"
+
+msgid "parent_ticket.Parent _acl_tmp_edit"
+msgstr "אב ACL Tmp ערוך"
+
+msgid "parent_ticket.Parent __reported_by"
+msgstr "הורים מדווחים על ידי"
+
+msgid "Phone Numbers"
+msgstr "מספרי טלפון"
+
+msgid "phone_numbers"
+msgstr "מספרי טלפון"
+
+msgid "phone_numbers.created"
+msgstr "נוצר"
+
+msgid "phone_numbers.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "phone_numbers.deleted"
+msgstr "נמחק"
+
+msgid "phone_numbers.flags"
+msgstr "דגלים"
+
+msgid "phone_numbers.id"
+msgstr "תעודת זהות"
+
+msgid "phone_numbers.modified"
+msgstr "השתנה"
+
+msgid "phone_numbers.modified_by"
+msgstr "שונה על ידי"
+
+msgid "phone_numbers.number"
+msgstr "מספר"
+
+msgid "phone_numbers.owned_by"
+msgstr "בבעלות"
+
+msgid "phone_numbers.related_to"
+msgstr "לגבי"
+
+msgid "phone_numbers.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "phone_numbers.revision"
+msgstr "גרסה"
+
+msgid "phone_numbers.type"
+msgstr "סוג"
+
+msgid "phone_numbers._acl"
+msgstr "ACL"
+
+msgid "phone_numbers._acl_delete"
+msgstr "ACL מחק"
+
+msgid "phone_numbers._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "phone_numbers._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "phone_numbers._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "phone_numbers._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "phone_numbers.__related_to"
+msgstr "לגבי"
+
+msgid "phone_number_book"
+msgstr "מספר טלפון בספר"
+
+msgid "phone_number_book.created"
+msgstr "נוצר"
+
+msgid "phone_number_book.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "phone_number_book.deleted"
+msgstr "נמחק"
+
+msgid "phone_number_book.flags"
+msgstr "דגלים"
+
+msgid "phone_number_book.id"
+msgstr "תעודת זהות"
+
+msgid "phone_number_book.modified"
+msgstr "השתנה"
+
+msgid "phone_number_book.modified_by"
+msgstr "שונה על ידי"
+
+msgid "phone_number_book.number"
+msgstr "מספר"
+
+msgid "phone_number_book.owned_by"
+msgstr "בבעלות"
+
+msgid "phone_number_book.related_to"
+msgstr "לגבי"
+
+msgid "phone_number_book.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "phone_number_book.revision"
+msgstr "גרסה"
+
+msgid "phone_number_book.type"
+msgstr "סוג"
+
+msgid "phone_number_book._acl"
+msgstr "ACL"
+
+msgid "phone_number_book._acl_delete"
+msgstr "ACL מחק"
+
+msgid "phone_number_book._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "phone_number_book._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "phone_number_book._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "phone_number_book._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "phone_number_book.__related_to"
+msgstr "לגבי"
+
+msgid "Place holder"
+msgstr "המקום מחזיק"
+
+msgid "Price"
+msgstr "מחיר"
+
+msgid "Primary Address"
+msgstr "כתובת ראשית"
+
+msgid "primary_countries.country_name"
+msgstr "ארץ שם"
+
+msgid "primary_countries.created"
+msgstr "נוצר"
+
+msgid "primary_countries.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "primary_countries.deleted"
+msgstr "נמחק"
+
+msgid "primary_countries.flags"
+msgstr "דגלים"
+
+msgid "primary_countries.id"
+msgstr "תעודת זהות"
+
+msgid "primary_countries.iso2"
+msgstr "Iso2"
+
+msgid "primary_countries.iso3"
+msgstr "Iso3"
+
+msgid "primary_countries.modified"
+msgstr "השתנה"
+
+msgid "primary_countries.modified_by"
+msgstr "שונה על ידי"
+
+msgid "primary_countries.owned_by"
+msgstr "בבעלות"
+
+msgid "primary_countries.revision"
+msgstr "גרסה"
+
+msgid "Problem Information"
+msgstr "בעיית מידע"
+
+msgid "Products"
+msgstr "מוצרים"
+
+msgid "products"
+msgstr "מוצרים"
+
+msgid "Products Information"
+msgstr "מוצרי מידע"
+
+msgid "products.category"
+msgstr "קטגוריה"
+
+msgid "products.code"
+msgstr "קוד"
+
+msgid "products.commission_method"
+msgstr "ועדת שיטה"
+
+msgid "products.commission_rate"
+msgstr "ועדת דרג"
+
+msgid "products.cost_factor"
+msgstr "עלות פקטור"
+
+msgid "products.created"
+msgstr "נוצר"
+
+msgid "products.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "products.currency_id"
+msgstr "מטבע עיד"
+
+msgid "products.deleted"
+msgstr "נמחק"
+
+msgid "products.description"
+msgstr "תאור"
+
+msgid "products.discontinued"
+msgstr "שהופסקו"
+
+msgid "products.expiry_date"
+msgstr "תאריך תפוגה"
+
+msgid "products.flags"
+msgstr "דגלים"
+
+msgid "products.glacct"
+msgstr "Glacct"
+
+msgid "products.handler"
+msgstr "הנדלר"
+
+msgid "products.id"
+msgstr "תעודת זהות"
+
+msgid "products.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "products.manufacturer"
+msgstr "יצרן"
+
+msgid "products.mfr_part_no"
+msgstr "חלק המימון המינימלי הנדרש לא"
+
+msgid "products.modified"
+msgstr "השתנה"
+
+msgid "products.modified_by"
+msgstr "שונה על ידי"
+
+msgid "products.owned_by"
+msgstr "בבעלות"
+
+msgid "products.pack_size"
+msgstr "חבילת גודל"
+
+msgid "products.product_name"
+msgstr "שם המוצר"
+
+msgid "products.product_no"
+msgstr "מוצר לא"
+
+msgid "products.product_sheet"
+msgstr "גיליון מוצר"
+
+msgid "products.qty_in_demand"
+msgstr "כמות הביקושים"
+
+msgid "products.qty_in_stock"
+msgstr "כמות במלאי"
+
+msgid "products.qty_per_unit"
+msgstr "כמות ליחידה"
+
+msgid "products.reorder_level"
+msgstr "סידור מחדש של רמה"
+
+msgid "products.revision"
+msgstr "גרסה"
+
+msgid "products.sales_end_date"
+msgstr "מכירות תאריך סיום"
+
+msgid "products.sales_start_date"
+msgstr "מכירות תאריך התחלה"
+
+msgid "products.serial_no"
+msgstr "מספר סידורי"
+
+msgid "products.start_date"
+msgstr "תאריך התחלה"
+
+msgid "products.tax_class"
+msgstr "מס מחלקה"
+
+msgid "products.unit_price"
+msgstr "מחיר יחידה"
+
+msgid "products.usage_unit"
+msgstr "שימוש ביחידה"
+
+msgid "products.vendor_part_no"
+msgstr "ספק חלק לא"
+
+msgid "products.website"
+msgstr "אתר אינטרנט"
+
+msgid "products.weight"
+msgstr "משקל"
+
+msgid "products_domain_logic"
+msgstr "מוצרים דומיין Logic"
+
+msgid "product_categories"
+msgstr "קטגוריות מוצרים"
+
+msgid "Purchases"
+msgstr "רכישות"
+
+msgid "r"
+msgstr "r"
+
+msgid "Read Access"
+msgstr "גישת קריאה"
+
+msgid "Related Information"
+msgstr "מידע קשור"
+
+msgid "Related information"
+msgstr "מידע קשור"
+
+msgid "Sales"
+msgstr "מכירות"
+
+msgid "Sales Information"
+msgstr "מכירות מידע"
+
+msgid "Solution Information"
+msgstr "הפתרון מידע"
+
+msgid "Spent Hours"
+msgstr "בילו שעות"
+
+msgid "State"
+msgstr "מדינה"
+
+msgid "subform"
+msgstr "טופס"
+
+msgid "Submit"
+msgstr "להגיש"
+
+msgid "SYSTEM_ACL_REVISIONS"
+msgstr "מהדורות SYSTEM ACL"
+
+msgid "Task Information"
+msgstr "משימה מידע"
+
+msgid "Tasks"
+msgstr "משימות"
+
+msgid "tasks.calendar_id"
+msgstr "לוח שנה עיד"
+
+msgid "tasks.created"
+msgstr "נוצר"
+
+msgid "tasks.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "tasks.deleted"
+msgstr "נמחק"
+
+msgid "tasks.description"
+msgstr "תאור"
+
+msgid "tasks.end"
+msgstr "סוף"
+
+msgid "tasks.flags"
+msgstr "דגלים"
+
+msgid "tasks.id"
+msgstr "תעודת זהות"
+
+msgid "tasks.modified"
+msgstr "השתנה"
+
+msgid "tasks.modified_by"
+msgstr "שונה על ידי"
+
+msgid "tasks.name"
+msgstr "שם"
+
+msgid "tasks.owned_by"
+msgstr "בבעלות"
+
+msgid "tasks.priorities"
+msgstr "סדרי עדיפויות"
+
+msgid "tasks.related_to"
+msgstr "לגבי"
+
+msgid "tasks.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "tasks.revision"
+msgstr "גרסה"
+
+msgid "tasks.start"
+msgstr "התחלה"
+
+msgid "tasks.status"
+msgstr "מעמד"
+
+msgid "tasks._acl"
+msgstr "ACL"
+
+msgid "tasks._acl_delete"
+msgstr "ACL מחק"
+
+msgid "tasks._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "tasks._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "tasks._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "tasks._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "tasks.__related_to"
+msgstr "לגבי"
+
+msgid "task_related_to.created"
+msgstr "נוצר"
+
+msgid "task_related_to.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "task_related_to.deleted"
+msgstr "נמחק"
+
+msgid "task_related_to.flags"
+msgstr "דגלים"
+
+msgid "task_related_to.id"
+msgstr "תעודת זהות"
+
+msgid "task_related_to.modified"
+msgstr "השתנה"
+
+msgid "task_related_to.modified_by"
+msgstr "שונה על ידי"
+
+msgid "task_related_to.owned_by"
+msgstr "בבעלות"
+
+msgid "task_related_to.related_to"
+msgstr "לגבי"
+
+msgid "task_related_to.related_to_model"
+msgstr "התייחס לדוגמא"
+
+msgid "task_related_to.revision"
+msgstr "גרסה"
+
+msgid "task_related_to.task_id"
+msgstr "משימה"
+
+msgid "task_related_to.__related_to"
+msgstr "לגבי"
+
+msgid "Temporary Delete"
+msgstr "מחק זמני"
+
+msgid "Temporary Edit"
+msgstr "עריכה זמנית"
+
+msgid "Temporary Read"
+msgstr "נקרא זמני"
+
+msgid "This %s is already converted"
+msgstr "%s זה כבר מומר"
+
+msgid "This lead is already converted"
+msgstr "להוביל זה מומר כבר"
+
+msgid "ticket comments"
+msgstr "כרטיס תגובות"
+
+msgid "Ticket Comments"
+msgstr "כרטיס תגובות"
+
+msgid "Ticket Information"
+msgstr "כרטיס מידע"
+
+msgid "Ticket Spent Hours"
+msgstr "כרטיסים בילו שעות"
+
+msgid "Tickets"
+msgstr "כרטיסים"
+
+msgid "tickets"
+msgstr "כרטיסים"
+
+msgid "tickets.approved_hours"
+msgstr "שעות שאושרו"
+
+msgid "tickets.category"
+msgstr "קטגוריה"
+
+msgid "tickets.created"
+msgstr "נוצר"
+
+msgid "tickets.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "tickets.days"
+msgstr "ימים"
+
+msgid "tickets.deleted"
+msgstr "נמחק"
+
+msgid "tickets.end"
+msgstr "סוף"
+
+msgid "tickets.estimated_hours"
+msgstr "שעות משוערות"
+
+msgid "tickets.flags"
+msgstr "דגלים"
+
+msgid "tickets.hours"
+msgstr "שעות"
+
+msgid "tickets.id"
+msgstr "תעודת זהות"
+
+msgid "tickets.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "tickets.modified"
+msgstr "השתנה"
+
+msgid "tickets.modified_by"
+msgstr "שונה על ידי"
+
+msgid "tickets.owned_by"
+msgstr "בבעלות"
+
+msgid "tickets.parent_id"
+msgstr "אב עיד"
+
+msgid "tickets.priority"
+msgstr "עדיפות"
+
+msgid "tickets.problem"
+msgstr "בעיה"
+
+msgid "tickets.product_id"
+msgstr "קוד זיהוי מוצר"
+
+msgid "tickets.reported_by"
+msgstr "מדווח על ידי"
+
+msgid "tickets.reported_by_model"
+msgstr "מדווח על ידי Model"
+
+msgid "tickets.revision"
+msgstr "גרסה"
+
+msgid "tickets.severity"
+msgstr "חומרה"
+
+msgid "tickets.solution"
+msgstr "פתרון"
+
+msgid "tickets.start"
+msgstr "התחלה"
+
+msgid "tickets.start_date"
+msgstr "תאריך התחלה"
+
+msgid "tickets.status"
+msgstr "מעמד"
+
+msgid "tickets.ticket_no"
+msgstr "כרטיסים לא"
+
+msgid "tickets.title"
+msgstr "כותרת"
+
+msgid "tickets.total_spent_hours"
+msgstr "שעות שבילתה בסך הכל"
+
+msgid "tickets.version_id"
+msgstr "גרסה עיד"
+
+msgid "tickets._acl"
+msgstr "ACL"
+
+msgid "tickets._acl_delete"
+msgstr "ACL מחק"
+
+msgid "tickets._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "tickets._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "tickets._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "tickets._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "tickets.__reported_by"
+msgstr "מדווח על ידי"
+
+msgid "tickets_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "tickets_acl_cache.user_id"
+msgstr "קוד זיהוי משתמש"
+
+msgid "tickets_domain_logic"
+msgstr "כרטיסים דומיין Logic"
+
+msgid "tickets_group_acl_cache.group_id"
+msgstr "זיהוי קבוצת"
+
+msgid "tickets_group_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "ticket_comments"
+msgstr "כרטיס תגובות"
+
+msgid "ticket_comments.created"
+msgstr "נוצר"
+
+msgid "ticket_comments.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "ticket_comments.deleted"
+msgstr "נמחק"
+
+msgid "ticket_comments.description"
+msgstr "תאור"
+
+msgid "ticket_comments.flags"
+msgstr "דגלים"
+
+msgid "ticket_comments.id"
+msgstr "תעודת זהות"
+
+msgid "ticket_comments.modified"
+msgstr "השתנה"
+
+msgid "ticket_comments.modified_by"
+msgstr "שונה על ידי"
+
+msgid "ticket_comments.owned_by"
+msgstr "בבעלות"
+
+msgid "ticket_comments.revision"
+msgstr "גרסה"
+
+msgid "ticket_comments.ticket_id"
+msgstr "כרטיס זיהוי"
+
+msgid "ticket_comments_domain_logic"
+msgstr "תגובות כרטיסים דומיין Logic"
+
+msgid "ticket_spent_hours"
+msgstr "כרטיסים בילו שעות"
+
+msgid "ticket_spent_hours.comment"
+msgstr "הערה"
+
+msgid "ticket_spent_hours.created"
+msgstr "נוצר"
+
+msgid "ticket_spent_hours.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "ticket_spent_hours.deleted"
+msgstr "נמחק"
+
+msgid "ticket_spent_hours.flags"
+msgstr "דגלים"
+
+msgid "ticket_spent_hours.hours"
+msgstr "שעות"
+
+msgid "ticket_spent_hours.hours_for"
+msgstr "שעות"
+
+msgid "ticket_spent_hours.id"
+msgstr "תעודת זהות"
+
+msgid "ticket_spent_hours.modified"
+msgstr "השתנה"
+
+msgid "ticket_spent_hours.modified_by"
+msgstr "שונה על ידי"
+
+msgid "ticket_spent_hours.owned_by"
+msgstr "בבעלות"
+
+msgid "ticket_spent_hours.revision"
+msgstr "גרסה"
+
+msgid "ticket_spent_hours.ticket_id"
+msgstr "כרטיס"
+
+msgid "ticket_spent_hours_domain_logic"
+msgstr "כרטיסים שהייה היגיון דומיין שעות"
+
+msgid "unread_records.action"
+msgstr "פעולה"
+
+msgid "unread_records.controller"
+msgstr "בקר"
+
+msgid "unread_records.created"
+msgstr "נוצר"
+
+msgid "unread_records.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "unread_records.id"
+msgstr "תעודת זהות"
+
+msgid "unread_records.invocation"
+msgstr "קריאה"
+
+msgid "unread_records.level"
+msgstr "רמה"
+
+msgid "unread_records.logger"
+msgstr "כורת עצים"
+
+msgid "unread_records.login_session_id"
+msgstr "כניסת מושב"
+
+msgid "unread_records.message"
+msgstr "הודעה"
+
+msgid "unread_records.module"
+msgstr "מודול"
+
+msgid "unread_records.params"
+msgstr "Params"
+
+msgid "unread_records.record_id"
+msgstr "שיא עיד"
+
+msgid "unread_records.referer"
+msgstr "Referer"
+
+msgid "unread_records.return"
+msgstr "לחזור"
+
+msgid "users.accesskey"
+msgstr "Accesskey"
+
+msgid "users.created"
+msgstr "נוצר"
+
+msgid "users.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "users.currency_id"
+msgstr "מטבע עיד"
+
+msgid "users.deleted"
+msgstr "נמחק"
+
+msgid "users.department"
+msgstr "מחלקה"
+
+msgid "users.description"
+msgstr "תאור"
+
+msgid "users.fax"
+msgstr "פקס"
+
+msgid "users.first_name"
+msgstr "שם פרטי"
+
+msgid "users.flags"
+msgstr "דגלים"
+
+msgid "users.hash_key"
+msgstr "Hash Key"
+
+msgid "users.home_page"
+msgstr "דף הבית"
+
+msgid "users.hour_format"
+msgstr "שעה פורמט"
+
+msgid "users.id"
+msgstr "תעודת זהות"
+
+msgid "users.is_active"
+msgstr "פעיל"
+
+msgid "users.last_name"
+msgstr "שם משפחה"
+
+msgid "users.locale"
+msgstr "אזור"
+
+msgid "users.mobile_home_page"
+msgstr "בית נייד עמוד"
+
+msgid "users.modified"
+msgstr "השתנה"
+
+msgid "users.modified_by"
+msgstr "שונה על ידי"
+
+msgid "users.name"
+msgstr "שם"
+
+msgid "users.owned_by"
+msgstr "בבעלות"
+
+msgid "users.parent_id"
+msgstr "אב עיד"
+
+msgid "users.region_id"
+msgstr "אזור עיד"
+
+msgid "users.revision"
+msgstr "גרסה"
+
+msgid "users.role_id"
+msgstr "תפקיד עיד"
+
+msgid "users.salutation"
+msgstr "דברי ברכה"
+
+msgid "users.signature"
+msgstr "חתימה"
+
+msgid "users.skin"
+msgstr "עור"
+
+msgid "users.status"
+msgstr "מעמד"
+
+msgid "users.theme"
+msgstr "נושא"
+
+msgid "users.time_zone"
+msgstr "אזור זמן"
+
+msgid "users.title"
+msgstr "כותרת"
+
+msgid "users.user_name"
+msgstr "שם משתמש"
+
+msgid "users.user_password"
+msgstr "משתמש סיסמא"
+
+msgid "Vendor Information"
+msgstr "ספק מידע"
+
+msgid "Vendors"
+msgstr "ספקים"
+
+msgid "vendors"
+msgstr "ספקים"
+
+msgid "vendors.category"
+msgstr "קטגוריה"
+
+msgid "vendors.created"
+msgstr "נוצר"
+
+msgid "vendors.created_by"
+msgstr "נבנה ע\"י"
+
+msgid "vendors.deleted"
+msgstr "נמחק"
+
+msgid "vendors.description"
+msgstr "תאור"
+
+msgid "vendors.flags"
+msgstr "דגלים"
+
+msgid "vendors.glacct"
+msgstr "Glacct"
+
+msgid "vendors.id"
+msgstr "תעודת זהות"
+
+msgid "vendors.imported_by"
+msgstr "אשר יובאו על ידי"
+
+msgid "vendors.modified"
+msgstr "השתנה"
+
+msgid "vendors.modified_by"
+msgstr "שונה על ידי"
+
+msgid "vendors.name"
+msgstr "שם"
+
+msgid "vendors.owned_by"
+msgstr "בבעלות"
+
+msgid "vendors.rivision"
+msgstr "Rivision"
+
+msgid "vendors.vendor_no"
+msgstr "אין ספק"
+
+msgid "vendors.website"
+msgstr "אתר אינטרנט"
+
+msgid "vendors._acl"
+msgstr "ACL"
+
+msgid "vendors._acl_delete"
+msgstr "ACL מחק"
+
+msgid "vendors._acl_edit"
+msgstr "ACL ערוך"
+
+msgid "vendors._acl_tmp"
+msgstr "ACL Tmp"
+
+msgid "vendors._acl_tmp_delete"
+msgstr "Tmp ACL מחק"
+
+msgid "vendors._acl_tmp_edit"
+msgstr "ACL ערוך Tmp"
+
+msgid "vendors_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "vendors_acl_cache.user_id"
+msgstr "קוד זיהוי משתמש"
+
+msgid "vendors_domain_logic"
+msgstr "ספקי ההיגיון דומיין"
+
+msgid "vendors_group_acl_cache.group_id"
+msgstr "זיהוי קבוצת"
+
+msgid "vendors_group_acl_cache.id"
+msgstr "תעודת זהות"
+
+msgid "view"
+msgstr "נוף"
+
+msgid "View"
+msgstr "נוף"
+
+msgid "Zip / Postal Code"
+msgstr "/ מיקוד"

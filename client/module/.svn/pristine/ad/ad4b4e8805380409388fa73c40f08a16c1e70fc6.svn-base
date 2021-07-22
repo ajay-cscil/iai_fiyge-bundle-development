@@ -1,0 +1,286 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\purchase\model;
+  class config_purchase_quote_lines extends \module\purchase\model\config_purchase_quote_lines_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'purchase__config_purchase_quote_lines';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $alias = 'config_purchase_quote_lines';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isConfig = '1';
+       public $isSequentialData = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'price_per_unit' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'price_per_unit',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'quantity' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'quantity',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'discount' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'discount',
+    'ntype' => 'float',
+    'length' => '10,0',
+  ),
+  'uom_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'uom_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'extended_amount' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'extended_amount',
+    'ntype' => 'float',
+    'length' => '10,0',
+  ),
+  'product_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'product_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'description' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'tax_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tax_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'total_amount' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'total_amount',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'purchase_quote_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'purchase_quote_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'products' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\products',
+    'associationAlias' => 'products',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'config_uom' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\product\\model\\config_uom',
+    'associationAlias' => 'config_uom',
+    'foreignKey' => 'uom_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'taxes' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\accounting\\model\\taxes',
+    'associationAlias' => 'taxes',
+    'foreignKey' => 'tax_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'purchase_quotes' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\purchase\\model\\purchase_quotes',
+    'associationAlias' => 'purchase_quotes',
+    'foreignKey' => 'purchase_quote_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+  ),
+  'line_taxes' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\accounting\\model\\line_taxes',
+    'associationAlias' => 'line_taxes',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '{{FOREIGN}}.{{FOREIGN_KEY}}_model=\'{{PRIMARY}}\'',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'price_per_unit' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'quantity' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'description' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'uom_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

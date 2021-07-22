@@ -1,0 +1,223 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\dashboards\controller;
+
+class widgets_domain_logic extends \data_controller{
+
+    /**
+     *
+     * @var type
+     */
+    public $paginate = array(
+        'paginate_as' => 'lazy',
+        'class' => '\\tushar\\paginate',
+        'method' => 'index',
+        'inline_click' => '1',
+        'fields' =>
+        array(
+            array(
+                'column' => 'panels.dashboard_name',
+                'presentation' => '',
+                'alias' => '',
+                'style' => '',
+                'id' => '',
+                'deleted' => '',
+            ), array(
+                'column' => 'panels.panel_name',
+                'presentation' => '',
+                'alias' => '',
+                'style' => '',
+                'id' => '',
+                'deleted' => '',
+            ), array(
+                'column' => 'widgets.widget_name',
+                'presentation' => '',
+                'alias' => '',
+                'style' => '',
+                'id' => '',
+                'deleted' => '',
+            ),
+            array(
+                'column' => 'widget_permissions.is_active',
+                'presentation' => '',
+                'alias' => '',
+                'style' => '',
+                'id' => '',
+                'deleted' => '',
+                'is_invisible' => 1
+            ),
+            array(
+                'column' => 'widgets.sequence_number',
+                'presentation' => '',
+                'alias' => '',
+                'style' => '',
+                'id' => '',
+                'deleted' => '',
+            ),
+            array(
+                'column' => 'created_by_user.name',
+                'presentation' => '',
+                'alias' => '',
+                'style' => '',
+                'id' => '',
+                'deleted' => '',
+            )
+        ),
+    );
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function index($request, $query = array()) {
+        if (!isset($this->paginate['where'])) {
+            $this->paginate['where'] = array();
+        }
+        $this->paginate['actions'] = array(
+            'view',
+            'edit' => array('ajax_popup' => 1),
+            'delete' => array('ajax_popup' => 1),
+            'activate' => array('ajax_popup' => 1,
+                'presentation' => '\\module\\dashboards\\helper\\presentation\\widgets::activate'
+            )
+        );
+        $this->paginate['where'][] = array('OR' => array('widget_permissions.user_id IS NULL', 'widget_permissions.user_id' => \tushar\user::read('id')));
+        $return = parent::index($request, $query);
+        $request->set('current_listview', '');
+        $request->set('__current_listview', '');
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function dashboard($request) {
+        $requestBy = $request->param('request_by');
+        $requestBy = explode('/', $requestBy);
+        if (isset($requestBy[1])) {
+            $requestBy = $requestBy[0];
+        } else {
+            $requestBy = '';
+        }
+
+        $moduleName = $request->param('filter', '');
+
+        $request->layout = 'dashboard';
+        $this->paginate = array(
+            'paginate_as' => 'lazy',
+            'limit' => '0',
+            'class' => '\\tushar\\paginate',
+            'method' => 'index',
+            'inline_click' => '1',
+            'qualified' => false,
+            'fields' => array('widgets.*', 'panels.panel_name'),
+            'where' => array('panels.dashboard_name' => $moduleName, 'OR' => array('widget_permissions.is_active' => 1, 'widget_permissions.is_active IS NULL')),
+            'order' => array('panels.sequence_number,widget_permissions.sequence_number,widgets.sequence_number ASC')
+        );
+        $request->set('tab_actions', array('edit', 'delete'));
+        $this->autoSearchListview = false;
+        $return = parent::index($request);
+        $request->set('current_listview', '');
+        $request->set('__current_listview', '');
+        return $return;
+    }
+
+    private function setTypeOfView($request, &$data) {
+        if ($this->action($request) == 'reload') {
+            if (
+                    isset($request->data['action'])
+                    && isset($request->data['action']['reload'])
+                    && $request->data['action']['reload'] == 'data[widgets][related_to]'
+            ) {
+                $viewDefination = false;
+                $widget = $data['widgets'];
+                if (!empty($widget['related_to'])) {
+                    if ($widget['related_to_model'] == 'listviews') {
+                        $listviewModelObj = \module\core\model\listviews::getInstance(array(), true);
+                        $viewDefination = current($listviewModelObj->read($widget['related_to'], array()));
+                    } else if ($widget['related_to_model'] == 'reports') {
+                        $reportObj = \module\analytics\model\reports::getInstance(array(), true);
+                        $viewDefination = current($reportObj->read($widget['related_to'], array()));
+                    }
+                    if (!empty($viewDefination) && isset($viewDefination['query'])) {
+                        $viewDefination['query'] = json_decode($viewDefination['query'], true);
+                        if (isset($viewDefination['query']['render_as'])) {
+                            $data['widgets']['type_of_view'] = $viewDefination['query']['render_as'];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public function add($request) {
+        $return = parent::add($request);
+        $data = $request->response('data');
+        $this->setTypeOfView($request, $data);
+        if (!is_array($data)) {
+            $data = array('widgets' => array());
+        }
+        if (!isset($data['widgets']['widget_permissions'])) {
+            $data['widgets']['widget_permissions'] = array('is_active' => 1);
+        }
+        $request->set('data', $data);
+        return $return;
+    }
+
+    public function edit($request) {
+        $return = parent::edit($request);
+        $data = $request->response('data');
+        $this->setTypeOfView($request, $data);
+        $request->set('data', $data);
+        $request->set('role_based_groups', 1);
+        return $return;
+    }
+
+    public function view($request) {
+        $request->set('role_based_groups', 1);
+        return parent::view($request);
+    }
+
+    public function activate($request) {
+        $id = $request->param('id');
+        $widgetPermissions['id'] = \select('id')
+                ->from($this->modelObj()->widget_permissions)
+                ->where("widget_id", $id)
+                ->where("user_id", \tushar\user::read('id'))
+                ->inserted()
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN);
+        $widgetPermissions['user_id'] = \tushar\user::read('id');
+        $widgetPermissions['widget_id'] = $id;
+        $widgetPermissions['is_active'] = 1;
+        $this->modelObj()->widget_permissions->save($widgetPermissions);
+        $request->setMsg(__('Widget is activated'));
+        return false;
+    }
+
+    public function deactivate($request) {
+        $id = $request->param('id');
+        $widgetPermissions['id'] = \select('id')
+                ->from($this->modelObj()->widget_permissions)
+                ->where("widget_id", $id)
+                ->where("user_id", \tushar\user::read('id'))
+                ->inserted()
+                ->execute()
+                ->fetch(\PDO::FETCH_COLUMN);
+        $widgetPermissions['user_id'] = \tushar\user::read('id');
+        $widgetPermissions['widget_id'] = $id;
+        $widgetPermissions['is_active'] = 0;
+        $this->modelObj()->widget_permissions->save($widgetPermissions);
+        $request->setMsg(__('Widget is deactivated'));
+        return false;
+    }
+
+}

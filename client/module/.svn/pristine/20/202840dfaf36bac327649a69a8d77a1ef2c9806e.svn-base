@@ -1,0 +1,131 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\wiki\model;
+  class article_topics extends \module\wiki\model\article_topics_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'wiki__article_topics';
+       public $parentClass = '\\design_model';
+       public $displayField = 'topic';
+       public $primaryKey = 'id';
+       public $singular = 'article topic';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'associationAlias' => 'created_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+  ),
+  'modified_by_user' => 
+  array (
+    'associationAlias' => 'modified_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+  ),
+  'parent_topic' => 
+  array (
+    'associationAlias' => 'parent_topic',
+    'className' => '\\module\\wiki\\model\\article_topics',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'parent_id',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\core\\behaviour\\sync_with_groups' => 
+  array (
+    'name' => '\\module\\core\\behaviour\\sync_with_groups',
+  ),
+);
+       public $fields = array (
+  'parent_id' => 
+  array (
+    'column' => 'parent_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'lft' => 
+  array (
+    'column' => 'lft',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'rgt' => 
+  array (
+    'column' => 'rgt',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'topic' => 
+  array (
+    'column' => 'topic',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'depth' => 
+  array (
+    'column' => 'depth',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+       public $filters = array (
+  'topic' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

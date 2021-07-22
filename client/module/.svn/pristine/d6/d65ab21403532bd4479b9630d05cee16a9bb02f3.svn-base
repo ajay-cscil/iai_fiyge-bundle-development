@@ -1,0 +1,58 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\calendar\model;
+
+class event_reminders_domain_logic extends \tushar\model{
+
+    // event has a start time, if start time + buffer + reminder duration of event less than current time
+    public function isValid($event, $nowDatetimeObj, $notificationBuffer) {
+        $diff = array('minutes' => 'i', 'hours' => 'h', 'days' => 'd');
+        $format = array('i' => 'M', 'h' => 'H', 'd' => 'D');
+        if (isset($event['event_reminders']) && is_array($event['event_reminders']) && !empty($event['start'])) {
+            
+            foreach ($event['event_reminders'] as $reminder) {
+                
+                $eventDatetimeObj = new \DateTime($event['start']);
+                
+                //for getting the next job run time,
+                //to know that the user will again be notified for the same reminder in the next job run as well or not
+                $next = \tushar\locale::systemDate(true) . " " . \tushar\locale::systemTime(true);
+                $nextRunDateTime = new \DateTime($next);
+                
+                $nextRunDateTime->add(new \DateInterval(($format[$diff[$notificationBuffer['unit']]] == 'M') ?
+                                "PT{$notificationBuffer['measure']}" . $format[$diff[$notificationBuffer['unit']]] :
+                                "P{$notificationBuffer['measure']}" . $format[$diff[$notificationBuffer['unit']]]));
+                
+                $unit = $reminder['reminder_unit'];
+                
+                if (isset($diff[$unit])) {
+
+                    $eventDatetimeObj->sub(new \DateInterval(($format[$diff[$unit]] == 'M') ? 
+                                            "PT{$reminder['reminder_duration']}" . $format[$diff[$unit]] : 
+                                            "P{$reminder['reminder_duration']}" . $format[$diff[$unit]]))
+                                                    
+                                     ->sub(new \DateInterval(($format[$diff[$notificationBuffer['unit']]] == 'M') ? 
+                                            "PT{$notificationBuffer['measure']}" . $format[$diff[$notificationBuffer['unit']]] : 
+                                            "P{$notificationBuffer['measure']}" . $format[$diff[$notificationBuffer['unit']]]));
+                   
+                    if ($nowDatetimeObj < $eventDatetimeObj && $nextRunDateTime > $eventDatetimeObj) {
+                        
+                        return true;
+                    }
+                
+                } else if ($unit == 'weeks' && calendar_week_diff($nextRunDateTime, $eventDatetimeObj) == $reminder['reminder_duration']) {
+
+                    return true;
+                    
+                }
+            }
+        }
+        return false;
+    }
+
+}

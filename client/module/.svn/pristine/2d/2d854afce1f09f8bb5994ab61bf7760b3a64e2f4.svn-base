@@ -1,0 +1,54 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class workcenter extends \module\mrp\model\workcenter_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'mrp_workcenter';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'production_workcenter_line' => 
+  array (
+    'className' => '\\module\\mrp\\model\\production_workcenter_line',
+    'associationAlias' => 'production_workcenter_line',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'resource' => 
+  array (
+    'className' => '\\module\\mrp\\model\\resource',
+    'associationAlias' => 'resource',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'product' => 
+  array (
+    'className' => '\\module\\mrp\\model\\product',
+    'associationAlias' => 'product',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

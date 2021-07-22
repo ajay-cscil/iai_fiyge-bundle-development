@@ -1,0 +1,504 @@
+<?php $configuration=array (
+  'invoices' => 
+  array (
+    'send_invoice_email' => 
+    array (
+      'subject' => 'Quotation # {{entity.id}}',
+      'body' => '<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to MaaxFrame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <td>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-weight:bold;margin:0px">
+                                <table width="600" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                    <tr>
+                                        <td width="132" align="left">
+                                            <img width="250" valign="middle" height="64" alt="MaaxFrame" src="http://www.maaxframe.com/assets/img/Maax-logo-and-text-250x64.png">
+                                        </td>
+                                        <td align="right">
+                                            Contact us
+                                            <a target="_blank" style="text-decoration:none;font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#0066b3;font-weight:bold" href="http://www.maaxframe.com/contactus.php"> online</a>
+                                            or
+                                            <br>
+                                            Call +1 647 476 2714
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td height="9" bgcolor="#0066b3"></td>
+                    </tr>
+                    <tr>
+                        <td height="30"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td width="100%" valign="top">
+                            <p>Hello {{entity.__account_id}},</p>
+    
+    <p>Here is your copy of Invoice </p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCES</strong><br />
+       &nbsp;&nbsp;Invoice number: {{entity.id}}<br />
+       &nbsp;&nbsp;Terms: {{entity.payment_terms_id}}<br />
+       &nbsp;&nbsp;Invoice Date: {{entity.invoice_date}}<br />
+       &nbsp;&nbsp;Total Invoice Amount: {{entity.total_after_discount}}<br />
+       &nbsp;&nbsp;Balance Due: <br />
+    </p>
+    <br/>
+    <p>Due Date for this invoice is {{entity.due_date}}. If you have any question, do not hesitate to contact us.</p>
+    <p><i>Thank you for choosing {{companies.name}}. </i></p>
+    <br/>  
+
+                            <p style="font-weight:normal;font-size:14px;font-family:Arial,Helvetica,sans-serif;color:#555555">
+                                <b>{{users.signature}}</b>
+                                <br>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            
+    <div class="yj6qo"></div>
+    <div class="adL"> </div>
+</div>
+<div class="adL"> </div>
+</div>
+</body>
+    </html>',
+    ),
+    'send_invoice_open_state_email' => 
+    array (
+      'body' => '<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to MaaxFrame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <td>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-weight:bold;margin:0px">
+                                <table width="600" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                    <tr>
+                                        <td width="132" align="left">
+                                            <img width="250" valign="middle" height="64" alt="MaaxFrame" src="http://www.maaxframe.com/assets/img/Maax-logo-and-text-250x64.png">
+                                        </td>
+                                        <td align="right">
+                                            Contact us
+                                            <a target="_blank" style="text-decoration:none;font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#0066b3;font-weight:bold" href="http://www.maaxframe.com/contactus.php"> online</a>
+                                            or
+                                            <br>
+                                            Call +1 647 476 2714
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td height="9" bgcolor="#0066b3"></td>
+                    </tr>
+                    <tr>
+                        <td height="30"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td width="100%" valign="top">
+                            <p>Hello {{entity.__account_id}},</p>
+    
+    <p>Here is your copy of Invoice </p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCES</strong><br />
+       &nbsp;&nbsp;Invoice number: {{entity.id}}<br />
+       &nbsp;&nbsp;Terms: {{entity.payment_terms_id}}<br />
+       &nbsp;&nbsp;Invoice Date: {{entity.invoice_date}}<br />
+       &nbsp;&nbsp;Total Invoice Amount: {{entity.total_after_discount}}<br />
+       &nbsp;&nbsp;Balance Due: <br />
+    </p>
+    <br/>
+    <p>Due Date for this invoice is {{entity.due_date}}. If you have any question, do not hesitate to contact us.</p>
+    <p><i>Thank you for choosing {{companies.name}}. </i></p>
+    <br/>  
+
+                            <p style="font-weight:normal;font-size:14px;font-family:Arial,Helvetica,sans-serif;color:#555555">
+                                <b>{{users.signature}}</b>
+                                <br>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            
+    <div class="yj6qo"></div>
+    <div class="adL"> </div>
+</div>
+<div class="adL"> </div>
+</div>
+</body>
+    </html>',
+      'subject' => 'Quotation # {{entity.id}}',
+    ),
+    'send_invoice_paid_state_email' => 
+    array (
+      'subject' => 'Quotation # {{entity.id}}',
+      'body' => '<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to MaaxFrame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <td>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-weight:bold;margin:0px">
+                                <table width="600" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                    <tr>
+                                        <td width="132" align="left">
+                                            <img width="250" valign="middle" height="64" alt="MaaxFrame" src="http://www.maaxframe.com/assets/img/Maax-logo-and-text-250x64.png">
+                                        </td>
+                                        <td align="right">
+                                            Contact us
+                                            <a target="_blank" style="text-decoration:none;font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#0066b3;font-weight:bold" href="http://www.maaxframe.com/contactus.php"> online</a>
+                                            or
+                                            <br>
+                                            Call +1 647 476 2714
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td height="9" bgcolor="#0066b3"></td>
+                    </tr>
+                    <tr>
+                        <td height="30"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td width="100%" valign="top">
+                            <p>Hello {{entity.__account_id}},</p>
+    
+    <p>Here is your copy of Paid Invoice </p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCES</strong><br />
+       &nbsp;&nbsp;Invoice number: {{entity.id}}<br />
+       &nbsp;&nbsp;Terms: {{entity.payment_terms_id}}<br />
+       &nbsp;&nbsp;Invoice Date: {{entity.invoice_date}}<br />
+       &nbsp;&nbsp;Total Invoice Amount: {{entity.total_after_discount}}<br />
+       
+    </p>
+    <br/>
+    <p>We appreciate your prompt payment. If you have any question, do not hesitate to contact us.</p>
+    <p><i>Thank you for choosing {{companies.name}}. </i></p>
+    <br/>  
+
+                            <p style="font-weight:normal;font-size:14px;font-family:Arial,Helvetica,sans-serif;color:#555555">
+                                <b>{{users.signature}}</b>
+                                <br>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            
+    <div class="yj6qo"></div>
+    <div class="adL"> </div>
+</div>
+<div class="adL"> </div>
+</div>
+</body>
+    </html>',
+    ),
+    'discount_analytic_account' => '378',
+    'send_invoice_open_state_email-tbd' => 
+    array (
+      'body' => '<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to MaaxFrame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <td>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-weight:bold;margin:0px">
+                                <table width="600" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                    <tr>
+                                        <td width="132" align="left">
+                                            <img width="250" valign="middle" height="64" alt="MaaxFrame" src="http://www.maaxframe.com/assets/img/Maax-logo-and-text-250x64.png">
+                                        </td>
+                                        <td align="right">
+                                            Contact us
+                                            <a target="_blank" style="text-decoration:none;font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#0066b3;font-weight:bold" href="http://www.maaxframe.com/contactus.php"> online</a>
+                                            or
+                                            <br>
+                                            Call +1 647 476 2714
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td height="9" bgcolor="#0066b3"></td>
+                    </tr>
+                    <tr>
+                        <td height="30"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td width="100%" valign="top">
+                            <p>Hello {{entity.__account_id}},</p>
+    
+    <p>Here is your copy of Invoice </p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCES</strong><br />
+       &nbsp;&nbsp;Invoice number: {{entity.id}}<br />
+       &nbsp;&nbsp;Terms: {{entity.payment_terms_id}}<br />
+       &nbsp;&nbsp;Invoice Date: {{entity.invoice_date}}<br />
+       &nbsp;&nbsp;Total Invoice Amount: {{entity.total_after_discount}}<br />
+       &nbsp;&nbsp;Balance Due: <br />
+    </p>
+    <br/>
+    <p>Due Date for this invoice is {{entity.due_date}}. If you have any question, do not hesitate to contact us.</p>
+    <p><i>Thank you for choosing {{companies.name}}. </i></p>
+    <br/>  
+
+                            <p style="font-weight:normal;font-size:14px;font-family:Arial,Helvetica,sans-serif;color:#555555">
+                                <b>{{users.signature}}</b>
+                                <br>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            
+    <div class="yj6qo"></div>
+    <div class="adL"> </div>
+</div>
+<div class="adL"> </div>
+</div>
+</body>
+    </html>',
+      'subject' => 'Quotation # {{entity.id}}',
+    ),
+    'send_invoice_paid_state_email-tbd' => 
+    array (
+      'body' => '<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to MaaxFrame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <td>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-weight:bold;margin:0px">
+                                <table width="600" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                    <tr>
+                                        <td width="132" align="left">
+                                            <img width="250" valign="middle" height="64" alt="MaaxFrame" src="http://www.maaxframe.com/assets/img/Maax-logo-and-text-250x64.png">
+                                        </td>
+                                        <td align="right">
+                                            Contact us
+                                            <a target="_blank" style="text-decoration:none;font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#0066b3;font-weight:bold" href="http://www.maaxframe.com/contactus.php"> online</a>
+                                            or
+                                            <br>
+                                            Call +1 647 476 2714
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td height="9" bgcolor="#0066b3"></td>
+                    </tr>
+                    <tr>
+                        <td height="30"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table width="600" border="0" align="center" cellspacing="0" cellpadding="0">
+                    <tbody>
+                    <tr>
+                        <td width="100%" valign="top">
+                            <p>Hello {{entity.__account_id}},</p>
+    
+    <p>Here is your copy of Paid Invoice </p>
+
+    <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+       &nbsp;&nbsp;<strong>REFERENCES</strong><br />
+       &nbsp;&nbsp;Invoice number: {{entity.id}}<br />
+       &nbsp;&nbsp;Terms: {{entity.payment_terms_id}}<br />
+       &nbsp;&nbsp;Invoice Date: {{entity.invoice_date}}<br />
+       &nbsp;&nbsp;Total Invoice Amount: {{entity.total_after_discount}}<br />
+       
+    </p>
+    <br/>
+    <p>We appreciate your prompt payment. If you have any question, do not hesitate to contact us.</p>
+    <p><i>Thank you for choosing {{companies.name}}. </i></p>
+    <br/>  
+
+                            <p style="font-weight:normal;font-size:14px;font-family:Arial,Helvetica,sans-serif;color:#555555">
+                                <b>{{users.signature}}</b>
+                                <br>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            
+    <div class="yj6qo"></div>
+    <div class="adL"> </div>
+</div>
+<div class="adL"> </div>
+</div>
+</body>
+    </html>',
+      'subject' => 'Quotation # {{entity.id}}',
+    ),
+  ),
+  'sales_receipts' => 
+  array (
+    'discount_analytic_account' => '378',
+  ),
+  'refund_receipts' => 
+  array (
+    'discount_analytic_account' => '378',
+  ),
+  'bills' => 
+  array (
+    'discount_analytic_account' => '398',
+  ),
+  'expenses' => 
+  array (
+    'discount_analytic_account' => '398',
+  ),
+  'purchase_discount_analytic_account' => '2028',
+  'purchase_shipping_analytic_account' => '2122',
+  'sales_discount_analytic_account' => '2013',
+  'sales_shipping_analytic_account' => '2121',
+  'year_close_hidden_income_account' => '2088',
+  'year_close_dividents_account' => '2087',
+  'year_close_equity_account' => '2006',
+);  ?>

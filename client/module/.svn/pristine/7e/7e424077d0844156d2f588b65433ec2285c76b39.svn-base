@@ -1,0 +1,34 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\hr\model;
+
+class timesheet_lines_domain_logic extends \tushar\model{
+
+    public function beforeSave() {
+        parent::beforeSave();
+        $parentData = $this->parentData;
+        if (empty($parentData)) {
+            $parentData = current($this->read($this->data['timesheet_id'], false));
+        }
+        if (!empty($parentData)) {
+            $t1 = str_replace('-', '', $parentData['start_date']);
+            $t2 = str_replace('-', '', $parentData['end_date']);
+
+            $dt = str_replace('-', '', $this->data['date']);
+            if ($dt < $t1 || $dt > $t2) {
+                throw new \Exception(
+                sprintf(__('Timesheet line date should be between "%s" and "%s"', 'module')
+                        , \tushar\locale::localize($parentData['start_date'],DATE)
+                        , \tushar\locale::localize($parentData['end_date'],DATE)
+                )
+                );
+            }
+        }
+    }
+
+}

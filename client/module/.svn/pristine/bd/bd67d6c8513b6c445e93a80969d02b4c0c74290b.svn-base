@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\calendar\controller;
+  class tasks_acl_cache extends \module\calendar\controller\tasks_acl_cache_domain_logic
+  {
+       public $modelClass = '\\module\\calendar\\model\\tasks_acl_cache';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

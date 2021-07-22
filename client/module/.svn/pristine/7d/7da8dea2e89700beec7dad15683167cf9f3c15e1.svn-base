@@ -1,0 +1,167 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\email_intelligence\model;
+  class message_log extends \module\email_intelligence\model\message_log_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'email_intelligence__message_log';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'subject';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'mail_account_id' => 
+  array (
+    'column' => 'mail_account_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'delivered_to' => 
+  array (
+    'column' => 'delivered_to',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'return_path' => 
+  array (
+    'column' => 'return_path',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'date' => 
+  array (
+    'column' => 'date',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'from' => 
+  array (
+    'column' => 'from',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'reply_to' => 
+  array (
+    'column' => 'reply_to',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'to' => 
+  array (
+    'column' => 'to',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'cc' => 
+  array (
+    'column' => 'cc',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'message_id' => 
+  array (
+    'column' => 'message_id',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'subject' => 
+  array (
+    'column' => 'subject',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'mail_accounts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\email_intelligence\\model\\mail_accounts',
+    'associationAlias' => 'mail_accounts',
+    'foreignKey' => 'mail_account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+  ),
+);
+  }

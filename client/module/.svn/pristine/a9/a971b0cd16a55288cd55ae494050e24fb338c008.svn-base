@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\stock\controller;
+  class location_product_quantity extends \module\stock\controller\location_product_quantity_domain_logic
+  {
+       public $modelClass = '\\module\\stock\\model\\location_product_quantity';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

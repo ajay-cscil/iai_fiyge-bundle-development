@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="10752" lt="3773" ts="1344001277437" s="true" lb="Login" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="115552">
+  <httpSample t="3773" lt="3773" ts="1344001277437" s="true" lb="http://192.168.56.102/maax-0.0.x/" rc="302" rm="Found" tn="" dt="text" by="822"/>
+  <httpSample t="6974" lt="6147" ts="1344001281215" s="true" lb="http://192.168.56.102/maax-0.0.x//maax-0.0.x/core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="114730"/>
+</httpSample>
+<httpSample t="11902" lt="5714" ts="1344001276805" s="true" lb="Login" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="115552">
+  <httpSample t="5714" lt="5714" ts="1344001276805" s="true" lb="http://192.168.56.102/maax-0.0.x/" rc="302" rm="Found" tn="" dt="text" by="822"/>
+  <httpSample t="6187" lt="5986" ts="1344001282520" s="true" lb="http://192.168.56.102/maax-0.0.x//maax-0.0.x/core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="114730"/>
+</httpSample>
+<httpSample t="11866" lt="8103" ts="1344001277097" s="true" lb="Login" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="115552">
+  <httpSample t="8103" lt="8103" ts="1344001277097" s="true" lb="http://192.168.56.102/maax-0.0.x/" rc="302" rm="Found" tn="" dt="text" by="822"/>
+  <httpSample t="3762" lt="3705" ts="1344001285201" s="true" lb="http://192.168.56.102/maax-0.0.x//maax-0.0.x/core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="114730"/>
+</httpSample>
+<httpSample t="1572" lt="1564" ts="1344001288338" s="true" lb="crm__leads__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="116081"/>
+<httpSample t="959" lt="908" ts="1344001288964" s="true" lb="crm__leads__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="116082"/>
+<httpSample t="1324" lt="1221" ts="1344001288708" s="true" lb="crm__leads__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="116082"/>
+<httpSample t="533" lt="510" ts="1344001289926" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64526"/>
+<httpSample t="627" lt="599" ts="1344001289925" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64526"/>
+<httpSample t="698" lt="500" ts="1344001290032" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64526"/>
+<httpSample t="525" lt="492" ts="1344001290460" s="true" lb="crm__config_ratings__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64173"/>
+<httpSample t="477" lt="436" ts="1344001290552" s="true" lb="crm__config_ratings__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64174"/>
+<httpSample t="715" lt="689" ts="1344001290731" s="true" lb="crm__config_ratings__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64174"/>
+<httpSample t="465" lt="432" ts="1344001291030" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64494"/>
+<httpSample t="525" lt="486" ts="1344001290986" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64494"/>
+<httpSample t="597" lt="562" ts="1344001291502" s="true" lb="crm__config_lead_status__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64458"/>
+<httpSample t="606" lt="564" ts="1344001291512" s="true" lb="crm__config_lead_status__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64458"/>
+<httpSample t="715" lt="677" ts="1344001291466" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64494"/>
+<httpSample t="654" lt="592" ts="1344001292103" s="true" lb="crm__opportunities__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="67713"/>
+<httpSample t="647" lt="609" ts="1344001292182" s="true" lb="crm__config_lead_status__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64458"/>
+<httpSample t="735" lt="675" ts="1344001292119" s="true" lb="crm__opportunities__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="67713"/>
+<httpSample t="567" lt="522" ts="1344001292757" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64494"/>
+<httpSample t="500" lt="461" ts="1344001292859" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64494"/>
+<httpSample t="636" lt="587" ts="1344001292830" s="true" lb="crm__opportunities__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="67713"/>
+<httpSample t="493" lt="477" ts="1344001293325" s="true" lb="crm__config_opportunity_types__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64385"/>
+<httpSample t="547" lt="500" ts="1344001293360" s="true" lb="crm__config_opportunity_types__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64385"/>
+<httpSample t="551" lt="508" ts="1344001293467" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64494"/>
+<httpSample t="540" lt="507" ts="1344001293818" s="true" lb="crm__config_sales_stages__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64449"/>
+<httpSample t="488" lt="488" ts="1344001293908" s="true" lb="crm__config_sales_stages__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64450"/>
+<httpSample t="507" lt="477" ts="1344001294019" s="true" lb="crm__config_opportunity_types__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64385"/>
+<httpSample t="392" lt="353" ts="1344001294526" s="true" lb="crm__config_sales_stages__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64449"/>
+<httpSample t="1648" lt="1520" ts="1344001294397" s="true" lb="crm__accounts__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="228760"/>
+<httpSample t="1696" lt="1560" ts="1344001294359" s="true" lb="crm__accounts__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="228760"/>
+<httpSample t="1420" lt="1346" ts="1344001294919" s="true" lb="crm__accounts__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="228760"/>
+<httpSample t="572" lt="542" ts="1344001296061" s="true" lb="crm__config_account_types__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64552"/>
+<httpSample t="577" lt="539" ts="1344001296061" s="true" lb="crm__config_account_types__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64552"/>
+<httpSample t="527" lt="476" ts="1344001296340" s="true" lb="crm__config_account_types__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64552"/>
+<httpSample t="508" lt="471" ts="1344001296638" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64526"/>
+<httpSample t="525" lt="493" ts="1344001296634" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64526"/>
+<httpSample t="503" lt="459" ts="1344001296868" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64526"/>
+<httpSample t="507" lt="484" ts="1344001297147" s="true" lb="crm__config_ratings__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64174"/>
+<httpSample t="515" lt="479" ts="1344001297160" s="true" lb="crm__config_ratings__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64174"/>
+<httpSample t="486" lt="459" ts="1344001297371" s="true" lb="crm__config_ratings__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64174"/>
+<httpSample t="1005" lt="929" ts="1344001297675" s="true" lb="crm__contacts__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="139981"/>
+<httpSample t="1023" lt="954" ts="1344001297664" s="true" lb="crm__contacts__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="139980"/>
+<httpSample t="937" lt="890" ts="1344001297858" s="true" lb="crm__contacts__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="139981"/>
+<httpSample t="521" lt="493" ts="1344001298688" s="true" lb="crm__config_departments__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64416"/>
+<httpSample t="533" lt="510" ts="1344001298681" s="true" lb="crm__config_departments__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64416"/>
+<httpSample t="462" lt="428" ts="1344001298795" s="true" lb="crm__config_departments__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64416"/>
+<httpSample t="504" lt="485" ts="1344001299210" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64526"/>
+<httpSample t="510" lt="481" ts="1344001299215" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64526"/>
+<httpSample t="499" lt="465" ts="1344001299258" s="true" lb="crm__config_industries__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64526"/>
+<httpSample t="503" lt="497" ts="1344001299726" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64494"/>
+<httpSample t="520" lt="508" ts="1344001299715" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64494"/>
+<httpSample t="516" lt="475" ts="1344001299758" s="true" lb="crm__config_lead_sources__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64493"/>
+<httpSample t="621" lt="591" ts="1344001300231" s="true" lb="crm__products__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="76928"/>
+<httpSample t="653" lt="622" ts="1344001300275" s="true" lb="crm__products__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="76927"/>
+<httpSample t="700" lt="663" ts="1344001300236" s="true" lb="crm__products__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="76928"/>
+<httpSample t="587" lt="563" ts="1344001300853" s="true" lb="crm__config_product_categories__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="64816"/>
+<httpSample t="533" lt="506" ts="1344001300929" s="true" lb="crm__config_product_categories__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="64816"/>
+<httpSample t="529" lt="505" ts="1344001300937" s="true" lb="crm__config_product_categories__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="64816"/>
+
+</testResults>

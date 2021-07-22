@@ -1,0 +1,45 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+$module = 'analytics';
+$controller = 'reports';
+$pass = isset($this->params['pass']) ? $this->params['pass'] : array();
+$data = isset($this->params['data']) ? $this->params['data'] : array();
+$reportId = (isset($pass[0]) ? $pass[0] : '');
+if (empty($reportId)) {
+    throw new \Exception(sprintf(__("Missing report id in campaign")));
+}
+$controllerClass = "\\module\\{$module}\\controller\\{$controller}";
+$modelObj = $controllerClass::getInstance()->modelObj();
+$report = $modelObj->read($reportId, array());
+if (empty($report) || !isset($report[$modelObj->alias])) {
+    throw new \Exception(sprintf(__("Report with id %s not found"), $reportId));
+} else {
+    $report = $report[$modelObj->alias];
+    $query = json_decode($report['query'], true);
+    $name = $report['name'];
+
+    $array = \explode("/", $report['controller']);
+    list($module, $controller) = $array;
+    if (isset($pass[1])) {
+        $query['limit'] = $pass[1];
+    }
+    $query['actions'] = 0;
+    $query = (is_array($query) ? json_encode($query) : $query);
+    $get = (is_array($pass) ? $pass : array());
+    if (!empty($this->response)) {
+        $get['campaign'] = $this->response;
+    }
+    if (!empty($data)) {
+        $get['data'] = array_merge($get, $data);
+    }
+    $get['export'] = 1;
+    $get['q'] = rawurlencode($query);
+    echo $name . '<br />';
+    echo \module\campaigns\helper\campaigns::cssToStyle($this->request, $this->request("{$module}/{$controller}/index", array('return' => 2, 'get' => $get)));
+}
+?>

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\help\controller;
+  class note_categories extends \module\help\controller\note_categories_domain_logic
+  {
+       public $modelClass = '\\module\\help\\model\\note_categories';
+
+
+
+
+
+
+  }

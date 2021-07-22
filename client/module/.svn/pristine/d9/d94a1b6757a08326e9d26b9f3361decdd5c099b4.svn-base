@@ -1,0 +1,29 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\controller;
+  class notifications_stages extends \module\flexflow\controller\notifications_stages_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow\\model\\notifications_stages';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'fields' => 
+  array (
+    0 => 'notifications_stages.notification_id',
+    1 => 'stages.name',
+    2 => 'created_by_user.first_name',
+    3 => 'created_by_user.last_name',
+    4 => 'notifications_stages.created',
+  ),
+);
+
+
+
+
+
+
+  }

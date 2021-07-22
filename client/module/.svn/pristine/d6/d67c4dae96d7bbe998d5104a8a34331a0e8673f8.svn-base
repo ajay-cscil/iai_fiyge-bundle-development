@@ -1,0 +1,72 @@
+[
+	{
+		"listviews":{
+			"name":"Calls to be made today",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"contacts.name\":{\"__column\":\"contacts.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"contacts.addresses.address_line_1\":{\"__column\":\"contacts.addresses.address_line_1\",\"alias\":\"Add.\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"contacts.phone_numbers.number\":{\"__column\":\"contacts.phone_numbers.number\",\"alias\":\"No\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"contacts.voter_informations.survey\":{\"__column\":\"contacts.voter_informations.survey\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::multi_value\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"AND\",\"value\":{\"contacts.task_related_to.tasks.start = \":\"XVAR_TODAY\"}},{\"op\":\"\",\"value\":{\"contacts.task_related_to.tasks.name CONTAINS \":\"Calls to be made\"}}]],\"order\":[],\"name\":\"Calls to be made today\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"elections\\\/contacts\",\"render_as\":\"index\",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"100382\",\"owned_by\":\"140\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"created_by\":\"140\",\"modified_by\":\"140\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"acl\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"method\":\"index\"}",
+			"_query":"{\"id\":\"53ba96b0-02b0-416f-921c-5ffc0af91b9d\",\"name\":\"Calls to be made today\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"elections\\\/contacts\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"contacts.name\",\"column_model\":\"schema\",\"__column\":\"contacts.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"contacts.addresses.address_line_1\",\"column_model\":\"schema\",\"__column\":\"contacts.addresses.address_line_1\",\"alias\":\"Add.\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"contacts.phone_numbers.number\",\"column_model\":\"schema\",\"__column\":\"contacts.phone_numbers.number\",\"alias\":\"No\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"contacts.voter_informations.survey\",\"column_model\":\"schema\",\"__column\":\"contacts.voter_informations.survey\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::multi_value\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":{\"3\":{\"search_column\":\"contacts.task_related_to.tasks.start\",\"search_column_model\":\"schema\",\"__search_column\":\"contacts.task_related_to.tasks.start\",\"search_comparator\":\"=\",\"search_value\":\"XVAR_TODAY\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"4\":{\"search_column\":\"contacts.task_related_to.tasks.name\",\"search_column_model\":\"schema\",\"__search_column\":\"contacts.task_related_to.tasks.name\",\"search_comparator\":\"CONTAINS\",\"search_value\":\"Calls to be made\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100382\",\"row_template\":\"\",\"owned_by\":\"140\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"created_by\":\"140\",\"modified_by\":\"140\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"\",\"__primary_acl_group\":\"\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"_acl\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"140\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"140\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"elections\/contacts",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"140",
+			"modified_by":"140",
+			"owned_by":"140",
+			"created":"2014-07-07 12:46:40",
+			"modified":"2014-07-07 12:52:44",
+			"deleted":"0",
+			"revision":"4",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"140",
+					"aro_id_model":"users",
+					"aro_id":"140",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"elections.contacts.Calls to be made today",
+			"sequence":"100382",
+			"primary_acl_group":"0",
+			"id":"53ba96b0-02b0-416f-921c-5ffc0af91b9d",
+			"module_id":"",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Super Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Super Admin",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Super Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"",
+			"__module_id":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

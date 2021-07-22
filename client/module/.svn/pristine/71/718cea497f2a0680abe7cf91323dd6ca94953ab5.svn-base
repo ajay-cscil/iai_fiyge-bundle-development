@@ -1,0 +1,356 @@
+<?php
+
+/**
+ * This class implements design ACl
+ * Its implements both ARO/ACO logic
+ *
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\accounting\behaviour;
+
+class journal_entries extends \tushar\behaviour {
+
+    protected static $settings = array(
+            //   'journal_entries' => '\\module\\accounting\\model\\journal_entries',
+            //   'journal_entry_lines' => '\\module\\accounting\\model\\journal_entry_lines'
+    );
+    protected static $settingsForm = array();
+
+    public static function getSettingsForm() {
+        $settingsForm = array();
+        /*
+          $settingsForm["created_stage"] = array(
+          'colspan' => 2,
+          'helper' => '\\tushar\\form',
+          'method' => 'input',
+          'value' => '',
+          'label' => "create entries on stage"
+          );
+          $settingsForm["void_stage"] = array(
+          'colspan' => 2,
+          'helper' => '\\tushar\\form',
+          'method' => 'input',
+          'value' => '',
+          'label' => "void entries on stage"
+          ); */
+        $settingsForm["journal_id"] = array(
+            'helper' => '\\tushar\\form',
+            'method' => 'popup',
+            'value' => '',
+            'label' => "Journal",
+            "children" => array(
+                array(
+                    "model" => "journals",
+                    "href" => "accounting/journals/index",
+                    "value" => "journals",
+                    'helper' => '\\tushar\\form',
+                    'method' => 'popupoption',
+                )
+            )
+        );
+        /*
+          for ($i = 1; $i <= 4; $i++) {
+          $settingsForm["field_analytic_account_id_{$i}"] = array(
+          'helper' => '\\tushar\\form',
+          'method' => 'popup',
+          'value' => '',
+          'label' => "analytic account {$i}",
+          "children" => array(
+          array("model" => "schema",
+          "href" => "metadata/schema/index",
+          "value" => "schema",
+          'helper' => '\\tushar\\form',
+          'method' => 'popupoption',
+          )
+          )
+          );
+          $settingsForm["field_account_owner_id_{$i}"] = array(
+          'helper' => '\\tushar\\form',
+          'method' => 'popup',
+          'value' => '',
+          'label' => "account owner {$i}",
+          "children" => array(
+          array("model" => "schema",
+          "href" => "metadata/schema/index",
+          "value" => "schema",
+          'helper' => '\\tushar\\form',
+          'method' => 'popupoption',
+          )
+          )
+          );
+          $settingsForm["field_amount_{$i}"] = array(
+          'helper' => '\\tushar\\form',
+          'method' => 'popup',
+          'value' => '',
+          'label' => "amount {$i}",
+          "children" => array(
+          array("model" => "schema",
+          "href" => "metadata/schema/index",
+          "value" => "schema",
+          'helper' => '\\tushar\\form',
+          'method' => 'popupoption',
+          )
+          )
+          );
+          $settingsForm["field_type_{$i}"] = array(
+          'helper' => '\\tushar\\form',
+          'method' => 'radio',
+          'value' => 'debit',
+          'label' => "Debit/Credit {$i}",
+          'children' => array(
+          array('text' => 'debit', 'value' => 'debit'),
+          array('text' => 'credit', 'value' => 'credit'),
+          )
+          );
+          }
+         * 
+         */
+        return $settingsForm;
+    }
+
+    private static function settings($model, $settings = array()) {
+        $settings = array_merge(static::$settings, $settings);
+        $settings["debits"] = $settings["credits"] = array();
+        /*
+          for ($i = 1; $i <= 4; $i++) {
+          if (isset($settings["field_analytic_account_id_{$i}"]) && !empty($settings["field_analytic_account_id_{$i}"])) {
+          $settings["journal_entry_rules"][] = array(
+          "account_id" => $settings["field_analytic_account_id_{$i}"],
+          "account_owner" => $settings["field_account_owner_id_{$i}"],
+          "amount" => $settings["field_amount_{$i}"],
+          "type" => $settings["field_type_{$i}"]
+          );
+          }
+          }
+         * 
+         */
+        return $settings;
+    }
+
+    public static function init($model, $settings) {
+        $settings = static::settings($model, $settings);
+        //$acoAroObj = $settings['journal_entries']::getInstance();
+        //$chr = \tushar\source::getInstance($model->source)->char;
+    }
+
+    public static function afterSave($model, $settings = array(), $created = false) {
+        $settings = static::settings($model, $settings);
+        $journalEntryLines = array();
+        $shouldCreateEntries = false;
+        if (isset($settings['create_stage']) && isset($model->data['status']) && $settings['create_stage'] == $model->data['status']) {
+            if (isset($settings["journal_entry_rules"]) && is_array($settings["journal_entry_rules"])) {
+                foreach ($settings["journal_entry_rules"] as $rule) {
+                    $rule['amount'] = str_replace($model->alias . ".", "", $rule['amount']);
+                    $rule['account_owner'] = str_replace($model->alias . ".", "", $rule['account_owner']);
+                    $rule['account_id'] = str_replace($model->alias . ".", "", $rule['account_id']);
+                    $amount = \explode(".", $rule['amount']);
+                    $amountColumn = array_pop($amount);
+                    $lines = array();
+                    static::trace($lines, $model->data, explode(".", $rule['account_owner']), $amountColumn, 'account_owner', 'amount');
+                    $obj = $model;
+                    if (!empty($amount)) {
+                        $rule['account_id'] = str_replace(implode(".", $amount) . ".", "", $rule['account_id']);
+                        foreach ($amount as $am) {
+                            if (isset($obj->associations[$am])) {
+                                $obj = $obj->{$am};
+                            }
+                        }
+                    }
+                    $rule['account_id'] = explode(".", $rule['account_id']);
+                    $related = array_shift($rule['account_id']);
+                    $type = (strtolower($rule['type']) == 'debit' ? 'debit' : 'credit');
+                    $obj = $obj->{$related};
+                    $modelClass = explode(NS, $obj->modelClass);
+                    foreach ($lines as $line) {
+                        $analyticAccount = $obj->find(
+                                        array(
+                                            "fields" => array("{$related}.{{DISPLAY_FIELD}} as display_field", implode(".", $rule['account_id']) . ' as account_id'),
+                                            'where' => array("{$related}.id" => $line['account_owner'])
+                                        )
+                                )->fetch(\PDO::FETCH_ASSOC);
+                        $journalEntryLines[] = array(
+                            'related_to' => $line['account_owner'],
+                            '__related_to' => $analyticAccount['display_field'],
+                            'related_to_model' => $modelClass[4],
+                            'related_to_model_class' => $obj->modelClass,
+                            'account_id' => $analyticAccount['account_id'],
+                            $type => $line['amount']
+                        );
+                    }
+                }
+            }
+            $shouldCreateEntries = true;
+        }
+        $journalEntryDate = \tushar\locale::systemDate();
+        if (method_exists($model, 'journalEntryDate')) {
+            $journalEntryDate = $model->journalEntryDate();
+        }
+
+        $return = \module\accounting\model\accounts::getInstance()->accountingDefaults(false, false, false, true, $journalEntryDate);
+        list($companyID, $fiscalYearID, $periodID, $companyName, $fiscalYearName, $periodName) = $return;
+        $journalEntry = array(
+            'journal_id' => (isset($settings['journal_id']) ? $settings['journal_id'] : ''),
+            'period_id' => $periodID,
+            'debits_total' => 0,
+            'credits_total' => 0,
+            'journal_date' => $journalEntryDate,
+            'journal_entry_lines' => $journalEntryLines
+        );
+        if (method_exists($model, 'journalEntries')) {
+            if ($model->journalEntries($journalEntry)) {
+                $shouldCreateEntries = true;
+                if (empty($journalEntry['journal_id']) && isset($settings['journal_id']) && !empty($settings['journal_id'])) {
+                    $journalEntry['journal_id'] = $settings['journal_id'];
+                }
+            }
+        }
+        $debitsTotal = $creditsTotal = 0;
+        if (isset($journalEntry['journal_entry_lines']) && is_array($journalEntry['journal_entry_lines'])) {
+            foreach ($journalEntry['journal_entry_lines'] as $line) {
+                $debitsTotal += (isset($line['debit']) ? $line['debit'] : 0);
+                $creditsTotal += (isset($line['credit']) ? $line['credit'] : 0);
+            }
+        }
+        $journalEntry['debits_total'] = $debitsTotal;
+        $journalEntry['credits_total'] = $creditsTotal;
+        if ($shouldCreateEntries) {
+            if (!isset($journalEntry['action'])) {
+                $journalEntry['action'] = 'validate';
+            }
+            $journalEntry['related_to'] = $model->id;
+            $journalEntry['__related_to'] = $model->data[$model->displayField];
+            $journalEntry['related_to_model'] = $model->alias;
+            $journalEntry['related_to_model_class_name'] = $model->modelClass;
+            if (!isset($journalEntry['memo']) || empty($journalEntry['memo'])) {
+                $journalEntry['memo'] = $model->data[$model->displayField];
+            }
+
+            $companyObject = \module\crm_base\model\companies::getInstance();
+            $companyName = \select($companyObject->displayField)
+                    ->from($companyObject)
+                    ->where($companyObject->primaryKey, $journalEntry['company_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+            if (empty($companyName)) {
+                $companyName = "configure user's company";
+            }
+            if (empty($journalEntry['journal_id'])) {
+                $currencyObject = \module\masters\model\currencies::getInstance();
+                $currencyName = \select($companyObject->displayField)
+                        ->from($companyObject)
+                        ->where($companyObject->primaryKey, $journalEntry['currency_id'])
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+                if (empty($currencyName)) {
+                    $currencyName = "configure user's currency";
+                }
+                throw new \Exception(sprintf(__('Could not auto search journal for supporting doc[ %s ]. Configure journal for company[ %s ], currency[ %s ] and journal type[ %s ]', 'module'), __($model->alias, 'module'), $companyName, $currencyName, $journalEntry['journal_type']));
+            }
+
+            if (!isset($journalEntry['period_id']) || empty($journalEntry['period_id'])) {
+                /*
+                $link = '';
+                $fiscalYearObject = \module\accounting\model\fiscal_years::getInstance();
+                $fiscalYearID = \select("{$fiscalYearObject->alias}.{$fiscalYearObject->primaryKey}")
+                        ->from($fiscalYearObject)
+                        ->inserted()
+                        ->where(array("$fiscalYearObject->alias.start <=", "{$fiscalYearObject->alias}.end >="))
+                        ->limit(1)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN, 0);
+                */
+                //if(!empty($fiscalYearID) && empty($periodID)){
+                //$link = ', <a data-ajax=false ajax=1 href="/accounting/periods/add?data[periods][fiscal_year_id]=' . $fiscalYearID . '">Create New Period</a>';
+                //}
+                throw new \Exception(
+                sprintf(
+                        __('Configure "open" fiscal-year / period containing date "%s" for company "%s" %s', 'module')
+                        , \tushar\locale::systemDate()
+                        , $companyName
+                        , $link
+                )
+                );
+            }
+            if (!isset($journalEntry['journal_entry_lines']) || empty($journalEntry['journal_entry_lines'])) {
+                throw new \Exception(__('Could not generate journal entry as journal entry lines are missing', 'module'));
+            }
+            \module\accounting\model\journal_entries::getInstance()->save($journalEntry, array('atomic' => true));
+            if (!empty(\tushar\model::$errors)) {
+                throw new \Exception(__('Could not post entries into accounting system.', 'module'));
+            }
+        }
+
+        $actionTriggred = "";
+        if (is_array($model->data['action'])) {
+            $actionTriggred = key($model->data['action']);
+        } else {
+            $actionTriggred = $model->data['action'];
+        }
+        if (strcasecmp($actionTriggred, 'void') == 0) {
+            $journalEntryObject = \module\accounting\model\journal_entries::getInstance();
+            $journalEntryID = \select("id")
+                    ->from($journalEntryObject)
+                    ->inserted()
+                    ->where(array("related_to" => $model->id, "related_to_model" => $model->alias))
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN);
+            if (!empty($journalEntryID)) {
+                $journalEntry = current($journalEntryObject->read($journalEntryID));
+                if (!empty($journalEntry)) {
+                    $journalEntry['action'] = 'void';
+                    $journalEntryObject->save($journalEntry, array('atomic' => true));
+                }
+            }
+        }
+    }
+
+    public static function trace(&$lines, $data, $account, $amount, $analyticAccountID = 'account_id', $amountID = 'amount') {
+        $a = array_shift($account);
+        if (isset($data[$a])) {
+            $data = $data[$a];
+            if (isset($data['_X_'])) {
+                unset($data['_X_']);
+            }
+        } else {
+            return;
+        }
+        if (isset($account[1])) {
+            if (is_numeric(key($data))) {
+                foreach ($data as $d) {
+                    static::trace($lines, $d, $account, $amount, $analyticAccountID, $amountID);
+                }
+            } else {
+                static::trace($lines, $data, $account, $amount, $analyticAccountID, $amountID);
+            }
+        } else {
+            $account = $account[0];
+            if (is_numeric(key($data))) {
+                foreach ($data as $d) {
+                    $lines[] = array($analyticAccountID => (isset($d[$account]) ? $d[$account] : null), $amountID => (isset($d[$amount]) ? $d[$amount] : null));
+                }
+            } else {
+                $lines[] = array($analyticAccountID => (isset($data[$account]) ? $data[$account] : null), $amountID => (isset($data[$amount]) ? $data[$amount] : null));
+            }
+        }
+    }
+
+    public static function ns($path, $str = '\\') {
+        $p = array();
+        foreach (explode('\\', $path) as $k => $v) {
+            if (!empty($v))
+                $p[] = $v;
+        }
+        return implode($str, $p);
+    }
+
+    public static function beforeDelete($model, $settings = array()) {
+        $settings = array_merge(static::$settings, $settings);
+    }
+
+    public static function afterDelete($model, $settings = array()) {
+        $settings = array_merge(static::$settings, $settings);
+        $id = $model->data[$model->primaryKey];
+    }
+
+}

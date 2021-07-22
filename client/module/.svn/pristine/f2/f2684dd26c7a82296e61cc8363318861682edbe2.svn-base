@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\model;
+
+class lists extends \tushar\model
+{
+
+    public $table = 'campaigns__lists';
+    /**
+     *
+     * @var type
+     */
+    public $singular = 'list';
+    /**
+     *
+     * @var type
+     */
+    public $displayField = 'name';
+    /**
+     *
+     * @var type
+     */
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'list_records' => array('assocType' => 'hasMany'
+            , 'foreignKey' => 'list_id'
+            , 'className' => '\\module\\campaigns\\model\\list_records'
+            ,'isSubModel'=> 1
+        )
+    );
+    /**
+     *
+     * @var type
+     */
+    public $filters = array(
+        'name' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+    );
+
+    public function beforeValidate()
+    {
+        if (!empty($this->data)) {
+            if (isset($this->data['columns']))
+                    if (is_array($this->data['columns'])) {
+                    $columns = array();
+                    foreach ($this->data['columns'] as $i => $v) {
+                        if (!empty($v)) {
+                            $columns[$i] = array('name' => $v['name'], 'type' => $v['type'], 'is_required' => (isset($v['is_required'])
+                                            ? $v['is_required'] : $v['_is_required']));
+                        }
+                    }
+                    ksort($columns);
+                    $this->data['columns'] = json_encode(array_values($columns));
+                }
+        }
+    }
+
+}

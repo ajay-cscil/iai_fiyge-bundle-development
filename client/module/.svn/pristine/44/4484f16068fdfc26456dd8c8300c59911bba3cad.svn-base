@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tag_cloud\controller;
+  class tags extends \module\tag_cloud\controller\tags_domain_logic
+  {
+       public $modelClass = '\\module\\tag_cloud\\model\\tags';
+
+
+
+
+
+
+  }

@@ -1,0 +1,178 @@
+{
+    "version": "1.2.0-alpha",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "id": "272622c9-e746-11e3-aad5-0800275f9930",
+    "label":"Support: Wiki (Under development)",
+    "name": "wiki",
+    "license_agreement": "PMI",
+    "description": "<span class=\"GINGER_SOFATWARE_correct\" grcontextid=\"wiki module:0\" ginger_sofatware_markguid=\"7f8ac89d-d411-453c-bc02-1a883ce9b4cf\" ginger_sofatware_uiphraseguid=\"12229419-82c2-4eb6-aaa5-897c73c70a4c\">wiki module<\/span> consists all the details of Articles.",
+    "company": "Primary Modules",
+    "author": "Tushar Takkar",
+    "is_active": "0",
+    "created": "2014-06-18",
+    "modified": "2013-10-09 14:19:18",
+    "revision": null,
+    "flags": null,
+    "created_by": "-1",
+    "modified_by": "-1",
+    "owned_by": "-1",
+    "is_public": null,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "category_id": "8",
+    "industry_id": "1",
+    "latest_version": null,
+    "is_installed": "1",
+    "svn_repository": "https:\/\/primod.svn.cvsdude.com\/tushar\/trunk\/maax\/module\/wiki",
+    "current_stable_version": "0",
+    "__created_by": "",
+    "__modified_by": "System Admin",
+    "modified_by_model": "modified_by_user",
+    "__owned_by": "",
+    "__category_id": "Content Management",
+    "category_id_business_key": "Content Management",
+    "category_id_model": "module_categories",
+    "__industry_id": "Education",
+    "industry_id_business_key": "Education",
+    "industry_id_model": "module_industries",
+    "controllers": {
+        "article_comments_acl_cache": "\\module\\wiki\\controller\\article_comments_acl_cache",
+        "article_comments_group_acl_cache": "\\module\\wiki\\controller\\article_comments_group_acl_cache",
+        "article_comments": "\\module\\wiki\\controller\\article_comments",
+        "article_ratings": "\\module\\wiki\\controller\\article_ratings",
+        "article_reviews_acl_cache": "\\module\\wiki\\controller\\article_reviews_acl_cache",
+        "article_reviews_group_acl_cache": "\\module\\wiki\\controller\\article_reviews_group_acl_cache",
+        "article_reviews": "\\module\\wiki\\controller\\article_reviews",
+        "articles_acl_cache": "\\module\\wiki\\controller\\articles_acl_cache",
+        "articles_group_acl_cache": "\\module\\wiki\\controller\\articles_group_acl_cache",
+        "articles": "\\module\\wiki\\controller\\articles",
+        "article_subscriptions": "\\module\\wiki\\controller\\article_subscriptions",
+        "article_topics": "\\module\\wiki\\controller\\article_topics"
+    },
+    "models": {
+        "article_comments_acl_cache": "\\module\\wiki\\model\\article_comments_acl_cache",
+        "article_comments_group_acl_cache": "\\module\\wiki\\model\\article_comments_group_acl_cache",
+        "article_comments": "\\module\\wiki\\model\\article_comments",
+        "article_ratings_acl_cache": "\\module\\wiki\\model\\article_ratings_acl_cache",
+        "article_ratings_group_acl_cache": "\\module\\wiki\\model\\article_ratings_group_acl_cache",
+        "article_ratings": "\\module\\wiki\\model\\article_ratings",
+        "article_reviewed_by": "\\module\\wiki\\model\\article_reviewed_by",
+        "article_reviews_acl_cache": "\\module\\wiki\\model\\article_reviews_acl_cache",
+        "article_reviews_group_acl_cache": "\\module\\wiki\\model\\article_reviews_group_acl_cache",
+        "article_reviews": "\\module\\wiki\\model\\article_reviews",
+        "articles_acl_cache": "\\module\\wiki\\model\\articles_acl_cache",
+        "articles_group_acl_cache": "\\module\\wiki\\model\\articles_group_acl_cache",
+        "articles": "\\module\\wiki\\model\\articles",
+        "article_subscriptions": "\\module\\wiki\\model\\article_subscriptions",
+        "article_topics": "\\module\\wiki\\model\\article_topics",
+        "video": "\\module\\wiki\\model\\video"
+    },
+    "dependencies": {
+        "module": {
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "version": "1.0.10",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "masters": {
+                "version": "1.1.1",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "development_base": {
+                "version": "2.2.2",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "data_management": {
+                "version": "0.0.1",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "calendar": {
+                "version": "1.0.8",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "crm": {
+                "version": "1.2.21",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_masters_model_sic": "\\module\\masters\\model\\sic",
+            "_module_masters_model_regions": "\\module\\masters\\model\\regions",
+            "_module_development_base_model_modules": "\\module\\development_base\\model\\modules",
+            "_module_data_management_model_imports": "\\module\\data_management\\model\\imports",
+            "_module_calendar_model_events": "\\module\\calendar\\model\\events",
+            "_module_crm_model_accounts": "\\module\\crm\\model\\accounts",
+            "\\module\\document_management_base\\model\\attachments": "\\module\\document_management_base\\model\\attachments"
+        },
+        "controller": [
+        ],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl",
+            "_module_core_behaviour_sync_with_groups": "\\module\\core\\behaviour\\sync_with_groups"
+        }
+    },
+    "role_based_groups": [
+    ]
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="7282" lt="3804" ts="1345553064432" s="true" lb="Login" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="115560">
+  <httpSample t="3804" lt="3804" ts="1345553064432" s="true" lb="http://192.168.56.102/maax-0.0.x/" rc="302" rm="Found" tn="" dt="text" by="822"/>
+  <httpSample t="3463" lt="3444" ts="1345553068251" s="true" lb="http://192.168.56.102/maax-0.0.x//maax-0.0.x/core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="114738"/>
+</httpSample>
+<httpSample t="7756" lt="4278" ts="1345553063961" s="true" lb="Login" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="115560">
+  <httpSample t="4278" lt="4278" ts="1345553063961" s="true" lb="http://192.168.56.102/maax-0.0.x/" rc="302" rm="Found" tn="" dt="text" by="822"/>
+  <httpSample t="3471" lt="3448" ts="1345553068246" s="true" lb="http://192.168.56.102/maax-0.0.x//maax-0.0.x/core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="114738"/>
+</httpSample>
+<httpSample t="853" lt="824" ts="1345553071767" s="true" lb="campaigns__campaigns__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="172680"/>
+<httpSample t="947" lt="854" ts="1345553071771" s="true" lb="campaigns__campaigns__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="172680"/>
+<httpSample t="800" lt="762" ts="1345553072719" s="true" lb="campaigns__campaigns__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="172680"/>
+<httpSample t="905" lt="880" ts="1345553072621" s="true" lb="campaigns__campaigns__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="172680"/>
+<httpSample t="513" lt="496" ts="1345553073520" s="true" lb="campaigns__templates__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="65248"/>
+<httpSample t="560" lt="547" ts="1345553073527" s="true" lb="campaigns__templates__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="65246"/>
+<httpSample t="314" lt="294" ts="1345553074034" s="true" lb="campaigns__templates__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="65248"/>
+<httpSample t="337" lt="320" ts="1345553074088" s="true" lb="campaigns__templates__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="65248"/>
+<httpSample t="305" lt="284" ts="1345553074349" s="true" lb="campaigns__campaign_actions__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="62545"/>
+<httpSample t="329" lt="305" ts="1345553074426" s="true" lb="campaigns__campaign_actions__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="62545"/>
+<httpSample t="290" lt="273" ts="1345553074655" s="true" lb="campaigns__campaign_test_recipients__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="62671"/>
+<httpSample t="343" lt="321" ts="1345553074756" s="true" lb="campaigns__campaign_test_recipients__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="62671"/>
+<httpSample t="311" lt="301" ts="1345553074946" s="true" lb="campaigns__campaign_test_recipients__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="62671"/>
+<httpSample t="343" lt="320" ts="1345553075099" s="true" lb="campaigns__campaign_test_recipients__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="62671"/>
+<httpSample t="320" lt="307" ts="1345553075258" s="true" lb="campaigns__campaign_log_summary__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="59240"/>
+<httpSample t="348" lt="330" ts="1345553075442" s="true" lb="campaigns__campaign_log_summary__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="59240"/>
+<httpSample t="331" lt="302" ts="1345553075578" s="true" lb="campaigns__campaign_log_summary__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="59238"/>
+<httpSample t="334" lt="307" ts="1345553075791" s="true" lb="campaigns__campaign_log_summary__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="59240"/>
+<httpSample t="309" lt="294" ts="1345553075909" s="true" lb="campaigns__campaign_run_log__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="59104"/>
+<httpSample t="333" lt="314" ts="1345553076126" s="true" lb="campaigns__campaign_run_log__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="59104"/>
+<httpSample t="348" lt="329" ts="1345553076219" s="true" lb="campaigns__campaign_run_log__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="59104"/>
+<httpSample t="339" lt="320" ts="1345553076459" s="true" lb="campaigns__campaign_run_log__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="59104"/>
+<httpSample t="376" lt="341" ts="1345553076568" s="true" lb="campaigns__lists__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="103347"/>
+<httpSample t="419" lt="406" ts="1345553076799" s="true" lb="campaigns__lists__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="103347"/>
+<httpSample t="464" lt="409" ts="1345553076944" s="true" lb="campaigns__lists__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="103347"/>
+<httpSample t="480" lt="458" ts="1345553077219" s="true" lb="campaigns__lists__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="103347"/>
+<httpSample t="332" lt="311" ts="1345553077409" s="true" lb="campaigns__list_records__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="66178"/>
+<httpSample t="292" lt="274" ts="1345553077699" s="true" lb="campaigns__list_records__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="66178"/>
+<httpSample t="339" lt="319" ts="1345553077742" s="true" lb="campaigns__list_records__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="66178"/>
+<httpSample t="234" lt="223" ts="1345553077992" s="true" lb="campaigns__list_records__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="66178"/>
+
+</testResults>

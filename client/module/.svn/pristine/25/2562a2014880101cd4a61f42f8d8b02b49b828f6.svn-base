@@ -1,0 +1,19 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\hr\model;
+  class working_schedule_domain_logic extends \tushar\model{
+
+     public function beforeSave(){
+        parent::beforeSave();
+        if (isset($this->data['rule']) && !empty($this->data['rule'])) {
+            $error = check_syntex('<?php ' . $this->data['rule'] . "; ?>");
+            if (!empty($error)) {
+                throw new \Exception("Rule Contain " . $error);
+            }
+        }
+     }
+
+  }

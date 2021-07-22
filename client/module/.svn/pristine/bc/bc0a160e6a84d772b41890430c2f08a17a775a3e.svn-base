@@ -1,0 +1,175 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\wiki\model;
+
+class articles_domain_logic extends \data_model{
+
+    public function beforeSave()
+    {
+        $this->data['weight'] = 0;
+        if (isset($this->data['sic'])) {
+            $dt = current($this->sic->read($this->data['sic'], array()));
+            if (isset($dt['depth'])) {
+                $this->data['weight'] += $dt['depth'];
+            }
+        }
+        if (isset($this->data['region'])) {
+            $dt = current($this->regions->read($this->data['region'], array()));
+            if (isset($dt['depth'])) {
+                $this->data['weight'] += $dt['depth'];
+            }
+        }
+        if (isset($this->data['topic'])) {
+            $dt = current($this->article_topics->read($this->data['topic'], array()));
+            if (isset($dt['depth'])) {
+                $this->data['weight'] += $dt['depth'];
+            }
+        }
+
+
+        // when saved as draft then only author get access.
+        if (isset($this->data['action']) && isset($this->data['action']['draft'])) {
+            $this->acl['_acl'] = $this->acl['_acl_edit'] =
+                    $this->acl['_acl_delete'] = array('value' => 'u' . \tushar\user::read('id'), 'op' => 'add');
+            $this->data['stage'] = 'draft';
+        }
+
+        // when submitted then editor too get access.
+        if (isset($this->data['action']) && isset($this->data['action']['submit'])) {
+            $editors = \module\access_controls\model\roles::getInstance()->getUsers('Editor');
+           if (isset($this->data[$this->primaryKey]) && !empty($this->data[$this->primaryKey])) {
+                $data = current($this->read($this->data[$this->primaryKey], array()));
+                $this->acl['_acl'] = array('op' => 'add', 'value' => ' u' . $data['created_by']);
+            } else {
+                $this->acl['_acl'] = array('op' => 'add', 'value' => ' u' . \tushar\user::read('id'));
+            }
+
+            if (!empty($editors)) {
+                $this->acl['_acl']['value'] .= ' u' . implode(' u', $editors);
+                $this->acl['_acl_edit'] = $this->acl['_acl_delete'] = 'u' . implode(' u', $editors);
+            }
+            $this->data['stage'] = 'submitted';
+        }
+
+        // when denied then all except creator loose edit write.
+        if (isset($this->data['action']) && isset($this->data['action']['deny'])) {
+            $data = current($this->read($this->data[$this->primaryKey], array()));
+            $this->acl['_acl'] = array('op' => 'add', 'value' => ' u' . $data['created_by']);
+            $this->acl['_acl_edit'] = $this->acl['_acl_delete'] = array('op' => 'new', 'value' => ' u' . $data['created_by']);
+            $this->data['stage'] = 'draft';
+        }
+
+        // when send for review
+        if (isset($this->data['action']) && isset($this->data['action']['send_for_review'])) {
+            $articleReviewedBy = array();
+            if (isset($this->data['article_reviewed_by']) && is_array($this->data['article_reviewed_by'])) {
+                foreach ($this->data['article_reviewed_by'] as $info) {
+                    if (isset($info['user_id']) && !empty($info['user_id'])) {
+                        $articleReviewedBy[$info['user_id']] = $info['user_id'];
+                    }
+                }
+            }
+            if (empty($articleReviewedBy)) {
+                throw new \Exception(__('select users who should review this article','module'));
+            } else {
+                $this->acl['_acl'] = array('op' => 'add', 'value' => 'u' . implode(' u', $articleReviewedBy));
+            }
+        }
+
+
+        // when publish then all users from sic,regions group get access to.
+        if (isset($this->data['action']) && isset($this->data['action']['publish'])) {
+            $this->data['stage'] = 'published';
+            $this->data['publish_date'] = date('Y-m-d H:i:s');
+
+            $groupObj = \module\access_controls\model\groups::getInstance();
+            $condition = array();
+            if (isset($this->data['topic']) && !empty($this->data['topic'])) {
+                $condition[] = array("{$groupObj->alias}.related_to_model" => 'article_topics'
+                    , "{$groupObj->alias}.related_to" => $this->data['topic']
+                );
+            }
+            if (isset($this->data['region']) && !empty($this->data['region'])) {
+                $condition[] = array("{$groupObj->alias}.related_to_model" => 'regions'
+                    , "{$groupObj->alias}.related_to" => $this->data['region']
+                );
+            }
+            if (isset($this->data['sic']) && !empty($this->data['sic'])) {
+                $condition[] = array("{$groupObj->alias}.related_to_model" => 'sic'
+                    , "{$groupObj->alias}.related_to" => $this->data['sic']
+                );
+            }
+            $readers = $groupObj->find(
+                            array(
+                                'fields' => array("{$groupObj->alias}.{$groupObj->primaryKey}")
+                                , 'where' => array('OR' => $condition)
+                            )
+                    )->fetchAll(\PDO::FETCH_COLUMN, 0);
+
+            $this->acl['_acl'] = array('op' => 'add');
+            if (!empty($readers)) {
+                $this->acl['_acl']['value'] = 'g' . implode(' g', $readers);
+            }
+        }
+        // when unpublish then all users from sic,regions group loose access to.
+        if (isset($this->data['action']) && isset($this->data['action']['unpublish'])) {
+            $this->data['stage'] = 'submitted';
+            $this->data['publish_date'] = null;
+            $condition = array();
+            $groupObj = \module\access_controls\model\groups::getInstance();
+            if (isset($this->data['topic']) && !empty($this->data['topic'])) {
+                $condition[] = array("{$groupObj->alias}.related_to_model" => 'article_topics'
+                    , "{$groupObj->alias}.related_to" => $this->data['topic']
+                );
+            }
+            if (isset($this->data['region']) && !empty($this->data['region'])) {
+                $condition[] = array("{$groupObj->alias}.related_to_model" => 'regions'
+                    , "{$groupObj->alias}.related_to" => $this->data['region']
+                );
+            }
+            if (isset($this->data['sic']) && !empty($this->data['sic'])) {
+                $condition[] = array("{$groupObj->alias}.related_to_model" => 'sic'
+                    , "{$groupObj->alias}.related_to" => $this->data['sic']
+                );
+            }
+
+            $readers = $groupObj->find(
+                            array(
+                                'fields' => array("{$groupObj->alias}.{$groupObj->primaryKey}")
+                                , 'where' => array('OR' => $condition)
+                            )
+                    )->fetchAll(\PDO::FETCH_COLUMN, 0);
+
+            $this->acl['_acl'] = array('op' => 'sub');
+            if (!empty($readers)) {
+                $this->acl['_acl']['value'] = 'g' . implode(' g', $readers);
+            }
+        }
+
+        /*
+        if (isset($this->data['video']) && isset($this->data[$this->primaryKey])) {
+            $video = current($this->data['video']);
+            if (isset($video['tmp_name'])) {
+                $videos = $this->find(
+                                array(
+                                    'fields' => array("{$this->video->alias}.{$this->video->primaryKey}"),
+                                    'where' => array("{$this->alias}.{$this->primaryKey}" => $this->data[$this->primaryKey]),
+                                    'limit' => 0
+                                )
+                        )->fetchAll(\PDO::FETCH_COLUMN, 0);
+                foreach ($videos as $video) {
+                    $this->video->delete($video, array('atomic' => true));
+                }
+            }
+        }
+         *
+         */
+        parent::beforeSave();
+    }
+
+}

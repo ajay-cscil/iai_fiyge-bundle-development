@@ -1,0 +1,182 @@
+{
+    "business_rules_group_acl_cache": {
+        "model_class": "\\module\\brules\\model\\business_rules_group_acl_cache",
+        "design": [
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2015-04-21 23:46:13",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "5536e145-ccb8-439b-8787-05463c2f1780",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": "\\module\\brules\\model\\business_rules_group_acl_cache",
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27262871-e746-11e3-aad5-0800275f9930",
+                "name": "\\module\\brules\\model\\business_rules_group_acl_cache",
+                "owned_by": null,
+                "parent_id": null,
+                "properties": "{\"displayField\":\"id\",\"primaryKey\":\"id\",\"parentClass\":\"\\\\acl_model\",\"source\":\"acl\",\"table\":\"brules__business_rules_group_acl_cache\"}",
+                "revision": null,
+                "template": "model"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2015-04-21 23:46:13",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "5536e145-31a8-4fab-b099-05463c2f1780",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27262871-e746-11e3-aad5-0800275f9930",
+                "name": "group_id",
+                "owned_by": null,
+                "parent_id": "5536e145-ccb8-439b-8787-05463c2f1780",
+                "properties": "{\"group_id\":[{\"rule\":1024,\"params\":{\"options\":[\"\\\\tushar\\\\validation\",\"notEmpty\"]}}]}",
+                "revision": null,
+                "template": "validate"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2015-04-21 23:46:13",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "5536e145-5f64-4c4e-ae1c-05463c2f1780",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27262871-e746-11e3-aad5-0800275f9930",
+                "name": "group_id",
+                "owned_by": null,
+                "parent_id": "5536e145-ccb8-439b-8787-05463c2f1780",
+                "properties": "{\"group_id\":{\"column\":\"group_id\",\"ntype\":\"int\",\"length\":\"19\"}}",
+                "revision": null,
+                "template": "fields"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2015-04-21 23:46:13",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "5536e145-f914-4fed-88d3-05463c2f1780",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27262871-e746-11e3-aad5-0800275f9930",
+                "name": "id",
+                "owned_by": null,
+                "parent_id": "5536e145-ccb8-439b-8787-05463c2f1780",
+                "properties": "{\"id\":{\"column\":\"id\",\"ntype\":\"int\",\"length\":\"19\"}}",
+                "revision": null,
+                "template": "fields"
+            }
+        ],
+        "schema": {
+            "name": "brules__business_rules_group_acl_cache",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "{\"displayField\":\"id\"}",
+            "schema": {
+                "columns": {
+                    "group_id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "brules__business_rules_group_acl_cache",
+                            "column": "id"
+                        },
+                        "2": {
+                            "type": "UNIQUE",
+                            "table": "brules__business_rules_group_acl_cache",
+                            "column": "group_id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

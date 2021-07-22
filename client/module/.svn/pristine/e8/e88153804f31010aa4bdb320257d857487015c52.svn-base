@@ -1,0 +1,19 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\admin_module_installer\model;
+  class modules extends \module\admin_module_installer\model\modules_domain_logic
+  {
+       public $source = 'design';
+       public $table = 'development_base__modules';
+       public $parentClass = '\\module\\development_base\\model\\modules';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+  }

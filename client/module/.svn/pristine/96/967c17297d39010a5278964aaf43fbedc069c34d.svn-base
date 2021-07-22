@@ -1,0 +1,43 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\flexflow\model;
+
+class stages_domain_logic extends \tushar\model{
+
+    public $isSystemModel = 1;
+
+    public function enterStage() {
+        
+    }
+
+    public function exitStage() {
+        
+    }
+
+    public function beforeFind() {
+        if (!isset($this->query['where'])) {
+            $this->query['where'] = array();
+        }
+        if (isset($this->query['filter_by_type_of_stage_id']) && !empty($this->query['filter_by_type_of_stage_id'])) {
+            $this->query['where']["type_id"] = \select("type_id")
+                    ->from($this)
+                    ->where('id', $this->query['filter_by_type_of_stage_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN);
+        }
+    }
+
+    public function exportRelatedModuleData($moduleID, $manifest, $page=null) {
+        return array();
+    }
+
+    public function importRelatedModuleData($module, $manifest, $records, $options=array()) {
+        return true;
+    }
+
+}

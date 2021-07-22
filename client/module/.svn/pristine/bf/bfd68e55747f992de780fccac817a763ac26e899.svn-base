@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class balance_sheet extends \module\accounting\controller\balance_sheet_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\balance_sheet';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

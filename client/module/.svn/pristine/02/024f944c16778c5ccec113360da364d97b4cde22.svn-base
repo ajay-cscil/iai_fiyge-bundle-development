@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\contracts\source;
+
+interface source {
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     */
+    public static function process($data, $params=array());
+}

@@ -1,0 +1,12 @@
+<?php
+
+$configuration = array('tracker' => array());
+$configuration['tracker']['email_open'] = true;
+$configuration['tracker']['click_through'] = true;
+$configuration['tracker']['unsubscribe'] = true;
+$configuration['tracker']['css_to_style'] = true;
+$configuration['delete_template_file'] = true;
+$configuration['delete_temporary_table'] = true;
+$configuration['debug_output_directory'] = TMP . DS . 'emails' . DS;
+$configuration['default_from_email'] = "admin@maaxframe.com";
+$configuration['email_open_tracker_markup'] = '<img src="$url" name="0.1_ACCOUNT.IMAGE.1" align="right" border="0">';

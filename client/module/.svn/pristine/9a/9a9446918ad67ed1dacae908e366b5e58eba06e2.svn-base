@@ -1,0 +1,10 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\admin_module_installer\controller;
+  class modules_domain_logic extends \module\development_base\controller\modules{
+
+
+  }

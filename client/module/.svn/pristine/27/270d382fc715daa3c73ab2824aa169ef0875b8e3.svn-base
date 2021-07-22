@@ -1,0 +1,162 @@
+{
+    "version": "1.1.1",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "id": "276",
+    "name": "crm_cruise",
+    "license_agreement": null,
+    "description": "",
+    "company": "Primary Modules",
+    "author": "Tushar Takkar",
+    "is_active": "1",
+    "created_by": "-1",
+    "is_public": null,
+    "modified_by": null,
+    "owned_by": null,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "created": "2012-12-18",
+    "modified": null,
+    "revision": null,
+    "flags": null,
+    "label": "Vertical: CRM Cruise",
+    "category_id": "2",
+    "industry_id": "3",
+    "latest_version": null,
+    "is_installed": "1",
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/crm_cruise",
+    "__created_by": "System Admin",
+    "created_by_model": "created_by_user",
+    "__modified_by": "",
+    "__category_id": "CRM",
+    "category_id_model": "categories",
+    "__industry_id": "Cruise Industry",
+    "industry_id_model": "industries",
+    "controllers": {
+        "accounts": "\\module\\crm_cruise\\controller\\accounts",
+        "config_account_types": "\\module\\crm_cruise\\controller\\config_account_types",
+        "config_departments": "\\module\\crm_cruise\\controller\\config_departments",
+        "config_industries": "\\module\\crm_cruise\\controller\\config_industries",
+        "config_lead_sources": "\\module\\crm_cruise\\controller\\config_lead_sources",
+        "config_lead_status": "\\module\\crm_cruise\\controller\\config_lead_status",
+        "config_opportunity_types": "\\module\\crm_cruise\\controller\\config_opportunity_types",
+        "config_priorities": "\\module\\crm_cruise\\controller\\config_priorities",
+        "config_product_categories": "\\module\\crm_cruise\\controller\\config_product_categories",
+        "config_ratings": "\\module\\crm_cruise\\controller\\config_ratings",
+        "config_sales_stages": "\\module\\crm_cruise\\controller\\config_sales_stages",
+        "configurations": "\\module\\crm_cruise\\controller\\configurations",
+        "contacts": "\\module\\crm_cruise\\controller\\contacts",
+        "leads": "\\module\\crm_cruise\\controller\\leads",
+        "opportunities": "\\module\\crm_cruise\\controller\\opportunities",
+        "products": "\\module\\crm_cruise\\controller\\products"
+    },
+    "models": {
+        "accounts_acl_cache": "\\module\\crm_cruise\\model\\accounts_acl_cache",
+        "accounts_group_acl_cache": "\\module\\crm_cruise\\model\\accounts_group_acl_cache",
+        "accounts": "\\module\\crm_cruise\\model\\accounts",
+        "config_account_types": "\\module\\crm_cruise\\model\\config_account_types",
+        "config_departments": "\\module\\crm_cruise\\model\\config_departments",
+        "config_industries": "\\module\\crm_cruise\\model\\config_industries",
+        "config_lead_sources": "\\module\\crm_cruise\\model\\config_lead_sources",
+        "config_lead_status": "\\module\\crm_cruise\\model\\config_lead_status",
+        "config_opportunity_types": "\\module\\crm_cruise\\model\\config_opportunity_types",
+        "config_priorities": "\\module\\crm_cruise\\model\\config_priorities",
+        "config_product_categories": "\\module\\crm_cruise\\model\\config_product_categories",
+        "config_ratings": "\\module\\crm_cruise\\model\\config_ratings",
+        "config_sales_stages": "\\module\\crm_cruise\\model\\config_sales_stages",
+        "configurations": "\\module\\crm_cruise\\model\\configurations",
+        "contacts_acl_cache": "\\module\\crm_cruise\\model\\contacts_acl_cache",
+        "contacts_group_acl_cache": "\\module\\crm_cruise\\model\\contacts_group_acl_cache",
+        "contacts": "\\module\\crm_cruise\\model\\contacts",
+        "leads_acl_cache": "\\module\\crm_cruise\\model\\leads_acl_cache",
+        "leads_group_acl_cache": "\\module\\crm_cruise\\model\\leads_group_acl_cache",
+        "leads": "\\module\\crm_cruise\\model\\leads",
+        "leads_revision_log": "\\module\\crm_cruise\\model\\leads_revision_log",
+        "opportunities_acl_cache": "\\module\\crm_cruise\\model\\opportunities_acl_cache",
+        "opportunities_group_acl_cache": "\\module\\crm_cruise\\model\\opportunities_group_acl_cache",
+        "opportunities": "\\module\\crm_cruise\\model\\opportunities",
+        "products": "\\module\\crm_cruise\\model\\products"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": [],
+            "core": [],
+            "access_controls": {
+                "version": "1.0.1",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "masters": {
+                "version": "1.1.1",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            }
+        },
+        "model": {
+            "\\module\\access_controls\\model\\users": "\\module\\access_controls\\model\\users",
+            "\\module\\crm_base\\model\\addresses": "\\module\\crm_base\\model\\addresses",
+            "\\module\\crm_base\\model\\email_addresses": "\\module\\crm_base\\model\\email_addresses",
+            "\\module\\crm_base\\model\\phone_numbers": "\\module\\crm_base\\model\\phone_numbers",
+            "\\module\\help\\model\\notes": "\\module\\help\\model\\notes",
+            "\\module\\logging\\model\\action_history": "\\module\\logging\\model\\action_history",
+            "\\module\\calendar\\model\\task_related_to": "\\module\\calendar\\model\\task_related_to",
+            "\\module\\masters\\model\\countries": "\\module\\masters\\model\\countries",
+            "\\module\\document_management_base\\model\\attachments": "\\module\\document_management_base\\model\\attachments",
+            "\\module\\masters\\model\\config_salutations": "\\module\\masters\\model\\config_salutations",
+            "\\module\\masters\\model\\currencies": "\\module\\masters\\model\\currencies"
+        },
+        "controller": [],
+        "behaviour": {
+            "\\module\\access_controls\\behaviour\\acl": "\\module\\access_controls\\behaviour\\acl",
+            "\\module\\brules\\behaviour\\business_rules": "\\module\\brules\\behaviour\\business_rules"
+        }
+    },
+    "sequence": "6913"
+}

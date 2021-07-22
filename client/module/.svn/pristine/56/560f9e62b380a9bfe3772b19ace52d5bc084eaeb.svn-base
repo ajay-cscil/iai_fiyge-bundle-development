@@ -1,0 +1,31 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\wiki\model;
+
+class article_comments_domain_logic extends \data_model{
+
+    public function beforeSave()
+    {
+        if (isset($this->data['action']) && isset($this->data['action']['publish'])) {
+            $this->data['publish_date'] = date('Y-m-d H:i:s');
+        }
+        if (isset($this->data['action']) && isset($this->data['action']['unpublish'])) {
+            $this->data['publish_date'] = null;
+        }
+        if (isset($this->data['action']) && isset($this->data['action']['submit'])) {
+            $this->data['publish_date'] = null;
+            $editors = \module\access_controls\model\roles::getInstance()->getUsers(array('Editor', 'Moderator'));
+            if (!empty($editors)) {
+                $this->acl['_acl'] = array('value' => 'u' . implode(' u', $editors), 'op' => 'add');
+            }
+            $this->acl['_acl_edit'] = $this->acl['_acl_delete'] = $this->acl['_acl'];
+        }
+        parent::beforeSave();
+    }
+
+}

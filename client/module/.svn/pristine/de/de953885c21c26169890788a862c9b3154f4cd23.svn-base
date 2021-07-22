@@ -1,0 +1,124 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\hr\model;
+
+class timesheets_domain_logic extends \data_model{
+
+    public function beforeValidate() {
+        parent::beforeValidate();
+
+        if (
+                isset($this->data['employee_id']) &&
+                isset($this->data['start_date']) &&
+                isset($this->data['end_date']) &&
+                isset($this->data['total_timesheet'])) {
+            $attendance = $this->getAttendance($this->data['employee_id'], $this->data['start_date'], $this->data['end_date']);
+            $this->data['total_attendance'] = 0;
+            if (!empty($attendance)) {
+                $this->data['total_attendance'] = $this->computeAttendanceTime($attendance);
+            }
+            $this->data['difference'] = $this->data['total_attendance'] - $this->data['total_timesheet'];
+        }
+        if (isset($this->data['start_date'])) {
+            $this->data['name'] = "Week " . date('W', strtotime($this->data['start_date']));
+        }
+
+        $employee = $this->data['employee_id'];
+        if (
+                isset($this->data['employee_id']) &&
+                isset($this->data['start_date']) &&
+                isset($this->data['end_date'])
+        ) {
+            $where = array('employee_id' => $employee);
+            if (isset($this->data[$this->primaryKey]) && !empty($this->data[$this->primaryKey])) {
+                $where[$this->primaryKey . ' != '] = $this->data[$this->primaryKey];
+            }
+            $timesheet = \select(array('*'))
+                    ->from($this)
+                    ->inserted()
+                    ->where($where)
+                    ->where(array('OR' => array(
+                            // within old range  
+                            array('start_date <=' => $this->data['start_date'], 'end_date >=' => $this->data['end_date']),
+                            // outside old range
+                            array('start_date >=' => $this->data['start_date'], 'end_date <=' => $this->data['end_date']),
+                            // end is witin old range    
+                            array('start_date <=' => $this->data['end_date'], 'end_date >=' => $this->data['end_date']),
+                            // start is within old range    
+                            array('start_date <=' => $this->data['start_date'], 'end_date >=' => $this->data['start_date']),
+                )))
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            if (!empty($timesheet)) {
+                throw new \Exception(
+                sprintf(
+                        __('Could not save this timesheet as start and end date overlaps with date "%s" to "%s" of timesheet[%s]', "module"), \tushar\locale::localize($timesheet['start_date'], DATE), \tushar\locale::localize($timesheet['end_date'], DATE), $timesheet['name']
+                )
+                );
+            }
+        }
+    }
+
+    public function afterRead(&$data) {
+        parent::afterRead($data);
+        //$data['total_attendance'] = 0;
+        //$attendance = $this->getAttendance($data['employee_id'], $data['start_date'], $data['end_date']);
+        //if (!empty($attendance)) {
+        //    $data['total_attendance'] = $this->computeAttendanceTime($attendance);
+        //}
+    }
+
+    public function getAttendance($employeeID, $startDate, $endDate) {
+        $attendanceObject = \module\attendance\model\attendances::getInstance();
+        return \select("*")
+                        ->from($attendanceObject)
+                        ->inserted()
+                        ->where(
+                                array("{$attendanceObject->alias}.employee_id" => $employeeID,
+                                    "{$attendanceObject->alias}.datetime  >=" => $startDate,
+                                    "{$attendanceObject->alias}.datetime <=" => $endDate
+                                )
+                        )->order("{$attendanceObject->alias}.datetime ASC")
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll();
+    }
+
+    public function computeAttendanceTime($attendance) {
+        if ($attendance[0]['attendance_action'] == 'signout') {
+            array_unshift($attendance, array('datetime' => $this->data['start_date'] . " 00:00:01", 'attendance_action' => 'signin'));
+        }
+        $count = count($attendance) - 1;
+        if ($attendance[$count]['attendance_action'] == 'signin') {
+            array_unshift($attendance, array('datetime' => $this->data['end_date'] . " 23:59:59", 'attendance_action' => 'signout'));
+        }
+        $list = array();
+        $i = 0;
+        foreach ($attendance as $a) {
+            if (!isset($list[$i])) {
+                $list[$i] = array();
+            }
+            if ($a['attendance_action'] == 'signin' && !isset($list[$i]['signin'])) {
+                $list[$i]['signin'] = $a['datetime'];
+            }
+            if ($a['attendance_action'] == 'signout') {
+                $list[$i]['signout'] = $a['datetime'];
+                $i++;
+            }
+        }
+        $time = 0;
+        if (!empty($list)) {
+            foreach ($list as $l) {
+                $time+=(strtotime($l['signout']) - strtotime($l['signin'])) / 3600;
+            }
+        }
+        return $time;
+    }
+
+}

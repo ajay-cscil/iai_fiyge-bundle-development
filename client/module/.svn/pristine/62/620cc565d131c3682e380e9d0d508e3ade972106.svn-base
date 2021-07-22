@@ -1,0 +1,48 @@
+<?php
+
+namespace module\flexflow\helper\data_view;
+
+class flexflow {
+
+    public static function actor($val, &$column, $request, $paginate, $primaryKey, $record) {
+        $return = "{$record['users.first_name']} {$record['users.last_name']}";
+
+
+
+        return $return;
+    }
+
+    public static function active_stage($val, &$column, $request, $paginate, $primaryKey, $record) {
+        if ($val == 1)
+            $val = '<span class="ui-icon ui-icon-arrowthick-1-e float-right"></span>';
+        return $val;
+    }
+
+    public static function active_stage_row($request, $paginate, $primaryKey, $record) {
+        if (isset($record['.active']) && $record['.active'] == 1) {
+            return ' data-theme="e" ';
+        }
+    }
+
+    public static function stages($val, &$column, $request, $paginate, $primaryKey, $record) {
+
+        $tooltip = '';
+        if (!empty($record['before_enter_business_rules.name'])) {
+            $tooltip .='<span><b>Before Enter Rule:</b> <a ajax=1 href="' . $request->base . 'brules/business_rules/view?id=' . $record['before_enter_business_rules.id'] . '">' . $record['before_enter_business_rules.name'] . '</a></span>
+            <div>' . $record['before_enter_business_rules.description'] . '</div>';
+        }
+        if (!empty($record['before_exit_business_rules.name'])) {
+            $tooltip .='<span><b>Before Exit Rule:</b> <a  ajax=1 href="' . $request->base . 'brules/business_rules/view?id=' . $record['before_exit_business_rules.id'] . '">' . $record['before_exit_business_rules.name'] . '</a></span>
+            <div>' . $record['before_exit_business_rules.description'] . '</div>';
+        }
+        return $val . (!empty($tooltip) ? '<span class="field-tooltip" title="' . \tushar\html::escape('<div>' . $tooltip . '</div>') . '">?</span>' : '');
+    }
+
+    public static function message($val, &$column, $request, $paginate, $primaryKey, $record) {
+        if (!empty($val)) {
+            return '<span class="field-tooltip" style="display:inline-block;" icon_class="no-icon" title="' . \tushar\html::escape('<div>' . $val . '</div>') . '"><img src="'.\tushar\request::base().'img/icons/quotes.png"></span>';
+        }
+        return $val;
+    }
+
+}

@@ -1,0 +1,197 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+/**
+ * @author Pooja Pednekar<ppednekar@primarymodules.com>
+ */
+class TestViewMethod extends UnitTestCase {
+
+    private $data;
+    private $info;
+    private $base_url;
+    private $username;
+    private $password;
+
+    /**
+     * @author Pooja Pednekar<ppednekar@primarymodules.com>
+     *
+     */
+    public function testView() {
+        \tushar\configuration::write('test_mode', false);
+        foreach (\module\benchmarking\model\configurations::getInstance()
+                ->find(array('limit' => 0))
+                ->fetch(\PDO::FETCH_ASSOC) as $info) {
+            if (property_exists($this, $info['name'])) {
+                $this->{$info['name']} = $info['value'];
+            }
+        }
+        \tushar\configuration::write('test_mode', true);
+
+
+
+        $data = array();
+        $data['data[users][user_name]'] = $this->username;
+        $data['data[users][user_password]'] = $this->password;
+
+        $data = http_build_query($data, '', '&');
+        $base_url = $this->base_url;
+        $url = $base_url . 'core/home/dashboard';
+
+        $connection = curl_init();
+        curl_setopt($connection, CURLOPT_VERBOSE, false);
+        //curl_setopt($connection, CURLOPT_SSL_VERIFYPEER, false);
+        //curl_setopt($connection, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($connection, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($connection, CURLOPT_TIMEOUT, 10);
+        //curl_setopt($connection, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Brand Labs Parsons)');
+        curl_setopt($connection, CURLOPT_AUTOREFERER, true);
+        curl_setopt($connection, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($connection, CURLOPT_COOKIEFILE, tempnam('/tmp', 'maax_tmp.txt'));
+        curl_setopt($connection, CURLOPT_URL, $url);
+        curl_setopt($connection, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($connection, CURLOPT_POST, 1);
+        // curl_setopt($curlHandle, CURLOPT_HTTPHEADER, array('Accept: ' . $this->acceptType));
+        $this->curl_redir_exec($connection);
+        $responseObject = \module\benchmarking\model\responses::getInstance();
+
+
+        $app_menu = "\\module\\development_base\\model\\menus";
+        $appMenuObj = $app_menu::getInstance();
+        $controller_urls = \select("{$appMenuObj->alias}.*")
+                ->from($appMenuObj)
+                ->inserted()
+                ->where("{$appMenuObj->alias}.type", 'controller')
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        if (is_array($controller_urls)) {
+            foreach ($controller_urls as $k => $v) {
+                $index_urls = \select("{$appMenuObj->alias}.*")
+                        ->from($appMenuObj)
+                        ->inserted()
+                        ->where("{$appMenuObj->alias}.type", 'action')
+                        ->where("{$appMenuObj->alias}.lft >", $v['lft'])
+                        ->where("{$appMenuObj->alias}.rgt <", $v['rgt'])
+                        ->where("{$appMenuObj->alias}.url like", '%view%')
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+                foreach ($index_urls as $k1 => $v1) {
+                    if (isset($v1['url'])) {
+                        $urlParts = explode('/', $v1['url']);
+                        if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+                            $fields = array();
+                            $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+
+                            try {
+                                $modelObj = $model::getInstance();
+                                $model_record = \select("$modelObj->alias.*")
+                                        ->from($modelObj)
+                                        ->inserted()
+                                        ->limit(1)
+                                        ->execute()
+                                        ->fetchAll(\PDO::FETCH_ASSOC);
+                                if (isset($model_record[0]) && isset($model_record[0][$modelObj->primaryKey])) {
+                                    $url = $base_url . $v1['url'] . ".json/id:{$model_record[0][$modelObj->primaryKey]}";
+                                    curl_setopt($connection, CURLOPT_URL, $url);
+                                    $this->curl_redir_exec($connection, $url);
+
+                                    if (isset($this->data[$url]['data']) && isset($this->data[$url]['data'][$modelObj->alias]) && is_array($this->data[$url]['data']) && is_array($this->data[$url]['data'][$modelObj->alias])) {
+
+                                        foreach ($this->data[$url]['data'][$modelObj->alias] as $fieldLabel => $fieldValue) {
+                                            if (is_array($this->data[$url]['data'][$modelObj->alias][$fieldLabel])) {
+                                                unset($this->data[$url]['data'][$modelObj->alias][$fieldLabel]);
+                                            }
+                                        }
+                                        $intersect = array_intersect($model_record[0], $this->data[$url]['data'][$modelObj->alias]);
+
+                                        $result = array_diff($intersect, $model_record[0]);
+                                        $this->assertTrue(count($result) == 0, "View of '$url' is failing");
+                                        $error = "No Error";
+                                        if (count($result) != 0) {
+                                            $error = "View of '$url' is failing";
+                                        }
+                                        if (isset($this->info[$url])) {
+                                            $responseObject->data = $this->info[$url];
+                                            $responseObject->data['error'] = $error;
+                                            $responseObject->save($responseObject->data, array('atomic' => true));
+                                        }
+                                    }
+                                }
+                            } catch (Exception $e) {
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        curl_close($connection);
+    }
+
+    private function curl_redir_exec($ch, $url= null) {
+        static $curl_loops = 0;
+        static $curl_max_loops = 5;
+
+        if ($curl_loops++ >= $curl_max_loops) {
+            $curl_loops = 0;
+            return false;
+        }
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        $data = curl_exec($ch);
+        if (isset($url)) {
+            $this->info[$url] = curl_getinfo($ch);
+            if ($this->isJson($data)) {
+                $this->data[$url] = json_decode($data, true);
+            }
+        }
+        $data = explode("\r\n\r\n", $data, 2);
+        $header = isset($data[0]) ? $data[0] : $data;
+        $data = isset($data[1]) ? $data[1] : $data;
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ($http_code == 301 || $http_code == 302) {
+            $matches = array();
+            preg_match('/Location:(.*?)\n/', $header, $matches);
+
+            $url = @parse_url(trim(array_pop($matches)));
+            if (!$url) {
+                //couldn't process the url to redirect to
+                $curl_loops = 0;
+                return $data;
+            }
+            $last_url = parse_url(curl_getinfo($ch, CURLINFO_EFFECTIVE_URL));
+            if (!isset($url['scheme'])) {
+                $url['scheme'] = $last_url['scheme'];
+            }
+            if (!isset($url['host'])) {
+                $url['host'] = $last_url['host'];
+            }
+            if (!isset($url['path'])) {
+                $url['path'] = $last_url['path'];
+            }
+
+            //Add slash if it is missing
+            if (!(strpos($url['path'], '/') === 0)) {
+                $url['path'] = '/' . $url['path'];
+            }
+
+
+            $new_url = $url['scheme'] . '://' . $url['host'] . $url['path'] . (isset($url['query']) ? '?' . $url['query'] : '');
+            curl_setopt($ch, CURLOPT_URL, $new_url);
+            return $this->curl_redir_exec($ch);
+        } else {
+            $curl_loops = 0;
+            return $data;
+        }
+    }
+
+    private function isJson($string) {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
+
+}
+
+?>

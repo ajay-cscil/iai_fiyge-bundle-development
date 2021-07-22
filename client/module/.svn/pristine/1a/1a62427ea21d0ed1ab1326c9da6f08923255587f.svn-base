@@ -1,0 +1,161 @@
+{
+    "version": "0.0.1-alpha",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "id": "272633c7-e746-11e3-aad5-0800275f9930",
+    "name": "webforms",
+    "label": "Depricated: Webforms (Replaced with REST/JSON-RPC API)",
+    "license_agreement": null,
+    "description": "",
+    "company": "Primary Modules Infosystem Pvt. Ltd.",
+    "author": "Tushar Takkar",
+    "is_active": "1",
+    "created_by": "-1",
+    "modified_by": "-1",
+    "owned_by": "-1",
+    "is_public": null,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "created": "2014-06-18",
+    "modified": null,
+    "revision": null,
+    "flags": null,
+    "category_id": "2",
+    "industry_id": "2",
+    "latest_version": "1.0.2",
+    "is_installed": "1",
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/webforms",
+    "current_stable_version": "1.0.2",
+    "__created_by": "System Admin",
+    "created_by_model": "created_by_user",
+    "__modified_by": "",
+    "__owned_by": "System Admin",
+    "owned_by_model": "owned_by_user",
+    "__category_id": "CRM",
+    "category_id_business_key": "CRM",
+    "category_id_model": "module_categories",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "industry_id_model": "module_industries",
+    "controllers": {
+        "leads": "\\module\\webforms\\controller\\leads"
+    },
+    "models": {
+        "leads": "\\module\\webforms\\model\\leads"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "version": "1.0.10",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "masters": {
+                "version": "1.1.1",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "crm": {
+                "version": "1.2.21",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "campaigns": {
+                "version": "1.2.8",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "product": {
+                "version": "1.1.3",
+                "company": "Primary Modules",
+                "author": "Tarun Behal"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_masters_model_config_salutations": "\\module\\masters\\model\\config_salutations",
+            "_module_crm_model_config_industries": "\\module\\crm\\model\\config_industries",
+            "_module_crm_model_config_ratings": "\\module\\crm\\model\\config_ratings",
+            "_module_crm_model_config_lead_sources": "\\module\\crm\\model\\config_lead_sources",
+            "_module_crm_model_config_lead_status": "\\module\\crm\\model\\config_lead_status",
+            "_module_crm_model_accounts": "\\module\\crm\\model\\accounts",
+            "_module_masters_model_currencies": "\\module\\masters\\model\\currencies",
+            "_module_crm_model_leads": "\\module\\crm\\model\\leads",
+            "_module_masters_model_countries": "\\module\\masters\\model\\countries",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_campaigns_model_campaigns": "\\module\\campaigns\\model\\campaigns",
+            "_module_crm_model_config_lead_type": "\\module\\crm\\model\\config_lead_type",
+            "_module_product_model_products": "\\module\\product\\model\\products",
+            "\\module\\crm\\model\\leads": "\\module\\crm\\model\\leads"
+        },
+        "controller": {
+            "\\module\\crm\\controller\\leads": "\\module\\crm\\controller\\leads"
+        },
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl",
+            "_module_brules_behaviour_business_rules": "\\module\\brules\\behaviour\\business_rules"
+        }
+    },
+    "role_based_groups": [
+    ]
+}

@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\controller;
+  class move_to_stages extends \module\flexflow\controller\move_to_stages_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow\\model\\move_to_stages';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

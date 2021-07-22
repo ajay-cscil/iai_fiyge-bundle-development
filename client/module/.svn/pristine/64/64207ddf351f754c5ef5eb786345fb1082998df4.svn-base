@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\purchase\controller;
+  class purchase_orders extends \module\purchase\controller\purchase_orders_domain_logic
+  {
+       public $modelClass = '\\module\\purchase\\model\\purchase_orders';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

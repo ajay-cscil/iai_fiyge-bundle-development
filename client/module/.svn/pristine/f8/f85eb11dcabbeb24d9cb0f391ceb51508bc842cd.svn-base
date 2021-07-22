@@ -1,0 +1,34 @@
+<?php
+
+/*
+$form = $this->get('form', false);
+if ($form !== false)
+    \tushar\form::render($this, $form);
+else
+    throw new \Exception(__('Missing form defination in edit view'));
+
+ */
+
+echo $response= $this->request("{$report_module}/{$report_controller}/index?q=".  rawurlencode(json_encode($report_q)), 2);
+
+?>
+ 
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    $("#custom-search-criteria-control-trigger").click(function(){
+        $("#custom-search-criteria-control").hide();
+
+        $("#custom-search-criteria").show();
+        $("#custom-search-actions").show();
+
+    });
+    <?php
+    if($this->get('show_search_panel') ==1){
+       echo ' $("#custom-search-criteria-control-trigger").trigger("click");';
+
+    }
+
+    ?>
+}) ;
+</script>

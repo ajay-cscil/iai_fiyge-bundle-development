@@ -1,0 +1,185 @@
+{
+    "leads_revision_log": {
+        "model_class": "\\module\\crm\\model\\leads_revision_log",
+        "design": [],
+        "schema": {
+            "name": "crm__leads_revision_log",
+            "engine": "MyISAM",
+            "version": "10",
+            "row_format": "Dynamic",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "",
+            "schema": {
+                "columns": {
+                    "created": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "created_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "deleted": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "diff": {
+                        "type": "text",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "",
+                        "ntype": "string"
+                    },
+                    "flags": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": null,
+                        "extra": "auto_increment",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "modified": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "modified_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "related_to": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "related_to_model": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "revision": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "crm__leads_revision_log",
+                            "column": "id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

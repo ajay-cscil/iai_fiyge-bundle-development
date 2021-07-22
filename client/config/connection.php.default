@@ -1,0 +1,46 @@
+<?php
+
+$connections = array();
+
+$connections['default'] = array(
+    'host' => '127.0.0.1',
+    'port' => 3306,
+    'login' => 'user_name',
+    'password' => 'password',
+    'driver' => 'mysql',
+    'database' => 'tushar');
+
+$connections['design'] = array(
+    'host' => '127.0.0.1',
+    'port' => 3306,
+    'login' => 'user_name',
+    'password' => 'password',
+    'driver' => 'mysql',
+    'database' => 'tushar_design');
+
+$connections['test_default'] = array(
+    'host' => '127.0.0.1',
+    'port' => 3306,
+    'login' => 'user_name',
+    'password' => 'password',
+    'driver' => 'mysql',
+    'database' => 'tushar');
+
+$connections['test_design'] = array(
+    'host' => '127.0.0.1',
+    'port' => 3306,
+    'login' => 'user_name',
+    'password' => 'password',
+    'driver' => 'mysql',
+    'database' => 'tushar_design');
+
+$connections['acl'] = array(
+    'host' => '127.0.0.1',
+    'port' => 3306,
+    'login' => 'user_name',
+    'password' => 'password',
+    'driver' => 'mysql',
+    'database' => 'tushar_acl');
+
+$connections['logs'] = array();
+

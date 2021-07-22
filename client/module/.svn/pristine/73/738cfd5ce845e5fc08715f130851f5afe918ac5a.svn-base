@@ -1,0 +1,2263 @@
+{
+	"id":"25",
+	"module_id":"322",
+	"name":"iw_IL",
+	"locale_type":"LC_MESSAGES",
+	"description":"",
+	"_acl":null,
+	"_acl_edit":null,
+	"_acl_delete":null,
+	"_acl_tmp":null,
+	"_acl_tmp_edit":null,
+	"_acl_tmp_delete":null,
+	"locale_translations":[
+		{
+			"id":"186536",
+			"locale_id":"25",
+			"msgid":"Access Control List",
+			"en_msgstr":"Access Control List",
+			"msgstr":"\u05e8\u05e9\u05d9\u05de\u05ea \u05d1\u05e7\u05e8\u05ea \u05d2\u05d9\u05e9\u05d4",
+			"description":null
+		},
+		{
+			"id":"183020",
+			"locale_id":"25",
+			"msgid":"accounts.account_name",
+			"en_msgstr":"Account Name",
+			"msgstr":"\u05e9\u05dd \u05d7\u05e9\u05d1\u05d5\u05df",
+			"description":null
+		},
+		{
+			"id":"183022",
+			"locale_id":"25",
+			"msgid":"accounts.account_type",
+			"en_msgstr":"Account Type",
+			"msgstr":"\u05e1\u05d5\u05d2 \u05d7\u05e9\u05d1\u05d5\u05df",
+			"description":null
+		},
+		{
+			"id":"183024",
+			"locale_id":"25",
+			"msgid":"accounts.annual_revenue",
+			"en_msgstr":"Annual Revenue",
+			"msgstr":"\u05d4\u05e4\u05d3\u05d9\u05d5\u05df \u05d4\u05e9\u05e0\u05ea\u05d9",
+			"description":null
+		},
+		{
+			"id":"183038",
+			"locale_id":"25",
+			"msgid":"accounts.created",
+			"en_msgstr":"Created",
+			"msgstr":"\u05e0\u05d5\u05e6\u05e8",
+			"description":null
+		},
+		{
+			"id":"183035",
+			"locale_id":"25",
+			"msgid":"accounts.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"\u05e0\u05d1\u05e0\u05d4 \u05e2\"\u05d9",
+			"description":null
+		},
+		{
+			"id":"183040",
+			"locale_id":"25",
+			"msgid":"accounts.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"183034",
+			"locale_id":"25",
+			"msgid":"accounts.description",
+			"en_msgstr":"Description",
+			"msgstr":"\u05ea\u05d0\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"183032",
+			"locale_id":"25",
+			"msgid":"accounts.email_opt_out",
+			"en_msgstr":"Email Opt Out",
+			"msgstr":"\u05d3\u05d5\u05d0\"\u05dc Opt Out",
+			"description":null
+		},
+		{
+			"id":"183031",
+			"locale_id":"25",
+			"msgid":"accounts.employees",
+			"en_msgstr":"Employees",
+			"msgstr":"\u05e2\u05d5\u05d1\u05d3\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"183030",
+			"locale_id":"25",
+			"msgid":"accounts.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"\u05e4\u05e7\u05e1",
+			"description":null
+		},
+		{
+			"id":"183042",
+			"locale_id":"25",
+			"msgid":"accounts.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"\u05d3\u05d2\u05dc\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"183019",
+			"locale_id":"25",
+			"msgid":"accounts.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"183050",
+			"locale_id":"25",
+			"msgid":"accounts.imported",
+			"en_msgstr":"Imported",
+			"msgstr":"\u05de\u05d9\u05d5\u05d1\u05d0",
+			"description":null
+		},
+		{
+			"id":"183049",
+			"locale_id":"25",
+			"msgid":"accounts.imported_by",
+			"en_msgstr":"Imported By",
+			"msgstr":"\u05d0\u05e9\u05e8 \u05d9\u05d5\u05d1\u05d0\u05d5 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"183023",
+			"locale_id":"25",
+			"msgid":"accounts.industry",
+			"en_msgstr":"Industry",
+			"msgstr":"\u05ea\u05e2\u05e9\u05d9\u05d4",
+			"description":null
+		},
+		{
+			"id":"183058",
+			"locale_id":"25",
+			"msgid":"accounts.is_customer",
+			"en_msgstr":"Is Customer",
+			"msgstr":"\u05d4\u05d0\u05dd \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"183059",
+			"locale_id":"25",
+			"msgid":"accounts.is_supplier",
+			"en_msgstr":"Is Supplier",
+			"msgstr":"\u05d4\u05d0\u05dd \u05e1\u05e4\u05e7",
+			"description":null
+		},
+		{
+			"id":"183039",
+			"locale_id":"25",
+			"msgid":"accounts.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"description":null
+		},
+		{
+			"id":"183036",
+			"locale_id":"25",
+			"msgid":"accounts.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"\u05e9\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"183033",
+			"locale_id":"25",
+			"msgid":"accounts.notify_owner",
+			"en_msgstr":"Notify Owner",
+			"msgstr":"\u05ea\u05d5\u05d3\u05d9\u05e2\u05d5 \u05d1\u05e2\u05dc\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"183037",
+			"locale_id":"25",
+			"msgid":"accounts.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"183026",
+			"locale_id":"25",
+			"msgid":"accounts.ownership",
+			"en_msgstr":"Ownership",
+			"msgstr":"\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"183021",
+			"locale_id":"25",
+			"msgid":"accounts.parent_id",
+			"en_msgstr":"Parent",
+			"msgstr":"\u05d4\u05d5\u05e8\u05d4",
+			"description":null
+		},
+		{
+			"id":"183057",
+			"locale_id":"25",
+			"msgid":"accounts.primary_acl_group",
+			"en_msgstr":"Primary Acl Group",
+			"msgstr":"\u05e2\u05d9\u05e7\u05e8\u05d9 ACL \u05e7\u05d1\u05d5\u05e6\u05d4",
+			"description":null
+		},
+		{
+			"id":"183051",
+			"locale_id":"25",
+			"msgid":"accounts.primary_address_line_1",
+			"en_msgstr":"Primary Address Line 1",
+			"msgstr":"\u05e7\u05d5 \u05db\u05ea\u05d5\u05d1\u05ea \u05e8\u05d0\u05e9\u05d9\u05ea 1",
+			"description":null
+		},
+		{
+			"id":"183052",
+			"locale_id":"25",
+			"msgid":"accounts.primary_address_line_2",
+			"en_msgstr":"Primary Address Line 2",
+			"msgstr":"\u05e7\u05d5 \u05d4\u05db\u05ea\u05d5\u05d1\u05ea \u05e8\u05d0\u05e9\u05d9 2",
+			"description":null
+		},
+		{
+			"id":"183053",
+			"locale_id":"25",
+			"msgid":"accounts.primary_city",
+			"en_msgstr":"Primary City",
+			"msgstr":"\u05e2\u05d9\u05e8 \u05e8\u05d0\u05e9\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183055",
+			"locale_id":"25",
+			"msgid":"accounts.primary_country",
+			"en_msgstr":"Primary Country",
+			"msgstr":"\u05de\u05d3\u05d9\u05e0\u05d4 \u05e2\u05d9\u05e7\u05e8\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183054",
+			"locale_id":"25",
+			"msgid":"accounts.primary_state",
+			"en_msgstr":"Primary State",
+			"msgstr":"\u05de\u05d3\u05d9\u05e0\u05d4 \u05e2\u05d9\u05e7\u05e8\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183056",
+			"locale_id":"25",
+			"msgid":"accounts.primary_zip",
+			"en_msgstr":"Primary Zip",
+			"msgstr":"\u05de\u05d9\u05e7\u05d5\u05d3 \u05e2\u05d9\u05e7\u05e8\u05d9",
+			"description":null
+		},
+		{
+			"id":"183025",
+			"locale_id":"25",
+			"msgid":"accounts.rating",
+			"en_msgstr":"Rating",
+			"msgstr":"\u05d3\u05d9\u05e8\u05d5\u05d2",
+			"description":null
+		},
+		{
+			"id":"183041",
+			"locale_id":"25",
+			"msgid":"accounts.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"\u05d2\u05e8\u05e1\u05d4",
+			"description":null
+		},
+		{
+			"id":"183027",
+			"locale_id":"25",
+			"msgid":"accounts.sic_code",
+			"en_msgstr":"Sic Code",
+			"msgstr":"\u05e1\u05d9\u05e7 \u05e7\u05d5\u05d3",
+			"description":null
+		},
+		{
+			"id":"183028",
+			"locale_id":"25",
+			"msgid":"accounts.ticker_symbol",
+			"en_msgstr":"Ticker Symbol",
+			"msgstr":"\u05e1\u05d9\u05de\u05df Ticker",
+			"description":null
+		},
+		{
+			"id":"183029",
+			"locale_id":"25",
+			"msgid":"accounts.website",
+			"en_msgstr":"Website",
+			"msgstr":"\u05d0\u05ea\u05e8 \u05d0\u05d9\u05e0\u05d8\u05e8\u05e0\u05d8",
+			"description":null
+		},
+		{
+			"id":"183043",
+			"locale_id":"25",
+			"msgid":"accounts._acl",
+			"en_msgstr":"Acl",
+			"msgstr":"ACL",
+			"description":null
+		},
+		{
+			"id":"183045",
+			"locale_id":"25",
+			"msgid":"accounts._acl_delete",
+			"en_msgstr":"Acl Delete",
+			"msgstr":"ACL \u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"183044",
+			"locale_id":"25",
+			"msgid":"accounts._acl_edit",
+			"en_msgstr":"Acl Edit",
+			"msgstr":"ACL \u05e2\u05e8\u05d5\u05da",
+			"description":null
+		},
+		{
+			"id":"183046",
+			"locale_id":"25",
+			"msgid":"accounts._acl_tmp",
+			"en_msgstr":"Acl Tmp",
+			"msgstr":"ACL Tmp",
+			"description":null
+		},
+		{
+			"id":"183048",
+			"locale_id":"25",
+			"msgid":"accounts._acl_tmp_delete",
+			"en_msgstr":"Acl Tmp Delete",
+			"msgstr":"Tmp ACL \u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"183047",
+			"locale_id":"25",
+			"msgid":"accounts._acl_tmp_edit",
+			"en_msgstr":"Acl Tmp Edit",
+			"msgstr":"ACL \u05e2\u05e8\u05d5\u05da Tmp",
+			"description":null
+		},
+		{
+			"id":"186528",
+			"locale_id":"25",
+			"msgid":"ACL & Revisions",
+			"en_msgstr":"ACL & Revisions",
+			"msgstr":"ACL \u05d5\u05de\u05d4\u05d3\u05d5\u05e8\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"186555",
+			"locale_id":"25",
+			"msgid":"ACL Permissions",
+			"en_msgstr":"ACL Permissions",
+			"msgstr":"\u05d4\u05e8\u05e9\u05d0\u05d5\u05ea ACL",
+			"description":null
+		},
+		{
+			"id":"46052",
+			"locale_id":"25",
+			"msgid":"add",
+			"en_msgstr":"add",
+			"msgstr":"\u05dc\u05d4\u05d5\u05e1\u05d9\u05e3",
+			"description":null
+		},
+		{
+			"id":"78730",
+			"locale_id":"25",
+			"msgid":"Administration",
+			"en_msgstr":"Administration",
+			"msgstr":"\u05de\u05e0\u05d4\u05dc",
+			"description":null
+		},
+		{
+			"id":"78731",
+			"locale_id":"25",
+			"msgid":"app-menu",
+			"en_msgstr":"app-menu",
+			"msgstr":"\u05d4\u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d4 \u05ea\u05e4\u05e8\u05d9\u05d8",
+			"description":null
+		},
+		{
+			"id":"186526",
+			"locale_id":"25",
+			"msgid":"Basic Information",
+			"en_msgstr":"Basic Information",
+			"msgstr":"\u05de\u05d9\u05d3\u05e2 \u05d1\u05e1\u05d9\u05e1\u05d9",
+			"description":null
+		},
+		{
+			"id":"186556",
+			"locale_id":"25",
+			"msgid":"Business Rule Log",
+			"en_msgstr":"Business Rule Log",
+			"msgstr":"\u05d9\u05d5\u05de\u05df \u05db\u05dc\u05dc \u05e2\u05e1\u05e7\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"186554",
+			"locale_id":"25",
+			"msgid":"Can Delete",
+			"en_msgstr":"Can Delete",
+			"msgstr":"\u05d0\u05e4\u05e9\u05e8\u05d5\u05ea \u05de\u05d7\u05d9\u05e7\u05d4",
+			"description":null
+		},
+		{
+			"id":"186553",
+			"locale_id":"25",
+			"msgid":"Can Edit",
+			"en_msgstr":"Can Edit",
+			"msgstr":"\u05d9\u05db\u05d5\u05dc \u05e2\u05e8\u05d9\u05db\u05d4",
+			"description":null
+		},
+		{
+			"id":"186552",
+			"locale_id":"25",
+			"msgid":"Can Read",
+			"en_msgstr":"Can Read",
+			"msgstr":"\u05d9\u05db\u05d5\u05dc \u05dc\u05e7\u05e8\u05d5\u05d0",
+			"description":null
+		},
+		{
+			"id":"186520",
+			"locale_id":"25",
+			"msgid":"Clone",
+			"en_msgstr":"Clone",
+			"msgstr":"Clone",
+			"description":null
+		},
+		{
+			"id":"183063",
+			"locale_id":"25",
+			"msgid":"Configurations",
+			"en_msgstr":"Configurations",
+			"msgstr":"\u05ea\u05e6\u05d5\u05e8\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46053",
+			"locale_id":"25",
+			"msgid":"create",
+			"en_msgstr":"create",
+			"msgstr":"\u05dc\u05d9\u05e6\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"46054",
+			"locale_id":"25",
+			"msgid":"createdBy.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"46055",
+			"locale_id":"25",
+			"msgid":"createdBy.currency_id",
+			"en_msgstr":"Currency Id",
+			"msgstr":"\u05de\u05d8\u05d1\u05e2 \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46056",
+			"locale_id":"25",
+			"msgid":"createdBy.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"46057",
+			"locale_id":"25",
+			"msgid":"createdBy.department",
+			"en_msgstr":"Department",
+			"msgstr":"\u05de\u05d7\u05dc\u05e7\u05d4",
+			"description":null
+		},
+		{
+			"id":"46058",
+			"locale_id":"25",
+			"msgid":"createdBy.description",
+			"en_msgstr":"Description",
+			"msgstr":"\u05ea\u05d0\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"46059",
+			"locale_id":"25",
+			"msgid":"createdBy.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"\u05e4\u05e7\u05e1",
+			"description":null
+		},
+		{
+			"id":"46060",
+			"locale_id":"25",
+			"msgid":"createdBy.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"\u05e9\u05dd \u05e4\u05e8\u05d8\u05d9",
+			"description":null
+		},
+		{
+			"id":"46061",
+			"locale_id":"25",
+			"msgid":"createdBy.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Hash Key",
+			"description":null
+		},
+		{
+			"id":"46062",
+			"locale_id":"25",
+			"msgid":"createdBy.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"\u05e9\u05e2\u05d4 \u05e4\u05d5\u05e8\u05de\u05d8",
+			"description":null
+		},
+		{
+			"id":"46063",
+			"locale_id":"25",
+			"msgid":"createdBy.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46064",
+			"locale_id":"25",
+			"msgid":"createdBy.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u05e4\u05e2\u05d9\u05dc",
+			"description":null
+		},
+		{
+			"id":"46065",
+			"locale_id":"25",
+			"msgid":"createdBy.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4",
+			"description":null
+		},
+		{
+			"id":"46066",
+			"locale_id":"25",
+			"msgid":"createdBy.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"46067",
+			"locale_id":"25",
+			"msgid":"createdBy.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46068",
+			"locale_id":"25",
+			"msgid":"createdBy.parent_id",
+			"en_msgstr":"Parent Id",
+			"msgstr":"\u05d0\u05d1 \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46069",
+			"locale_id":"25",
+			"msgid":"createdBy.role_id",
+			"en_msgstr":"Role Id",
+			"msgstr":"\u05ea\u05e4\u05e7\u05d9\u05d3 \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46070",
+			"locale_id":"25",
+			"msgid":"createdBy.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"\u05d3\u05d1\u05e8\u05d9 \u05d1\u05e8\u05db\u05d4",
+			"description":null
+		},
+		{
+			"id":"46071",
+			"locale_id":"25",
+			"msgid":"createdBy.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"\u05d7\u05ea\u05d9\u05de\u05d4",
+			"description":null
+		},
+		{
+			"id":"46072",
+			"locale_id":"25",
+			"msgid":"createdBy.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"\u05e2\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"46073",
+			"locale_id":"25",
+			"msgid":"createdBy.status",
+			"en_msgstr":"Status",
+			"msgstr":"\u05de\u05e2\u05de\u05d3",
+			"description":null
+		},
+		{
+			"id":"46074",
+			"locale_id":"25",
+			"msgid":"createdBy.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"\u05e0\u05d5\u05e9\u05d0",
+			"description":null
+		},
+		{
+			"id":"46075",
+			"locale_id":"25",
+			"msgid":"createdBy.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8 \u05d6\u05de\u05df",
+			"description":null
+		},
+		{
+			"id":"46076",
+			"locale_id":"25",
+			"msgid":"createdBy.title",
+			"en_msgstr":"Title",
+			"msgstr":"\u05db\u05d5\u05ea\u05e8\u05ea",
+			"description":null
+		},
+		{
+			"id":"46077",
+			"locale_id":"25",
+			"msgid":"createdBy.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9",
+			"description":null
+		},
+		{
+			"id":"46078",
+			"locale_id":"25",
+			"msgid":"createdBy.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"\u05de\u05e9\u05ea\u05de\u05e9 \u05e1\u05d9\u05e1\u05de\u05d0",
+			"description":null
+		},
+		{
+			"id":"78733",
+			"locale_id":"25",
+			"msgid":"created_by_user.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"183005",
+			"locale_id":"25",
+			"msgid":"created_by_user.company_id",
+			"en_msgstr":"Company",
+			"msgstr":"\u05d7\u05d1\u05e8\u05d4",
+			"description":null
+		},
+		{
+			"id":"81355",
+			"locale_id":"25",
+			"msgid":"created_by_user.created",
+			"en_msgstr":"Created",
+			"msgstr":"\u05e0\u05d5\u05e6\u05e8",
+			"description":null
+		},
+		{
+			"id":"81356",
+			"locale_id":"25",
+			"msgid":"created_by_user.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"\u05e0\u05d1\u05e0\u05d4 \u05e2\"\u05d9",
+			"description":null
+		},
+		{
+			"id":"78734",
+			"locale_id":"25",
+			"msgid":"created_by_user.currency_id",
+			"en_msgstr":"Currency",
+			"msgstr":"\u05de\u05d8\u05d1\u05e2",
+			"description":null
+		},
+		{
+			"id":"78735",
+			"locale_id":"25",
+			"msgid":"created_by_user.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"78736",
+			"locale_id":"25",
+			"msgid":"created_by_user.department",
+			"en_msgstr":"Department",
+			"msgstr":"\u05de\u05d7\u05dc\u05e7\u05d4",
+			"description":null
+		},
+		{
+			"id":"78737",
+			"locale_id":"25",
+			"msgid":"created_by_user.description",
+			"en_msgstr":"Description",
+			"msgstr":"\u05ea\u05d0\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"183006",
+			"locale_id":"25",
+			"msgid":"created_by_user.enable_debug_mode",
+			"en_msgstr":"Enable Debug Mode",
+			"msgstr":"\u05d4\u05e4\u05e2\u05dc\u05ea \u05de\u05e6\u05d1 Debug",
+			"description":null
+		},
+		{
+			"id":"183007",
+			"locale_id":"25",
+			"msgid":"created_by_user.enable_logger",
+			"en_msgstr":"Enable Logger",
+			"msgstr":"\u05dc\u05d0\u05e4\u05e9\u05e8 \u05dc\u05d5\u05d2\u05e8",
+			"description":null
+		},
+		{
+			"id":"183003",
+			"locale_id":"25",
+			"msgid":"created_by_user.ext",
+			"en_msgstr":"Ext",
+			"msgstr":"\u05e9\u05dc\u05d5\u05d7\u05d4",
+			"description":null
+		},
+		{
+			"id":"78738",
+			"locale_id":"25",
+			"msgid":"created_by_user.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"\u05e4\u05e7\u05e1",
+			"description":null
+		},
+		{
+			"id":"78739",
+			"locale_id":"25",
+			"msgid":"created_by_user.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"\u05e9\u05dd \u05e4\u05e8\u05d8\u05d9",
+			"description":null
+		},
+		{
+			"id":"81357",
+			"locale_id":"25",
+			"msgid":"created_by_user.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"\u05d3\u05d2\u05dc\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"78740",
+			"locale_id":"25",
+			"msgid":"created_by_user.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Hash Key",
+			"description":null
+		},
+		{
+			"id":"78741",
+			"locale_id":"25",
+			"msgid":"created_by_user.home_page",
+			"en_msgstr":"Home Page",
+			"msgstr":"\u05d3\u05e3 \u05d4\u05d1\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"78742",
+			"locale_id":"25",
+			"msgid":"created_by_user.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"\u05e9\u05e2\u05d4 \u05e4\u05d5\u05e8\u05de\u05d8",
+			"description":null
+		},
+		{
+			"id":"78743",
+			"locale_id":"25",
+			"msgid":"created_by_user.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"78744",
+			"locale_id":"25",
+			"msgid":"created_by_user.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u05e4\u05e2\u05d9\u05dc",
+			"description":null
+		},
+		{
+			"id":"78745",
+			"locale_id":"25",
+			"msgid":"created_by_user.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4",
+			"description":null
+		},
+		{
+			"id":"78746",
+			"locale_id":"25",
+			"msgid":"created_by_user.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"78747",
+			"locale_id":"25",
+			"msgid":"created_by_user.mobile_home_page",
+			"en_msgstr":"Mobile Home Page",
+			"msgstr":"\u05d1\u05d9\u05ea \u05e0\u05d9\u05d9\u05d3 \u05e2\u05de\u05d5\u05d3",
+			"description":null
+		},
+		{
+			"id":"81358",
+			"locale_id":"25",
+			"msgid":"created_by_user.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"description":null
+		},
+		{
+			"id":"81359",
+			"locale_id":"25",
+			"msgid":"created_by_user.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"\u05e9\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"78748",
+			"locale_id":"25",
+			"msgid":"created_by_user.name",
+			"en_msgstr":"Name",
+			"msgstr":"\u05e9\u05dd",
+			"description":null
+		},
+		{
+			"id":"78749",
+			"locale_id":"25",
+			"msgid":"created_by_user.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"182952",
+			"locale_id":"25",
+			"msgid":"created_by_user.parent_id",
+			"en_msgstr":"Parent",
+			"msgstr":"\u05d4\u05d5\u05e8\u05d4",
+			"description":null
+		},
+		{
+			"id":"182997",
+			"locale_id":"25",
+			"msgid":"created_by_user.primary_address_line_1",
+			"en_msgstr":"Primary Address Line 1",
+			"msgstr":"\u05e7\u05d5 \u05db\u05ea\u05d5\u05d1\u05ea \u05e8\u05d0\u05e9\u05d9\u05ea 1",
+			"description":null
+		},
+		{
+			"id":"182998",
+			"locale_id":"25",
+			"msgid":"created_by_user.primary_address_line_2",
+			"en_msgstr":"Primary Address Line 2",
+			"msgstr":"\u05e7\u05d5 \u05d4\u05db\u05ea\u05d5\u05d1\u05ea \u05e8\u05d0\u05e9\u05d9 2",
+			"description":null
+		},
+		{
+			"id":"182999",
+			"locale_id":"25",
+			"msgid":"created_by_user.primary_city",
+			"en_msgstr":"Primary City",
+			"msgstr":"\u05e2\u05d9\u05e8 \u05e8\u05d0\u05e9\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183001",
+			"locale_id":"25",
+			"msgid":"created_by_user.primary_country",
+			"en_msgstr":"Primary Country",
+			"msgstr":"\u05de\u05d3\u05d9\u05e0\u05d4 \u05e2\u05d9\u05e7\u05e8\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183000",
+			"locale_id":"25",
+			"msgid":"created_by_user.primary_state",
+			"en_msgstr":"Primary State",
+			"msgstr":"\u05de\u05d3\u05d9\u05e0\u05d4 \u05e2\u05d9\u05e7\u05e8\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183002",
+			"locale_id":"25",
+			"msgid":"created_by_user.primary_zip",
+			"en_msgstr":"Primary Zip",
+			"msgstr":"\u05de\u05d9\u05e7\u05d5\u05d3 \u05e2\u05d9\u05e7\u05e8\u05d9",
+			"description":null
+		},
+		{
+			"id":"182960",
+			"locale_id":"25",
+			"msgid":"created_by_user.region_id",
+			"en_msgstr":"Region",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"182990",
+			"locale_id":"25",
+			"msgid":"created_by_user.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"\u05d2\u05e8\u05e1\u05d4",
+			"description":null
+		},
+		{
+			"id":"182951",
+			"locale_id":"25",
+			"msgid":"created_by_user.role_id",
+			"en_msgstr":"Role",
+			"msgstr":"\u05ea\u05e4\u05e7\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"182957",
+			"locale_id":"25",
+			"msgid":"created_by_user.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"\u05d3\u05d1\u05e8\u05d9 \u05d1\u05e8\u05db\u05d4",
+			"description":null
+		},
+		{
+			"id":"182955",
+			"locale_id":"25",
+			"msgid":"created_by_user.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"\u05d7\u05ea\u05d9\u05de\u05d4",
+			"description":null
+		},
+		{
+			"id":"182958",
+			"locale_id":"25",
+			"msgid":"created_by_user.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"\u05e2\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"183004",
+			"locale_id":"25",
+			"msgid":"created_by_user.src",
+			"en_msgstr":"Src",
+			"msgstr":"Src",
+			"description":null
+		},
+		{
+			"id":"182954",
+			"locale_id":"25",
+			"msgid":"created_by_user.status",
+			"en_msgstr":"Status",
+			"msgstr":"\u05de\u05e2\u05de\u05d3",
+			"description":null
+		},
+		{
+			"id":"182959",
+			"locale_id":"25",
+			"msgid":"created_by_user.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"\u05e0\u05d5\u05e9\u05d0",
+			"description":null
+		},
+		{
+			"id":"182956",
+			"locale_id":"25",
+			"msgid":"created_by_user.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8 \u05d6\u05de\u05df",
+			"description":null
+		},
+		{
+			"id":"182953",
+			"locale_id":"25",
+			"msgid":"created_by_user.title",
+			"en_msgstr":"Title",
+			"msgstr":"\u05db\u05d5\u05ea\u05e8\u05ea",
+			"description":null
+		},
+		{
+			"id":"182949",
+			"locale_id":"25",
+			"msgid":"created_by_user.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9",
+			"description":null
+		},
+		{
+			"id":"182950",
+			"locale_id":"25",
+			"msgid":"created_by_user.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"\u05de\u05e9\u05ea\u05de\u05e9 \u05e1\u05d9\u05e1\u05de\u05d0",
+			"description":null
+		},
+		{
+			"id":"46079",
+			"locale_id":"25",
+			"msgid":"delete",
+			"en_msgstr":"delete",
+			"msgstr":"\u05dc\u05de\u05d7\u05d5\u05e7",
+			"description":null
+		},
+		{
+			"id":"186539",
+			"locale_id":"25",
+			"msgid":"Delete Access",
+			"en_msgstr":"Delete Access",
+			"msgstr":"\u05de\u05d7\u05e7 \u05d0\u05ea \u05d4\u05d2\u05d9\u05e9\u05d4",
+			"description":null
+		},
+		{
+			"id":"186521",
+			"locale_id":"25",
+			"msgid":"Delete Selected",
+			"en_msgstr":"Delete Selected",
+			"msgstr":"\u05dc\u05de\u05d7\u05d5\u05e7 \u05e0\u05d1\u05d7\u05e8\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"186523",
+			"locale_id":"25",
+			"msgid":"Developer",
+			"en_msgstr":"Developer",
+			"msgstr":"\u05de\u05e4\u05ea\u05d7\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"186557",
+			"locale_id":"25",
+			"msgid":"Document ID",
+			"en_msgstr":"Document ID",
+			"msgstr":"\u05de\u05d6\u05d4\u05d4 \u05de\u05e1\u05de\u05da",
+			"description":null
+		},
+		{
+			"id":"186530",
+			"locale_id":"25",
+			"msgid":"Document Information ",
+			"en_msgstr":"Document Information",
+			"msgstr":"\u05e4\u05e8\u05d8\u05d9 \u05de\u05e1\u05de\u05da",
+			"description":null
+		},
+		{
+			"id":"46080",
+			"locale_id":"25",
+			"msgid":"edit",
+			"en_msgstr":"edit",
+			"msgstr":"\u05dc\u05e2\u05e8\u05d5\u05da",
+			"description":null
+		},
+		{
+			"id":"186538",
+			"locale_id":"25",
+			"msgid":"Edit Access",
+			"en_msgstr":"Edit Access",
+			"msgstr":"\u05e2\u05e8\u05d5\u05da \u05d2\u05d9\u05e9\u05d4",
+			"description":null
+		},
+		{
+			"id":"186522",
+			"locale_id":"25",
+			"msgid":"Edit Selected",
+			"en_msgstr":"Edit Selected",
+			"msgstr":"\u05dc\u05e2\u05e8\u05d5\u05da \u05e0\u05d1\u05d7\u05e8\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"186546",
+			"locale_id":"25",
+			"msgid":"Effective Read Access Groups",
+			"en_msgstr":"Effective Read Access Groups",
+			"msgstr":"\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05d2\u05d9\u05e9\u05d4 \u05dc\u05e7\u05e8\u05d9\u05d0\u05d4 \u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"186544",
+			"locale_id":"25",
+			"msgid":"Effective Read Access Users",
+			"en_msgstr":"Effective Read Access Users",
+			"msgstr":"\u05de\u05e9\u05ea\u05de\u05e9\u05d9 \u05d2\u05d9\u05e9\u05d4 \u05dc\u05e7\u05e8\u05d9\u05d0\u05d4 \u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"186524",
+			"locale_id":"25",
+			"msgid":"Export Selected",
+			"en_msgstr":"Export Selected",
+			"msgstr":"\u05dc\u05d9\u05d9\u05e6\u05d0 \u05e0\u05d1\u05d7\u05e8",
+			"description":null
+		},
+		{
+			"id":"186559",
+			"locale_id":"25",
+			"msgid":"Flexflow Document Business Rule Log",
+			"en_msgstr":"Flexflow Document Business Rule Log",
+			"msgstr":"\u05d4\u05ea\u05d7\u05d1\u05e8 \u05db\u05dc\u05dc \u05e2\u05e1\u05e7\u05d9 \u05de\u05e1\u05de\u05da Flexflow",
+			"description":null
+		},
+		{
+			"id":"186550",
+			"locale_id":"25",
+			"msgid":"From",
+			"en_msgstr":"From",
+			"msgstr":"\u05de\u05df",
+			"description":null
+		},
+		{
+			"id":"186548",
+			"locale_id":"25",
+			"msgid":"Group \/ User ",
+			"en_msgstr":"Group \/ User",
+			"msgstr":"\u05e7\u05d1\u05d5\u05e6\u05d4 \/ \u05de\u05e9\u05ea\u05de\u05e9",
+			"description":null
+		},
+		{
+			"id":"46081",
+			"locale_id":"25",
+			"msgid":"index",
+			"en_msgstr":"index",
+			"msgstr":"\u05de\u05d3\u05d3",
+			"description":null
+		},
+		{
+			"id":"49775",
+			"locale_id":"25",
+			"msgid":"License Management",
+			"en_msgstr":"License Management",
+			"msgstr":"\u05e8\u05e9\u05d9\u05d5\u05df \u05e0\u05d9\u05d4\u05d5\u05dc",
+			"description":null
+		},
+		{
+			"id":"46107",
+			"locale_id":"25",
+			"msgid":"Licenses",
+			"en_msgstr":"Licenses",
+			"msgstr":"\u05e8\u05e9\u05d9\u05d5\u05e0\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"183445",
+			"locale_id":"25",
+			"msgid":"licenses.account_id",
+			"en_msgstr":"Account Name",
+			"msgstr":"\u05e9\u05dd \u05d7\u05e9\u05d1\u05d5\u05df",
+			"description":null
+		},
+		{
+			"id":"46108",
+			"locale_id":"25",
+			"msgid":"licenses.created",
+			"en_msgstr":"Created",
+			"msgstr":"\u05e0\u05d5\u05e6\u05e8",
+			"description":null
+		},
+		{
+			"id":"46109",
+			"locale_id":"25",
+			"msgid":"licenses.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"\u05e0\u05d1\u05e0\u05d4 \u05e2\"\u05d9",
+			"description":null
+		},
+		{
+			"id":"46110",
+			"locale_id":"25",
+			"msgid":"licenses.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"46111",
+			"locale_id":"25",
+			"msgid":"licenses.description",
+			"en_msgstr":"Description",
+			"msgstr":"\u05ea\u05d0\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"183444",
+			"locale_id":"25",
+			"msgid":"licenses.download_link",
+			"en_msgstr":"Download Link",
+			"msgstr":"\u05e7\u05d9\u05e9\u05d5\u05e8 \u05dc\u05d4\u05d5\u05e8\u05d3\u05d4",
+			"description":null
+		},
+		{
+			"id":"46112",
+			"locale_id":"25",
+			"msgid":"licenses.end",
+			"en_msgstr":"End",
+			"msgstr":"END",
+			"description":null
+		},
+		{
+			"id":"46113",
+			"locale_id":"25",
+			"msgid":"licenses.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"\u05d3\u05d2\u05dc\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"46114",
+			"locale_id":"25",
+			"msgid":"licenses.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46115",
+			"locale_id":"25",
+			"msgid":"licenses.license_key",
+			"en_msgstr":"License Key",
+			"msgstr":"\u05de\u05e4\u05ea\u05d7 \u05e8\u05d9\u05e9\u05d9\u05d5\u05df",
+			"description":null
+		},
+		{
+			"id":"46116",
+			"locale_id":"25",
+			"msgid":"licenses.max_users",
+			"en_msgstr":"Max Users",
+			"msgstr":"\u05de\u05e7\u05e1 \u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"46117",
+			"locale_id":"25",
+			"msgid":"licenses.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"description":null
+		},
+		{
+			"id":"46118",
+			"locale_id":"25",
+			"msgid":"licenses.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"\u05e9\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"46119",
+			"locale_id":"25",
+			"msgid":"licenses.module",
+			"en_msgstr":"Module",
+			"msgstr":"\u05de\u05d5\u05d3\u05d5\u05dc",
+			"description":null
+		},
+		{
+			"id":"46120",
+			"locale_id":"25",
+			"msgid":"licenses.name",
+			"en_msgstr":"Name",
+			"msgstr":"\u05e9\u05dd",
+			"description":null
+		},
+		{
+			"id":"46121",
+			"locale_id":"25",
+			"msgid":"licenses.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46122",
+			"locale_id":"25",
+			"msgid":"licenses.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"\u05d2\u05e8\u05e1\u05d4",
+			"description":null
+		},
+		{
+			"id":"46123",
+			"locale_id":"25",
+			"msgid":"licenses.start",
+			"en_msgstr":"Start",
+			"msgstr":"START",
+			"description":null
+		},
+		{
+			"id":"46082",
+			"locale_id":"25",
+			"msgid":"license_domains",
+			"en_msgstr":"license domains",
+			"msgstr":"\u05e8\u05d9\u05e9\u05d9\u05d5\u05df \u05ea\u05d7\u05d5\u05de\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"46083",
+			"locale_id":"25",
+			"msgid":"license_domains.created",
+			"en_msgstr":"Created",
+			"msgstr":"\u05e0\u05d5\u05e6\u05e8",
+			"description":null
+		},
+		{
+			"id":"46084",
+			"locale_id":"25",
+			"msgid":"license_domains.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"\u05e0\u05d1\u05e0\u05d4 \u05e2\"\u05d9",
+			"description":null
+		},
+		{
+			"id":"46085",
+			"locale_id":"25",
+			"msgid":"license_domains.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"46086",
+			"locale_id":"25",
+			"msgid":"license_domains.domain",
+			"en_msgstr":"Domain",
+			"msgstr":"\u05ea\u05d7\u05d5\u05dd",
+			"description":null
+		},
+		{
+			"id":"46087",
+			"locale_id":"25",
+			"msgid":"license_domains.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"\u05d3\u05d2\u05dc\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"46088",
+			"locale_id":"25",
+			"msgid":"license_domains.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46089",
+			"locale_id":"25",
+			"msgid":"license_domains.license_id",
+			"en_msgstr":"License Id",
+			"msgstr":"\u05e8\u05e9\u05d9\u05d5\u05df \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46090",
+			"locale_id":"25",
+			"msgid":"license_domains.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"description":null
+		},
+		{
+			"id":"46091",
+			"locale_id":"25",
+			"msgid":"license_domains.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"\u05e9\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"46092",
+			"locale_id":"25",
+			"msgid":"license_domains.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46093",
+			"locale_id":"25",
+			"msgid":"license_domains.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"\u05d2\u05e8\u05e1\u05d4",
+			"description":null
+		},
+		{
+			"id":"46094",
+			"locale_id":"25",
+			"msgid":"license_ips",
+			"en_msgstr":"license ips",
+			"msgstr":"\u05e8\u05d9\u05e9\u05d9\u05d5\u05df \u05e9\u05d1\"\u05e1",
+			"description":null
+		},
+		{
+			"id":"46095",
+			"locale_id":"25",
+			"msgid":"license_ips.created",
+			"en_msgstr":"Created",
+			"msgstr":"\u05e0\u05d5\u05e6\u05e8",
+			"description":null
+		},
+		{
+			"id":"46096",
+			"locale_id":"25",
+			"msgid":"license_ips.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"\u05e0\u05d1\u05e0\u05d4 \u05e2\"\u05d9",
+			"description":null
+		},
+		{
+			"id":"46097",
+			"locale_id":"25",
+			"msgid":"license_ips.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"46098",
+			"locale_id":"25",
+			"msgid":"license_ips.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"\u05d3\u05d2\u05dc\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"46099",
+			"locale_id":"25",
+			"msgid":"license_ips.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46100",
+			"locale_id":"25",
+			"msgid":"license_ips.ip",
+			"en_msgstr":"Ip",
+			"msgstr":"Ip",
+			"description":null
+		},
+		{
+			"id":"46101",
+			"locale_id":"25",
+			"msgid":"license_ips.license_id",
+			"en_msgstr":"License Id",
+			"msgstr":"\u05e8\u05e9\u05d9\u05d5\u05df \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46102",
+			"locale_id":"25",
+			"msgid":"license_ips.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"description":null
+		},
+		{
+			"id":"46103",
+			"locale_id":"25",
+			"msgid":"license_ips.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"\u05e9\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"46104",
+			"locale_id":"25",
+			"msgid":"license_ips.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46105",
+			"locale_id":"25",
+			"msgid":"license_ips.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"\u05d2\u05e8\u05e1\u05d4",
+			"description":null
+		},
+		{
+			"id":"46106",
+			"locale_id":"25",
+			"msgid":"license_management",
+			"en_msgstr":"License Management",
+			"msgstr":"\u05e8\u05e9\u05d9\u05d5\u05df \u05e0\u05d9\u05d4\u05d5\u05dc",
+			"description":null
+		},
+		{
+			"id":"186532",
+			"locale_id":"25",
+			"msgid":"listviews.created",
+			"en_msgstr":"Created",
+			"msgstr":"\u05e0\u05d5\u05e6\u05e8",
+			"description":null
+		},
+		{
+			"id":"186531",
+			"locale_id":"25",
+			"msgid":"listviews.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"\u05e0\u05d1\u05e0\u05d4 \u05e2\"\u05d9",
+			"description":null
+		},
+		{
+			"id":"186534",
+			"locale_id":"25",
+			"msgid":"listviews.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"description":null
+		},
+		{
+			"id":"186533",
+			"locale_id":"25",
+			"msgid":"listviews.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"\u05e9\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"186558",
+			"locale_id":"25",
+			"msgid":"listviews.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"186547",
+			"locale_id":"25",
+			"msgid":"listviews.primary_acl_group",
+			"en_msgstr":"Primary Acl Group",
+			"msgstr":"\u05e2\u05d9\u05e7\u05e8\u05d9 ACL \u05e7\u05d1\u05d5\u05e6\u05d4",
+			"description":null
+		},
+		{
+			"id":"186535",
+			"locale_id":"25",
+			"msgid":"listviews.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"\u05d2\u05e8\u05e1\u05d4",
+			"description":null
+		},
+		{
+			"id":"46124",
+			"locale_id":"25",
+			"msgid":"modifiedBy.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"46125",
+			"locale_id":"25",
+			"msgid":"modifiedBy.currency_id",
+			"en_msgstr":"Currency Id",
+			"msgstr":"\u05de\u05d8\u05d1\u05e2 \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46126",
+			"locale_id":"25",
+			"msgid":"modifiedBy.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"46127",
+			"locale_id":"25",
+			"msgid":"modifiedBy.department",
+			"en_msgstr":"Department",
+			"msgstr":"\u05de\u05d7\u05dc\u05e7\u05d4",
+			"description":null
+		},
+		{
+			"id":"46128",
+			"locale_id":"25",
+			"msgid":"modifiedBy.description",
+			"en_msgstr":"Description",
+			"msgstr":"\u05ea\u05d0\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"46129",
+			"locale_id":"25",
+			"msgid":"modifiedBy.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"\u05e4\u05e7\u05e1",
+			"description":null
+		},
+		{
+			"id":"46130",
+			"locale_id":"25",
+			"msgid":"modifiedBy.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"\u05e9\u05dd \u05e4\u05e8\u05d8\u05d9",
+			"description":null
+		},
+		{
+			"id":"46131",
+			"locale_id":"25",
+			"msgid":"modifiedBy.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Hash Key",
+			"description":null
+		},
+		{
+			"id":"46132",
+			"locale_id":"25",
+			"msgid":"modifiedBy.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"\u05e9\u05e2\u05d4 \u05e4\u05d5\u05e8\u05de\u05d8",
+			"description":null
+		},
+		{
+			"id":"46133",
+			"locale_id":"25",
+			"msgid":"modifiedBy.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46134",
+			"locale_id":"25",
+			"msgid":"modifiedBy.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u05e4\u05e2\u05d9\u05dc",
+			"description":null
+		},
+		{
+			"id":"46135",
+			"locale_id":"25",
+			"msgid":"modifiedBy.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4",
+			"description":null
+		},
+		{
+			"id":"46136",
+			"locale_id":"25",
+			"msgid":"modifiedBy.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"46137",
+			"locale_id":"25",
+			"msgid":"modifiedBy.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"46138",
+			"locale_id":"25",
+			"msgid":"modifiedBy.parent_id",
+			"en_msgstr":"Parent Id",
+			"msgstr":"\u05d0\u05d1 \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46139",
+			"locale_id":"25",
+			"msgid":"modifiedBy.role_id",
+			"en_msgstr":"Role Id",
+			"msgstr":"\u05ea\u05e4\u05e7\u05d9\u05d3 \u05e2\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"46140",
+			"locale_id":"25",
+			"msgid":"modifiedBy.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"\u05d3\u05d1\u05e8\u05d9 \u05d1\u05e8\u05db\u05d4",
+			"description":null
+		},
+		{
+			"id":"46141",
+			"locale_id":"25",
+			"msgid":"modifiedBy.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"\u05d7\u05ea\u05d9\u05de\u05d4",
+			"description":null
+		},
+		{
+			"id":"46142",
+			"locale_id":"25",
+			"msgid":"modifiedBy.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"\u05e2\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"46143",
+			"locale_id":"25",
+			"msgid":"modifiedBy.status",
+			"en_msgstr":"Status",
+			"msgstr":"\u05de\u05e2\u05de\u05d3",
+			"description":null
+		},
+		{
+			"id":"46144",
+			"locale_id":"25",
+			"msgid":"modifiedBy.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"\u05e0\u05d5\u05e9\u05d0",
+			"description":null
+		},
+		{
+			"id":"46145",
+			"locale_id":"25",
+			"msgid":"modifiedBy.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8 \u05d6\u05de\u05df",
+			"description":null
+		},
+		{
+			"id":"46146",
+			"locale_id":"25",
+			"msgid":"modifiedBy.title",
+			"en_msgstr":"Title",
+			"msgstr":"\u05db\u05d5\u05ea\u05e8\u05ea",
+			"description":null
+		},
+		{
+			"id":"46147",
+			"locale_id":"25",
+			"msgid":"modifiedBy.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9",
+			"description":null
+		},
+		{
+			"id":"46148",
+			"locale_id":"25",
+			"msgid":"modifiedBy.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"\u05de\u05e9\u05ea\u05de\u05e9 \u05e1\u05d9\u05e1\u05de\u05d0",
+			"description":null
+		},
+		{
+			"id":"182981",
+			"locale_id":"25",
+			"msgid":"modified_by_user.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"183016",
+			"locale_id":"25",
+			"msgid":"modified_by_user.company_id",
+			"en_msgstr":"Company",
+			"msgstr":"\u05d7\u05d1\u05e8\u05d4",
+			"description":null
+		},
+		{
+			"id":"182993",
+			"locale_id":"25",
+			"msgid":"modified_by_user.created",
+			"en_msgstr":"Created",
+			"msgstr":"\u05e0\u05d5\u05e6\u05e8",
+			"description":null
+		},
+		{
+			"id":"182991",
+			"locale_id":"25",
+			"msgid":"modified_by_user.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"\u05e0\u05d1\u05e0\u05d4 \u05e2\"\u05d9",
+			"description":null
+		},
+		{
+			"id":"182970",
+			"locale_id":"25",
+			"msgid":"modified_by_user.currency_id",
+			"en_msgstr":"Currency",
+			"msgstr":"\u05de\u05d8\u05d1\u05e2",
+			"description":null
+		},
+		{
+			"id":"182980",
+			"locale_id":"25",
+			"msgid":"modified_by_user.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"\u05e0\u05de\u05d7\u05e7",
+			"description":null
+		},
+		{
+			"id":"182973",
+			"locale_id":"25",
+			"msgid":"modified_by_user.department",
+			"en_msgstr":"Department",
+			"msgstr":"\u05de\u05d7\u05dc\u05e7\u05d4",
+			"description":null
+		},
+		{
+			"id":"182971",
+			"locale_id":"25",
+			"msgid":"modified_by_user.description",
+			"en_msgstr":"Description",
+			"msgstr":"\u05ea\u05d0\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"183017",
+			"locale_id":"25",
+			"msgid":"modified_by_user.enable_debug_mode",
+			"en_msgstr":"Enable Debug Mode",
+			"msgstr":"\u05d4\u05e4\u05e2\u05dc\u05ea \u05de\u05e6\u05d1 Debug",
+			"description":null
+		},
+		{
+			"id":"183018",
+			"locale_id":"25",
+			"msgid":"modified_by_user.enable_logger",
+			"en_msgstr":"Enable Logger",
+			"msgstr":"\u05dc\u05d0\u05e4\u05e9\u05e8 \u05dc\u05d5\u05d2\u05e8",
+			"description":null
+		},
+		{
+			"id":"183014",
+			"locale_id":"25",
+			"msgid":"modified_by_user.ext",
+			"en_msgstr":"Ext",
+			"msgstr":"\u05e9\u05dc\u05d5\u05d7\u05d4",
+			"description":null
+		},
+		{
+			"id":"182974",
+			"locale_id":"25",
+			"msgid":"modified_by_user.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"\u05e4\u05e7\u05e1",
+			"description":null
+		},
+		{
+			"id":"182965",
+			"locale_id":"25",
+			"msgid":"modified_by_user.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"\u05e9\u05dd \u05e4\u05e8\u05d8\u05d9",
+			"description":null
+		},
+		{
+			"id":"182996",
+			"locale_id":"25",
+			"msgid":"modified_by_user.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"\u05d3\u05d2\u05dc\u05d9\u05dd",
+			"description":null
+		},
+		{
+			"id":"182963",
+			"locale_id":"25",
+			"msgid":"modified_by_user.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Hash Key",
+			"description":null
+		},
+		{
+			"id":"182987",
+			"locale_id":"25",
+			"msgid":"modified_by_user.home_page",
+			"en_msgstr":"Home Page",
+			"msgstr":"\u05d3\u05e3 \u05d4\u05d1\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"182979",
+			"locale_id":"25",
+			"msgid":"modified_by_user.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"\u05e9\u05e2\u05d4 \u05e4\u05d5\u05e8\u05de\u05d8",
+			"description":null
+		},
+		{
+			"id":"182961",
+			"locale_id":"25",
+			"msgid":"modified_by_user.id",
+			"en_msgstr":"Id",
+			"msgstr":"\u05ea\u05e2\u05d5\u05d3\u05ea \u05d6\u05d4\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"182984",
+			"locale_id":"25",
+			"msgid":"modified_by_user.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u05e4\u05e2\u05d9\u05dc",
+			"description":null
+		},
+		{
+			"id":"182966",
+			"locale_id":"25",
+			"msgid":"modified_by_user.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4",
+			"description":null
+		},
+		{
+			"id":"182978",
+			"locale_id":"25",
+			"msgid":"modified_by_user.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"182988",
+			"locale_id":"25",
+			"msgid":"modified_by_user.mobile_home_page",
+			"en_msgstr":"Mobile Home Page",
+			"msgstr":"\u05d1\u05d9\u05ea \u05e0\u05d9\u05d9\u05d3 \u05e2\u05de\u05d5\u05d3",
+			"description":null
+		},
+		{
+			"id":"182994",
+			"locale_id":"25",
+			"msgid":"modified_by_user.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"\u05d4\u05e9\u05ea\u05e0\u05d4",
+			"description":null
+		},
+		{
+			"id":"182992",
+			"locale_id":"25",
+			"msgid":"modified_by_user.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"\u05e9\u05d5\u05e0\u05d4 \u05e2\u05dc \u05d9\u05d3\u05d9",
+			"description":null
+		},
+		{
+			"id":"182967",
+			"locale_id":"25",
+			"msgid":"modified_by_user.name",
+			"en_msgstr":"Name",
+			"msgstr":"\u05e9\u05dd",
+			"description":null
+		},
+		{
+			"id":"182982",
+			"locale_id":"25",
+			"msgid":"modified_by_user.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"\u05d1\u05d1\u05e2\u05dc\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"182969",
+			"locale_id":"25",
+			"msgid":"modified_by_user.parent_id",
+			"en_msgstr":"Parent",
+			"msgstr":"\u05d4\u05d5\u05e8\u05d4",
+			"description":null
+		},
+		{
+			"id":"183008",
+			"locale_id":"25",
+			"msgid":"modified_by_user.primary_address_line_1",
+			"en_msgstr":"Primary Address Line 1",
+			"msgstr":"\u05e7\u05d5 \u05db\u05ea\u05d5\u05d1\u05ea \u05e8\u05d0\u05e9\u05d9\u05ea 1",
+			"description":null
+		},
+		{
+			"id":"183009",
+			"locale_id":"25",
+			"msgid":"modified_by_user.primary_address_line_2",
+			"en_msgstr":"Primary Address Line 2",
+			"msgstr":"\u05e7\u05d5 \u05d4\u05db\u05ea\u05d5\u05d1\u05ea \u05e8\u05d0\u05e9\u05d9 2",
+			"description":null
+		},
+		{
+			"id":"183010",
+			"locale_id":"25",
+			"msgid":"modified_by_user.primary_city",
+			"en_msgstr":"Primary City",
+			"msgstr":"\u05e2\u05d9\u05e8 \u05e8\u05d0\u05e9\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183012",
+			"locale_id":"25",
+			"msgid":"modified_by_user.primary_country",
+			"en_msgstr":"Primary Country",
+			"msgstr":"\u05de\u05d3\u05d9\u05e0\u05d4 \u05e2\u05d9\u05e7\u05e8\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183011",
+			"locale_id":"25",
+			"msgid":"modified_by_user.primary_state",
+			"en_msgstr":"Primary State",
+			"msgstr":"\u05de\u05d3\u05d9\u05e0\u05d4 \u05e2\u05d9\u05e7\u05e8\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"183013",
+			"locale_id":"25",
+			"msgid":"modified_by_user.primary_zip",
+			"en_msgstr":"Primary Zip",
+			"msgstr":"\u05de\u05d9\u05e7\u05d5\u05d3 \u05e2\u05d9\u05e7\u05e8\u05d9",
+			"description":null
+		},
+		{
+			"id":"182989",
+			"locale_id":"25",
+			"msgid":"modified_by_user.region_id",
+			"en_msgstr":"Region",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"182995",
+			"locale_id":"25",
+			"msgid":"modified_by_user.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"\u05d2\u05e8\u05e1\u05d4",
+			"description":null
+		},
+		{
+			"id":"182968",
+			"locale_id":"25",
+			"msgid":"modified_by_user.role_id",
+			"en_msgstr":"Role",
+			"msgstr":"\u05ea\u05e4\u05e7\u05d9\u05d3",
+			"description":null
+		},
+		{
+			"id":"182983",
+			"locale_id":"25",
+			"msgid":"modified_by_user.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"\u05d3\u05d1\u05e8\u05d9 \u05d1\u05e8\u05db\u05d4",
+			"description":null
+		},
+		{
+			"id":"182976",
+			"locale_id":"25",
+			"msgid":"modified_by_user.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"\u05d7\u05ea\u05d9\u05de\u05d4",
+			"description":null
+		},
+		{
+			"id":"182985",
+			"locale_id":"25",
+			"msgid":"modified_by_user.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"\u05e2\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"183015",
+			"locale_id":"25",
+			"msgid":"modified_by_user.src",
+			"en_msgstr":"Src",
+			"msgstr":"Src",
+			"description":null
+		},
+		{
+			"id":"182975",
+			"locale_id":"25",
+			"msgid":"modified_by_user.status",
+			"en_msgstr":"Status",
+			"msgstr":"\u05de\u05e2\u05de\u05d3",
+			"description":null
+		},
+		{
+			"id":"182986",
+			"locale_id":"25",
+			"msgid":"modified_by_user.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"\u05e0\u05d5\u05e9\u05d0",
+			"description":null
+		},
+		{
+			"id":"182977",
+			"locale_id":"25",
+			"msgid":"modified_by_user.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"\u05d0\u05d6\u05d5\u05e8 \u05d6\u05de\u05df",
+			"description":null
+		},
+		{
+			"id":"182972",
+			"locale_id":"25",
+			"msgid":"modified_by_user.title",
+			"en_msgstr":"Title",
+			"msgstr":"\u05db\u05d5\u05ea\u05e8\u05ea",
+			"description":null
+		},
+		{
+			"id":"182962",
+			"locale_id":"25",
+			"msgid":"modified_by_user.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"\u05e9\u05dd \u05de\u05e9\u05ea\u05de\u05e9",
+			"description":null
+		},
+		{
+			"id":"182964",
+			"locale_id":"25",
+			"msgid":"modified_by_user.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"\u05de\u05e9\u05ea\u05de\u05e9 \u05e1\u05d9\u05e1\u05de\u05d0",
+			"description":null
+		},
+		{
+			"id":"183060",
+			"locale_id":"25",
+			"msgid":"More",
+			"en_msgstr":"More",
+			"msgstr":"\u05d9\u05d5\u05ea\u05e8",
+			"description":null
+		},
+		{
+			"id":"49777",
+			"locale_id":"25",
+			"msgid":"Place holder",
+			"en_msgstr":"Place holder",
+			"msgstr":"\u05d4\u05de\u05e7\u05d5\u05dd \u05de\u05d7\u05d6\u05d9\u05e7",
+			"description":null
+		},
+		{
+			"id":"182948",
+			"locale_id":"25",
+			"msgid":"r",
+			"en_msgstr":"r",
+			"msgstr":"r",
+			"description":null
+		},
+		{
+			"id":"186537",
+			"locale_id":"25",
+			"msgid":"Read Access",
+			"en_msgstr":"Read Access",
+			"msgstr":"\u05d2\u05d9\u05e9\u05ea \u05e7\u05e8\u05d9\u05d0\u05d4",
+			"description":null
+		},
+		{
+			"id":"186527",
+			"locale_id":"25",
+			"msgid":"Related Information",
+			"en_msgstr":"Related Information",
+			"msgstr":"\u05de\u05d9\u05d3\u05e2 \u05e7\u05e9\u05d5\u05e8",
+			"description":null
+		},
+		{
+			"id":"186543",
+			"locale_id":"25",
+			"msgid":"Revision Log",
+			"en_msgstr":"Revision Log",
+			"msgstr":"\u05d4\u05ea\u05d7\u05d1\u05e8 \u05d2\u05e8\u05e1\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"183064",
+			"locale_id":"25",
+			"msgid":"Settings",
+			"en_msgstr":"Settings",
+			"msgstr":"\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"49778",
+			"locale_id":"25",
+			"msgid":"settings-menu",
+			"en_msgstr":"settings-menu",
+			"msgstr":"\u05d4\u05d2\u05d3\u05e8\u05d5\u05ea \u05ea\u05e4\u05e8\u05d9\u05d8",
+			"description":null
+		},
+		{
+			"id":"186545",
+			"locale_id":"25",
+			"msgid":"Some users might be granted access via groups",
+			"en_msgstr":"Some users might be granted access via groups",
+			"msgstr":"\u05d7\u05dc\u05e7 \u05de\u05d4\u05de\u05e9\u05ea\u05de\u05e9\u05d9\u05dd \u05e2\u05e9\u05d5\u05d9\u05d9\u05dd \u05d9\u05d9\u05e0\u05ea\u05e0\u05d5 \u05d2\u05d9\u05e9\u05d4 \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea \u05e7\u05d1\u05d5\u05e6\u05d5\u05ea",
+			"description":null
+		},
+		{
+			"id":"186525",
+			"locale_id":"25",
+			"msgid":"Submit",
+			"en_msgstr":"Submit",
+			"msgstr":"\u05dc\u05d4\u05d2\u05d9\u05e9",
+			"description":null
+		},
+		{
+			"id":"186529",
+			"locale_id":"25",
+			"msgid":"SYSTEM_ACL_REVISIONS",
+			"en_msgstr":"SYSTEM ACL REVISIONS",
+			"msgstr":"\u05de\u05d4\u05d3\u05d5\u05e8\u05d5\u05ea SYSTEM ACL",
+			"description":null
+		},
+		{
+			"id":"186540",
+			"locale_id":"25",
+			"msgid":"Temporary ACL",
+			"en_msgstr":"Temporary ACL",
+			"msgstr":"ACL \u05d4\u05d6\u05de\u05e0\u05d9",
+			"description":null
+		},
+		{
+			"id":"186542",
+			"locale_id":"25",
+			"msgid":"Temporary Delete",
+			"en_msgstr":"Temporary Delete",
+			"msgstr":"\u05de\u05d7\u05e7 \u05d6\u05de\u05e0\u05d9",
+			"description":null
+		},
+		{
+			"id":"186541",
+			"locale_id":"25",
+			"msgid":"Temporary Edit",
+			"en_msgstr":"Temporary Edit",
+			"msgstr":"\u05e2\u05e8\u05d9\u05db\u05d4 \u05d6\u05de\u05e0\u05d9\u05ea",
+			"description":null
+		},
+		{
+			"id":"186551",
+			"locale_id":"25",
+			"msgid":"To",
+			"en_msgstr":"To",
+			"msgstr":"\u05d0\u05dc",
+			"description":null
+		},
+		{
+			"id":"46149",
+			"locale_id":"25",
+			"msgid":"view",
+			"en_msgstr":"view",
+			"msgstr":"\u05e0\u05d5\u05e3",
+			"description":null
+		}
+	]
+}

@@ -1,0 +1,79 @@
+[
+	{
+		"listviews":{
+			"name":"All Map View",
+			"category_id":"5",
+			"query":"{\"fields\":[{\"key_contacts.name\":{\"__column\":\"key_contacts.name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"key_contacts.addresses.latitude\":{\"__column\":\"key_contacts.addresses.latitude\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"key_contacts.addresses.longitude\":{\"__column\":\"key_contacts.addresses.longitude\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"concat(' https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/blue.png')\":{\"__column\":\"concat(' https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/blue.png')\",\"alias\":\"icon\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"All Map View\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"vrm\\\/key_contacts\",\"render_as\":\"index\",\"description\":\"Blue markers shows the Key Contacts \",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::google_map\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"sequence\":\"100381\",\"show_marker_index\":\"1\",\"auto_zoom_to_fit_markers\":\"1\",\"track_current_position\":\"0\",\"data_source_1_model\":\"listviews\",\"data_source_2_model\":\"listviews\",\"data_source_3_model\":\"listviews\",\"data_source_4_model\":\"listviews\",\"data_source_5_model\":\"listviews\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group_model\":\"groups\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+			"_query":"{\"id\":\"53d02154-3c6c-4712-a1f1-423e0af91b9d\",\"name\":\"All Map View\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"vrm\\\/key_contacts\",\"render_as\":\"index\",\"description\":\"Blue markers shows the Key Contacts \",\"fields\":[{\"seq\":\"1\",\"column\":\"key_contacts.name\",\"column_model\":\"schema\",\"__column\":\"key_contacts.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"key_contacts.addresses.latitude\",\"column_model\":\"schema\",\"__column\":\"key_contacts.addresses.latitude\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"key_contacts.addresses.longitude\",\"column_model\":\"schema\",\"__column\":\"key_contacts.addresses.longitude\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"concat(' https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/blue.png')\",\"column_model\":\"schema\",\"__column\":\"concat(' https:\\\/\\\/maps.gstatic.com\\\/mapfiles\\\/ms2\\\/micons\\\/blue.png')\",\"alias\":\"icon\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::google_map\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"sequence\":\"100381\",\"longitude\":\"\",\"latitude\":\"\",\"zoom\":\"\",\"_show_marker_index\":\"0\",\"show_marker_index\":\"1\",\"_auto_zoom_to_fit_markers\":\"0\",\"auto_zoom_to_fit_markers\":\"1\",\"_track_current_position\":\"0\",\"current_position_infowindow\":\"\",\"data_source_1\":\"\",\"data_source_1_model\":\"listviews\",\"__data_source_1\":\"\",\"data_source_2\":\"\",\"data_source_2_model\":\"listviews\",\"__data_source_2\":\"\",\"data_source_3\":\"\",\"data_source_3_model\":\"listviews\",\"__data_source_3\":\"\",\"data_source_4\":\"\",\"data_source_4_model\":\"listviews\",\"__data_source_4\":\"\",\"data_source_5\":\"\",\"data_source_5_model\":\"listviews\",\"__data_source_5\":\"\",\"row_template\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"Super Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Super Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"Blue markers shows the Key Contacts ",
+			"controller":"vrm\/key_contacts",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2014-07-23 20:55:48",
+			"modified":"2014-08-02 17:48:00",
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Ward-7-8"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"vrm.key_contacts.All Map View",
+			"sequence":"100381",
+			"primary_acl_group":"0",
+			"id":"53d02154-3c6c-4712-a1f1-423e0af91b9d",
+			"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Super Admin",
+			"__modified_by":"Super Admin",
+			"__category_id":"Business Views",
+			"__parent_id":"",
+			"__owned_by":"Super Admin",
+			"__primary_acl_group":"",
+			"__module_id":"vrm",
+			"created_by_model":"created_by_user",
+			"modified_by_model":"modified_by_user",
+			"category_id_model":"category",
+			"owned_by_model":"owned_by_user",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

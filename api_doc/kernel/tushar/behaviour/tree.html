@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:13 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+<link rel="start" href="../../namespaces.html">
+
+<title>tree (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\behaviour\tree</h2>
+
+</header><p class="signature">public  class <strong>tree</strong> extends \kernel\behaviour
+
+</p>
+
+<div class="comment"><p>This class implements following algorithms and dependent logic used by models
+1. pre-order tree traversal [has overhead of updating on change of position]
+2. materialized tree traversal with order [has overhead of updating names of all children on change of parent name]
+3. simple tree traversal [less write overhead, but higher (at times recursive) overhead on retrive]</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterDelete()">afterDelete</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterReadAll()">afterReadAll</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#afterSave()">afterSave</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeDelete()">beforeDelete</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeFind()">beforeFind</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeRead()">beforeRead</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeSave()">beforeSave</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#beforeValidate()">beforeValidate</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#create()">create</a>(mixed model, mixed settings, mixed parent_id)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#getSettings()">getSettings</a>(mixed model, mixed settings)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#move()">move</a>(mixed model, mixed settings, str dir, int delta)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#update()">update</a>(mixed model, mixed settings, mixed parent_id)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#updateDepth()">updateDepth</a>(mixed model, mixed settings, mixed ids)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="afterDelete">public static  void <strong>afterDelete</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterReadAll">public static  void <strong>afterReadAll</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterSave">public static  void <strong>afterSave</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeDelete">public static  void <strong>beforeDelete</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeFind">public static  void <strong>beforeFind</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeRead">public static  void <strong>beforeRead</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeSave">public static  void <strong>beforeSave</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeValidate">public static  void <strong>beforeValidate</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="create">public static  void <strong>create</strong>(mixed model, mixed settings, mixed parent_id)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="getSettings">public static  void <strong>getSettings</strong>(mixed model, mixed settings)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="move">public static  void <strong>move</strong>(mixed model, mixed settings, str dir, int delta)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="update">public static  void <strong>update</strong>(mixed model, mixed settings, mixed parent_id)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="updateDepth">public static  void <strong>updateDepth</strong>(mixed model, mixed settings, mixed ids)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

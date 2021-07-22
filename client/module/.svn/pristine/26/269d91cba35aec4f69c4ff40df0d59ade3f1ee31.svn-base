@@ -1,0 +1,18 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\benchmarking\controller;
+  class test_case_responses extends \module\benchmarking\controller\test_case_responses_domain_logic
+  {
+       public $modelClass = '\\module\\benchmarking\\model\\test_case_responses';
+       public $access = '4';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

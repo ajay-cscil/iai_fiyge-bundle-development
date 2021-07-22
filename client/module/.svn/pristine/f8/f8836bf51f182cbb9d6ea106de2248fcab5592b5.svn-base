@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow_test\controller;
+  class configurations extends \module\flexflow_test\controller\configurations_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow_test\\model\\configurations';
+
+
+
+
+
+
+  }

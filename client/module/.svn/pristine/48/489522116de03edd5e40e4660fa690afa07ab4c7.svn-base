@@ -1,0 +1,320 @@
+<?php
+
+namespace module\calendar\helper\data_view;
+
+class paginate_ui {
+
+    private static function schedule($view, &$paginate, $columns, $actions) {
+        if (isset($paginate['data']) && is_array($paginate['data'])) {
+            foreach ($paginate['data'] as $recordNo => $record) {
+                static::decodeScheduleOptions($record);
+            }
+        }
+    }
+
+    /*
+     *
+      [start] => 2012-03-06 07:11:13
+      [end] => 2012-03-06 13:00:00
+      [title] => Demo 1
+      [id] => 44
+      [repeats] => Daily
+      [repeat_every] => 1
+      [repeat_on] =>
+      [repeat_by] =>
+      [starts_on] => 2012-03-02 07:00:00
+      [ends] => On
+      [occurrences] => 2
+      [ends_on] => 2012-03-30 17:09:40
+     */
+
+    private static function decodeScheduleOptions($record) {
+        $records = array();
+        $repeatEvery = $record['repeat_every'];
+        if (isset($record['ends_on']) && !empty($record['ends_on'])) {
+            $endsOn = strtotime($record['ends_on']);
+            $occurrences = false;
+        } else {
+            $endsOn = false;
+            $occurrences = $record['occurrences'];
+        }
+        $startsOn = $record['starts_on'];
+        $date = \strtotime($startsOn);
+        $j = 0;
+        $record['start'] = strtotime($record['start']);
+        $record['end'] = strtotime($record['end']);
+        switch ($record['repeats']) {
+            case 'Daily':
+                $delta = 60 * 60 * $repeatEvery;
+                $occurrenceCount = 0;
+                while (1) {
+                    $records[(++$j)] = $record;
+                    $records[$j]['start'] = mktime(date('H', $record['start']), date('i', $record['start']), date('s', $record['start'])
+                            , date('n', $date), date('j', $date), date('Y', $date)
+                    );
+                    $records[$j]['end'] = date('Y-m-d H:i:s', $records[$j]['start'] + ($record['end'] - $record['start']));
+                    $records[$j]['start'] = date('Y-m-d H:i:s', $records[$j]['start']);
+                    $occurrenceCount++;
+                    if (
+                            ($occurrences !== false && $occurrenceCount >= $occurrences)
+                            ||
+                            ($endsOn !== false && $date >= $endsOn)
+                    ) {
+                        break;
+                    }
+                    $date += $delta;
+                }
+                break;
+            case 'Weekly':
+                $delta = 60 * 60 * 7 * $repeatEvery;
+                $occurrenceCount = 0;
+                if (!is_array($record['repeat_on'])) {
+                    $record['repeat_on'] = array();
+                }
+                while (1) {
+                    $dateN = mktime(date('H', $date), date('i', $date), date('s', $date), date('n'), date('j', $date) - date('N', $date) + 1, date('Y', $date));
+                    for ($i = 0; $i < 7; $i++) {
+                        if (in_array(date('L', $dateN), $record['repeat_on'])) {
+                            $occurrenceCount++;
+                        }
+                        if (
+                                ($occurrences !== false && $occurrenceCount >= $occurrences)
+                                ||
+                                ($endsOn !== false && $date >= $endsOn)
+                        ) {
+                            break;
+                        }
+                        $dateN += 60 * 60 * 24;
+                    }
+                    $date += $delta;
+                }
+
+                break;
+            case 'Monthly':
+                $day = $dayName = false;
+                if ($record['repeat_by'] == 'day of the month') {
+                    $day = date('j', $date);
+                } else {
+                    $weeks = array(1 => 'First', 2 => 'Second', 3 => 'Third', 4 => 'Fourth', 5 => 'Fifth');
+                    if (date('N', mktime(1, 1, 1, date('n') + $repeatEvery, 1, date('Y', $date))) <= date('N', $date)) {
+                        $week = ceil(date('j', $date) / 7);
+                    } else {
+                        $week = ceil(date('j', $date) / 7) - 1;
+                    }
+                    $dayName = " {$weeks[$week]} " . date('L', $date);
+                }
+                while (1) {
+                    if ($day !== false) {
+                        $date = mktime(date('H', $date), date('i', $date), date('s', $date), date('n', $date), date('Y', $date));
+                    } else {
+                        $dateN = strtotime($dayName . "  " . date('F', $date) . " " . date('Y', $date));
+                    }
+                    /* if () {
+                      $occurrenceCount++;
+                      }
+                     *
+                     */
+                    /*
+                      if (
+                      ($occurrences !== false && $occurrenceCount >= $occurrences)
+                      ||
+                      ($endsOn !== false && $date >= $endsOn)
+                      ) {
+                      break;
+                      }
+                      $dateN = mktime(date('H', $date), date('i', $date), date('s', $date), date('n') + $repeatEvery,
+                     */
+                }
+
+                break;
+            case 'Yearly':
+
+                break;
+        }
+    }
+
+    public static function calendar($view, &$paginate, $columns, $actions) {
+
+        if (in_array($view->request->ext, array('json', 'xml'))) {
+            return;
+        }
+        $request = &$view->request;
+        $array = \tushar\html::pagination($request, $paginate);
+        list ($links, $count, $get) = $array;
+
+        $paginate['query']['qualified'] = 0;
+        echo '<div  id="', $paginate['uuid'], '" parent="', $paginate['parent'], '" model="', $paginate['model']
+        , '" primary_key="', $paginate['primary_key'], '" display_field="', $paginate['display_field']
+        , '" href="', $paginate['url'], $get, '" foreign_column_name="', $paginate['foreign_key']
+        , '"  query="', rawurlencode(json_encode($paginate['query'])), '" render_as="', $paginate['render_as']
+        , '" class="listview ', $paginate['render_as'], ' ', $paginate['table_class'], ' " collapse_category_columns="', $paginate['collapse_category_columns'], '
+                        "></div>';
+        $data = array();
+        $header = array();
+        foreach ($paginate['header'] as $h) {
+            $hr = explode('.', $h['name']);
+            $header[$h['name']] = array_pop($hr);
+        }
+
+        foreach ($paginate['data'] as $kk => $record) {
+            $paginate['data'][$kk] = array();
+            foreach ($header as $k => $v) {
+                $paginate['data'][$kk][$v] = $record[$k];
+            }
+        }
+        //model_associations
+        $modelAssociations = $view->get('model_associations');
+        if (!is_array($modelAssociations)) {
+            $modelAssociations = array();
+        }
+        $schema = $view->get('schema');
+        if (!is_array($schema)) {
+            $schema = array();
+        }
+        $idModel = $paginate['model'] . '.id';
+        $start = $paginate['model'] . '.start';
+        $end = $paginate['model'] . '.end';
+        $title = $paginate['model'] . '.title';
+        if (!is_array($columns)) {
+            $columns = array();
+        }
+        $controller = $request->controller;
+        $colorCodeBy = "";
+        /*
+          foreach ($columns as $column => $info) {
+          if (stripos($column, 'start') !== false && isset($info['__column'])) {
+          $start = $info['__column'];
+          $idModel = explode('.', $start);
+          $controller = $idModel[0];
+          array_pop($idModel);
+          $idModel[] = 'id';
+          $idModel = implode('.', $idModel);
+          }
+          if (stripos($column, 'color') !== false && isset($info['__column'])) {
+          $colorCodeBy = $info['__column'];
+          }
+          if (stripos($column, 'end') !== false && isset($info['__column'])) {
+          $end = $info['__column'];
+          }
+          if (stripos($column, 'title') !== false && isset($info['__column'])) {
+          $title = $info['__column'];
+          }
+          } */
+
+
+        $scheduler = isset($modelAssociations['scheduler']);
+        $view->resource('/module/calendar/js/fullcalendar', 'js');
+        $view->resource('/module/calendar/css/fullcalendar', 'css');
+        //$view->resource('/module/calendar/css/fullcalendar.print', 'css');
+        $view->script(
+                '
+                jQuery("#' . $paginate['uuid'] . '")
+                .fullCalendar({
+                            theme: true,
+                            header: {
+                                left: "prev,next today",
+                                center: "title",
+                                right: "month,agendaWeek,agendaDay"
+                            },
+                            editable: true,
+                            events: "' . $paginate['url'] . '.json?q=' . rawurlencode(json_encode($paginate['query'])) . '",
+                            events: function(start, end, callback) {
+                                             var query=' . json_encode($paginate['query']) . ';
+                                             var q=jQuery.extend({},query);
+                                             if(!jQuery.isset(q["where"])){
+                                                q["where"]={};
+                                             }
+                                             q["fields"]=["' . (!empty($colorCodeBy) ? $colorCodeBy : "1") . ' AS color_code","' . $idModel . ' AS entity_id","' . $start . ' AS start","' . $end . ' AS end","' . $title . ' AS title"' . ($scheduler ? ',"scheduler.repeats","scheduler.repeat_every","scheduler.repeat_on","scheduler.repeat_by","scheduler.starts_on","scheduler.ends","scheduler.occurrences","scheduler.ends_on"' : '') . '];
+                                             //"\\\\module\\\\calendar\\\\helper\\\\data_view\\\\paginate_ui::schedule",
+                                            //q["ui_helper"]=["\\\\tushar\\\\paginate_ui::localized"];
+
+                                             var start=jQuery.fullCalendar.formatDate(start, "yyyy-MM-dd HH:mm:ss");
+                                             var end=jQuery.fullCalendar.formatDate(end, "yyyy-MM-dd HH:mm:ss");
+                                             if(jQuery.isArray(q["where"])){
+                                                q["where"].push({"OR":[{"' . $start . ' >= ":start,"' . $end . ' <= ":end}' . ($scheduler ? ',{"scheduler.starts_on >= ":start,"scheduler.ends_on <= ":end}' : '') . ']});
+                                             }
+                                             if(jQuery.isPlainObject(q["where"])){
+                                                q["where"][""]={"OR":[{"' . $start . ' >= ":start,"' . $end . ' <= ":end}' . ($scheduler ? ',{"scheduler.starts_on >= ":start,"scheduler.ends_on <= ":end}' : '') . ']};
+                                             }
+                                             q["normalized"]=1;
+                                             $.getJSON("' . $paginate['url'] . '.json"
+                                                 ,{"q":encodeURIComponent(JSON.stringify(q))}
+                                                 ,function(doc){
+                                                     var events=[];
+                                                     var data=[];
+                                                     if(jQuery.isset(doc["data"])){
+                                                        data=doc["data"];
+                                                     }
+                                                     if(jQuery.isset(doc["paginate"]) && jQuery.isset(doc["paginate"]["data"])){
+                                                        data=doc["paginate"]["data"];
+                                                     }
+                                                        jQuery.each(data,function(k,v){
+                                                            if(jQuery.isset(v["all_day"])){
+                                                               v["allDay"]=(v["all_day"] == true);
+                                                            }else{
+                                                                v["allDay"]=false;
+                                                            }
+                                                            if(jQuery.isset(v["entity_id"])){
+                                                                v["id"]=v["entity_id"];
+                                                               ' . (\tushar\request::$mobile == true ? ' v["url"]="' . $request->base . $request->module . '/' . $controller . '/edit/id:"+v["id"];' : '') . '
+                                                            
+                                                            }
+                                                            events.push(v);
+                                                        });
+                                                        callback(events);
+                                                      
+                                               });
+                            },eventClick: function(event) {
+                                if(event.id){
+                                   jQuery.ajaxPopup($("<div>"),"' . $request->base . $request->module . '/' . $controller . '/edit/id:"+event.id,jQuery("#' . $paginate['uuid'] . '"));
+                                 }
+                                return false;
+                            },eventResize: function(event,dayDelta,minuteDelta,revertFunc) {
+                                   var  start=jQuery.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
+                                       var  end=jQuery.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
+                                        jQuery.post("' . $request->base . $request->module . '/' . $controller . '/edit.json",
+                                            {
+                                             "data[' . implode('][', explode('.', $start)) . ']":start,
+                                             "data[' . implode('][', explode('.', $title)) . ']":event.title,
+                                             "data[' . implode('][', explode('.', $end)) . ']":end,
+                                             "data[' . implode('][', explode('.', $idModel)) . ']":event.id,
+                                             "data[normalized]":1
+                                            },function(data){
+                                                 if($.isPlainObject(data))
+                                                      showMessage(data);
+                                                $("#' . $paginate['uuid'] . '").fullCalendar("refetchEvents");
+                                            }
+                                        )
+                            },eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+                                   var  start=jQuery.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");
+                                      var   end=jQuery.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");
+                                        jQuery.post("' . $request->base . $request->module . '/' . $controller . '/edit.json",
+                                            {
+                                             "data[' . implode('][', explode('.', $start)) . ']":start,
+                                             "data[' . implode('][', explode('.', $title)) . ']":event.title,
+                                             "data[' . implode('][', explode('.', $end)) . ']":end,
+                                             "data[' . implode('][', explode('.', $idModel)) . ']":event.id,
+                                             "data[normalized]":1
+                                            },function(data){
+                                                 if($.isPlainObject(data))
+                                                      showMessage(data);
+                                                 $("#' . $paginate['uuid'] . '").fullCalendar("refetchEvents");
+                                            }
+                                        )
+                            }
+              });
+
+              jQuery("#' . $paginate['uuid'] . '").bind("reload",function(){
+                   $("#' . $paginate['uuid'] . '").fullCalendar("refetchEvents");
+              });
+
+
+
+
+'
+        );
+    }
+
+}
+
+?>

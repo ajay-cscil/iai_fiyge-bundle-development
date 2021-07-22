@@ -1,0 +1,294 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\data_management\controller;
+
+class exports_domain_logic extends \data_controller {
+
+    private function exportFormats($type) {
+        $formats = array();
+        switch ($type) {
+            case 'index':
+                $formats[] = array('text' => 'CSV', 'value' => 'csv');
+                $formats[] = array('text' => 'PDF', 'value' => 'pdf');
+                break;
+            default:
+                $formats[] = array('text' => 'CSV', 'value' => 'csv');
+        }
+        return $formats;
+    }
+
+    public function add($request) {
+        $this->render = 'edit';
+        $modelObj = $this->modelObj();
+        if (empty($request->data)) {
+            $requestBy = $request->param('request_by');
+            if (!isset($request->data[$modelObj->alias]['controller'])) {
+                $requestBy = explode('/', $requestBy);
+                array_pop($requestBy);
+                $request->data[$modelObj->alias]['controller'] = implode('/', $requestBy);
+            }
+
+            //$request->set('controllers', $this->validControllers());
+            $request->set('controllers', \module\core\model\listviews::getInstance()->controllers());
+            $selectAllRecords = $request->param('select_all_records', false);
+            $q = $request->param('q', false);
+
+            $q = \json_decode($q, true);
+            if (!isset($q['where'])) {
+                $q['where'] = array();
+            }
+            $controller = isset($q['controller']) ? $q['controller'] : (isset($request->data[$modelObj->alias]['controller']) ? $request->data[$modelObj->alias]['controller'] : '');
+            if (!empty($controller)) {
+                $controller = explode('/', $controller);
+                $controllerClass = NS . 'module' . NS . $controller[0] . NS . 'controller' . NS . $controller[1];
+                $controllerObj = $controllerClass::getInstance();
+                $controllerModelObj = $controllerObj->modelObj();
+                if ($selectAllRecords == false) {
+                    $ids = $this->id($request);
+                    if (!empty($ids)) {
+                        $q['where']["{$controllerModelObj->alias}.{$controllerModelObj->primaryKey}"] = $ids;
+                    }
+                }
+            }
+            $q = \array_diff_key($q, array('page' => 1, 'limit' => 1));
+            if (isset($q['fields'])) {
+                \rm_empty_input($q['fields'], true, true);
+            }
+            $request->overwrite(true, 'query', json_encode($q));
+            $request->overwrite(true, 'id', null);
+            $request->data[$modelObj->alias]['query'] = str_replace('","', '", "', json_encode($q));
+        }
+
+
+        $return = parent::add($request);
+        $type = '';
+
+        $data = (isset($request->response['data']) ? $request->response['data'] : array());
+        if (isset($data[$modelObj->alias]) && isset($data[$modelObj->alias]['query'])) {
+            $jd = json_decode($data[$modelObj->alias]['query'], true);
+            $type = (isset($jd['render_as']) ? $jd['render_as'] : 'index');
+            ;
+        }
+        $request->set('export_formats', $this->exportFormats($type));
+
+        if ($this->saveHandlerOutput == true) {
+            $request->setMsg(sprintf(__('%s %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), __('saved')), true);
+            $request->setMsg(sprintf(__('<b>Click %s to download file.</b>'), '<a href="' . $request->base . "data_management/exports/export/id:{$modelObj->id}" . '">'
+                            . __('Here', 'module') . '</a>')); //{$request->module}/{$request->controller}
+        }
+
+        return $return;
+    }
+
+    public function validControllers() {
+        $menuObj = \module\development_base\model\menus::getInstance(array(), true);
+        $menu = $menuObj->find(array('fields' => array('menus.id', 'menus.parent_id', 'menus.url', 'menus.name'),
+                    'where' => array('menus.type' => array('action', 'sub-action'),
+                        'menus.url CONTAINS ' => 'export_selected',
+                        'menus.is_active' => 1),
+                    'limit' => 0,
+                    'order' => array('menus.lft ASC')))->fetchAll(\PDO::FETCH_ASSOC);
+        $controllerList = array();
+        foreach ($menu as $m) {
+            $mX = explode('/', $m['url']);
+            if (!array_key_exists(humanize($mX[0]), $controllerList)) {
+                $controllerList[humanize($mX[0])] = array();
+            }
+            $controllerList[humanize($mX[0])][] = array('text' => humanize($mX[1]), 'value' => "{$mX[0]}/{$mX[1]}");
+        }
+        return $controllerList;
+    }
+
+    public function edit($request) {
+        $modelObj = $this->modelObj();
+        //$request->set('controllers', $this->validControllers());
+        $request->set('controllers', \module\core\model\listviews::getInstance()->controllers());
+        $return = parent::edit($request);
+
+        $type = '';
+        $data = (isset($request->response['data']) ? $request->response['data'] : array());
+        if (isset($data[$modelObj->alias]) && isset($data[$modelObj->alias]['query'])) {
+            $jd = json_decode($data[$modelObj->alias]['query'], true);
+            $type = (isset($jd['render_as']) ? $jd['render_as'] : 'index');
+        }
+        $request->set('export_formats', $this->exportFormats($type));
+
+        return $return;
+    }
+
+    public function view($request) {
+        $modelObj = $this->modelObj();
+        $request->set('controllers', \module\core\model\listviews::getInstance()->controllers());
+        $return = parent::view($request);
+
+        $type = '';
+        $data = (isset($request->response['data']) ? $request->response['data'] : array());
+        if (isset($data[$modelObj->alias]) && isset($data[$modelObj->alias]['query'])) {
+            $jd = json_decode($data[$modelObj->alias]['query'], true);
+            $type = (isset($jd['render_as']) ? $jd['render_as'] : 'index');
+        }
+        $request->set('export_formats', $this->exportFormats($type));
+
+        return $return;
+    }
+
+    public function export($request, $id = null) {
+        \set_time_limit(0);
+        if (is_null($id)) {
+            $id = $this->id($request);
+        }
+        $modelObj = $this->modelObj();
+        if (empty($id)) {
+            $id = $modelObj->id;
+        }
+        $data = \current($modelObj->read($id));
+        if (!empty($data)) {
+            $data['query'] = json_decode(str_replace(array(PHP_EOL, '&nbsp;', '<br />'), array(' ', '', ''), $data['query']), true);
+            $controller = explode('/', $data['controller']);
+            $controllerClass = NS . 'module' . NS . $controller[0] . NS . 'controller' . NS . $controller[1];
+            $controllerObj = $controllerClass::getInstance();
+            $controllerModelObj = $controllerObj->modelObj();
+            $path = module_path($controller[0]) . DS . 'locale';
+            \tushar\dispatcher::loadPO($path, 'module', $request);
+            $data['query']['limit'] = 0;
+            $isReport = isset($data['query']['view_controller']) && $data['query']['view_controller'] == 'analytics/reports';
+
+
+            if (!$isReport) {
+                $data['query']['fields'] = array("{$controllerModelObj->alias}.{$controllerModelObj->primaryKey}");
+                $data['query'] = \array_diff_key($data['query'], array('helper' => 1, 'method' => 1));
+                $records = array();
+                $columns = array();
+                $order = array();
+                if (isset($data['query']['where'])) {
+                    foreach ($data['query']['where'] as $k => $v) {
+                        if (is_array($v) && isset($v['{{MODEL}}.{{PRIMARY_KEY}}'])) {
+                            $order = $v['{{MODEL}}.{{PRIMARY_KEY}}'];
+                        }
+                    }
+                }
+                if (!empty($order) && is_array($order)) {
+                    $records1 = $controllerModelObj->find($data['query'])->fetchAll(\PDO::FETCH_COLUMN, 0);
+                    $records1 = array_merge(array_intersect($order, $records1), array_diff($records1, $order));
+                    foreach ($records1 as $i => $recordId) {
+                        \reduce_array_dimension($controllerModelObj->read($recordId, null, array(), array(), array('ignore_belongs_to_business_key' => 1, 'ignore_belongs_to_primary_key' => 1)), $records[$i], '', true, false);
+                        $columns = array_merge($columns, \array_fill_keys(array_keys($records[$i]), 1));
+                    }
+                } else {
+                    foreach ($controllerModelObj->find($data['query'])->fetchAll(\PDO::FETCH_COLUMN, 0) as $i => $recordId) {
+                        \reduce_array_dimension($controllerModelObj->read($recordId, null, array(), array(), array('ignore_belongs_to_business_key' => 1, 'ignore_belongs_to_primary_key' => 1)), $records[$i], '', true, false);
+                        $columns = array_merge($columns, \array_fill_keys(array_keys($records[$i]), 1));
+                    }
+                }
+
+                $blacklist = array("lft", "rgt", "imported_by", "__imported_by", "created_by", "imported_by_model", "inherited_read_acl", "temporary_acl", "_acl", "deleted", "revision", "flags", "modified", "owned_by", "__modified");
+                foreach ($columns as $k => $v) {
+                    foreach ($blacklist as $b) {
+                        if (stripos($k, "." . $b) !== false) {
+                            unset($columns[$k]);
+                        }
+                    }
+                }
+                $cl = array();
+                $cl["Field Name"] = '';
+                foreach ($columns as $k => $v) {
+                    if (stripos($k, ".__") === false && stripos($k, "_model") === false) {
+                        $cl[$k] = $v;
+                        $k = explode(".", $k);
+                        $last = array_pop($k);
+                        $k1 = implode(".", $k) . ".__" . $last;
+                        $k2 = implode(".", $k) . ".__" . $last;
+                        if (isset($columns["{$k1}"])) {
+                            $cl[$k1] = $v;
+                        }
+                        if (isset($columns["{$k2}"])) {
+                            $cl[$k2] = $v;
+                        }
+                    } else if (stripos($k, ".__") !== false) {
+                        $k1 = str_replace(".__", ".", $k);
+                        if (!isset($columns[$k1])) {
+                            $cl[$k] = $v;
+                        }
+                    }
+                }
+                $columns = $cl;
+                $labels = array();
+                if (is_array($columns)) {
+                    foreach ($columns as $label => $i) {
+                        $st = preg_replace("/\.\d\./i", '.', $label);
+                        $st = explode(".", $st);
+                        $st = array_slice($st, -1);
+                        $st = implode(".", $st);
+                        if (stripos($label, '__') !== false) {
+                            $labels[] = __(str_replace('__', '', $st)) . " Value";
+                        } else {
+                            $labels[] = __($st);
+                        }
+                    }
+                }
+
+                $output = fopen('php://output', 'w');
+                header('Content-Type: text/csv; charset=utf-8');
+                header('Content-Disposition: attachment; filename=' . \str_replace(array(' ', "<", ">", ":", '"', "/", "\\", "|", "?", "*"), '_', $data['name']) . '.csv');
+                //ksort($columns);
+                array_shift($labels);
+                array_unshift($labels, "Field Label");
+                fputcsv($output, array_keys($columns));
+                fputcsv($output, $labels);
+                foreach ($records as $record) {
+                    $row = array();
+                    foreach ($columns as $column => $v) {
+                        $row[$column] = (isset($record[$column]) ? $record[$column] : '');
+                    }
+                    fputcsv($output, $row);
+                }
+
+                exit;
+            } else {
+                $p = explode('/', $data['query']['view_controller']);
+                $class = "\\module\\{$p[0]}\\model\\{$p[1]}";
+                $lvObj = $class::getInstance(array(), true);
+                $lvq = $lvObj->find(array('fields' => array($lvObj->alias . '.query'),
+                            'where' => array($lvObj->alias . '.id' => $data['query']['view_id']),
+                            'limit' => 0,
+                        ))->fetch(\PDO::FETCH_COLUMN);
+                $lvq = json_decode($lvq, true);
+                $lvq = array_diff_key($lvq, array('acl' => 1, 'acl_edit' => 1, 'acl_delete' => 1));
+
+                $lvq = array_merge($lvq, $data['query']);
+                if (!isset($lvq['class'])) {
+                    $lvq['class'] = '\tushar\paginate';
+                }
+                $lvq['show_has_many_records'] = 'all';
+                $lvq['limit'] = 0;
+                $lvq['fetch_level'] = 'all';
+                $request->set('filename', \str_replace(array(' ', "<", ">", ":", '"', "/", "\\", "|", "?", "*"), '_', $data['name']));
+                $request->set('paginate', $controllerModelObj->find($lvq));
+
+                if (\tushar\configuration::read('debug') == 1) {
+                    $sql = \tushar\driver::$lastSelectSQL;
+                    $params = \tushar\driver::$lastSelectSQLParams;
+                    if (is_array($params))
+                        foreach ($params as $k => $v) {
+                            $params[$k] = "\"{$v}\"";
+                        }
+                    $sqlp = explode('?', $sql);
+                    $sql = '';
+                    while (!empty($sqlp)) {
+                        $p = array_shift($sqlp);
+                        $sql .= "{$p}" . (!empty($params) ? array_shift($params) : '');
+                    }
+                    $request->set('csv_data_sql', $sql);
+                }
+                $request->ext = (isset($data['export_format']) && !empty($data['export_format']) ? $data['export_format'] : 'csv');
+                $this->render = 'index';
+            }
+        }
+    }
+
+}

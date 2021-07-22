@@ -1,0 +1,148 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\campaigns\controller;
+
+class campaigns_domain_logic extends \data_controller{
+
+    /**
+     *
+     * @var type
+     */
+    public $paginate = array('fields' => array('campaigns.name', 'campaigns.status', 'campaigns.campaign_type', 'campaigns.start', 'campaigns.end', 'campaigns.subject'));
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function edit($request) {
+        $request->layout = 'detail';
+        $request->set('smtp_server_list', array(array('text' => 'default', 'value' => 'default')));
+        $permissions = array();
+        $status = "";
+        $return = parent::edit($request);
+        $data = $request->response('data', false);
+
+        $alias = $this->modelObj->alias;
+        $permissions['action'] = array();
+        $permissions['action']['test_varified'] = $permissions['action']['unlock_campaign'] = $permissions['action']['draft'] = $permissions['action']['submit'] = DELETE;
+
+        if ($data !== false && isset($data[$alias])) {
+            if (isset($data[$alias]['status'])) {
+                $status = $data[$alias]['status'];
+            }
+            if (isset($data[$alias]['template_id'])) {
+                $request->set('is_template_read_only', 0);
+                /*
+                 * \select('is_read_only')
+                  ->from($this->modelObj->templates)
+                  ->where(array('id' => $data[$alias]['template_id']))
+                  ->execute()
+                  ->fetch(\PDO::FETCH_COLUMN, 0)
+                 */
+            }
+            $permissions['action']['unlock_campaign'] = DELETE;
+            if (isset($data[$alias]['id']) && !empty($data[$alias]['id'])) {
+                if (\select(array('singleton_key'))
+                                ->from(\module\campaigns\model\campaign_run_status::getInstance(array(), true))
+                                ->where(array('campaign_id ' => $data[$alias]['id']))
+                                ->execute()->fetch(\PDO::FETCH_COLUMN, 0) != '') {
+                    $permissions['action']['unlock_campaign'] = EDIT;
+                }
+            }
+        }
+        if (!isset($data['campaigns']['scheduler'])) {
+            $data['campaigns']['scheduler']['repeats'] = 'Once';
+            $request->set('data', $data);
+        }
+
+
+
+
+
+
+        // if tested, then show test varified.
+        if ($status == 'Tested') {
+            $permissions['action']['test_varified'] = EDIT;
+        }
+        // if empty, under testing, draft, show only 2 buttons
+        //if (empty($status) || in_array($status, array('draft', 'under testing', 'tested', 'active', 'completed'))) {  //,'completed'
+
+        $modObject = $this->modelObj();
+        if ($status == 'Completed' && empty($modObject->cloned)) {  //,'completed'
+            $permissions['action']['draft'] = VIEW;
+            $permissions['action']['submit'] = VIEW;
+            $permissions['action']['unlock_campaign'] = DELETE;
+        } else {
+            $permissions['action']['draft'] = EDIT;
+            $permissions['action']['submit'] = EDIT;
+        }
+
+        if ($permissions['action']['draft'] != EDIT && $permissions['action']['submit'] != EDIT) {
+            $this->form['permission'] = VIEW;
+        }
+        $permissions['action']['cancel'] = EDIT;
+        $request->set('form', $this->form);
+        $request->set('email_priority', array(array('text' => 'High', 'value' => '1'), array('text' => 'Normal', 'value' => '2'), array('text' => 'Low', 'value' => '3')));
+        $request->set('form_uuid', \uuid());
+        $request->set('permissions', $permissions);
+
+        $schedulerRepeats = array(array('text' => 'Once', 'value' => 'Once'));
+        $schedulerRepeatOptions = \module\crm_base\model\scheduler::getInstance()->schedulerRepeats;
+        foreach ($schedulerRepeatOptions as $option) {
+            $schedulerRepeats[] = array('text' => $option, 'value' => $option);
+        }
+        $request->set('scheduler_repeats', $schedulerRepeats);
+
+
+        if (!isset($data[$alias])) {
+            $data[$alias] = array();
+        }
+        $id = $request->response('id');
+        if (!isset($data[$alias]['business_key']) && !empty($id)) {
+            $data[$alias]['business_key'] = $id;
+            $request->set('data', $data);
+        }
+
+        return $return;
+    }
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     * @return type
+     */
+    public function view($request) {
+        $request->layout = 'detail';
+        $request->set('smtp_server_list', array(array('text' => 'default', 'value' => 'default')));
+        $return = parent::view($request);
+        $data = $request->response('data', false);
+        $request->set('email_priority', array(array('text' => 'High', 'value' => '1'), array('text' => 'Normal', 'value' => '2'), array('text' => 'Low', 'value' => '3')));
+        $request->set('permissions', array('action' => array('cancel' => EDIT)));
+
+        $schedulerRepeats = array(array('text' => 'Once', 'value' => 'Once'));
+        $schedulerRepeatOptions = \module\crm_base\model\scheduler::getInstance()->schedulerRepeats;
+        foreach ($schedulerRepeatOptions as $option) {
+            $schedulerRepeats[] = array('text' => $option, 'value' => $option);
+        }
+        $request->set('scheduler_repeats', $schedulerRepeats);
+
+        return $return;
+    }
+
+    public function cloned($request) {
+        $return = parent::cloned($request);
+        $data = $request->response('data');
+        if (isset($data['campaigns']) && isset($data['campaigns']['status'])) {
+            $data['campaigns']['status'] = $data['campaigns']['__status'] = '';
+
+            $request->set('data', $data);
+        }
+    }
+
+}

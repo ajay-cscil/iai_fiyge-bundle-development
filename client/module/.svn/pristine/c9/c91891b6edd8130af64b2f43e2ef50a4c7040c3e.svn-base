@@ -1,0 +1,14 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\brules\model;
+
+class business_rule_runlevels_domain_logic extends \tushar\model{
+
+    public $isSystemModel=1;
+
+}

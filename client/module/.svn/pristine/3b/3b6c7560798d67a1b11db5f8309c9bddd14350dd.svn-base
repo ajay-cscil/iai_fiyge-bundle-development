@@ -1,0 +1,280 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class options extends \module\excursion\model\options_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__options';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'optionsDesc';
+       public $primaryKey = 'iD';
+       public $alias = 'options';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'arrangeOptionsBy' => 
+  array (
+    'column' => 'arrangeOptionsBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'defaultSelected' => 
+  array (
+    'column' => 'defaultSelected',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'iD' => 
+  array (
+    'column' => 'iD',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'isFixedShippingCost' => 
+  array (
+    'column' => 'isFixedShippingCost',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'isProductCode' => 
+  array (
+    'column' => 'isProductCode',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'isProductCode_Qty' => 
+  array (
+    'column' => 'isProductCode_Qty',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'isProductPrice' => 
+  array (
+    'column' => 'isProductPrice',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'isProductQuantity' => 
+  array (
+    'column' => 'isProductQuantity',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'jumpToProductCode' => 
+  array (
+    'column' => 'jumpToProductCode',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'lastModBy' => 
+  array (
+    'column' => 'lastModBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModified' => 
+  array (
+    'column' => 'lastModified',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'noValue' => 
+  array (
+    'column' => 'noValue',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'not_Available_With_OptionIDs' => 
+  array (
+    'column' => 'not_Available_With_OptionIDs',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'only_Available_With_OptionIDs' => 
+  array (
+    'column' => 'only_Available_With_OptionIDs',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'optionCatID' => 
+  array (
+    'column' => 'optionCatID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'optionsDesc' => 
+  array (
+    'column' => 'optionsDesc',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'optionsDesc_SideNote' => 
+  array (
+    'column' => 'optionsDesc_SideNote',
+    'ntype' => 'string',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'priceDiff' => 
+  array (
+    'column' => 'priceDiff',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'productWeight' => 
+  array (
+    'column' => 'productWeight',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'recurringPriceDiff' => 
+  array (
+    'column' => 'recurringPriceDiff',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'replacesOptionID' => 
+  array (
+    'column' => 'replacesOptionID',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'setupCostDiff' => 
+  array (
+    'column' => 'setupCostDiff',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'textbox_Rows' => 
+  array (
+    'column' => 'textbox_Rows',
+    'ntype' => 'string',
+    'length' => '2',
+  ),
+  'textbox_Size' => 
+  array (
+    'column' => 'textbox_Size',
+    'ntype' => 'string',
+    'length' => '2',
+  ),
+  'validate_ErrorMessage' => 
+  array (
+    'column' => 'validate_ErrorMessage',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'validate_OptionCatID' => 
+  array (
+    'column' => 'validate_OptionCatID',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'validate_OptionID' => 
+  array (
+    'column' => 'validate_OptionID',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'validate_RegExpression' => 
+  array (
+    'column' => 'validate_RegExpression',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'vendorPriceDiff' => 
+  array (
+    'column' => 'vendorPriceDiff',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'optionCatID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class user_action_logs extends \module\excursion\controller\user_action_logs_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\user_action_logs';
+
+
+
+
+
+
+  }

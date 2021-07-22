@@ -1,0 +1,24 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\crm\controller;
+
+class leads_domain_logic extends \data_controller{
+
+    public function new_maax_instance($request) {
+        $id = $this->id();
+        $modelObj = $this->modelObj();
+        $data = current($modelObj->read($id));
+        if (!empty($data) && $modelObj->setupInstance($data)) {
+            $request->setMsg('Maax Frame instance is created for lead');
+        } else {
+            $request->setMsg('Couln not create Maax Frame instance for lead');
+        }
+        return false;
+    }
+}
+

@@ -1,0 +1,112 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\crm\model;
+
+class leads_domain_logic extends \data_model{
+
+    public $primaryEmailField = 'office_email';
+
+    public function setupInstance($lead) {
+        set_time_limit(300);
+        if (isset($lead['domain_name']) && !empty($lead['domain_name'])) {
+            $instance = \tushar\configuration::read('maax_instance_setup');
+            if (!is_array($instance)) {
+                $instance = array();
+            }
+            $app_url = isset($instance['domain_url']) && !empty($instance['domain_url']) ? $instance['domain_url'] : 'app1.maaxframe.com/';
+            if (substr($app_url, -1) != "/") {
+                $app_url .="/";
+            }
+            $app_url .= $lead['domain_name'];
+            $security_salt = uuid();
+            $name = $lead['first_name'];
+            if ($lead['last_name'] !== '...') {
+                $name .= '_' . $lead['last_name'];
+            }
+            $admin_user_name = strtolower(str_replace(' ', '_', $name));
+            $admin_user_password = substr(uuid(), 0, 8);
+            $admin_pass_hash = \module\access_controls\model\users_domain_logic::encrypt($admin_user_password, $security_salt);
+            $output = $status = '';
+            if (file_exists(PLATFORM . '/shell/new_install.sh')) {
+                \exec(PLATFORM . '/shell/new_install.sh ' . $app_url . ' ' . $security_salt . ' ' . $admin_user_name . ' ' . $admin_pass_hash . ' ' .(isset($lead['load_demo_data']) && $lead['load_demo_data'] == 1 ? '1' : '0' ). ' ' . $lead['name'] . ' ' . $lead['first_name'] . ' ' . $lead['last_name'] . ' ' .$lead['office_email']. '  ', $output, $status);
+                $output = json_encode($output);
+                if (stripos($output, 'SETUP-DONE') !== false) {
+                    // When done, convert lead to account+contact+opportunity.
+                    $data = $this->read($lead['id']);
+                    $contact = array();
+                    if (
+                            isset($data['leads'])
+                            && !(isset($data['leads']['is_converted'])
+                            && $data['leads']['is_converted'] == 1)
+                    ) {
+                        $contactModelObject = \module\crm\model\contacts::getInstance();
+                        $contact = $contactModelObject->mapModelData('leads', $this, $data);
+                        $contact['contacts']['opportunities']['create_opportunity'] = 1;
+                        if (!empty($contact)) {
+                            $contactModelObject->save($contact, array('atomic' => true));
+                            \tushar\model::$errors = array();
+                        }
+                    }
+                    $lead = current($data);
+                    $lead['admin_user_name'] = $admin_user_name;
+                    $lead['admin_user_password'] = $admin_user_password;
+                    $lead['app_url'] = $app_url;
+                    $lead['contacts'] = current($contact);
+
+                    $email = array();
+                    $userID = \tushar\user::read('id');
+                    if (empty($userID)) {
+                        $email['from_name'] = \tushar\configuration::read('administrator_name');
+                        $email['from_email'] = \tushar\configuration::read('administrator_email');
+                    }
+                    $email['email_to_recipients'] = $lead['office_email'];
+                    $email['subject'] = (isset($instance['email_subject']) && !empty($instance['email_subject']) ? $instance['email_subject'] : "Your Maaxframe Instance is ready");
+                    $email['body'] = "<div>User Name: {{admin_user_name}}</div><div>Password: {{admin_user_password}}</div><div>Login URL: <a href='{{app_url}}'>{{app_url}}</a></div>";
+                    if (isset($instance['email_body']) && !empty($instance['email_body'])) {
+                        $email['body'] = $instance['email_body'];
+                    }
+                    $array = \tushar\string::split($email['body'], array("merge_words" => "/\{\{[\.\w\-]*\}\}/i"));
+                    list($strings, $extracts) = $array;
+                    if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+                        $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+                        $extracts['merge_words'] = \tushar\string::populateWords($extracts['merge_words'], $lead);
+                        $email['body'] = \tushar\string::merge($strings, $extracts);
+                    }
+                    \module\activities\model\emails::getInstance()->saveAndSend($email, array('atomic' => true));
+                    return true;
+                } else {
+                    $email = array();
+                    $userID = \tushar\user::read('id');
+                    if (empty($userID)) {
+                        $email['from_name'] = \tushar\configuration::read('administrator_name');
+                        $email['from_email'] = \tushar\configuration::read('administrator_email');
+                    }
+                    $email['email_to_recipients'] = 'admins@primarymodules.com';
+                    $email['subject'] = "New maaaframe instance for lead " . $lead['name'];
+                    $email['body'] = "
+                        Could not setup new maax instance for lead <a href='" . \tushar\request::$baseURL . "crm/leads/view?id={{id}}'>{{name}} [{{id}}]</a>
+                        <div>Shell Call:  exec(" . PLATFORM . "/shell/new_install.sh " . $app_url . " " . $security_salt . " " . $admin_user_name . " " . $admin_pass_hash . "  )</div>
+                        <div>Response:  {$output}</div>    
+                        <div>Status Code:  {$status}</div>    
+                        <div>&nbsp;</div>";
+                    $array = \tushar\string::split($email['body'], array("merge_words" => "/\{\{[\.\w\-]*\}\}/i"));
+                    list($strings, $extracts) = $array;
+                    if (isset($extracts['merge_words']) && is_array($extracts['merge_words'])) {
+                        $extracts['merge_words'] = \tushar\string::cleanWords($extracts['merge_words']);
+                        $extracts['merge_words'] = \tushar\string::populateWords($extracts['merge_words'], $lead);
+                        $email['body'] = \tushar\string::merge($strings, $extracts);
+                    }
+                    \module\activities\model\emails::getInstance()->saveAndSend($email, array('atomic' => true));
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+}

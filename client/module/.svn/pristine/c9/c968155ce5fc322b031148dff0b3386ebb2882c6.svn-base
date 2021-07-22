@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\recruitment\controller;
+  class applications extends \module\recruitment\controller\applications_domain_logic
+  {
+       public $modelClass = '\\module\\recruitment\\model\\applications';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

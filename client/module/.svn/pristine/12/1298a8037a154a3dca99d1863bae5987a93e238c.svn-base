@@ -1,0 +1,43 @@
+[
+    {
+        "email_templates": {
+            "_acl": null,
+            "_acl_delete": null,
+            "_acl_edit": null,
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "business_key": "send_invoice_paid_state_email",
+            "category": "Others",
+            "content": "    <meta charset=\"utf-8\">    <title>Welcome to MaaxFrame<\/title>    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">    <meta name=\"description\" content=\"\">    <meta name=\"author\" content=\"\">    <link href=\"\/\/netdna.bootstrapcdn.com\/twitter-bootstrap\/2.3.2\/css\/bootstrap-combined.min.css\" rel=\"stylesheet\"><div>    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">        <tbody>        <tr>            <td>                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">                    <tbody>                    <tr>                        <td valign=\"top\">                            <div style=\"font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-weight:bold;margin:0px\">                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">                                    <tbody>                                    <tr>                                        <td align=\"left\" width=\"132\">                                            <img valign=\"middle\" alt=\"MaaxFrame\" src=\"http:\/\/www.maaxframe.com\/assets\/img\/Maax-logo-and-text-250x64.png\" height=\"64\" width=\"250\">                                        <\/td>                                        <td align=\"right\">                                            Contact us                                            <a target=\"_blank\" style=\"text-decoration:none;font-size:12px;font-family:Arial,Helvetica,sans-serif;color:#0066b3;font-weight:bold\" href=\"http:\/\/www.maaxframe.com\/contactus.php\"> online<\/a>                                            or                                            <br>                                            Call +1 647 476 2714                                        <\/td>                                    <\/tr>                                    <\/tbody>                                <\/table>                            <\/div>                        <\/td>                    <\/tr>                    <tr>                        <td height=\"15\"><br><\/td>                    <\/tr>                    <tr>                        <td bgcolor=\"#0066b3\" height=\"9\"><br><\/td>                    <\/tr>                    <tr>                        <td height=\"30\"><br><\/td>                    <\/tr>                    <\/tbody>                <\/table>                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">                    <tbody>                    <tr>                        <td valign=\"top\" width=\"100%\">                            <p>Hello {{entity.__account_id}},<\/p>        <p>Here is your copy of Paid Invoice <\/p>    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">       &nbsp;&nbsp;<strong>REFERENCES<\/strong><br>       &nbsp;&nbsp;Invoice number: {{entity.id}}<br>       &nbsp;&nbsp;Terms: {{entity.payment_terms_id}}<br>       &nbsp;&nbsp;Invoice Date: {{entity.invoice_date}}<br>       &nbsp;&nbsp;Total Invoice Amount: {{entity.total_after_discount}}<br>           <\/p>    <br>    <p>We appreciate your prompt payment. If you have any question, do not hesitate to contact us.<\/p>    <p><i>Thank you for choosing {{companies.name}}. <\/i><\/p>    <br>                              <p style=\"font-weight:normal;font-size:14px;font-family:Arial,Helvetica,sans-serif;color:#555555\">                                <b>{{users.signature}}<\/b>                                <br>                            <\/p>                        <\/td>                    <\/tr>                    <\/tbody>                <\/table>                <div class=\"yj6qo\"><\/div>    <div class=\"adL\"> <\/div><div class=\"adL\"> <\/div>    <\/td><\/tr><\/tbody><\/table><\/div>",
+            "controller": "accounting\/invoices",
+            "created": "2014-07-29 19:57:21",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "footer": null,
+            "header": null,
+            "id": "53d7fca1-46c8-40fd-a40f-38520af91b9d",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "0",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "name": "Quotation # {{entity.id}}",
+            "owned_by": "1",
+            "revision": "1",
+            "__created_by": "System Admin",
+            "__modified_by": "",
+            "__owned_by": "System Admin",
+            "created_by_model": "created_by_user",
+            "owned_by_model": "owned_by_user",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

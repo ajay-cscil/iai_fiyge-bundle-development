@@ -1,0 +1,128 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\projects\model;
+  class tickets extends \module\projects\model\tickets_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'projects__tickets';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'title';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'title' => 
+  array (
+    'column' => 'title',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'status_id' => 
+  array (
+    'column' => 'status_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'spend_hours' => 
+  array (
+    'column' => 'spend_hours',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_exportable' => '0',
+  ),
+  'severity_id' => 
+  array (
+    'column' => 'severity_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  'project_id' => 
+  array (
+    'column' => 'project_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'eta' => 
+  array (
+    'column' => 'eta',
+    'ntype' => 'float',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_exportable' => '0',
+  ),
+  'start_date' => 
+  array (
+    'column' => 'start_date',
+    'ntype' => 'date',
+  ),
+  'end_date' => 
+  array (
+    'column' => 'end_date',
+    'ntype' => 'date',
+  ),
+);
+       public $associations = array (
+  'projects' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\projects\\model\\projects',
+    'associationAlias' => 'projects',
+    'foreignKey' => 'project_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'comments' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\projects\\model\\comments',
+    'associationAlias' => 'comments',
+    'foreignKey' => 'ticket_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'status' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\projects\\model\\status',
+    'associationAlias' => 'status',
+    'foreignKey' => 'status_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'severities' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\projects\\model\\severities',
+    'associationAlias' => 'severities',
+    'foreignKey' => 'severity_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

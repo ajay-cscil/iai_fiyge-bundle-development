@@ -1,0 +1,16 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_draft extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        if (!$docObject->isLogSet()) {
+            if ($docObject->setWorkflowLog(array(array('can_edit' => 1, 'foreign_key' => \tushar\user::read('id'), 'foreign_key_model' => 'users'))) === false) {
+                throw new \Exception(sprintf(__('Could not initialize workflow log as draft stage not found for type "%s"'), $this->data['__type_id']));
+            }
+        }
+    }
+
+}
+

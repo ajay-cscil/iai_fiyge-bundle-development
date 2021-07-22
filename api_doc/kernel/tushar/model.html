@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:12 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>model (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\model</h2>
+
+</header><p class="signature">public  class <strong>model</strong></p>
+
+<div class="comment"><p>This class implements logic for model part of MVC design patten.
+It provides methods for implementing CRUD operation on model data.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#alias">$alias</a></p><p class="description">Alias for model</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#associations">$associations</a></p><p class="description">Holds all associations for current model.
+</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#behaviours">$behaviours</a></p><p class="description">List of behaviors model have.</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#businessKey">$businessKey</a></p><p class="description">Business key column name for model</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#cloned">$cloned</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#container">$container</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#created">$created</a></p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#data">$data</a></p><p class="description">Holds data of currenly active model record</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#dataOld">$dataOld</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#db">$db</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#dbTable">$dbTable</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#displayField">$displayField</a></p><p class="description">Display key column name for model</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#drilldownField">$drilldownField</a></p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#errors">$errors</a></p><p class="description">hold all validation errors, other errors reported while performing crud operation</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#filterRules">$filterRules</a></p><p class="description">hold all filter rule, lator use in views</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#filters">$filters</a></p><p class="description">List of validation+sanitization rules for model field. </p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#invalidAssociations">$invalidAssociations</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#isConfig">$isConfig</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#isSequentialData">$isSequentialData</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#leftKey">$leftKey</a></p><p class="description">lft key column name for model</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#limitForInstallation">$limitForInstallation</a></p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#notEmptyField">$notEmptyField</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#paginateAs">$paginateAs</a></p><p class="description">Default mode of paging</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#parentData">$parentData</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#parentKey">$parentKey</a></p><p class="description">parent key column name for model</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#permissions">$permissions</a></p><p class="description">hold permissions, lator use in views</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#primaryKey">$primaryKey</a></p><p class="description">Primary key column name for model</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#query">$query</a></p><p class="description">Holds sql incase of find statement</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#restore">$restore</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#rightKey">$rightKey</a></p><p class="description">rgt key column name for model</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#rolesBasedGroups">$rolesBasedGroups</a></p></td>
+</tr>
+<tr>
+<td class="type"> int</td>
+<td class="description"><p class="name"><a href="#rowsPerPage">$rowsPerPage</a></p><p class="description">Default limit for pagination</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#saveHandler">$saveHandler</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#schema">$schema</a></p><p class="description">Schema data for current model</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#sequenceColumnName">$sequenceColumnName</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#singular">$singular</a></p><p class="description">Singular name for model, to be use in labels only</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#softDeleteColumn">$softDeleteColumn</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#source">$source</a></p><p class="description">Source name for current model, to be setup in connection.php(app or module), if not specifies uses "default"</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#standardColumns">$standardColumns</a></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#table">$table</a></p><p class="description">table name in case not same as model class name</p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#__construct()">__construct</a>()</p><p class="description">Private so that no instance is created directly.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterDelete()">afterDelete</a>()</p><p class="description">Callback for model, called after executing model delete</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterFind()">afterFind</a>(array data)</p><p class="description">Call back for model, called after reading model record</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterProcessData()">afterProcessData</a>()</p><p class="description">Callback for model, called after processing afterProcessData</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterRead()">afterRead</a>(array data)</p><p class="description">Call back for model, called after reading model record</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterReadAll()">afterReadAll</a>(array data)</p><p class="description">Call back for model, called after reading model record</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterSave()">afterSave</a>(bool created)</p><p class="description">Callback for model, called before executing model save</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#associated()">associated</a>(mixed name, mixed params)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#attach()">attach</a>(array behaviours)</p><p class="description">To add behavior for model at run time</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#attached()">attached</a>(<a href="../kernel/string.html">string</a> behaviour)</p><p class="description">Check if model has behaviour attahed</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeDelete()">beforeDelete</a>()</p><p class="description">Callback for model, called before executing model delete</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeFind()">beforeFind</a>()</p><p class="description">Callback for model, called before executing model find</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeSave()">beforeSave</a>()</p><p class="description">Callback for model, called before executing model save</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeValidate()">beforeValidate</a>()</p><p class="description">Callback for model, called before executing model find</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#bind()">bind</a>(array params)</p><p class="description">To bind new association at run time</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#bindWith()">bindWith</a>(type relatedModelClass, type associationName)</p><p class="description">This method coputes reverse association between current model and given model class, based on given model class defination</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#buildJoins()">buildJoins</a>(mixed query, bool ignoreFileds)</p></td>
+</tr>
+<tr>
+<td class="type">protected  array</td>
+<td class="description"><p class="name"><a href="#cacheProperties()">cacheProperties</a>()</p><p class="description">Return cache properties of model</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#call()">call</a>(<a href="../kernel/string.html">string</a> name, array arguments, array behaviours)</p><p class="description">Calls callback methods of behavior</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#callAfterProcessData()">callAfterProcessData</a>(mixed data)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#callbackLog()">callbackLog</a>(mixed callback, mixed set)</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#cloned()">cloned</a>(array data, array options)</p><p class="description">Save method for cloning model record</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#data()">data</a>(str name, str value)</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#delete()">delete</a>(mixed where, mixed options)</p><p class="description">Performs delete in model CRUD operation</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#deleteSchemaCache()">deleteSchemaCache</a>()</p><p class="description">This method will clear out current model schema caches</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#detach()">detach</a>(array behaviours)</p><p class="description">To remove behavior  for model at run time</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#evaluateXVAR()">evaluateXVAR</a>(<a href="../kernel/string.html">string</a> xvar)</p><p class="description">Generates equivalent date ranges for XVAR</p></td>
+</tr>
+<tr>
+<td class="type">protected  void</td>
+<td class="description"><p class="name"><a href="#fieldList()">fieldList</a>(mixed assocModel)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#filterRules()">filterRules</a>(mixed data)</p><p class="description">Processes model validation and transformation rules</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#find()">find</a>(mixed query)</p><p class="description">This method generates listviews data.
+</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#getInstance()">getInstance</a>(array params, bool cache)</p><p class="description">Create instance of current model</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#getKeys()">getKeys</a>(mixed data, bool withAliasKey)</p><p class="description">Helper method for save method</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#has()">has</a>(<a href="../kernel/string.html">string</a> type, <a href="../kernel/string.html">string</a> name)</p><p class="description">Common method to check if model has field/column/association/behaviour</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#init()">init</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isAssociatedWith()">isAssociatedWith</a>(<a href="../kernel/string.html">string</a> relatedModelClass, <a href="../kernel/string.html">string</a> associationName)</p><p class="description">This methods checks if model has association with given class name or alias</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isDeleted()">isDeleted</a>(mixed id)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isNotDeletable()">isNotDeletable</a>(mixed id)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isNotEditable()">isNotEditable</a>(mixed id)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isNotReadable()">isNotReadable</a>(mixed id)</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#isSoftDeletable()">isSoftDeletable</a>()</p><p class="description">Checks if model support soft delete operation</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#joins()">joins</a>(mixed assocModels)</p><p class="description">Performs joining of models.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#multiSaveModel()">multiSaveModel</a>(array data, array options)</p><p class="description">Support multi insert operation</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#processFilterRules()">processFilterRules</a>(mixed dataAll, mixed rules)</p><p class="description">Helper method for filterRules method</p></td>
+</tr>
+<tr>
+<td class="type">protected  array</td>
+<td class="description"><p class="name"><a href="#processModelFields()">processModelFields</a>(array fields, array options)</p><p class="description">Internally used by saveModel/multiSaveModel for filtering columns to be saved</p></td>
+</tr>
+<tr>
+<td class="type">protected  mixed</td>
+<td class="description"><p class="name"><a href="#processOn()">processOn</a>(array on, array merge)</p><p class="description">Processing ON condition in joins for merge keywords</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#processRules()">processRules</a>(array data, bool associated)</p><p class="description">This method processes models level rules/models fields level rules/ business rules bound to Before From Render event</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#processXVAR()">processXVAR</a>(array where, array merge)</p><p class="description">Processes XVAR in query statements</p></td>
+</tr>
+<tr>
+<td class="type"> array(alias=>array())</td>
+<td class="description"><p class="name"><a href="#read()">read</a>(mixed id, mixed associationModels, mixed dataToBeProcessed)</p><p class="description">This model return current record info as associatiove array, it also returns all belongs to model display name.
+</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#readBusinessKey()">readBusinessKey</a>(mixed key, bool detail)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#reduceQualifiedNames()">reduceQualifiedNames</a>(mixed query)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#reset()">reset</a>(bool errors)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#restoreState()">restoreState</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#save()">save</a>(array data, array options)</p><p class="description">Saves current model+all related models as a single transaction.</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#saveModel()">saveModel</a>(array data, array options)</p><p class="description">This method saves a single model record at a time.</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#schema()">schema</a>(bool full, bool associations, bool cacheCopy, bool nested)</p><p class="description">Returns model schema</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#table()">table</a>(<a href="../kernel/string.html">string</a> type, array structure)</p><p class="description">Performs table level CRUD operations</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unbind()">unbind</a>(array params)</p><p class="description">To unbind new association at run time</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#validate()">validate</a>(array data, mixed fields)</p><p class="description">Validates model data</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="alias">public  <a href="../kernel/string.html">string</a> <strong>$alias</strong> = ''</code>
+<div class="details">
+<p>Alias for model</p></div>
+
+<code class="signature" id="associations">public  array <strong>$associations</strong> = array()</code>
+<div class="details">
+<p>Holds all associations for current model.
+Association parameters.
+className --> Fully namespace class path of related model.
+assocType --> type of association.
+joinType --> Type of DB join with related model.
+joinCondition --> condition to be added in where clause upon joining.
+joinTable --> join table name in case of hasAndBelongsToMany association.
+foreignKey --> foreign key column.
+associatedForeignKey --> in case of hasAndBelongsToMany association.
+array(
+associationAlias=>array(
+'className'=>'',
+'assocType'=>'hasOne/belongsTo/hasMany/hasAndBelongsToMany',
+'joinType'=>'inner ,left',
+'isAclParent'=>true/false,
+'joinCondition'=>'',
+'on'=>array('{{FOREIGN}}.{{ASSOCIATED_FOREIGN_KEY}}=
+{{ASSOCIATED}}.{{ASSOCIATED_PRIMARY_KEY}}'),
+'subOn'=>array('{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}'),
+'joinTable' =>'',
+'foreignKey' =>'',
+'associatedForeignKey'=>''
+)
+)</p></div>
+
+<code class="signature" id="behaviours">public  array <strong>$behaviours</strong> = array()</code>
+<div class="details">
+<p>List of behaviors model have.</p><table>
+<tr><th>Eg</th>
+<td>$behaviours=array('\\module\\access_controls\\behaviour\\acl'=>array());</td>
+</tr></table>
+</div>
+
+<code class="signature" id="businessKey">public  <a href="../kernel/string.html">string</a> <strong>$businessKey</strong> = 'business_key'</code>
+<div class="details">
+<p>Business key column name for model</p></div>
+
+<code class="signature" id="cloned">public  mixed <strong>$cloned</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="container">public  mixed <strong>$container</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="created">public  mixed <strong>$created</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="data">public  array <strong>$data</strong> = array()</code>
+<div class="details">
+<p>Holds data of currenly active model record</p></div>
+
+<code class="signature" id="dataOld">public  mixed <strong>$dataOld</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="db">public  mixed <strong>$db</strong> = ''</code>
+<div class="details">
+</div>
+
+<code class="signature" id="dbTable">public  mixed <strong>$dbTable</strong> = ''</code>
+<div class="details">
+</div>
+
+<code class="signature" id="displayField">public  <a href="../kernel/string.html">string</a> <strong>$displayField</strong> = 'name'</code>
+<div class="details">
+<p>Display key column name for model</p></div>
+
+<code class="signature" id="drilldownField">public  mixed <strong>$drilldownField</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="errors">public static  array <strong>$errors</strong> = array()</code>
+<div class="details">
+<p>hold all validation errors, other errors reported while performing crud operation</p></div>
+
+<code class="signature" id="filterRules">public static  array <strong>$filterRules</strong> = array()</code>
+<div class="details">
+<p>hold all filter rule, lator use in views</p></div>
+
+<code class="signature" id="filters">public  array <strong>$filters</strong> = array()</code>
+<div class="details">
+<p>List of validation+sanitization rules for model field. Rules should be based on PHP Filter.
+Usage.
+public $filters=array(
+'column'=>'rule'
+,'column'=>array(
+'rule1'
+,'rule2'
+,'rule3'
+,array('rule'=>'','message'=>'')
+,array('rule'=>'','params'=>array('flags'=>array()
+,'options'=>array('min_range'=>'','max_range'=>''
+,'class name','callback name')),'message'=>'')
+,array('rule'=>FILTER_CALLBACK,'message'=>'hello kernel here'
+,'params'=>array('options'=>
+array('\\kernel\\model','method_name')))
+)
+);</p><p>Note : While using FILTER_CALLBACK, if need to set custom message, then throw new Exception("message goes here")
+in callback;</p><p>VALIDATE RULE
+FILTER_VALIDATE_BOOLEAN
+FILTER_VALIDATE_EMAIL
+FILTER_VALIDATE_FLOAT
+FILTER_VALIDATE_INT
+FILTER_VALIDATE_IP
+FILTER_VALIDATE_REGEXP
+FILTER_VALIDATE_URL
+FILTER_CALLBACK</p><p>SANITIZE RULE
+FILTER_SANITIZE_EMAIL
+FILTER_SANITIZE_ENCODED
+FILTER_SANITIZE_MAGIC_QUOTES
+FILTER_SANITIZE_NUMBER_FLOAT
+FILTER_SANITIZE_NUMBER_INT
+FILTER_SANITIZE_SPECIAL_CHARS
+FILTER_SANITIZE_STRING
+FILTER_SANITIZE_STRIPPED
+FILTER_SANITIZE_URL
+FILTER_UNSAFE_RAW
+FILTER_CALLBACK</p><p>
+FILTER_FLAG_STRIP_LOW
+Used With:FILTER_SANITIZE_ENCODED, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_STRING, FILTER_UNSAFE_RAW
+Strips characters that has a numerical value <32.</p><p>FILTER_FLAG_STRIP_HIGH
+Used With:FILTER_SANITIZE_ENCODED, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_STRING, FILTER_UNSAFE_RAW
+Strips characters that has a numerical value >127.</p><p>FILTER_FLAG_ALLOW_FRACTION
+Used With:FILTER_SANITIZE_NUMBER_FLOAT
+Allows a period (.) as a fractional separator in numbers.</p><p>FILTER_FLAG_ALLOW_THOUSAND
+Used With:FILTER_SANITIZE_NUMBER_FLOAT, FILTER_VALIDATE_FLOAT
+Allows a comma (,) as a thousands separator in numbers.</p><p>FILTER_FLAG_ALLOW_SCIENTIFIC
+Used With:FILTER_SANITIZE_NUMBER_FLOAT
+Allows an e or E for scientific notation in numbers.</p><p>FILTER_FLAG_NO_ENCODE_QUOTES
+Used With:FILTER_SANITIZE_STRING
+If this flag is present, single (') and double (") quotes will not be encoded.</p><p>FILTER_FLAG_ENCODE_LOW
+Used With:FILTER_SANITIZE_ENCODED, FILTER_SANITIZE_STRING, FILTER_SANITIZE_RAW
+Encodes all characters with a numerical value <32.</p><p>FILTER_FLAG_NO_ENCODE_HIGH
+Used With:FILTER_SANITIZE_ENCODED, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_SANITIZE_STRING, FILTER_SANITIZE_RAW
+Encodes all characters with a numerical value >127.</p><p>FILTER_FLAG_NO_ENCODE_AMP
+Used With:FILTER_SANITIZE_STRING, FILTER_SANITIZE_RAW
+Encodes ampersands (&).</p><p>FILTER_NULL_ON_FAILURE
+Used With:FILTER_VALIDATE_BOOLEAN
+Returns NULL for unrecognized boolean values.</p><p>FILTER_FLAG_ALLOW_OCTAL
+Used With:FILTER_VALIDATE_INT
+Regards inputs starting with a zero (0) as octal numbers. This only allows the succeeding digits to be 0-7.</p><p>FILTER_FLAG_ALLOW_HEX
+Used With:FILTER_VALIDATE_INT
+Regards inputs starting with 0x or 0X as hexadecimal numbers. This only allows succeeding characters to
+be a-fA-F0-9.</p><p>FILTER_FLAG_IPV4
+Used With:FILTER_VALIDATE_IP
+Allows the IP address to be in IPv4 format.</p><p>FILTER_FLAG_IPV6
+Used With:FILTER_VALIDATE_IP
+Allows the IP address to be in IPv6 format.</p><p>FILTER_FLAG_NO_PRIV_RANGE
+Used With:FILTER_VALIDATE_IP
+Fails validation for the following private IPv4 ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16.
+Fails validation for the IPv6 addresses starting with FD or FC.</p><p>FILTER_FLAG_NO_RES_RANGE
+Used With:FILTER_VALIDATE_IP
+Fails validation for the following reserved IPv4 ranges: 0.0.0.0/8, 169.254.0.0/16, 192.0.2.0/24 and 224.0.0.0/4.
+This flag does not apply to IPv6 addresses.</p><p>FILTER_
+Used With:FLAG_PATH_REQUIRED FILTER_VALIDATE_URL
+Requires the URL to contain a path part.</p><p>FILTER_FLAG_QUERY_REQUIRED
+Used With:FILTER_VALIDATE_URL
+Requires the URL to contain a query string.</p></div>
+
+<code class="signature" id="invalidAssociations">public  mixed <strong>$invalidAssociations</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isConfig">public  mixed <strong>$isConfig</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isSequentialData">public  mixed <strong>$isSequentialData</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="leftKey">public  <a href="../kernel/string.html">string</a> <strong>$leftKey</strong> = 'lft'</code>
+<div class="details">
+<p>lft key column name for model</p></div>
+
+<code class="signature" id="limitForInstallation">public  mixed <strong>$limitForInstallation</strong> = 500</code>
+<div class="details">
+</div>
+
+<code class="signature" id="notEmptyField">public static  array <strong>$notEmptyField</strong> = array()</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="paginateAs">public  <a href="../kernel/string.html">string</a> <strong>$paginateAs</strong> = 'normal'</code>
+<div class="details">
+<p>Default mode of paging</p></div>
+
+<code class="signature" id="parentData">public  mixed <strong>$parentData</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="parentKey">public  <a href="../kernel/string.html">string</a> <strong>$parentKey</strong> = 'parent_id'</code>
+<div class="details">
+<p>parent key column name for model</p></div>
+
+<code class="signature" id="permissions">public  array <strong>$permissions</strong> = array()</code>
+<div class="details">
+<p>hold permissions, lator use in views</p><table>
+<tr><th>Eg</th>
+<td>delete, 2:edit, 4:view</td>
+</tr></table>
+</div>
+
+<code class="signature" id="primaryKey">public  <a href="../kernel/string.html">string</a> <strong>$primaryKey</strong> = 'id'</code>
+<div class="details">
+<p>Primary key column name for model</p></div>
+
+<code class="signature" id="query">public  array <strong>$query</strong> = array()</code>
+<div class="details">
+<p>Holds sql incase of find statement</p></div>
+
+<code class="signature" id="restore">public  mixed <strong>$restore</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="rightKey">public  <a href="../kernel/string.html">string</a> <strong>$rightKey</strong> = 'rgt'</code>
+<div class="details">
+<p>rgt key column name for model</p></div>
+
+<code class="signature" id="rolesBasedGroups">public  mixed <strong>$rolesBasedGroups</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="rowsPerPage">public  int <strong>$rowsPerPage</strong> = 25</code>
+<div class="details">
+<p>Default limit for pagination</p></div>
+
+<code class="signature" id="saveHandler">public  mixed <strong>$saveHandler</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="schema">public  mixed <strong>$schema</strong> = null</code>
+<div class="details">
+<p>Schema data for current model</p></div>
+
+<code class="signature" id="sequenceColumnName">public  mixed <strong>$sequenceColumnName</strong> = 'seq'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="singular">public  <a href="../kernel/string.html">string</a> <strong>$singular</strong> = null</code>
+<div class="details">
+<p>Singular name for model, to be use in labels only</p></div>
+
+<code class="signature" id="softDeleteColumn">public  mixed <strong>$softDeleteColumn</strong> = 'deleted'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="source">public  <a href="../kernel/string.html">string</a> <strong>$source</strong> = ''</code>
+<div class="details">
+<p>Source name for current model, to be setup in connection.php(app or module), if not specifies uses "default"</p></div>
+
+<code class="signature" id="standardColumns">public  mixed <strong>$standardColumns</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="table">public  <a href="../kernel/string.html">string</a> <strong>$table</strong> = ''</code>
+<div class="details">
+<p>table name in case not same as model class name</p></div>
+
+<code class="signature" id="__construct">private  void <strong>__construct</strong>()</code>
+<div class="details">
+<p>Private so that no instance is created directly.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterDelete">public  void <strong>afterDelete</strong>()</code>
+<div class="details">
+<p>Callback for model, called after executing model delete</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterFind">public  void <strong>afterFind</strong>(array data)</code>
+<div class="details">
+<p>Call back for model, called after reading model record</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - record information</td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterProcessData">public  void <strong>afterProcessData</strong>()</code>
+<div class="details">
+<p>Callback for model, called after processing afterProcessData</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterRead">public  void <strong>afterRead</strong>(array data)</code>
+<div class="details">
+<p>Call back for model, called after reading model record</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - record information</td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterReadAll">public  void <strong>afterReadAll</strong>(array data)</code>
+<div class="details">
+<p>Call back for model, called after reading model record</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - record information</td>
+</tr></table>
+</div>
+
+<code class="signature" id="afterSave">public  void <strong>afterSave</strong>(bool created)</code>
+<div class="details">
+<p>Callback for model, called before executing model save</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="associated">public  void <strong>associated</strong>(mixed name, mixed params)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="attach">public  void <strong>attach</strong>(array behaviours)</code>
+<div class="details">
+<p>To add behavior for model at run time</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="attached">public  bool <strong>attached</strong>(<a href="../kernel/string.html">string</a> behaviour)</code>
+<div class="details">
+<p>Check if model has behaviour attahed</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>behaviour - behaviour name</td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeDelete">public  void <strong>beforeDelete</strong>()</code>
+<div class="details">
+<p>Callback for model, called before executing model delete</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeFind">public  void <strong>beforeFind</strong>()</code>
+<div class="details">
+<p>Callback for model, called before executing model find</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeSave">public  void <strong>beforeSave</strong>()</code>
+<div class="details">
+<p>Callback for model, called before executing model save</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeValidate">public  void <strong>beforeValidate</strong>()</code>
+<div class="details">
+<p>Callback for model, called before executing model find</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="bind">public  void <strong>bind</strong>(array params)</code>
+<div class="details">
+<p>To bind new association at run time</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="bindWith">public  bool <strong>bindWith</strong>(type relatedModelClass, type associationName)</code>
+<div class="details">
+<p>This method coputes reverse association between current model and given model class, based on given model class defination</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr><tr><th>Parameters</th>
+<td>relatedModelClass - will bind current model with this class name</td>
+<td>associationName - This name will be used in association if provided</td>
+</tr></table>
+</div>
+
+<code class="signature" id="buildJoins">public  void <strong>buildJoins</strong>(mixed query, bool ignoreFileds)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="cacheProperties">protected  array <strong>cacheProperties</strong>()</code>
+<div class="details">
+<p>Return cache properties of model</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="call">public  mixed <strong>call</strong>(<a href="../kernel/string.html">string</a> name, array arguments, array behaviours)</code>
+<div class="details">
+<p>Calls callback methods of behavior</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>name - method name</td>
+<td>arguments - method arguments</td>
+<td>behaviours - method will be search into this behaviours. If null then look into all behaviours of current model</td>
+</tr></table>
+</div>
+
+<code class="signature" id="callAfterProcessData">public  void <strong>callAfterProcessData</strong>(mixed data)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="callbackLog">public  void <strong>callbackLog</strong>(mixed callback, mixed set)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="cloned">public  mixed <strong>cloned</strong>(array data, array options)</code>
+<div class="details">
+<p>Save method for cloning model record</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - cloned data to be saved</td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="data">public  void <strong>data</strong>(str name, str value)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="delete">public  bool <strong>delete</strong>(mixed where, mixed options)</code>
+<div class="details">
+<p>Performs delete in model CRUD operation</p><table>
+<tr><th>Todo</th>
+<td>Handel complex where case incase of table without primary keys.</td>
+</tr><tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>where - if string/int provided, then its use as primary key</td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="deleteSchemaCache">public static  void <strong>deleteSchemaCache</strong>()</code>
+<div class="details">
+<p>This method will clear out current model schema caches</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr></table>
+</div>
+
+<code class="signature" id="detach">public  void <strong>detach</strong>(array behaviours)</code>
+<div class="details">
+<p>To remove behavior  for model at run time</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="evaluateXVAR">public  array <strong>evaluateXVAR</strong>(<a href="../kernel/string.html">string</a> xvar)</code>
+<div class="details">
+<p>Generates equivalent date ranges for XVAR</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Example</th>
+<td>XVAR_NULL XVAR_TODAY XVAR_YESTERDAY XVAR_TOMORROW XVAR_DAY XVAR_WEEK XVAR_MONTH XVAR_QUARTER XVAR_YEAR XVAR_LAST_2_DAY XVAR_LAST_2_WEEK XVAR_LAST_2_MONTH XVAR_LAST_2_QUARTER XVAR_LAST_2_YEAR XVAR_NEXT_2_DAY XVAR_NEXT_2_WEEK XVAR_NEXT_2_MONTH XVAR_NEXT_2_QUARTER XVAR_NEXT_2_YEAR</td>
+</tr></table>
+</div>
+
+<code class="signature" id="fieldList">protected  void <strong>fieldList</strong>(mixed assocModel)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="filterRules">public static  void <strong>filterRules</strong>(mixed data)</code>
+<div class="details">
+<p>Processes model validation and transformation rules</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="find">public  mixed <strong>find</strong>(mixed query)</code>
+<div class="details">
+<p>This method generates listviews data.
+can be extended by specifying class, method for pagination</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Params</th>
+<td>array $query</td>
+</tr><tr><th>Returns</th>
+<td>\PDO object or php array with result, default PDO</td>
+</tr><tr><th>Example</th>
+<td>$obj->find(array( 'fields'=>array("model.column1","model.column2",array("model.column3"=>array("class"=>"xyz"))), 'where'=>array(), 'having'=>array(), 'group'=>array(), 'order'=>string, 'page'=> number, 'limit'=>100, 'class'=>'class name for extending "\\kernel\\paginate"', 'method'=>'class method name for extending "index"', 'page'=> 'current page to be fetch' )); if limit 0 then fetch all</td>
+</tr></table>
+</div>
+
+<code class="signature" id="getInstance">public static  mixed <strong>getInstance</strong>(array params, bool cache)</code>
+<div class="details">
+<p>Create instance of current model</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>params - params['key']=>value, key can be any public property of model</td>
+<td>cache - To return object from cache or create new instanc</td>
+</tr></table>
+</div>
+
+<code class="signature" id="getKeys">public static  mixed <strong>getKeys</strong>(mixed data, bool withAliasKey)</code>
+<div class="details">
+<p>Helper method for save method</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="has">public  bool <strong>has</strong>(<a href="../kernel/string.html">string</a> type, <a href="../kernel/string.html">string</a> name)</code>
+<div class="details">
+<p>Common method to check if model has field/column/association/behaviour</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>type - field/column/association/behaviour</td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="init">public static  void <strong>init</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isAssociatedWith">public  bool <strong>isAssociatedWith</strong>(<a href="../kernel/string.html">string</a> relatedModelClass, <a href="../kernel/string.html">string</a> associationName)</code>
+<div class="details">
+<p>This methods checks if model has association with given class name or alias</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr><tr><th>Parameters</th>
+<td>relatedModelClass - class name</td>
+<td>associationName - association name</td>
+</tr></table>
+</div>
+
+<code class="signature" id="isDeleted">public  void <strong>isDeleted</strong>(mixed id)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isNotDeletable">public  void <strong>isNotDeletable</strong>(mixed id)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isNotEditable">public  void <strong>isNotEditable</strong>(mixed id)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isNotReadable">public  void <strong>isNotReadable</strong>(mixed id)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isSoftDeletable">public static  bool <strong>isSoftDeletable</strong>()</code>
+<div class="details">
+<p>Checks if model support soft delete operation</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr></table>
+</div>
+
+<code class="signature" id="joins">public  mixed <strong>joins</strong>(mixed assocModels)</code>
+<div class="details">
+<p>Performs joining of models.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="multiSaveModel">public  void <strong>multiSaveModel</strong>(array data, array options)</code>
+<div class="details">
+<p>Support multi insert operation</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - collection of rows</td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="processFilterRules">public  void <strong>processFilterRules</strong>(mixed dataAll, mixed rules)</code>
+<div class="details">
+<p>Helper method for filterRules method</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="processModelFields">protected  array <strong>processModelFields</strong>(array fields, array options)</code>
+<div class="details">
+<p>Internally used by saveModel/multiSaveModel for filtering columns to be saved</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>fields - data to be saved</td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="processOn">protected  mixed <strong>processOn</strong>(array on, array merge)</code>
+<div class="details">
+<p>Processing ON condition in joins for merge keywords</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="processRules">public  void <strong>processRules</strong>(array data, bool associated)</code>
+<div class="details">
+<p>This method processes models level rules/models fields level rules/ business rules bound to Before From Render event</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr><tr><th>Parameters</th>
+<td>data - raw data for rules</td>
+<td>associated - if true will process rules for associated model also</td>
+</tr></table>
+</div>
+
+<code class="signature" id="processXVAR">public  void <strong>processXVAR</strong>(array where, array merge)</code>
+<div class="details">
+<p>Processes XVAR in query statements</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="read">public  array(alias=>array()) <strong>read</strong>(mixed id, mixed associationModels, mixed dataToBeProcessed)</code>
+<div class="details">
+<p>This model return current record info as associatiove array, it also returns all belongs to model display name.
+Any other related models data is returned if they are submodel.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>id - record id to be read</td>
+<td>associationModels - if provided then read data of only this models else read all</td>
+</tr><tr><th>Example</th>
+<td>$obj->read(10, array('associatedModel1','associatedModel2'=>array('Association Properties')))</td>
+</tr></table>
+</div>
+
+<code class="signature" id="readBusinessKey">public  void <strong>readBusinessKey</strong>(mixed key, bool detail)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="reduceQualifiedNames">public  void <strong>reduceQualifiedNames</strong>(mixed query)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="reset">public  void <strong>reset</strong>(bool errors)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="restoreState">public  void <strong>restoreState</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="save">public  void <strong>save</strong>(array data, array options)</code>
+<div class="details">
+<p>Saves current model+all related models as a single transaction.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Info</th>
+<td>$options['validate']=>true "validate every record models before saving"/false "dont validate record model'/before "validate all record models at once before saving". $options['atomic']=>true/false. $options['fields']=>array().</td>
+</tr></table>
+</div>
+
+<code class="signature" id="saveModel">public static  mixed <strong>saveModel</strong>(array data, array options)</code>
+<div class="details">
+<p>This method saves a single model record at a time.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - record to be saved</td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="schema">public  mixed <strong>schema</strong>(bool full, bool associations, bool cacheCopy, bool nested)</code>
+<div class="details">
+<p>Returns model schema</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>full - if true returns complete schema, including table meta data, instead of just model column info</td>
+<td>associations - if true returns associated models info also</td>
+</tr></table>
+</div>
+
+<code class="signature" id="table">public  void <strong>table</strong>(<a href="../kernel/string.html">string</a> type, array structure)</code>
+<div class="details">
+<p>Performs table level CRUD operations</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>type - add "create", edit "update", delete "drop"</td>
+<td>structure - table schema information</td>
+</tr></table>
+</div>
+
+<code class="signature" id="unbind">public  void <strong>unbind</strong>(array params)</code>
+<div class="details">
+<p>To unbind new association at run time</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="validate">public  mixed <strong>validate</strong>(array data, mixed fields)</code>
+<div class="details">
+<p>Validates model data</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - to be validated</td>
+<td>fields - if true all fields will be validated, you can pass field list to be validated</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

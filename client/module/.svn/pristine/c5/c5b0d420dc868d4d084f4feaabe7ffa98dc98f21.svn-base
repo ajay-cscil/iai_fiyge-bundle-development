@@ -1,0 +1,268 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\hr\model;
+  class projects_group_acl_cache extends \module\hr\model\projects_group_acl_cache_domain_logic
+  {
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $parentClass = '\\acl_model';
+       public $source = 'acl';
+       public $table = 'hr__projects_group_acl_cache';
+       public $fields = array (
+  'group_id' => 
+  array (
+    'column' => 'group_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'amount' => 
+  array (
+    'column' => 'amount',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'category_id' => 
+  array (
+    'column' => 'category_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'code' => 
+  array (
+    'column' => 'code',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'code_id' => 
+  array (
+    'column' => 'code_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'computation_type' => 
+  array (
+    'column' => 'computation_type',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'date' => 
+  array (
+    'column' => 'date',
+    'ntype' => 'date',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'fixed_amount' => 
+  array (
+    'column' => 'fixed_amount',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'hour_details' => 
+  array (
+    'column' => 'hour_details',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'invoiceable' => 
+  array (
+    'column' => 'invoiceable',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'payslip_id' => 
+  array (
+    'column' => 'payslip_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'percentage' => 
+  array (
+    'column' => 'percentage',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'percentage_based_on' => 
+  array (
+    'column' => 'percentage_based_on',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'project_id' => 
+  array (
+    'column' => 'project_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'quantity' => 
+  array (
+    'column' => 'quantity',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'rate' => 
+  array (
+    'column' => 'rate',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'rule' => 
+  array (
+    'column' => 'rule',
+    'ntype' => 'string',
+  ),
+  'salary_rule_id' => 
+  array (
+    'column' => 'salary_rule_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'sequence' => 
+  array (
+    'column' => 'sequence',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'timesheet_id' => 
+  array (
+    'column' => 'timesheet_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'total' => 
+  array (
+    'column' => 'total',
+    'ntype' => 'float',
+    'length' => '10,2',
+  ),
+  'type_id' => 
+  array (
+    'column' => 'type_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'user_id' => 
+  array (
+    'column' => 'user_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'groups' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\groups',
+    'associationAlias' => 'groups',
+    'foreignKey' => 'group_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'group_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

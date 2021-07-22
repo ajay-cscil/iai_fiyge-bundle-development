@@ -1,0 +1,84 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace module\campaigns\controller;
+
+class campaign_test_recipients extends \tushar\controller {
+
+    public $paginate = array('fields' => array('campaign_test_recipients.email', 'campaign_test_recipients.description'));
+    public $form = array(
+        'name' => 'campaign test recipients details',
+        'method' => 'POST',
+        'ENCTYPE' => 'multipart/form-data',
+        'children' => array(
+            'helper' => '\\tushar\\form',
+            'method' => 'tab',
+            'label' => 'campaign test recipients',
+            'children' => array(
+                array(
+                    'helper' => '\\tushar\\form',
+                    'method' => 'collection',
+                    'label' => 'Test Recipients Information',
+                    'children' => array(
+                        array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'panel',
+                            'class' => 'align-center',
+                            'children' => array(
+                                array('helper' => '\\tushar\\form', 'method' => 'cancel', 'permission' => EDIT),
+                                array('helper' => '\\tushar\\form', 'method' => 'menu','permission'=>EDIT),
+                                array('helper' => '\\tushar\\form', 'method' => 'submit', 'name' => array('action', 'submit'), 'value' => 'Submit'),
+                            )
+                        ),
+                        array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'block',
+                            'label' => 'Basic Information',
+                            'cols' => '2',
+                            'children' => array(
+                                array('helper' => '\\tushar\\form', 'method' => 'input', 'colspan' => 3, 'label' => 'campaign_test_recipients.email', 'type' => 'text', 'name' => array('campaign_test_recipients', 'email'), 'class' => 'width-100'),
+                            )
+                        ),
+                        array(
+                            'helper' => '\\tushar\\form',
+                            'method' => 'block',
+                            'label' => 'Description Information',
+                            'cols' => '2',
+                            'children' => array(
+                                array('helper' => '\\tushar\\form', 'method' => 'textarea', 'colspan' => 3, 'label' => 'campaign_test_recipients.description', 'name' => array('campaign_test_recipients', 'description')),
+                           )
+                        )
+                    )
+                ), array(
+                    'helper' => '\\tushar\\form',
+                    'method' => 'collection',
+                    'label' => 'more information',
+                    'children' => array(
+                    )
+                )
+            )
+        )
+    );
+
+    public function edit($request) {
+        $request->layout = 'detail';
+        $request->set('form', $this->form);
+        return parent::edit($request);
+    }
+
+    public function view($request) {
+        $request->layout = 'detail';
+        $form = $this->form;
+        $form['permission'] = VIEW;
+        $request->set('form', $form);
+
+        return parent::view($request);
+    }
+
+}
+
+?>

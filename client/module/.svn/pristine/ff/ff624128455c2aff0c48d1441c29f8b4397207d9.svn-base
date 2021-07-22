@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class tracker_log extends \module\excursion\controller\tracker_log_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\tracker_log';
+
+
+
+
+
+
+  }

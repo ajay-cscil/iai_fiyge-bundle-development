@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm\controller;
+  class opportunities extends \module\crm\controller\opportunities_domain_logic
+  {
+       public $modelClass = '\\module\\crm\\model\\opportunities';
+
+
+
+
+
+
+  }

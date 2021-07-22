@@ -1,0 +1,34 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\sales\model;
+
+class quotes_domain_logic extends \data_model{
+
+    public function afterProcessData() {
+        parent::afterProcessData();
+        $this->setDefaultSalesShop($this->data);
+    }
+
+    public function setDefaultSalesShop(&$data) {
+
+        if (!isset($data['id']) || empty($data['id'])) {
+
+            if (!isset($data['sales_shop_id']) || empty($data['sales_shop_id'])) {
+                $companyID = \tushar\user::read('company_id');
+                if (!empty($companyID)) {
+                    $company = current(\module\crm_base\model\companies::getInstance()->read($companyID));
+                    if (!empty($company) && isset($company['sales_shop_id'])) {
+                        $data['sales_shop_id'] = $company['sales_shop_id'];
+                        $data['__sales_shop_id'] = $company['__sales_shop_id'];
+                    }
+                }
+            }
+        }
+    }
+
+}

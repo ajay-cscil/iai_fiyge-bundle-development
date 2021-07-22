@@ -1,0 +1,11 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\elections\controller;
+  class polling_stations_domain_logic extends \module\access_controls\controller\groups{
+
+       
+
+  }

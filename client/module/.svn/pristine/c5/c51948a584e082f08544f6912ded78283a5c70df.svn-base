@@ -1,0 +1,199 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class order_details_responses extends \module\excursion\model\order_details_responses_domain_logic
+  {
+       public $displayField = 'order_details_response_id';
+       public $primaryKey = 'order_details_response_id';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__order_details_responses';
+       public $alias = 'order_details_responses';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'direction' => 
+  array (
+    'column' => 'direction',
+    'ntype' => 'string',
+    'length' => '\'V\',\'M\',\'C\'',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'notes' => 
+  array (
+    'column' => 'notes',
+    'ntype' => 'string',
+  ),
+  'orderDetailID' => 
+  array (
+    'column' => 'orderDetailID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'order_details_response_id' => 
+  array (
+    'column' => 'order_details_response_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'received' => 
+  array (
+    'column' => 'received',
+    'ntype' => 'datetime',
+  ),
+  'response' => 
+  array (
+    'column' => 'response',
+    'ntype' => 'string',
+    'length' => '\'A\',\'R\',\'S\',\'P\'',
+  ),
+  'responseBy' => 
+  array (
+    'column' => 'responseBy',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'suggestion' => 
+  array (
+    'column' => 'suggestion',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'suggestion_date' => 
+  array (
+    'column' => 'suggestion_date',
+    'ntype' => 'date',
+  ),
+  'suggestion_location' => 
+  array (
+    'column' => 'suggestion_location',
+    'ntype' => 'string',
+    'length' => '400',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'order_details_notes' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_notes',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_notes',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.orderDetailID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+  'order_details_options_parsed' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_options_parsed',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_options_parsed',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{FOREIGN_KEY}}={{FOREIGN}}.{{FOREIGN_PRIMARY_KEY}}',
+      1 => '{{PRIMARY}}.orderDetailID_model=\'{{FOREIGN}}\'',
+    ),
+  ),
+);
+       public $filters = array (
+  'orderDetailID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'received' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

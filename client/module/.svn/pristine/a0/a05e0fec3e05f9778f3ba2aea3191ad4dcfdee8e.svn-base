@@ -1,0 +1,46 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_deny extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        $nodeID = $docObject->nodeID();
+        // find all open nodes other then current and mark as terminated.
+        $actions = $docObject->actions('Mark as Void', true);
+        if ($actions['Mark as Void'] === false) {
+            throw new \Exception(sprintf(__('Could not locate action "%s" in workflow action master'), 'Mark as Void'));
+        }
+        $openNodes = $docObject->openNodes(false, true);
+        if (!empty($openNodes)) {
+            $this->terminateNodes($openNodes, __("Terminated by flexflow system due to deny action performed", 'module'));
+        }
+        /*
+          $nodeIds = array();
+          foreach ($docObject->openNodes(false,true) as $toClose) {
+          $nodeIds[] = $toClose = $toClose['id'];
+          //if ($toClose != $nodeID) {
+          $minutesTaken = 0;
+          $docObject->save(array(
+          'id' => $toClose,
+          'status' => 'cancelled',
+          'action_id' => $actions['Mark as Void'],
+          'node_id' => $toClose,
+          'message_log' => array(array(sprintf("Terminated due to deny action performed"))),
+          'minutes_taken' => $minutesTaken
+          ));
+          //}
+          }
+         * 
+         */
+        // find whole map and inject after current node as root node.
+        if ($docObject->setWorkflowLog(array(array('can_edit' => 1, 'foreign_key' => \tushar\user::read('id'), 'foreign_key_model' => 'users'))) === false) {
+            //if ($docObject->setWorkflowNodes(array(array('can_edit' => 1, 'foreign_key' => $docObject->data['entity']['created_by'], 'foreign_key_model' => 'users'))) === false) {
+            throw new \Exception(sprintf(__('Could not initialize workflow log as draft stage not found for type "%s"'), $this->data['__type_id']));
+        }
+        //else {
+        //    throw new \Exception(sprintf("Could not find new flexflow stages for current document based on type[%s]", $docObject->data['type']));
+        //}
+    }
+
+}

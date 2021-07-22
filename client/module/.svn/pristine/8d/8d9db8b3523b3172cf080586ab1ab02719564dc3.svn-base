@@ -1,0 +1,30 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+$pass=$this->params;
+$pass=isset($this->params['pass'])?$this->params['pass']:array();
+$data=isset($this->params['data'])?$this->params['data']:array();
+$module=(isset($pass[0])?array_shift($pass):'');
+$controller=(isset($pass[0])?array_shift($pass):'');
+$action=(isset($pass[0])?array_shift($pass):'');
+if(empty($module) ||  empty($controller) ||  empty($action) ){
+    throw new \Exception(sprintf(__("Invalid requested module/controler/action(%s/%s/%s) in campaign"),$module,$controller,$action));
+}
+$get=(is_array($pass)?$pass:array());
+if(!empty($this->response)){
+    $get['campaign']=$this->response;
+}
+if(!empty($data)){
+    $get['data']=array_merge($get,$data);
+}
+
+$url="{$module}/{$controller}";
+if(!empty($action)){
+   $url .= "/{$action}";
+}
+$get['export']=1;
+echo \module\campaigns\helper\campaigns::cssToStyle($this->request, $this->request($url, array('return' => 2, 'get' => $get)));
+?>

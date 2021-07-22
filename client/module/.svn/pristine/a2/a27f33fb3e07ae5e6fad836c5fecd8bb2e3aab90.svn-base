@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\cases\controller;
+  class cases extends \module\cases\controller\cases_domain_logic
+  {
+       public $modelClass = '\\module\\cases\\model\\cases';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

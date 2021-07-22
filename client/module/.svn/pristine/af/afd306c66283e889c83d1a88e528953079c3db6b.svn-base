@@ -1,0 +1,40 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_redirect extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        $actors = array();
+        if (isset($docObject->entityObj->data['stage_log'])
+                &&
+                isset($docObject->entityObj->data['stage_log']['actors'])
+        ) {
+            if (is_array($docObject->entityObj->data['stage_log']['actors'])) {
+                foreach ($docObject->entityObj->data['stage_log']['actors'] as $actor) {
+                    if (isset($actor['related_to_model']) && $actor['related_to']) {
+                        $actors[] = $actor;
+                    }
+                }
+            }
+        }
+
+        if (empty($actors)) {
+            throw new \Exception(sprintf(__("Please select actors and then click \"%s\" button to proceed", 'module'), \current($docObject->entityObj->data['action'])));
+        }
+
+        $node = $docObject->node($docObject->nodeID());
+        // check if node is valid and exists in log.
+        if ($node['status'] == 'open') {
+            $stage = 'Pending Approval';
+            $stages = $docObject->stages($stage);
+            if ($stages[$stage] === false) {
+                throw new \Exception(sprintf(__('Could not locate stage "%s"', 'module'), __($stage, 'module')));
+            }
+            $docObject->after($node['id'], $stages[$stage], $actors);
+            $docObject->exitNode();
+        }
+    }
+
+}
+

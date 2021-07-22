@@ -1,0 +1,182 @@
+{
+    "transfer_group_acl_cache": {
+        "model_class": "\\module\\accounting\\model\\transfer_group_acl_cache",
+        "design": [
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-03-30 01:48:43",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "533777fb-dafc-49bb-a7c9-4c620af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": "\\module\\accounting\\model\\transfer_group_acl_cache",
+                "modified": "2014-03-31 22:25:51",
+                "modified_by": "1",
+                "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+                "name": "\\module\\accounting\\model\\transfer_group_acl_cache",
+                "owned_by": null,
+                "parent_id": null,
+                "properties": "{\"source\":\"acl\",\"table\":\"accounting__transfer_group_acl_cache\",\"parentClass\":\"\\\\acl_model\",\"displayField\":\"group_id\",\"primaryKey\":\"id\",\"softDeleteColumn\":\"deleted\",\"sequenceColumnName\":\"seq\",\"isSequentialData\":\"0\",\"isConfig\":\"0\",\"overrideCallToParent\":\"0\"}",
+                "revision": null,
+                "template": "model"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-03-30 01:48:43",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "533777fb-bb40-49e0-bc6f-4c620af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+                "name": "group_id",
+                "owned_by": null,
+                "parent_id": "533777fb-dafc-49bb-a7c9-4c620af91b9d",
+                "properties": "{\"group_id\":[{\"rule\":1024,\"params\":{\"options\":[\"\\\\tushar\\\\validation\",\"notEmpty\"]}}]}",
+                "revision": null,
+                "template": "validate"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-03-30 01:48:43",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "533777fb-cfa4-4d54-8167-4c620af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+                "name": "id",
+                "owned_by": null,
+                "parent_id": "533777fb-dafc-49bb-a7c9-4c620af91b9d",
+                "properties": "{\"id\":{\"is_searchable\":\"1\",\"column\":\"id\",\"ntype\":\"int\",\"length\":\"19\"}}",
+                "revision": null,
+                "template": "fields"
+            },
+            {
+                "_acl": " u-1 u-2",
+                "_acl_delete": " u-1 u-2",
+                "_acl_edit": " u-1 u-2",
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-03-30 01:48:43",
+                "created_by": null,
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "533777fb-4744-4c43-aa9d-4c620af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "1",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "2726306c-e746-11e3-aad5-0800275f9930",
+                "name": "group_id",
+                "owned_by": null,
+                "parent_id": "533777fb-dafc-49bb-a7c9-4c620af91b9d",
+                "properties": "{\"group_id\":{\"is_searchable\":\"1\",\"column\":\"group_id\",\"ntype\":\"int\",\"length\":\"19\"}}",
+                "revision": null,
+                "template": "fields"
+            }
+        ],
+        "schema": {
+            "name": "accounting__transfer_group_acl_cache",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "{\"displayField\":\"id\"}",
+            "schema": {
+                "columns": {
+                    "group_id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "accounting__transfer_group_acl_cache",
+                            "column": "id"
+                        },
+                        "2": {
+                            "type": "UNIQUE",
+                            "table": "accounting__transfer_group_acl_cache",
+                            "column": "group_id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

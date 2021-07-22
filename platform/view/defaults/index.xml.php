@@ -1,0 +1,1 @@
+<?php echo \kernel\xml::fromArray(array('view' => $this->get('paginate', array()))); ?>

@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\controller;
+  class notified_users_log extends \module\flexflow\controller\notified_users_log_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow\\model\\notified_users_log';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

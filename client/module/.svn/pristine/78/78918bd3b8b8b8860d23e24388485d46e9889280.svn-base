@@ -1,0 +1,61 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\product\controller;
+  class products_domain_logic extends \tushar\controller{
+        //public $access=array('compute_unit_price'=>PROTECTED_ACCESS);
+        public function _compute_unit_price($request) {
+            $productID=$request->param('product_id');
+            $uomID=$request->param('uom_id');
+            $modelObj=$this->modelObj();
+            $product=current($modelObj->read($productID));
+            $uomOld=current($modelObj->config_uom->read($product['sale_uom_id']));
+            $uomNew=current($modelObj->config_uom->read($uomID));
+            //$request->set('data',array('unit_price'=>$product['sale_price']));
+            
+            $salePrice=null;
+            if($uomID == $uomOld['id']){
+              $salePrice=$product['sale_price'];
+            }else{
+              $uoms=\select('*')->from($modelObj->config_uom)
+               ->inserted()->where('uom_category_id',$uomOld['uom_category_id'])
+              ->limit(0)->execute()->fetchAll(\PDO::FETCH_ASSOC);
+              // is there direct relationship between old and new.
+              $category=current($modelObj->config_uom->uom_categories->read($uomOld['uom_category_id']));
+              foreach($uoms as $i=>$each){
+                        $uoms[$i]['reference_uom_id']=$category['reference_uom_id'];
+              }
+               foreach($uoms as $each){
+                   if($each['id'] == $uomID && $each['reference_uom_id'] == $uomOld['id']){
+                       $salePrice = ($each['ratio'])*$product['sale_price'];
+                       break;
+                   }elseif($each['id'] == $uomOld['id']  && $each['reference_uom_id'] == $uomID ){
+                       $salePrice = (1/$each['ratio'])*$product['sale_price'];
+                       break;
+                   }
+               }
+               // reference is nither one of them..
+               if(is_null($salePrice)){
+                      foreach($uoms as $each){
+                            if($each['id'] == $uomOld['id']){
+                                 foreach($uoms as $other){
+                                     if($other['id'] == $uomID && $each['reference_uom_id']  == $other['reference_uom_id'] ){
+                                          $salePrice=  (1/$each['ratio'])*$product['sale_price'];
+                                          $salePrice= ($other['ratio'])*$salePrice;
+                                          break;
+                                      }
+                                 }       
+                            }
+                      } 
+               }
+            }
+            if(is_null($salePrice)){
+               $salePrice=0;
+            }
+            $request->setMsg(sprintf("Could not compute price as no rule defined between %s and %s ",$uomOld['name'],$uomNew['name'])); 
+            $request->set('data',array('unit_price'=>$salePrice)); 
+        }
+
+  }

@@ -1,0 +1,335 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\data_management\model;
+
+class imports_domain_logic extends \data_model{
+
+    public $importStatus = array("to be imported", "canceled", "completed");
+
+    public function init() {
+        $this->filters['attachments'] = array(
+            array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))),
+            array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\module\\data_management\\model\\imports_domain_logic', 'validateDataFiles')))
+        );
+        parent::init();
+    }
+
+    public static function checkModelClass($val, $col, $data, $object, $rule=array()) {
+        if (!empty($val)) {
+            $controller = explode('/', $val);
+            $conObj = NS . 'module' . NS . $controller[0] . NS . 'controller' . NS . $controller[1];
+            $conObj = $conObj::getInstance();
+            if (!is_object($conObj)) {
+                throw new \Exception(__('Selected controller class not found'));
+            }
+            if (!is_object($conObj->modelObj())) {
+                throw new \Exception(__('Selected controller does not have model to import'));
+            }
+        }
+        return $val;
+    }
+
+    public function exportTemplate($data) {
+        $this->filters = array(
+            'controller' => array(
+                'required',
+                array(
+                    'rule' => FILTER_CALLBACK,
+                    'params' => array(
+                        'options' => array('\\tushar\\validation', 'notEmpty')
+                    )
+                ), array(
+                    'rule' => FILTER_CALLBACK,
+                    'params' => array(
+                        'options' => array('\\module\\data_management\\model\\imports', 'checkModelClass')
+                    )
+                )
+            )
+        );
+
+        if (!$this->validate($data)) {
+            return;
+        }
+
+
+        $controller = (isset($data[$this->alias])
+                &&
+                isset($data[$this->alias]['controller']) ?
+                        $data[$this->alias]['controller'] : '');
+        $controller = explode('/', $controller);
+        $controller = NS . 'module' . NS . $controller[0] . NS . 'controller' . NS . $controller[1];
+        $conObj = $controller::getInstance();
+
+
+        if (is_object($conObj)) {
+            $columns = $options = array();
+            $showOnly = \tushar\configuration::read('show_only_master_primary_field') == true;
+            $showMasterOptions = \tushar\configuration::read('show_master_options') == true;
+            $obj = $conObj->modelObj();
+            $obj->processFilterRules(array(), true);
+            $ignoreColumns = array('created_by', 'modified_by', 'deleted', 'lft', 'rgt', 'imported_by', 'created', 'modified', 'imported', 'revision', 'flags');
+            $schema = $obj->schema(false, false);
+            if (isset($schema['first_name']) && isset($schema['last_name']) && isset($schema['name'])) {
+                $ignoreColumns[] = 'name';
+            }
+
+            $pivotColumns = array($obj->primaryKey, $obj->businessKey, $obj->displayField);
+            foreach ($pivotColumns as $column) {
+                if (isset($schema[$column]) && !in_array($column, $ignoreColumns) && $this->isValidColumn($column)) {
+                    $c = "{$obj->alias}.{$column}";
+                    $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . $c;
+                    $options[] = '';
+                    unset($schema[$column]);
+                }
+            }
+
+            if (!isset($options[0]) || empty($options[0])) {
+                $options[0] = '';
+            }
+            $belongsTo = array();
+            foreach ($obj->associations as $name => $info) {
+                if ($info['assocType'] == 'belongsTo') {
+                    $belongsTo[$info['foreignKey']] = $name;
+                }
+            }
+
+            foreach ($schema as $column => $info) {
+                $c = "{$obj->alias}.{$column}";
+
+                if (!in_array($column, $ignoreColumns) && $this->isValidColumn($column) && is_path_set($c, \tushar\model::$notEmptyField)) {
+                    if (isset($belongsTo[$column])) {
+                        $belongsToObj = $obj->{$belongsTo[$column]};
+                        $pivotColumns = array($belongsToObj->businessKey, $belongsToObj->displayField, $belongsToObj->primaryKey);
+                        $belongsToSchema = $belongsToObj->schema(false, false);
+                        $isMaster = static::isMasterModel($belongsToObj);
+                        foreach ($pivotColumns as $pcolumn) {
+                            if (isset($belongsToSchema[$pcolumn])) {
+                                $c = "{$obj->alias}.{$column}";
+                                $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . "{$obj->alias}.{$belongsToObj->alias}.{$pcolumn}";
+                                if ($isMaster === true) {
+                                    $optionList = $belongsToObj->find(array('fields' => "{$belongsToObj->alias}.{$pcolumn}", 'limit' => 1000))->fetchAll(\PDO::FETCH_COLUMN, 0);
+                                    $options[] = (is_array($optionList) ? implode(', ', $optionList) : '');
+                                    if ($showOnly) {
+                                        break;
+                                    }
+                                } else {
+                                    $options[] = '';
+                                }
+                            }
+                        }
+                    } else {
+                        $c = "{$obj->alias}.{$column}";
+                        $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . $c;
+                        $options[] = '';
+                    }
+                }
+            }
+
+            foreach ($schema as $column => $info) {
+                $c = "{$obj->alias}.{$column}";
+
+                if (!in_array($column, $ignoreColumns) && $this->isValidColumn($column) && !is_path_set($c, \tushar\model::$notEmptyField)) {
+                    if (isset($belongsTo[$column])) {
+                        $belongsToObj = $obj->{$belongsTo[$column]};
+                        $pivotColumns = array($belongsToObj->businessKey, $belongsToObj->displayField, $belongsToObj->primaryKey);
+                        $belongsToSchema = $belongsToObj->schema(false, false);
+                        $isMaster = static::isMasterModel($belongsToObj);
+                        foreach ($pivotColumns as $pcolumn) {
+                            if (isset($belongsToSchema[$pcolumn])) {
+                                $c = "{$obj->alias}.{$column}";
+                                $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . "{$obj->alias}.{$belongsToObj->alias}.{$pcolumn}";
+                                if ($isMaster === true) {
+                                    $optionList = $belongsToObj->find(array('fields' => "{$belongsToObj->alias}.{$pcolumn}", 'limit' => 1000))->fetchAll(\PDO::FETCH_COLUMN, 0);
+                                    $options[] = (is_array($optionList) ? implode(', ', $optionList) : '');
+                                    if ($showOnly) {
+                                        break;
+                                    }
+                                } else {
+                                    $options[] = '';
+                                }
+                            }
+                        }
+                    } else {
+                        $c = "{$obj->alias}.{$column}";
+                        $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . $c;
+                        $options[] = '';
+                    }
+                }
+            }
+
+            foreach ($obj->associations as $name => $info) {
+                if (isset($info['isSubModel']) && $info['isSubModel'] == true) {
+                    $ignoreColumns = array($info['foreignKey'], $info['foreignKey'] . '_model', $info['foreignKey'] . '_model_class', $obj->{$name}->primaryKey, 'created_by', 'modified_by', 'deleted', 'lft', 'rgt', 'imported_by', 'created', 'modified', 'imported', 'revision', 'flags');
+                    $relatedObj = $obj->{$name};
+                    $belongsTo = array();
+                    if (in_array($info['assocType'], array('hasOne', 'hasMany'))) {
+                        foreach ($relatedObj->associations as $name => $info1) {
+                            if ($info1['assocType'] == 'belongsTo') {
+                                $belongsTo[$info1['foreignKey']] = $name;
+                            }
+                        }
+                    }
+
+
+                    switch ($info['assocType']) {
+                        case 'hasOne':
+                            $schema = $relatedObj->schema(false, false);
+                            if (isset($schema['first_name']) && isset($schema['last_name']) && isset($schema['name'])) {
+                                $ignoreColumns[] = 'name';
+                            }
+                            foreach ($schema as $column => $info1) {
+                                if (!in_array($column, $ignoreColumns) && $this->isValidColumn($column)) {
+                                    if (isset($belongsTo[$column])) {
+                                        $belongsToObj = $relatedObj->{$belongsTo[$column]};
+                                        $pivotColumns = array($belongsToObj->businessKey, $belongsToObj->displayField, $belongsToObj->primaryKey);
+                                        $belongsToSchema = $belongsToObj->schema(false, false);
+                                        $isMaster = static::isMasterModel($belongsToObj);
+                                        foreach ($pivotColumns as $pcolumn) {
+                                            if (isset($belongsToSchema[$pcolumn])) {
+                                                $c = "{$obj->alias}.{$relatedObj->alias}.{$column}";
+                                                $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . "{$obj->alias}.{$relatedObj->alias}.{$belongsToObj->alias}.{$pcolumn}";
+
+                                                if ($isMaster === true) {
+                                                    $optionList = $belongsToObj->find(array('fields' => "{$belongsToObj->alias}.{$pcolumn}", 'limit' => 1000))->fetchAll(\PDO::FETCH_COLUMN, 0);
+                                                    $options[] = (is_array($optionList) ? implode(', ', $optionList) : '');
+
+                                                    if ($showOnly) {
+                                                        break;
+                                                    }
+                                                } else {
+                                                    $options[] = '';
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        $c = "{$obj->alias}.{$relatedObj->alias}.{$column}";
+                                        $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . $c;
+                                        $options[] = '';
+                                    }
+                                }
+                            }
+                            break;
+                        case 'hasMany':
+                            $schema = $relatedObj->schema(false, false);
+                            if (isset($schema['first_name']) && isset($schema['last_name']) && isset($schema['name'])) {
+                                $ignoreColumns[] = 'name';
+                            }
+                            foreach ($schema as $column => $info1) {
+                                if (!in_array($column, $ignoreColumns) && $this->isValidColumn($column)) {
+                                    if (isset($belongsTo[$column])) {
+                                        $belongsToObj = $relatedObj->{$belongsTo[$column]};
+                                        $pivotColumns = array($belongsToObj->businessKey, $belongsToObj->displayField, $belongsToObj->primaryKey);
+                                        $belongsToSchema = $belongsToObj->schema(false, false);
+                                        $isMaster = static::isMasterModel($belongsToObj);
+
+                                        foreach ($pivotColumns as $pcolumn) {
+                                            if (isset($belongsToSchema[$pcolumn])) {
+                                                $c = "{$obj->alias}.{$relatedObj->alias}.{$column}";
+                                                $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . "{$obj->alias}.{$relatedObj->alias}.0.{$belongsToObj->alias}.{$pcolumn}";
+
+                                                if ($isMaster === true) {
+                                                    $optionList = $belongsToObj->find(array('fields' => "{$belongsToObj->alias}.{$pcolumn}", 'limit' => 1000))->fetchAll(\PDO::FETCH_COLUMN, 0);
+                                                    $options[] = (is_array($optionList) ? implode(', ', $optionList) : '');
+
+                                                    if ($showOnly) {
+                                                        break;
+                                                    }
+                                                } else {
+                                                    $options[] = '';
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        $c = "{$obj->alias}.{$relatedObj->alias}.{$column}";
+                                        $columns[] = (is_path_set($c, \tushar\model::$notEmptyField) ? "*" : "") . "{$obj->alias}.{$relatedObj->alias}.0.{$column}";
+
+                                        $options[] = '';
+                                    }
+                                }
+                            }
+                            break;
+                    }
+                }
+            }
+
+            if ($showMasterOptions == false) {
+                $options = array();
+            }
+            if (array_key_exists(0, $options) && count($options) == 1 && $options[0] == "") {
+                $options = array();
+            }
+            return array($columns, $options);
+        }
+    }
+
+    private static function isMasterModel($obj) {
+        return (stripos($obj->modelClass, NS . 'config_') || stripos($obj->modelClass, NS . 'masters'));
+    }
+
+    public static function validateDataFiles($val, $col, $data, $object, $rule=array()) {
+        $controller = explode('/', $data['controller']);
+        $module = $controller[0];
+        $controllerClass = NS . 'module' . NS . $module . NS . 'controller' . NS . $controller[1];
+        $controllerObj = $controllerClass::getInstance();
+        $controllerModelObj = $controllerObj->modelObj();
+
+        $module = 'data_management';
+        $sourcePlugins = array();
+        $modulePath = \module_path($module);
+        $sourcePath = $modulePath . DS . 'source';
+        if (is_dir($sourcePath)) {
+            foreach (\scandir($sourcePath) as $file) {
+                if ($file{0} != '.' && \file_exists($sourcePath . DS . $file)) {
+                    $file = explode('.', $file);
+                    $sourcePlugins[] = NS . 'module' . NS . $module . NS . 'source' . NS . $file[0];
+                }
+            }
+        }
+        if (is_array($val)) {
+            foreach ($val as $v) {
+                if (is_array($v)) {
+                    foreach ($sourcePlugins as $sourcePlugin) {
+                        if (\class_exists($sourcePlugin) && \is_callable(array($sourcePlugin, 'process'), true) === true) {
+                            $processRecords = $sourcePlugin::process($object, $v);
+                            if (!\array_key_exists('data', $processRecords) || !is_array($processRecords['data'])) {
+                                throw new \Exception(sprintf(__('Plugin %s should return data array'), $sourcePlugin));
+                            }
+                            if (!\array_key_exists('header', $processRecords) || !is_array($processRecords['header'])) {
+                                throw new \Exception(sprintf(__('Plugin %s should return header array'), $sourcePlugin));
+                            }
+                            $keys = array();
+                            foreach (array_keys($controllerModelObj->schema()) as $key) {
+                                $keys[] = "{$controllerModelObj->alias}.{$key}";
+                            }
+                            $columns = explode(",", str_replace("*", "", implode(",", $processRecords['header'])));
+                            if (count(array_intersect($keys, $columns)) <= 0) {
+                                throw new \Exception(sprintf(__('Column header row does not contain valid fields')));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $val;
+    }
+
+    private function isValidColumn($column) {
+        return!in_array($column, $this->standardColumns) && $column{0} != '_';
+    }
+
+    public function afterSave($created) {
+        if ($created == true) {
+            \update(array("status" => 'to be imported'))
+                    ->from($this)
+                    ->where("{$this->primaryKey}", $this->id)
+                    ->execute();
+        }
+        parent::afterSave($created);
+    }
+
+}

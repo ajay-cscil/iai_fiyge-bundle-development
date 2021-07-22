@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\campaigns\controller;
+  class campaign_chaining extends \module\campaigns\controller\campaign_chaining_domain_logic
+  {
+       public $modelClass = '\\module\\campaigns\\model\\campaign_chaining';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

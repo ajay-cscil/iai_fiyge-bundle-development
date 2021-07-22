@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\model;
+
+class campaign_listviews extends \tushar\model
+{
+
+    /**
+     *
+     * @var type
+     */
+    public $singular = 'campaign list view';
+
+    public $table = 'campaigns__campaign_listviews';
+
+    /**
+     *
+     * @var type
+     */
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'listviews' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'listview_id'
+            , 'className' => '\\module\\core\\model\\listviews'
+        )
+    );
+    public $filters = array(
+        'campaign_id' => array('required', array('rule' => FILTER_CALLBACK
+                , 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+        ), 'listview_id' => array('required', array('rule' => FILTER_CALLBACK
+                , 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+        ), 'controller' => array('required', array('rule' => FILTER_CALLBACK
+                , 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+        )
+    );
+
+}

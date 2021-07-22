@@ -1,0 +1,176 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\sales\model;
+  class config_payment_terms extends \module\sales\model\config_payment_terms_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'sales__config_payment_terms';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'config_payment_terms';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'tolerance_days' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tolerance_days',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'number_of_installments' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'number_of_installments',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'open_incoming_payment' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'open_incoming_payment',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'cash_discount_name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'cash_discount_name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'discount_percent' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'discount_percent',
+    'ntype' => 'float',
+    'length' => '10,0',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'is_active' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'is_active',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'description' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'description',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'payment_term' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'payment_term',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'payment_term_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'payment_term_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+  }

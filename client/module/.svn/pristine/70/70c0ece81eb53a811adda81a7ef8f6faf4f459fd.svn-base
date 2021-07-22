@@ -1,0 +1,599 @@
+[
+	{
+		"reports":{
+			"old_id":"161",
+			"name":"Trial Balance",
+			"category_id":"7",
+			"query":"{\"name\":\"Trial Balance\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"primary_acl_group_model\":\"groups\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"fields\":[{\"accounts.name\":{\"alias\":\"Account\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"accounts.account_types.name\":{\"alias\":\"Account Type\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"accounts.business_key\":{\"alias\":\"Code\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\":{\"alias\":\"Debit\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\":{\"alias\":\"Credit\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"accounts.internal_types.name\":{\"alias\":\"Type\",\"is_invisible\":\"1\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"accounts.currencies.currency_code\":{\"alias\":\"Currency\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[],\"created_by\":\"1\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\",\"modified_by\":\"1\"}",
+			"_query":"{\"id\":\"161\",\"name\":\"Trial Balance\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"_is_public\":\"0\",\"description\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"render_as\":\"index\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"accounts.name\",\"column_model\":\"schema\",\"__column\":\"accounts.name\",\"alias\":\"Account\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"accounts.account_types.name\",\"column_model\":\"schema\",\"__column\":\"accounts.account_types.name\",\"alias\":\"Account Type\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"accounts.business_key\",\"column_model\":\"schema\",\"__column\":\"accounts.business_key\",\"alias\":\"Code\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"4\":{\"seq\":\"4\",\"column\":\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\",\"column_model\":\"schema\",\"__column\":\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\",\"alias\":\"Debit\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"5\":{\"seq\":\"5\",\"column\":\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\",\"column_model\":\"schema\",\"__column\":\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\",\"alias\":\"Credit\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"6\":{\"seq\":\"6\",\"column\":\"accounts.internal_types.name\",\"column_model\":\"schema\",\"__column\":\"accounts.internal_types.name\",\"alias\":\"Type\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"is_invisible\":\"1\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"7\":{\"seq\":\"7\",\"column\":\"accounts.currencies.currency_code\",\"column_model\":\"schema\",\"__column\":\"accounts.currencies.currency_code\",\"alias\":\"Currency\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"accounting\/accounts",
+			"publish":null,
+			"read_count":"17",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-08-20 18:31:58",
+			"modified":"2013-09-02 19:36:41",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"0",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52611fce-7724-4648-ad07-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"165",
+			"name":"Transaction By Accounts",
+			"category_id":"7",
+			"query":"{\"name\":\"Transaction By Accounts\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"primary_acl_group_model\":\"groups\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\"}",
+			"_query":"{\"id\":\"165\",\"name\":\"Transaction By Accounts\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"_is_public\":\"0\",\"description\":\"\",\"created_by\":\"1\",\"modified_by\":\"\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}]}",
+			"description":"",
+			"controller":"accounting\/accounts",
+			"publish":null,
+			"read_count":"2",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-08-23 16:27:55",
+			"modified":"2013-08-23 16:31:31",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"0",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52611fce-814c-493e-9143-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"167",
+			"name":"test",
+			"category_id":"7",
+			"query":"{\"name\":\"test\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\"}",
+			"_query":"{\"id\":\"\",\"name\":\"test\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"_is_public\":\"0\",\"description\":\"\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\"}",
+			"description":"",
+			"controller":"accounting\/accounts",
+			"publish":null,
+			"read_count":"1",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-09-02 13:11:00",
+			"modified":null,
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"0",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"847",
+			"id":"52611fce-8b74-4cf0-90c1-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"168",
+			"name":"Trial  Balance",
+			"category_id":"7",
+			"query":"{\"name\":\"Trial  Balance\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"is_public\":\"1\",\"description\":\"Trial Balance is a list of closing balances of ledger accounts on a certain date and is the first step towards the preparation of financial statements. It is usually prepared at the end of an accounting period to assist in the drafting of financial statements. Ledger balances are segregated into debit balances and credit balances.\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"fields\":[{\"accounts.name\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\":{\"alias\":\"Debit\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\":{\"alias\":\"Credit\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[],\"created_by\":\"1\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\",\"modified_by\":\"1\"}",
+			"_query":"{\"id\":\"168\",\"name\":\"Trial  Balance\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"Trial Balance is a list of closing balances of ledger accounts on a certain date and is the first step towards the preparation of financial statements. It is usually prepared at the end of an accounting period to assist in the drafting of financial statements. Ledger balances are segregated into debit balances and credit balances.\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"render_as\":\"index\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"accounts.name\",\"column_model\":\"schema\",\"__column\":\"accounts.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\",\"column_model\":\"schema\",\"__column\":\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\",\"alias\":\"Debit\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\",\"column_model\":\"schema\",\"__column\":\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\",\"alias\":\"Credit\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}]}",
+			"description":"Trial Balance is a list of closing balances of ledger accounts on a certain date and is the first step towards the preparation of financial statements. It is usually prepared at the end of an accounting period to assist in the drafting of financial statements. Ledger balances are segregated into debit balances and credit balances.",
+			"controller":"accounting\/accounts",
+			"publish":null,
+			"read_count":"7",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-09-02 18:58:14",
+			"modified":"2013-09-02 19:40:21",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"847",
+			"id":"52611fce-9088-4884-b13d-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"169",
+			"name":"Balance Sheet",
+			"category_id":"7",
+			"query":"{\"name\":\"Balance Sheet\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"is_public\":\"1\",\"description\":\"A balance sheet is often described as a \\\"snapshot of a company's financial condition\\\".\\r\\n\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"fields\":[{\"accounts.name\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\":{\"alias\":\"Debit\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\":{\"alias\":\"Credit\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[],\"created_by\":\"1\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\",\"modified_by\":\"1\"}",
+			"_query":"{\"id\":\"169\",\"name\":\"Balance Sheet\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"A balance sheet is often described as a \\\"snapshot of a company's financial condition\\\".\\r\\n\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"render_as\":\"index\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"accounts.name\",\"column_model\":\"schema\",\"__column\":\"accounts.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\",\"column_model\":\"schema\",\"__column\":\"(SELECT SUM(te.debit) FROM `accounting__accounts` AS `asum` LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' )  LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' ) WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt ) AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' ))\",\"alias\":\"Debit\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\",\"column_model\":\"schema\",\"__column\":\"(SELECT SUM(te.credit) FROM `accounting__accounts` AS `asum`   LEFT JOIN  `accounting__journal_entry_lines` AS `te` ON( `asum`.`id`=`te`.`account_id` AND `te`.deleted != '1' ) LEFT JOIN  `accounting__journal_entries` AS `tr` ON( `tr`.`id`=`te`.`journal_entry_id` AND `tr`.deleted != '1' ) LEFT JOIN  `accounting__journal_entry_status` AS `ts` ON( `tr`.`status_id`=`ts`.`id` AND `ts`.deleted != '1' )  WHERE   (tr.period_id='{{PERIOD_ID}}') AND  ( asum.lft >= accounts.lft &&  asum.lft  <= accounts.rgt  && asum.rgt <= accounts.rgt )  AND ( asum.deleted != '1' ) AND ( ts.business_key = 'posted' )  )\",\"alias\":\"Credit\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}]}",
+			"description":"A balance sheet is often described as a \"snapshot of a company's financial condition\".\r\n",
+			"controller":"accounting\/accounts",
+			"publish":null,
+			"read_count":"6",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-09-02 22:04:30",
+			"modified":"2013-09-03 12:54:40",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"847",
+			"id":"52611fce-9600-4939-8feb-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"170",
+			"name":"Profit & Loss",
+			"category_id":"7",
+			"query":"{\"name\":\"Profit & Loss\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"is_public\":\"1\",\"description\":\"A financial statement that summarizes the revenues, costs and expenses incurred during a specific period of time\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\"}",
+			"_query":"{\"id\":\"\",\"name\":\"Profit & Loss\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"A financial statement that summarizes the revenues, costs and expenses incurred during a specific period of time\",\"created_by\":\"\",\"modified_by\":\"\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\"}",
+			"description":"A financial statement that summarizes the revenues, costs and expenses incurred during a specific period of time",
+			"controller":"accounting\/accounts",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2013-09-03 14:53:30",
+			"modified":null,
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"847",
+			"id":"52611fce-9ab0-4fa0-aa41-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"171",
+			"name":"Profit & Loss",
+			"category_id":"7",
+			"query":"{\"name\":\"Profit & Loss\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"is_public\":\"1\",\"description\":\"A financial statement that summarizes the revenues, costs and expenses incurred during a specific period of time\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"fields\":[{\"accounts.name\":{\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[],\"modified_by\":\"1\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"171\",\"name\":\"Profit & Loss\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/accounts\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"A financial statement that summarizes the revenues, costs and expenses incurred during a specific period of time\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"847\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"Region-USA\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"},{\"aro_id\":\"847\",\"aro_id_model\":\"groups\",\"__aro_id\":\"Region-USA\",\"id\":\"847\",\"deleted\":\"\"}],\"render_as\":\"index\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"accounts.name\",\"column_model\":\"schema\",\"__column\":\"accounts.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"Income\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"alias\":\"Expenses\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\"}",
+			"description":"A financial statement that summarizes the revenues, costs and expenses incurred during a specific period of time",
+			"controller":"accounting\/accounts",
+			"publish":null,
+			"read_count":"2",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-09-03 15:40:33",
+			"modified":"2013-09-03 16:59:25",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"847",
+			"id":"52611fce-9fc4-4fb2-9464-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"163",
+			"name":"Customer Invoice Line",
+			"category_id":"7",
+			"query":"{\"name\":\"Customer Invoice Line\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/invoices\",\"is_public\":\"1\",\"primary_acl_group_model\":\"groups\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"fields\":[{\"invoices.partners.account_name\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"invoices.invoice_lines.products.product_name\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"invoices.invoice_lines.description\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"invoices.invoice_lines.quantity\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"invoices.invoice_lines.unit_of_measure\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"invoices.invoice_lines.unit_price\":{\"sortable\":\"1\",\"searchable\":\"1\"}},{\"invoices.invoice_lines.amount\":{\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"order\":[],\"created_by\":\"1\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\",\"modified_by\":\"1\"}",
+			"_query":"{\"id\":\"163\",\"name\":\"Customer Invoice Line\",\"category_id\":\"7\",\"category_id_model\":\"category\",\"__category_id\":\"Financial\",\"controller\":\"accounting\\\/invoices\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"render_as\":\"index\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"invoices.partners.account_name\",\"column_model\":\"schema\",\"__column\":\"invoices.partners.account_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"invoices.invoice_lines.products.product_name\",\"column_model\":\"schema\",\"__column\":\"invoices.invoice_lines.products.product_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"invoices.invoice_lines.description\",\"column_model\":\"schema\",\"__column\":\"invoices.invoice_lines.description\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"4\":{\"seq\":\"4\",\"column\":\"invoices.invoice_lines.quantity\",\"column_model\":\"schema\",\"__column\":\"invoices.invoice_lines.quantity\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"5\":{\"seq\":\"5\",\"column\":\"invoices.invoice_lines.unit_of_measure\",\"column_model\":\"schema\",\"__column\":\"invoices.invoice_lines.unit_of_measure\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"6\":{\"seq\":\"6\",\"column\":\"invoices.invoice_lines.unit_price\",\"column_model\":\"schema\",\"__column\":\"invoices.invoice_lines.unit_price\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},\"8\":{\"seq\":\"7\",\"column\":\"invoices.invoice_lines.amount\",\"column_model\":\"schema\",\"__column\":\"invoices.invoice_lines.amount\",\"alias\":\"\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"row_template\":\"\"}",
+			"description":"",
+			"controller":"accounting\/invoices",
+			"publish":null,
+			"read_count":"15",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-08-21 19:14:36",
+			"modified":"2013-08-21 19:58:03",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52611fce-a4d8-4c99-bb92-1d890acef1b9",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"Maaxframe Inc.",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Financial",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

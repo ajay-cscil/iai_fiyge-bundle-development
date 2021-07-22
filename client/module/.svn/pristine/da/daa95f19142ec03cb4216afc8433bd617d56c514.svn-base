@@ -1,0 +1,198 @@
+{
+    "configurations": {
+        "model_class": "\\module\\faq\\model\\configurations",
+        "design": [],
+        "schema": {
+            "name": "faq__configurations",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "{\"displayField\":\"name\"}",
+            "schema": {
+                "columns": {
+                    "comment": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "created": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "created_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "deleted": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "flags": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": null,
+                        "extra": "auto_increment",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "modified": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "modified_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "name": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "owned_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "revision": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "value": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "faq__configurations",
+                            "column": "id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

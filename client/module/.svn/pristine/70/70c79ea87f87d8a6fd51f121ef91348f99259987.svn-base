@@ -1,0 +1,12 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+namespace module\campaigns\model;
+class campaigns_group_acl_cache extends \tushar\model{
+       public $source='acl';
+       public $table = 'campaigns__campaigns_group_acl_cache';
+}
+?>

@@ -1,0 +1,55 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\attendance\model;
+
+class attendances_domain_logic extends \tushar\model{
+
+    function beforeValidate() {
+        parent::beforeSave();
+        $lastEntry=null;
+        $lastEntry = \select("*")
+                ->from($this)
+                ->where(array("employee_id"=> $this->data['employee_id']))
+                ->inserted()
+                ->order('datetime DESC')
+                ->limit(1)
+                ->execute()
+                ->fetch(\PDO::FETCH_ASSOC);
+        if (!empty($lastEntry) && (!isset($this->data['id']) || ($lastEntry['id'] != $this->data['id']))) {
+            $t1 = strtotime($lastEntry['datetime']);
+            $t2 = strtotime($this->data['datetime']);
+            if ($t2 <= $t1) {
+                throw new \Exception(
+                sprintf(
+                        __('Datetime should be greater then "%s"', 'module'), \tushar\locale::localize($lastEntry['datetime'], DATETIME)
+                )
+                );
+            }
+        }
+        $lastEntry = \select("*")
+                ->from($this)
+                ->where(array("employee_id"=> $this->data['employee_id'], "datetime <" => $this->data['datetime']))
+                ->inserted()
+                ->order('datetime DESC')
+                ->limit(1)
+                ->execute()
+                ->fetch(\PDO::FETCH_ASSOC);
+        if (empty($lastEntry)) {
+            if ($this->data['attendance_action'] != 'signin' && $this->data['attendance_action'] == 'signout') {
+                throw new \Exception(__('You need to sign in before signing out', 'module'));
+            }
+        } else {
+            if ($lastEntry['attendance_action'] == 'signin' && $this->data['attendance_action'] == 'signin') {
+                throw new \Exception(__('You need to signout before signing in', 'module'));
+            } else if ($lastEntry['attendance_action'] == 'signout' && $this->data['attendance_action'] == 'signout') {
+                throw new \Exception(__('You need to signin before signing out', 'module'));
+            }
+        }
+    }
+
+}

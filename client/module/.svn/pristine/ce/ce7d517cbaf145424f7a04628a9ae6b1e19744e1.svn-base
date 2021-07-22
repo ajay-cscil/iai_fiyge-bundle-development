@@ -1,0 +1,479 @@
+{
+    "csv_recipients": {
+        "model_class": "\\module\\campaigns\\model\\csv_recipients",
+        "design": [],
+        "schema": {
+            "name": "document_management_base__attachments",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "",
+            "schema": {
+                "columns": {
+                    "_acl": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "_acl_delete": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "_acl_edit": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "_acl_tmp": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "_acl_tmp_delete": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "_acl_tmp_edit": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "created": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "created_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "deleted": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "MUL",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "description": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "field_type": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "flags": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": null,
+                        "extra": "auto_increment",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "imported": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "imported_by": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "is_public": {
+                        "type": "tinyint(1)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "1",
+                        "ntype": "int"
+                    },
+                    "message_error": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "message_info": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "message_warn": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "mime_type": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "modified": {
+                        "type": "datetime",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 3,
+                        "length": "",
+                        "ntype": "datetime"
+                    },
+                    "modified_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "name": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "owned_by": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "path": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "primary_acl_group": {
+                        "type": "int(11)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "11",
+                        "ntype": "int"
+                    },
+                    "related_to": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "MUL",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "related_to_model": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "MUL",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "related_to_model_class_name": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "revision": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "storage_path": {
+                        "type": "varchar(255)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "255",
+                        "ntype": "string"
+                    },
+                    "url": {
+                        "type": "varchar(200)",
+                        "collation": "utf8_general_ci",
+                        "null": "YES",
+                        "key": "",
+                        "default": null,
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 4,
+                        "length": "200",
+                        "ntype": "string"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "document_management_base__attachments",
+                            "column": "id"
+                        }
+                    },
+                    "idx_deleted": {
+                        "1": {
+                            "type": "",
+                            "table": "document_management_base__attachments",
+                            "column": "deleted"
+                        }
+                    },
+                    "idx_relatedto": {
+                        "1": {
+                            "type": "",
+                            "table": "document_management_base__attachments",
+                            "column": "related_to"
+                        }
+                    },
+                    "idx_relatedtomodel": {
+                        "1": {
+                            "type": "",
+                            "table": "document_management_base__attachments",
+                            "column": "related_to_model"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

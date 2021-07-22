@@ -1,0 +1,372 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\model;
+  class actions extends \module\flexflow\model\actions_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'flexflow__actions';
+       public $parentClass = '\\design_model';
+       public $displayField = 'full_name';
+       public $primaryKey = 'id';
+       public $paginateAs = 'lazy';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $drilldownField = 'name';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'modified_by_user' => 
+  array (
+    'associationAlias' => 'modified_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'show_link' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'associationAlias' => 'created_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'show_link' => '0',
+  ),
+  'child_actions' => 
+  array (
+    'associationAlias' => 'child_actions',
+    'className' => '\\module\\flexflow\\model\\actions',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'parent_id',
+  ),
+  'actions_notifications' => 
+  array (
+    'associationAlias' => 'actions_notifications',
+    'className' => '\\module\\flexflow\\model\\actions_notifications',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'action_id',
+    'isSubModel' => '1',
+    'show_link' => '0',
+  ),
+  'authorized_actions' => 
+  array (
+    'associationAlias' => 'authorized_actions',
+    'className' => '\\module\\flexflow\\model\\authorized_actions',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'action_id',
+    'show_link' => '0',
+  ),
+  'possible_actions' => 
+  array (
+    'associationAlias' => 'possible_actions',
+    'className' => '\\module\\flexflow\\model\\possible_actions',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'action_id',
+    'show_link' => '0',
+  ),
+  'parent_action' => 
+  array (
+    'className' => '\\module\\flexflow\\model\\actions',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'parent_id',
+    'associationAlias' => 'parent_action',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'business_rules' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\brules\\model\\business_rules',
+    'associationAlias' => 'business_rules',
+    'foreignKey' => 'action_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $fields = array (
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'label' => 
+  array (
+    'column' => 'label',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'past_tense_label' => 
+  array (
+    'column' => 'past_tense_label',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'rule_id' => 
+  array (
+    'column' => 'rule_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'actions_flags' => 
+  array (
+    'column' => 'actions_flags',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'parent_id' => 
+  array (
+    'column' => 'parent_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'lft' => 
+  array (
+    'column' => 'lft',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'rgt' => 
+  array (
+    'column' => 'rgt',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'imported' => 
+  array (
+    'column' => 'imported',
+    'ntype' => 'datetime',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'collection_set' => 
+  array (
+    'column' => 'collection_set',
+    'ntype' => 'string',
+    'length' => '50',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'parent_name' => 
+  array (
+    'column' => 'parent_name',
+    'ntype' => 'string',
+    'length' => '50',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'class' => 
+  array (
+    'column' => 'class',
+    'ntype' => 'string',
+    'length' => '100',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'full_name' => 
+  array (
+    'column' => 'full_name',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'is_scheduled' => 
+  array (
+    'column' => 'is_scheduled',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'is_default' => 
+  array (
+    'column' => 'is_default',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'escalation_time' => 
+  array (
+    'column' => 'escalation_time',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '1',
+    'is_exportable' => '0',
+  ),
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'old_rule_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'old_rule_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'imported_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'imported_by',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    2 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notDuplicate',
+        ),
+      ),
+    ),
+  ),
+  'label' => 
+  array (
+    0 => 'required',
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+    2 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notDuplicate',
+        ),
+      ),
+    ),
+  ),
+  'past_tense_label' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

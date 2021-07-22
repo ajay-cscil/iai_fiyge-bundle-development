@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\controller;
+  class bill_account_lines extends \module\accounting\controller\bill_account_lines_domain_logic
+  {
+       public $modelClass = '\\module\\accounting\\model\\bill_account_lines';
+
+
+
+
+
+
+  }

@@ -1,0 +1,724 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\model;
+  class people extends \module\vrm\model\people_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'vrm__people';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'people';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'address_line_1' => 
+  array (
+    'column' => 'address_line_1',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'address_line_2' => 
+  array (
+    'column' => 'address_line_2',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'age' => 
+  array (
+    'column' => 'age',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'city' => 
+  array (
+    'column' => 'city',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'country' => 
+  array (
+    'column' => 'country',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'donor' => 
+  array (
+    'column' => 'donor',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'email_opt_out' => 
+  array (
+    'column' => 'email_opt_out',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'ethnicity' => 
+  array (
+    'column' => 'ethnicity',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'first_name' => 
+  array (
+    'column' => 'first_name',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'gender' => 
+  array (
+    'column' => 'gender',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'geocode_status' => 
+  array (
+    'column' => 'geocode_status',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'geocode_type' => 
+  array (
+    'column' => 'geocode_type',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'home_email' => 
+  array (
+    'column' => 'home_email',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'home_phone' => 
+  array (
+    'column' => 'home_phone',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'last_name' => 
+  array (
+    'column' => 'last_name',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'latitude' => 
+  array (
+    'column' => 'latitude',
+    'ntype' => 'string',
+    'length' => '45',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'location_type' => 
+  array (
+    'column' => 'location_type',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'longitude' => 
+  array (
+    'column' => 'longitude',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_searchable' => '1',
+    'is_sortable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'office_email' => 
+  array (
+    'column' => 'office_email',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'office_phone' => 
+  array (
+    'column' => 'office_phone',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'personal_contact' => 
+  array (
+    'column' => 'personal_contact',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'polling_stations_id' => 
+  array (
+    'column' => 'polling_stations_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'state' => 
+  array (
+    'column' => 'state',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'volunteer' => 
+  array (
+    'column' => 'volunteer',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'voter' => 
+  array (
+    'column' => 'voter',
+    'ntype' => 'int',
+    'length' => '4',
+  ),
+  'zip_code' => 
+  array (
+    'column' => 'zip_code',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'user_id' => 
+  array (
+    'column' => 'user_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'volunteer_type' => 
+  array (
+    'column' => 'volunteer_type',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'system_user' => 
+  array (
+    'column' => 'system_user',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'has_a_yard_sign' => 
+  array (
+    'column' => 'has_a_yard_sign',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'primary_acl_group' => 
+  array (
+    'column' => 'primary_acl_group',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'polling_stations' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\polling_stations',
+    'foreignKey' => 'polling_stations_id',
+    'associationAlias' => 'polling_stations',
+  ),
+  'people_lists' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\people_lists',
+    'associationAlias' => 'people_lists',
+    'foreignKey' => 'people_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'people_organisations' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\people_organisations',
+    'associationAlias' => 'people_organisations',
+    'foreignKey' => 'people_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'countries' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\countries',
+    'associationAlias' => 'countries',
+    'foreignKey' => 'country',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'event_related_to' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\calendar\\model\\event_related_to',
+    'associationAlias' => 'event_related_to',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'task_related_to' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\calendar\\model\\task_related_to',
+    'associationAlias' => 'task_related_to',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'users' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'users',
+    'foreignKey' => 'user_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'volunteer_type' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\vrm\\model\\volunteer_type',
+    'associationAlias' => 'volunteer_type',
+    'foreignKey' => 'volunteer_type',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'addresses' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\addresses',
+    'associationAlias' => 'addresses',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclChild' => '1',
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+  ),
+  'email_addresses' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\email_addresses',
+    'associationAlias' => 'email_addresses',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclChild' => '1',
+    'isSubModel' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+  ),
+  'phone_numbers' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\phone_numbers',
+    'associationAlias' => 'phone_numbers',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclChild' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isSearchable' => '0',
+  ),
+  'cases' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\cases\\model\\cases',
+    'associationAlias' => 'cases',
+    'foreignKey' => 'contact_id',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.contact_id_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'people_current_canvass' => 
+  array (
+    'assocType' => 'hasOne',
+    'className' => '\\module\\vrm\\model\\people_current_canvass',
+    'associationAlias' => 'people_current_canvass',
+    'foreignKey' => 'people_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'tag_related_to' => 
+  array (
+    'assocType' => 'hasOne',
+    'className' => '\\module\\tag_cloud\\model\\tag_related_to',
+    'associationAlias' => 'tag_related_to',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.{{FOREIGN_KEY}}_model',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'canvass_year' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\canvass_year',
+    'associationAlias' => 'canvass_year',
+    'foreignKey' => 'people_id',
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'emails' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\activities\\model\\emails',
+    'associationAlias' => 'emails',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN_KEY}}_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'logs' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\calls\\model\\logs',
+    'associationAlias' => 'logs',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'people_canvasses' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\vrm\\model\\people_canvasses',
+    'foreignKey' => 'id',
+    'associationAlias' => 'people_canvasses',
+  ),
+  'groups' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\groups',
+    'associationAlias' => 'groups',
+    'foreignKey' => 'primary_acl_group',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+    'readAccess' => '4',
+    'editAccess' => '0',
+    'deleteAccess' => '0',
+    'ownAcl' => '1',
+    'cacheClass' => '1',
+    'lazyAclCheck' => '1',
+    'recursion' => '1',
+    'groupClass' => '\\module\\access_controls\\model\\groups',
+    'userClass' => '\\module\\access_controls\\model\\users',
+    'groupuserClass' => '\\module\\access_controls\\model\\groups_users',
+    'containGroupsClass' => '\\module\\access_controls\\model\\group_contain_groups',
+    'groupUserClass' => '\\module\\access_controls\\model\\groups_users',
+  ),
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+  ),
+);
+       public $filters = array (
+  'email_opt_out' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'first_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'last_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'polling_stations_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'home_email' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'office_email' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

@@ -1,0 +1,69 @@
+[
+	{
+		"listviews":{
+			"old_id":"53",
+			"name":"Reviews Published",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"article_reviews.review\":{\"__column\":\"article_reviews.review\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"article_reviews.publish_date\":{\"__column\":\"article_reviews.publish_date\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"created_by_user.id\":{\"__column\":\"created_by_user.id\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::profile\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"created_by_user.first_name\":{\"__column\":\"created_by_user.first_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}},{\"created_by_user.last_name\":{\"__column\":\"created_by_user.last_name\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\"}}],\"order\":[\"article_reviews.publish_date  DESC\"],\"name\":\"Reviews Published\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"All\",\"controller\":\"wiki\\\/article_reviews\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"row_template\":\"<div class=\\\"float-left\\\">\\r\\n{{created_by_user.id}}\\r\\n<\\\/div>\\r\\n<div class=\\\"float-left width-90\\\">\\r\\n<b class=\\\"capitalize\\\">{{created_by_user.first_name}} {{created_by_user.last_name}}<\\\/b>\\r\\n<span class=\\\"float-right\\\">{{article_reviews.publish_date}}<\\\/span>\\r\\n<br \\\/>\\r\\n{{article_reviews.review}}\\r\\n<span class=\\\"float-right\\\">{{row.actions}} <\\\/span>\\r\\n<\\\/div>\\r\\n\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"53\",\"name\":\"Reviews Published\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"All\",\"controller\":\"wiki\\\/article_reviews\",\"render_as\":\"index\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"article_reviews.review\",\"column_model\":\"schema\",\"__column\":\"article_reviews.review\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"2\":{\"seq\":\"2\",\"column\":\"article_reviews.publish_date\",\"column_model\":\"schema\",\"__column\":\"article_reviews.publish_date\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"3\":{\"seq\":\"3\",\"column\":\"created_by_user.id\",\"column_model\":\"schema\",\"__column\":\"created_by_user.id\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\\\\tushar\\\\view\\\\helper\\\\presentation\\\\listview::profile\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"4\":{\"seq\":\"4\",\"column\":\"created_by_user.first_name\",\"column_model\":\"schema\",\"__column\":\"created_by_user.first_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"},\"5\":{\"seq\":\"5\",\"column\":\"created_by_user.last_name\",\"column_model\":\"schema\",\"__column\":\"created_by_user.last_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\"}},\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"article_reviews.publish_date\",\"sort_by_model\":\"schema\",\"__sort_by\":\"article_reviews.publish_date\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"<div class=\\\"float-left\\\">\\r\\n{{created_by_user.id}}\\r\\n<\\\/div>\\r\\n<div class=\\\"float-left width-90\\\">\\r\\n<b class=\\\"capitalize\\\">{{created_by_user.first_name}} {{created_by_user.last_name}}<\\\/b>\\r\\n<span class=\\\"float-right\\\">{{article_reviews.publish_date}}<\\\/span>\\r\\n<br \\\/>\\r\\n{{article_reviews.review}}\\r\\n<span class=\\\"float-right\\\">{{row.actions}} <\\\/span>\\r\\n<\\\/div>\\r\\n\",\"created_by\":\"\",\"modified_by\":\"\"}",
+			"description":"",
+			"controller":"wiki\/article_reviews",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":null,
+			"created":"2013-02-17 17:58:33",
+			"modified":"2013-03-28 22:38:28",
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Maaxframe Inc."
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"wiki.article_reviews.Reviews Published",
+			"sequence":"250",
+			"primary_acl_group":null,
+			"id":"52611fb5-6f2c-47ae-a0e1-1d890acef1b9",
+			"module_id":"",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"Maaxframe Inc.",
+			"modified_by_model":"modified_by_user",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"__module_id":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

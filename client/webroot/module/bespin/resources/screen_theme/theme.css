@@ -1,0 +1,173 @@
+/* 
+    Document   : theme
+    Created on : 3 Jan, 2014, 2:46:36 PM
+    Author     : root
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+.bespin .container {
+    font-family: arial, lucida, helvetica, sans-serif;
+    font-size: 14px;
+    color: #dad4ba;
+    background: #1e1916;
+    line-height: 1.8em;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.bespin .container .north {
+    -moz-box-ordinal-group: 1;
+    -webkit-box-ordinal-group: 1;
+}
+.bespin .container .center-container {
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-ordinal-group: 2;
+    -moz-box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-ordinal-group: 2;
+    -webkit-box-flex: 1;
+}
+.bespin .container .south {
+    -moz-box-ordinal-group: 3;
+    -webkit-box-ordinal-group: 3;
+}
+.bespin .container .center-container .west {
+    -moz-box-ordinal-group: 1;
+    -webkit-box-ordinal-group: 1;
+}
+.bespin .container .center-container .center {
+    -moz-box-flex: 1;
+    -moz-box-ordinal-group: 2;
+    -webkit-box-flex: 1;
+    -webkit-box-ordinal-group: 2;
+}
+.bespin .container .center-container .east {
+    -moz-box-ordinal-group: 3;
+    -webkit-box-ordinal-group: 3;
+}
+.bespin input, .bespin textarea {
+    display: block;
+    border: 0px;
+    width: 200px;
+    padding: 4px;
+    color: #e1b41f;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 8pt;
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 2px, inset rgba(0, 0, 0, 0.3) 0px 0px 4px;
+    -moz-box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 2px, inset rgba(0, 0, 0, 0.3) 0px 0px 4px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.3) 0px 0px 2px, inset rgba(0, 0, 0, 0.3) 0px 0px 4px;
+}
+.bespin input:focus, .bespin textarea:focus {
+    color: #ff9600;
+    border: 1px solid #e1b41f;
+    background: rgba(0, 0, 0, 0.2);
+    outline: none;
+    box-shadow: rgba(255, 150, 0, 0.6) 0px 0px 2px, inset rgba(255, 150, 0, 0.3) 0px 0px 6px;
+    -moz-box-shadow: rgba(255, 150, 0, 0.6) 0px 0px 2px, inset rgba(255, 150, 0, 0.3) 0px 0px 6px;
+    -webkit-box-shadow: rgba(255, 150, 0, 0.6) 0px 0px 2px, inset rgba(255, 150, 0, 0.3) 0px 0px 6px;
+}
+.bespin input[type=submit], .bespin input[type=button] {
+    font-family: arial, lucida, helvetica, sans-serif;
+    font-size: 14px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+    padding: 8px 12px;
+    margin-left: 8px;
+    color: white;
+    background: transparent -moz-linear-gradient(top, #3e6cb9, #383292);
+    background: transparent -webkit-gradient(linear, 50% 0%, 50% 100%, from(#3e6cb9), to(#383292));
+    border: 1px solid #25225b;
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    -moz-box-shadow: inset rgba(255, 255, 255, 0.2) 0 1px 0px, inset rgba(0, 0, 0, 0.2) 0 -1px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
+    -webkit-box-shadow: inset rgba(255, 255, 255, 0.2) 0 1px 0px, inset rgba(0, 0, 0, 0.2) 0 -1px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
+    box-shadow: inset rgba(255, 255, 255, 0.2) 0 1px 0px, inset rgba(0, 0, 0, 0.2) 0 -1px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px;
+}
+.bespin .pane {
+    font-size: 14px;
+    font-family: arial, lucida, helvetica, sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    background-color: #45443c;
+    overflow: visible;
+    padding: 15px;
+    color: #dad4ba;
+    line-height: 25.2px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+}
+.bespin .pane a {
+    color: white;
+}
+.bespin .pane h1 {
+    font-family: 'MuseoSans', Helvetica;
+    font-size: 2.8em;
+    color: white;
+    letter-spacing: -1.25px;
+    line-height: 1.0;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+}
+.bespin .pane p {
+    margin-left: 10px;
+}
+.bespin .form {
+    font-family: 'Lucida Sans', 'Lucida Grande', Verdana, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8em;
+    color: white;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.4);
+}
+.bespin .form fieldset, .bespin .form p {
+    color: white;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    text-shadow: form_text_shadow;
+}
+.bespin span.ui-checkbox, .bespin span.ui-radio {
+    display: block;
+    float: left;
+    width: 24px;
+    height: 24px;
+    background: url(images/radio-unselected.png) no-repeat;
+}
+.bespin span.ui-checkbox {
+    background: url(images/check-unselected.png) no-repeat;
+}
+.bespin span.ui-helper-hidden {
+    display: none;
+}
+.bespin span.ui-checkbox-state-checked, .bespin span.ui-checkbox-state-checked-hover {
+    background: url(images/check-selected.png) no-repeat;
+}
+.bespin span.ui-radio-state-checked, .bespin span.ui-radio-state-checked-hover {
+    background: url(images/radio-selected.png) no-repeat;
+}
+.bespin .ui-helper-hidden-accessible {
+    position: absolute;
+    left: -999em;
+}
+

@@ -1,0 +1,91 @@
+[
+    {
+        "reports": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"527bf977-a428-442c-866d-048d0aec906d\",\"name\":\"Sales Pipeline By Stages\",\"category_id\":\"1\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"crm\\\/opportunities\",\"description\":\"Step process that sales reps go through to convert a opportunity into a paying customer.\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"opportunities.config_sales_stages.sales_stage\",\"column_model\":\"schema\",\"__column\":\"opportunities.config_sales_stages.sales_stage\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"1\",\"column_model\":\"schema\",\"__column\":\"1\",\"alias\":\"Click on pie for more details\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"opportunities.name\",\"column_model\":\"schema\",\"__column\":\"opportunities.name\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"opportunities.probability\",\"column_model\":\"schema\",\"__column\":\"opportunities.probability\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"column\":\"opportunities.closing_date\",\"column_model\":\"schema\",\"__column\":\"opportunities.closing_date\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"column\":\"opportunities.config_opportunity_types.opportunity_type\",\"column_model\":\"schema\",\"__column\":\"opportunities.config_opportunity_types.opportunity_type\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"conditions\":[],\"sort\":{\"2\":{\"sort_by\":\"opportunities.sales_stage\",\"sort_by_model\":\"schema\",\"__sort_by\":\"opportunities.sales_stage\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"25\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::pie_chart\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"sequence\":\"0\",\"animation--duration\":\"\",\"animation--easing\":\"\",\"axis-titles-position\":\"\",\"background-color\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"chart-area\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"colors\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"h-axes\":\"\",\"h-axis\":\"\",\"h-axis--baseline\":\"\",\"h-axis--baseline-color\":\"\",\"h-axis--direction\":\"\",\"h-axis--format\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"h-axis--log-scale\":\"\",\"h-axis--text-style\":\"\",\"h-axis--text-position\":\"\",\"h-axis--title\":\"\",\"h-axis--title-text-style\":\"\",\"h-axis--max-value\":\"\",\"h-axis--min-value\":\"\",\"h-axis--view-window-mode\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"height\":\"\",\"is-stacked\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"elements\":[],\"actions\":[],\"group_by\":[],\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"is-3-d\":\"\",\"slices\":\"\",\"pie-slice-border-color\":\"\",\"pie-slice-text\":\"\",\"pie-slice-text-style\":\"\",\"reverse-categories\":\"\",\"_is_public\":\"0\",\"is_public\":\"1\",\"_collapse_category_columns\":\"0\",\"_disable_ui_helper\":\"0\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\"}",
+            "category_id": "1",
+            "controller": "crm\/opportunities",
+            "created": "2013-11-07 20:35:03",
+            "created_by": "-1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": "Step process that sales reps go through to convert a opportunity into a paying customer.",
+            "flags": null,
+            "id": "527bf977-a428-442c-866d-048d0aec906d",
+            "is_commit_pending": "0",
+            "is_demo_data": "0",
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-15 13:34:25",
+            "modified_by": "1",
+            "module_id": "27260a2d-e746-11e3-aad5-0800275f9930",
+            "name": "Sales Pipeline By Stages",
+            "owned_by": "-2",
+            "primary_acl_group": null,
+            "publish": null,
+            "query": "{\"fields\":[{\"opportunities.config_sales_stages.sales_stage\":{\"__column\":\"opportunities.config_sales_stages.sales_stage\",\"render_type\":\"category\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"1\":{\"__column\":\"1\",\"alias\":\"Click on pie for more details\",\"render_type\":\"summary\",\"aggregator\":\"COUNT\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.name\":{\"__column\":\"opportunities.name\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.probability\":{\"__column\":\"opportunities.probability\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.closing_date\":{\"__column\":\"opportunities.closing_date\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.config_opportunity_types.opportunity_type\":{\"__column\":\"opportunities.config_opportunity_types.opportunity_type\",\"render_type\":\"info\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[\"opportunities.sales_stage  ASC\"],\"name\":\"Sales Pipeline By Stages\",\"category_id\":\"1\",\"category_id_model\":\"report_categories\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"crm\\\/opportunities\",\"description\":\"Step process that sales reps go through to convert a opportunity into a paying customer.\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"limit\":\"25\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\\\\module\\\\core\\\\helper\\\\data_view\\\\graph::pie_chart\",\"parent_id_model\":\"parent_listview\",\"inherited_read_acl\":\"This user is configured to bypass read ACL\",\"is_public\":\"1\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\",\"method\":\"categorized\"}",
+            "read_count": "4",
+            "revision": "1",
+            "sequence": null,
+            "__created_by": "Maax Core Development Team",
+            "__modified_by": "System Admin",
+            "__owned_by": "Maax Modules Development Team",
+            "__category_id": "Ad-hoc Reports",
+            "__primary_acl_group": "",
+            "__module_id": "crm",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "category_id_model": "category",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

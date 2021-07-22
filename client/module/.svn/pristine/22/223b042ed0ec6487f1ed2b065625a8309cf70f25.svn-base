@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class port_timezone_mappings extends \module\excursion\controller\port_timezone_mappings_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\port_timezone_mappings';
+
+
+
+
+
+
+  }

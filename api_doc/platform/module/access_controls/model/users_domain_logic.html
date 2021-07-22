@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:02:10 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>users_domain_logic (System Module)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's System Module</h1><span>Class</span>
+
+<h2>module\access_controls\model\users_domain_logic</h2>
+
+</header><p class="signature">public  class <strong>users_domain_logic</strong> extends \kernel\model
+
+</p>
+
+<div class="comment"><p></p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#activateForgottenPassword">$activateForgottenPassword</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#changePasswordFilters">$changePasswordFilters</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#displayField">$displayField</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#forceResetPasswordFilters">$forceResetPasswordFilters</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#limitForInstallation">$limitForInstallation</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#loginAccessKeyFilters">$loginAccessKeyFilters</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#loginFilters">$loginFilters</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#resetPasswordFilters">$resetPasswordFilters</a></p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#singular">$singular</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#table">$table</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#adminRole()">adminRole</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterDelete()">afterDelete</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterSave()">afterSave</a>(mixed created)</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#authenticate()">authenticate</a>(type data)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeFind()">beforeFind</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeSave()">beforeSave</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#beforeValidate()">beforeValidate</a>()</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#currentPassword()">currentPassword</a>(type val, type col, type data, type object, type rule)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#doesUserNameExists()">doesUserNameExists</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#encrypt()">encrypt</a>(type password, mixed salt)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#isValidToken()">isValidToken</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#newPassword()">newPassword</a>(type val, type col, type data, type object, type rule)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#save()">save</a>(mixed data, mixed options)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#setCurrentUserSesionInfo()">setCurrentUserSesionInfo</a>(mixed id, bool return)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#theme()">theme</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#validateUserName()">validateUserName</a>(type val, type col, type data, type object, type rule)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#validate_roles()">validate_roles</a>(mixed val, mixed col, mixed data, mixed object, mixed rule)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="activateForgottenPassword">public  mixed <strong>$activateForgottenPassword</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="changePasswordFilters">public  type <strong>$changePasswordFilters</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="displayField">public  type <strong>$displayField</strong> = 'name'</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="forceResetPasswordFilters">public  mixed <strong>$forceResetPasswordFilters</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="limitForInstallation">public  mixed <strong>$limitForInstallation</strong> = 0</code>
+<div class="details">
+</div>
+
+<code class="signature" id="loginAccessKeyFilters">public  mixed <strong>$loginAccessKeyFilters</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="loginFilters">public  type <strong>$loginFilters</strong> = array(...)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="resetPasswordFilters">public  mixed <strong>$resetPasswordFilters</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="singular">public  type <strong>$singular</strong> = 'user'</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="table">public  mixed <strong>$table</strong> = 'access_controls__users'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="adminRole">public  void <strong>adminRole</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterDelete">public  void <strong>afterDelete</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterSave">public  void <strong>afterSave</strong>(mixed created)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="authenticate">public  type <strong>authenticate</strong>(type data)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="beforeFind">public  void <strong>beforeFind</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeSave">public  void <strong>beforeSave</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="beforeValidate">public  void <strong>beforeValidate</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="currentPassword">public static  type <strong>currentPassword</strong>(type val, type col, type data, type object, type rule)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Shubham Singh<ssingh@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td></td>
+<td></td>
+<td></td>
+<td>object - primodalsjdhalskh</td>
+<td></td>
+</tr><tr><th>Returns</th>
+<td>05a9b347c08f961df6213d794f5546bb</td>
+</tr></table>
+</div>
+
+<code class="signature" id="doesUserNameExists">public static  void <strong>doesUserNameExists</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="encrypt">public static  type <strong>encrypt</strong>(type password, mixed salt)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isValidToken">public static  void <strong>isValidToken</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="newPassword">public static  type <strong>newPassword</strong>(type val, type col, type data, type object, type rule)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="save">public  void <strong>save</strong>(mixed data, mixed options)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="setCurrentUserSesionInfo">public static  void <strong>setCurrentUserSesionInfo</strong>(mixed id, bool return)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="theme">public static  void <strong>theme</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="validateUserName">public static  type <strong>validateUserName</strong>(type val, type col, type data, type object, type rule)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="validate_roles">public static  void <strong>validate_roles</strong>(mixed val, mixed col, mixed data, mixed object, mixed rule)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

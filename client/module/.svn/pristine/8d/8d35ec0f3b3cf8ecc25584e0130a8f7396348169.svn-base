@@ -1,0 +1,44 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\controller;
+
+class bill_payments_domain_logic extends \data_controller{
+
+    public function add($request) {
+        $return = parent::add($request);
+        if ($request->is('get')) {
+            $modelObject = $this->modelObj();
+            $data = $request->response('data');
+            $schema = $modelObject->schema();
+            if (!isset($data[$modelObject->alias])) {
+                $data[$modelObject->alias] = array();
+            }
+            $relatedModel = $request->param('related_model');
+            $relatedID = $request->param('related_id');
+            if ($relatedModel == 'bills') {
+                $relatedModelObject = \module\accounting\model\bills::getInstance();
+                $relatedModelObject->cloned = $relatedID;
+                $relatedModelData = \current($relatedModelObject->read($relatedID));
+                $data[$modelObject->alias]['currency_id'] = $relatedModelData['currency_id'];
+                $data[$modelObject->alias]['__currency_id'] = $relatedModelData['__currency_id'];
+                $data[$modelObject->alias]['supplier_id'] = $relatedModelData['partner_id'];
+                $data[$modelObject->alias]['__supplier_id'] = $relatedModelData['__partner_id'];
+                $data[$modelObject->alias]['bill_payment_lines'][] = array(
+                    'bill_id' => $relatedID,
+                    '__bill_id' => $relatedModelData[$relatedModelObject->displayField],
+                    'due_date' => $relatedModelData['due_date'],
+                    'bill_amount' => $relatedModelData['total'],
+                    'balance_due' => $relatedModelData['balance_due']
+                );
+            }
+            $request->set('data', $data);
+        }
+        return $return;
+    }
+
+}

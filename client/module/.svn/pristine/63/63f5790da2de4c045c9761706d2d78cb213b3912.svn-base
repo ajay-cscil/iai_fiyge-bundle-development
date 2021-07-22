@@ -1,0 +1,272 @@
+<?php
+
+namespace module\benchmarking\model;
+
+class jmeter_configuration_domain_logic extends \data_model{
+
+    private $name = 'Test';
+    private $number_of_threads = 1;
+    private $ramp_up_period = 1;
+    private $continue_forever = 'false';
+    private $loops = 1;
+    private $scheduler = 'false';
+    private $on_sample_error = 'continue';
+    private $number_of_columns = 5;
+    private $test_cases = array('test_add', 'test_edit', 'test_index', 'test_index_advance', 'test_index_basic', 'test_view');
+    private $actions = array("edit", "add", "view", "index", "basic_search", "advance_search");
+
+    public function generate_jmx_file($data=array()) {
+        $alias = $this->alias;
+        $name = isset($data['name']) ? $data['name'] : $this->name;
+        $number_of_threads = isset($data['number_of_threads']) ? $data['number_of_threads'] : $this->number_of_threads;
+        $ramp_up_period = isset($data['ramp_up_period']) ? $data['ramp_up_period'] : $this->ramp_up_period;
+        $scheduler = $this->scheduler;
+        $on_sample_error = $this->on_sample_error;
+        $continue_forever = $this->continue_forever;
+        $loops = isset($data['loops']) ? $data['loops'] : $this->loops;
+        $configObject = \module\benchmarking\model\configurations::getInstance();
+        $config_test_cases = array();
+        foreach ($configObject->find(array('limit' => 0))->fetch(\PDO::FETCH_ASSOC) as $info) {
+            $config_test_cases[$info['name']] = $info['value'];
+        }
+        if (empty($config_test_cases)) {
+            throw new \Exception(__("Please configure base_url, username and password for maaxframe application instance which will be used for generating test URL for jmeter."));
+        }
+        $login_url = isset($config_test_cases['base_url']) ? $config_test_cases['base_url'] : '';
+        $user_name = isset($config_test_cases['username']) ? $config_test_cases['username'] : '';
+        $password = isset($config_test_cases['password']) ? $config_test_cases['password'] : '';
+        require_once module_path('benchmarking') . '/library/jmx_file_layout.php';
+        $output = $jmx_string_part1 . $jmx_string_part2;
+        $app_menu = "\\module\\development_base\\model\\menus";
+        $appMenuObj = $app_menu::getInstance();
+        $test_module = 'module';
+        if (isset($data['test_module'])) {
+            $test_module = $data['test_module'];
+        }
+        if ($test_module == 'module') {
+            $view = 'view';
+            if (isset($data['view_id'])) {
+                $view = strtolower(\implode("_", \explode(" ", $data['view_id'])));
+            }
+            $condition = '';
+            $module = '';
+            if (isset($data['module']) && $data['module'] != "all") {
+                $module = $data['module'];
+                $condition = "{$appMenuObj->alias}.url like '{$module}/%'";
+            }
+            if ($view == "all") {
+                foreach ($this->actions as $action) {
+                    $this->__generate_url($condition, $appMenuObj, $action, $jmx_string_part3, $login_url, $output);
+                }
+            } else {
+                $this->__generate_url($condition, $appMenuObj, $view, $jmx_string_part3, $login_url, $output);
+            }
+        } elseif ($test_module == 'test_case') {
+            $tests = 'test_index';
+            if (isset($data['test_case'])) {
+                $tests = strtolower(\implode("_", \explode(" ", $data['test_case'])));
+            }
+            $module = 'benchmarking';
+            if (isset($data['module']) && $data['module'] != "all") {
+                $module = $data['module'];
+            }
+            $unit_web = 'web';
+            if (isset($data['unit_web'])) {
+                $unit_web = $data['unit_web'];
+            }
+            $testname = $module . "__" . $tests . "__" . "test_case";
+            if ($tests == "all") {
+                foreach ($this->test_cases as $test_case) {
+                    $urls = "core/tests/$unit_web?module=$module&amp;file=$test_case";
+                    $url = $login_url . $urls;
+                    $jmx_string_part3_tmp = str_replace('$url', $url, $jmx_string_part3);
+                    $jmx_string_part3_tmp = str_replace('$testname', $testname, $jmx_string_part3_tmp);
+                    $output .= $jmx_string_part3_tmp;
+                }
+            } else {
+                $urls = "core/tests/$unit_web?module=$module&amp;file=$tests";
+                $url = $login_url . $urls;
+                $jmx_string_part3_tmp = str_replace('$url', $url, $jmx_string_part3);
+                $jmx_string_part3_tmp = str_replace('$testname', $testname, $jmx_string_part3_tmp);
+                $output .= $jmx_string_part3_tmp;
+            }
+        }
+        $output .= $jmx_string_part4;
+        return $output;
+    }
+
+    private function __generate_url($condition, $appMenuObj, $view, $jmx_string_part3, $login_url, &$output) {
+        switch ($view) {
+            case "edit":
+            case "delete":
+            case "view":
+                if (empty($condition)) {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%$view'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.is_active" => 1)))->fetchAll(\PDO::FETCH_ASSOC);
+                } else {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%$view'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.is_active" => 1, $condition)))->fetchAll(\PDO::FETCH_ASSOC);
+                }
+                if (is_array($urls)) {
+                    foreach ($urls as $url) {
+                        if (isset($url['url'])) {
+                            $urlParts = explode('/', $url['url']);
+                            if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+                                try {
+                                    $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+                                    $modelObj = $model::getInstance();
+                                    $model_record = \select("$modelObj->alias.*")
+                                            ->from($modelObj)
+                                            ->inserted()
+                                            ->limit(1)
+                                            ->execute()
+                                            ->fetchAll(\PDO::FETCH_ASSOC);
+                                    if (!empty($model_record) && isset($model_record[0]) && isset($model_record[0][$modelObj->primaryKey])) {
+                                        $to_call_url = $login_url . $url['url'] . '/id:' . $model_record[0][$modelObj->primaryKey];
+                                        $testname = $urlParts[0] . '__' . $urlParts[1] . '__' . $view;
+                                        $jmx_string_part3_tmp = str_replace('$url', $to_call_url, $jmx_string_part3);
+                                        $jmx_string_part3_tmp = str_replace('$testname', $testname, $jmx_string_part3_tmp);
+                                        $output .= $jmx_string_part3_tmp;
+                                    }
+                                } catch (Exception $e) {
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+            case "basic_search":
+                $listviewObj = \module\core\model\listviews::getInstance();
+                if (empty($condition)) {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%index'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.type" => "action", "{$appMenuObj->alias}.is_active" => 1)))->fetchAll(\PDO::FETCH_ASSOC);
+                } else {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%index'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.type" => "action", "{$appMenuObj->alias}.is_active" => 1, $condition)))->fetchAll(\PDO::FETCH_ASSOC);
+                }
+                if (is_array($urls)) {
+                    foreach ($urls as $url) {
+                        if (isset($url['url'])) {
+                            $urlParts = explode('/', $url['url']);
+                            if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+                                $controller = "$urlParts[0]/$urlParts[1]";
+                                $listviews = \select("{$listviewObj->alias}.*")
+                                        ->from($listviewObj)
+                                        ->where("{$listviewObj->alias}.controller", $controller)
+                                        ->execute()
+                                        ->fetchAll(\PDO::FETCH_ASSOC);
+
+                                if (is_array($listviews)) {
+                                    foreach ($listviews as $listview) {
+                                        if (isset($listview[$listviewObj->primaryKey])) {
+                                            $search = '?current_listview=' . $listview[$listviewObj->primaryKey] . '&amp;search_basic=' . $this->rand_string(5);
+                                            $to_call_url = $login_url . $url['url'] . $search;
+                                            $testname = $urlParts[0] . '__' . $urlParts[1] . '__' . $view;
+                                            $jmx_string_part3_tmp = str_replace('$url', $to_call_url, $jmx_string_part3);
+                                            $jmx_string_part3_tmp = str_replace('$testname', $testname, $jmx_string_part3_tmp);
+                                            $output .= $jmx_string_part3_tmp;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+            case "advance_search":
+                if (empty($condition)) {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%index'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.type" => "action", "{$appMenuObj->alias}.is_active" => 1)))->fetchAll(\PDO::FETCH_ASSOC);
+                } else {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%index'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.type" => "action", "{$appMenuObj->alias}.is_active" => 1, $condition)))->fetchAll(\PDO::FETCH_ASSOC);
+                }
+                if (is_array($urls)) {
+                    foreach ($urls as $url) {
+                        if (isset($url['url'])) {
+                            $urlParts = explode('/', $url['url']);
+                            if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+                                try {
+                                    $model = "\\module\\{$urlParts[0]}\\model\\{$urlParts[1]}";
+                                    $modelObj = $model::getInstance();
+                                    $model_record = \select("$modelObj->alias.*")
+                                            ->from($modelObj)
+                                            ->inserted()
+                                            ->limit(1)
+                                            ->execute()
+                                            ->fetchAll(\PDO::FETCH_ASSOC);
+                                    if (!empty($model_record) && isset($model_record[0])) {
+                                        unset($model_record[0][$modelObj->primaryKey]);
+                                        $search = array();
+                                        $i = 0;
+                                        if (is_array($model_record[0])) {
+                                            foreach ($model_record[0] as $k => $v) {
+                                                if (isset($v)) {
+                                                    $search[$i]['op'] = 'AND';
+                                                    if (is_numeric($v)) {
+                                                        $search[$i]['value'][$modelObj->table . '.' . $k . ' ='] = $v;
+                                                    } else {
+                                                        $search[$i]['value'][$modelObj->table . '.' . $k . ' LIKE'] = $v;
+                                                    }
+                                                    $i++;
+                                                    if ($i >= $this->number_of_columns) {
+                                                        $search[$this->number_of_columns - 1]['op'] = '';
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        $search = json_encode($search);
+                                        $search = urlencode($search);
+
+                                        $search_url = "?reset=1&amp;search_advance=$search";
+                                        $to_call_url = $login_url . $url['url'] . $search_url;
+                                        $testname = $urlParts[0] . '__' . $urlParts[1] . '__' . $view;
+                                        $jmx_string_part3_tmp = str_replace('$url', $to_call_url, $jmx_string_part3);
+                                        $jmx_string_part3_tmp = str_replace('$testname', $testname, $jmx_string_part3_tmp);
+                                        $output .= $jmx_string_part3_tmp;
+                                    }
+                                } catch (Exception $e) {
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            case "add":
+                if (empty($condition)) {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%$view'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.is_active" => 1)))->fetchAll(\PDO::FETCH_ASSOC);
+                } else {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%$view'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.is_active" => 1, $condition)))->fetchAll(\PDO::FETCH_ASSOC);
+                }
+            case "index":
+                if (empty($condition)) {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%$view'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.type" => "action", "{$appMenuObj->alias}.is_active" => 1)))->fetchAll(\PDO::FETCH_ASSOC);
+                } else {
+                    $urls = $appMenuObj->find(array('where' => array("{$appMenuObj->alias}.url like '%$view'", "{$appMenuObj->alias}.url not like 'benchmarking/%'", "{$appMenuObj->alias}.type" => "action", "{$appMenuObj->alias}.is_active" => 1, $condition)))->fetchAll(\PDO::FETCH_ASSOC);
+                }
+            default:
+                if (is_array($urls)) {
+                    foreach ($urls as $url) {
+                        if (isset($url['url'])) {
+                            $urlParts = explode('/', $url['url']);
+                            if (is_array($urlParts) && isset($urlParts[0]) && isset($urlParts[1])) {
+                                $to_call_url = $login_url . $url['url'];
+                                $testname = $urlParts[0] . '__' . $urlParts[1] . '__' . $view;
+                                $jmx_string_part3_tmp = str_replace('$url', $to_call_url, $jmx_string_part3);
+                                $jmx_string_part3_tmp = str_replace('$testname', $testname, $jmx_string_part3_tmp);
+                                $output .= $jmx_string_part3_tmp;
+                            }
+                        }
+                    }
+                }
+                break;
+        }
+    }
+
+    private function rand_string($length) {
+        $str = '';
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $size = strlen($chars);
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $chars[rand(0, $size - 1)];
+        }
+        return $str;
+    }
+
+}

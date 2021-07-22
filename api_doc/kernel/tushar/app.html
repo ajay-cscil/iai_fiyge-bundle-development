@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:10 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>app (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\app</h2>
+
+</header><p class="signature">public  class <strong>app</strong></p>
+
+<div class="comment"><p>Global app class. Place to put common utility methods</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#getFiles()">getFiles</a>(<a href="../kernel/string.html">string</a> path, bool hiddenFiles, int depth, int currentDepth)</p><p class="description">Get list of all files in directory recursively. </p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#is_rm()">is_rm</a>(<a href="../kernel/string.html">string</a> path)</p><p class="description">Check if directory can be deleted</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#rm()">rm</a>(<a href="../kernel/string.html">string</a> path)</p><p class="description">Delete all files/directories inside directory recursively</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#search()">search</a>(array data, array/string path, mixed val)</p><p class="description">Searches given path in data array. </p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#tableName()">tableName</a>(<a href="../kernel/string.html">string</a> string)</p><p class="description">Generates string by concatinating all input parameters. </p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#threaded()">threaded</a>(array data, <a href="../kernel/string.html">string</a> parentIdCol, <a href="../kernel/string.html">string</a> idCol, bool validateData)</p><p class="description">Generated threaded array from simple list array.
+</p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#threadedForm()">threadedForm</a>(array data, <a href="../kernel/string.html">string</a> parentIdCol, strng idCol)</p><p class="description">This method processes form markup stored in json format.
+</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="getFiles">public static  array <strong>getFiles</strong>(<a href="../kernel/string.html">string</a> path, bool hiddenFiles, int depth, int currentDepth)</code>
+<div class="details">
+<p>Get list of all files in directory recursively.
+Uses Depth first searching algorithm.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>path - directory path from where files need to be read</td>
+</tr><tr><th>Returns</th>
+<td>list of files in directory as a flat array with materialized path</td>
+</tr></table>
+</div>
+
+<code class="signature" id="is_rm">public static  bool <strong>is_rm</strong>(<a href="../kernel/string.html">string</a> path)</code>
+<div class="details">
+<p>Check if directory can be deleted</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>path - path to check if deletable</td>
+</tr><tr><th>Returns</th>
+<td>true if can be deleted else false</td>
+</tr></table>
+</div>
+
+<code class="signature" id="rm">public static  bool <strong>rm</strong>(<a href="../kernel/string.html">string</a> path)</code>
+<div class="details">
+<p>Delete all files/directories inside directory recursively</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>path - directory name</td>
+</tr><tr><th>Returns</th>
+<td>true if deleted else false</td>
+</tr></table>
+</div>
+
+<code class="signature" id="search">public static  mixed <strong>search</strong>(array data, array/string path, mixed val)</code>
+<div class="details">
+<p>Searches given path in data array.
+It can search multi level nested array.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td></td>
+<td></td>
+<td>val - Incase path not found, return this value</td>
+</tr></table>
+</div>
+
+<code class="signature" id="tableName">public static  <a href="../kernel/string.html">string</a> <strong>tableName</strong>(<a href="../kernel/string.html">string</a> string)</code>
+<div class="details">
+<p>Generates string by concatinating all input parameters. Its uses string sorting rules.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>string - Accept unlimited parameters</td>
+</tr><tr><th>Returns</th>
+<td>table name constructed from input strings</td>
+</tr></table>
+</div>
+
+<code class="signature" id="threaded">public static  array <strong>threaded</strong>(array data, <a href="../kernel/string.html">string</a> parentIdCol, <a href="../kernel/string.html">string</a> idCol, bool validateData)</code>
+<div class="details">
+<p>Generated threaded array from simple list array.
+Uses id, parent id fields in every record to build multi dimentional nested array, with each child array as entry within children node.
+Data should be sorted on parent id ascending order.</p><table>
+<tr><th>Todo</th>
+<td>use recursion</td>
+<td>-ve TestCase id and/or parent id is missing -> throw error (invalid data set)</td>
+<td>+ve TestCase records specify a parent id which is not in your data set -> parent id becomes another root</td>
+</tr><tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Copyright</th>
+<td>Primod Inc.</td>
+</tr><tr><th>Parameters</th>
+<td>data - Output of find statement</td>
+<td>parentIdCol - column holding parent id for each row</td>
+<td>idCol - primary key column name</td>
+</tr><tr><th>Returns</th>
+<td>nested tree array structure</td>
+</tr></table>
+</div>
+
+<code class="signature" id="threadedForm">public static  array <strong>threadedForm</strong>(array data, <a href="../kernel/string.html">string</a> parentIdCol, strng idCol)</code>
+<div class="details">
+<p>This method processes form markup stored in json format.
+First converts plain array into multi dimentional nested array using \kernel\app::threaded method.
+Then applies further processing specific to kernel.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - Array containing form node properties as json.</td>
+<td>parentIdCol - to be use by \kernel\app::threaded</td>
+<td>idCol - to be use by \kernel\app::threaded</td>
+</tr><tr><th>Returns</th>
+<td>nested multidimentional array</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

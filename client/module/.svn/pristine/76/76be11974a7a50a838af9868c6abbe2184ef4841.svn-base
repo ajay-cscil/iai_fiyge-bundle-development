@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\purchase\controller;
+  class purchase_quotes_group_acl_cache extends \module\purchase\controller\purchase_quotes_group_acl_cache_domain_logic
+  {
+       public $modelClass = '\\module\\purchase\\model\\purchase_quotes_group_acl_cache';
+
+
+
+
+
+
+  }

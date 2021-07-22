@@ -1,0 +1,53 @@
+[
+	{
+		"listviews":{
+			"old_id":"54",
+			"name":"All articles",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"articles.title\":{\"seq\":\"1\",\"column\":\"articles.title\",\"id\":\"\",\"deleted\":\"\"}},{\"articles.description\":{\"seq\":\"2\",\"column\":\"articles.description\",\"id\":\"\",\"deleted\":\"\"}},{\"sic.sic_name\":{\"seq\":\"3\",\"column\":\"sic.sic_name\",\"id\":\"\",\"deleted\":\"\"}},{\"articles.created\":{\"seq\":\"4\",\"column\":\"articles.created\",\"id\":\"\",\"deleted\":\"\"}},{\"articles.publish_date\":{\"seq\":\"5\",\"column\":\"articles.publish_date\",\"id\":\"\",\"deleted\":\"\"}},{\"articles.author\":{\"seq\":\"6\",\"column\":\"articles.author\",\"id\":\"\",\"deleted\":\"\"}}],\"row_template\":\"<span class=\\\"capitalize\\\"><b>{{articles.title}}<\\\/b><\\\/span>&nbsp;&nbsp;\\r\\n<span class=\\\"float-right\\\">{{articles.publish_date}}<\\\/span>\\r\\n<br \\\/>\\r\\n<span style=\\\"white-space:normal;\\\">{{articles.description}}<\\\/span> <a href=\\\"{{action.view}}\\\">Read More<\\\/a>...\\r\\n<br \\\/>\\r\\n<b class=\\\"capitalize\\\">Author: {{articles.author}}<\\\/b>\\r\\n<span class=\\\"float-right\\\">{{row.actions}} <\\\/span>\\r\\n\",\"method\":\"index\"}",
+			"_query":"{\"id\":\"54\",\"_search_join\":\"0\",\"search_join\":\"AND\",\"conditions\":{\"1\":{\"seq\":\"1\",\"search_column\":\"\",\"search_comparator\":\"\",\"search_value\":\"\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"search_column\":\"\",\"search_comparator\":\"\",\"search_value\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"name\":\"All articles\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"All\",\"controller\":\"wiki\\\/articles\",\"render_as\":\"index\",\"limit\":\"\",\"_fields_has_alias\":\"\",\"_fields_has_condition\":\"\",\"_is_public\":\"1\",\"is_public\":\"1\",\"_collapse_category_columns\":\"\",\"_fields_has_presentation\":\"\",\"description\":\"\",\"fields\":{\"1\":{\"seq\":\"1\",\"column\":\"articles.title\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"seq\":\"2\",\"column\":\"articles.description\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"seq\":\"3\",\"column\":\"sic.sic_name\",\"id\":\"\",\"deleted\":\"\"},\"4\":{\"seq\":\"4\",\"column\":\"articles.created\",\"id\":\"\",\"deleted\":\"\"},\"5\":{\"seq\":\"5\",\"column\":\"articles.publish_date\",\"id\":\"\",\"deleted\":\"\"},\"6\":{\"seq\":\"6\",\"column\":\"articles.author\",\"id\":\"\",\"deleted\":\"\"}},\"row_template\":\"<span class=\\\"capitalize\\\"><b>{{articles.title}}<\\\/b><\\\/span>&nbsp;&nbsp;\\r\\n<span class=\\\"float-right\\\">{{articles.publish_date}}<\\\/span>\\r\\n<br \\\/>\\r\\n<span style=\\\"white-space:normal;\\\">{{articles.description}}<\\\/span> <a href=\\\"{{action.view}}\\\">Read More<\\\/a>...\\r\\n<br \\\/>\\r\\n<b class=\\\"capitalize\\\">Author: {{articles.author}}<\\\/b>\\r\\n<span class=\\\"float-right\\\">{{row.actions}} <\\\/span>\\r\\n\"}",
+			"description":"",
+			"controller":"wiki\/articles",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2013-02-17 17:58:33",
+			"modified":null,
+			"deleted":"0",
+			"revision":null,
+			"flags":null,
+			"_acl":[
+				
+			],
+			"_acl_edit":[
+				
+			],
+			"_acl_delete":[
+				
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"wiki.articles.All articles",
+			"sequence":null,
+			"primary_acl_group":null,
+			"id":"52611fb5-beac-4824-88bf-1d890acef1b9",
+			"module_id":"",
+			"__created_by":"Maaxframe Inc.",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Corporate Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"",
+			"__primary_acl_group":"",
+			"__module_id":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

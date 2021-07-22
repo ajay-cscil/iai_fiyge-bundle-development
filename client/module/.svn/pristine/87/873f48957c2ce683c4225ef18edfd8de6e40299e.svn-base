@@ -1,0 +1,178 @@
+
+<script type="text/javascript">
+    var initControllerAction=function(){
+        $(function() {
+            $( ".dashboard-panel" ).sortable({ iframeFix: true,handle: ".widget-header-title"  ,  cursor: 'move', stop: function(event, ui) {
+                    $(ui.item).find('.active-paginate-link:first').trigger('click');
+                    var url="<?php echo $this->request->base . $this->request->module . '/widget_permissions/_update_sequence_number?'; ?>"+$(this).sortable('serialize');
+                    $.get(url,function(data){});
+                } });
+            $( ".dashboard-panel" ).disableSelection();
+            $( "#dashboard" ).tabs({'activate':function(event, ui) {
+                    if($.isset(ui.newPanel) && $(ui.newPanel).index() > 1 && !$(ui.panel).hasClass('resized')){
+                        $(ui.newPanel).addClass('resized').find('.listview').each(function(){
+                            if($(this).find('.chart').length > 0){   
+                                initChart($(this));
+                            }
+                        });
+                    }
+                }});       
+            $( ".widget-header .widget-min-max" ).click(function() {
+                $( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+                $( this ).parents( ".widget:first" ).find( ".widget-content" ).toggle("slow");
+            });
+            $('#dashboard').find('.ui-tabs-anchor:first').trigger('click');
+            //$( "#dashboard" ).find('.paginate-link').trigger('click');
+        });
+    }
+</script>
+<div id="dashboard">
+    <?php
+    $paginate = $this->get('paginate', array());
+    if (isset($paginate['data']) && is_array($paginate['data'])) {
+        $panels = array();
+        foreach ($paginate['data'] as $widget) {
+            if (!isset($panels[$widget['panels.panel_name']])) {
+                $panels[$widget['panels.panel_name']] = array();
+            }
+            $panels[$widget['panels.panel_name']][] = $widget;
+        }
+    }
+    if (empty($panels)) {
+        $panels['Widgets'] = array();
+    }
+    $controllerObject = \tushar\controller::getInstance($this->request);
+    $menusObject = \module\development_base\model\menus::getInstance();
+    $isDebug = (bool) \tushar\configuration::read('debug');
+    if (!empty($panels)) {
+        echo '<ul>';
+        $i = 0;
+        $listviews = $reports = array();
+        foreach ($panels as $panel => $widgets) {
+            echo ' <li><a href="#tabs-' . ($i++) . '">' . $panel . '</a></li>';
+            if (!empty($widgets)) {
+                foreach ($widgets as $widget) {
+                    if ($widget['related_to_model'] == 'listviews') {
+                        $listviews[] = $widget['related_to'];
+                    } else if ($widget['related_to_model'] == 'reports') {
+                        $reports[] = $widget['related_to'];
+                    }
+                }
+            }
+        }
+        $listviewsList = $reportsList = array();
+        $actionURLS = array();
+        if (!empty($listviews)) {
+            $listviewModelObj = \module\core\model\listviews::getInstance(array(), true);
+            foreach ($listviewModelObj->find(array('qualified' => 0, 'fields' => array('listviews.id', 'listviews.controller'), 'where' => array('listviews.id' => $listviews)))->fetchAll(\PDO::FETCH_ASSOC)
+            as $l) {
+                $listviewsList[$l['id']] = $l;
+                $actionURLS[] = "{$l['controller']}/index";
+            }
+        }
+        if (!empty($reports)) {
+            $reportObj = \module\analytics\model\reports::getInstance(array(), true);
+            foreach ($reportObj->find(array('qualified' => 0, 'fields' => array('reports.id', 'reports.controller'), 'where' => array('reports.id' => $reports)))->fetchAll(\PDO::FETCH_ASSOC)
+            as $l) {
+                $reportsList[$l['id']] = $l;
+                $actionURLS[] = "{$l['controller']}/index";
+            }
+        }
+        echo '</ul>';
+        if (!empty($actionURLS)) {
+            $actionURLS = $controllerObject->isGrantedPrivateAccess($actionURLS);
+        }
+        if (!empty($panels)) {
+            $i = 0;
+            foreach ($panels as $widgets) {
+                echo ' <div class="dashboard-panel"  id="tabs-' . ($i++) . '">';
+                if (!empty($widgets)) {
+                    foreach ($widgets as $widget) {
+                        $viewDefination = false;
+                        if (!empty($widget['related_to'])) {
+                            if ($widget['related_to_model'] == 'listviews' && isset($listviewsList[$widget['related_to']])) {
+                                $viewDefination = $listviewsList[$widget['related_to']];
+                            } else if ($widget['related_to_model'] == 'reports' && isset($reportsList[$widget['related_to']])) {
+                                $viewDefination = $reportsList[$widget['related_to']];
+                            }
+                            if (empty($viewDefination)) {
+                                continue;
+                            }
+                        }
+                        $url = false;
+                        $urlError = "";
+                        if (!empty($widget['url'])) {
+                            $url = $widget['url'];
+                        } elseif (!empty($widget['related_to']) && is_array($viewDefination)) {
+                            $isGranted = in_array($viewDefination['controller'] . "/index", $actionURLS);
+                            if (!$isGranted) {
+                                if ($isDebug == false) {
+                                    continue;
+                                } else {
+                                    $urlError = sprintf(__('You dont have permission to access "%s"'), "{$viewDefination['controller']}/index");
+                                }
+                            }
+
+                            if ($widget['related_to_model'] == 'listviews') {
+                                $listview = $viewDefination;
+                                if (!empty($listview)) {
+                                    $q = array('pheader' => 0, 'search_criteria' => 0);
+                                    if (!empty($widget['pagination_limit'])) {
+                                        $q['limit'] = $widget['pagination_limit'];
+                                    }
+                                    $url = $listview['controller'] . '/index?current_listview=' . $widget['related_to'] . '&search_criteria=0'
+                                            . '&q=' . rawurlencode(json_encode($q));
+                                }
+                            } else if ($widget['related_to_model'] == 'reports') {
+                                $report = $viewDefination;
+                                if (!empty($report)) {
+                                    if (!empty($widget['pagination_limit'])) {
+                                        $report['query']['limit'] = $widget['pagination_limit'];
+                                    }
+                                    $controller = $report['controller'];
+                                    $array = explode("/", $controller);
+                                    list($module, $controller) = $array;
+                                    //$url = "{$module}/{$controller}/index?q=" . rawurlencode($report['query']);
+                                    $url = "{$module}/{$controller}/_report?current_report=" . $widget['related_to'] . '&search_criteria=0';
+                                }
+                            }
+                        }
+                        echo ' <div id="id_' . $widget['id'] . '" class="widget ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" 
+                            style="width:' . ($widget['column_span'] * 8) . '%;">';
+                        echo '<div class="widget-header ui-state-active ui-corner-all">';
+                        echo '<div class="widget-header-title">' . $widget['widget_name'] . '</div>';
+                        echo ($url !== false ? ' <span class="ui-icon ui-icon-newwin" ajax="1" href="' . $this->request->base . $url . '" >' : '');
+                        echo '</span><span class="ui-icon widget-min-max ui-icon-minusthick"></span>';
+                        echo '</div>';
+                        echo '<div class="widget-content" style="overflow:hidden;">';
+
+                        if (!empty($urlError)) {
+                            echo '<table class="listview   index wrap ui-state-error" render_as="index" ><tr ><td>'
+                            . $urlError
+                            . '</td></tr></table>';
+                        } else if ($url !== false) {
+                            echo '<table id="', uuid(), '" class="listview">';
+                            echo '<tr><td>';
+                            echo '<a href="', $this->request->base, $url, '" class="paginate-link show-dashboard-listview" >';
+                            echo __('Loading view...');
+                            echo '</a></td></tr></table>';
+                        } elseif (!empty($widget['element'])) {
+                            echo $this->element($widget['element']);
+                        }
+                        echo '</div>
+                            </div> ';
+                    }
+                } else {
+                    echo '<table class="wrap" align="center" render_as="index"  height="200px"><tr ><td>'
+                    . '<div class="ui-state-error-text   "> ' . __('Dashboard does not have any active widgets') . '</div>'
+                    . '</td></tr></table>';
+                }
+
+                echo ' </div>';
+            }
+        }
+    }
+    ?>
+
+
+</div>

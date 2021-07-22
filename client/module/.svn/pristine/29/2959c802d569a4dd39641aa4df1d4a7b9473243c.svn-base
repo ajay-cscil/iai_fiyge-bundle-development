@@ -1,0 +1,25 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_nmi_back extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        $lastActiveNode = $docObject->previousActiveNode(array('Request More Information', 'Voided'));
+        if ($lastActiveNode === false) {
+            throw new \Exception(sprintf(__('Could not uniquly find previous stage', 'module')));
+        }
+        $node = $docObject->node($docObject->nodeID());
+        // check if node is valid and exists in log.
+        if ($node['status'] == 'open') {
+            $stages = $docObject->stages($lastActiveNode['stage_id'], false, true);
+            if ($stages[$lastActiveNode['stage_id']] === false) {
+                throw new \Exception(sprintf(__('Could not locate stage with ID "%s"', 'module'), __($lastActiveNode['stage_id'], 'module')));
+            }
+            $docObject->after($node['id'], $stages);
+            $docObject->exitNode();
+        }
+    }
+
+}
+

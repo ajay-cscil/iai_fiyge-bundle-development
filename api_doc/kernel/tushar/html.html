@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:11 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>html (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\html</h2>
+
+</header><p class="signature">public  class <strong>html</strong></p>
+
+<div class="comment"><p>Base class generated HTML tag markup based on given parameters.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#actionIconMap">$actionIconMap</a></p><p class="description">Mapping between controller action and asociated tag</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#actionStateMap">$actionStateMap</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#controllerActions()">controllerActions</a>(type request, type module, type controller, type outputHTML, mixed view)</p><p class="description">Generates markup / listing for controller actions.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#controllerSubactionBar()">controllerSubactionBar</a>(\kernel\request request, <a href="../kernel/string.html">string</a> module, <a href="../kernel/string.html">string</a> controller, <a href="../kernel/string.html">string</a> action, <a href="../kernel/string.html">string</a> urlParamString, mixed view, bool overrideParams)</p><p class="description">Generates Subaction bar markup for controller. </p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#css()">css</a>(\kernel\requesr request, <a href="../kernel/string.html">string</a> file, bool isPath)</p><p class="description">CSS helper file for generating link tag in view</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#end()">end</a>(<a href="../kernel/string.html">string</a> type, mixed params)</p><p class="description">Generates end markup tag</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#errors()">errors</a>(mixed errors, str type, bool pointer)</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#escape()">escape</a>(<a href="../kernel/string.html">string</a> string)</p><p class="description">Escapes input string to avoid script inject</p></td>
+</tr>
+<tr>
+<td class="type">static  bool</td>
+<td class="description"><p class="name"><a href="#getPath()">getPath</a>(\kernel\requesr request, <a href="../kernel/string.html">string</a> file, <a href="../kernel/string.html">string</a> type)</p><p class="description">Loads files for css/js in following priority order.
+</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#getString()">getString</a>(array params, bool escape)</p><p class="description">convert given key=>value pair array into string</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#graph()">graph</a>(mixed paginate)</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#headerLabel()">headerLabel</a>(array paginate, array info)</p><p class="description">Compute Header label for views.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#js()">js</a>(\kernel\requesr request, <a href="../kernel/string.html">string</a> file, bool isPath)</p><p class="description">CSS helper file for generating script tag in view</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#li()">li</a>(array options, <a href="../kernel/string.html">string</a> type)</p><p class="description">Helper methods for generating ol/ul</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#localizeDate()">localizeDate</a>(type val, type column, type request)</p><p class="description">Helper for localizing date value</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#localizeDateTime()">localizeDateTime</a>(type val, type column, type request)</p><p class="description">Helper for localizing datetime value.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#localizeDecimal()">localizeDecimal</a>(decimal val, <a href="../kernel/string.html">string</a> column, \kernel\request request)</p><p class="description">Helper for localizing decimal value.</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#localizeLong()">localizeLong</a>(long val, <a href="../kernel/string.html">string</a> column, \kernel\request request)</p><p class="description">Helper for localizing long value.</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#localizeTime()">localizeTime</a>(type val, type column, type request)</p><p class="description">Helper for localizing time value</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#logo_path()">logo_path</a>()</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#menu()">menu</a>(array threaded, <a href="../kernel/string.html">string</a> labelColumn, <a href="../kernel/string.html">string</a> idColumn, bool isFirstLevel)</p><p class="description">For generating menu markup.</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#ob_disable()">ob_disable</a>(type type)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#ob_enable()">ob_enable</a>(type type)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#ob_flush()">ob_flush</a>(type request, type type)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#ob_start()">ob_start</a>(type file, type type)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#optionText()">optionText</a>(array children, mixed value)</p><p class="description">Generates markup for select options</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#options()">options</a>(array children., mixed children, bool value, bool empty)</p><p class="description">Generates option list for select element</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#paginate()">paginate</a>(object request, array paginate, mixed view)</p><p class="description">Generates listview based on input given</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#pagination()">pagination</a>(type request, <a href="../kernel/string.html">string</a> paginate)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#paginationHeader()">paginationHeader</a>(type query, mixed paginate)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#pdf()">pdf</a>(\kernel\request request, <a href="../kernel/string.html">string</a> html, <a href="../kernel/string.html">string</a> css, <a href="../kernel/string.html">string</a> name, <a href="../kernel/string.html">string</a> mode)</p><p class="description">Provide integration with TCPDF library</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#processMenuRules()">processMenuRules</a>(mixed view, mixed data)</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#searchui()">searchui</a>(\kernel\request request, <a href="../kernel/string.html">string</a> searchModule, <a href="../kernel/string.html">string</a> searchController, <a href="../kernel/string.html">string</a> searchView, <a href="../kernel/string.html">string</a> searchAction, bool basic, bool advance)</p><p class="description">Generated search bar UI</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#select()">select</a>(array children, mixed params)</p><p class="description">Generates select element</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#selectRecordLink()">selectRecordLink</a>(type value, type column, type request, type paginate, type primaryKey, type record)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#setPath()">setPath</a>(array threaded, <a href="../kernel/string.html">string</a> labelColumn, <a href="../kernel/string.html">string</a> current, bool isUrl)</p><p class="description">Set current active node in menu tree.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#start()">start</a>(<a href="../kernel/string.html">string</a> type, mixed params)</p><p class="description">Generates markup based on given params</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#subActions()">subActions</a>(type request, type module, type controller, type action, type scope, type outputHTML, mixed view)</p><p class="description">Generates markup / listing for sub actions.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#textarea()">textarea</a>(array children., mixed params)</p><p class="description">Generates textarea element</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#threaded()">threaded</a>(array threaded, <a href="../kernel/string.html">string</a> labelColumn, <a href="../kernel/string.html">string</a> idColumn)</p><p class="description">Helper methods for generating nested listview based on ul/li</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#widget_menu()">widget_menu</a>(mixed view)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="actionIconMap">public static  array <strong>$actionIconMap</strong> = array(...)</code>
+<div class="details">
+<p>Mapping between controller action and asociated tag</p></div>
+
+<code class="signature" id="actionStateMap">public static  mixed <strong>$actionStateMap</strong> = array(...)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="controllerActions">public static  <a href="../kernel/string.html">string</a> <strong>controllerActions</strong>(type request, type module, type controller, type outputHTML, mixed view)</code>
+<div class="details">
+<p>Generates markup / listing for controller actions.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="controllerSubactionBar">public static  <a href="../kernel/string.html">string</a> <strong>controllerSubactionBar</strong>(\kernel\request request, <a href="../kernel/string.html">string</a> module, <a href="../kernel/string.html">string</a> controller, <a href="../kernel/string.html">string</a> action, <a href="../kernel/string.html">string</a> urlParamString, mixed view, bool overrideParams)</code>
+<div class="details">
+<p>Generates Subaction bar markup for controller.
+Can return subaction array if required.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Returns</th>
+<td>st</td>
+</tr></table>
+</div>
+
+<code class="signature" id="css">public static  <a href="../kernel/string.html">string</a> <strong>css</strong>(\kernel\requesr request, <a href="../kernel/string.html">string</a> file, bool isPath)</code>
+<div class="details">
+<p>CSS helper file for generating link tag in view</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>request - Request object encapsulating all information</td>
+<td>file - name, if path start with / then its with respect to webroot folder else it with respect to webroot/css folder</td>
+</tr><tr><th>Returns</th>
+<td>link tag</td>
+</tr><tr><th>Eg</th>
+<td>\kernel\html::css($this->request,'jquery');</td>
+<td>\kernel\html::css($this->request,'/module/'.$this->request->module.'/css/'.$this->request->controller);</td>
+</tr></table>
+</div>
+
+<code class="signature" id="end">public static  <a href="../kernel/string.html">string</a> <strong>end</strong>(<a href="../kernel/string.html">string</a> type, mixed params)</code>
+<div class="details">
+<p>Generates end markup tag</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>type - some of tags are form,button,div,input etc</td>
+</tr><tr><th>Params</th>
+<td>array $params key=>value pair of possible html attributes</td>
+</tr><tr><th>Eg.</th>
+<td>echo \kernel\html::end('form');</td>
+</tr></table>
+</div>
+
+<code class="signature" id="errors">public static  void <strong>errors</strong>(mixed errors, str type, bool pointer)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="escape">public static  <a href="../kernel/string.html">string</a> <strong>escape</strong>(<a href="../kernel/string.html">string</a> string)</code>
+<div class="details">
+<p>Escapes input string to avoid script inject</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getPath">public static  bool <strong>getPath</strong>(\kernel\requesr request, <a href="../kernel/string.html">string</a> file, <a href="../kernel/string.html">string</a> type)</code>
+<div class="details">
+<p>Loads files for css/js in following priority order.
+1. Load resource file from <app_name>/webroot/skins/$request->skin/$request->theme/
+2. If Not Found Load file from <app_name>/webroot/module/$request->module/
+3. If Not Fiund Load file from <app_name>/webroot</p><table>
+<tr><th>Parameters</th>
+<td></td>
+<td>file - file to be included in html</td>
+<td>type - type of file, css/js</td>
+</tr><tr><th>Returns</th>
+<td>returns false on failure else return valid path</td>
+</tr></table>
+</div>
+
+<code class="signature" id="getString">public static  <a href="../kernel/string.html">string</a> <strong>getString</strong>(array params, bool escape)</code>
+<div class="details">
+<p>convert given key=>value pair array into string</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>params - input array</td>
+</tr></table>
+</div>
+
+<code class="signature" id="graph">public static  void <strong>graph</strong>(mixed paginate)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="headerLabel">public static  <a href="../kernel/string.html">string</a> <strong>headerLabel</strong>(array paginate, array info)</code>
+<div class="details">
+<p>Compute Header label for views.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="js">public static  <a href="../kernel/string.html">string</a> <strong>js</strong>(\kernel\requesr request, <a href="../kernel/string.html">string</a> file, bool isPath)</code>
+<div class="details">
+<p>CSS helper file for generating script tag in view</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>request - Request object encapsulating all information</td>
+<td>file - name, if path start with / then its with respect to webroot folder else it with respect to webroot/js folder</td>
+</tr><tr><th>Returns</th>
+<td>script tag</td>
+</tr><tr><th>Eg</th>
+<td>\kernel\html::js($this->request,'jquery');</td>
+<td>\kernel\html::js($this->request,'/module/'.$this->request->module.'/js/'.$this->request->controller);</td>
+</tr></table>
+</div>
+
+<code class="signature" id="li">public static  <a href="../kernel/string.html">string</a> <strong>li</strong>(array options, <a href="../kernel/string.html">string</a> type)</code>
+<div class="details">
+<p>Helper methods for generating ol/ul</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td></td>
+<td>type - ol/ul</td>
+</tr></table>
+</div>
+
+<code class="signature" id="localizeDate">public static  type <strong>localizeDate</strong>(type val, type column, type request)</code>
+<div class="details">
+<p>Helper for localizing date value</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="localizeDateTime">public static  type <strong>localizeDateTime</strong>(type val, type column, type request)</code>
+<div class="details">
+<p>Helper for localizing datetime value.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="localizeDecimal">public static  <a href="../kernel/string.html">string</a> <strong>localizeDecimal</strong>(decimal val, <a href="../kernel/string.html">string</a> column, \kernel\request request)</code>
+<div class="details">
+<p>Helper for localizing decimal value.</p></div>
+
+<code class="signature" id="localizeLong">public static  mixed <strong>localizeLong</strong>(long val, <a href="../kernel/string.html">string</a> column, \kernel\request request)</code>
+<div class="details">
+<p>Helper for localizing long value.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr></table>
+</div>
+
+<code class="signature" id="localizeTime">public static  type <strong>localizeTime</strong>(type val, type column, type request)</code>
+<div class="details">
+<p>Helper for localizing time value</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="logo_path">public static  void <strong>logo_path</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="menu">public static  <a href="../kernel/string.html">string</a> <strong>menu</strong>(array threaded, <a href="../kernel/string.html">string</a> labelColumn, <a href="../kernel/string.html">string</a> idColumn, bool isFirstLevel)</code>
+<div class="details">
+<p>For generating menu markup.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr></table>
+</div>
+
+<code class="signature" id="ob_disable">public static  type <strong>ob_disable</strong>(type type)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="ob_enable">public static  type <strong>ob_enable</strong>(type type)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="ob_flush">public static  type <strong>ob_flush</strong>(type request, type type)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="ob_start">public static  type <strong>ob_start</strong>(type file, type type)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="optionText">public static  mixed <strong>optionText</strong>(array children, mixed value)</code>
+<div class="details">
+<p>Generates markup for select options</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="options">public static  <a href="../kernel/string.html">string</a> <strong>options</strong>(array children., mixed children, bool value, bool empty)</code>
+<div class="details">
+<p>Generates option list for select element</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>children. - array(0=>array('text'=>'a','value'=>'1'),0=>array('text'=>'b','value'=>'2'))</td>
+</tr><tr><th>Params</th>
+<td>string $value default value to be mark as selected</td>
+</tr></table>
+</div>
+
+<code class="signature" id="paginate">public static  <a href="../kernel/string.html">string</a> <strong>paginate</strong>(object request, array paginate, mixed view)</code>
+<div class="details">
+<p>Generates listview based on input given</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>request - Request object encapsulating all information</td>
+<td></td>
+</tr><tr><th>Eg.</th>
+<td>array( 'count_query'=>$model->query, 'query'=>$model->query, 'render_as'=>'index', 'paginate_as'=>$model->query['paginate_as'], 'page'=>$model->query['page'], 'page_size'=>$model->query['limit'], 'total_count'=>$totalCount, 'header'=>$header, 'data'=>$data, 'page'=>$model->query['page'], 'current_page_count'=>count($data), 'primary_key'=>"{$model->table}.{$model->primaryKey}", 'display_field'=>"{$model->table}.{$model->displayField}", 'active_level'=>$activeLevel, 'render_as'=>"categorized", 'is_last_level'=>"$isLastLevel" );</td>
+</tr></table>
+</div>
+
+<code class="signature" id="pagination">public static  type <strong>pagination</strong>(type request, <a href="../kernel/string.html">string</a> paginate)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="paginationHeader">public static  type <strong>paginationHeader</strong>(type query, mixed paginate)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="pdf">public static  <a href="../kernel/string.html">string</a> <strong>pdf</strong>(\kernel\request request, <a href="../kernel/string.html">string</a> html, <a href="../kernel/string.html">string</a> css, <a href="../kernel/string.html">string</a> name, <a href="../kernel/string.html">string</a> mode)</code>
+<div class="details">
+<p>Provide integration with TCPDF library</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr><tr><th>Parameters</th>
+<td>request - request object</td>
+<td>html - html content to be converted into pdf</td>
+<td>css - any css to be injected into generated pdf</td>
+<td>name - file name for genedated file</td>
+<td>mode - TCPDF output mode flag</td>
+</tr></table>
+</div>
+
+<code class="signature" id="processMenuRules">public static  void <strong>processMenuRules</strong>(mixed view, mixed data)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="searchui">public static  <a href="../kernel/string.html">string</a> <strong>searchui</strong>(\kernel\request request, <a href="../kernel/string.html">string</a> searchModule, <a href="../kernel/string.html">string</a> searchController, <a href="../kernel/string.html">string</a> searchView, <a href="../kernel/string.html">string</a> searchAction, bool basic, bool advance)</code>
+<div class="details">
+<p>Generated search bar UI</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr><tr><th>Parameters</th>
+<td>request - current request object</td>
+<td>searchModule - module name</td>
+<td>searchController - controller name</td>
+<td>searchView - view name</td>
+<td>searchAction - controller action for requesting advance search form</td>
+</tr></table>
+</div>
+
+<code class="signature" id="select">public static  <a href="../kernel/string.html">string</a> <strong>select</strong>(array children, mixed params)</code>
+<div class="details">
+<p>Generates select element</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Eg.</th>
+<td>echo \kernel\html::select( array('permission'=>VIEW, 'children'=>$this->options('\\module\\access_controls\\model\\users') ,'value'=>$this->get(array('data','accounts','owned_by'))) ,'name'=>'data[model][column]' )</td>
+</tr></table>
+</div>
+
+<code class="signature" id="selectRecordLink">public static  type <strong>selectRecordLink</strong>(type value, type column, type request, type paginate, type primaryKey, type record)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="setPath">public static  <a href="../kernel/string.html">string</a> <strong>setPath</strong>(array threaded, <a href="../kernel/string.html">string</a> labelColumn, <a href="../kernel/string.html">string</a> current, bool isUrl)</code>
+<div class="details">
+<p>Set current active node in menu tree.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com</td>
+</tr></table>
+</div>
+
+<code class="signature" id="start">public static  <a href="../kernel/string.html">string</a> <strong>start</strong>(<a href="../kernel/string.html">string</a> type, mixed params)</code>
+<div class="details">
+<p>Generates markup based on given params</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>type - some of tags are form,button,div,input etc</td>
+</tr><tr><th>Params</th>
+<td>array $params key=>value paitr of html attributes</td>
+</tr><tr><th>Eg.</th>
+<td>echo \kernel\html::start('form',array('name'=>'login','version'=>'1.0')); echo \kernel\html::start('input',array('type'=>'text','name'=>'data[users][user_name]' ,'value'=>\kernel\html::escape($this->get(array('users','user_name'))))); echo \kernel\html::start('input',array('type'=>'password','name'=>'data[users][password]')); echo \kernel\html::start('input',array('type'=>'submit','value'=>__('submit') ,'name'=>'data[action][submit]')); echo \kernel\html::end('form');</td>
+</tr></table>
+</div>
+
+<code class="signature" id="subActions">public static  <a href="../kernel/string.html">string</a> <strong>subActions</strong>(type request, type module, type controller, type action, type scope, type outputHTML, mixed view)</code>
+<div class="details">
+<p>Generates markup / listing for sub actions.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="textarea">public static  <a href="../kernel/string.html">string</a> <strong>textarea</strong>(array children., mixed params)</code>
+<div class="details">
+<p>Generates textarea element</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Eg.</th>
+<td>echo \kernel\html::textarea(array( 'permission'=>VIEW, 'cols'=>60, 'rows'=>4, 'name'=>'data[accounts][description]', 'value'=>$this->get(array('data','accounts','name')) ) );</td>
+</tr></table>
+</div>
+
+<code class="signature" id="threaded">public static  <a href="../kernel/string.html">string</a> <strong>threaded</strong>(array threaded, <a href="../kernel/string.html">string</a> labelColumn, <a href="../kernel/string.html">string</a> idColumn)</code>
+<div class="details">
+<p>Helper methods for generating nested listview based on ul/li</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>threaded - threaded data</td>
+<td></td>
+<td></td>
+</tr></table>
+</div>
+
+<code class="signature" id="widget_menu">public static  void <strong>widget_menu</strong>(mixed view)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\webforms\controller;
+
+class leads_domain_logic extends \module\crm\controller\leads {
+
+    public $access = array('create' => PUBLIC_ACCESS);
+
+    function create($request) {
+        \tushar\configuration::write('debug',false);
+        $data = array();
+        $leads = array();
+        if ($request->is('post') && isset($request->data['leads'])) {
+            $data = $request->data['leads'];
+            $leads = &$request->data['leads'];
+            if (isset($leads['name']) && !isset($leads['first_name'])) {
+                $name = explode(' ', $leads['name']);
+                $leads['first_name'] = array_shift($name);
+                $leads['last_name'] = implode(' ', $name);
+                if (empty($leads['last_name'])) {
+                    $leads['last_name'] = '...';
+                }
+            }
+            if (!isset($leads['name']) && isset($leads['first_name'])) {
+                $leads['name'] = $leads['first_name'] . " " . $leads['last_name'];
+            }
+            $modelObj = $this->modelObj();
+            $modelObj->filters = array_intersect_key($modelObj->filters, $leads);
+        }
+
+        $return = parent::add($request);
+        $payload = '';
+        if ($request->is('post')) {
+            if ($this->saveHandlerOutput) {
+                $payload .='&message=' . urlencode(\sprintf(__('Lead created successfully', 'module')));
+            } else {
+                $payload .='&message=' . urlencode(\sprintf(__('Lead could not be created', 'module')));
+                if (isset($data)) {
+                    $payload .='&data=' . urlencode(json_encode($data));
+                }
+                $payload .='&errors=' . urlencode(json_encode(\tushar\model::$errors));
+            }
+        }
+        $request->layout = 'public_default';
+        $url = $request->server('HTTP_REFERER');
+        $isAlreadyRouted = false;
+        $urlp = explode("/", $url);
+        if (!empty($url) && in_array(\tushar\request::$baseURL, $urlp) === false) {
+            $referrer = \explode('?', $request->server('HTTP_REFERER'));
+            $referrer = $referrer[0];
+            $return = $referrer . (stripos($referrer, '?') === false ? '?' : '') . $payload;
+            header('Location:' . $return);
+            ob_clean();
+            flush();
+            $isAlreadyRouted = true;
+        }
+        if ($request->is('post') && $this->saveHandlerOutput) {
+            if (!empty($leads) && isset($leads['form_name']) && $leads['form_name'] == 'trial' && isset($leads['domain_name'])) {
+                $modelObj = $this->modelObj();
+                $leads['id'] = $modelObj->id;
+                $rt = $modelObj->setupInstance($leads);
+            }
+        }
+        if ($isAlreadyRouted === true) {
+            exit(0);
+        }
+        return $return;
+    }
+
+}

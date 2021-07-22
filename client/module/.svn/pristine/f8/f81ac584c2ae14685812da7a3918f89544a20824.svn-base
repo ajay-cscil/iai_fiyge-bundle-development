@@ -1,0 +1,76 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class transfer_domain_logic extends \tushar\model{
+
+    public function journalEntryDate() {
+        return $this->data['transfer_date'];
+    }
+    
+    public function journalEntries(&$journalEntry) {
+        $journalEntry['journal_entry_lines'] = array();
+
+        //if (isset($this->data['action']) && strcasecmp($this->data['action'], 'validate') == 0) {
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (strcasecmp($actionTriggred, 'validate') == 0) {
+
+            $journalEntry['journal_type'] = 'general';
+            if (!isset($journalEntry['company_id']) || empty($journalEntry['company_id'])) {
+                $journalEntry['company_id'] = \tushar\user::read('company_id');
+            }
+            $journalEntry['currency_id'] = (isset($this->data['currency_id']) ? $this->data['currency_id'] : '');
+            if (!isset($journalEntry['currency_id']) || empty($journalEntry['currency_id'])) {
+                $journalEntry['currency_id'] = \tushar\user::read('currency_id');
+            }
+            $journalEntry['journal_id'] = \module\accounting\model\journals::getInstance()->journalID($journalEntry['journal_type'], $journalEntry['currency_id'], $journalEntry['company_id']);
+            /*
+              transfer.account_from
+              transfer.account_from
+              transfer.transfer_amount
+              credit
+              posted
+              validate
+             */
+            $journalEntry['journal_entry_lines'][] = array(
+                'related_to' => '',
+                '__related_to' => '',
+                'related_to_model' => '',
+                'related_to_model_class' => '',
+                'account_id' => $this->data['account_from'],
+                'credit' => $this->data['transfer_amount']
+            );
+            /*
+              transfer.account_to
+              transfer.account_to
+              transfer.transfer_amount
+              debit
+              posted
+              validate
+             */
+            $journalEntry['journal_entry_lines'][] = array(
+                'related_to' => '',
+                '__related_to' => '',
+                'related_to_model' => '',
+                'related_to_model_class' => '',
+                'account_id' => $this->data['account_to'],
+                'debit' => $this->data['transfer_amount']
+            );
+
+
+
+            return true;
+        }
+    }
+
+}

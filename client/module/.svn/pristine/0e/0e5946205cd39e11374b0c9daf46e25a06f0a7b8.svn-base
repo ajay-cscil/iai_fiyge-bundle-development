@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\manufacturing\controller;
+  class products_to_consume extends \module\manufacturing\controller\products_to_consume_domain_logic
+  {
+       public $modelClass = '\\module\\manufacturing\\model\\products_to_consume';
+
+
+
+
+
+
+  }

@@ -1,0 +1,58 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\brules\controller;
+  class business_rule_runlevels extends \module\brules\controller\business_rule_runlevels_domain_logic
+  {
+       public $modelClass = '\\module\\brules\\model\\business_rule_runlevels';
+       public $paginate = array (
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'order_by_dir' => 'asc',
+  'inline_click' => '1',
+  'fields' => 
+  array (
+    1 => 
+    array (
+      'column' => 'business_rule_runlevels.runlevel',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'column' => 'business_rule_runlevels.runlevel_code',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    3 => 
+    array (
+      'column' => 'business_rule_runlevels.created',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    4 => 
+    array (
+      'column' => 'business_rule_runlevels.modified',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+  ),
+  'paginate_as' => '0',
+);
+
+
+
+
+
+
+  }

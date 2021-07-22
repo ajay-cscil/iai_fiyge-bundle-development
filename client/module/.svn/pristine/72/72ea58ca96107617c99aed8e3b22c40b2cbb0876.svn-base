@@ -1,0 +1,44 @@
+<?php
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+namespace module\campaigns\model;
+
+class campaign_lists extends \tushar\model {
+    /**
+     *
+     * @var type
+     */
+    public $singular='campaign list';
+
+    public $table = 'campaigns__campaign_lists';
+
+    /**
+     *
+     * @var type
+     */
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'lists' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'list_id'
+            , 'className' => '\\module\\campaigns\\model\\lists'
+        )
+    );
+
+    public $filters = array(
+        'campaign_id' => array('required', array('rule' => FILTER_CALLBACK
+                , 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+        ), 'list_id' => array('required', array('rule' => FILTER_CALLBACK
+                , 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+        )
+    );
+
+}

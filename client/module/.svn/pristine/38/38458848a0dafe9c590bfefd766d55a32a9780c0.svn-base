@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\controller;
+  class stock_move extends \module\mrp\controller\stock_move_domain_logic
+  {
+       public $modelClass = '\\module\\mrp\\model\\stock_move';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

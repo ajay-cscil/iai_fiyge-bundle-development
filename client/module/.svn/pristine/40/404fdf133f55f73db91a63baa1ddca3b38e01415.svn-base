@@ -1,0 +1,180 @@
+{
+    "version": "1.0.3.alpha",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "id": "457",
+    "name": "tickets",
+    "label": "Depricated: Tickets (Replaced with Cases)",
+    "license_agreement": null,
+    "description": "This is a ticket management module to track the resource allocation and ticket allocation<br>",
+    "company": "Primary Modules",
+    "author": "Tushar Takkar",
+    "is_active": "1",
+    "created_by": "-1",
+    "modified_by": "-1",
+    "owned_by": "-1",
+    "is_public": null,
+    "_acl": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_delete": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_edit": [
+        {
+            "id": "-2",
+            "aro_id_model": "users",
+            "aro_id": "-2",
+            "__aro_id": "Maax Modules Development Team"
+        },
+        {
+            "id": "-1",
+            "aro_id_model": "users",
+            "aro_id": "-1",
+            "__aro_id": "Maax Core Development Team"
+        }
+    ],
+    "_acl_tmp": null,
+    "_acl_tmp_delete": null,
+    "_acl_tmp_edit": null,
+    "created": "2014-05-14",
+    "modified": "2014-05-14 14:48:58",
+    "revision": null,
+    "flags": null,
+    "category_id": "10",
+    "industry_id": "2",
+    "latest_version": null,
+    "is_installed": "1",
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/tickets",
+    "current_stable_version": "1.0.3.alpha",
+    "__created_by": "System Admin",
+    "created_by_model": "created_by_user",
+    "__modified_by": "System Admin",
+    "modified_by_model": "modified_by_user",
+    "__owned_by": "System Admin",
+    "owned_by_model": "owned_by_user",
+    "__category_id": "Project Management",
+    "category_id_business_key": "Project Management",
+    "category_id_model": "module_categories",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "industry_id_model": "module_industries",
+    "controllers": {
+        "actor_roles": "\\module\\tickets\\controller\\actor_roles",
+        "actors": "\\module\\tickets\\controller\\actors",
+        "bug_types": "\\module\\tickets\\controller\\bug_types",
+        "config_ticket_priorities": "\\module\\tickets\\controller\\config_ticket_priorities",
+        "config_ticket_types": "\\module\\tickets\\controller\\config_ticket_types",
+        "configurations": "\\module\\tickets\\controller\\configurations",
+        "faq_answers": "\\module\\tickets\\controller\\faq_answers",
+        "faq_categories": "\\module\\tickets\\controller\\faq_categories",
+        "faq": "\\module\\tickets\\controller\\faq",
+        "projects_acl_cache": "\\module\\tickets\\controller\\projects_acl_cache",
+        "projects_group_acl_cache": "\\module\\tickets\\controller\\projects_group_acl_cache",
+        "projects": "\\module\\tickets\\controller\\projects",
+        "sprints_acl_cache": "\\module\\tickets\\controller\\sprints_acl_cache",
+        "sprints_group_acl_cache": "\\module\\tickets\\controller\\sprints_group_acl_cache",
+        "sprints": "\\module\\tickets\\controller\\sprints",
+        "ticket_comments": "\\module\\tickets\\controller\\ticket_comments",
+        "tickets_acl_cache": "\\module\\tickets\\controller\\tickets_acl_cache",
+        "tickets_group_acl_cache": "\\module\\tickets\\controller\\tickets_group_acl_cache",
+        "tickets": "\\module\\tickets\\controller\\tickets",
+        "timesheet_entries": "\\module\\tickets\\controller\\timesheet_entries"
+    },
+    "models": {
+        "actor_roles": "\\module\\tickets\\model\\actor_roles",
+        "actors": "\\module\\tickets\\model\\actors",
+        "bug_types": "\\module\\tickets\\model\\bug_types",
+        "config_ticket_priorities": "\\module\\tickets\\model\\config_ticket_priorities",
+        "config_ticket_types": "\\module\\tickets\\model\\config_ticket_types",
+        "configurations": "\\module\\tickets\\model\\configurations",
+        "faq_answers": "\\module\\tickets\\model\\faq_answers",
+        "faq_categories": "\\module\\tickets\\model\\faq_categories",
+        "faq": "\\module\\tickets\\model\\faq",
+        "projects_acl_cache": "\\module\\tickets\\model\\projects_acl_cache",
+        "projects_group_acl_cache": "\\module\\tickets\\model\\projects_group_acl_cache",
+        "projects": "\\module\\tickets\\model\\projects",
+        "sprints_acl_cache": "\\module\\tickets\\model\\sprints_acl_cache",
+        "sprints_group_acl_cache": "\\module\\tickets\\model\\sprints_group_acl_cache",
+        "sprints": "\\module\\tickets\\model\\sprints",
+        "ticket_comments": "\\module\\tickets\\model\\ticket_comments",
+        "tickets_acl_cache": "\\module\\tickets\\model\\tickets_acl_cache",
+        "tickets_group_acl_cache": "\\module\\tickets\\model\\tickets_group_acl_cache",
+        "tickets": "\\module\\tickets\\model\\tickets",
+        "timesheet_entries": "\\module\\tickets\\model\\timesheet_entries"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "version": "1.0.9",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "crm": {
+                "version": "1.2.20",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "document_management_base": {
+                "version": "1.1.2",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_crm_model_contacts": "\\module\\crm\\model\\contacts",
+            "_module_crm_model_accounts": "\\module\\crm\\model\\accounts",
+            "_module_crm_model_products": "\\module\\crm\\model\\products",
+            "_module_document_management_base_model_attachments": "\\module\\document_management_base\\model\\attachments"
+        },
+        "controller": [
+        ],
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_tushar_behaviour_tree": "\\tushar\\behaviour\\tree",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl",
+            "_module_brules_behaviour_business_rules": "\\module\\brules\\behaviour\\business_rules"
+        }
+    },
+    "role_based_groups": [
+    ]
+}

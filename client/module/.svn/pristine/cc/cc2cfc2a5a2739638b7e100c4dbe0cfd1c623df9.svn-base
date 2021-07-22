@@ -1,0 +1,128 @@
+[
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Product received by month",
+			"category_id":"4",
+			"query":"{\"fields\":[{\"monthname(inbound_shipments.order_date)\":{\"__column\":\"monthname(inbound_shipments.order_date)\",\"alias\":\"Month\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"inbound_shipments.warehouse.name\":{\"__column\":\"inbound_shipments.warehouse.name\",\"alias\":\"Warehouse\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"inbound_shipments.config_inbound_shipment_lines.products.name\":{\"__column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"alias\":\"Product\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"inbound_shipments.config_inbound_shipment_lines.quantity\":{\"__column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"alias\":\"Total Quantity\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"AND\",\"value\":{\"inbound_shipments.workflow_docs.current_stages = \":\"Done\"}},{\"op\":\"\",\"value\":{\"inbound_shipments.config_inbound_shipment_lines.products.name <> \":\"\"}}]],\"order\":[\"inbound_shipments.order_date  ASC\",\"inbound_shipments.warehouse.name  ASC\",\"inbound_shipments.config_inbound_shipment_lines.products.name  ASC\"],\"name\":\"Product received by month\",\"category_id\":\"4\",\"category_id_model\":\"category\",\"__category_id\":\"Monthly Reports\",\"controller\":\"stock\\\/inbound_shipments\",\"is_public\":\"1\",\"description\":\"<font color=\\\"Green\\\">This report shows total quantity of products to be received by warehouse per month ordered by month, warehouse and product name in ascending order as per Inbound Shipments\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"52d69a31-677c-4a9d-a9dc-72800ac22bdf\",\"name\":\"Product received by month\",\"category_id\":\"4\",\"category_id_model\":\"category\",\"__category_id\":\"Monthly Reports\",\"controller\":\"stock\\\/inbound_shipments\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"Green\\\">This report shows total quantity of products to be received by warehouse per month ordered by month, warehouse and product name in ascending order as per Inbound Shipments\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"monthname(inbound_shipments.order_date)\",\"column_model\":\"schema\",\"__column\":\"monthname(inbound_shipments.order_date)\",\"alias\":\"Month\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"inbound_shipments.warehouse.name\",\"column_model\":\"schema\",\"__column\":\"inbound_shipments.warehouse.name\",\"alias\":\"Warehouse\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"column_model\":\"schema\",\"__column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"alias\":\"Product\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"column_model\":\"schema\",\"__column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"alias\":\"Total Quantity\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"inbound_shipments.order_date\",\"sort_by_model\":\"schema\",\"__sort_by\":\"inbound_shipments.order_date\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"sort_by\":\"inbound_shipments.warehouse.name\",\"sort_by_model\":\"schema\",\"__sort_by\":\"inbound_shipments.warehouse.name\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"sort_by\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"sort_by_model\":\"schema\",\"__sort_by\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"elements\":[],\"actions\":[],\"conditions\":{\"1\":{\"search_column\":\"inbound_shipments.workflow_docs.current_stages\",\"search_column_model\":\"schema\",\"__search_column\":\"inbound_shipments.workflow_docs.current_stages\",\"search_comparator\":\"=\",\"search_value\":\"Done\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"search_column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"search_column_model\":\"schema\",\"__search_column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"search_comparator\":\"<>\",\"search_value\":\"\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":[]}",
+			"description":"<font color=\"Green\">This report shows total quantity of products to be received by warehouse per month ordered by month, warehouse and product name in ascending order as per Inbound Shipments",
+			"controller":"stock\/inbound_shipments",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2014-01-15 14:24:49",
+			"modified":"2014-01-15 15:16:40",
+			"deleted":"0",
+			"revision":"20",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52d69a31-677c-4a9d-a9dc-72800ac22bdf",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Monthly Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	},
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Product to be received by Warehouse",
+			"category_id":"1",
+			"query":"{\"fields\":[{\"inbound_shipments.warehouse.name\":{\"__column\":\"inbound_shipments.warehouse.name\",\"alias\":\"Warehouse\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"inbound_shipments.config_inbound_shipment_lines.products.name\":{\"__column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"alias\":\"Product\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"inbound_shipments.id\":{\"__column\":\"inbound_shipments.id\",\"alias\":\"ID\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"inbound_shipments.config_inbound_shipment_lines.quantity\":{\"__column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"alias\":\"Total Quantity\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"where\":[[{\"op\":\"AND\",\"value\":{\"inbound_shipments.workflow_docs.current_stages <> \":\"Done\"}},{\"op\":\"AND\",\"value\":{\"inbound_shipments.workflow_docs.current_stages <> \":\"Draft\"}},{\"op\":\"\",\"value\":{\"inbound_shipments.config_inbound_shipment_lines.quantity <> \":\"0.00\"}}]],\"order\":[\"inbound_shipments.warehouse.name  ASC\",\"inbound_shipments.config_inbound_shipment_lines.products.name  ASC\"],\"name\":\"Product to be received by Warehouse\",\"category_id\":\"1\",\"category_id_model\":\"category\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"stock\\\/inbound_shipments\",\"is_public\":\"1\",\"description\":\"<font color=\\\"Green\\\">This report shows total products to be received by warehouse\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+			"_query":"{\"id\":\"52d69fce-9eec-4daa-ad8a-74cf0ac22bdf\",\"name\":\"Product to be received by Warehouse\",\"category_id\":\"1\",\"category_id_model\":\"category\",\"__category_id\":\"Ad-hoc Reports\",\"controller\":\"stock\\\/inbound_shipments\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"Green\\\">This report shows total products to be received by warehouse\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"categorized\",\"fields\":[{\"seq\":\"1\",\"column\":\"inbound_shipments.warehouse.name\",\"column_model\":\"schema\",\"__column\":\"inbound_shipments.warehouse.name\",\"alias\":\"Warehouse\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"column_model\":\"schema\",\"__column\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"alias\":\"Product\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"inbound_shipments.id\",\"column_model\":\"schema\",\"__column\":\"inbound_shipments.id\",\"alias\":\"ID\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"column_model\":\"schema\",\"__column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"alias\":\"Total Quantity\",\"render_type\":\"summary\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"2\":{\"sort_by\":\"inbound_shipments.warehouse.name\",\"sort_by_model\":\"schema\",\"__sort_by\":\"inbound_shipments.warehouse.name\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"sort_by\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"sort_by_model\":\"schema\",\"__sort_by\":\"inbound_shipments.config_inbound_shipment_lines.products.name\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"elements\":[],\"actions\":[],\"conditions\":{\"1\":{\"search_column\":\"inbound_shipments.workflow_docs.current_stages\",\"search_column_model\":\"schema\",\"__search_column\":\"inbound_shipments.workflow_docs.current_stages\",\"search_comparator\":\"<>\",\"search_value\":\"Done\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"2\":{\"search_column\":\"inbound_shipments.workflow_docs.current_stages\",\"search_column_model\":\"schema\",\"__search_column\":\"inbound_shipments.workflow_docs.current_stages\",\"search_comparator\":\"<>\",\"search_value\":\"Draft\",\"logical_operator\":\"AND\",\"id\":\"\",\"deleted\":\"\"},\"3\":{\"search_column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"search_column_model\":\"schema\",\"__search_column\":\"inbound_shipments.config_inbound_shipment_lines.quantity\",\"search_comparator\":\"<>\",\"search_value\":\"0.00\",\"logical_operator\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"group_by\":[]}",
+			"description":"<font color=\"Green\">This report shows total products to be received by warehouse",
+			"controller":"stock\/inbound_shipments",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2014-01-15 14:48:46",
+			"modified":"2014-01-15 15:36:20",
+			"deleted":"0",
+			"revision":"24",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52d69fce-9eec-4daa-ad8a-74cf0ac22bdf",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Ad-hoc Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

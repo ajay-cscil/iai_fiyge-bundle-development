@@ -1,0 +1,46 @@
+<?php
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+namespace module\campaigns\model;
+
+class templates extends \tushar\model {
+
+     public $table = 'campaigns__templates';
+    /**
+     *
+     * @var type
+     */
+    public $singular='template';
+    /**
+     *
+     * @var type
+     */
+    public $displayField = 'name';
+    /**
+     *
+     * @var type
+     */
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+    );
+    /**
+     *
+     * @var type
+     */
+    public $filters = array(
+        'name' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))),
+        'subject' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))),
+        'content' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+    );
+}

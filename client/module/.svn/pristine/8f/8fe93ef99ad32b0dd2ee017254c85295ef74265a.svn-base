@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\calls\controller;
+  class logs_acl_cache extends \module\calls\controller\logs_acl_cache_domain_logic
+  {
+       public $modelClass = '\\module\\calls\\model\\logs_acl_cache';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

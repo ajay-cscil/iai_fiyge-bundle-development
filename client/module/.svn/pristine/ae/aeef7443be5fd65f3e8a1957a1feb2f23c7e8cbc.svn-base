@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\hr\controller;
+  class working_schedule extends \module\hr\controller\working_schedule_domain_logic
+  {
+       public $modelClass = '\\module\\hr\\model\\working_schedule';
+
+
+
+
+
+
+  }

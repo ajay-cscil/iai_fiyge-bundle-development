@@ -1,0 +1,107 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "roles",
+                    "aro_id": "1",
+                    "__aro_id": "MyOrg"
+                },
+                {
+                    "id": "847",
+                    "aro_id_model": "groups",
+                    "aro_id": "847",
+                    "__aro_id": "Region-USA"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"fields\":[{\"column\":\"job_positions.name\",\"__column\":\"job_positions.name\"},{\"column\":\"job_positions.created\",\"__column\":\"job_positions.created\"},{\"column\":\"job_positions.current_no_of_employees\",\"__column\":\"job_positions.current_no_of_employees\"},{\"column\":\"created_by_user.name\",\"__column\":\"created_by_user.name\"},{\"column\":\"job_positions.created\",\"__column\":\"job_positions.created\"}],\"render_as\":\"index\"}",
+            "category_id": "1",
+            "controller": "hr\/job_positions",
+            "created": "2014-05-29 13:42:10",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "hr.job_positions.All",
+            "id": "53873932-4c68-473f-bd0e-1cd7ac1007a5",
+            "is_commit_pending": "0",
+            "is_default": "1",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "27265080-e746-11e3-aad5-0800275f9930",
+            "name": "All",
+            "old_id": null,
+            "owned_by": "1",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"fields\":[\"job_positions.name\",\"job_positions.created\",\"job_positions.current_no_of_employees\",{\"created_by_user.name\":{\"alias\":\"Created By User\"}},\"job_positions.created\"],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "100379",
+            "__created_by": "System Admin",
+            "__modified_by": "",
+            "__category_id": "Corporate Views",
+            "__parent_id": "",
+            "__owned_by": "System Admin",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "hr",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

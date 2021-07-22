@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\analytics\controller;
+
+class report_categories extends \tushar\controller {
+   // public $access = PROTECTED_ACCESS;
+     public $paginate = array('fields' => array('report_categories.name'));
+
+}
+
+?>

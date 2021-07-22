@@ -1,0 +1,171 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\model;
+  class stage_log extends \module\flexflow\model\stage_log_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\data_model';
+       public $source = 'default';
+       public $table = 'flexflow__stage_log';
+       public $fields = array (
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19 unsigned',
+  ),
+  'doc_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'doc_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'type_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'type_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'stage_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'stage_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'status' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'status',
+    'ntype' => 'string',
+    'length' => '20',
+  ),
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  '_acl' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl',
+    'ntype' => 'string',
+  ),
+  '_acl_edit' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+  ),
+  '_acl_delete' => 
+  array (
+    'is_searchable' => '1',
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+  ),
+  'relationship' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'relationship',
+    'ntype' => 'string',
+    'length' => '20',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'docs' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\flexflow\\model\\docs',
+    'associationAlias' => 'docs',
+    'foreignKey' => 'doc_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'stages' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\flexflow\\model\\stages',
+    'associationAlias' => 'stages',
+    'foreignKey' => 'stage_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'types' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\flexflow\\model\\types',
+    'associationAlias' => 'types',
+    'foreignKey' => 'type_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'parent_rel' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\flexflow\\model\\rel_log',
+    'associationAlias' => 'parent_rel',
+    'foreignKey' => 'parent_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'child_rel' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\flexflow\\model\\rel_log',
+    'associationAlias' => 'child_rel',
+    'foreignKey' => 'child_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'action_log' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\flexflow\\model\\action_log',
+    'associationAlias' => 'action_log',
+    'foreignKey' => 'log_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

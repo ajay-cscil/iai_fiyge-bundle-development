@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:12 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>paginate (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\paginate</h2>
+
+</header><p class="signature">public  class <strong>paginate</strong></p>
+
+<div class="comment"><p>This class provide set of methods for implementing
+standard, tree, crosstab, categorized, graph based listviews.
+This class enhances functionality model model::find() method.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#categorized()">categorized</a>(mixed model, mixed fields)</p><p class="description">generate listview of type categorized
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'group'=>array(),'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'categorized',
+'active_level'=>'0');
+$query['fields]=array('alias'=>array('column'=>'','render_type'=>'category/aggregator/info/other',
+'aggregator'=>'SUM/AVG/MIN/MAX','class'=>''));</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#crosstab()">crosstab</a>(mixed model, mixed fields)</p><p class="description">generate listview of type crosstab
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'group'=>array(group by row elements),'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'crosstab'
+,'columns'=>array());
+$query['fields]=array('alias'=>array('column'=>'','aggregator'=>'SUM/AVG/MIN/MAX','class'=>''));</p></td>
+</tr>
+<tr>
+<td class="type">protected static  mixed</td>
+<td class="description"><p class="name"><a href="#fieldExpAlias()">fieldExpAlias</a>(mixed qualifiedName, mixed info)</p><p class="description">Processes fields list</p></td>
+</tr>
+<tr>
+<td class="type">protected static  void</td>
+<td class="description"><p class="name"><a href="#fields()">fields</a>(mixed fields)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#index()">index</a>(mixed model, array fields, bool returnSql)</p><p class="description">helper method for generating data for listview</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#listindex()">listindex</a>(mixed model, array fields)</p><p class="description">helper method for generating data for listview for mobile divices</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#threaded()">threaded</a>(mixed model, mixed fields)</p><p class="description">generate listview of type threaded
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'threaded');
+$query['fields]=array('alias'=>array('column'=>'','class'=>''));</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#tree()">tree</a>(mixed model, mixed fields)</p><p class="description">generate listview of type tree
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'tree',
+'columns'=>array());
+$query['fields]=array('alias'=>array('column'=>'','aggregator'=>[to be implemented 'SUM/AVG/MIN/MAX'],
+'class'=>''));</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="categorized">public static  void <strong>categorized</strong>(mixed model, mixed fields)</code>
+<div class="details">
+<p>generate listview of type categorized
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'group'=>array(),'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'categorized',
+'active_level'=>'0');
+$query['fields]=array('alias'=>array('column'=>'','render_type'=>'category/aggregator/info/other',
+'aggregator'=>'SUM/AVG/MIN/MAX','class'=>''));</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="crosstab">public static  void <strong>crosstab</strong>(mixed model, mixed fields)</code>
+<div class="details">
+<p>generate listview of type crosstab
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'group'=>array(group by row elements),'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'crosstab'
+,'columns'=>array());
+$query['fields]=array('alias'=>array('column'=>'','aggregator'=>'SUM/AVG/MIN/MAX','class'=>''));</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="fieldExpAlias">protected static  mixed <strong>fieldExpAlias</strong>(mixed qualifiedName, mixed info)</code>
+<div class="details">
+<p>Processes fields list</p></div>
+
+<code class="signature" id="fields">protected static  void <strong>fields</strong>(mixed fields)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com> generate listview of type index. $query=array('fields'=>array(),'from'=>table,'where'=>array(), 'group'=>array(),'having'=>array(),'order'=>array(),'limit'=>'no of records', 'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'index');</td>
+</tr></table>
+</div>
+
+<code class="signature" id="index">public static  mixed <strong>index</strong>(mixed model, array fields, bool returnSql)</code>
+<div class="details">
+<p>helper method for generating data for listview</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="listindex">public static  mixed <strong>listindex</strong>(mixed model, array fields)</code>
+<div class="details">
+<p>helper method for generating data for listview for mobile divices</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="threaded">public static  void <strong>threaded</strong>(mixed model, mixed fields)</code>
+<div class="details">
+<p>generate listview of type threaded
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'threaded');
+$query['fields]=array('alias'=>array('column'=>'','class'=>''));</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="tree">public static  void <strong>tree</strong>(mixed model, mixed fields)</code>
+<div class="details">
+<p>generate listview of type tree
+$query=array('fields'=>array(),'from'=>table,'where'=>array(),
+'having'=>array(),'order'=>array(),'limit'=>'no of records',
+'page'=>'current page no','paginate_as'=>'lazy/""','class'=>'\kernel\paginate','method'=>'tree',
+'columns'=>array());
+$query['fields]=array('alias'=>array('column'=>'','aggregator'=>[to be implemented 'SUM/AVG/MIN/MAX'],
+'class'=>''));</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

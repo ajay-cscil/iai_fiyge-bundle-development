@@ -1,0 +1,21 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\webforms\model;
+
+class leads_domain_logic extends \module\crm\model\leads {
+
+    public function save($data, $options=array()) {
+        $userID = \tushar\user::read('id');
+        if (empty($userID)) {
+            $userModelObject = \module\access_controls\model\users::getInstance();
+            \tushar\user::write($userModelObject->setCurrentUserSesionInfo(1, true));
+        }
+        return parent::save($data, $options);
+    }
+
+}

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:13 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>view (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\view</h2>
+
+</header><p class="signature">public  class <strong>view</strong></p>
+
+<div class="comment"><p>This class manages view generation, layout generation and all its dependent functionality</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#client">$client</a></p><p class="description">Client name</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#defaultSkin">$defaultSkin</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#elementPaths">$elementPaths</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#fieldRules">$fieldRules</a></p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#filterRules">$filterRules</a></p><p class="description">process validation rules injected into view</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#filters">$filters</a></p><p class="description">validation rules injected into view</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#hasManyRenderedViews">$hasManyRenderedViews</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#hasManyViews">$hasManyViews</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#invalidPopupOptions">$invalidPopupOptions</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#javaScript">$javaScript</a></p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#localize">$localize</a></p><p class="description">If true then view will be localized</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#mobile">$mobile</a></p><p class="description">If view is for mobile or desktop</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#navigationActions">$navigationActions</a></p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#notEmptyField">$notEmptyField</a></p><p class="description">List of not empty fields</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#params">$params</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#popupOptions">$popupOptions</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#render">$render</a></p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#response">$response</a></p><p class="description">Collection of data to be injected into view</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#skinConfig">$skinConfig</a></p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#webroot">$webroot</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#__construct()">__construct</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#data()">data</a>(mixed name, mixed value, mixed type)</p><p class="description">Searches given path in response and return found value</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#element()">element</a>(<a href="../kernel/string.html">string</a> file, bool inline, mixed params)</p><p class="description">Generate output of an element and merges with output</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#filters()">filters</a>(type arr)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#generate()">generate</a>(<a href="../kernel/string.html">string</a> path, mixed data)</p><p class="description">This method performs actual merge of data with template</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#generatePDF()">generatePDF</a>(mixed pages)</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#get()">get</a>(mixed name, mixed value, mixed type)</p><p class="description">Searches given path in response and return found value</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#httpReferer()">httpReferer</a>(type httpReferer)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#ifNotThenSet()">ifNotThenSet</a>(mixed name, mixed value, mixed type)</p><p class="description">Searches given path in response and return found value</p></td>
+</tr>
+<tr>
+<td class="type"> boolean</td>
+<td class="description"><p class="name"><a href="#isNotEmpty()">isNotEmpty</a>(<a href="../kernel/string.html">string</a> path)</p><p class="description">Check if given field can be empty or not</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#loadViewPaths()">loadViewPaths</a>(type request, type controllerClass)</p><p class="description">Loads files for generating html markup i.e action,layouts in following priority order.
+</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#options()">options</a>(type modelClass, <a href="../kernel/string.html">string</a> query)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#permission()">permission</a>(mixed path)</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#render()">render</a>(<a href="../kernel/string.html">string</a> file)</p><p class="description">This method generates output by merging view with layout</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#request()">request</a>(<a href="../kernel/string.html">string</a> url, int return)</p><p class="description">This method is use for simulating request for another module/controller/action</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#resource()">resource</a>(type name, type type, bool isPath)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#script()">script</a>(type script)</p><p class="description"></p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="client">public  <a href="../kernel/string.html">string</a> <strong>$client</strong> = ''</code>
+<div class="details">
+<p>Client name</p></div>
+
+<code class="signature" id="defaultSkin">public  mixed <strong>$defaultSkin</strong> = 'standard'</code>
+<div class="details">
+</div>
+
+<code class="signature" id="elementPaths">public  mixed <strong>$elementPaths</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="fieldRules">public  mixed <strong>$fieldRules</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="filterRules">public  array <strong>$filterRules</strong> = array()</code>
+<div class="details">
+<p>process validation rules injected into view</p></div>
+
+<code class="signature" id="filters">public  array <strong>$filters</strong> = array()</code>
+<div class="details">
+<p>validation rules injected into view</p></div>
+
+<code class="signature" id="hasManyRenderedViews">public  mixed <strong>$hasManyRenderedViews</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="hasManyViews">public  mixed <strong>$hasManyViews</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="invalidPopupOptions">public  mixed <strong>$invalidPopupOptions</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="javaScript">public  mixed <strong>$javaScript</strong> = ''</code>
+<div class="details">
+</div>
+
+<code class="signature" id="localize">public  bool <strong>$localize</strong> = true</code>
+<div class="details">
+<p>If true then view will be localized</p></div>
+
+<code class="signature" id="mobile">public  bool <strong>$mobile</strong> = false</code>
+<div class="details">
+<p>If view is for mobile or desktop</p></div>
+
+<code class="signature" id="navigationActions">public  mixed <strong>$navigationActions</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="notEmptyField">public  array <strong>$notEmptyField</strong> = array()</code>
+<div class="details">
+<p>List of not empty fields</p></div>
+
+<code class="signature" id="params">public  mixed <strong>$params</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="popupOptions">public  mixed <strong>$popupOptions</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="render">public  mixed <strong>$render</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="response">public  array <strong>$response</strong> = array()</code>
+<div class="details">
+<p>Collection of data to be injected into view</p></div>
+
+<code class="signature" id="skinConfig">public  mixed <strong>$skinConfig</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="webroot">public static  mixed <strong>$webroot</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="__construct">public  void <strong>__construct</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="data">public  mixed <strong>data</strong>(mixed name, mixed value, mixed type)</code>
+<div class="details">
+<p>Searches given path in response and return found value</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="element">public  <a href="../kernel/string.html">string</a> <strong>element</strong>(<a href="../kernel/string.html">string</a> file, bool inline, mixed params)</code>
+<div class="details">
+<p>Generate output of an element and merges with output</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>file - element name to be search</td>
+</tr><tr><th>Returns</th>
+<td>generated output</td>
+</tr></table>
+</div>
+
+<code class="signature" id="filters">public  void <strong>filters</strong>(type arr)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Todo</th>
+<td>to be implemented in future</td>
+</tr></table>
+</div>
+
+<code class="signature" id="generate">public  <a href="../kernel/string.html">string</a> <strong>generate</strong>(<a href="../kernel/string.html">string</a> path, mixed data)</code>
+<div class="details">
+<p>This method performs actual merge of data with template</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>path - file to be use as template</td>
+<td>data - data to be merge into</td>
+</tr></table>
+</div>
+
+<code class="signature" id="generatePDF">public  void <strong>generatePDF</strong>(mixed pages)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="get">public  mixed <strong>get</strong>(mixed name, mixed value, mixed type)</code>
+<div class="details">
+<p>Searches given path in response and return found value</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="httpReferer">public  type <strong>httpReferer</strong>(type httpReferer)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="ifNotThenSet">public  mixed <strong>ifNotThenSet</strong>(mixed name, mixed value, mixed type)</code>
+<div class="details">
+<p>Searches given path in response and return found value</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="isNotEmpty">public  boolean <strong>isNotEmpty</strong>(<a href="../kernel/string.html">string</a> path)</code>
+<div class="details">
+<p>Check if given field can be empty or not</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="loadViewPaths">public static  void <strong>loadViewPaths</strong>(type request, type controllerClass)</code>
+<div class="details">
+<p>Loads files for generating html markup i.e action,layouts in following priority order.
+1. Load view path from module <app_name>OR<maax(for platform module)>/module/<module_name>/view
+2. If not load from application <app_name>/view
+3. If not load from platform - <maax>/view
+4. If not load from kernel - kernel/view</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="options">public  type <strong>options</strong>(type modelClass, <a href="../kernel/string.html">string</a> query)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="permission">public  void <strong>permission</strong>(mixed path)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="render">public  <a href="../kernel/string.html">string</a> <strong>render</strong>(<a href="../kernel/string.html">string</a> file)</code>
+<div class="details">
+<p>This method generates output by merging view with layout</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>file - view name</td>
+</tr><tr><th>Returns</th>
+<td>output for request</td>
+</tr></table>
+</div>
+
+<code class="signature" id="request">public  <a href="../kernel/string.html">string</a> <strong>request</strong>(<a href="../kernel/string.html">string</a> url, int return)</code>
+<div class="details">
+<p>This method is use for simulating request for another module/controller/action</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - complete url with module/controller/action</td>
+<td>return - 0 = fully rendered view 1 = return output array from controller</td>
+</tr></table>
+</div>
+
+<code class="signature" id="resource">public  void <strong>resource</strong>(type name, type type, bool isPath)</code>
+<div class="details">
+<p></p></div>
+
+<code class="signature" id="script">public  void <strong>script</strong>(type script)</code>
+<div class="details">
+<p></p></div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

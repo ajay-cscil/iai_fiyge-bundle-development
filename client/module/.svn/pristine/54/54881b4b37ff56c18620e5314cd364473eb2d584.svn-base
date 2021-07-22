@@ -1,0 +1,31 @@
+[
+	{
+		"name":"Set default country for addresses",
+		"description":"First check if user country exists, then check if user company country exists.",
+		"runlevel":"5",
+		"filter_path":"\/module\/vrm\/model\/people",
+		"event":"afterProcessData",
+		"if_condition":"1",
+		"then_condition":"$computeCountry=(\r\n!isset($object->data['country_id']) || empty($object->data['country_id'])\r\n);\r\n\r\nif(!(!isset($object->data['id']) || empty($object->data['id']))){\r\n  $computeCountry=false;\r\n}\r\n\r\n$tobeCreated=!isset($object->data['id'])  || empty($object->data['id'])  ;\r\nif(\r\n$computeCountry\r\n&& \r\n$tobeCreated  \r\n){\r\n    \/\/ compute based on user ID;\r\n    $address=\\tushar\\user::read('addresses');\r\n    if(!empty($address) && isset($address['0']) && isset($address['0'])){\r\n        $address=$address['0'];\r\n    }\r\n    \/\/ compute base on company\r\n    if(empty($address)){\r\n       $companyID=\\tushar\\user::read('company_id');\r\n        if(!empty($companyID)){\r\n            $companyInfo=current(\\module\\crm_base\\model\\companies::getInstance()\r\n            ->read($companyID));\r\n            if(!empty($companyInfo)){\r\n                $address=array(\r\n                'country'=>$companyInfo['primary_country'],\r\n                '__country'=>$companyInfo['__primary_country']\r\n                );\r\n            }\r\n        }\r\n    }\r\n    \r\n    $isa=isset($object->data['addresses']) && !empty($object->data['addresses']);\r\n    \r\n    if(\r\n    !empty($address) \r\n    &&\r\n    !$isa\r\n    ){\r\n        $object->data['addresses']=array();\r\n        $object->data['addresses'][0]=array();\r\n        $object->data['addresses'][0]['country_id']=$address['country_id'];\r\n        $object->data['addresses'][0]['__country_id']=$address['__country_id'];     \r\n    }\r\n}\r\n\r\n",
+		"else_condition":"",
+		"is_terminal":"0",
+		"run_once":"0",
+		"created":"2014-07-25 00:20:22",
+		"modified":"2014-08-06 18:40:40",
+		"created_by":"1",
+		"modified_by":"1",
+		"owned_by":null,
+		"revision":"5",
+		"old_parent_id":null,
+		"lft":"285",
+		"rgt":"286",
+		"deleted":"0",
+		"record_flags":null,
+		"md5":null,
+		"action_id":null,
+		"stage_id":null,
+		"id":"53d1a2c6-d458-4022-93f0-46710af91b9d",
+		"parent_id":"",
+		"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d"
+	}
+]

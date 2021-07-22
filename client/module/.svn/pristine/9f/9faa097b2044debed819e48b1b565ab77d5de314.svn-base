@@ -1,0 +1,54 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class stock_warehouse extends \module\mrp\model\stock_warehouse_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'stock_warehouse';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'lot_stock' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\mrp\\model\\stock_location',
+    'associationAlias' => 'lot_stock',
+    'foreignKey' => 'lot_stock_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'lot_input' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\mrp\\model\\stock_location',
+    'associationAlias' => 'lot_input',
+    'foreignKey' => 'lot_input_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'lot_output' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\mrp\\model\\stock_location',
+    'associationAlias' => 'lot_output',
+    'foreignKey' => 'lot_output_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

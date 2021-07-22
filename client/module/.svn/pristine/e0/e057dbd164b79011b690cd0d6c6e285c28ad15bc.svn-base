@@ -1,0 +1,3 @@
+<?php
+
+\tushar\html::paginate($this, $this->get('paginate', array(), false));

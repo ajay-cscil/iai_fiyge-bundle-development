@@ -1,0 +1,328 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\email_intelligence\model;
+  class mail_accounts extends \module\email_intelligence\model\mail_accounts_domain_logic
+  {
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $parentClass = '\\data_model';
+       public $source = 'default';
+       public $table = 'email_intelligence__mail_accounts';
+       public $alias = 'mail_accounts';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'host' => 
+  array (
+    'column' => 'host',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'port' => 
+  array (
+    'column' => 'port',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'user_name' => 
+  array (
+    'column' => 'user_name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'password' => 
+  array (
+    'column' => 'password',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'n_retries' => 
+  array (
+    'column' => 'n_retries',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'sequence' => 
+  array (
+    'column' => 'sequence',
+    'ntype' => 'int',
+    'length' => '2',
+  ),
+  'service' => 
+  array (
+    'column' => 'service',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'secure' => 
+  array (
+    'column' => 'secure',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'norsh' => 
+  array (
+    'column' => 'norsh',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'ssl' => 
+  array (
+    'column' => 'ssl',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'validate_cert' => 
+  array (
+    'column' => 'validate_cert',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'tls' => 
+  array (
+    'column' => 'tls',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  '_acl' => 
+  array (
+    'column' => '_acl',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_edit' => 
+  array (
+    'column' => '_acl_edit',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_delete' => 
+  array (
+    'column' => '_acl_delete',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp' => 
+  array (
+    'column' => '_acl_tmp',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp_edit' => 
+  array (
+    'column' => '_acl_tmp_edit',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  '_acl_tmp_delete' => 
+  array (
+    'column' => '_acl_tmp_delete',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'last_run_time' => 
+  array (
+    'column' => 'last_run_time',
+    'ntype' => 'datetime',
+  ),
+  'is_still_running' => 
+  array (
+    'column' => 'is_still_running',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'folders' => 
+  array (
+    'column' => 'folders',
+    'ntype' => 'string',
+    'length' => '255',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_exportable' => '0',
+  ),
+  'is_active' => 
+  array (
+    'column' => 'is_active',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'scan_start_time' => 
+  array (
+    'column' => 'scan_start_time',
+    'ntype' => 'datetime',
+  ),
+  'scan_progress_time' => 
+  array (
+    'column' => 'scan_progress_time',
+    'ntype' => 'datetime',
+  ),
+  'scan_end_time' => 
+  array (
+    'column' => 'scan_end_time',
+    'ntype' => 'datetime',
+  ),
+  'last_successful_scan' => 
+  array (
+    'column' => 'last_successful_scan',
+    'ntype' => 'datetime',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'cacheClass' => '1',
+    'name' => '\\module\\access_controls\\behaviour\\acl',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'mail_scanner_log' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\email_intelligence\\model\\mail_scanner_log',
+    'associationAlias' => 'mail_scanner_log',
+    'foreignKey' => 'mail_account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'message_log' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\email_intelligence\\model\\message_log',
+    'associationAlias' => 'message_log',
+    'foreignKey' => 'mail_account_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'host' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'port' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'user_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

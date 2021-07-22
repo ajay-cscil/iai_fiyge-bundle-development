@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:11 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>dispatcher (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\dispatcher</h2>
+
+</header><p class="signature">public  class <strong>dispatcher</strong></p>
+
+<div class="comment"><p>Handle all requests coming to server and return response to requesting client.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#call()">call</a>(<a href="../kernel/string.html">string</a> url, int return, bool sessionStart)</p><p class="description">Main method executing incoming request</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#dispatch()">dispatch</a>(<a href="../kernel/string.html">string</a> url, int return)</p><p class="description">Handeles all incoming requests.</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#errors()">errors</a>()</p><p class="description">Return entire error queue.</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#getLastError()">getLastError</a>()</p><p class="description">Returns last error in request queue and unset that error from error queue</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#initializeLocale()">initializeLocale</a>(type request)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  \kernel\request</td>
+<td class="description"><p class="name"><a href="#initlizeRequest()">initlizeRequest</a>(<a href="../kernel/string.html">string</a> url, bool return, <a href="../kernel/request.html">request</a> request)</p><p class="description">Helper method for loading library files and initlizing request object.</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#loadConfig()">loadConfig</a>(<a href="../kernel/string.html">string</a> path)</p><p class="description">Load config file into \kernel\configure</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#loadConnection()">loadConnection</a>(<a href="../kernel/string.html">string</a> path)</p><p class="description">Load connection file into \kernel\configure</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#loadPO()">loadPO</a>(<a href="../kernel/string.html">string</a> path, <a href="../kernel/string.html">string</a> namespace)</p><p class="description">Load .po files for given namespace</p></td>
+</tr>
+<tr>
+<td class="type">protected static  mixed</td>
+<td class="description"><p class="name"><a href="#render()">render</a>(<a href="../kernel/request.html">request</a> request, <a href="../kernel/string.html">string</a> render)</p><p class="description">This method generated view output by executing proper view file.</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="call">public static  mixed <strong>call</strong>(<a href="../kernel/string.html">string</a> url, int return, bool sessionStart)</code>
+<div class="details">
+<p>Main method executing incoming request</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - all request url</td>
+<td>return - 0 = fully rendered view (layout+action) 1 = return response output array from controller 2 = fully rendered view (action) 3 = fully rendered view (action) with request object</td>
+</tr><tr><th>Returns</th>
+<td>generated output</td>
+</tr></table>
+</div>
+
+<code class="signature" id="dispatch">public static  mixed <strong>dispatch</strong>(<a href="../kernel/string.html">string</a> url, int return)</code>
+<div class="details">
+<p>Handeles all incoming requests.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - all request url.</td>
+<td>return - if 0 then return fully render view, if 1 then return controller output.</td>
+</tr><tr><th>Returns</th>
+<td>generated output.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="errors">public static  type <strong>errors</strong>()</code>
+<div class="details">
+<p>Return entire error queue.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getLastError">public static  <a href="../kernel/string.html">string</a> <strong>getLastError</strong>()</code>
+<div class="details">
+<p>Returns last error in request queue and unset that error from error queue</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="initializeLocale">public static  void <strong>initializeLocale</strong>(type request)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="initlizeRequest">public static  \kernel\request <strong>initlizeRequest</strong>(<a href="../kernel/string.html">string</a> url, bool return, <a href="../kernel/request.html">request</a> request)</code>
+<div class="details">
+<p>Helper method for loading library files and initlizing request object.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>url - all request url.</td>
+<td>return - if 0 then return fully render view, if 1 then return controller output.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="loadConfig">public static  void <strong>loadConfig</strong>(<a href="../kernel/string.html">string</a> path)</code>
+<div class="details">
+<p>Load config file into \kernel\configure</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="loadConnection">public static  void <strong>loadConnection</strong>(<a href="../kernel/string.html">string</a> path)</code>
+<div class="details">
+<p>Load connection file into \kernel\configure</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="loadPO">public static  void <strong>loadPO</strong>(<a href="../kernel/string.html">string</a> path, <a href="../kernel/string.html">string</a> namespace)</code>
+<div class="details">
+<p>Load .po files for given namespace</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="render">protected static  mixed <strong>render</strong>(<a href="../kernel/request.html">request</a> request, <a href="../kernel/string.html">string</a> render)</code>
+<div class="details">
+<p>This method generated view output by executing proper view file.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>request - Request object encapsulating all information.</td>
+<td>render - File to be rendered.</td>
+</tr><tr><th>Returns</th>
+<td>generated view output.</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

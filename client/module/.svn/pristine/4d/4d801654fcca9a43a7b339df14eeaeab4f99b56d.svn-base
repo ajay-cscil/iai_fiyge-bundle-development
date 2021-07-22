@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\contracts\helper\form_view;
+
+class contracts
+{
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $view
+     * @param type $node
+     */
+    public static function render($view, $node)
+    {
+        $content = '';
+        if (isset($node['name']) && is_array($node['name'])) {
+            $content = $view->data($node['name'], '');
+            $node['name'] = "data[" . implode('][', $node['name']) . "]";
+        }
+        $pages = array();
+        if (!empty($content)) {
+            $response = $view->request('contracts/process/execute', array('return'=>1,'post' => array('id'=>$view->get('id'),'content'=>$content)));
+            $pages = (is_array($response) && isset($response['contract_pages']) ? $response['contract_pages'] : array());
+        }
+        $value = "";
+        foreach ($pages as $path => $info) {
+            if (isset($info['document']) && $info['document'] == true) {
+                if (isset($info['id'])) {
+                    $pos = strrpos($info['name'], '.');
+                    if ($pos === false) $fileType = " txt";
+                    else $fileType = " " . substr($info['name'], $pos + 1);
+                    $value .= '<a  class="' . $fileType . '" data-ajax="false"  href="' . \tushar\request::base() . 'core/attachments/download/id:' . $info['id'] . '">' . $info['name'] . '</a>';
+                }
+            }else {
+                $value .= $view->generate(TMP . DS . $path, $view->response);
+            }
+            \unlink(TMP . DS . $path);
+        }
+        $node['helper'] = '\\tushar\\form';
+        $node['method'] = 'textarea';
+        $node['value'] = $value;
+        if (!isset($node['permission']) || ($node['permission'] & EDIT) == EDIT) {
+            $node['permission'] = VIEW;
+        }
+        $node['format'] = false;
+        echo \tushar\form::textarea($view, $node);
+    }
+
+}
+

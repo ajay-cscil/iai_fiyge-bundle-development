@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class voucher_templates extends \module\excursion\controller\voucher_templates_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\voucher_templates';
+
+
+
+
+
+
+  }

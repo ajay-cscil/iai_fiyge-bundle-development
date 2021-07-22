@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\cases\controller;
+  class config_priorities extends \module\cases\controller\config_priorities_domain_logic
+  {
+       public $modelClass = '\\module\\cases\\model\\config_priorities';
+
+
+
+
+
+
+  }

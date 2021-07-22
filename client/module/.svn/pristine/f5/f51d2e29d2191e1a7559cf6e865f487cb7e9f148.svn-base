@@ -1,0 +1,61 @@
+<form name="<?php echo $this->request->controller; ?>"
+      action="<?php echo "{$this->request->base}{$this->request->module}/{$this->request->controller}/{$this->request->action}"; ?>"
+      method="post" enctype="multipart/form-data">
+    <input type="hidden" name="singleton_key" value="<?php echo $this->get(array('singleton_key')); ?>">
+    <?php
+    echo \tushar\html::start('input', array('type' => 'hidden', 'name' => 'http_referer', 'value' => ($this->get('http_referer', $this->request->param('http_referer', $this->request->server('HTTP_REFERER'))))));
+    ?>
+    <div class="ui-widget-header" style="margin-top:30px;"> &nbsp;</div>
+    <table align="center" style="margin-top: 50px; margin-bottom: 100px;">
+        <tr>
+            <td><?php echo \tushar\html::errors($this->get('errors', array())); ?>
+            </td>
+            </td>
+
+
+        <tr>
+            <td>
+                <div class="ui-widget-content" style=" text-align: center;padding:20px;">
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="background-color:#FFFFFF;border-spacing:0px;"><img style="float: left;"
+                                                                                          src="<?php echo \tushar\html::logo_path(); ?>" border="0"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table class="standard">
+                                    <tr>
+                                        <td colspan="2" class="nowrap align-left">
+                                            <input type="hidden" name="data[tracker][campaign_id]" value="<?php echo $this->get(array('data', 'tracker', 'campaign_id')); ?>">
+                                            <input type="hidden" name="data[tracker][invocation]" value="<?php echo $this->get(array('data', 'tracker', 'invocation')); ?>">
+                                            <input type="hidden" name="data[tracker][originator]" value="<?php echo $this->get(array('data', 'tracker', 'originator')); ?>">
+                                            <input type="hidden" name="data[tracker][receiver]" value="<?php echo $this->get(array('data', 'tracker', 'receiver')); ?>">
+                                            <input type="hidden" name="data[tracker][action]" value="<?php echo $this->get(array('data', 'tracker', 'action')); ?>">
+                                            <input type="hidden" name="data[tracker][subject]" value="<?php echo $this->get(array('data', 'tracker', 'subject')); ?>">
+                                            <input type="hidden" name="data[tracker][uid]" value="<?php echo $this->get(array('data', 'tracker', 'uid')); ?>">
+                                            <input type="hidden" name="data[tracker][ip]" value="<?php echo $this->get(array('data', 'tracker', 'ip')); ?>">
+                                            <input type="hidden" name="data[tracker][entity_id]" value="<?php echo $this->get(array('data', 'tracker', 'entity_id')); ?>">
+                                            <input type="hidden" name="data[tracker][entity_type]" value="<?php echo $this->get(array('data', 'tracker', 'entity_type')); ?>">
+                                            <input type="hidden" name="data[tracker][user_name]" value="<?php echo $this->get(array('data', 'tracker', 'user_name')); ?>">
+                                            <input type="hidden" name="data[tracker][count]" value="<?php echo $this->get(array('data', 'tracker', 'count')); ?>">
+
+<?php echo __('Are you sure you want to unsubscribe?', 'module'); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td >
+                                            <input type="submit" class="ui-state-active" name="data[action][yes]"value="<?php echo __('Yes'); ?>">
+                                            <input type="submit" class="ui-state-active" name="data[action][no]"value="<?php echo __('No'); ?>">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+

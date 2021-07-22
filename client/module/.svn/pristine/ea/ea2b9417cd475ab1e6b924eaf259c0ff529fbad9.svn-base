@@ -1,0 +1,420 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\accounting\model;
+  class vouchers extends \module\accounting\model\vouchers_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'accounting__vouchers';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'memo';
+       public $primaryKey = 'id';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'created_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'counterpart_comment' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'counterpart_comment',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'date_due' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'date_due',
+    'ntype' => 'date',
+  ),
+  'is_multi_currency_voucher' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'is_multi_currency_voucher',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'reference' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'reference',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'number' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'number',
+    'ntype' => 'string',
+    'length' => '32',
+  ),
+  'counterpart_account_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'counterpart_account_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'date' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'date',
+    'ntype' => 'date',
+  ),
+  'notes' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'notes',
+    'ntype' => 'string',
+  ),
+  'partner_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'partner_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'payment_rate_currency_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'payment_rate_currency_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'payment' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'payment',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'company_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'company_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'status' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'status',
+    'ntype' => 'string',
+    'length' => '32',
+  ),
+  'is_previous_payment' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'is_previous_payment',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'exchange_rate' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'exchange_rate',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'default_type' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'default_type',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'payment_difference' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'payment_difference',
+    'ntype' => 'string',
+    'length' => '64',
+  ),
+  'account_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'account_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'period_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'period_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'is_active' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'is_active',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'account_entry_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'account_entry_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'tax_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tax_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'tax_amount' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'tax_amount',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'memo' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'memo',
+    'ntype' => 'string',
+    'length' => '256',
+  ),
+  'write_off_analytic_account_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'write_off_analytic_account_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'journal_id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'journal_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'total' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'total',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'amount_in_word' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'amount_in_word',
+    'ntype' => 'string',
+    'length' => '128',
+  ),
+  'owned_by' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'is_searchable' => '1',
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'payment_rate_currency_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'company_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'exchange_rate' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'payment_difference' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'account_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'period_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'journal_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'total' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

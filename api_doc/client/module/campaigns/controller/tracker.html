@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:03:49 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>tracker (MaaxFrame's Business Modules)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's Business Modules</h1><span>Class</span>
+
+<h2>module\campaigns\controller\tracker</h2>
+
+</header><p class="signature">public  class <strong>tracker</strong> extends \kernel\controller
+
+</p>
+
+<h3>Constants</h3>
+<table>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_CLICKED">ACTION_CLICKED</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_DUPLICATE">ACTION_DUPLICATE</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_FAILED">ACTION_FAILED</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_FEED_MARK_SPAM">ACTION_FEED_MARK_SPAM</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_HARDBOUNCE">ACTION_HARDBOUNCE</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_INVALID_EMAIL">ACTION_INVALID_EMAIL</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_OPEN">ACTION_OPEN</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_SENT">ACTION_SENT</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_SOFTBOUNCE">ACTION_SOFTBOUNCE</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#ACTION_UNSUBSCRIBE">ACTION_UNSUBSCRIBE</a></p></td>
+</tr>
+</table>
+
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#access">$access</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#defaultAction">$defaultAction</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#modelClass">$modelClass</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#log()">log</a>(mixed request)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#modelClass()">modelClass</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unsubscribe()">unsubscribe</a>(mixed request)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="ACTION_CLICKED">public final static  int <strong>ACTION_CLICKED</strong> = 3</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_DUPLICATE">public final static  int <strong>ACTION_DUPLICATE</strong> = 8</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_FAILED">public final static  int <strong>ACTION_FAILED</strong> = 10</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_FEED_MARK_SPAM">public final static  int <strong>ACTION_FEED_MARK_SPAM</strong> = 6</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_HARDBOUNCE">public final static  int <strong>ACTION_HARDBOUNCE</strong> = 4</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_INVALID_EMAIL">public final static  int <strong>ACTION_INVALID_EMAIL</strong> = 9</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_OPEN">public final static  int <strong>ACTION_OPEN</strong> = 2</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_SENT">public final static  int <strong>ACTION_SENT</strong> = 1</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_SOFTBOUNCE">public final static  int <strong>ACTION_SOFTBOUNCE</strong> = 5</code>
+<div class="details">
+</div>
+
+<code class="signature" id="ACTION_UNSUBSCRIBE">public final static  int <strong>ACTION_UNSUBSCRIBE</strong> = 7</code>
+<div class="details">
+</div>
+
+<code class="signature" id="access">public  mixed <strong>$access</strong> = PUBLIC_ACCESS</code>
+<div class="details">
+</div>
+
+<code class="signature" id="defaultAction">public  mixed <strong>$defaultAction</strong> = &quot;log&quot;</code>
+<div class="details">
+</div>
+
+<code class="signature" id="modelClass">public  mixed <strong>$modelClass</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="log">public  void <strong>log</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="modelClass">public  void <strong>modelClass</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="unsubscribe">public  void <strong>unsubscribe</strong>(mixed request)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

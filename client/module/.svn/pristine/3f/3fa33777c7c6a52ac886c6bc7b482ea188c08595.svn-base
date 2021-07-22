@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\email_intelligence\controller;
+  class mail_scanner_log extends \module\email_intelligence\controller\mail_scanner_log_domain_logic
+  {
+       public $modelClass = '\\module\\email_intelligence\\model\\mail_scanner_log';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

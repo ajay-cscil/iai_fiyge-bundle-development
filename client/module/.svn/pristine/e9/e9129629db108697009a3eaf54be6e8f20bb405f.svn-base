@@ -1,0 +1,44 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\controller;
+
+class payments_domain_logic extends \data_controller{
+
+    public function add($request) {
+        $return = parent::add($request);
+        if ($request->is('get')) {
+            $modelObject = $this->modelObj();
+            $data = $request->response('data');
+            $schema = $modelObject->schema();
+            if (!isset($data[$modelObject->alias])) {
+                $data[$modelObject->alias] = array();
+            }
+            $relatedModel = $request->param('related_model');
+            $relatedID = $request->param('related_id');
+            if ($relatedModel == 'invoices') {
+                $invoiceObject = \module\accounting\model\invoices::getInstance();
+                $invoiceObject->cloned = $relatedID;
+                $invoice = \current($invoiceObject->read($relatedID));
+                $data[$modelObject->alias]['currency_id'] = $invoice['currency_id'];
+                $data[$modelObject->alias]['__currency_id'] = $invoice['__currency_id'];
+                $data[$modelObject->alias]['payment_customer'] = $invoice['partner_id'];
+                $data[$modelObject->alias]['__payment_customer'] = $invoice['__partner_id'];
+                $data[$modelObject->alias]['invoices_payments'][] = array(
+                    'invoice_id' => $relatedID,
+                    '__invoice_id' => $invoice[$invoiceObject->displayField],
+                    'due_date' => $invoice['due_date'],
+                    'total_after_discount' => $invoice['total_after_discount'],
+                    'balance_due' => $invoice['balance_due']
+                );
+            }
+            $request->set('data', $data);
+        }
+        return $return;
+    }
+
+}

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:12 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>mql (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\mql</h2>
+
+</header><p class="signature">public  class <strong>mql</strong></p>
+
+<div class="comment"><p>This class provide set of methods for programmatically performing select, join, update operation on model.
+It uses model associations defined on model class.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Example</th>
+<td>select(fields)->from(str)->join(str/array)->join(str/arr,index)->join()->join()->where()->where() ->having()->group()->order()->limit()->page()->sql()->execute()->fetchAll(\PDO::FETCH_ASSOC); <br /> select(array('name','phone','city','country'))->contacts->accounts->users->brand->fetchAll(\PDO::FETCH_ASSOC); <br /> select(array('name','phone','city','country'))->from('\\module\\crm\\contacts')->join('accounts') ->join('users','users','contacts')->join('brand','brand','accounts')->order('account.name',4)->page(3)->sql(). <br /> select(array('name','phone','city','country'))->from('\\module\\crm\\contacts')->join('accounts') ->join('users','users','contacts')->joinInner('brand','brand','users')->order('name')->page(3)->execute() ->fetchAll(\PDO::FETCH_ASSOC); <br /> select(fields)->from()->join()->join()->join()->join()->where()->where()->having()->group()->order() ->mql(fields)->select()->from()->join() ->mql()->select()->from()->join() ->mql()->select()->from()->join()->union('all'/'')->limit()->page()->execute()->fetchAll(\PDO::FETCH_ASSOC); <br /> select(fields)->from(\\module\\crm\\contacts)->accounts->brand->where()->limit()->execute()->fetchAll(\PDO::FETCH_ASSOC); <br /> select(fields)->{'\\module\\crm\\contacts'}->accounts->brand->where()->limit()->execute()->fetchAll(\PDO::FETCH_ASSOC); <br /> $stmt = select(fields)->{'\\module\\crm\\contacts'}->accounts->brand->where()->limit(100)->fetchAll(\PDO::FETCH_ASSOC); <br /> $stmt->reset()->select(fields)->{'\\module\\crm\\contacts'}->accounts->brand->where()->limit(0)->fetchAll(\PDO::FETCH_ASSOC);</td>
+</tr></table>
+<h3>Constants</h3>
+<table>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#DELETE">DELETE</a></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#SELECT">SELECT</a></p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">final static  int</td>
+<td class="description"><p class="name"><a href="#UPDATE">UPDATE</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#__construct()">__construct</a>(mixed params, mixed mode)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#callback()">callback</a>()</p><p class="description">This method will call beforeFind callback including those of model behavioirs attached</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#execute()">execute</a>(mixed source, bool qualified, bool exp)</p><p class="description">Executes given MQL statement</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#from()">from</a>(<a href="../kernel/string.html">string</a> modelClass)</p><p class="description">set from in select/update statement</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#group()">group</a>(mixed group)</p><p class="description">set group in mql</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#having()">having</a>(mixed having, str value)</p><p class="description">set having in mql</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#inserted()">inserted</a>()</p><p class="description">Alter where clause to return only non deleted records based of soft delete support for model</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#join()">join</a>(<a href="../kernel/string.html">string</a> joinAlias, <a href="../kernel/string.html">string</a> joinModel, bool model)</p><p class="description">Set left join between current model and join model</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#joinCross()">joinCross</a>(<a href="../kernel/string.html">string</a> joinAlias, <a href="../kernel/string.html">string</a> joinModel, bool model)</p><p class="description">Set cross join between current model and join model</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#joinInner()">joinInner</a>(<a href="../kernel/string.html">string</a> joinAlias, <a href="../kernel/string.html">string</a> joinModel, bool model)</p><p class="description">Set inner join between current model and join model</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#limit()">limit</a>(int limit)</p><p class="description">set limit in mql</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#order()">order</a>(mixed order)</p><p class="description">set order in mql</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#page()">page</a>(int page)</p><p class="description">set page in mql, use in computing limit/offset</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#reset()">reset</a>()</p><p class="description">Reset mql instance so it can be reuse for new sql</p></td>
+</tr>
+<tr>
+<td class="type"> \kernel\mql</td>
+<td class="description"><p class="name"><a href="#returnSql()">returnSql</a>(bool return)</p><p class="description">To return sql or result set</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#select()">select</a>(array params)</p><p class="description">add more columns to select statement</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#set()">set</a>(array sql)</p><p class="description">Set multiple parts of current sql at once</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#start()">start</a>(array params)</p><p class="description">Create new SQL in current mql instance</p></td>
+</tr>
+<tr>
+<td class="type"> <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#union()">union</a>(<a href="../kernel/string.html">string</a> union)</p><p class="description">set union in mql</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/mql.html">mql</a></td>
+<td class="description"><p class="name"><a href="#where()">where</a>(mixed where, str value)</p><p class="description">set where in mql</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="DELETE">public final static  int <strong>DELETE</strong> = 2</code>
+<div class="details">
+</div>
+
+<code class="signature" id="SELECT">public final static  int <strong>SELECT</strong> = 0</code>
+<div class="details">
+<p></p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="UPDATE">public final static  int <strong>UPDATE</strong> = 1</code>
+<div class="details">
+</div>
+
+<code class="signature" id="__construct">public  void <strong>__construct</strong>(mixed params, mixed mode)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="callback">public  void <strong>callback</strong>()</code>
+<div class="details">
+<p>This method will call beforeFind callback including those of model behavioirs attached</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="execute">public  mixed <strong>execute</strong>(mixed source, bool qualified, bool exp)</code>
+<div class="details">
+<p>Executes given MQL statement</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="from">public  <a href="../kernel/mql.html">mql</a> <strong>from</strong>(<a href="../kernel/string.html">string</a> modelClass)</code>
+<div class="details">
+<p>set from in select/update statement</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="group">public  <a href="../kernel/mql.html">mql</a> <strong>group</strong>(mixed group)</code>
+<div class="details">
+<p>set group in mql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="having">public  <a href="../kernel/mql.html">mql</a> <strong>having</strong>(mixed having, str value)</code>
+<div class="details">
+<p>set having in mql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="inserted">public static  <a href="../kernel/mql.html">mql</a> <strong>inserted</strong>()</code>
+<div class="details">
+<p>Alter where clause to return only non deleted records based of soft delete support for model</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="join">public  <a href="../kernel/mql.html">mql</a> <strong>join</strong>(<a href="../kernel/string.html">string</a> joinAlias, <a href="../kernel/string.html">string</a> joinModel, bool model)</code>
+<div class="details">
+<p>Set left join between current model and join model</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>joinAlias - alias for join, will be search in model association</td>
+<td>joinModel - model to be use in join</td>
+<td>model - if true then join to main model else join to last model in join sequence</td>
+</tr></table>
+</div>
+
+<code class="signature" id="joinCross">public  <a href="../kernel/mql.html">mql</a> <strong>joinCross</strong>(<a href="../kernel/string.html">string</a> joinAlias, <a href="../kernel/string.html">string</a> joinModel, bool model)</code>
+<div class="details">
+<p>Set cross join between current model and join model</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>joinAlias - alias for join, will be search in model association</td>
+<td>joinModel - model to be use in join</td>
+<td>model - if true then join to main model else join to last model in join sequence</td>
+</tr></table>
+</div>
+
+<code class="signature" id="joinInner">public  <a href="../kernel/mql.html">mql</a> <strong>joinInner</strong>(<a href="../kernel/string.html">string</a> joinAlias, <a href="../kernel/string.html">string</a> joinModel, bool model)</code>
+<div class="details">
+<p>Set inner join between current model and join model</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>joinAlias - alias for join, will be search in model association</td>
+<td>joinModel - model to be use in join</td>
+<td>model - if true then join to main model else join to last model in join sequence</td>
+</tr></table>
+</div>
+
+<code class="signature" id="limit">public  <a href="../kernel/mql.html">mql</a> <strong>limit</strong>(int limit)</code>
+<div class="details">
+<p>set limit in mql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="order">public  <a href="../kernel/mql.html">mql</a> <strong>order</strong>(mixed order)</code>
+<div class="details">
+<p>set order in mql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="page">public  <a href="../kernel/mql.html">mql</a> <strong>page</strong>(int page)</code>
+<div class="details">
+<p>set page in mql, use in computing limit/offset</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="reset">public  <a href="../kernel/mql.html">mql</a> <strong>reset</strong>()</code>
+<div class="details">
+<p>Reset mql instance so it can be reuse for new sql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="returnSql">public  \kernel\mql <strong>returnSql</strong>(bool return)</code>
+<div class="details">
+<p>To return sql or result set</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="select">public static  <a href="../kernel/mql.html">mql</a> <strong>select</strong>(array params)</code>
+<div class="details">
+<p>add more columns to select statement</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="set">public  void <strong>set</strong>(array sql)</code>
+<div class="details">
+<p>Set multiple parts of current sql at once</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="start">public  <a href="../kernel/mql.html">mql</a> <strong>start</strong>(array params)</code>
+<div class="details">
+<p>Create new SQL in current mql instance</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="union">public  <a href="../kernel/mql.html">mql</a> <strong>union</strong>(<a href="../kernel/string.html">string</a> union)</code>
+<div class="details">
+<p>set union in mql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="where">public static  <a href="../kernel/mql.html">mql</a> <strong>where</strong>(mixed where, str value)</code>
+<div class="details">
+<p>set where in mql</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

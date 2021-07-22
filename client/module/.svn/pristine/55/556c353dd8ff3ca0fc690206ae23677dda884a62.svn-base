@@ -1,0 +1,77 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"534143ef-77dc-420c-85c5-21990af91b9d\",\"name\":\"User Per Instance\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"cloud\\\/federated_users\",\"render_as\":\"categorized\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"column\":\"federated_users.instances.domain_name\",\"column_model\":\"schema\",\"__column\":\"federated_users.instances.domain_name\",\"alias\":\"\",\"render_type\":\"category\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"column\":\"federated_users.user_name\",\"column_model\":\"schema\",\"__column\":\"federated_users.user_name\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"column\":\"federated_users.last_login_datetime\",\"column_model\":\"schema\",\"__column\":\"federated_users.last_login_datetime\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"column\":\"federated_users.created\",\"column_model\":\"schema\",\"__column\":\"federated_users.created\",\"alias\":\"\",\"render_type\":\"info\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"_is_public\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"_collapse_category_columns\":\"0\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"100222\",\"owned_by\":\"90\",\"owned_by_model\":\"users\",\"__owned_by\":\"Tushar Takkar\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"90\",\"modified_by\":\"\",\"_acl\":[{\"aro_id\":\"90\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"90\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"90\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"90\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"90\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"90\",\"deleted\":\"\"}]}",
+            "category_id": "1",
+            "controller": "cloud\/federated_users",
+            "created": "2014-04-06 12:09:19",
+            "created_by": "90",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "cloud.federated_users.User Per Instance",
+            "id": "534143ef-77dc-420c-85c5-21990af91b9d",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-05-15 11:25:35",
+            "modified_by": "90",
+            "module_id": "550d6357-b690-497f-bfc9-5a080a8c00e5",
+            "name": "User Per Instance",
+            "old_id": null,
+            "owned_by": "90",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[{\"federated_users.instances.domain_name\":{\"__column\":\"federated_users.instances.domain_name\",\"render_type\":\"category\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"federated_users.user_name\":{\"__column\":\"federated_users.user_name\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"federated_users.last_login_datetime\":{\"__column\":\"federated_users.last_login_datetime\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"federated_users.created\":{\"__column\":\"federated_users.created\",\"render_type\":\"info\",\"is_invisible\":\"0\",\"sortable\":\"1\",\"searchable\":\"1\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[],\"name\":\"User Per Instance\",\"category_id\":\"1\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Corporate Views\",\"controller\":\"cloud\\\/federated_users\",\"render_as\":\"categorized\",\"is_default\":\"0\",\"is_public\":\"1\",\"show_has_many_records\":\"one\",\"collapse_category_columns\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"sequence\":\"100222\",\"owned_by\":\"90\",\"owned_by_model\":\"users\",\"__owned_by\":\"Tushar Takkar\",\"primary_acl_group_model\":\"groups\",\"created_by\":\"90\",\"acl\":[{\"aro_id\":\"90\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"90\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"90\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"90\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"90\",\"aro_id_model\":\"users\",\"__aro_id\":\"Tushar Takkar\",\"id\":\"90\",\"deleted\":\"\"}],\"method\":\"categorized\"}",
+            "revision": "1",
+            "sequence": "100222",
+            "__created_by": null,
+            "__modified_by": null,
+            "__category_id": "Corporate Views",
+            "__parent_id": "",
+            "__owned_by": null,
+            "__primary_acl_group": "",
+            "__module_id": "cloud",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

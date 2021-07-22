@@ -1,0 +1,663 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class orders extends \module\excursion\model\orders_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'excursion__orders';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'billingFirstName';
+       public $primaryKey = 'orderID';
+       public $alias = 'orders';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'addressValidated' => 
+  array (
+    'column' => 'addressValidated',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'affiliateCustomerID' => 
+  array (
+    'column' => 'affiliateCustomerID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'affiliate_Commissionable_Value' => 
+  array (
+    'column' => 'affiliate_Commissionable_Value',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'batchNumber' => 
+  array (
+    'column' => 'batchNumber',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'billingAddress1' => 
+  array (
+    'column' => 'billingAddress1',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'billingAddress2' => 
+  array (
+    'column' => 'billingAddress2',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'billingCity' => 
+  array (
+    'column' => 'billingCity',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'billingCompanyName' => 
+  array (
+    'column' => 'billingCompanyName',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'billingCountry' => 
+  array (
+    'column' => 'billingCountry',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'billingFaxNumber' => 
+  array (
+    'column' => 'billingFaxNumber',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'billingFirstName' => 
+  array (
+    'column' => 'billingFirstName',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'billingLastName' => 
+  array (
+    'column' => 'billingLastName',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'billingPhoneNumber' => 
+  array (
+    'column' => 'billingPhoneNumber',
+    'ntype' => 'string',
+    'length' => '35',
+  ),
+  'billingPostalCode' => 
+  array (
+    'column' => 'billingPostalCode',
+    'ntype' => 'string',
+    'length' => '15',
+  ),
+  'billingState' => 
+  array (
+    'column' => 'billingState',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'cashTender' => 
+  array (
+    'column' => 'cashTender',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'custom_Field_Custom1' => 
+  array (
+    'column' => 'custom_Field_Custom1',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom2' => 
+  array (
+    'column' => 'custom_Field_Custom2',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom3' => 
+  array (
+    'column' => 'custom_Field_Custom3',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom4' => 
+  array (
+    'column' => 'custom_Field_Custom4',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'custom_Field_Custom5' => 
+  array (
+    'column' => 'custom_Field_Custom5',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'custom_Field_Custom6' => 
+  array (
+    'column' => 'custom_Field_Custom6',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'custom_Field_Custom7' => 
+  array (
+    'column' => 'custom_Field_Custom7',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'customerID' => 
+  array (
+    'column' => 'customerID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'giftCardIDUsed' => 
+  array (
+    'column' => 'giftCardIDUsed',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'isAGift' => 
+  array (
+    'column' => 'isAGift',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'lastModBy' => 
+  array (
+    'column' => 'lastModBy',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lastModified' => 
+  array (
+    'column' => 'lastModified',
+    'ntype' => 'datetime',
+  ),
+  'locked' => 
+  array (
+    'column' => 'locked',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'orderDate' => 
+  array (
+    'column' => 'orderDate',
+    'ntype' => 'datetime',
+  ),
+  'orderID' => 
+  array (
+    'column' => 'orderID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'orderID_Third_Party' => 
+  array (
+    'column' => 'orderID_Third_Party',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'orderNotes' => 
+  array (
+    'column' => 'orderNotes',
+    'ntype' => 'string',
+  ),
+  'orderStatus' => 
+  array (
+    'column' => 'orderStatus',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'order_Comments' => 
+  array (
+    'column' => 'order_Comments',
+    'ntype' => 'string',
+  ),
+  'order_Entry_System' => 
+  array (
+    'column' => 'order_Entry_System',
+    'ntype' => 'string',
+    'length' => '15',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'pONum' => 
+  array (
+    'column' => 'pONum',
+    'ntype' => 'string',
+    'length' => '20',
+  ),
+  'paymentAmount' => 
+  array (
+    'column' => 'paymentAmount',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'paymentDeclined' => 
+  array (
+    'column' => 'paymentDeclined',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'paymentMethodID' => 
+  array (
+    'column' => 'paymentMethodID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'printed' => 
+  array (
+    'column' => 'printed',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'processed_AutoEvents' => 
+  array (
+    'column' => 'processed_AutoEvents',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'salesRep_CustomerID' => 
+  array (
+    'column' => 'salesRep_CustomerID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'salesTax1' => 
+  array (
+    'column' => 'salesTax1',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'salesTax2' => 
+  array (
+    'column' => 'salesTax2',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'salesTax3' => 
+  array (
+    'column' => 'salesTax3',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'salesTaxRate' => 
+  array (
+    'column' => 'salesTaxRate',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'salesTaxRate1' => 
+  array (
+    'column' => 'salesTaxRate1',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'salesTaxRate2' => 
+  array (
+    'column' => 'salesTaxRate2',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'salesTaxRate3' => 
+  array (
+    'column' => 'salesTaxRate3',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'shipAddress1' => 
+  array (
+    'column' => 'shipAddress1',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'shipAddress2' => 
+  array (
+    'column' => 'shipAddress2',
+    'ntype' => 'string',
+    'length' => '75',
+  ),
+  'shipCity' => 
+  array (
+    'column' => 'shipCity',
+    'ntype' => 'string',
+    'length' => '45',
+  ),
+  'shipCompanyName' => 
+  array (
+    'column' => 'shipCompanyName',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'shipCountry' => 
+  array (
+    'column' => 'shipCountry',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'shipDate' => 
+  array (
+    'column' => 'shipDate',
+    'ntype' => 'datetime',
+  ),
+  'shipFaxNumber' => 
+  array (
+    'column' => 'shipFaxNumber',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'shipFirstName' => 
+  array (
+    'column' => 'shipFirstName',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'shipLastName' => 
+  array (
+    'column' => 'shipLastName',
+    'ntype' => 'string',
+    'length' => '40',
+  ),
+  'shipPhoneNumber' => 
+  array (
+    'column' => 'shipPhoneNumber',
+    'ntype' => 'string',
+    'length' => '35',
+  ),
+  'shipPostalCode' => 
+  array (
+    'column' => 'shipPostalCode',
+    'ntype' => 'string',
+    'length' => '15',
+  ),
+  'shipResidential' => 
+  array (
+    'column' => 'shipResidential',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'shipState' => 
+  array (
+    'column' => 'shipState',
+    'ntype' => 'string',
+    'length' => '30',
+  ),
+  'shipped' => 
+  array (
+    'column' => 'shipped',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'shippingMethodID' => 
+  array (
+    'column' => 'shippingMethodID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'shipping_Locked' => 
+  array (
+    'column' => 'shipping_Locked',
+    'ntype' => 'string',
+    'length' => '1',
+  ),
+  'stock_Priority' => 
+  array (
+    'column' => 'stock_Priority',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'tax1_Title' => 
+  array (
+    'column' => 'tax1_Title',
+    'ntype' => 'string',
+    'length' => '25',
+  ),
+  'tax2_Title' => 
+  array (
+    'column' => 'tax2_Title',
+    'ntype' => 'string',
+    'length' => '25',
+  ),
+  'tax3_Title' => 
+  array (
+    'column' => 'tax3_Title',
+    'ntype' => 'string',
+    'length' => '25',
+  ),
+  'totalShippingCost' => 
+  array (
+    'column' => 'totalShippingCost',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'total_Payment_Authorized' => 
+  array (
+    'column' => 'total_Payment_Authorized',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+  'total_Payment_Received' => 
+  array (
+    'column' => 'total_Payment_Received',
+    'ntype' => 'float',
+    'length' => '10,4',
+  ),
+);
+       public $associations = array (
+  'approval_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\approval_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'approval_emails_log',
+  ),
+  'customer_reminder_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\customer_reminder_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'customer_reminder_emails_log',
+  ),
+  'customer_review_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\customer_review_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'customer_review_emails_log',
+  ),
+  'order_confirmations_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_confirmations_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'order_confirmations_log',
+  ),
+  'order_details' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'order_details',
+  ),
+  'order_information_changes_queue' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_information_changes_queue',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'order_information_changes_queue',
+  ),
+  'order_information_details' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_information_details',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'order_information_details',
+  ),
+  'orders_information' => 
+  array (
+    'className' => '\\module\\excursion\\model\\orders_information',
+    'assocType' => 'hasOne',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'orders_information',
+  ),
+  'tracker_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\tracker_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'tracker_log',
+  ),
+  'vendor_reminder_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\vendor_reminder_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'vendor_reminder_emails_log',
+  ),
+  'vendor_tour_manifest_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\vendor_tour_manifest_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderID',
+    'associationAlias' => 'vendor_tour_manifest_emails_log',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+       public $filters = array (
+  'customerID' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'orderDate' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'orderStatus' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+  'paymentAmount' => 
+  array (
+    0 => 
+    array (
+      'rule' => 1024,
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\validation',
+          1 => 'notEmpty',
+        ),
+      ),
+    ),
+  ),
+);
+  }

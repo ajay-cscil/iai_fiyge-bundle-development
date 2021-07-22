@@ -1,0 +1,22 @@
+<?php
+
+namespace module\flexflow\model;
+
+class action_mark_as_close extends \module\flexflow\model\actions {
+
+    public function process($docObject) {
+        $node = $docObject->node($docObject->nodeID());
+        if ($node['status'] == 'open') {
+            $stage = 'document closed';
+            $stages = $docObject->stages($stage);
+            if ($stages[$stage] === false) {
+                throw new \Exception(sprintf(__('Could not locate stage "%s"', 'module'), __($stage, 'module')));
+            }
+            // inject new stage after corrent one.
+            $docObject->after($node['id'], $stages[$stage]);
+            $docObject->exitNode();
+        }
+    }
+
+}
+

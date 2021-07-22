@@ -1,0 +1,56 @@
+<form name="<?php echo $this->request->controller; ?>"
+      action="<?php echo "{$this->request->base}{$this->request->module}/{$this->request->controller}/{$this->request->action}"; ?>"
+      method="post" enctype="multipart/form-data">
+    <input type="hidden" name="singleton_key" value="<?php echo $this->get(array('singleton_key')); ?>">
+    <?php
+    echo \tushar\html::start('input', array(
+        'type' => 'hidden'
+        , 'name' => 'http_referer'
+        , 'value' =>
+        $this->get(
+                'http_referer', $this->request->param(
+                        'http_referer', $this->request->server('HTTP_REFERER')
+                )
+        )
+            )
+    );
+    ?>
+    <table align="center" class="no-mp" style="width:100%;">
+        <tr  class="no-mp" >
+            <td  valign="top" class="ui-widget-header" style="margin-top:30px;" >
+                <?php echo __('Upgrade Wizard') ?>
+            </td>
+        </tr>
+        <tr  class="no-mp" >
+            <td  valign="top"  class="no-mp" >
+                <table class="no-mp width-100 listview">
+                    <tr class="ui-state-default"><td ><?php echo __('Process') ?></td></tr>
+                    <tr>
+                        <td class="no-mp" >
+                            <div id="instance-upgrade">
+
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</form>
+<?php
+$id = $this->get('id');
+$version = $this->get('version');
+echo \tushar\view\helper\comet::pull(
+        $this->request
+        , "instance-upgrade"
+        , "{$this->request->module}/{$this->request->controller}/upgrade_progress?id={$id}&version={$version}"
+);
+?>
+<style type="text/css">
+    #module-commit{
+        height:385px;
+        overflow:auto;
+    }
+</style>

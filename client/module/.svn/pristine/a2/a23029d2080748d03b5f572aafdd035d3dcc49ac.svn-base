@@ -1,0 +1,149 @@
+{
+    "version": "1.0.0",
+    "small_data_set": 1,
+    "medium_data_set": 1,
+    "large_data_set": 1,
+    "include_locale_design": 1,
+    "include_model_design": 1,
+    "include_controller_design": 1,
+    "id": "53a7fdc7-ea4c-4f5e-bc88-056c0af91b9d",
+    "name": "elections",
+    "label": "Vertical: Elections(CRM inherited)",
+    "license_agreement": null,
+    "description": "This is an enhancement to crm module which will inherit contacts,accounts and are renamed as voters and companies.",
+    "company": "gaelmiles",
+    "author": "Glen Tomar",
+    "is_active": "1",
+    "created_by": "1",
+    "modified_by": "140",
+    "owned_by": null,
+    "created": "2014-07-09",
+    "modified": "2014-07-09 17:05:14",
+    "revision": null,
+    "flags": null,
+    "category_id": "2",
+    "industry_id": "2",
+    "latest_version": null,
+    "is_installed": "1",
+    "svn_repository": "https:\/\/primod.svn.cloudforge.com\/maaxapps\/trunk\/elections",
+    "current_stable_version": "",
+    "__created_by": "Gael Miles",
+    "created_by_model": "created_by_user",
+    "__modified_by": "Super Admin",
+    "modified_by_model": "modified_by_user",
+    "__owned_by": "",
+    "__category_id": "CRM",
+    "category_id_business_key": "CRM",
+    "category_id_model": "module_categories",
+    "__industry_id": "General",
+    "industry_id_business_key": "General",
+    "industry_id_model": "module_industries",
+    "controllers": {
+        "accounts": "\\module\\elections\\controller\\accounts",
+        "company_informations": "\\module\\elections\\controller\\company_informations",
+        "contacts": "\\module\\elections\\controller\\contacts",
+        "donations": "\\module\\elections\\controller\\donations",
+        "election_results": "\\module\\elections\\controller\\election_results",
+        "polling_station_informations_orig": "\\module\\elections\\controller\\polling_station_informations_orig",
+        "polling_station_informations": "\\module\\elections\\controller\\polling_station_informations",
+        "polling_stations": "\\module\\elections\\controller\\polling_stations",
+        "polling_station_voters": "\\module\\elections\\controller\\polling_station_voters",
+        "volunteer_informations": "\\module\\elections\\controller\\volunteer_informations",
+        "voter_informations": "\\module\\elections\\controller\\voter_informations",
+        "wards": "\\module\\elections\\controller\\wards"
+    },
+    "models": {
+        "accounts": "\\module\\elections\\model\\accounts",
+        "company_informations": "\\module\\elections\\model\\company_informations",
+        "contacts": "\\module\\elections\\model\\contacts",
+        "donations": "\\module\\elections\\model\\donations",
+        "election_results": "\\module\\elections\\model\\election_results",
+        "polling_station_informations_orig": "\\module\\elections\\model\\polling_station_informations_orig",
+        "polling_station_informations": "\\module\\elections\\model\\polling_station_informations",
+        "polling_stations": "\\module\\elections\\model\\polling_stations",
+        "polling_station_voters": "\\module\\elections\\model\\polling_station_voters",
+        "volunteer_informations": "\\module\\elections\\model\\volunteer_informations",
+        "voter_informations": "\\module\\elections\\model\\voter_informations",
+        "wards": "\\module\\elections\\model\\wards"
+    },
+    "dependencies": {
+        "module": {
+            "development_base": {
+                "version": "1.0.0",
+                "name": "development_base",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "core": {
+                "version": "1.0.0",
+                "name": "core",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "access_controls": {
+                "version": "1.0.10",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "crm": {
+                "version": "1.3.1",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "crm_base": {
+                "version": "1.0.4",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "masters": {
+                "version": "1.1.1",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            },
+            "document_management_base": {
+                "version": "1.1.2",
+                "company": "Primary Modules",
+                "author": "Tushar Takkar"
+            }
+        },
+        "model": {
+            "_module_access_controls_model_users": "\\module\\access_controls\\model\\users",
+            "_module_crm_model_accounts": "\\module\\crm\\model\\accounts",
+            "_module_crm_model_config_industries": "\\module\\crm\\model\\config_industries",
+            "_module_crm_model_config_ratings": "\\module\\crm\\model\\config_ratings",
+            "_module_crm_base_model_addresses": "\\module\\crm_base\\model\\addresses",
+            "_module_crm_base_model_email_addresses": "\\module\\crm_base\\model\\email_addresses",
+            "_module_crm_base_model_phone_numbers": "\\module\\crm_base\\model\\phone_numbers",
+            "_module_masters_model_countries": "\\module\\masters\\model\\countries",
+            "_module_document_management_base_model_attachments": "\\module\\document_management_base\\model\\attachments",
+            "_module_access_controls_model_groups": "\\module\\access_controls\\model\\groups",
+            "_module_product_model_pricelists": "\\module\\product\\model\\pricelists",
+            "_module_masters_model_currencies": "\\module\\masters\\model\\currencies",
+            "_module_accounting_model_partner_accounts": "\\module\\accounting\\model\\partner_accounts",
+            "_module_crm_model_contacts": "\\module\\crm\\model\\contacts",
+            "_module_crm_model_config_departments": "\\module\\crm\\model\\config_departments",
+            "_module_masters_model_config_salutations": "\\module\\masters\\model\\config_salutations",
+            "_module_crm_model_leads": "\\module\\crm\\model\\leads",
+            "_module_crm_model_config_lead_sources": "\\module\\crm\\model\\config_lead_sources",
+            "\\module\\crm\\model\\accounts": "\\module\\crm\\model\\accounts",
+            "\\module\\crm\\model\\contacts": "\\module\\crm\\model\\contacts",
+            "\\module\\access_controls\\model\\groups": "\\module\\access_controls\\model\\groups"
+        },
+        "controller": {
+            "\\module\\crm\\controller\\accounts": "\\module\\crm\\controller\\accounts",
+            "\\module\\crm\\controller\\contacts": "\\module\\crm\\controller\\contacts",
+            "\\module\\access_controls\\controller\\groups": "\\module\\access_controls\\controller\\groups"
+        },
+        "behaviour": {
+            "_module_core_behaviour_revision_log": "\\module\\core\\behaviour\\revision_log",
+            "_module_access_controls_behaviour_acl": "\\module\\access_controls\\behaviour\\acl",
+            "_module_brules_behaviour_business_rules": "\\module\\brules\\behaviour\\business_rules"
+        }
+    },
+    "role_based_groups": [
+        {
+            "id": "1648",
+            "name": "__elections.Sales Representative"
+        }
+    ]
+}

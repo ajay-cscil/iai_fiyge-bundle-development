@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\flexflow\controller;
+  class action_log extends \module\flexflow\controller\action_log_domain_logic
+  {
+       public $modelClass = '\\module\\flexflow\\model\\action_log';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

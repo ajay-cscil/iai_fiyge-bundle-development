@@ -1,0 +1,85 @@
+[
+	{
+		"reports":{
+			"name":"mandeep",
+			"category_id":"5",
+			"query":"{\"name\":\"mandeep\",\"category_id\":\"5\",\"category_id_model\":\"category\",\"__category_id\":\"Others\",\"controller\":\"vrm\\\/survey_options\",\"is_public\":\"1\",\"description\":\"Bsjeifwbsnjtnssj\"}",
+			"_query":"{\"id\":\"\",\"name\":\"mandeep\",\"category_id\":\"5\",\"category_id_model\":\"category\",\"__category_id\":\"Others\",\"controller\":\"vrm\\\/survey_options\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"Bsjeifwbsnjtnssj\"}",
+			"description":"Bsjeifwbsnjtnssj",
+			"controller":"vrm\/survey_options",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"21",
+			"modified_by":null,
+			"owned_by":null,
+			"created":"2014-08-06 20:33:34",
+			"modified":null,
+			"deleted":"0",
+			"revision":"5",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				},
+				{
+					"id":"21",
+					"aro_id_model":"users",
+					"aro_id":"21",
+					"__aro_id":"Jim Smith"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				},
+				{
+					"id":"21",
+					"aro_id_model":"users",
+					"aro_id":"21",
+					"__aro_id":"Jim Smith"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Super Admin"
+				},
+				{
+					"id":"21",
+					"aro_id_model":"users",
+					"aro_id":"21",
+					"__aro_id":"Jim Smith"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":null,
+			"id":"53e2911e-a408-4f84-8bdd-023a0af91b9d",
+			"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d",
+			"sequence":"0",
+			"__created_by":"Jim Smith",
+			"__modified_by":"",
+			"__owned_by":"",
+			"__category_id":"Others",
+			"__primary_acl_group":"",
+			"__module_id":"vrm",
+			"created_by_model":"created_by_user",
+			"category_id_model":"category",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

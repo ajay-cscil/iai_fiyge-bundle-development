@@ -1,0 +1,46 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\calendar\controller;
+
+class tasks_domain_logic extends \data_controller{
+
+    public function add($request) {
+        $return = parent::add($request);
+        $data = $request->response('data');
+        $modelObj = $this->modelObj();
+
+        if (!isset($data[$modelObj->alias])) {
+            $data[$modelObj->alias] = array();
+        }
+        if (!isset($data[$modelObj->alias]['start'])) {
+            $data[$modelObj->alias]['start'] = \tushar\locale::systemDate(false) . ' ' . \tushar\locale::systemTime(false);
+        }
+
+        $relatedID = $request->param('related_id');
+        $relatedModel = $request->param('related_model');
+        $relatedModelClass = $request->param('related_model_class');
+
+        if (!empty($relatedModelClass) && !$request->is('post')) {
+            if (class_exists($relatedModelClass)) {
+              if (in_array($relatedModel, array('leads', 'accounts', 'opportunities'))) {
+                    if (!isset($data['tasks']['task_related_to'])) {
+                        $data['tasks']['task_related_to'] = array();
+                    }
+                    $relatedModelObj = $relatedModelClass::getInstance();
+                    $dt = current($relatedModelObj->read($relatedID, array()));
+                    $data['tasks']['task_related_to'][] = array('related_to' => $relatedID
+                        , 'related_to_model' => $relatedModelObj->alias
+                        , '__related_to' => $dt[$relatedModelObj->displayField]);
+                }
+            }
+        }
+        $request->set('data', $data);
+        return $return;
+    }
+
+}

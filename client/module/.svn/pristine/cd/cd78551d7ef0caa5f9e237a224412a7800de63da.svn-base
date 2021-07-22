@@ -1,0 +1,123 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class cruisecal_lines extends \module\excursion\model\cruisecal_lines_domain_logic
+  {
+       public $displayField = 'lineName';
+       public $primaryKey = 'lineId';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__cruisecal_lines';
+       public $alias = 'cruisecal_lines';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'lineId' => 
+  array (
+    'column' => 'lineId',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'lineName' => 
+  array (
+    'column' => 'lineName',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'lineNoSpace' => 
+  array (
+    'column' => 'lineNoSpace',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'linePageHref' => 
+  array (
+    'column' => 'linePageHref',
+    'ntype' => 'string',
+    'length' => '400',
+  ),
+  'linePageLink' => 
+  array (
+    'column' => 'linePageLink',
+    'ntype' => 'string',
+    'length' => '400',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'cruisecal_ships' => 
+  array (
+    'className' => '\\module\\excursion\\model\\cruisecal_ships',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'lineId',
+    'associationAlias' => 'cruisecal_ships',
+  ),
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+);
+  }

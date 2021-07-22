@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\contracts\source;
+
+class lists implements \module\contracts\source\source {
+
+    /**
+     *
+     * @var type
+     */
+    public static $settings = array();
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $data
+     * @param type $params
+     */
+    public static function process($data, $params=array()) {
+        static::$settings = array_merge(static::$settings, $params);
+        $contractLists = select('contractList.list_id')->from($data['campaigns'])->join('contractList')->where(array("{$data['campaigns']->alias}.id" => $data['id']))->execute()->fetchAll(\PDO::FETCH_COLUMN, 0);
+        $listRecords = \module\campaigns\list_records::getInstance();
+        $stmt = $listRecords->find(array('fields' => array("{$listRecords->alias}.content"), 'limit' => false, 'where' => array("{$listRecords->alias}.list_id" => $contractLists)));
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $record = array();
+            if (!empty($record))
+                $data['tmp']->saveModel($record, array('type' => 'insert'));
+        }
+    }
+
+}

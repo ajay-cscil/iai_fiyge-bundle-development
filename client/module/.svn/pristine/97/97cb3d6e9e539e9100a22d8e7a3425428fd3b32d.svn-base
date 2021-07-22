@@ -1,0 +1,208 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class periods_domain_logic extends \data_model{
+
+    public function createMultiplePeriodsNull($data, $options = array()) {
+        return false;
+    }
+
+    public function createMultiplePeriods($data, $options = array()) {
+        $options = array_merge($this->saveOptions, $options);
+        $return = array();
+        try {
+
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('begin');
+            }
+            $fiscalYearID = $data[$this->alias]['fiscal_year_id'];
+            $duration = $data[$this->alias]['duration'];
+            $fiscalYearData = \current($this->{'fiscal_years'}->read($fiscalYearID));
+            $start = new \DateTime($fiscalYearData['start_date']);
+            $end = new \DateTime($fiscalYearData['end_date']);
+            if($start >= $end){
+                throw new Exception(__('Fiscal year start date "%s" should be less then end date "%s"'),$fiscalYearData['start_date'],$fiscalYearData['end_date']);
+            }
+            
+            $periods=$this->computePeriods($fiscalYearData['start_date'],$fiscalYearData['end_date'],$duration);
+            // error if periods could nto be computed;
+            if(empty($periods)){
+                throw new \Exception(sprintf(__('Could not compute periods for duration "%s"'),$duration));
+            }
+            // create all periods;
+            foreach($periods as $period){
+                $period['action'] = Array('Draft' => 'Save As Draft');
+                $period['fiscal_year_id'] = $fiscalYearID;
+                if(empty(\tushar\model::$errors)){
+                    $this->save($period,array('atomic'=>true));
+                }
+            }
+            if (!empty(static::$errors)) {
+                if ($options['atomic'] === false) {
+                    \tushar\source::getInstance($this->source)->transaction('rollback');
+                }
+                return false;
+            }
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('commit');
+            }
+        } catch (\Exception $e) {
+            if ($options['atomic'] === false) {
+                \tushar\source::getInstance($this->source)->transaction('rollback');
+            }
+            static::$errors[] = \exception_message($e);
+            return false;
+        }
+        $return = current($return);
+        return true;
+    }
+    
+    public function computePeriods($startDate,$endDate,$duration){
+        $start = new \DateTime($startDate);
+        $end = new \DateTime($endDate);
+        $fiscalYearID=null;
+        $periods = array();
+            switch ($duration) {
+                case 'monthly':
+                    while ($start < $end) {
+                        $period = array(
+                            'business_key' => $start->format('Y-m'),
+                            'name' => $start->format('Y-m'),
+                            'start_of_period' => $start->format('Y-m') . '-01',
+                            'end_of_period' => $start->format('Y-m-t'),
+                            'fiscal_year_id' => $fiscalYearID,
+                            'is_public' => '1'
+                        );
+                        $periods[] = $period;
+                        $start->modify('+1 month');
+                    }
+                    break;
+                case 'quaterly':
+                    while ($start < $end) {
+                        $period = array(
+                            'business_key' => $start->format('Y-m'),
+                            'name' => $start->format('Y-m'),
+                            'start_of_period' => $start->format('Y-m') . '-01',
+                            'fiscal_year_id' => $fiscalYearID,
+                            'is_public' => '1'
+                        );
+                        $start->modify('+2 month');
+                        $period['end_of_period'] = $start->format('Y-m-t');
+                        $start->modify('+1 month');
+                        $periods[] = $period;
+                    }
+                    break;
+                case 'half-yearly':
+                    while ($start < $end) {
+                        $period = array(
+                            'business_key' => $start->format('Y-m'),
+                            'name' => $start->format('Y-m'),
+                            'start_of_period' => $start->format('Y-m') . '-01',
+                            'fiscal_year_id' => $fiscalYearID,
+                            'is_public' => '1'
+                        );
+                        $start->modify('+5 month');
+                        $period['end_of_period'] = $start->format('Y-m-t');
+                        $start->modify('+1 month');
+                        $periods[] = $period;
+                    }
+                    break;
+                case 'yearly':
+                    $period = array(
+                        'business_key' => "{$startDate} to {$endDate}",
+                        'name' => "{$startDate} to {$endDate}",
+                        'start_of_period' => $start->format('Y-m') . '-01',
+                        'end_of_period' => $start->format('Y-m-t'),
+                        'fiscal_year_id' => $fiscalYearID,
+                        'is_public' => '1'
+                    );
+                    $periods[] = $period;
+                    break;
+            }
+            return $periods;
+    }
+
+    public function beforeSave() {
+        if (!empty($this->data['fiscal_year_id'])) {
+            $fiscalYearsObj = $this->{'fiscal_years'};
+            $stage = \select("workflow_docs.current_stages")
+                    ->from($fiscalYearsObj)
+                    ->joinInner('workflow_docs')
+                    ->inserted()
+                    ->where("{$fiscalYearsObj->alias}.{$fiscalYearsObj->primaryKey}", $this->data['fiscal_year_id'])
+                    ->limit(0)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+
+            if (strtolower($stage) == 'close') {
+                throw new \Exception(__("Selected fiscal year is marked as closed, not allowed to create period under closed fiscal year"));
+            }
+        }
+    }
+
+    public function afterSave($created = false) {
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (stripos($actionTriggred, 'close') !== false) {
+            // check if any previous period is still open.
+            if (!isset($this->data['start_of_period']) || empty($this->data['start_of_period'])) {
+                $this->data['start_of_period'] = \select(array("{$this->alias}.start_of_period"))
+                        ->from($this)
+                        ->inserted()
+                        ->where("{$this->alias}.{$this->primaryKey}", $this->id)
+                        ->limit(0)
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN);
+            }
+            $openPeriods = \select(array("{$this->alias}.name", 'fiscal_years.fiscal_year'))
+                    ->from($this)
+                    ->joinInner('fiscal_years')
+                    ->joinInner('workflow_docs', false, true)
+                    ->inserted()
+                    ->where("{$this->alias}.end_of_period <", $this->data['start_of_period'])
+                    ->where("workflow_docs.current_stages", 'open')
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC);
+
+
+
+            $periods = array();
+            if (!empty($openPeriods)) {
+                foreach ($openPeriods as $openPeriod) {
+                    $periods[] = "{$openPeriod['name']} ({$openPeriod['fiscal_year']})";
+                }
+                throw new \Exception(
+                sprintf(
+                        __("Could not close as previous periods are still open. Open periods are %s"), implode(", ", $periods)
+                ));
+            }
+
+            $journalEntryObj = \module\accounting\model\journal_entries::getInstance();
+            \update(
+                            array(
+                                "{$journalEntryObj->alias}._acl_edit" => ""
+                                , "{$journalEntryObj->alias}._acl_delete" => ""
+                                , "{$journalEntryObj->alias}._acl_tmp_edit" => ""
+                                , "{$journalEntryObj->alias}._acl_tmp_delete" => ""
+                            )
+                    )
+                    ->from($journalEntryObj)
+                    ->where(array("{$journalEntryObj->alias}.period_id" => $this->id))
+                    ->inserted()
+                    ->limit(0)
+                    ->execute();
+        }
+    }
+
+}

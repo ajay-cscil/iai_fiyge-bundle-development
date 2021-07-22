@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\payroll\controller;
+  class salary_structures extends \module\payroll\controller\salary_structures_domain_logic
+  {
+       public $modelClass = '\\module\\payroll\\model\\salary_structures';
+
+
+
+
+
+
+  }

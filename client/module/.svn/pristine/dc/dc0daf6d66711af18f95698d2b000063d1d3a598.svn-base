@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\recruitment\controller;
+  class config_degrees extends \module\recruitment\controller\config_degrees_domain_logic
+  {
+       public $modelClass = '\\module\\recruitment\\model\\config_degrees';
+
+
+
+
+
+
+  }

@@ -1,0 +1,170 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\calendar\model;
+
+class events_domain_logic extends \data_model{
+
+    public function afterSave($created) {
+        parent::afterSave($created);
+        if (isset($this->data['action']['submit']) && isset($this->data['event_guests']) && !empty($this->data['event_guests'])) {
+            \library('phpmailer' . DS . 'class.phpmailer.php');
+            $mailer = new \PHPMailer();
+            \module\administration\model\global_configurations::setServer($mailer);
+            $userObj = \module\access_controls\model\users::getInstance();
+            $userInfo = current($userObj->read(\tushar\user::read('id'), array('email_addresses')));
+            $fromEmail = "";
+            if (isset($userInfo['email_addresses']) && is_array($userInfo['email_addresses'])) {
+                foreach ($userInfo['email_addresses'] as $em) {
+                    if (!empty($em['email'])) {
+                        $fromEmail = $em['email'];
+                        break;
+                    }
+                }
+            }
+            if (empty($fromEmail)) {
+                throw new \Exception(__('Please set a valid email address for current user to be used as senders email address'));
+            }
+            $mailer->isHTML(true);
+            $mailer->From = $fromEmail;
+            $mailer->FromName = \tushar\user::read('name');
+
+            $guests = $this->data['event_guests'];
+            $guest = array_shift($guests);
+            $attendees = array();
+
+            if ($created) {
+                $mailer->Subject = "Invitation: \"" . $this->data['title'] . "\" at " . $this->data['start'];
+            } else {
+                $mailer->Subject = "Updated Invitation: \"" . $this->data['title'] . "\" at " . $this->data['start'];
+            }
+            $mailer->Body = "<div> When : From \"" .
+                    $this->data['start'] . "\" to " .
+                    $this->data['end'] . "\"  on " .
+                    date("l", strtotime($this->data["start"])) . "</div>" .
+                    "<div> Where: " . $this->data["where"] . "</div>" .
+                    "<div> Calendar: " . $this->data["__calendar_id"] . "</div>" .
+                    "<div> Who: {$guest['__guest_id']}</div>";
+            foreach ($guests as $guest) {
+                $mailer->Body .= "<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $guest['__guest_id'] . "</div>";
+            }
+            if (isset($this->data['description'])) {
+                $mailer->Body .= "<div>What: {$this->data['description']}</div>";
+            }
+
+
+            foreach ($this->data['event_guests'] as $invitees) {
+                $mailer->AddAddress($invitees['__guest_id']);
+                $attendees[$invitees['__guest_id']] = $invitees['__guest_id'];
+            }
+            $attachments = array();
+
+            if (isset($this->{'attachments'}) && is_object($this->{'attachments'})) {
+                $attachments = select('attachments.id')
+                        ->from($this)
+                        ->joinInner('attachments')
+                        ->where(array('events.id' => $this->data['id']))
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN);
+                $attachments = $this->{'attachments'}->readFiles($attachments);
+            }
+
+            $stamp = $created = $modified = str_replace('-', 'T', date('Ymd-His', strtotime(date('Y-m-d H:i:s'))));
+            //if (!$created) {
+            $savedData = \select("*")
+                    ->from($this)
+                    ->where($this->primaryKey, $this->data['id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            $created = str_replace('-', 'T', date('Ymd-His', strtotime($savedData['created'])));
+            //}
+
+            foreach ($attendees as $key => $attendee) {
+                $commonName = explode('@', $attendee);
+                $commonName = $commonName[0];
+                $attendees[$key] = "ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=" . ($attendee == $mailer->From ? "ACCEPTED" : "NEEDS-ACTION") . ";";
+                $attendees[$key] .= PHP_EOL . " RSVP=TRUE;CN={$commonName};X-NUM-GUESTS=0:mailto:{$attendee}";
+            }
+
+            if (!empty($attendees)) {
+                $attendees = PHP_EOL . implode(PHP_EOL, $attendees);
+            } else {
+                $attendees = '';
+            }
+            $organizerName = explode('@', $mailer->From);
+            $organizerName = $organizerName[0];
+
+
+
+            $base = str_replace('/', '', \tushar\request::base());
+            $uid = $created . "Z-" . $this->data['id'] . "@{$base}.{$_SERVER['HTTP_HOST']}";
+            $ical = "BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:" . str_replace('-', 'T', date('Ymd-His', strtotime($this->data['start']))) . "Z
+DTEND:" . str_replace('-', 'T', date('Ymd-His', strtotime($this->data['end']))) . "Z
+DTSTAMP:{$stamp}Z
+ORGANIZER;CN={$organizerName}:mailto:{$mailer->From}          
+UID:{$uid}{$attendees}
+SUMMARY:{$this->data["title"]}
+CREATED:" . $created . "Z
+DESCRIPTION:{$this->data['description']}
+LAST-MODIFIED:" . $modified . "Z
+LOCATION:{$this->data['where']}
+SEQUENCE:0
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:{$this->data['title']}
+TRIGGER:-P0DT0H10M0S
+END:VALARM
+END:VEVENT
+END:VCALENDAR";
+
+
+            $mailer->MultipartBody[] = array(
+                'charset' => "UTF-8",
+                'content_type' => "text/calendar",
+                'encoding' => "7bit",
+                //'headers' => array('method' => 'REQUEST'),
+                'body' => $ical
+            );
+
+            /*
+              $path = \tempnam(TMP, 'attachment');
+              \file_put_contents($path, $ical);
+              $attachments[$path] = array('name' => 'event.ics', 'temp' => true, 'disposition' => 'inline', 'mime_type' => 'text/calendar');
+             */
+
+            foreach ($attachments as $path => $attachment) {
+                if (!file_exists($path)) {
+                    throw new \Exception(sprintf(
+                            __('Attachment file %s(%s) not found on file-system', 'module'), $path, $attachment['name'])
+                    );
+                }
+                if (!isset($attachment['disposition'])) {
+                    $attachment['disposition'] = '';
+                }
+                $mailer->AddAttachment($path, $attachment['name'], 'base64', $attachment['mime_type'], $attachment['disposition']);
+            }
+
+
+            if (!$mailer->send()) {
+                $msg = sprintf(__('Failed sending invite email from "%s" via smtp-host "%s:%s"', 'module'),$mailer->From,$mailer->Host,$mailer->Port);
+                //if (\tushar\configuration::read('debug') == true) {
+                $msg .= " due to error: " . $mailer->ErrorInfo;
+                //}
+                throw new \Exception($msg);
+            }
+        }
+    }
+
+}

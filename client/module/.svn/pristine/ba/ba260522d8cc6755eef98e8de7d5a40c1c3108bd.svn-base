@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\attendance\controller;
+  class attendances extends \module\attendance\controller\attendances_domain_logic
+  {
+       public $modelClass = '\\module\\attendance\\model\\attendances';
+
+
+
+
+
+
+  }

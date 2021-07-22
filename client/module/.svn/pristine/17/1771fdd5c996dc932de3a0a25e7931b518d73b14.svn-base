@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\sales\controller;
+  class sale_order_lines extends \module\sales\controller\sale_order_lines_domain_logic
+  {
+       public $modelClass = '\\module\\sales\\model\\sale_order_lines';
+
+
+
+
+
+
+  }

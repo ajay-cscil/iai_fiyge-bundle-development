@@ -1,0 +1,43 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\campaigns\controller;
+
+class campaign_log_domain_logic extends \tushar\controller{
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $request
+     */
+    public function log($request)
+    {
+        $c = $request->param('c');
+        $i = base64_decode($request->param('i'), '');
+        $o = base64_decode($request->param('o'), '');
+        $r = base64_decode($request->param('r'), '');
+        $a = base64_decode($request->param('a'), '');
+        $s = base64_decode($request->param('s'), '');
+        $t = base64_decode($request->param('t'), '');
+        $u = base64_decode($request->param('u'), '');
+
+        switch ($a) {
+            case 1:
+                // open
+
+                break;
+            case 2:
+                // click
+
+                break;
+        }
+        if (\module\campaigns\model\campaign_log::getInstance(array(), true)->saveModel(array('campaign_id' => $c, 'invocation' => $i, 'originator' => $o, 'receiver' => $r, 'action' => $a, 'sub_action' => $s, 'subject' => $t, 'uid' => $u),
+                                                                                        array('type' => 'insert')))
+                \module\campaigns\model\campaign_log_summary::getInstance(array(), true)->saveModel(array('campaign_id' => $c, 'invocation' => $i, 'originator' => $o, 'receiver' => $r, 'action' => $a, 'sub_action' => $s, 'subject' => $t, 'uid' => $u),
+                                                                                                    array('exp' => true, 'type' => 'insert', 'on_duplicate_key' => array('count' => "(count+1)")));
+    }
+
+}

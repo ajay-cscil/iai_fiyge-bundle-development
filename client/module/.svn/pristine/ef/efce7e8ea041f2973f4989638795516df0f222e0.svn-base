@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\data_management\source;
+
+class csv implements \module\data_management\source\source {
+
+    /**
+     *
+     * @var type
+     */
+    public static $settings = array();
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $data
+     * @param type $params
+     */
+    public static function process($importObj, $data, $params = array()) {
+        $return = array('header' => array(), 'data' => array());
+        static::$settings = array_merge(static::$settings, $params);
+        $length = (isset($params['length']) ? $params['length'] : 0);
+        $delimiter = (isset($params['delimiter']) ? $params['delimiter'] : ',');
+        $enclosure = (isset($params['enclosure']) ? $params['enclosure'] : '"');
+        $escape = (isset($params['escape']) ? $params['escape'] : '\\');
+        $errors = array(1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini.'
+            , 2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.'
+            , 3 => 'The uploaded file was only partially uploaded.'
+            , 4 => 'No file was uploaded.'
+            , 5 => 'Missing a temporary folder.'
+            , 6 => 'Failed to write file to disk.'
+            , 7 => 'A PHP extension stopped the file upload.'
+        );
+        if (isset($data["error"]) && $data["error"] > 0 && isset($errors[$data["error"]])) {
+            throw new \Exception($errors[$data["error"]]);
+        }
+        $sql = array();
+        if (isset($data["tmp_name"])) {
+            $handle = \fopen($data["tmp_name"], 'r');
+            $return['header'] = array();
+            while ($values = fgetcsv($handle, $length, $delimiter, $enclosure, $escape)) {
+                if (empty($return['header'])) {
+                    if (!in_array(strtolower($values[0]), array("field label", "field option"))) {
+                        $return['header'] = $values;
+                    }
+                } elseif (!in_array(strtolower($values[0]), array("field label", "field option"))) {
+                    $return['data'][] = $values;
+                }
+            }
+            if (!is_array($return['header'])) {
+                throw new \Exception(
+                sprintf(__("Could not read records from CSV file %s"), $csv['storage_path'] . $csv['path'])
+                );
+            }
+            return $return;
+        } else {
+            $sql = select('attachments.id')
+                    ->from($importObj)
+                    ->joinInner('attachments')
+                    ->where(array("{$importObj->alias}.id" => $data['id']))
+                    ->inserted()
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_COLUMN);
+            $sql = $importObj->attachments->readFiles($sql);
+        }
+        foreach ($sql as $path => $csv) {
+            $handle = \fopen($path, 'r');
+            $return['header'] = array();
+            while ($values = fgetcsv($handle, $length, $delimiter, $enclosure, $escape)) {
+                if (empty($return['header'])) {
+                    if (!in_array(strtolower($values[0]), array("field label", "field option"))) {
+                        $return['header'] = $values;
+                    }
+                } elseif (!in_array(strtolower($values[0]), array("field label", "field option"))) {
+                    $return['data'][] = $values;
+                }
+            }
+            if (!is_array($return['header'])) {
+                throw new \Exception(
+                sprintf(__("Could not read records from CSV file %s"), $csv['storage_path'] . $csv['path'])
+                );
+            }
+        }
+        return $return;
+    }
+
+}

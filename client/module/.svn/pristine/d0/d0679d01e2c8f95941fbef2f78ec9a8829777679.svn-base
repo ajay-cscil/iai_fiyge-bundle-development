@@ -1,0 +1,256 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\crm\model;
+
+class contacts_domain_logic extends \data_model{
+
+    private $createOpportunityInfo = array();
+    private $createTaskInfo = array();
+
+    public function mapModelData($from, $entityObj, $entityData) {
+        $modelObj = $this;
+        $data = array();
+        $primaryKey = $modelObj->primaryKey;
+        $alias = $this->alias;
+        $data[$alias] = isset($entityData[$entityObj->alias]) ? $entityData[$entityObj->alias] : array();
+        $entityId = $entityData[$entityObj->alias][$entityObj->primaryKey];
+        if (!empty($data[$alias])) {
+            foreach ($data[$alias] as $key => $val) {
+                if (!empty($val)) {
+                    if (stripos($key, 'email') !== false) {
+                        $key = str_replace("_email", "", $key);
+                        $v = \select(array('id', 'email_type'))
+                                ->from($modelObj->{'email_addresses'}->{'config_email_types'})
+                                ->inserted()
+                                ->where('email_type', $key)
+                                ->limit(1)->execute()
+                                ->fetch(\PDO::FETCH_ASSOC);
+                        if (!empty($v)) {
+                            if (!isset($data[$alias]['email_addresses'])) {
+                                $data[$alias]['email_addresses'] = array();
+                            }
+                            $data[$alias]['email_addresses'][] = array(
+                                'email' => $val,
+                                '__type' => $v['email_type'],
+                                'type' => $v['id']
+                            );
+                        }
+                    } else if (stripos($key, 'phone') !== false) {
+                        $key = str_replace("_phone", "", $key);
+                        $v = \select(array('id', 'phone_type'))
+                                ->from($modelObj->{'phone_numbers'}->{'config_phone_types'})
+                                ->inserted()
+                                ->where('phone_type', $key)
+                                ->limit(1)->execute()
+                                ->fetch(\PDO::FETCH_ASSOC);
+                        if (!empty($v)) {
+                            if (!isset($data[$alias]['phone_numbers'])) {
+                                $data[$alias]['phone_numbers'] = array();
+                            }
+                            $data[$alias]['phone_numbers'][] = array(
+                                'number' => $val,
+                                '__type' => $v['phone_type'],
+                                'type' => $v['id']
+                            );
+                        }
+                    }
+                }
+            }
+            if (!isset($data[$alias]['addresses'])) {
+                $data[$alias]['addresses'] = array();
+            }
+            if (isset($data[$alias]['primary_address_line_1']) && !empty($data[$alias]['primary_address_line_1'])) {
+                $v = \select(array('id', 'address_type'))
+                        ->from($modelObj->{'addresses'}->{'config_address_types'})
+                        ->inserted()
+                        ->limit(1)->execute()
+                        ->fetch(\PDO::FETCH_ASSOC);
+                if (!empty($v)) {
+                    $data[$alias]['addresses'][] = array(
+                        'type' => $v['id']
+                        , '__type' => $v['address_type']
+                        , 'address_line_1' => $data[$alias]['primary_address_line_1']
+                        , 'address_line_2' => $data[$alias]['primary_address_line_2']
+                        , 'city' => $data[$alias]['primary_city']
+                        , 'state_id' => $data[$alias]['primary_state_id']
+                        , '__state_id' => $data[$alias]['__primary_state_id']
+                        , 'country_id' => $data[$alias]['primary_country']
+                        , '__country_id' => $data[$alias]['__primary_country']
+                        , 'zip' => $data[$alias]['primary_zip']
+                    );
+                }
+            }
+        }
+
+        $data[$alias]['opportunities'] = $data[$alias];
+        if (empty($data[$alias]['opportunities']['name'])) {
+            $data[$alias]['opportunities']['name'] = "{$data[$alias]['first_name']} {$data[$alias]['last_name']}";
+        }
+
+        if (!isset($data[$alias]['tasks'])) {
+            $data[$alias]['tasks'] = array();
+        }
+
+        $data[$alias]['owned_by'] = $data[$alias]['tasks']['owned_by'] = $data[$alias]['opportunities']['owned_by'] = \tushar\user::read('id');
+        $data[$alias]['__owned_by'] = $data[$alias]['tasks']['__owned_by'] = $data[$alias]['opportunities']['__owned_by'] = \tushar\user::read('name');
+
+        $data[$alias]['related_to'] = $entityId;
+        $data[$alias]['__related_to'] = $entityData[$entityObj->alias][$entityObj->displayField];
+        $data[$alias]['related_to_model'] = $from;
+        if (isset($data[$alias][$primaryKey])) {
+            unset($data[$alias][$primaryKey]);
+        }
+        return $data;
+    }
+
+    public function beforeSave() {
+//['opportunities']
+//['tasks']        
+        $this->createOpportunityInfo = (isset($this->data['opportunities']) ? $this->data['opportunities'] : array());
+        $this->createTaskInfo = (isset($this->data['tasks']) ? $this->data['tasks'] : array());
+
+        $this->data = \array_diff_key($this->data, array('opportunities' => 1, 'tasks' => 1));
+
+
+        // create accounts
+        if (!isset($this->data['account_id']) || empty($this->data['account_id'])) {
+            if (empty($this->data['company'])) {
+                throw new \Exception(__('Either select a account or enter company name'));
+            }
+            $accountData = array(
+                'accounts' => \array_intersect_key($this->data, array('owned_by' => 1, '__owned_by' => 1, 'email_addresses' => 1, 'phone_numbers' => 1, 'addresses' => 1)
+            ));
+            $accountData['accounts']['account_name'] = $this->data['company'];
+            $accountData['accounts']['account_type'] = '652';
+            $accountData['accounts'] = array_merge(
+                    $accountData['accounts'], array_intersect_key($this->data, array('owned_by' => 1, 'primary_acl_group' => 1))
+            );
+            $accountData = \tushar\locale::normalize($accountData, $this->accounts->schema(false, true));
+            $this->data['account_id'] = $this->accounts->save($accountData, array('atomic' => true));
+        }
+        parent::beforeSave();
+    }
+
+    public function afterSave($created) {
+        if (!isset($this->data['related_to_model'])) {
+            $this->data['related_to_model'] = 'leads';
+        }
+        if (isset($this->data['related_to']) && !empty($this->data['related_to']) && isset($this->data['related_to_model']) && !empty($this->data['related_to_model'])
+        ) {
+
+            $obj = $this->{$this->data['related_to_model']};
+            $schema = $obj->schema();
+            if (isset($schema['converted'])) {
+                $obj->acl = array();
+                $obj->acl['_acl_edit'] = array('op' => 'new', 'value' => '');
+                $obj->acl['_acl_delete'] = array('op' => 'new', 'value' => '');
+                $configLeadStatus = \module\crm\model\config_lead_status::getInstance(array(), true);
+                $configLeadStatus = \select("{$configLeadStatus->alias}.{$configLeadStatus->primaryKey}")
+                        ->from($configLeadStatus)
+                        ->inserted()
+                        ->where("{$configLeadStatus->alias}.{$configLeadStatus->displayField}", "Converted to Opportunity")
+                        ->execute()
+                        ->fetch(\PDO::FETCH_COLUMN);
+
+                $obj->save(
+                        array(
+                    $obj->alias => array(
+                        "{$obj->primaryKey}" => $this->data['related_to'],
+                        "converted" => 1,
+                        'message_warn' => 'This lead is marked as read-only. This usually happens when converted to an opportunity or flagged as Closed-Won/Closed-Lost.',
+                        "lead_status" => $configLeadStatus,
+                        "parent_id" => $this->data['account_id']
+                    )
+                        ), array(
+                    'atomic' => true, 'type' => 'update', 'force' => true, 'validate' => false
+                        )
+                );
+            }
+        }
+
+        // create opportunity
+        if (!empty($this->createOpportunityInfo) && isset($this->createOpportunityInfo['create_opportunity']) && $this->createOpportunityInfo['create_opportunity'] == 1) {
+            $opportunityObj = \module\crm\model\opportunities::getInstance(array(), true);
+            $opportunityData = array('opportunities' => $this->createOpportunityInfo);
+            $opportunityData['opportunities']['account_id'] = $this->data['account_id'];
+            if (isset($this->data['related_to']) && !empty($this->data['related_to']) && isset($this->data['related_to_model']) && !empty($this->data['related_to_model'])
+            ) {
+                $opportunityData['opportunities']['related_to'] = $this->data['related_to'];
+                $opportunityData['opportunities']['related_to_model'] = $this->data['related_to_model'];
+            }
+
+
+            $opportunityData['opportunities'] = array_merge(
+                    $opportunityData['opportunities'], array_intersect_key($this->data, array('owned_by' => 1, 'primary_acl_group' => 1))
+            );
+
+            $opportunityData = \tushar\locale::normalize($opportunityData, $opportunityObj->schema(false, true));
+            $this->data['op_id'] = $opportunityObj->save($opportunityData, array('atomic' => true));
+        }
+        // create task;
+        if (!empty($this->createTaskInfo) && isset($this->createTaskInfo['create_task']) && $this->createTaskInfo['create_task'] == 1) {
+            $taskObj = \module\calendar\model\tasks::getInstance(array(), true);
+            $taskData = array('tasks' => $this->createTaskInfo);
+
+            $taskRelatedTo = array();
+            $taskRelatedTo[0] = array();
+            $taskRelatedTo[0]['related_to'] = $this->data['account_id'];
+            $taskRelatedTo[0]['related_to_model'] = $this->accounts->alias;
+            $taskRelatedTo[0]['__related_to'] = \select("{$this->accounts->alias}.{$this->accounts->displayField}")
+                    ->from($this->accounts)
+                    ->where("{$this->accounts->alias}.{$this->accounts->primaryKey}", $this->data['account_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+
+            $taskRelatedTo[1] = array();
+            $taskRelatedTo[1]['related_to'] = $this->id;
+            $taskRelatedTo[1]['related_to_model'] = $this->alias;
+            $taskRelatedTo[1]['__related_to'] = \select("{$this->alias}.{$this->displayField}")
+                    ->from($this)
+                    ->where("{$this->alias}.{$this->primaryKey}", $this->id)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+
+            if (!empty($this->createOpportunityInfo) && isset($this->createOpportunityInfo['create_opportunity']) && $this->createOpportunityInfo['create_opportunity'] == 1) {
+                $taskRelatedTo[2] = array();
+                $taskRelatedTo[2]['related_to'] = $this->data['op_id'];
+                $taskRelatedTo[2]['related_to_model'] = $opportunityObj->alias;
+                $taskRelatedTo[2]['__related_to'] = $this->data['name']; /* \select("{$opportunityObj->alias}.{$opportunityObj->displayField}")
+                  ->from($opportunityObj)
+                  ->where("{$opportunityObj->alias}.{$opportunityObj->primaryKey}", $this->data['op_id'])
+                  ->execute()
+                  ->fetch(\PDO::FETCH_COLUMN, 0); */
+            }
+            $taskData['tasks']['task_related_to'] = $taskRelatedTo;
+            $taskData['tasks'] = array_merge(
+                    $taskData['tasks'], array_intersect_key($this->data, array('owned_by' => 1, 'primary_acl_group' => 1))
+            );
+            $taskData = \tushar\locale::normalize($taskData, $taskObj->schema(false, true));
+            $taskObj->save($taskData, array('atomic' => true));
+        }
+        /**
+         * To make the click here go to the desired field by changing the key of $errors variable in this case
+         * @author Shubham Singh<ssingh@primarymodules.com>
+         * @link https://github.com/primod/maax/issues/583
+         * @since 2013-12-28
+         * @internal appending "contacts." to all the keys of the $error array
+         */
+        if (!empty(\tushar\model::$errors)) {
+            $errKeys = array();
+            $errKeys = \array_keys(\tushar\model::$errors);
+            foreach ($errKeys as &$v) {
+                if (stripos($v, 'contacts') === false) {
+                    $v = 'contacts.' . $v;
+                }
+            }
+            \tushar\model::$errors = \array_combine($errKeys, \array_values(\tushar\model::$errors));
+        }
+        parent::afterSave($created);
+    }
+
+}

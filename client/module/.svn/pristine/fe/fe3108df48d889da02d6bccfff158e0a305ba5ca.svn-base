@@ -1,0 +1,191 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\analytics\model;
+
+class reports extends \data_model {
+
+    const IGNORE_DATA_ACL_OVERRIDE = true;
+    public $isPseudoDesignElement=1;
+    public $reportSeq = array();
+    public $rolesBasedGroups = true;
+    public $table = 'analytics__reports';
+    public $limitForInstallation = 0;
+    public $source = 'design';
+    public $associations = array('created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'category' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'category_id'
+            , 'className' => '\\module\\analytics\\model\\report_categories'
+        ), 'groups' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'primary_acl_group'
+            , 'className' => '\\module\\access_controls\\model\\groups'
+        ), 'modules' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'module_id'
+            , 'className' => '\\module\\development_base\\model\\modules'
+        )
+    );
+    /*
+     * 
+     */
+    public $filters = array(
+        'name' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+        , 'category_id' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+        , 'controller' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+    );
+    public $filtersForQueryForm = array(
+        'render_as' => array(
+            'required'
+            , array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+            , array('message' => '', 'rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\module\\core\\model\\listviews_domain_logic', 'checkRenderAs')))
+        ),
+        'ui_helper' => array(
+            array(
+                'rule' => FILTER_CALLBACK,
+                'params' => array(
+                    'options' => array('\\module\\core\\model\\listviews_domain_logic', 'validateDataViewHelpers')
+                ), 'message' => ''
+            ), array(
+                'rule' => FILTER_CALLBACK
+                , 'params' => array(
+                    'options' => array('\\module\\core\\model\\listviews_domain_logic', 'validateGraphParameters')
+                ), 'message' => ''
+            )
+        ), 'query' => array(
+            array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+            , array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\module\\core\\model\\listviews_domain_logic', 'validateQuerySyntex')), 'message' => '')
+        )
+    );
+    public $behaviours = array(
+        '\\module\\access_controls\\behaviour\\acl' =>
+        array(
+            'readAccess' => '4',
+            'editAccess' => '4',
+            'deleteAccess' => '4',
+            'cacheClass' => '1',
+            'ownAcl' => '1',
+            'lazyAclCheck' => 0
+        ),
+    );
+
+    public function paginateRelatedModuleData($moduleID, $manifest) {
+        $pages = array();
+        $where = array(
+            'OR' => array('module_id' => $moduleID,
+                array("module_id " => "", "{$this->alias}.controller LIKE" => "{$manifest['name']}/")
+            )
+        );
+        foreach (\select(array("{$this->alias}.{$this->primaryKey}", "{$this->alias}.controller", "{$this->alias}.deleted"))
+                ->from($this)
+                ->where($where)
+                //->inserted()
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC) as $view
+        ) {
+            $pages[$view['controller'] . '-' . $view['id']] = $view;
+        }
+        return $pages;
+    }
+
+    public function exportRelatedModuleData($moduleID, $manifest, $page = null) {
+        $data = array();
+        $pages = array();
+        $schema = $this->schema();
+        if (is_array($page)) {
+            $pages[] = $page['id'];
+        } else {
+            $pages = \select(array("{$this->alias}.{$this->primaryKey}"))
+                    ->from($this)
+                    ->where(array("{$this->alias}.controller LIKE" => "{$manifest['name']}/"))
+                    ->inserted()
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_COLUMN);
+        }
+        foreach ($pages as $id) {
+            $data[] = $this->read($id, array('category'));
+        }
+        return $data;
+    }
+
+    /*
+      public function beforeSave() {
+      $this->reportSeq['id'] = $this->data['id'];
+      $this->reportSeq['sequence'] = $this->data['sequence'];
+      parent::beforeSave();
+      }
+
+      public function afterSave($created) {
+      parent::afterSave($created);
+      \update(array('sequence' => $this->reportSeq['sequence']))
+      ->from($this)
+      ->where($this->primaryKey, $this->reportSeq['id'])
+      ->execute();
+      } */
+
+    public function importRelatedModuleData($module, $manifest, $records, $options = array()) {
+        foreach ($records as $record) {
+            if (is_array($record) && !empty($record)) {
+                $record = $record[$this->alias];
+                foreach (array('_acl', '_acl_edit', '_acl_delete') as $acl) {
+                    if (isset($record[$acl]) && is_array($record[$acl])) {
+                        foreach ($record[$acl] as $k => $v) {
+                            if (is_array($v) && $v['aro_id_model'] == 'groups' && isset($v['aro_id'])) {
+                                unset($record[$acl][$k]['aro_id']);
+                            }
+                        }
+                    }
+                }
+                $record['module_id'] = $module['id'];
+                if (!shouldApplyChanges($this, $record, $manifest)) {
+                    continue;
+                }
+                $this->save($record, array('atomic' => true, 'validate' => false, 'compute_actors' => false));
+            }
+        }
+    }
+
+    public function beforeSave() {
+        parent::beforeSave();
+        if ((!isset($this->data['id']) || empty($this->data['id'])) && isset($this->data['controller'])) {
+            if (!isset($this->data['module_id']) || empty($this->data['module_id'])) {
+                $url = explode("/", $this->data['controller']);
+                $this->data['module_id'] = \module\development_base\model\modules::getInstance()
+                                ->find(
+                                        array(
+                                            "fields" => array("modules.id")
+                                            , "where" => array("modules.name" => $url[0])
+                                        )
+                                )->fetch(\PDO::FETCH_COLUMN);
+            }
+        }
+    }
+
+    public function beforeFind() {
+        parent::beforeFind();
+        if (!isset($this->query['where'])) {
+            $this->query['where'] = array();
+        }
+        $menuObj = \module\development_base\model\menus::getInstance();
+        $sql = $menuObj->find(array('fields' => 'url_key', 'limit' => 0, 'return_sql' => 1));
+        $this->query['where']["CONCAT({$this->alias}.controller,'/index') IN subquery"] = $sql;
+        $sql = $menuObj->find(array('fields' => 'substring(url_key,1,locate("/",url_key)-1)', 'limit' => 0, 'return_sql' => 1));
+        $this->query['where'][] = array("OR" => array("{$this->alias}.module_id" => "", "{$this->alias}.modules.name IN subquery" => $sql));
+    }
+
+}
+
+?>

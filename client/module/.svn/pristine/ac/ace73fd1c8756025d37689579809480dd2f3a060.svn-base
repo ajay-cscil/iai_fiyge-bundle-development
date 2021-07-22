@@ -1,0 +1,9 @@
+<?php
+$config_test_cases = array(
+    'base_url' => 'http://localhost/benchmarking1/',
+    'username' => 'admin',
+    'password' => 'primod123'
+);
+// $conf = "\\tushar\\configuration";
+// $conf::write('benchmarking',$config_test_cases);
+?>

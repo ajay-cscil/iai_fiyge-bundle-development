@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\controller;
+  class product_uom_categ extends \module\mrp\controller\product_uom_categ_domain_logic
+  {
+       public $modelClass = '\\module\\mrp\\model\\product_uom_categ';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

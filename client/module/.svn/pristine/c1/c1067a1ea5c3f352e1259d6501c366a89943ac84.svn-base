@@ -1,0 +1,34 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\kpi\controller;
+
+class group_goals_domain_logic extends \tushar\controller {
+
+    public function edit($request) {
+        $return = parent::edit($request);
+        $data = $request->response('data');
+        if (is_array($data) && isset($data['group_goals']) && isset($data['group_goals']['goal_type_id'])) {
+            $modelObj = $this->modelObj();
+            $goalType = current($modelObj->goal_types->read($data['group_goals']['goal_type_id'], false));
+            $request->set('goal_level', $goalType['goal_level']);
+        }
+        return $return;
+    }
+
+    public function view($request) {
+        $return = parent::edit($request);
+        $data = $request->response('data');
+        if (is_array($data) && isset($data['group_goals']) && isset($data['group_goals']['goal_type_id'])) {
+            $modelObj = $this->modelObj();
+            $goalType = current($modelObj->goal_types->read($data['group_goals']['goal_type_id'], false));
+            $request->set('goal_level', $goalType['goal_level']);
+        }
+        return $return;
+    }
+
+}

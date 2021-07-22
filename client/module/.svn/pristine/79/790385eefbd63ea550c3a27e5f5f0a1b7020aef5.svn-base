@@ -1,0 +1,76 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\brules\controller;
+  class business_rules extends \module\brules\controller\business_rules_domain_logic
+  {
+       public $modelClass = '\\module\\brules\\model\\business_rules';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'tree',
+  'order_by_column' => 'business_rules.lft',
+  'order_by_dir' => 'asc',
+  'inline_click' => '1',
+  'fields' => 
+  array (
+    1 => 
+    array (
+      'column' => 'business_rules.name',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    2 => 
+    array (
+      'column' => 'business_rule_runlevels.runlevel',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    3 => 
+    array (
+      'column' => 'business_rules.filter_path',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    4 => 
+    array (
+      'column' => 'business_rules.event',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    5 => 
+    array (
+      'column' => 'business_rules.is_terminal',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+    6 => 
+    array (
+      'column' => 'business_rules.description',
+      'presentation' => '',
+      'alias' => '',
+      'id' => '',
+      'deleted' => '',
+    ),
+  ),
+  'order' => 'business_rules.lft asc',
+);
+
+
+
+
+
+
+  }

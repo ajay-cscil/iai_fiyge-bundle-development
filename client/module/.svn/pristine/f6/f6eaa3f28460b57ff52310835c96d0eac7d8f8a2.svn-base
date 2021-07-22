@@ -1,0 +1,16 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\wiki\model;
+
+class video_domain_logic extends \module\document_management_base\model\attachments{
+
+    public $allowedExtensions = array('video/mp4','application/ogg','video/ogg');
+
+
+
+}

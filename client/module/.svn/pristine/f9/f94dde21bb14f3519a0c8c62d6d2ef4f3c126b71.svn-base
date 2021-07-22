@@ -1,0 +1,280 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\cloud\model;
+  class instances extends \module\cloud\model\instances_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'cloud__instances';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'domain_name';
+       public $primaryKey = 'id';
+       public $alias = 'instances';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'job_title' => 
+  array (
+    'column' => 'job_title',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'message' => 
+  array (
+    'column' => 'message',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'first_name' => 
+  array (
+    'column' => 'first_name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'last_name' => 
+  array (
+    'column' => 'last_name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'domain_name' => 
+  array (
+    'column' => 'domain_name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'company' => 
+  array (
+    'column' => 'company',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'website' => 
+  array (
+    'column' => 'website',
+    'ntype' => 'string',
+    'length' => '50',
+  ),
+  'load_demo_data' => 
+  array (
+    'column' => 'load_demo_data',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'office_email' => 
+  array (
+    'column' => 'office_email',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'office_phone' => 
+  array (
+    'column' => 'office_phone',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'termination_protection' => 
+  array (
+    'column' => 'termination_protection',
+    'ntype' => 'int',
+    'length' => '1',
+    'value' => '0',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'lead_id' => 
+  array (
+    'column' => 'lead_id',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+  'application_admin_password' => 
+  array (
+    'column' => 'application_admin_password',
+    'ntype' => 'string',
+    'length' => '50',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+    'is_multi_value' => '0',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'federated_users' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\cloud\\model\\federated_users',
+    'associationAlias' => 'federated_users',
+    'foreignKey' => 'instance_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'leads' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm\\model\\leads',
+    'associationAlias' => 'leads',
+    'foreignKey' => 'lead_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'first_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'last_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'office_email' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'office_phone' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'domain_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+    1 => 'required',
+    2 => 
+    array (
+      'rule' => '\\tushar\\validation::notDuplicate',
+      'params' => 
+      array (
+      ),
+      'message' => 'Enter a different name for instance URL',
+    ),
+  ),
+  'company' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

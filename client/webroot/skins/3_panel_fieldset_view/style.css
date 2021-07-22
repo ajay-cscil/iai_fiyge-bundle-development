@@ -1,0 +1,120 @@
+/*
+    Document   : style
+    Created on : Feb 19, 2012, 5:56:05 PM
+    Author     : admin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+fieldset,.sort-table td,.block,.block .listview,button:not(.set-button){
+    -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+}
+.set-button{
+    border-radius: 0px;
+}
+.set-button-first{
+    -moz-border-radius: 5px 0px 0px 5px; -webkit-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px;
+}
+.set-button-last{
+    -moz-border-radius: 0px 5px 5px 0px; -webkit-border-radius: 0px 5px 5px 0px; border-radius: 0px 5px 5px 0px;
+}
+#left-panel .listview tr th,#left-panel .listview  tr td{
+    border:0px;
+}
+#left-panel .listview tr{
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+.ui-listview .record-row > td,.sub-listview .record-row > td {
+    border-bottom: 1px solid #EFEFEF;
+}
+.ui-listview .record-row > td:not(:last-child),.sub-listview .record-row > td:not(:last-child) {
+    border-right: 1px solid #FFFFFF;
+    padding-right: 5px;
+}
+.listview  .header-row{
+    margin: 0px;
+    padding:0px;
+    border: 0px;
+}
+
+.listview .sort-table th{
+    border:0px;
+}
+.search-panel{
+    margin-top: 18px;
+}
+.listview tr .listview td  {
+    border:0px;
+    margin:0px;
+    padding:0px;
+}
+.message-panel-container{
+    padding-top: 0px;
+    height: 18px;
+}
+.ui-dialog .ui-dialog-buttonpane{
+    border:0px;
+}
+.cell-info{
+    border-bottom: 0px;
+}
+.search_box{
+    -moz-border-radius: 5px !important; 
+    -webkit-border-radius: 5px !important; 
+    border-radius: 5px !important;
+    margin-bottom: 2px !important;
+    height:25px !important;
+    padding-top:0px !important;
+    padding-bottom:0px !important;
+}
+.standard input[type='text'],.standard input[type='url'],.standard input[type='number']
+,.standard input[type='date'],.standard input[type='time'],.standard input[type='datetime']
+,.standard input[type='password'],.standard input[type='email'],.standard input[type='tel']{
+    width:180px;
+}
+.standard select{
+    width:186px;
+}
+.not-empty-input{
+    /* background-color: #FFFF99;*/
+}
+
+input[type='text']
+,input[type='url']
+,input[type='number']
+,input[type='date']
+,input[type='time']
+,input[type='datetime']
+,input[type='password']
+,input[type='email']
+,input[type='tel']
+,input[type='password']
+,select,textarea  {
+    border:1px solid #DDDDDD;
+    padding:3px;
+}
+.token-input-list{
+    border:1px solid #DDDDDD !important;
+}
+.category-inactive ,.category-inactive a{
+    color: #CCCCCC !important;
+}
+.category-inactive a{
+    text-decoration: underline !important;
+    font-weight: normal !important;
+}
+#content-panel .panel .button-set{
+    float:left;
+}
+
+.ui-widget-content{
+    background-image: none !important; 
+    background-color: white !important;
+}

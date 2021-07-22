@@ -1,0 +1,1210 @@
+[
+    {
+        "widgets": {
+            "__related_to": "Category view drill down [310]",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-06-12 11:16:09",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-0664-4f03-8a40-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-19 14:56:49",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "1",
+            "primary_acl_group": null,
+            "related_to": "52611fb5-f864-4179-963c-1d890acef1b9",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "3",
+            "type_of_view": null,
+            "widget_name": "Converted Leads By Industry",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "My Dashboard",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-05-21 08:32:26",
+                "created_by": "1",
+                "dashboard_name": "Home",
+                "deleted": "0",
+                "flags": null,
+                "id": "1",
+                "is_demo_data": null,
+                "modified": "2012-08-22 03:09:07",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "My Dashboard",
+                "revision": "1",
+                "sequence_number": null,
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Leads by State\/Industry",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-08-21 22:16:12",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-0b78-4e1a-8058-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-02-13 17:06:12",
+            "modified_by": "1",
+            "owned_by": "1",
+            "pagination_limit": null,
+            "panel_id": "2",
+            "primary_acl_group": null,
+            "related_to": "52611fb5-f864-4179-963c-1d890acef1b9",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "3",
+            "type_of_view": "categorized",
+            "widget_name": "Leads by State and by Industry",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "System Admin",
+            "__panel_id": "Leads",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:56:01",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "2",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:06",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Leads",
+                "revision": "1",
+                "sequence_number": "2",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Lead distribution",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-05-21 08:35:38",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-9d50-42ee-a663-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-19 15:04:20",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "1",
+            "primary_acl_group": null,
+            "related_to": "527e8a20-6424-4c03-93e4-18580aec906d",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "2",
+            "type_of_view": "categorized",
+            "widget_name": "Lead Distribution",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "My Dashboard",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-05-21 08:32:26",
+                "created_by": "1",
+                "dashboard_name": "Home",
+                "deleted": "0",
+                "flags": null,
+                "id": "1",
+                "is_demo_data": null,
+                "modified": "2012-08-22 03:09:07",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "My Dashboard",
+                "revision": "1",
+                "sequence_number": null,
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Lead distribution",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-08-22 17:33:11",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-b1a0-46b0-b3c7-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-14 17:13:37",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "2",
+            "primary_acl_group": null,
+            "related_to": "527e8a20-6424-4c03-93e4-18580aec906d",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "1",
+            "type_of_view": "categorized",
+            "widget_name": "Leads by distribution",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "Leads",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:56:01",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "2",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:06",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Leads",
+                "revision": "1",
+                "sequence_number": "2",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Leads by source",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-05-31 10:07:37",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-c078-4d15-97d1-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-19 14:57:43",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "1",
+            "primary_acl_group": null,
+            "related_to": "52611fb5-8b58-4051-acea-1d890acef1b9",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "1",
+            "type_of_view": null,
+            "widget_name": "Leads By Source",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "My Dashboard",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-05-21 08:32:26",
+                "created_by": "1",
+                "dashboard_name": "Home",
+                "deleted": "0",
+                "flags": null,
+                "id": "1",
+                "is_demo_data": null,
+                "modified": "2012-08-22 03:09:07",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "My Dashboard",
+                "revision": "1",
+                "sequence_number": null,
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "By Source",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-08-30 00:31:15",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-d4c8-42ad-81eb-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-19 15:20:22",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "3",
+            "primary_acl_group": null,
+            "related_to": "52611fb5-2728-4abb-b94e-1d890acef1b9",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "2",
+            "type_of_view": "categorized",
+            "widget_name": "Oppurtunity Summary",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "Opportunities",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:04:35",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "3",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:24",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Opportunities",
+                "revision": "1",
+                "sequence_number": "3",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Converted Leads By Source",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-08-29 20:39:05",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-e404-4dc1-aa73-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-14 17:13:42",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "2",
+            "primary_acl_group": null,
+            "related_to": "52611fb5-b8dc-475f-a7c0-1d890acef1b9",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "2",
+            "type_of_view": "index",
+            "widget_name": "Converted Lead By Source",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "Leads",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:56:01",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "2",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:06",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Leads",
+                "revision": "1",
+                "sequence_number": "2",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "New Account",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2014-01-08 15:25:31",
+            "created_by": "88",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52cd6deb-e4bc-492b-9dfe-0e540ac22bdf",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-19 15:15:16",
+            "modified_by": "1",
+            "owned_by": "1",
+            "pagination_limit": null,
+            "panel_id": "4",
+            "primary_acl_group": null,
+            "related_to": "52611fb5-c3f0-4708-b93a-1d890acef1b9",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "2",
+            "type_of_view": null,
+            "widget_name": "New Accounts",
+            "__created_by": null,
+            "__modified_by": "System Admin",
+            "__owned_by": "System Admin",
+            "__panel_id": "Accounts",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 17:21:40",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "4",
+                "is_demo_data": null,
+                "modified": null,
+                "modified_by": null,
+                "owned_by": null,
+                "panel_name": "Accounts",
+                "revision": "1",
+                "sequence_number": "4",
+                "__created_by": "System Admin",
+                "__modified_by": null,
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "US Leads Distribution",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-08-29 20:42:21",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-108c-4be7-8433-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-02-12 18:14:58",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "2",
+            "primary_acl_group": null,
+            "related_to": "527c0797-d84c-4830-b793-04a30aec906d",
+            "related_to_model": "reports",
+            "revision": "1",
+            "sequence_number": "2",
+            "type_of_view": "categorized",
+            "widget_name": "U.S. Leads Distribution",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "Leads",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:56:01",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "2",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:06",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Leads",
+                "revision": "1",
+                "sequence_number": "2",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Probabilty by due date",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2013-05-25 19:45:13",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-6a00-4e1d-9274-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2014-04-19 15:17:01",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "3",
+            "primary_acl_group": null,
+            "related_to": "527bfafd-0fac-495c-8102-04b90aec906d",
+            "related_to_model": "reports",
+            "revision": "1",
+            "sequence_number": "1",
+            "type_of_view": "index",
+            "widget_name": "Opportunities by Due Date",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "Opportunities",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:04:35",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "3",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:24",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Opportunities",
+                "revision": "1",
+                "sequence_number": "3",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Sales Pipeline By Stages",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2013-08-26 22:09:16",
+            "created_by": "29",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-96ec-4d59-a819-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-14 17:12:41",
+            "modified_by": "1",
+            "owned_by": "29",
+            "pagination_limit": null,
+            "panel_id": "3",
+            "primary_acl_group": "848",
+            "related_to": "527bf977-a428-442c-866d-048d0aec906d",
+            "related_to_model": "reports",
+            "revision": "1",
+            "sequence_number": "1",
+            "type_of_view": "index",
+            "widget_name": "Sales Pipeline By Stages",
+            "__created_by": "Tim Sales Representative",
+            "__modified_by": "System Admin",
+            "__owned_by": "Tim Sales Representative",
+            "__panel_id": "Opportunities",
+            "__primary_acl_group": "Region-USA-North",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "panel_id_model": "panels",
+            "primary_acl_group_model": "groups",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:04:35",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "3",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:24",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Opportunities",
+                "revision": "1",
+                "sequence_number": "3",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Oppurtunity By Source",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2012-08-21 20:49:22",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52611fd2-c5f0-41f7-89ca-1d890acef1b9",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-13 19:22:15",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "3",
+            "primary_acl_group": null,
+            "related_to": "527bf807-1cc4-4792-ad9b-048d0aec906d",
+            "related_to_model": "reports",
+            "revision": "1",
+            "sequence_number": "1",
+            "type_of_view": "categorized",
+            "widget_name": "Oppurtunity By Source",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "Opportunities",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 18:04:35",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "3",
+                "is_demo_data": null,
+                "modified": "2013-05-25 20:09:24",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Opportunities",
+                "revision": "1",
+                "sequence_number": "3",
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    },
+    {
+        "widgets": {
+            "__related_to": "Account Revenues by Industry",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "29",
+                    "aro_id_model": "users",
+                    "aro_id": "29",
+                    "__aro_id": "Tim Sales Representative"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2014-01-07 14:38:57",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "52cc1181-2690-4fb9-8a74-54010ac22bdf",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-04-14 17:13:16",
+            "modified_by": "1",
+            "owned_by": "1",
+            "pagination_limit": null,
+            "panel_id": "4",
+            "primary_acl_group": null,
+            "related_to": "52611fce-624c-4190-87b3-1d890acef1b9",
+            "related_to_model": "reports",
+            "revision": "1",
+            "sequence_number": "1",
+            "type_of_view": null,
+            "widget_name": "Account Revenues by Industry",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "System Admin",
+            "__panel_id": "Accounts",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "owned_by_model": "owned_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-08-22 17:21:40",
+                "created_by": "1",
+                "dashboard_name": "CRM",
+                "deleted": "0",
+                "flags": null,
+                "id": "4",
+                "is_demo_data": null,
+                "modified": null,
+                "modified_by": null,
+                "owned_by": null,
+                "panel_name": "Accounts",
+                "revision": "1",
+                "sequence_number": "4",
+                "__created_by": "System Admin",
+                "__modified_by": null,
+                "__owned_by": null
+            }
+        }
+    }
+]

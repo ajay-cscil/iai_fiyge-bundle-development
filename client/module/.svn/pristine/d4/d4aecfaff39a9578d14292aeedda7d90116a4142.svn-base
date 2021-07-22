@@ -1,0 +1,327 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class fiscal_years_domain_logic extends \data_model{
+
+    public $isSystemModel = 1;
+
+    private function readAccounts($fiscalYearID, $modelObject, $parentID, &$accounts) {
+        $found = false;
+        $acts = \select("*")
+                ->from($modelObject)
+                ->inserted()
+                ->where(array('parent_id' => $parentID))
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC);
+        if (!empty($acts) && is_array($acts)) {
+            foreach ($acts as $account) {
+                if ($this->readAccounts($fiscalYearID, $modelObject, $account['id'], $accounts) === false) {
+                    $journalEntryLinesObject = \module\accounting\model\journal_entry_lines::getInstance();
+                    $total = \select(array("SUM(journal_entry_lines.debit) as debit_total", "SUM(journal_entry_lines.credit) as credit_total"))
+                            ->from($journalEntryLinesObject)
+                            ->join('journal_entries')
+                            ->join('workflow_docs')
+                            ->join('periods', false, 'journal_entries')
+                            ->where(array(
+                                "journal_entry_lines.account_id" => $account['id'],
+                                'workflow_docs.current_stages' => 'posted',
+                                'periods.fiscal_year_id' => $fiscalYearID
+                            ))
+                            ->inserted()
+                            ->limit(0)
+                            ->execute()
+                            ->fetch(\PDO::FETCH_ASSOC);
+                    $account['debit_total'] = $total['debit_total'];
+                    $account['credit_total'] = $total['credit_total'];
+                    $account['balance'] = $account['debit_total'] - $account['credit_total'];
+                    $accounts[] = $account;
+                }
+                $found = true;
+            }
+        }
+        return $found;
+    }
+
+    public function journalEntries(&$journalEntry) {
+        $journalEntry['journal_entry_lines'] = array();
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (strcasecmp($actionTriggred, 'close fiscal year') == 0) {
+            //$journalEntry['journal_type'] = 'sale';
+            $fiscalYearID = $this->data['id'];
+            $data = current($this->read($fiscalYearID));
+            $journalEntry['company_id'] = $data['company_id'];
+            // read company information.
+            $companyInfo = \select("*")
+                    ->from($this->companies)
+                    ->where('id', $journalEntry['company_id'])
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            $companyInfo['company_accounting'] = \select("*")
+                    ->from(\module\accounting\model\company_accounting::getInstance())
+                    ->where('company_id', $journalEntry['company_id'])
+                    ->inserted()
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+
+            $journalEntry['currency_id'] = (isset($this->data['currency_id']) ? $this->data['currency_id'] : '');
+            if (!isset($journalEntry['currency_id']) || empty($journalEntry['currency_id'])) {
+                $journalEntry['currency_id'] = $companyInfo['currency_id'];
+            }
+            if (!isset($journalEntry['currency_id']) || empty($journalEntry['currency_id'])) {
+                $journalEntry['currency_id'] = \tushar\user::read('currency_id');
+            }
+
+
+            if (empty($this->data['next_fiscal_year_id'])) {
+                throw new \Exception(__('Please configure next fiscal year', 'module'));
+            }
+
+            // find next period ID
+            $fiscalYearObject = \module\accounting\model\fiscal_years::getInstance();
+            //if (!isset($journalEntry['period_id']) || empty($journalEntry['period_id'])) {
+            $journalEntry['period_id'] = \select("periods.id")
+                    ->from($fiscalYearObject)
+                    ->join('periods')
+                    ->inserted()
+                    ->where(
+                            array(
+                                "{$fiscalYearObject->alias}.company_id" => $journalEntry['company_id'],
+                                "{$fiscalYearObject->alias}.id" => $this->id
+                            )
+                    )
+                    ->order('periods.start_of_period DESC')
+                    ->limit(1)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_COLUMN, 0);
+            //}
+            if (empty($journalEntry['period_id'])) {
+                //    throw new \Exception(__('Please configure open periods for next fiscal year', 'module'));
+                throw new \Exception(__('Could not find period for current fiscal year to post yar end closing entries.', 'module'));
+            }
+
+
+            // if period is not found then throw exception.
+            $journalEntry['journal_type'] = 'year_closing';
+            $journalEntry['journal_id'] = \module\accounting\model\journals::getInstance()->journalID($journalEntry['journal_type'], $journalEntry['currency_id'], $journalEntry['company_id']);
+
+
+            $income_summary_account_id = $year_closing_equity_account_id = $dividents_account_id = null;
+            if (!empty($companyInfo) && !empty($companyInfo['company_accounting'])) {
+                $income_summary_account_id = isset($companyInfo['company_accounting']['income_summary_account_id']) ? $companyInfo['company_accounting']['income_summary_account_id'] : null;
+                $year_closing_equity_account_id = isset($companyInfo['company_accounting']['year_closing_equity_account_id']) ? $companyInfo['company_accounting']['year_closing_equity_account_id'] : null;
+                $dividents_account_id = isset($companyInfo['company_accounting']['dividents_account_id']) ? $companyInfo['company_accounting']['dividents_account_id'] : null;
+            }
+            if (empty($income_summary_account_id)) {
+                throw new \Exception(sprintf(__('Please configure "income summary account" under company settings [%s]', "module"), $companyInfo['name']));
+            }
+            if (empty($year_closing_equity_account_id)) {
+                throw new \Exception(sprintf(__('Please configure year "closing equity account" under company settings [%s]', "module"), $companyInfo['name']));
+            }
+            if (empty($dividents_account_id)) {
+                throw new \Exception(sprintf(__('Please configure "dividents account" under company settings [%s]', "module"), $companyInfo['name']));
+            }
+
+
+            // $journalEntry['journal_id'] = '';
+            //Income A/C
+            $accountObject = \module\accounting\model\accounts::getInstance();
+            $incomeAccount = \select("*")
+                    ->from($accountObject)
+                    ->inserted()
+                    ->where(array('name' => 'income', 'OR' => array('parent_id' => 0, 'parent_id' => '', 'parent_id IS NULL'), 'company_id' => $journalEntry['company_id']))
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            $incomeAccounts = array();
+            $this->readAccounts($fiscalYearID, $accountObject, $incomeAccount['id'], $incomeAccounts);
+
+            foreach ($incomeAccounts as $incomeAccount) {
+                if (isset($incomeAccount['balance'])) {
+                    if ($incomeAccount['balance'] > 0) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $incomeAccount['id'],
+                            'credit' => $incomeAccount['balance']
+                        );
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $income_summary_account_id,
+                            'debit' => $incomeAccount['balance']
+                        );
+                    } else if ($incomeAccount['balance'] < 0) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $incomeAccount['id'],
+                            'debit' => $incomeAccount['balance']
+                        );
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $income_summary_account_id,
+                            'credit' => $incomeAccount['balance']
+                        );
+                    }
+                }
+            }
+
+            //Expense A/C
+
+            $accountObject = \module\accounting\model\accounts::getInstance();
+            $expenseAccount = \select("*")
+                    ->from($accountObject)
+                    ->inserted()
+                    ->where(array('name' => 'expense', 'OR' => array('parent_id' => 0, 'parent_id' => '', 'parent_id IS NULL'), 'company_id' => $journalEntry['company_id']))
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            $expenseAccounts = array();
+            $this->readAccounts($fiscalYearID, $accountObject, $expenseAccount['id'], $expenseAccounts);
+
+
+            foreach ($expenseAccounts as $expenseAccount) {
+                if (isset($expenseAccount['balance'])) {
+                    if ($expenseAccount['balance'] > 0) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $expenseAccount['id'],
+                            'credit' => $expenseAccount['balance']
+                        );
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $income_summary_account_id,
+                            'debit' => $expenseAccount['balance']
+                        );
+                    } else if ($expenseAccount['balance'] < 0) {
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $expenseAccount['id'],
+                            'debit' => $expenseAccount['balance']
+                        );
+                        $journalEntry['journal_entry_lines'][] = array(
+                            'account_id' => $income_summary_account_id,
+                            'credit' => $expenseAccount['balance']
+                        );
+                    }
+                }
+            }
+
+            //If Profit
+            $incomeBalanceTotal = $expenseBalanceTotal = 0;
+            foreach ($expenseAccounts as $account) {
+                $expenseBalanceTotal += $account['balance'];
+            }
+            foreach ($incomeAccounts as $account) {
+                $incomeBalanceTotal += $account['balance'];
+            }
+
+            $profit = $incomeBalanceTotal - $expenseBalanceTotal;
+            if ($profit > 0) {
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $income_summary_account_id,
+                    'debit' => $profit
+                );
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $year_closing_equity_account_id,
+                    'credit' => $profit
+                );
+            } else if ($profit < 0) {
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $year_closing_equity_account_id,
+                    'debit' => $profit
+                );
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $income_summary_account_id,
+                    'credit' => $profit
+                );
+            }
+
+            //(+)Dividents 
+            $divident = 0;
+            $journalEntryLinesObject = \module\accounting\model\journal_entry_lines::getInstance();
+            $total = \select(array("SUM(journal_entry_lines.debit) as debit_total", "SUM(journal_entry_lines.credit) as credit_total"))
+                    ->from($journalEntryLinesObject)
+                    ->join('journal_entries')
+                    ->join('periods')
+                    ->where(
+                            array(
+                                "journal_entry_lines.account_id" => $dividents_account_id,
+                                'journal_entries.status' => 'posted',
+                                'periods.fiscal_year_id' => $fiscalYearID
+                            )
+                    )
+                    ->inserted()
+                    ->limit(0)
+                    ->execute()
+                    ->fetch(\PDO::FETCH_ASSOC);
+            if (!empty($total)) {
+                $divident = $total['debit_total'] - $total['credit_total'];
+            }
+            if ($divident > 0) {
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $year_closing_equity_account_id,
+                    'debit' => $divident
+                );
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $dividents_account_id,
+                    'credit' => $divident
+                );
+            } else if ($divident < 0) {
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $dividents_account_id,
+                    'debit' => $divident
+                );
+                $journalEntry['journal_entry_lines'][] = array(
+                    'account_id' => $year_closing_equity_account_id,
+                    'credit' => $divident
+                );
+            }
+
+            return true;
+        }
+    }
+
+    public function afterSave($created=false) {
+        $actionTriggred = "";
+        if (is_array($this->data['action'])) {
+            $actionTriggred = key($this->data['action']);
+        } else {
+            $actionTriggred = $this->data['action'];
+        }
+        if (stripos($actionTriggred, 'close') !== false) {
+            $periodsObj = $this->{'periods'};
+            foreach (\select("{$periodsObj->alias}.{$periodsObj->primaryKey}")
+                    ->from($periodsObj)
+                    ->joinInner('workflow_docs')
+                    ->inserted()
+                    ->where("{$periodsObj->alias}.fiscal_year_id", $this->id)
+                    ->where("workflow_docs.current_stages", 'open')
+                    ->limit(0)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_COLUMN, 0)
+            as $openPeriodID) {
+                $pdata = $periodsObj->read($openPeriodID, array());
+                $pdata[$periodsObj->alias]['action'] = array('Close' => 'Close Period');
+                $periodsObj->save($pdata, array('atomic' => true));
+            }
+
+            $journalEntryObj = \module\accounting\model\journal_entries::getInstance();
+            \update(
+                            array(
+                                "{$journalEntryObj->alias}._acl_edit" => ""
+                                , "{$journalEntryObj->alias}._acl_delete" => ""
+                                , "{$journalEntryObj->alias}._acl_tmp_edit" => ""
+                                , "{$journalEntryObj->alias}._acl_tmp_delete" => ""
+                            )
+                    )
+                    ->from($journalEntryObj)
+                    ->joinInner('periods')
+                    ->where(array("periods.fiscal_year_id" => $this->id))
+                    ->inserted()
+                    ->limit(0)
+                    ->execute();
+        }
+    }
+
+}

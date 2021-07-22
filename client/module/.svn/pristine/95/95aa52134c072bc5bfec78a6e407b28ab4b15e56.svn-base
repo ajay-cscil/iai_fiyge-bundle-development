@@ -1,0 +1,248 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\email_intelligence\controller;
+
+class mail_accounts_domain_logic extends \data_controller {
+
+    public $access = array('scan_messages' => PUBLIC_ACCESS);
+
+    private function logEntry($request, $modelObj, $msg, $multiplier=0) {
+        $modelObj->mail_scanner_log->saveModel(array('mail_account_id' => $modelObj->id, 'description' => $msg), array('type' => 'insert', 'atomic' => true));
+        $request->push(str_repeat('&nbsp;', $multiplier) . $msg);
+    }
+
+    public function scan_messages($request) {
+        $this->render = 'comet';
+        $request->set('title', __('Scanning Mails'));
+        $request->set('pull_request_url', "{$request->module}/{$request->controller}/_scan_progress");
+    }
+
+    public function _scan_progress($request) {
+        $modelObj = $this->modelObj();
+        $this->LogEntry($request, $modelObj, __('START'));
+        \library('zend.php');
+        set_time_limit(0);
+        $scanMailAfterHours = \tushar\configuration::read('scan_mail_after_hours', 0.25);
+        $minimumScanLifetimeInSeconds = \tushar\configuration::read('minimum_scan_lifetime_in_seconds', 180);
+
+        $fields = array(
+            'delivered-to' => 'delivered_to',
+            'return-path' => 'return_path',
+            'date' => 'date',
+            'from' => 'from',
+            'reply-to' => 'reply_to',
+            'to' => 'to',
+            'cc' => 'cc',
+            'message-id' => 'message_id',
+            'subject' => 'subject',
+            'mime-version' => 'mime_version',
+            'mailing-list' => 'mailing_list',
+            'content-type' => 'content_type',
+            'content-transfer-encoding' => 'content_transfer_encoding',
+            'mail_account_id' => 'mail_account_id'
+        );
+        $scanStartTime = \tushar\locale::systemDate() . ' ' . \tushar\locale::systemTime();
+        $scanStartTimestamp = strtotime($scanStartTime);
+        $id = $this->id($request);
+        $where = array(
+            "is_active" => 1
+        );
+        if (!empty($id)) {
+            $where['id'] = $id;
+        }
+        foreach (\select(array('id', 'last_successful_scan'))
+                ->from($modelObj)
+                ->inserted()
+                ->where($where)
+                ->limit(0)
+                ->execute()
+                ->fetchAll(\PDO::FETCH_ASSOC) as $account) {
+            $modelObj->id = $account['id'];
+            $lastTime = strtotime('now');
+            if (empty($account['last_successful_scan']) || $account['last_successful_scan'] == "0000-00-00 00:00:00") {
+                $account['last_successful_scan'] = date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s'), date('m') - 1));
+            }
+            $mailAccount = \current($modelObj->read($account['id']));
+            if (strtotime($mailAccount['last_successful_scan']) < strtotime($account['last_successful_scan'])) {
+                $mailAccount['last_successful_scan'] = $account['last_successful_scan'];
+            }
+            $mailAccount['last_successful_scan'] = date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s'), date('m') - 1));
+            // if last scan time + diff time is less then current time then dont scan mail box
+            $a = strtotime($mailAccount['last_successful_scan']) + ($scanMailAfterHours * 60 * 60);
+            if ($a > $scanStartTimestamp) {
+                $this->LogEntry($request, $modelObj, sprintf(
+                                __('Account %s[%s] processing suspended as schedule time(last run + scan mail after hours) "%s" is greater then start time "%s"')
+                                , $mailAccount['name']
+                                , $mailAccount['id']
+                                , date("Y-m-d H:i:s", $a)
+                                , date("Y-m-d H:i:s", $scanStartTimestamp)
+                        )
+                );
+                continue;
+            }
+            $a = strtotime($mailAccount['scan_progress_time']) + (3 * $minimumScanLifetimeInSeconds);
+            if (
+                    ($a > $lastTime)
+            ) {
+                $this->LogEntry($request, $modelObj, sprintf(
+                                __('Account %s[%s] processing suspended as processed by another instance, last reported time is "%s", current time is "%s"')
+                                , $mailAccount['name']
+                                , $mailAccount['id']
+                                , date("Y-m-d H:i:s", $a)
+                                , date("Y-m-d H:i:s", $lastTime)
+                        )
+                );
+                continue;
+            }
+            if (
+                    $mailAccount["is_active"] != 1
+            ) {
+                $this->LogEntry($request, $modelObj, sprintf(__('Account %s[%s] processing suspended as it is marked inactive')
+                                , $mailAccount['name']
+                                , $mailAccount['id']
+                        )
+                );
+                continue;
+            }
+
+            $this->LogEntry($request, $modelObj, sprintf(__('Scanning %s[%s] started'), $mailAccount['name'], $mailAccount['id']));
+            // Mark start of account processing.
+            $modelObj->saveModel(
+                    array(
+                'id' => $mailAccount['id'],
+                'scan_start_time' => $scanStartTime,
+                'scan_end_time' => null
+                    ), array('type' => 'update', 'atomic' => true)
+            );
+            $modelObj->data = $mailAccount;
+            // Process mail boxes.
+            if (!isset($mailAccount["folders"]) || empty($mailAccount["folders"])) {
+                $mailAccount["folders"] = array('INBOX');
+            } else {
+                $mailAccount["folders"] = explode(",", $mailAccount["folders"]);
+            }
+            $this->LogEntry($request, $modelObj, sprintf(__('Connecting server %s:%s'), $mailAccount["host"], $mailAccount["port"]));
+            // Connect to mail server
+            $protocol = new \Zend_Mail_Protocol_Imap(
+                            $mailAccount["host"], $mailAccount["port"], ($mailAccount["ssl"] == 1 ? 'SSL' : ($mailAccount["tls"] == 1 ? 'TLS' : false))
+            );
+
+            // Login mail account
+            $protocol->login($mailAccount["user_name"], $mailAccount["password"]);
+            $this->LogEntry($request, $modelObj, sprintf(__('Loged in')));
+            // For every folder scan mail boxes.
+            foreach ($mailAccount["folders"] as $folder) {
+                try {
+                    $folder = trim($folder);
+                    // Select mail box
+                    $protocol->select($folder);
+                    $this->LogEntry($request, $modelObj, sprintf(__('Connected to folder %s'), $folder));
+                    // Search emails since last scan.
+                    $since = date("j-M-Y", strtotime($mailAccount['last_successful_scan']));
+                    $this->LogEntry($request, $modelObj, sprintf(__('Searching emails since "%s"'), $since));
+                    $searchresults = $protocol->search(array("SINCE " . $since));
+                    $this->LogEntry($request, $modelObj, sprintf(__('Found "%s" new emails'), count($searchresults)));
+                    $storage = new \Zend_Mail_Storage_Imap($protocol);
+                    $storage->selectFolder($folder);
+                    // For very mail message, invoke rules for model \module\email_intelligence\model\mail_accounts.
+                    $count = current($searchresults);
+                    //$searchresults = array($count);
+                    if ($count > 0) {
+                        foreach ($searchresults as $kk => $id) {
+                            $kk++;
+                            $this->LogEntry($request, $modelObj, sprintf(__('%s. Processing message-no "%s"'), $kk, $id), 3);
+                            try {
+                                $modelObj->message_log->zendMessageObject = $storage->getMessage($id);
+                                $headers = $modelObj->message_log->zendMessageObject->getHeaders();
+                                $data = array();
+                                foreach ($fields as $key => $newKey) {
+                                    $data[$newKey] = isset($headers[$key]) ? $headers[$key] : '';
+                                }
+                                $data['folder'] = $folder;
+                                $data['text_plain'] = $data['text_html'] = $data['content'] = $data['description'] = $modelObj->message_log->zendMessageObject->getContent();
+                                foreach (new \RecursiveIteratorIterator($modelObj->message_log->zendMessageObject) as $part) {
+                                    try {
+                                        if (strtok($part->contentType, ';') == 'text/plain') {
+                                            $data['text_plain'] = $this->decodeContent($part);
+                                            
+                                        } else if (strtok($part->contentType, ';') == 'text/html') {
+                                            $data['text_html'] = $this->decodeContent($part);
+                                           
+                                        }
+                                    } catch (\Zend_Mail_Exception $e) {
+                                        // ignore
+                                    }
+                                }
+                                
+                                $data['mail_account_id'] = $mailAccount['id'];
+                                // update progress time once in 3 minutes.
+                                $newTime = strtotime('now');
+                                if ($newTime > ($lastTime + $minimumScanLifetimeInSeconds)) {
+                                    $lastTime = $newTime;
+                                    $modelObj->saveModel(
+                                            array(
+                                        'scan_progress_time' => date('Y-m-d H:i:s', $lastTime),
+                                        'id' => $mailAccount['id']
+                                            ), array('type' => 'update', 'atomic' => true)
+                                    );
+                                }
+                                \tushar\model::$errors = array();
+                                $modelObj->message_log->parentData = $mailAccount;
+                               
+                                if ($modelObj->message_log->save($data)) {
+                                    $this->LogEntry($request, $modelObj, sprintf(__('Processed message-no "%s"'), $id), 8);
+                                } else {
+                                    $this->LogEntry($request, $modelObj, sprintf(__('Ignored message-no "%s" as its duplicate'), $id), 8);
+                                }
+                                \tushar\model::$errors = array();
+                            } catch (\Exception $e) {
+                                $this->LogEntry($request, $modelObj, sprintf(__('Process reported error: "%s"'), $e->getMessage()), 8);
+                            }
+                        }
+                    }
+                } catch (\Exception $e) {
+                    $this->LogEntry($request, $modelObj, sprintf(__('Process reported error: "%s"'), $e->getMessage()), 8);
+                }
+            }
+            // logout mail server.
+            $protocol->logout();
+            $this->LogEntry($request, $modelObj, sprintf(__('Loged out')));
+            // Mark end of account processing.
+            // update last_successful_scan to be same as scan_start_time
+            $modelObj->saveModel(
+                    array(
+                'scan_end_time' => \tushar\locale::systemDate() . ' ' . \tushar\locale::systemTime(),
+                'last_successful_scan' => $scanStartTime,
+                'id' => $mailAccount['id']
+                    ), array('type' => 'update', 'atomic' => true)
+            );
+        }
+        $this->LogEntry($request, $modelObj, __('End'));
+        exit;
+    }
+
+    private function decodeContent($part) {
+        $content = $part->getContent();
+        switch ($part->contentTransferEncoding) {
+            case 'base64':
+                $content = base64_decode($content);
+                break;
+            case 'quoted-printable':
+                $content = quoted_printable_decode($content);
+                break;
+        }
+        //find the charset
+        preg_match('/charset="(.+)"$/', $part->contentType, $matches);
+        $charset = $matches[1];
+        if ($charset == 'iso-8859-1') {
+            $content = utf8_encode($content); //convert to utf8
+        }
+        return $content;
+    }
+
+}

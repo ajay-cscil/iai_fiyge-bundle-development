@@ -1,0 +1,55 @@
+<?php
+
+namespace module\help\model;
+
+class notes_domain_logic extends \tushar\model{
+
+    public $displayField = 'title';
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'noteCategory' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'note_category_id'
+            , 'className' => '\\module\\help\\model\\note_categories'
+        ), 'contacts' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\crm\\model\\contacts'
+            ,'href'=>'module/crm/contacts'
+        ), 'leads' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'related_to'
+            , 'className' => '\\module\\crm\\model\\leads'
+        ), 'opportunities' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'related_to'
+            , 'className' => '\\module\\crm\\model\\opportunities'
+        ), 'users' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'related_to'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'campaigns' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'related_to'
+            , 'className' => '\\module\\campaigns\\model\\campaigns'
+        )
+    );
+    public $table = 'help__notes';
+
+    public $filters = array(
+        'title' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))),
+        'related_to' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+    );
+    public function beforeSave() {
+        if (empty($this->data['note_category_id']) && !empty($this->data['__note_category_id'])) {
+            $this->data['noteCategory']['name'] = $this->data['__note_category_id'];
+        }
+    }
+
+
+}

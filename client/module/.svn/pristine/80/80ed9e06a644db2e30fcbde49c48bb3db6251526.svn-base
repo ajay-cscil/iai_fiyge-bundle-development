@@ -1,0 +1,31 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\model;
+  class stock_production_lot extends \module\mrp\model\stock_production_lot_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'stock_production_lot';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $associations = array (
+  'product' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\mrp\\model\\product',
+    'associationAlias' => 'product',
+    'foreignKey' => 'product_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+  }

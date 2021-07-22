@@ -1,0 +1,77 @@
+[
+	{
+		"listviews":{
+			"old_id":"2142",
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"faq_answers.answer\",\"faq_answers.created\",\"faq_answers.modified\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"faq_answers.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"faq_answers.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"faq_answers.answer\",\"__column\":\"faq_answers.answer\"},{\"column\":\"faq_answers.created\",\"__column\":\"faq_answers.created\"},{\"column\":\"faq_answers.modified\",\"__column\":\"faq_answers.modified\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"faq_answers.modified\",\"__column\":\"faq_answers.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"faq_answers.modified\",\"sort_by\":\"faq_answers.modified\"}}",
+			"description":null,
+			"controller":"tickets\/faq_answers",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2014-05-05 13:06:46",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Region-USA"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"tickets.faq_answers.Recycle Bin",
+			"sequence":"151",
+			"primary_acl_group":"847",
+			"id":"53678ce6-9bc4-41ad-baff-16ff305cb485",
+			"module_id":"457",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Region-USA",
+			"primary_acl_group_model":"groups",
+			"__module_id":"tickets",
+			"module_id_model":"modules",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

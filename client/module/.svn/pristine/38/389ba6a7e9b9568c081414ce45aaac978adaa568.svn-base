@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\hr\controller;
+  class timesheets extends \module\hr\controller\timesheets_domain_logic
+  {
+       public $modelClass = '\\module\\hr\\model\\timesheets';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

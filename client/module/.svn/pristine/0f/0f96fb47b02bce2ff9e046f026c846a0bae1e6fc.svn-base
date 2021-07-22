@@ -1,0 +1,126 @@
+<?php
+
+namespace module\flexflow\helper;
+
+class flexflow
+{
+
+    public static $properties = array(
+        'flexflow_actions' => array(
+            true,
+            'helper' => array('helper' => '\\tushar\\form', 'method' => 'select', 'colspan' => 3, 'lookup' => 'helpers'),
+            'method' => array('helper' => '\\tushar\\form', 'method' => 'select', 'colspan' => 3, 'lookup' => 'helper_methods'),
+        )
+    );
+
+    public static function flexflow_actions($view, $node)
+    {
+        $permission = isset($node['permission']) ? $node['permission'] : 0;
+        if (($permission & DELETE) != DELETE) {
+            if ($view->request->action == 'view') {
+                \tushar\form::menu($view, array());
+                return;
+            }
+            $primaryKey = $view->get(array('id'));
+            $model = $view->get('model', false);
+            $docObject = \module\flexflow\model\docs::getInstance(array(), true);
+            $ffActorObject = \module\flexflow\model\actors::getInstance(array(), true);
+            $ffActionsObject = \module\flexflow\model\actions::getInstance(array(), true);
+            $ffStagesObject = \module\flexflow\model\stages::getInstance(array(), true);
+
+
+            $currentActiveStages = array();
+            $ffCurrentActors = $ffActorObject->ffCurrentActors(array(), true);
+            $docObject->data = \select("{$docObject->alias}.*")
+                            ->from($docObject)
+                            ->inserted()
+                            ->where(
+                                    array(
+                                        "{$docObject->alias}.foreign_key" => $primaryKey
+                                        , "{$docObject->alias}.foreign_key_model" => $model
+                                    )
+                            )->execute()
+                            ->fetch(\PDO::FETCH_ASSOC);
+            if (empty($docObject->data)) {
+// fetch draft stage actions for current user actors.
+                $currentActiveStages = \select("{$ffStagesObject->alias}.id")
+                                ->from($ffStagesObject)
+                                ->inserted()
+                                ->where("{$ffStagesObject->alias}.name", 'draft')
+                                ->execute()
+                                ->fetch(\PDO::FETCH_COLUMN, 0);
+            } else {
+                $currentActiveStages = \select("current_stages.stage_id")
+                                ->from($docObject)
+                                ->inserted()
+                                ->joinInner('current_stages')
+                                ->where(
+                                        array(
+                                            "{$docObject->alias}.foreign_key" => $primaryKey
+                                            , "{$docObject->alias}.foreign_key_model" => $model
+                                            , "current_stages.status" => 'currently_active'
+                                        )
+                                )->execute()
+                                ->fetch(\PDO::FETCH_COLUMN, 0);
+            }
+
+            $ffActorStageObject = \module\flexflow\model\actor_stage::getInstance();
+            $canActorActOnStage = true;
+            /**
+              (bool) \select("{$ffActorStageObject->alias}.{$ffActorStageObject->primaryKey}")
+              ->from($ffActorStageObject)
+              ->inserted()
+              ->where("{$ffActorStageObject->alias}.stage_id", $currentActiveStages)
+              ->where("{$ffActorStageObject->alias}.actor_id", $ffCurrentActors)
+              ->execute()
+              ->fetch(\PDO::FETCH_COLUMN, 0);
+             *
+             */
+            $currentActiveActions = array();
+
+            foreach (\select("{$ffActionsObject->alias}.*")
+                    ->from($ffActionsObject)
+                    ->joinInner('possible_actions')
+                    ->joinInner('authorized_actions', false, true)
+                    ->inserted()
+                    ->where("possible_actions.stage_id", $currentActiveStages)
+                    ->where("authorized_actions.actor_id", $ffCurrentActors)
+                    ->execute()
+                    ->fetchAll(\PDO::FETCH_ASSOC) as $action) {
+                $params = array();
+                if ($canActorActOnStage == false) {
+                    $params['disabled'] = 'disabled';
+                }
+                $params['name'] = array('action', $action['name']);
+                $params['value'] = $action['label'];
+                echo \tushar\form::submit($view, $params);
+            }
+        }
+    }
+
+    public static function actor($val, &$column, $request, $paginate, $primaryKey, $record)
+    {
+        $return = "{$record['users.first_name']} {$record['users.last_name']}";
+
+
+
+        return $return;
+    }
+
+    public static function active_stage($val, &$column, $request, $paginate, $primaryKey, $record)
+    {
+        if ($val == 1) $val = '<span class="ui-icon ui-icon-arrowthick-1-e float-right"></span>';
+        return $val;
+    }
+
+    public static function active_stage_row($request, $paginate, $primaryKey, $record)
+    {
+        if(isset($record['.active']) && $record['.active'] ==1){
+            return ' data-theme="e" ';
+        }
+
+    }
+
+
+
+}

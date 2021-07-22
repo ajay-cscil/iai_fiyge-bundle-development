@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\license_management\controller;
+  class license_domains extends \module\license_management\controller\license_domains_domain_logic
+  {
+       public $modelClass = '\\module\\license_management\\model\\license_domains';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

@@ -1,0 +1,17 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\dashboards\model;
+
+class widget_permissions_domain_logic extends \tushar\model{
+
+    public function dataForInstallation($moduleName, $page=null) {
+        return array();
+    }
+    public $isSystemModel=1;
+
+}

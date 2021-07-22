@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\helper\form_view;
+
+class campaigns {
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $view
+     * @param type $node
+     */
+    public static function send_on($view, $node) {
+        $types = array();
+        $types['Hourly'] = array();
+        for ($i = 1; $i < 31; $i++) {
+            $types['Hourly'][] = array('text' => $i, 'value' => $i);
+            $types['Daily'][] = array('text' => $i, 'value' => $i);
+        }
+        $types['Hourly'] = array_slice($types['Hourly'], 0, 23);
+        $types['Weekly'] = array(array('text' => 'Sun', 'value' => 'Sun')
+            , array('text' => 'Mon', 'value' => 'Mon')
+            , array('text' => 'Tue', 'value' => 'Tue')
+            , array('text' => 'Wed', 'value' => 'Wed')
+            , array('text' => 'Thu', 'value' => 'Thu')
+            , array('text' => 'Fri', 'value' => 'Fri')
+            , array('text' => 'Sat', 'value' => 'Sat')
+        );
+        $types['Monthly'] = array(array('text' => 'Jan', 'value' => 'Jan'),
+            array('text' => 'Feb', 'value' => 'Feb'),
+            array('text' => 'Mar', 'value' => 'Mar'),
+            array('text' => 'Apr', 'value' => 'Apr'),
+            array('text' => 'May', 'value' => 'May'),
+            array('text' => 'Jun', 'value' => 'Jun'),
+            array('text' => 'Jul', 'value' => 'Jul'),
+            array('text' => 'Aug', 'value' => 'Aug'),
+            array('text' => 'Sept', 'value' => 'Sept'),
+            array('text' => 'Oct', 'value' => 'Oct'),
+            array('text' => 'Nov', 'value' => 'Nov'),
+            array('text' => 'Dec', 'value' => 'Dec'));
+
+
+
+        if (!isset($node['class']))
+            $node['class'] = '';
+
+
+        $node['multiselect'] = 1;
+
+        $node['class'] .= 'sendon-input';
+        $campaignType = $view->data(array('campaigns', 'campaign_type'));
+        foreach ($types as $type => $options) {
+            $node['children'] = $options;
+            echo '<div class="SendOn SendOn-' . $type . '" ' . ($campaignType == $type ? ' style="display:block;" ' : ' style="display:none;" ' ) . ' >';
+            \tushar\form::checkbox($view, $node);
+            echo '</div>';
+        }
+    }
+
+    
+}
+

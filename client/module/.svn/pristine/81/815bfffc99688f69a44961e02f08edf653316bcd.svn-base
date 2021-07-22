@@ -1,0 +1,66 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\model;
+
+class bank_reconciliation_domain_logic extends \data_model{
+
+    public function beforeValidate() {
+        parent::beforeValidate();
+
+        //$this->data['list_records']
+    }
+
+    public function beforeSave() {
+        parent::beforeSave();
+        if (isset($this->data['difference']) && $this->data['difference'] != 0) {
+            throw new \Exception(sprintf(__('Please create journal entry line for account "%s" to match the difference', 'module'), $this->data['__account_id']));
+        }
+        /*if ($this->data['deposits_and_other_credits']='0.00' && $this->data['checks_and_payments']='0.00') {
+                throw new \Exception(sprintf(__('Please select atleast one record from the list to reconcile', 'module')));
+  }*/
+        }
+    
+
+    public function afterSave($created) {
+        parent::afterSave($created);
+        $journalEntryObject = \module\accounting\model\journal_entries::getInstance();
+        $accountObject = \module\accounting\model\accounts::getInstance();
+        if (isset($this->data['list_record']) && is_array($this->data['list_record'])) {
+            foreach ($this->data['list_record'] as $recordID) {
+                $journalEntryObject->saveModel(array(
+                    'id' => $recordID,
+                    'is_reconciled' => 1,
+                    'reconciliation_id' => $this->id), array('atomic' => true)
+                );
+            }
+            $accountObject->saveModel(array(
+                'id' => $this->data['account_id'],
+                'last_reconciliation_date' => date('Y-m-d')), array('atomic' => true)
+            );
+        }
+
+        $userID = \tushar\user::read('id');
+        if ($created) {
+            $acl = array();
+            if (!empty($userID)) {
+                $acl['u' . $userID] = 'u' . $userID;
+            }
+            if (isset($this->data['owned_by']) && !empty($this->data['owned_by'])) {
+                $acl['u' . $this->data['owned_by']] = 'u' . $this->data['owned_by'];
+            }
+            if (isset($this->data['primary_acl_group']) && !empty($this->data['primary_acl_group'])) {
+                $acl['g' . $this->data['primary_acl_group']] = 'g' . $this->data['primary_acl_group'];
+            }
+            $this->acl['_acl_edit'] = $this->acl['_acl_delete'] = "";
+            $this->acl['_acl'] = implode(' ', $acl);
+        } else {
+            $this->acl['_acl'] = array('op' => 'add', 'u' . $userID);
+        }
+    }
+
+}

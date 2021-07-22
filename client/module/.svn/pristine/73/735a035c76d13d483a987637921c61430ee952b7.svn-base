@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\contracts\renderer;
+
+class php implements \Zend_Markup_Renderer_TokenConverterInterface {
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param \Zend_Markup_Token $token
+     * @param type $text
+     * @return type
+     */
+    public function convert(\Zend_Markup_Token $token, $text) {
+        return '<?php ' . br2nl(\html_entity_decode($text)) . ' ?>';
+    }
+
+}
+
+?>

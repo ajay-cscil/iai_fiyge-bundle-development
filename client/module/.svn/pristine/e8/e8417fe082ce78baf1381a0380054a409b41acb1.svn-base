@@ -1,0 +1,120 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\crm\controller;
+
+class opportunities_domain_logic extends \data_controller{
+
+    public function convert_to_opportunity($request)
+    {
+        $this->render = 'edit';
+        $leadId = $request->param('id');
+        $data = false;
+        if (!empty($leadId) && !$request->is('post')) {
+            $alias = $this->modelObj()->alias;
+            $primaryKey = $this->modelObj()->primaryKey;
+            $leadObj = $this->modelObj()->leads;
+            $leadObj->cloned = true;
+            $leadData = $leadObj->read($leadId);
+
+
+            $converted = isset($leadData[$leadObj->alias])
+                    && isset($leadData[$leadObj->alias]['converted']) ? $leadData[$leadObj->alias]['converted'] : 0;
+            if ($converted == 1) {
+                $request->setMsg(__('This lead is already converted','module'));
+                return false;
+            }
+            $data = array();
+            $data[$alias] = isset($leadData[$leadObj->alias]) ? $leadData[$leadObj->alias] : array();
+            $data[$alias]['related_to'] = $leadId;
+            $data[$alias]['__related_to'] = $leadData[$leadObj->alias][$leadObj->displayField];
+            $data[$alias]['related_to_model'] = 'leads';
+
+            if (isset($data[$alias][$primaryKey])) unset($data[$alias][$primaryKey]);
+
+            $request->overwrite('params', 'id', null);
+        }
+
+        $form = \module\development_base\model\forms::getInstance()->toArray('\\module\\crm\\model\\opportunities');
+        $request->set('form', $form);
+        $return = parent::edit($request);
+        if ($data !== false) {
+            $request->set('data', $data);
+        }
+        if ($request->is('post') && $this->saveHandlerOutput != false) {
+            $request->setMsg(sprintf(__('Converted to opportunity, click %s to open','module')
+                            ,
+                                              '<a href="' . $request->base . 'crm/opportunities/view/id:' . $this->saveHandlerOutput . '">'
+                            . __('Here','module') . '</a>'),TRUE);
+        }
+        $request->set('id', '');
+
+        return $return;
+    }
+
+    public function percent_to_goal($request)
+    {
+
+        $modelObj = $this->modelObj();
+        $paginate = array('paginate_as' => 'graph');
+        $paginate['data'] = $data = \select(array('regions.region_code as "owned_by_user.region_code"', 'SUM(opportunities.amount)/SUM(goals.amount)*100 as "opportunities.percent_to_goal"'))
+                        ->from($modelObj)
+                        ->joinInner('accounts')
+                        ->joinInner('goals')
+                        ->joinInner('owned_by_user', false, 'accounts')
+                        ->joinInner('regions')
+                        ->group('regions.region_code')
+                        ->inserted()
+                        ->callback()
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+        $paginate['lca'] = 0;
+        $paginate['header'] = array(
+            'owned_by_user.region_code' => array(
+                'name' => 'owned_by_user.region_code'
+                , 'fname' => 'owned_by_user.region_code'
+                , 'visible' => true
+                , 'class' => ''
+                , 'active_level_column' => true
+                , 'native_type' => 'VAR_STRING'
+                , 'is_value' => true
+            ),
+            'opportunities.percent_to_goal' => array(
+                'name' => 'opportunities.percent_to_goal'
+                , 'fname' => 'opportunities.percent_to_goal'
+                , 'visible' => true
+                , 'class' => ''
+                , 'native_type' => 'VAR_FLOAT'
+                , 'is_value' => true
+            )
+        );
+
+        $paginate['render_as'] = 'graph';
+        $paginate['graph_type'] = 'Gauge';
+        $paginate['is_last_level'] = false;
+        $paginate['active_level'] = 0;
+        $paginate["primary_key"] = 'id';
+        $paginate["display_field"] = 'id';
+        $paginate['pfooter'] = true;
+
+
+        $paginate['green-To'] = 100;
+        $paginate['green-From'] = 80;
+        $paginate['yellow-To'] = 80;
+        $paginate['yellow-From'] = 50;
+        $paginate['red-To'] = 50;
+        $paginate['red-From'] = 0;
+
+        $paginate['minor-ticks'] = 5;
+
+
+
+        $this->render = 'index';
+        $request->set('paginate', $paginate);
+    }
+
+}

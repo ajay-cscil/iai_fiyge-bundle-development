@@ -1,0 +1,182 @@
+{
+    "timesheet_lines_group_acl_cache": {
+        "model_class": "\\module\\hr\\model\\timesheet_lines_group_acl_cache",
+        "design": [
+            {
+                "_acl": null,
+                "_acl_delete": null,
+                "_acl_edit": null,
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-06-07 15:04:17",
+                "created_by": "1",
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "539329f1-c0cc-4362-ad8c-19540af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "0",
+                "model_class": "\\module\\hr\\model\\timesheet_lines_group_acl_cache",
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27265080-e746-11e3-aad5-0800275f9930",
+                "name": "\\module\\hr\\model\\timesheet_lines_group_acl_cache",
+                "owned_by": null,
+                "parent_id": null,
+                "properties": "{\"displayField\":\"id\",\"primaryKey\":\"id\",\"parentClass\":\"\\\\acl_model\",\"source\":\"acl\",\"table\":\"hr__timesheet_lines_group_acl_cache\"}",
+                "revision": null,
+                "template": "model"
+            },
+            {
+                "_acl": null,
+                "_acl_delete": null,
+                "_acl_edit": null,
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-06-07 15:04:17",
+                "created_by": "1",
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "539329f1-da30-4b2e-b1f9-19540af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "0",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27265080-e746-11e3-aad5-0800275f9930",
+                "name": "group_id",
+                "owned_by": null,
+                "parent_id": "539329f1-c0cc-4362-ad8c-19540af91b9d",
+                "properties": "{\"group_id\":[{\"rule\":1024,\"params\":{\"options\":[\"\\\\tushar\\\\validation\",\"notEmpty\"]}}]}",
+                "revision": null,
+                "template": "validate"
+            },
+            {
+                "_acl": null,
+                "_acl_delete": null,
+                "_acl_edit": null,
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-06-07 15:04:17",
+                "created_by": "1",
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "539329f1-f208-4cbb-b62f-19540af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "0",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27265080-e746-11e3-aad5-0800275f9930",
+                "name": "group_id",
+                "owned_by": null,
+                "parent_id": "539329f1-c0cc-4362-ad8c-19540af91b9d",
+                "properties": "{\"group_id\":{\"column\":\"group_id\",\"ntype\":\"int\",\"length\":\"19\"}}",
+                "revision": null,
+                "template": "fields"
+            },
+            {
+                "_acl": null,
+                "_acl_delete": null,
+                "_acl_edit": null,
+                "_acl_tmp": null,
+                "_acl_tmp_delete": null,
+                "_acl_tmp_edit": null,
+                "created": "2014-06-07 15:04:17",
+                "created_by": "1",
+                "data_conflict": null,
+                "deleted": "0",
+                "flags": null,
+                "id": "539329f1-b3b4-4f07-b405-19540af91b9d",
+                "is_commit_pending": "0",
+                "is_demo_data": null,
+                "is_public": "0",
+                "model_class": null,
+                "modified": null,
+                "modified_by": null,
+                "module_id": "27265080-e746-11e3-aad5-0800275f9930",
+                "name": "id",
+                "owned_by": null,
+                "parent_id": "539329f1-c0cc-4362-ad8c-19540af91b9d",
+                "properties": "{\"id\":{\"column\":\"id\",\"ntype\":\"int\",\"length\":\"19\"}}",
+                "revision": null,
+                "template": "fields"
+            }
+        ],
+        "schema": {
+            "name": "hr__timesheet_lines_group_acl_cache",
+            "engine": "InnoDB",
+            "version": "10",
+            "row_format": "Compact",
+            "collation": "utf8_general_ci",
+            "create_options": "",
+            "comment": "{\"displayField\":\"id\"}",
+            "schema": {
+                "columns": {
+                    "group_id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "id": {
+                        "type": "int(19)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "PRI",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "19",
+                        "ntype": "int"
+                    },
+                    "is_demo_data": {
+                        "type": "tinyint(4)",
+                        "collation": null,
+                        "null": "NO",
+                        "key": "",
+                        "default": "0",
+                        "extra": "",
+                        "privileges": "select,insert,update,references",
+                        "comment": "",
+                        "const": 0,
+                        "length": "4",
+                        "ntype": "int"
+                    }
+                },
+                "indexes": {
+                    "PRIMARY": {
+                        "1": {
+                            "type": "UNIQUE",
+                            "table": "hr__timesheet_lines_group_acl_cache",
+                            "column": "id"
+                        },
+                        "2": {
+                            "type": "UNIQUE",
+                            "table": "hr__timesheet_lines_group_acl_cache",
+                            "column": "group_id"
+                        }
+                    }
+                },
+                "references": []
+            }
+        }
+    }
+}

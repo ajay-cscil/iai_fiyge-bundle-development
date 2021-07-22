@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\contracts\controller;
+  class templates extends \module\contracts\controller\templates_domain_logic
+  {
+       public $modelClass = '\\module\\contracts\\model\\templates';
+
+
+
+
+
+
+  }

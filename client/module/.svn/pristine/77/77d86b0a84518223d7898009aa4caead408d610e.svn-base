@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\kpi\controller;
+  class notification_related_to extends \module\kpi\controller\notification_related_to_domain_logic
+  {
+       public $modelClass = '\\module\\kpi\\model\\notification_related_to';
+
+
+
+
+
+
+  }

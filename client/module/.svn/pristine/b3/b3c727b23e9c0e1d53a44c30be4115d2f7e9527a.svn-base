@@ -1,0 +1,24 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\data_management\model;
+
+class exports_domain_logic extends \data_model{
+
+    public $singular = 'export job';
+
+    public function beforeValidate() {
+        parent::beforeValidate();
+        if (!isset($this->data['import_compatible'])) {
+            $this->data['import_compatible'] = 1;
+        }
+        if (!isset($this->data['export_format'])) {
+            $this->data['export_format'] = 'csv';
+        }
+    }
+
+}

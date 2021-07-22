@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\controller;
+  class template extends \module\mrp\controller\template_domain_logic
+  {
+       public $modelClass = '\\module\\mrp\\model\\template';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

@@ -1,0 +1,65 @@
+[
+	{
+		"reports":{
+			"old_id":"0",
+			"name":"Sales by Item",
+			"category_id":"2",
+			"query":"{\"name\":\"Sales by Item\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"product\\\/products\",\"is_public\":\"1\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group_model\":\"groups\",\"fields\":[{\"products.name\":{\"alias\":\"Product\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"products.sale_order_lines.quantity\":{\"alias\":\"Quantity Sold\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"products.sale_order_lines.total_amount\":{\"alias\":\"Amount\",\"aggregator\":\"SUM\",\"sortable\":\"1\",\"searchable\":\"1\"}},{\"products.sale_order_lines.price_per_unit\":{\"alias\":\"Price Per Unit\",\"sortable\":\"1\",\"searchable\":\"1\"}}],\"group\":[\"products.id\"],\"order\":[\"sum(products.sale_order_lines.total_amount)  DESC\"],\"created_by\":\"1\",\"render_as\":\"index\",\"show_has_many_records\":\"one\",\"parent_id_model\":\"parent_listview\",\"method\":\"index\",\"modified_by\":\"1\",\"description\":\"<font color=\\\"green\\\">Lists all the products and the quantity sold along with the amount<\\\/font>\"}",
+			"_query":"{\"id\":\"52a23ccc-8b04-49f2-a5c8-68070a550b97\",\"name\":\"Sales by Item\",\"category_id\":\"2\",\"category_id_model\":\"category\",\"__category_id\":\"Performance Reports\",\"controller\":\"product\\\/products\",\"_is_public\":\"0\",\"is_public\":\"1\",\"description\":\"<font color=\\\"green\\\">Lists all the products and the quantity sold along with the amount<\\\/font>\",\"owned_by\":\"1\",\"owned_by_model\":\"users\",\"__owned_by\":\"System Admin\",\"primary_acl_group\":\"0\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"created_by\":\"1\",\"modified_by\":\"1\",\"render_as\":\"index\",\"fields\":[{\"seq\":\"1\",\"column\":\"products.name\",\"column_model\":\"schema\",\"__column\":\"products.name\",\"alias\":\"Product\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"2\",\"column\":\"products.sale_order_lines.quantity\",\"column_model\":\"schema\",\"__column\":\"products.sale_order_lines.quantity\",\"alias\":\"Quantity Sold\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"3\",\"column\":\"products.sale_order_lines.total_amount\",\"column_model\":\"schema\",\"__column\":\"products.sale_order_lines.total_amount\",\"alias\":\"Amount\",\"aggregator\":\"SUM\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"},{\"seq\":\"4\",\"column\":\"products.sale_order_lines.price_per_unit\",\"column_model\":\"schema\",\"__column\":\"products.sale_order_lines.price_per_unit\",\"alias\":\"Price Per Unit\",\"aggregator\":\"\",\"style\":\"\",\"presentation\":\"\",\"if\":\"\",\"_is_invisible\":\"0\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"id\":\"\",\"deleted\":\"\"}],\"group_by\":{\"1\":{\"column\":\"products.id\",\"column_model\":\"schema\",\"__column\":\"products.id\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"\",\"sort_by_model\":\"schema\",\"__sort_by\":\"sum(products.sale_order_lines.total_amount)\",\"sort_order\":\"DESC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"show_has_many_records\":\"one\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"sequence\":\"\",\"row_template\":\"\",\"_acl\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"1\",\"aro_id_model\":\"users\",\"__aro_id\":\"System Admin\",\"id\":\"1\",\"deleted\":\"\"}],\"order\":{\"1\":{\"sort_by\":\"sum(products.sale_order_lines.total_amount)\"}},\"animation--duration\":\"\",\"animation--easing\":\"\",\"area-opacity\":\"\",\"axis-titles-position\":\"\",\"background-color\":\"\",\"background-color--stroke\":\"\",\"background-color--stroke-width\":\"\",\"background-color--fill\":\"\",\"chart-area\":\"\",\"chart-area--left\":\"\",\"chart-area--top\":\"\",\"chart-area--width\":\"\",\"chart-area--height\":\"\",\"colors\":\"\",\"enable-interactivity\":\"\",\"focus-target\":\"\",\"font-size\":\"\",\"font-name\":\"\",\"h-axis\":\"\",\"h-axis--baseline\":\"\",\"h-axis--baseline-color\":\"\",\"h-axis--direction\":\"\",\"h-axis--format\":\"\",\"h-axis--gridlines\":\"\",\"h-axis--gridlines--color\":\"\",\"h-axis--gridlines--count\":\"\",\"h-axis--log-scale\":\"\",\"h-axis--text-position\":\"\",\"h-axis--text-style\":\"\",\"h-axis--title\":\"\",\"h-axis--title-text-style\":\"\",\"h-axis--slanted-text\":\"\",\"h-axis--slanted-text-angle\":\"\",\"h-axis--max-alternation\":\"\",\"h-axis--show-text-every\":\"\",\"h-axis--max-value\":\"\",\"h-axis--min-value\":\"\",\"h-axis--view-window-mode\":\"\",\"h-axis--view-window\":\"\",\"h-axis--view-window--max\":\"\",\"h-axis--view-window--min\":\"\",\"height\":\"\",\"is-stacked\":\"\",\"legend\":\"\",\"legend--position\":\"\",\"legend--text-style\":\"\",\"line-width\":\"\",\"point-size\":\"\",\"reverse-categories\":\"\",\"series\":\"\",\"theme\":\"\",\"title\":\"\",\"title-position\":\"\",\"title-text-style\":\"\",\"tooltip\":\"\",\"tooltip--show-color-code\":\"\",\"tooltip--text-style\":\"\",\"tooltip--trigger\":\"\",\"v-axes\":\"\",\"v-axis\":\"\",\"v-axis--baseline\":\"\",\"v-axis--baseline-color\":\"\",\"v-axis--direction\":\"\",\"bubble\":\"\",\"bubble--opacity\":\"\",\"bubble--stroke\":\"\",\"bubble--text-style\":\"\",\"color-axis\":\"\",\"color-axis--min-value\":\"\",\"color-axis--max-value\":\"\",\"color-axis--values\":\"\",\"color-axis--colors\":\"\",\"color-axis--legend\":\"\",\"color-axis--legend--position\":\"\",\"color-axis--legend--text-style\":\"\",\"color-axis--legend--number-format\":\"\",\"size-axis\":\"\",\"size-axis--max-size\":\"\",\"size-axis--max-value\":\"\",\"size-axis--min-size\":\"\",\"size-axis--min-value\":\"\",\"sort-bubbles-by-size\":\"\",\"v-axis--format\":\"\",\"v-axis--gridlines\":\"\",\"v-axis--gridlines--color\":\"\",\"v-axis--gridlines--count\":\"\",\"v-axis--log-scale\":\"\",\"v-axis--text-position\":\"\",\"v-axis--text-style\":\"\",\"v-axis--title\":\"\",\"v-axis--title-text-style\":\"\",\"v-axis--max-value\":\"\",\"v-axis--min-value\":\"\",\"v-axis--view-window-mode\":\"\",\"v-axis--view-window\":\"\",\"v-axis--view-window--max\":\"\",\"curve-type\":\"\",\"_collapse_category_columns\":\"0\",\"interpolate-nulls\":\"\",\"series-type\":\"\",\"h-axes\":\"\",\"is-3-d\":\"\",\"slices\":\"\",\"pie-slice-border-color\":\"\",\"pie-slice-text\":\"\",\"pie-slice-text-style\":\"\",\"actions\":{\"1\":{\"seq\":\"1\",\"name\":\"\",\"method\":\"\",\"icon\":\"\",\"state\":\"\",\"class\":\"alert alert-info\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\"}}}",
+			"description":"<font color=\"green\">Lists all the products and the quantity sold along with the amount<\/font>",
+			"controller":"product\/products",
+			"publish":null,
+			"read_count":"0",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2013-12-06 21:08:28",
+			"modified":"2013-12-07 15:24:39",
+			"deleted":"0",
+			"revision":"64",
+			"flags":null,
+			"is_public":"1",
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"System Admin"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"primary_acl_group":"0",
+			"id":"52a23ccc-8b04-49f2-a5c8-68070a550b97",
+			"__created_by":"System Admin",
+			"created_by_model":"created_by_user",
+			"__modified_by":"System Admin",
+			"modified_by_model":"modified_by_user",
+			"__owned_by":"System Admin",
+			"owned_by_model":"owned_by_user",
+			"__category_id":"Performance Reports",
+			"category_id_model":"category",
+			"__primary_acl_group":"",
+			"temporary_acl":[
+				
+			]
+		}
+	}
+]

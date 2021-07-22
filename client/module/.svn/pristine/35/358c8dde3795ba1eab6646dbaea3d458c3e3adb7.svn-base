@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\cases\controller;
+  class config_status extends \module\cases\controller\config_status_domain_logic
+  {
+       public $modelClass = '\\module\\cases\\model\\config_status';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

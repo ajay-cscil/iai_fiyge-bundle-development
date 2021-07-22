@@ -1,0 +1,24 @@
+<?php $configuration=array (
+  'css_class_for_canceled_stage' => 'text-disabled',
+  'css_class_for_close_stage' => 'alert-success ',
+  'css_class_for_open_stage' => 'alert-info',
+  'negativestages' => 
+  array (
+    0 => 'draft',
+    1 => 'Request more information',
+  ),
+  'escalation_status' => '',
+  'escalation_progress' => 
+  array (
+    60 => ' alert-info ',
+    90 => 'alert-warning ',
+    100 => 'alert-danger workflow-message',
+    99 => 'alert-error',
+  ),
+  'escalation_state' => 
+  array (
+    60 => 'alert-info',
+    90 => 'alert-warning',
+    99 => 'alert-error',
+  ),
+);  ?>

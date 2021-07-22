@@ -1,0 +1,647 @@
+{
+	"id":"104",
+	"module_id":"349",
+	"name":"en_US",
+	"locale_type":"LC_MESSAGES",
+	"description":"",
+	"_acl":null,
+	"_acl_edit":null,
+	"_acl_delete":null,
+	"_acl_tmp":null,
+	"_acl_tmp_edit":null,
+	"_acl_tmp_delete":null,
+	"locale_translations":[
+		{
+			"id":"169893",
+			"locale_id":"104",
+			"msgid":"Access Control List",
+			"en_msgstr":null,
+			"msgstr":"Access Control List",
+			"description":null
+		},
+		{
+			"id":"169885",
+			"locale_id":"104",
+			"msgid":"ACL & Revisions",
+			"en_msgstr":null,
+			"msgstr":"ACL & Revisions",
+			"description":null
+		},
+		{
+			"id":"169912",
+			"locale_id":"104",
+			"msgid":"ACL Permissions",
+			"en_msgstr":null,
+			"msgstr":"ACL Permissions",
+			"description":null
+		},
+		{
+			"id":"169858",
+			"locale_id":"104",
+			"msgid":"Add",
+			"en_msgstr":null,
+			"msgstr":"Add",
+			"description":null
+		},
+		{
+			"id":"169866",
+			"locale_id":"104",
+			"msgid":"app-menu",
+			"en_msgstr":null,
+			"msgstr":"app-menu",
+			"description":null
+		},
+		{
+			"id":"169877",
+			"locale_id":"104",
+			"msgid":"Basic Information",
+			"en_msgstr":null,
+			"msgstr":"Basic Information",
+			"description":null
+		},
+		{
+			"id":"169913",
+			"locale_id":"104",
+			"msgid":"Business Rule Log",
+			"en_msgstr":null,
+			"msgstr":"Business Rule Log",
+			"description":null
+		},
+		{
+			"id":"169878",
+			"locale_id":"104",
+			"msgid":"Call",
+			"en_msgstr":null,
+			"msgstr":"Call",
+			"description":null
+		},
+		{
+			"id":"169881",
+			"locale_id":"104",
+			"msgid":"Call date",
+			"en_msgstr":null,
+			"msgstr":"Call Date",
+			"description":null
+		},
+		{
+			"id":"169864",
+			"locale_id":"104",
+			"msgid":"Call History",
+			"en_msgstr":null,
+			"msgstr":"Call History",
+			"description":null
+		},
+		{
+			"id":"169911",
+			"locale_id":"104",
+			"msgid":"Can Delete",
+			"en_msgstr":null,
+			"msgstr":"Can Delete",
+			"description":null
+		},
+		{
+			"id":"169910",
+			"locale_id":"104",
+			"msgid":"Can Edit",
+			"en_msgstr":null,
+			"msgstr":"Can Edit",
+			"description":null
+		},
+		{
+			"id":"169909",
+			"locale_id":"104",
+			"msgid":"Can Read",
+			"en_msgstr":null,
+			"msgstr":"Can Read",
+			"description":null
+		},
+		{
+			"id":"169873",
+			"locale_id":"104",
+			"msgid":"cdr",
+			"en_msgstr":null,
+			"msgstr":"Cdr",
+			"description":null
+		},
+		{
+			"id":"169848",
+			"locale_id":"104",
+			"msgid":"cdr.accountcode",
+			"en_msgstr":null,
+			"msgstr":"Accountcode",
+			"description":null
+		},
+		{
+			"id":"169847",
+			"locale_id":"104",
+			"msgid":"cdr.amaflags",
+			"en_msgstr":null,
+			"msgstr":"Amaflags",
+			"description":null
+		},
+		{
+			"id":"169845",
+			"locale_id":"104",
+			"msgid":"cdr.billsec",
+			"en_msgstr":null,
+			"msgstr":"Billsec",
+			"description":null
+		},
+		{
+			"id":"169835",
+			"locale_id":"104",
+			"msgid":"cdr.calldate",
+			"en_msgstr":null,
+			"msgstr":"Calldate",
+			"description":null
+		},
+		{
+			"id":"169840",
+			"locale_id":"104",
+			"msgid":"cdr.channel",
+			"en_msgstr":null,
+			"msgstr":"Channel",
+			"description":null
+		},
+		{
+			"id":"169836",
+			"locale_id":"104",
+			"msgid":"cdr.clid",
+			"en_msgstr":null,
+			"msgstr":"Clid",
+			"description":null
+		},
+		{
+			"id":"169854",
+			"locale_id":"104",
+			"msgid":"cdr.cnam",
+			"en_msgstr":null,
+			"msgstr":"Cnam",
+			"description":null
+		},
+		{
+			"id":"169853",
+			"locale_id":"104",
+			"msgid":"cdr.cnum",
+			"en_msgstr":null,
+			"msgstr":"Cnum",
+			"description":null
+		},
+		{
+			"id":"169839",
+			"locale_id":"104",
+			"msgid":"cdr.dcontext",
+			"en_msgstr":null,
+			"msgstr":"Dcontext",
+			"description":null
+		},
+		{
+			"id":"169851",
+			"locale_id":"104",
+			"msgid":"cdr.did",
+			"en_msgstr":null,
+			"msgstr":"Did",
+			"description":null
+		},
+		{
+			"id":"169846",
+			"locale_id":"104",
+			"msgid":"cdr.disposition",
+			"en_msgstr":null,
+			"msgstr":"Disposition",
+			"description":null
+		},
+		{
+			"id":"169838",
+			"locale_id":"104",
+			"msgid":"cdr.dst",
+			"en_msgstr":null,
+			"msgstr":"Dst",
+			"description":null
+		},
+		{
+			"id":"169841",
+			"locale_id":"104",
+			"msgid":"cdr.dstchannel",
+			"en_msgstr":null,
+			"msgstr":"Dstchannel",
+			"description":null
+		},
+		{
+			"id":"169857",
+			"locale_id":"104",
+			"msgid":"cdr.dst_cnam",
+			"en_msgstr":null,
+			"msgstr":"Dst Cnam",
+			"description":null
+		},
+		{
+			"id":"169844",
+			"locale_id":"104",
+			"msgid":"cdr.duration",
+			"en_msgstr":null,
+			"msgstr":"Duration",
+			"description":null
+		},
+		{
+			"id":"169842",
+			"locale_id":"104",
+			"msgid":"cdr.lastapp",
+			"en_msgstr":null,
+			"msgstr":"Lastapp",
+			"description":null
+		},
+		{
+			"id":"169843",
+			"locale_id":"104",
+			"msgid":"cdr.lastdata",
+			"en_msgstr":null,
+			"msgstr":"Lastdata",
+			"description":null
+		},
+		{
+			"id":"169856",
+			"locale_id":"104",
+			"msgid":"cdr.outbound_cnam",
+			"en_msgstr":null,
+			"msgstr":"Outbound Cnam",
+			"description":null
+		},
+		{
+			"id":"169855",
+			"locale_id":"104",
+			"msgid":"cdr.outbound_cnum",
+			"en_msgstr":null,
+			"msgstr":"Outbound Cnum",
+			"description":null
+		},
+		{
+			"id":"169852",
+			"locale_id":"104",
+			"msgid":"cdr.recordingfile",
+			"en_msgstr":null,
+			"msgstr":"Recordingfile",
+			"description":null
+		},
+		{
+			"id":"169837",
+			"locale_id":"104",
+			"msgid":"cdr.src",
+			"en_msgstr":null,
+			"msgstr":"Src",
+			"description":null
+		},
+		{
+			"id":"169849",
+			"locale_id":"104",
+			"msgid":"cdr.uniqueid",
+			"en_msgstr":null,
+			"msgstr":"Uniqueid",
+			"description":null
+		},
+		{
+			"id":"169850",
+			"locale_id":"104",
+			"msgid":"cdr.userfield",
+			"en_msgstr":null,
+			"msgstr":"Userfield",
+			"description":null
+		},
+		{
+			"id":"169872",
+			"locale_id":"104",
+			"msgid":"cdr_domain_logic",
+			"en_msgstr":null,
+			"msgstr":"Cdr Domain Logic",
+			"description":null
+		},
+		{
+			"id":"169859",
+			"locale_id":"104",
+			"msgid":"Clone",
+			"en_msgstr":null,
+			"msgstr":"Clone",
+			"description":null
+		},
+		{
+			"id":"169868",
+			"locale_id":"104",
+			"msgid":"Configurations",
+			"en_msgstr":null,
+			"msgstr":"Configurations",
+			"description":null
+		},
+		{
+			"id":"169860",
+			"locale_id":"104",
+			"msgid":"Delete",
+			"en_msgstr":null,
+			"msgstr":"Delete",
+			"description":null
+		},
+		{
+			"id":"169896",
+			"locale_id":"104",
+			"msgid":"Delete Access",
+			"en_msgstr":null,
+			"msgstr":"Delete Access",
+			"description":null
+		},
+		{
+			"id":"169861",
+			"locale_id":"104",
+			"msgid":"Delete Selected",
+			"en_msgstr":null,
+			"msgstr":"Delete Selected",
+			"description":null
+		},
+		{
+			"id":"169880",
+			"locale_id":"104",
+			"msgid":"Destination",
+			"en_msgstr":null,
+			"msgstr":"Destination",
+			"description":null
+		},
+		{
+			"id":"169887",
+			"locale_id":"104",
+			"msgid":"Document Information ",
+			"en_msgstr":null,
+			"msgstr":"Document Information",
+			"description":null
+		},
+		{
+			"id":"169882",
+			"locale_id":"104",
+			"msgid":"Duration",
+			"en_msgstr":null,
+			"msgstr":"Duration",
+			"description":null
+		},
+		{
+			"id":"169862",
+			"locale_id":"104",
+			"msgid":"Edit",
+			"en_msgstr":null,
+			"msgstr":"Edit",
+			"description":null
+		},
+		{
+			"id":"169895",
+			"locale_id":"104",
+			"msgid":"Edit Access",
+			"en_msgstr":null,
+			"msgstr":"Edit Access",
+			"description":null
+		},
+		{
+			"id":"169863",
+			"locale_id":"104",
+			"msgid":"Edit Selected",
+			"en_msgstr":null,
+			"msgstr":"Edit Selected",
+			"description":null
+		},
+		{
+			"id":"169903",
+			"locale_id":"104",
+			"msgid":"Effective Read Access Groups",
+			"en_msgstr":null,
+			"msgstr":"Effective Read Access Groups",
+			"description":null
+		},
+		{
+			"id":"169901",
+			"locale_id":"104",
+			"msgid":"Effective Read Access Users",
+			"en_msgstr":null,
+			"msgstr":"Effective Read Access Users",
+			"description":null
+		},
+		{
+			"id":"169870",
+			"locale_id":"104",
+			"msgid":"Export Selected",
+			"en_msgstr":null,
+			"msgstr":"Export Selected",
+			"description":null
+		},
+		{
+			"id":"169907",
+			"locale_id":"104",
+			"msgid":"From",
+			"en_msgstr":null,
+			"msgstr":"From",
+			"description":null
+		},
+		{
+			"id":"169905",
+			"locale_id":"104",
+			"msgid":"Group \/ User ",
+			"en_msgstr":null,
+			"msgstr":"Group \/ User",
+			"description":null
+		},
+		{
+			"id":"169906",
+			"locale_id":"104",
+			"msgid":"Group \/ User",
+			"en_msgstr":null,
+			"msgstr":"Group \/ User",
+			"description":null
+		},
+		{
+			"id":"169865",
+			"locale_id":"104",
+			"msgid":"Home",
+			"en_msgstr":null,
+			"msgstr":"Home",
+			"description":null
+		},
+		{
+			"id":"169867",
+			"locale_id":"104",
+			"msgid":"Index",
+			"en_msgstr":null,
+			"msgstr":"Index",
+			"description":null
+		},
+		{
+			"id":"169875",
+			"locale_id":"104",
+			"msgid":"Lead Information",
+			"en_msgstr":null,
+			"msgstr":"Lead Information",
+			"description":null
+		},
+		{
+			"id":"169889",
+			"locale_id":"104",
+			"msgid":"listviews.created",
+			"en_msgstr":null,
+			"msgstr":"Created",
+			"description":null
+		},
+		{
+			"id":"169888",
+			"locale_id":"104",
+			"msgid":"listviews.created_by",
+			"en_msgstr":null,
+			"msgstr":"Created By",
+			"description":null
+		},
+		{
+			"id":"169891",
+			"locale_id":"104",
+			"msgid":"listviews.modified",
+			"en_msgstr":null,
+			"msgstr":"Modified",
+			"description":null
+		},
+		{
+			"id":"169890",
+			"locale_id":"104",
+			"msgid":"listviews.modified_by",
+			"en_msgstr":null,
+			"msgstr":"Modified By",
+			"description":null
+		},
+		{
+			"id":"169904",
+			"locale_id":"104",
+			"msgid":"listviews.primary_acl_group",
+			"en_msgstr":null,
+			"msgstr":"Primary Acl Group",
+			"description":null
+		},
+		{
+			"id":"169892",
+			"locale_id":"104",
+			"msgid":"listviews.revision",
+			"en_msgstr":null,
+			"msgstr":"Revision",
+			"description":null
+		},
+		{
+			"id":"169884",
+			"locale_id":"104",
+			"msgid":"Notes",
+			"en_msgstr":null,
+			"msgstr":"Notes",
+			"description":null
+		},
+		{
+			"id":"169894",
+			"locale_id":"104",
+			"msgid":"Read Access",
+			"en_msgstr":null,
+			"msgstr":"Read Access",
+			"description":null
+		},
+		{
+			"id":"169876",
+			"locale_id":"104",
+			"msgid":"Related Information",
+			"en_msgstr":null,
+			"msgstr":"Related Information",
+			"description":null
+		},
+		{
+			"id":"169900",
+			"locale_id":"104",
+			"msgid":"Revision Log",
+			"en_msgstr":null,
+			"msgstr":"Revision Log",
+			"description":null
+		},
+		{
+			"id":"169902",
+			"locale_id":"104",
+			"msgid":"Some users might be granted access via groups",
+			"en_msgstr":null,
+			"msgstr":"Some users might be granted access via groups",
+			"description":null
+		},
+		{
+			"id":"169879",
+			"locale_id":"104",
+			"msgid":"Source",
+			"en_msgstr":null,
+			"msgstr":"Source",
+			"description":null
+		},
+		{
+			"id":"169883",
+			"locale_id":"104",
+			"msgid":"Status",
+			"en_msgstr":null,
+			"msgstr":"Status",
+			"description":null
+		},
+		{
+			"id":"169874",
+			"locale_id":"104",
+			"msgid":"Submit",
+			"en_msgstr":null,
+			"msgstr":"Submit",
+			"description":null
+		},
+		{
+			"id":"169886",
+			"locale_id":"104",
+			"msgid":"SYSTEM_ACL_REVISIONS",
+			"en_msgstr":null,
+			"msgstr":"SYSTEM ACL REVISIONS",
+			"description":null
+		},
+		{
+			"id":"169897",
+			"locale_id":"104",
+			"msgid":"Temporary ACL",
+			"en_msgstr":null,
+			"msgstr":"Temporary ACL",
+			"description":null
+		},
+		{
+			"id":"169899",
+			"locale_id":"104",
+			"msgid":"Temporary Delete",
+			"en_msgstr":null,
+			"msgstr":"Temporary Delete",
+			"description":null
+		},
+		{
+			"id":"169898",
+			"locale_id":"104",
+			"msgid":"Temporary Edit",
+			"en_msgstr":null,
+			"msgstr":"Temporary Edit",
+			"description":null
+		},
+		{
+			"id":"169908",
+			"locale_id":"104",
+			"msgid":"To",
+			"en_msgstr":null,
+			"msgstr":"To",
+			"description":null
+		},
+		{
+			"id":"169869",
+			"locale_id":"104",
+			"msgid":"View",
+			"en_msgstr":null,
+			"msgstr":"View",
+			"description":null
+		},
+		{
+			"id":"169871",
+			"locale_id":"104",
+			"msgid":"voip",
+			"en_msgstr":null,
+			"msgstr":"voip",
+			"description":null
+		}
+	]
+}

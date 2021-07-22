@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\data_management\controller;
+  class import_run_log extends \module\data_management\controller\import_run_log_domain_logic
+  {
+       public $modelClass = '\\module\\data_management\\model\\import_run_log';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

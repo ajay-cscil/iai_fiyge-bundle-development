@@ -1,0 +1,527 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\hr\model;
+  class employees extends \module\hr\model\employees_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'hr__employees';
+       public $parentClass = '\\tushar\\model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $alias = 'employees';
+       public $softDeleteColumn = 'deleted';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isConfig = '0';
+       public $overrideCallToParent = '0';
+       public $fields = array (
+  'company_id' => 
+  array (
+    'column' => 'company_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'department_id' => 
+  array (
+    'column' => 'department_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'description' => 
+  array (
+    'column' => 'description',
+    'ntype' => 'string',
+  ),
+  'ext' => 
+  array (
+    'column' => 'ext',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'fax' => 
+  array (
+    'column' => 'fax',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'first_name' => 
+  array (
+    'column' => 'first_name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'is_active' => 
+  array (
+    'column' => 'is_active',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'last_name' => 
+  array (
+    'column' => 'last_name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'name' => 
+  array (
+    'column' => 'name',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'primary_address_line_1' => 
+  array (
+    'column' => 'primary_address_line_1',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_address_line_2' => 
+  array (
+    'column' => 'primary_address_line_2',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_city' => 
+  array (
+    'column' => 'primary_city',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_country' => 
+  array (
+    'column' => 'primary_country',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'primary_state' => 
+  array (
+    'column' => 'primary_state',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'primary_zip' => 
+  array (
+    'column' => 'primary_zip',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'salutation' => 
+  array (
+    'column' => 'salutation',
+    'ntype' => 'int',
+    'length' => '11',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'src' => 
+  array (
+    'column' => 'src',
+    'ntype' => 'string',
+    'length' => '100',
+  ),
+  'status' => 
+  array (
+    'column' => 'status',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'title' => 
+  array (
+    'column' => 'title',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'user_id' => 
+  array (
+    'column' => 'user_id',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'user_name' => 
+  array (
+    'column' => 'user_name',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'designation' => 
+  array (
+    'column' => 'designation',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'email' => 
+  array (
+    'column' => 'email',
+    'ntype' => 'string',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'job_id' => 
+  array (
+    'column' => 'job_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'appraisal_plan_id' => 
+  array (
+    'column' => 'appraisal_plan_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'bank_account_no' => 
+  array (
+    'column' => 'bank_account_no',
+    'ntype' => 'int',
+    'length' => '20',
+  ),
+  'date_of_birth' => 
+  array (
+    'column' => 'date_of_birth',
+    'ntype' => 'date',
+  ),
+  'gender' => 
+  array (
+    'column' => 'gender',
+    'ntype' => 'string',
+    'length' => '25',
+  ),
+  'identification_no' => 
+  array (
+    'column' => 'identification_no',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'legal_leaves' => 
+  array (
+    'column' => 'legal_leaves',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'marital_status' => 
+  array (
+    'column' => 'marital_status',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'no_of_children' => 
+  array (
+    'column' => 'no_of_children',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'passport_no' => 
+  array (
+    'column' => 'passport_no',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'product_id' => 
+  array (
+    'column' => 'product_id',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'contract_id' => 
+  array (
+    'column' => 'contract_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+  ),
+  'manager_id' => 
+  array (
+    'column' => 'manager_id',
+    'ntype' => 'int',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'is_manager' => 
+  array (
+    'column' => 'is_manager',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '0',
+    'is_searchable' => '0',
+  ),
+  'next_appraisal_date' => 
+  array (
+    'column' => 'next_appraisal_date',
+    'ntype' => 'date',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'images' => 
+  array (
+    'assocType' => 'hasOne',
+    'className' => '\\module\\document_management_base\\model\\images',
+    'associationAlias' => 'images',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'users\'={{FOREIGN}}.{{FOREIGN_KEY}}_model',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'email_addresses' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\email_addresses',
+    'associationAlias' => 'email_addresses',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'phone_numbers' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\phone_numbers',
+    'associationAlias' => 'phone_numbers',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'addresses' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\crm_base\\model\\addresses',
+    'associationAlias' => 'addresses',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'show_link' => '1',
+    'isSubModel' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSearchable' => '0',
+  ),
+  'users' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'users',
+    'foreignKey' => 'user_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_departments' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\config_departments',
+    'associationAlias' => 'config_departments',
+    'foreignKey' => 'department_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'timesheets' => 
+  array (
+    'assocType' => 'hasMany',
+    'className' => '\\module\\hr\\model\\timesheets',
+    'associationAlias' => 'timesheets',
+    'foreignKey' => 'employee_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'contracts' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\hr\\model\\contracts',
+    'associationAlias' => 'contracts',
+    'foreignKey' => 'contract_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'jobs' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\recruitment\\model\\jobs',
+    'associationAlias' => 'jobs',
+    'foreignKey' => 'job_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'appraisal_plans' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\appraisal\\model\\appraisal_plans',
+    'associationAlias' => 'appraisal_plans',
+    'foreignKey' => 'appraisal_plan_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'config_salutations' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\masters\\model\\config_salutations',
+    'associationAlias' => 'config_salutations',
+    'foreignKey' => 'salutation',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'managers' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\hr\\model\\employees',
+    'associationAlias' => 'managers',
+    'foreignKey' => 'manager_id',
+    'show_link' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'email' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'first_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'last_name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\tushar\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

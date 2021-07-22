@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 22:04:34 +0000">
+
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+<link rel="start" href="../../../namespaces.html">
+
+<title>docs_domain_logic (MaaxFrame's Business Modules)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>MaaxFrame's Business Modules</h1><span>Class</span>
+
+<h2>module\flexflow\model\docs_domain_logic</h2>
+
+</header><p class="signature">public  class <strong>docs_domain_logic</strong> extends \kernel\model
+
+</p>
+
+<div class="comment"><p>write any custom code in this class, build operation wont overwrite this class once generated;</p></div>
+
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#autoProcessStageWithIgnoreActor">$autoProcessStageWithIgnoreActor</a></p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#nextNodes">$nextNodes</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type"> object</td>
+<td class="description"><p class="name"><a href="#actionInstance()">actionInstance</a>(string actionName)</p><p class="description">Acts as factory for generating action object</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#actions()">actions</a>(mixed actions, bool returnOnlyID)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#addStageToAutoProcessQueue()">addStageToAutoProcessQueue</a>(mixed nodeID, bool state)</p><p class="description">foreach ($actorsInfo[1]['read'] as $userID => $userInfo) {
+$userInfo['log_id'] = $nodeID;
+$userInfo['can_edit'] = (int) isset($actorsInfo[1]['edit'][$userID]);
+$userInfo['can_delete'] = (int) isset($actorsInfo[1]['delete'][$userID]);
+$authorizedUsersLogObj->save($userInfo, array('type' => 'insert', 'atomic' => true, 'ignore' => true));
+}
+return $actorsInfo;</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#after()">after</a>(mixed nodeID, mixed stages, mixed actors)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#afterSerial()">afterSerial</a>(mixed nodeID, mixed stages, mixed actors)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#authorizedActors()">authorizedActors</a>(mixed stageID, mixed actors)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#enterNode()">enterNode</a>()</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#exitNode()">exitNode</a>(array actors)</p><p class="description">Will mark current active log entry as complete and next move to stages as active.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#getStageFromAutoProcessQueue()">getStageFromAutoProcessQueue</a>(mixed nodeID)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#hasUserEverActedOnSatge()">hasUserEverActedOnSatge</a>(mixed userID, mixed stageID)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#incomingNodes()">incomingNodes</a>(mixed nodeID)</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#isLogSet()">isLogSet</a>(int docID)</p><p class="description">Check if log for current document is initialize</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#isStageInAutoProcessQueue()">isStageInAutoProcessQueue</a>(mixed nodeID)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#logAction()">logAction</a>(mixed nodeID, str message)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#logError()">logError</a>(mixed msg)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#logNextMoveToStages()">logNextMoveToStages</a>(mixed nodeID, mixed actors)</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#nextMoveToStages()">nextMoveToStages</a>(mixed nodeID, mixed actionID)</p><p class="description">Find list of next move to stages base on current active log entry stage_id</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#node()">node</a>(mixed node, bool readActors)</p></td>
+</tr>
+<tr>
+<td class="type"> mixed</td>
+<td class="description"><p class="name"><a href="#nodeID()">nodeID</a>(int nodeID)</p><p class="description">Acts as getter and setter for flexflow log entry.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#notifications()">notifications</a>(array notifications, string action, mixed recipients)</p><p class="description">Set notifications in notification queue. </p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#openNodes()">openNodes</a>(bool returnUserInfo, bool returnOnlyID)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#outgoingNodes()">outgoingNodes</a>(mixed nodeID)</p></td>
+</tr>
+<tr>
+<td class="type"> array</td>
+<td class="description"><p class="name"><a href="#previousActiveNode()">previousActiveNode</a>(array ignore)</p><p class="description">Searches log entry which as last active with respect to current log entry.</p></td>
+</tr>
+<tr>
+<td class="type"> bool</td>
+<td class="description"><p class="name"><a href="#setWorkflowLog()">setWorkflowLog</a>(mixed actors)</p><p class="description">Initialize log for flexflow document</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#siblings()">siblings</a>(mixed nodeID)</p></td>
+</tr>
+<tr>
+<td class="type"> object</td>
+<td class="description"><p class="name"><a href="#stageInstance()">stageInstance</a>(string stageName, mixed stageID)</p><p class="description">Acts as factory for generating objects for stage</p></td>
+</tr>
+<tr>
+<td class="type"> type</td>
+<td class="description"><p class="name"><a href="#stages()">stages</a>(type stages, type fetchOnlyID, bool returnOnlyID, bool ignoreTypeID)</p><p class="description">Get details of stages based on stage name within scope of current flexflow document.</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#terminateSelf()">terminateSelf</a>(mixed state)</p></td>
+</tr>
+<tr>
+<td class="type"> void</td>
+<td class="description"><p class="name"><a href="#unsetStageFromQueue()">unsetStageFromQueue</a>(mixed nodeID)</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="autoProcessStageWithIgnoreActor">public  mixed <strong>$autoProcessStageWithIgnoreActor</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="nextNodes">public  mixed <strong>$nextNodes</strong> = array()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="actionInstance">public  object <strong>actionInstance</strong>(string actionName)</code>
+<div class="details">
+<p>Acts as factory for generating action object</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar</td>
+</tr></table>
+</div>
+
+<code class="signature" id="actions">public  void <strong>actions</strong>(mixed actions, bool returnOnlyID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="addStageToAutoProcessQueue">public  void <strong>addStageToAutoProcessQueue</strong>(mixed nodeID, bool state)</code>
+<div class="details">
+<p>foreach ($actorsInfo[1]['read'] as $userID => $userInfo) {
+$userInfo['log_id'] = $nodeID;
+$userInfo['can_edit'] = (int) isset($actorsInfo[1]['edit'][$userID]);
+$userInfo['can_delete'] = (int) isset($actorsInfo[1]['delete'][$userID]);
+$authorizedUsersLogObj->save($userInfo, array('type' => 'insert', 'atomic' => true, 'ignore' => true));
+}
+return $actorsInfo;</p></div>
+
+<code class="signature" id="after">public  void <strong>after</strong>(mixed nodeID, mixed stages, mixed actors)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="afterSerial">public  void <strong>afterSerial</strong>(mixed nodeID, mixed stages, mixed actors)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="authorizedActors">public  void <strong>authorizedActors</strong>(mixed stageID, mixed actors)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="enterNode">public  void <strong>enterNode</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="exitNode">public  void <strong>exitNode</strong>(array actors)</code>
+<div class="details">
+<p>Will mark current active log entry as complete and next move to stages as active.</p><table>
+<tr><th>Parameters</th>
+<td>actors - Any actor for next move to stages.</td>
+</tr></table>
+</div>
+
+<code class="signature" id="getStageFromAutoProcessQueue">public  void <strong>getStageFromAutoProcessQueue</strong>(mixed nodeID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="hasUserEverActedOnSatge">public  void <strong>hasUserEverActedOnSatge</strong>(mixed userID, mixed stageID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="incomingNodes">public  void <strong>incomingNodes</strong>(mixed nodeID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="isLogSet">public  bool <strong>isLogSet</strong>(int docID)</code>
+<div class="details">
+<p>Check if log for current document is initialize</p><table>
+<tr><th>Parameters</th>
+<td>docID - flexflow document ID</td>
+</tr></table>
+</div>
+
+<code class="signature" id="isStageInAutoProcessQueue">public  void <strong>isStageInAutoProcessQueue</strong>(mixed nodeID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="logAction">public  void <strong>logAction</strong>(mixed nodeID, str message)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="logError">public  void <strong>logError</strong>(mixed msg)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="logNextMoveToStages">public  void <strong>logNextMoveToStages</strong>(mixed nodeID, mixed actors)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="nextMoveToStages">public  array <strong>nextMoveToStages</strong>(mixed nodeID, mixed actionID)</code>
+<div class="details">
+<p>Find list of next move to stages base on current active log entry stage_id</p></div>
+
+<code class="signature" id="node">public  void <strong>node</strong>(mixed node, bool readActors)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="nodeID">public  mixed <strong>nodeID</strong>(int nodeID)</code>
+<div class="details">
+<p>Acts as getter and setter for flexflow log entry.</p></div>
+
+<code class="signature" id="notifications">public  void <strong>notifications</strong>(array notifications, string action, mixed recipients)</code>
+<div class="details">
+<p>Set notifications in notification queue. All notifications will be processed as a last step in workflow.
+notifications for stages which are auto processed, will not be process. This method also process subject/body for any merge words.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar</td>
+</tr></table>
+</div>
+
+<code class="signature" id="openNodes">public  void <strong>openNodes</strong>(bool returnUserInfo, bool returnOnlyID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="outgoingNodes">public  void <strong>outgoingNodes</strong>(mixed nodeID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="previousActiveNode">public  array <strong>previousActiveNode</strong>(array ignore)</code>
+<div class="details">
+<p>Searches log entry which as last active with respect to current log entry.</p><table>
+<tr><th>Parameters</th>
+<td>ignore - stage names to be ignored while searching previous stages</td>
+</tr></table>
+</div>
+
+<code class="signature" id="setWorkflowLog">public  bool <strong>setWorkflowLog</strong>(mixed actors)</code>
+<div class="details">
+<p>Initialize log for flexflow document</p></div>
+
+<code class="signature" id="siblings">public  void <strong>siblings</strong>(mixed nodeID)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="stageInstance">public  object <strong>stageInstance</strong>(string stageName, mixed stageID)</code>
+<div class="details">
+<p>Acts as factory for generating objects for stage</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar</td>
+</tr></table>
+</div>
+
+<code class="signature" id="stages">public  type <strong>stages</strong>(type stages, type fetchOnlyID, bool returnOnlyID, bool ignoreTypeID)</code>
+<div class="details">
+<p>Get details of stages based on stage name within scope of current flexflow document.</p></div>
+
+<code class="signature" id="terminateSelf">public  void <strong>terminateSelf</strong>(mixed state)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="unsetStageFromQueue">public  void <strong>unsetStageFromQueue</strong>(mixed nodeID)</code>
+<div class="details">
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

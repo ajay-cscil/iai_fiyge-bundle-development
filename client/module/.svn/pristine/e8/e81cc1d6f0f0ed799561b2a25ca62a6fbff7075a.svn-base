@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\calendar\controller;
+  class config_task_status extends \module\calendar\controller\config_task_status_domain_logic
+  {
+       public $modelClass = '\\module\\calendar\\model\\config_task_status';
+
+
+
+
+
+
+  }

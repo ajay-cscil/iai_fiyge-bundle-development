@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:11 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>locale (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\locale</h2>
+
+</header><p class="signature">public  class <strong>locale</strong></p>
+
+<div class="comment"><p>This class handel's internationalization(normalization/localization) of application</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#systemDate">$systemDate</a></p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#systemTime">$systemTime</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#date()">date</a>(<a href="../kernel/string.html">string</a> locale)</p><p class="description">Generate instance of IntlDateFormatter based on locale</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#dateTimeClass()">dateTimeClass</a>()</p><p class="description">Generates instance of \DateTime</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#datetime()">datetime</a>(<a href="../kernel/string.html">string</a> locale)</p><p class="description">Returns date time object for given locale</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#decimal()">decimal</a>(<a href="../kernel/string.html">string</a> locale)</p><p class="description">Generate instance of NumberFormatter for decimal number handeling based on locale</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#getDatePattern()">getDatePattern</a>(<a href="../kernel/string.html">string</a> locale)</p><p class="description">Returns date formats for given locale</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#getTimePattern()">getTimePattern</a>(<a href="../kernel/string.html">string</a> locale)</p><p class="description">Returns time formats for given locale</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#localize()">localize</a>(mixed data, mixed meta)</p><p class="description">Localizes data base on user locale</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#normalize()">normalize</a>(mixed data, mixed meta)</p><p class="description">normalize given data based on meta data provided</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#normalizeSQL()">normalizeSQL</a>(mixed schema, mixed where)</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#number()">number</a>(<a href="../kernel/string.html">string</a> locale)</p><p class="description">Generate instance of NumberFormatter based on locale</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#systemDate()">systemDate</a>(bool cache)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#systemTime()">systemTime</a>(bool cache)</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#systemTimeZone()">systemTimeZone</a>()</p><p class="description">Generates instance of \DateTimeZone based on system Time Zone</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#time()">time</a>(<a href="../kernel/string.html">string</a> locale)</p><p class="description">Returns time object for given locale</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#userTimeZone()">userTimeZone</a>()</p><p class="description">Generates instance of \DateTimeZone based on user Time Zone</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="systemDate">public static  mixed <strong>$systemDate</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="systemTime">public static  mixed <strong>$systemTime</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="date">public static  mixed <strong>date</strong>(<a href="../kernel/string.html">string</a> locale)</code>
+<div class="details">
+<p>Generate instance of IntlDateFormatter based on locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="dateTimeClass">public static  mixed <strong>dateTimeClass</strong>()</code>
+<div class="details">
+<p>Generates instance of \DateTime</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="datetime">public static  mixed <strong>datetime</strong>(<a href="../kernel/string.html">string</a> locale)</code>
+<div class="details">
+<p>Returns date time object for given locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="decimal">public static  mixed <strong>decimal</strong>(<a href="../kernel/string.html">string</a> locale)</code>
+<div class="details">
+<p>Generate instance of NumberFormatter for decimal number handeling based on locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getDatePattern">public static  <a href="../kernel/string.html">string</a> <strong>getDatePattern</strong>(<a href="../kernel/string.html">string</a> locale)</code>
+<div class="details">
+<p>Returns date formats for given locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="getTimePattern">public static  mixed <strong>getTimePattern</strong>(<a href="../kernel/string.html">string</a> locale)</code>
+<div class="details">
+<p>Returns time formats for given locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="localize">public static  mixed <strong>localize</strong>(mixed data, mixed meta)</code>
+<div class="details">
+<p>Localizes data base on user locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - localize given data based on meta data provided</td>
+<td>meta - meta data for localizing</td>
+</tr></table>
+</div>
+
+<code class="signature" id="normalize">public static  mixed <strong>normalize</strong>(mixed data, mixed meta)</code>
+<div class="details">
+<p>normalize given data based on meta data provided</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>data - data to be normalize</td>
+<td>meta - meta data for normalizing</td>
+</tr><tr><th>Returns</th>
+<td>normalize data</td>
+</tr></table>
+</div>
+
+<code class="signature" id="normalizeSQL">public static  void <strong>normalizeSQL</strong>(mixed schema, mixed where)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="number">public static  mixed <strong>number</strong>(<a href="../kernel/string.html">string</a> locale)</code>
+<div class="details">
+<p>Generate instance of NumberFormatter based on locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="systemDate">public static  void <strong>systemDate</strong>(bool cache)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="systemTime">public static  void <strong>systemTime</strong>(bool cache)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="systemTimeZone">public static  mixed <strong>systemTimeZone</strong>()</code>
+<div class="details">
+<p>Generates instance of \DateTimeZone based on system Time Zone</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="time">public static  mixed <strong>time</strong>(<a href="../kernel/string.html">string</a> locale)</code>
+<div class="details">
+<p>Returns time object for given locale</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="userTimeZone">public static  mixed <strong>userTimeZone</strong>()</code>
+<div class="details">
+<p>Generates instance of \DateTimeZone based on user Time Zone</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

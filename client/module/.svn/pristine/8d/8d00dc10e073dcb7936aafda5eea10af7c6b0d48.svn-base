@@ -1,0 +1,2263 @@
+{
+	"id":"24",
+	"module_id":"322",
+	"name":"it_IT",
+	"locale_type":"LC_MESSAGES",
+	"description":"",
+	"_acl":null,
+	"_acl_edit":null,
+	"_acl_delete":null,
+	"_acl_tmp":null,
+	"_acl_tmp_edit":null,
+	"_acl_tmp_delete":null,
+	"locale_translations":[
+		{
+			"id":"186496",
+			"locale_id":"24",
+			"msgid":"Access Control List",
+			"en_msgstr":"Access Control List",
+			"msgstr":"Access Control List",
+			"description":null
+		},
+		{
+			"id":"182898",
+			"locale_id":"24",
+			"msgid":"accounts.account_name",
+			"en_msgstr":"Account Name",
+			"msgstr":"Nome account",
+			"description":null
+		},
+		{
+			"id":"182900",
+			"locale_id":"24",
+			"msgid":"accounts.account_type",
+			"en_msgstr":"Account Type",
+			"msgstr":"Tipo di account",
+			"description":null
+		},
+		{
+			"id":"182902",
+			"locale_id":"24",
+			"msgid":"accounts.annual_revenue",
+			"en_msgstr":"Annual Revenue",
+			"msgstr":"I ricavi annuali",
+			"description":null
+		},
+		{
+			"id":"182916",
+			"locale_id":"24",
+			"msgid":"accounts.created",
+			"en_msgstr":"Created",
+			"msgstr":"Creato",
+			"description":null
+		},
+		{
+			"id":"182913",
+			"locale_id":"24",
+			"msgid":"accounts.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"Creato da",
+			"description":null
+		},
+		{
+			"id":"182918",
+			"locale_id":"24",
+			"msgid":"accounts.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"182912",
+			"locale_id":"24",
+			"msgid":"accounts.description",
+			"en_msgstr":"Description",
+			"msgstr":"Descrizione",
+			"description":null
+		},
+		{
+			"id":"182910",
+			"locale_id":"24",
+			"msgid":"accounts.email_opt_out",
+			"en_msgstr":"Email Opt Out",
+			"msgstr":"Email Opt Out",
+			"description":null
+		},
+		{
+			"id":"182909",
+			"locale_id":"24",
+			"msgid":"accounts.employees",
+			"en_msgstr":"Employees",
+			"msgstr":"Dipendenti",
+			"description":null
+		},
+		{
+			"id":"182908",
+			"locale_id":"24",
+			"msgid":"accounts.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"Fax",
+			"description":null
+		},
+		{
+			"id":"182920",
+			"locale_id":"24",
+			"msgid":"accounts.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"Bandiere",
+			"description":null
+		},
+		{
+			"id":"182897",
+			"locale_id":"24",
+			"msgid":"accounts.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"182928",
+			"locale_id":"24",
+			"msgid":"accounts.imported",
+			"en_msgstr":"Imported",
+			"msgstr":"Importati",
+			"description":null
+		},
+		{
+			"id":"182927",
+			"locale_id":"24",
+			"msgid":"accounts.imported_by",
+			"en_msgstr":"Imported By",
+			"msgstr":"Importati da",
+			"description":null
+		},
+		{
+			"id":"182901",
+			"locale_id":"24",
+			"msgid":"accounts.industry",
+			"en_msgstr":"Industry",
+			"msgstr":"Industria",
+			"description":null
+		},
+		{
+			"id":"182936",
+			"locale_id":"24",
+			"msgid":"accounts.is_customer",
+			"en_msgstr":"Is Customer",
+			"msgstr":"\u00c8 cliente",
+			"description":null
+		},
+		{
+			"id":"182937",
+			"locale_id":"24",
+			"msgid":"accounts.is_supplier",
+			"en_msgstr":"Is Supplier",
+			"msgstr":"\u00c8 fornitore",
+			"description":null
+		},
+		{
+			"id":"182917",
+			"locale_id":"24",
+			"msgid":"accounts.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"Modificato",
+			"description":null
+		},
+		{
+			"id":"182914",
+			"locale_id":"24",
+			"msgid":"accounts.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"Modificato da",
+			"description":null
+		},
+		{
+			"id":"182911",
+			"locale_id":"24",
+			"msgid":"accounts.notify_owner",
+			"en_msgstr":"Notify Owner",
+			"msgstr":"Notifica del proprietario",
+			"description":null
+		},
+		{
+			"id":"182915",
+			"locale_id":"24",
+			"msgid":"accounts.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"182904",
+			"locale_id":"24",
+			"msgid":"accounts.ownership",
+			"en_msgstr":"Ownership",
+			"msgstr":"Propriet\u00e0",
+			"description":null
+		},
+		{
+			"id":"182899",
+			"locale_id":"24",
+			"msgid":"accounts.parent_id",
+			"en_msgstr":"Parent",
+			"msgstr":"Genitore",
+			"description":null
+		},
+		{
+			"id":"182935",
+			"locale_id":"24",
+			"msgid":"accounts.primary_acl_group",
+			"en_msgstr":"Primary Acl Group",
+			"msgstr":"Primario Gruppo Acl",
+			"description":null
+		},
+		{
+			"id":"182929",
+			"locale_id":"24",
+			"msgid":"accounts.primary_address_line_1",
+			"en_msgstr":"Primary Address Line 1",
+			"msgstr":"Riga indirizzo primario 1",
+			"description":null
+		},
+		{
+			"id":"182930",
+			"locale_id":"24",
+			"msgid":"accounts.primary_address_line_2",
+			"en_msgstr":"Primary Address Line 2",
+			"msgstr":"Indirizzo Linea Primaria 2",
+			"description":null
+		},
+		{
+			"id":"182931",
+			"locale_id":"24",
+			"msgid":"accounts.primary_city",
+			"en_msgstr":"Primary City",
+			"msgstr":"Citt\u00e0 primaria",
+			"description":null
+		},
+		{
+			"id":"182933",
+			"locale_id":"24",
+			"msgid":"accounts.primary_country",
+			"en_msgstr":"Primary Country",
+			"msgstr":"Paese primaria",
+			"description":null
+		},
+		{
+			"id":"182932",
+			"locale_id":"24",
+			"msgid":"accounts.primary_state",
+			"en_msgstr":"Primary State",
+			"msgstr":"Stato primaria",
+			"description":null
+		},
+		{
+			"id":"182934",
+			"locale_id":"24",
+			"msgid":"accounts.primary_zip",
+			"en_msgstr":"Primary Zip",
+			"msgstr":"Zip primaria",
+			"description":null
+		},
+		{
+			"id":"182903",
+			"locale_id":"24",
+			"msgid":"accounts.rating",
+			"en_msgstr":"Rating",
+			"msgstr":"Valutazione",
+			"description":null
+		},
+		{
+			"id":"182919",
+			"locale_id":"24",
+			"msgid":"accounts.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"Revisione",
+			"description":null
+		},
+		{
+			"id":"182905",
+			"locale_id":"24",
+			"msgid":"accounts.sic_code",
+			"en_msgstr":"Sic Code",
+			"msgstr":"Sic Codice",
+			"description":null
+		},
+		{
+			"id":"182906",
+			"locale_id":"24",
+			"msgid":"accounts.ticker_symbol",
+			"en_msgstr":"Ticker Symbol",
+			"msgstr":"Ticker Symbol",
+			"description":null
+		},
+		{
+			"id":"182907",
+			"locale_id":"24",
+			"msgid":"accounts.website",
+			"en_msgstr":"Website",
+			"msgstr":"Sito web",
+			"description":null
+		},
+		{
+			"id":"182921",
+			"locale_id":"24",
+			"msgid":"accounts._acl",
+			"en_msgstr":"Acl",
+			"msgstr":"Acl",
+			"description":null
+		},
+		{
+			"id":"182923",
+			"locale_id":"24",
+			"msgid":"accounts._acl_delete",
+			"en_msgstr":"Acl Delete",
+			"msgstr":"Acl Cancella",
+			"description":null
+		},
+		{
+			"id":"182922",
+			"locale_id":"24",
+			"msgid":"accounts._acl_edit",
+			"en_msgstr":"Acl Edit",
+			"msgstr":"Acl Modifica",
+			"description":null
+		},
+		{
+			"id":"182924",
+			"locale_id":"24",
+			"msgid":"accounts._acl_tmp",
+			"en_msgstr":"Acl Tmp",
+			"msgstr":"Acl Tmp",
+			"description":null
+		},
+		{
+			"id":"182926",
+			"locale_id":"24",
+			"msgid":"accounts._acl_tmp_delete",
+			"en_msgstr":"Acl Tmp Delete",
+			"msgstr":"Tmp acl Cancella",
+			"description":null
+		},
+		{
+			"id":"182925",
+			"locale_id":"24",
+			"msgid":"accounts._acl_tmp_edit",
+			"en_msgstr":"Acl Tmp Edit",
+			"msgstr":"Acl Tmp Modifica",
+			"description":null
+		},
+		{
+			"id":"186488",
+			"locale_id":"24",
+			"msgid":"ACL & Revisions",
+			"en_msgstr":"ACL & Revisions",
+			"msgstr":"ACL e Revisioni",
+			"description":null
+		},
+		{
+			"id":"186515",
+			"locale_id":"24",
+			"msgid":"ACL Permissions",
+			"en_msgstr":"ACL Permissions",
+			"msgstr":"ACL delle autorizzazioni",
+			"description":null
+		},
+		{
+			"id":"45954",
+			"locale_id":"24",
+			"msgid":"add",
+			"en_msgstr":"add",
+			"msgstr":"aggiungere",
+			"description":null
+		},
+		{
+			"id":"78710",
+			"locale_id":"24",
+			"msgid":"Administration",
+			"en_msgstr":"Administration",
+			"msgstr":"Amministrazione",
+			"description":null
+		},
+		{
+			"id":"78711",
+			"locale_id":"24",
+			"msgid":"app-menu",
+			"en_msgstr":"app-menu",
+			"msgstr":"app-men\u00f9",
+			"description":null
+		},
+		{
+			"id":"186486",
+			"locale_id":"24",
+			"msgid":"Basic Information",
+			"en_msgstr":"Basic Information",
+			"msgstr":"Informazioni di base",
+			"description":null
+		},
+		{
+			"id":"186516",
+			"locale_id":"24",
+			"msgid":"Business Rule Log",
+			"en_msgstr":"Business Rule Log",
+			"msgstr":"Log regola aziendale",
+			"description":null
+		},
+		{
+			"id":"186514",
+			"locale_id":"24",
+			"msgid":"Can Delete",
+			"en_msgstr":"Can Delete",
+			"msgstr":"Impossibile eliminare",
+			"description":null
+		},
+		{
+			"id":"186513",
+			"locale_id":"24",
+			"msgid":"Can Edit",
+			"en_msgstr":"Can Edit",
+			"msgstr":"Pu\u00f2 Modifica",
+			"description":null
+		},
+		{
+			"id":"186512",
+			"locale_id":"24",
+			"msgid":"Can Read",
+			"en_msgstr":"Can Read",
+			"msgstr":"Impossibile leggere",
+			"description":null
+		},
+		{
+			"id":"186480",
+			"locale_id":"24",
+			"msgid":"Clone",
+			"en_msgstr":"Clone",
+			"msgstr":"Clone",
+			"description":null
+		},
+		{
+			"id":"182941",
+			"locale_id":"24",
+			"msgid":"Configurations",
+			"en_msgstr":"Configurations",
+			"msgstr":"Configurazioni",
+			"description":null
+		},
+		{
+			"id":"45955",
+			"locale_id":"24",
+			"msgid":"create",
+			"en_msgstr":"create",
+			"msgstr":"creare",
+			"description":null
+		},
+		{
+			"id":"45956",
+			"locale_id":"24",
+			"msgid":"createdBy.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"45957",
+			"locale_id":"24",
+			"msgid":"createdBy.currency_id",
+			"en_msgstr":"Currency Id",
+			"msgstr":"Valuta Id",
+			"description":null
+		},
+		{
+			"id":"45958",
+			"locale_id":"24",
+			"msgid":"createdBy.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"45959",
+			"locale_id":"24",
+			"msgid":"createdBy.department",
+			"en_msgstr":"Department",
+			"msgstr":"Reparto",
+			"description":null
+		},
+		{
+			"id":"45960",
+			"locale_id":"24",
+			"msgid":"createdBy.description",
+			"en_msgstr":"Description",
+			"msgstr":"Descrizione",
+			"description":null
+		},
+		{
+			"id":"45961",
+			"locale_id":"24",
+			"msgid":"createdBy.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"Fax",
+			"description":null
+		},
+		{
+			"id":"45962",
+			"locale_id":"24",
+			"msgid":"createdBy.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"Nome",
+			"description":null
+		},
+		{
+			"id":"45963",
+			"locale_id":"24",
+			"msgid":"createdBy.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Chiave hash",
+			"description":null
+		},
+		{
+			"id":"45964",
+			"locale_id":"24",
+			"msgid":"createdBy.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"Formato ora",
+			"description":null
+		},
+		{
+			"id":"45965",
+			"locale_id":"24",
+			"msgid":"createdBy.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"45966",
+			"locale_id":"24",
+			"msgid":"createdBy.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u00c8 Attivo",
+			"description":null
+		},
+		{
+			"id":"45967",
+			"locale_id":"24",
+			"msgid":"createdBy.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"Cognome",
+			"description":null
+		},
+		{
+			"id":"45968",
+			"locale_id":"24",
+			"msgid":"createdBy.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"Localit\u00e0",
+			"description":null
+		},
+		{
+			"id":"45969",
+			"locale_id":"24",
+			"msgid":"createdBy.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"45970",
+			"locale_id":"24",
+			"msgid":"createdBy.parent_id",
+			"en_msgstr":"Parent Id",
+			"msgstr":"Genitore Id",
+			"description":null
+		},
+		{
+			"id":"45971",
+			"locale_id":"24",
+			"msgid":"createdBy.role_id",
+			"en_msgstr":"Role Id",
+			"msgstr":"Ruolo Id",
+			"description":null
+		},
+		{
+			"id":"45972",
+			"locale_id":"24",
+			"msgid":"createdBy.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"Saluto",
+			"description":null
+		},
+		{
+			"id":"45973",
+			"locale_id":"24",
+			"msgid":"createdBy.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"Firma",
+			"description":null
+		},
+		{
+			"id":"45974",
+			"locale_id":"24",
+			"msgid":"createdBy.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"Pelle",
+			"description":null
+		},
+		{
+			"id":"45975",
+			"locale_id":"24",
+			"msgid":"createdBy.status",
+			"en_msgstr":"Status",
+			"msgstr":"Stato",
+			"description":null
+		},
+		{
+			"id":"45976",
+			"locale_id":"24",
+			"msgid":"createdBy.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"Tema",
+			"description":null
+		},
+		{
+			"id":"45977",
+			"locale_id":"24",
+			"msgid":"createdBy.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"Fuso orario",
+			"description":null
+		},
+		{
+			"id":"45978",
+			"locale_id":"24",
+			"msgid":"createdBy.title",
+			"en_msgstr":"Title",
+			"msgstr":"Titolo",
+			"description":null
+		},
+		{
+			"id":"45979",
+			"locale_id":"24",
+			"msgid":"createdBy.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"Nome Utente",
+			"description":null
+		},
+		{
+			"id":"45980",
+			"locale_id":"24",
+			"msgid":"createdBy.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"Utente Password",
+			"description":null
+		},
+		{
+			"id":"78713",
+			"locale_id":"24",
+			"msgid":"created_by_user.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"182883",
+			"locale_id":"24",
+			"msgid":"created_by_user.company_id",
+			"en_msgstr":"Company",
+			"msgstr":"Azienda",
+			"description":null
+		},
+		{
+			"id":"81350",
+			"locale_id":"24",
+			"msgid":"created_by_user.created",
+			"en_msgstr":"Created",
+			"msgstr":"Creato",
+			"description":null
+		},
+		{
+			"id":"81351",
+			"locale_id":"24",
+			"msgid":"created_by_user.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"Creato da",
+			"description":null
+		},
+		{
+			"id":"78714",
+			"locale_id":"24",
+			"msgid":"created_by_user.currency_id",
+			"en_msgstr":"Currency",
+			"msgstr":"Valuta",
+			"description":null
+		},
+		{
+			"id":"78715",
+			"locale_id":"24",
+			"msgid":"created_by_user.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"78716",
+			"locale_id":"24",
+			"msgid":"created_by_user.department",
+			"en_msgstr":"Department",
+			"msgstr":"Reparto",
+			"description":null
+		},
+		{
+			"id":"78717",
+			"locale_id":"24",
+			"msgid":"created_by_user.description",
+			"en_msgstr":"Description",
+			"msgstr":"Descrizione",
+			"description":null
+		},
+		{
+			"id":"182884",
+			"locale_id":"24",
+			"msgid":"created_by_user.enable_debug_mode",
+			"en_msgstr":"Enable Debug Mode",
+			"msgstr":"Attiva modalit\u00e0 di debug",
+			"description":null
+		},
+		{
+			"id":"182885",
+			"locale_id":"24",
+			"msgid":"created_by_user.enable_logger",
+			"en_msgstr":"Enable Logger",
+			"msgstr":"Abilita Logger",
+			"description":null
+		},
+		{
+			"id":"182881",
+			"locale_id":"24",
+			"msgid":"created_by_user.ext",
+			"en_msgstr":"Ext",
+			"msgstr":"Ext",
+			"description":null
+		},
+		{
+			"id":"78718",
+			"locale_id":"24",
+			"msgid":"created_by_user.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"Fax",
+			"description":null
+		},
+		{
+			"id":"78719",
+			"locale_id":"24",
+			"msgid":"created_by_user.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"Nome",
+			"description":null
+		},
+		{
+			"id":"81352",
+			"locale_id":"24",
+			"msgid":"created_by_user.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"Bandiere",
+			"description":null
+		},
+		{
+			"id":"78720",
+			"locale_id":"24",
+			"msgid":"created_by_user.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Chiave hash",
+			"description":null
+		},
+		{
+			"id":"78721",
+			"locale_id":"24",
+			"msgid":"created_by_user.home_page",
+			"en_msgstr":"Home Page",
+			"msgstr":"Home Page",
+			"description":null
+		},
+		{
+			"id":"78722",
+			"locale_id":"24",
+			"msgid":"created_by_user.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"Formato ora",
+			"description":null
+		},
+		{
+			"id":"78723",
+			"locale_id":"24",
+			"msgid":"created_by_user.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"78724",
+			"locale_id":"24",
+			"msgid":"created_by_user.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u00c8 Attivo",
+			"description":null
+		},
+		{
+			"id":"78725",
+			"locale_id":"24",
+			"msgid":"created_by_user.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"Cognome",
+			"description":null
+		},
+		{
+			"id":"78726",
+			"locale_id":"24",
+			"msgid":"created_by_user.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"Localit\u00e0",
+			"description":null
+		},
+		{
+			"id":"78727",
+			"locale_id":"24",
+			"msgid":"created_by_user.mobile_home_page",
+			"en_msgstr":"Mobile Home Page",
+			"msgstr":"Home Page mobile",
+			"description":null
+		},
+		{
+			"id":"81353",
+			"locale_id":"24",
+			"msgid":"created_by_user.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"Modificato",
+			"description":null
+		},
+		{
+			"id":"81354",
+			"locale_id":"24",
+			"msgid":"created_by_user.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"Modificato da",
+			"description":null
+		},
+		{
+			"id":"78728",
+			"locale_id":"24",
+			"msgid":"created_by_user.name",
+			"en_msgstr":"Name",
+			"msgstr":"Nome",
+			"description":null
+		},
+		{
+			"id":"78729",
+			"locale_id":"24",
+			"msgid":"created_by_user.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"182830",
+			"locale_id":"24",
+			"msgid":"created_by_user.parent_id",
+			"en_msgstr":"Parent",
+			"msgstr":"Genitore",
+			"description":null
+		},
+		{
+			"id":"182875",
+			"locale_id":"24",
+			"msgid":"created_by_user.primary_address_line_1",
+			"en_msgstr":"Primary Address Line 1",
+			"msgstr":"Riga indirizzo primario 1",
+			"description":null
+		},
+		{
+			"id":"182876",
+			"locale_id":"24",
+			"msgid":"created_by_user.primary_address_line_2",
+			"en_msgstr":"Primary Address Line 2",
+			"msgstr":"Indirizzo Linea Primaria 2",
+			"description":null
+		},
+		{
+			"id":"182877",
+			"locale_id":"24",
+			"msgid":"created_by_user.primary_city",
+			"en_msgstr":"Primary City",
+			"msgstr":"Citt\u00e0 primaria",
+			"description":null
+		},
+		{
+			"id":"182879",
+			"locale_id":"24",
+			"msgid":"created_by_user.primary_country",
+			"en_msgstr":"Primary Country",
+			"msgstr":"Paese primaria",
+			"description":null
+		},
+		{
+			"id":"182878",
+			"locale_id":"24",
+			"msgid":"created_by_user.primary_state",
+			"en_msgstr":"Primary State",
+			"msgstr":"Stato primaria",
+			"description":null
+		},
+		{
+			"id":"182880",
+			"locale_id":"24",
+			"msgid":"created_by_user.primary_zip",
+			"en_msgstr":"Primary Zip",
+			"msgstr":"Zip primaria",
+			"description":null
+		},
+		{
+			"id":"182838",
+			"locale_id":"24",
+			"msgid":"created_by_user.region_id",
+			"en_msgstr":"Region",
+			"msgstr":"Regione",
+			"description":null
+		},
+		{
+			"id":"182868",
+			"locale_id":"24",
+			"msgid":"created_by_user.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"Revisione",
+			"description":null
+		},
+		{
+			"id":"182829",
+			"locale_id":"24",
+			"msgid":"created_by_user.role_id",
+			"en_msgstr":"Role",
+			"msgstr":"Ruolo",
+			"description":null
+		},
+		{
+			"id":"182835",
+			"locale_id":"24",
+			"msgid":"created_by_user.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"Saluto",
+			"description":null
+		},
+		{
+			"id":"182833",
+			"locale_id":"24",
+			"msgid":"created_by_user.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"Firma",
+			"description":null
+		},
+		{
+			"id":"182836",
+			"locale_id":"24",
+			"msgid":"created_by_user.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"Pelle",
+			"description":null
+		},
+		{
+			"id":"182882",
+			"locale_id":"24",
+			"msgid":"created_by_user.src",
+			"en_msgstr":"Src",
+			"msgstr":"Src",
+			"description":null
+		},
+		{
+			"id":"182832",
+			"locale_id":"24",
+			"msgid":"created_by_user.status",
+			"en_msgstr":"Status",
+			"msgstr":"Stato",
+			"description":null
+		},
+		{
+			"id":"182837",
+			"locale_id":"24",
+			"msgid":"created_by_user.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"Tema",
+			"description":null
+		},
+		{
+			"id":"182834",
+			"locale_id":"24",
+			"msgid":"created_by_user.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"Fuso orario",
+			"description":null
+		},
+		{
+			"id":"182831",
+			"locale_id":"24",
+			"msgid":"created_by_user.title",
+			"en_msgstr":"Title",
+			"msgstr":"Titolo",
+			"description":null
+		},
+		{
+			"id":"182827",
+			"locale_id":"24",
+			"msgid":"created_by_user.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"Nome Utente",
+			"description":null
+		},
+		{
+			"id":"182828",
+			"locale_id":"24",
+			"msgid":"created_by_user.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"Utente Password",
+			"description":null
+		},
+		{
+			"id":"45981",
+			"locale_id":"24",
+			"msgid":"delete",
+			"en_msgstr":"delete",
+			"msgstr":"cancellare",
+			"description":null
+		},
+		{
+			"id":"186499",
+			"locale_id":"24",
+			"msgid":"Delete Access",
+			"en_msgstr":"Delete Access",
+			"msgstr":"Eliminazione per",
+			"description":null
+		},
+		{
+			"id":"186481",
+			"locale_id":"24",
+			"msgid":"Delete Selected",
+			"en_msgstr":"Delete Selected",
+			"msgstr":"cancellare selezionati",
+			"description":null
+		},
+		{
+			"id":"186483",
+			"locale_id":"24",
+			"msgid":"Developer",
+			"en_msgstr":"Developer",
+			"msgstr":"Sviluppatore",
+			"description":null
+		},
+		{
+			"id":"186517",
+			"locale_id":"24",
+			"msgid":"Document ID",
+			"en_msgstr":"Document ID",
+			"msgstr":"ID documento",
+			"description":null
+		},
+		{
+			"id":"186490",
+			"locale_id":"24",
+			"msgid":"Document Information ",
+			"en_msgstr":"Document Information",
+			"msgstr":"Documento Informativo",
+			"description":null
+		},
+		{
+			"id":"45982",
+			"locale_id":"24",
+			"msgid":"edit",
+			"en_msgstr":"edit",
+			"msgstr":"edit",
+			"description":null
+		},
+		{
+			"id":"186498",
+			"locale_id":"24",
+			"msgid":"Edit Access",
+			"en_msgstr":"Edit Access",
+			"msgstr":"Modifica accesso",
+			"description":null
+		},
+		{
+			"id":"186482",
+			"locale_id":"24",
+			"msgid":"Edit Selected",
+			"en_msgstr":"Edit Selected",
+			"msgstr":"edit selezionati",
+			"description":null
+		},
+		{
+			"id":"186506",
+			"locale_id":"24",
+			"msgid":"Effective Read Access Groups",
+			"en_msgstr":"Effective Read Access Groups",
+			"msgstr":"Efficaci accesso in lettura Gruppi",
+			"description":null
+		},
+		{
+			"id":"186504",
+			"locale_id":"24",
+			"msgid":"Effective Read Access Users",
+			"en_msgstr":"Effective Read Access Users",
+			"msgstr":"Efficaci accesso in lettura Utenti",
+			"description":null
+		},
+		{
+			"id":"186484",
+			"locale_id":"24",
+			"msgid":"Export Selected",
+			"en_msgstr":"Export Selected",
+			"msgstr":"Esporta la selezione",
+			"description":null
+		},
+		{
+			"id":"186519",
+			"locale_id":"24",
+			"msgid":"Flexflow Document Business Rule Log",
+			"en_msgstr":"Flexflow Document Business Rule Log",
+			"msgstr":"FlexFlow Document Business Rule Log",
+			"description":null
+		},
+		{
+			"id":"186510",
+			"locale_id":"24",
+			"msgid":"From",
+			"en_msgstr":"From",
+			"msgstr":"Da",
+			"description":null
+		},
+		{
+			"id":"186508",
+			"locale_id":"24",
+			"msgid":"Group \/ User ",
+			"en_msgstr":"Group \/ User",
+			"msgstr":"Gruppo \/ utente",
+			"description":null
+		},
+		{
+			"id":"45983",
+			"locale_id":"24",
+			"msgid":"index",
+			"en_msgstr":"index",
+			"msgstr":"indice",
+			"description":null
+		},
+		{
+			"id":"49771",
+			"locale_id":"24",
+			"msgid":"License Management",
+			"en_msgstr":"License Management",
+			"msgstr":"Gestione delle licenze",
+			"description":null
+		},
+		{
+			"id":"46009",
+			"locale_id":"24",
+			"msgid":"Licenses",
+			"en_msgstr":"Licenses",
+			"msgstr":"Licenze",
+			"description":null
+		},
+		{
+			"id":"183443",
+			"locale_id":"24",
+			"msgid":"licenses.account_id",
+			"en_msgstr":"Account Name",
+			"msgstr":"Nome account",
+			"description":null
+		},
+		{
+			"id":"46010",
+			"locale_id":"24",
+			"msgid":"licenses.created",
+			"en_msgstr":"Created",
+			"msgstr":"Creato",
+			"description":null
+		},
+		{
+			"id":"46011",
+			"locale_id":"24",
+			"msgid":"licenses.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"Creato da",
+			"description":null
+		},
+		{
+			"id":"46012",
+			"locale_id":"24",
+			"msgid":"licenses.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"46013",
+			"locale_id":"24",
+			"msgid":"licenses.description",
+			"en_msgstr":"Description",
+			"msgstr":"Descrizione",
+			"description":null
+		},
+		{
+			"id":"183442",
+			"locale_id":"24",
+			"msgid":"licenses.download_link",
+			"en_msgstr":"Download Link",
+			"msgstr":"Download Link",
+			"description":null
+		},
+		{
+			"id":"46014",
+			"locale_id":"24",
+			"msgid":"licenses.end",
+			"en_msgstr":"End",
+			"msgstr":"Fine",
+			"description":null
+		},
+		{
+			"id":"46015",
+			"locale_id":"24",
+			"msgid":"licenses.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"Bandiere",
+			"description":null
+		},
+		{
+			"id":"46016",
+			"locale_id":"24",
+			"msgid":"licenses.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"46017",
+			"locale_id":"24",
+			"msgid":"licenses.license_key",
+			"en_msgstr":"License Key",
+			"msgstr":"Chiave di licenza",
+			"description":null
+		},
+		{
+			"id":"46018",
+			"locale_id":"24",
+			"msgid":"licenses.max_users",
+			"en_msgstr":"Max Users",
+			"msgstr":"Massimo di utenti",
+			"description":null
+		},
+		{
+			"id":"46019",
+			"locale_id":"24",
+			"msgid":"licenses.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"Modificato",
+			"description":null
+		},
+		{
+			"id":"46020",
+			"locale_id":"24",
+			"msgid":"licenses.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"Modificato da",
+			"description":null
+		},
+		{
+			"id":"46021",
+			"locale_id":"24",
+			"msgid":"licenses.module",
+			"en_msgstr":"Module",
+			"msgstr":"Modulo",
+			"description":null
+		},
+		{
+			"id":"46022",
+			"locale_id":"24",
+			"msgid":"licenses.name",
+			"en_msgstr":"Name",
+			"msgstr":"Nome",
+			"description":null
+		},
+		{
+			"id":"46023",
+			"locale_id":"24",
+			"msgid":"licenses.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"46024",
+			"locale_id":"24",
+			"msgid":"licenses.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"Revisione",
+			"description":null
+		},
+		{
+			"id":"46025",
+			"locale_id":"24",
+			"msgid":"licenses.start",
+			"en_msgstr":"Start",
+			"msgstr":"Inizio",
+			"description":null
+		},
+		{
+			"id":"45984",
+			"locale_id":"24",
+			"msgid":"license_domains",
+			"en_msgstr":"license domains",
+			"msgstr":"licenza domini",
+			"description":null
+		},
+		{
+			"id":"45985",
+			"locale_id":"24",
+			"msgid":"license_domains.created",
+			"en_msgstr":"Created",
+			"msgstr":"Creato",
+			"description":null
+		},
+		{
+			"id":"45986",
+			"locale_id":"24",
+			"msgid":"license_domains.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"Creato da",
+			"description":null
+		},
+		{
+			"id":"45987",
+			"locale_id":"24",
+			"msgid":"license_domains.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"45988",
+			"locale_id":"24",
+			"msgid":"license_domains.domain",
+			"en_msgstr":"Domain",
+			"msgstr":"Dominio",
+			"description":null
+		},
+		{
+			"id":"45989",
+			"locale_id":"24",
+			"msgid":"license_domains.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"Bandiere",
+			"description":null
+		},
+		{
+			"id":"45990",
+			"locale_id":"24",
+			"msgid":"license_domains.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"45991",
+			"locale_id":"24",
+			"msgid":"license_domains.license_id",
+			"en_msgstr":"License Id",
+			"msgstr":"Licenza Id",
+			"description":null
+		},
+		{
+			"id":"45992",
+			"locale_id":"24",
+			"msgid":"license_domains.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"Modificato",
+			"description":null
+		},
+		{
+			"id":"45993",
+			"locale_id":"24",
+			"msgid":"license_domains.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"Modificato da",
+			"description":null
+		},
+		{
+			"id":"45994",
+			"locale_id":"24",
+			"msgid":"license_domains.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"45995",
+			"locale_id":"24",
+			"msgid":"license_domains.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"Revisione",
+			"description":null
+		},
+		{
+			"id":"45996",
+			"locale_id":"24",
+			"msgid":"license_ips",
+			"en_msgstr":"license ips",
+			"msgstr":"licenza ips",
+			"description":null
+		},
+		{
+			"id":"45997",
+			"locale_id":"24",
+			"msgid":"license_ips.created",
+			"en_msgstr":"Created",
+			"msgstr":"Creato",
+			"description":null
+		},
+		{
+			"id":"45998",
+			"locale_id":"24",
+			"msgid":"license_ips.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"Creato da",
+			"description":null
+		},
+		{
+			"id":"45999",
+			"locale_id":"24",
+			"msgid":"license_ips.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"46000",
+			"locale_id":"24",
+			"msgid":"license_ips.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"Bandiere",
+			"description":null
+		},
+		{
+			"id":"46001",
+			"locale_id":"24",
+			"msgid":"license_ips.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"46002",
+			"locale_id":"24",
+			"msgid":"license_ips.ip",
+			"en_msgstr":"Ip",
+			"msgstr":"Ip",
+			"description":null
+		},
+		{
+			"id":"46003",
+			"locale_id":"24",
+			"msgid":"license_ips.license_id",
+			"en_msgstr":"License Id",
+			"msgstr":"Licenza Id",
+			"description":null
+		},
+		{
+			"id":"46004",
+			"locale_id":"24",
+			"msgid":"license_ips.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"Modificato",
+			"description":null
+		},
+		{
+			"id":"46005",
+			"locale_id":"24",
+			"msgid":"license_ips.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"Modificato da",
+			"description":null
+		},
+		{
+			"id":"46006",
+			"locale_id":"24",
+			"msgid":"license_ips.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"46007",
+			"locale_id":"24",
+			"msgid":"license_ips.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"Revisione",
+			"description":null
+		},
+		{
+			"id":"46008",
+			"locale_id":"24",
+			"msgid":"license_management",
+			"en_msgstr":"License Management",
+			"msgstr":"Gestione delle licenze",
+			"description":null
+		},
+		{
+			"id":"186492",
+			"locale_id":"24",
+			"msgid":"listviews.created",
+			"en_msgstr":"Created",
+			"msgstr":"Creato",
+			"description":null
+		},
+		{
+			"id":"186491",
+			"locale_id":"24",
+			"msgid":"listviews.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"Creato da",
+			"description":null
+		},
+		{
+			"id":"186494",
+			"locale_id":"24",
+			"msgid":"listviews.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"Modificato",
+			"description":null
+		},
+		{
+			"id":"186493",
+			"locale_id":"24",
+			"msgid":"listviews.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"Modificato da",
+			"description":null
+		},
+		{
+			"id":"186518",
+			"locale_id":"24",
+			"msgid":"listviews.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"186507",
+			"locale_id":"24",
+			"msgid":"listviews.primary_acl_group",
+			"en_msgstr":"Primary Acl Group",
+			"msgstr":"Primario Gruppo Acl",
+			"description":null
+		},
+		{
+			"id":"186495",
+			"locale_id":"24",
+			"msgid":"listviews.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"Revisione",
+			"description":null
+		},
+		{
+			"id":"46026",
+			"locale_id":"24",
+			"msgid":"modifiedBy.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"46027",
+			"locale_id":"24",
+			"msgid":"modifiedBy.currency_id",
+			"en_msgstr":"Currency Id",
+			"msgstr":"Valuta Id",
+			"description":null
+		},
+		{
+			"id":"46028",
+			"locale_id":"24",
+			"msgid":"modifiedBy.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"46029",
+			"locale_id":"24",
+			"msgid":"modifiedBy.department",
+			"en_msgstr":"Department",
+			"msgstr":"Reparto",
+			"description":null
+		},
+		{
+			"id":"46030",
+			"locale_id":"24",
+			"msgid":"modifiedBy.description",
+			"en_msgstr":"Description",
+			"msgstr":"Descrizione",
+			"description":null
+		},
+		{
+			"id":"46031",
+			"locale_id":"24",
+			"msgid":"modifiedBy.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"Fax",
+			"description":null
+		},
+		{
+			"id":"46032",
+			"locale_id":"24",
+			"msgid":"modifiedBy.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"Nome",
+			"description":null
+		},
+		{
+			"id":"46033",
+			"locale_id":"24",
+			"msgid":"modifiedBy.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Chiave hash",
+			"description":null
+		},
+		{
+			"id":"46034",
+			"locale_id":"24",
+			"msgid":"modifiedBy.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"Formato ora",
+			"description":null
+		},
+		{
+			"id":"46035",
+			"locale_id":"24",
+			"msgid":"modifiedBy.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"46036",
+			"locale_id":"24",
+			"msgid":"modifiedBy.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u00c8 Attivo",
+			"description":null
+		},
+		{
+			"id":"46037",
+			"locale_id":"24",
+			"msgid":"modifiedBy.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"Cognome",
+			"description":null
+		},
+		{
+			"id":"46038",
+			"locale_id":"24",
+			"msgid":"modifiedBy.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"Localit\u00e0",
+			"description":null
+		},
+		{
+			"id":"46039",
+			"locale_id":"24",
+			"msgid":"modifiedBy.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"46040",
+			"locale_id":"24",
+			"msgid":"modifiedBy.parent_id",
+			"en_msgstr":"Parent Id",
+			"msgstr":"Genitore Id",
+			"description":null
+		},
+		{
+			"id":"46041",
+			"locale_id":"24",
+			"msgid":"modifiedBy.role_id",
+			"en_msgstr":"Role Id",
+			"msgstr":"Ruolo Id",
+			"description":null
+		},
+		{
+			"id":"46042",
+			"locale_id":"24",
+			"msgid":"modifiedBy.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"Saluto",
+			"description":null
+		},
+		{
+			"id":"46043",
+			"locale_id":"24",
+			"msgid":"modifiedBy.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"Firma",
+			"description":null
+		},
+		{
+			"id":"46044",
+			"locale_id":"24",
+			"msgid":"modifiedBy.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"Pelle",
+			"description":null
+		},
+		{
+			"id":"46045",
+			"locale_id":"24",
+			"msgid":"modifiedBy.status",
+			"en_msgstr":"Status",
+			"msgstr":"Stato",
+			"description":null
+		},
+		{
+			"id":"46046",
+			"locale_id":"24",
+			"msgid":"modifiedBy.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"Tema",
+			"description":null
+		},
+		{
+			"id":"46047",
+			"locale_id":"24",
+			"msgid":"modifiedBy.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"Fuso orario",
+			"description":null
+		},
+		{
+			"id":"46048",
+			"locale_id":"24",
+			"msgid":"modifiedBy.title",
+			"en_msgstr":"Title",
+			"msgstr":"Titolo",
+			"description":null
+		},
+		{
+			"id":"46049",
+			"locale_id":"24",
+			"msgid":"modifiedBy.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"Nome Utente",
+			"description":null
+		},
+		{
+			"id":"46050",
+			"locale_id":"24",
+			"msgid":"modifiedBy.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"Utente Password",
+			"description":null
+		},
+		{
+			"id":"182859",
+			"locale_id":"24",
+			"msgid":"modified_by_user.accesskey",
+			"en_msgstr":"Accesskey",
+			"msgstr":"Accesskey",
+			"description":null
+		},
+		{
+			"id":"182894",
+			"locale_id":"24",
+			"msgid":"modified_by_user.company_id",
+			"en_msgstr":"Company",
+			"msgstr":"Azienda",
+			"description":null
+		},
+		{
+			"id":"182871",
+			"locale_id":"24",
+			"msgid":"modified_by_user.created",
+			"en_msgstr":"Created",
+			"msgstr":"Creato",
+			"description":null
+		},
+		{
+			"id":"182869",
+			"locale_id":"24",
+			"msgid":"modified_by_user.created_by",
+			"en_msgstr":"Created By",
+			"msgstr":"Creato da",
+			"description":null
+		},
+		{
+			"id":"182848",
+			"locale_id":"24",
+			"msgid":"modified_by_user.currency_id",
+			"en_msgstr":"Currency",
+			"msgstr":"Valuta",
+			"description":null
+		},
+		{
+			"id":"182858",
+			"locale_id":"24",
+			"msgid":"modified_by_user.deleted",
+			"en_msgstr":"Deleted",
+			"msgstr":"Cancellato",
+			"description":null
+		},
+		{
+			"id":"182851",
+			"locale_id":"24",
+			"msgid":"modified_by_user.department",
+			"en_msgstr":"Department",
+			"msgstr":"Reparto",
+			"description":null
+		},
+		{
+			"id":"182849",
+			"locale_id":"24",
+			"msgid":"modified_by_user.description",
+			"en_msgstr":"Description",
+			"msgstr":"Descrizione",
+			"description":null
+		},
+		{
+			"id":"182895",
+			"locale_id":"24",
+			"msgid":"modified_by_user.enable_debug_mode",
+			"en_msgstr":"Enable Debug Mode",
+			"msgstr":"Attiva modalit\u00e0 di debug",
+			"description":null
+		},
+		{
+			"id":"182896",
+			"locale_id":"24",
+			"msgid":"modified_by_user.enable_logger",
+			"en_msgstr":"Enable Logger",
+			"msgstr":"Abilita Logger",
+			"description":null
+		},
+		{
+			"id":"182892",
+			"locale_id":"24",
+			"msgid":"modified_by_user.ext",
+			"en_msgstr":"Ext",
+			"msgstr":"Ext",
+			"description":null
+		},
+		{
+			"id":"182852",
+			"locale_id":"24",
+			"msgid":"modified_by_user.fax",
+			"en_msgstr":"Fax",
+			"msgstr":"Fax",
+			"description":null
+		},
+		{
+			"id":"182843",
+			"locale_id":"24",
+			"msgid":"modified_by_user.first_name",
+			"en_msgstr":"First Name",
+			"msgstr":"Nome",
+			"description":null
+		},
+		{
+			"id":"182874",
+			"locale_id":"24",
+			"msgid":"modified_by_user.flags",
+			"en_msgstr":"Flags",
+			"msgstr":"Bandiere",
+			"description":null
+		},
+		{
+			"id":"182841",
+			"locale_id":"24",
+			"msgid":"modified_by_user.hash_key",
+			"en_msgstr":"Hash Key",
+			"msgstr":"Chiave hash",
+			"description":null
+		},
+		{
+			"id":"182865",
+			"locale_id":"24",
+			"msgid":"modified_by_user.home_page",
+			"en_msgstr":"Home Page",
+			"msgstr":"Home Page",
+			"description":null
+		},
+		{
+			"id":"182857",
+			"locale_id":"24",
+			"msgid":"modified_by_user.hour_format",
+			"en_msgstr":"Hour Format",
+			"msgstr":"Formato ora",
+			"description":null
+		},
+		{
+			"id":"182839",
+			"locale_id":"24",
+			"msgid":"modified_by_user.id",
+			"en_msgstr":"Id",
+			"msgstr":"Id",
+			"description":null
+		},
+		{
+			"id":"182862",
+			"locale_id":"24",
+			"msgid":"modified_by_user.is_active",
+			"en_msgstr":"Is Active",
+			"msgstr":"\u00c8 Attivo",
+			"description":null
+		},
+		{
+			"id":"182844",
+			"locale_id":"24",
+			"msgid":"modified_by_user.last_name",
+			"en_msgstr":"Last Name",
+			"msgstr":"Cognome",
+			"description":null
+		},
+		{
+			"id":"182856",
+			"locale_id":"24",
+			"msgid":"modified_by_user.locale",
+			"en_msgstr":"Locale",
+			"msgstr":"Localit\u00e0",
+			"description":null
+		},
+		{
+			"id":"182866",
+			"locale_id":"24",
+			"msgid":"modified_by_user.mobile_home_page",
+			"en_msgstr":"Mobile Home Page",
+			"msgstr":"Home Page mobile",
+			"description":null
+		},
+		{
+			"id":"182872",
+			"locale_id":"24",
+			"msgid":"modified_by_user.modified",
+			"en_msgstr":"Modified",
+			"msgstr":"Modificato",
+			"description":null
+		},
+		{
+			"id":"182870",
+			"locale_id":"24",
+			"msgid":"modified_by_user.modified_by",
+			"en_msgstr":"Modified By",
+			"msgstr":"Modificato da",
+			"description":null
+		},
+		{
+			"id":"182845",
+			"locale_id":"24",
+			"msgid":"modified_by_user.name",
+			"en_msgstr":"Name",
+			"msgstr":"Nome",
+			"description":null
+		},
+		{
+			"id":"182860",
+			"locale_id":"24",
+			"msgid":"modified_by_user.owned_by",
+			"en_msgstr":"Owned By",
+			"msgstr":"Di propriet\u00e0 di",
+			"description":null
+		},
+		{
+			"id":"182847",
+			"locale_id":"24",
+			"msgid":"modified_by_user.parent_id",
+			"en_msgstr":"Parent",
+			"msgstr":"Genitore",
+			"description":null
+		},
+		{
+			"id":"182886",
+			"locale_id":"24",
+			"msgid":"modified_by_user.primary_address_line_1",
+			"en_msgstr":"Primary Address Line 1",
+			"msgstr":"Riga indirizzo primario 1",
+			"description":null
+		},
+		{
+			"id":"182887",
+			"locale_id":"24",
+			"msgid":"modified_by_user.primary_address_line_2",
+			"en_msgstr":"Primary Address Line 2",
+			"msgstr":"Indirizzo Linea Primaria 2",
+			"description":null
+		},
+		{
+			"id":"182888",
+			"locale_id":"24",
+			"msgid":"modified_by_user.primary_city",
+			"en_msgstr":"Primary City",
+			"msgstr":"Citt\u00e0 primaria",
+			"description":null
+		},
+		{
+			"id":"182890",
+			"locale_id":"24",
+			"msgid":"modified_by_user.primary_country",
+			"en_msgstr":"Primary Country",
+			"msgstr":"Paese primaria",
+			"description":null
+		},
+		{
+			"id":"182889",
+			"locale_id":"24",
+			"msgid":"modified_by_user.primary_state",
+			"en_msgstr":"Primary State",
+			"msgstr":"Stato primaria",
+			"description":null
+		},
+		{
+			"id":"182891",
+			"locale_id":"24",
+			"msgid":"modified_by_user.primary_zip",
+			"en_msgstr":"Primary Zip",
+			"msgstr":"Zip primaria",
+			"description":null
+		},
+		{
+			"id":"182867",
+			"locale_id":"24",
+			"msgid":"modified_by_user.region_id",
+			"en_msgstr":"Region",
+			"msgstr":"Regione",
+			"description":null
+		},
+		{
+			"id":"182873",
+			"locale_id":"24",
+			"msgid":"modified_by_user.revision",
+			"en_msgstr":"Revision",
+			"msgstr":"Revisione",
+			"description":null
+		},
+		{
+			"id":"182846",
+			"locale_id":"24",
+			"msgid":"modified_by_user.role_id",
+			"en_msgstr":"Role",
+			"msgstr":"Ruolo",
+			"description":null
+		},
+		{
+			"id":"182861",
+			"locale_id":"24",
+			"msgid":"modified_by_user.salutation",
+			"en_msgstr":"Salutation",
+			"msgstr":"Saluto",
+			"description":null
+		},
+		{
+			"id":"182854",
+			"locale_id":"24",
+			"msgid":"modified_by_user.signature",
+			"en_msgstr":"Signature",
+			"msgstr":"Firma",
+			"description":null
+		},
+		{
+			"id":"182863",
+			"locale_id":"24",
+			"msgid":"modified_by_user.skin",
+			"en_msgstr":"Skin",
+			"msgstr":"Pelle",
+			"description":null
+		},
+		{
+			"id":"182893",
+			"locale_id":"24",
+			"msgid":"modified_by_user.src",
+			"en_msgstr":"Src",
+			"msgstr":"Src",
+			"description":null
+		},
+		{
+			"id":"182853",
+			"locale_id":"24",
+			"msgid":"modified_by_user.status",
+			"en_msgstr":"Status",
+			"msgstr":"Stato",
+			"description":null
+		},
+		{
+			"id":"182864",
+			"locale_id":"24",
+			"msgid":"modified_by_user.theme",
+			"en_msgstr":"Theme",
+			"msgstr":"Tema",
+			"description":null
+		},
+		{
+			"id":"182855",
+			"locale_id":"24",
+			"msgid":"modified_by_user.time_zone",
+			"en_msgstr":"Time Zone",
+			"msgstr":"Fuso orario",
+			"description":null
+		},
+		{
+			"id":"182850",
+			"locale_id":"24",
+			"msgid":"modified_by_user.title",
+			"en_msgstr":"Title",
+			"msgstr":"Titolo",
+			"description":null
+		},
+		{
+			"id":"182840",
+			"locale_id":"24",
+			"msgid":"modified_by_user.user_name",
+			"en_msgstr":"User Name",
+			"msgstr":"Nome Utente",
+			"description":null
+		},
+		{
+			"id":"182842",
+			"locale_id":"24",
+			"msgid":"modified_by_user.user_password",
+			"en_msgstr":"User Password",
+			"msgstr":"Utente Password",
+			"description":null
+		},
+		{
+			"id":"182938",
+			"locale_id":"24",
+			"msgid":"More",
+			"en_msgstr":"More",
+			"msgstr":"Pi\u00f9",
+			"description":null
+		},
+		{
+			"id":"49773",
+			"locale_id":"24",
+			"msgid":"Place holder",
+			"en_msgstr":"Place holder",
+			"msgstr":"Luogo titolare",
+			"description":null
+		},
+		{
+			"id":"182826",
+			"locale_id":"24",
+			"msgid":"r",
+			"en_msgstr":"r",
+			"msgstr":"r",
+			"description":null
+		},
+		{
+			"id":"186497",
+			"locale_id":"24",
+			"msgid":"Read Access",
+			"en_msgstr":"Read Access",
+			"msgstr":"Accesso in lettura",
+			"description":null
+		},
+		{
+			"id":"186487",
+			"locale_id":"24",
+			"msgid":"Related Information",
+			"en_msgstr":"Related Information",
+			"msgstr":"Informazioni correlate",
+			"description":null
+		},
+		{
+			"id":"186503",
+			"locale_id":"24",
+			"msgid":"Revision Log",
+			"en_msgstr":"Revision Log",
+			"msgstr":"Revisione Log",
+			"description":null
+		},
+		{
+			"id":"182942",
+			"locale_id":"24",
+			"msgid":"Settings",
+			"en_msgstr":"Settings",
+			"msgstr":"Impostazioni",
+			"description":null
+		},
+		{
+			"id":"49774",
+			"locale_id":"24",
+			"msgid":"settings-menu",
+			"en_msgstr":"settings-menu",
+			"msgstr":"impostazioni del menu",
+			"description":null
+		},
+		{
+			"id":"186505",
+			"locale_id":"24",
+			"msgid":"Some users might be granted access via groups",
+			"en_msgstr":"Some users might be granted access via groups",
+			"msgstr":"Alcuni utenti potrebbero avere accesso tramite i gruppi",
+			"description":null
+		},
+		{
+			"id":"186485",
+			"locale_id":"24",
+			"msgid":"Submit",
+			"en_msgstr":"Submit",
+			"msgstr":"Presentare",
+			"description":null
+		},
+		{
+			"id":"186489",
+			"locale_id":"24",
+			"msgid":"SYSTEM_ACL_REVISIONS",
+			"en_msgstr":"SYSTEM ACL REVISIONS",
+			"msgstr":"SISTEMA ACL REVISIONI",
+			"description":null
+		},
+		{
+			"id":"186500",
+			"locale_id":"24",
+			"msgid":"Temporary ACL",
+			"en_msgstr":"Temporary ACL",
+			"msgstr":"Temporary ACL",
+			"description":null
+		},
+		{
+			"id":"186502",
+			"locale_id":"24",
+			"msgid":"Temporary Delete",
+			"en_msgstr":"Temporary Delete",
+			"msgstr":"Rimozione temporanea",
+			"description":null
+		},
+		{
+			"id":"186501",
+			"locale_id":"24",
+			"msgid":"Temporary Edit",
+			"en_msgstr":"Temporary Edit",
+			"msgstr":"Modifica temporanea",
+			"description":null
+		},
+		{
+			"id":"186511",
+			"locale_id":"24",
+			"msgid":"To",
+			"en_msgstr":"To",
+			"msgstr":"A",
+			"description":null
+		},
+		{
+			"id":"46051",
+			"locale_id":"24",
+			"msgid":"view",
+			"en_msgstr":"view",
+			"msgstr":"vista",
+			"description":null
+		}
+	]
+}

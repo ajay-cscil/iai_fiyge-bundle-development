@@ -1,0 +1,31 @@
+[
+	{
+		"name":"Populate VRM-List based on address line 1",
+		"description":"",
+		"runlevel":"5",
+		"filter_path":"remote_procedure_call",
+		"event":"",
+		"if_condition":"1",
+		"then_condition":"        $peopleObject = \\module\\vrm\\model\\people::getInstance();\r\n        $listObject = \\module\\vrm\\model\\lists::getInstance();\r\n        $peopleListsObject = \\module\\vrm\\model\\people_lists::getInstance();\r\n        $lists = array();\r\n        foreach (\\select(array(\"{$peopleObject->alias}.id\", \"addresses.address_line_1\"))\r\n                ->from($peopleObject)\r\n                ->joinInner(\"addresses\")\r\n                ->limit(0)\r\n                ->inserted()\r\n                ->order(\"addresses.address_line_1 ASC\")\r\n                ->execute()\r\n                ->fetchAll(\\PDO::FETCH_ASSOC) as $record) {\r\n            $line1=$record['address_line_1'];\r\n            if (!isset($lists[$line1])) {\r\n                $lists[$line1] = \\select(\"id\")\r\n                        ->from($listObject)\r\n                        ->inserted()\r\n                        ->where(\"name\", $line1)\r\n                        ->limit(1)\r\n                        ->execute()\r\n                        ->fetch(\\PDO::FETCH_COLUMN, 0);\r\n                if (empty($lists[$line1])) {\r\n                    $lists[$line1] = $listObject->save(array('name' => $line1), array('atomic' => true));\r\n                }\r\n            }\r\n            $peopleListsObject->save(array('list_id' => $lists[$line1], 'people_id' => $record['id']), array('atomic' => true));\r\n        }",
+		"else_condition":"",
+		"is_terminal":"0",
+		"run_once":"0",
+		"created":"2014-09-02 21:27:30",
+		"modified":null,
+		"created_by":"1",
+		"modified_by":null,
+		"owned_by":"1",
+		"revision":"1",
+		"old_parent_id":null,
+		"lft":"287",
+		"rgt":"288",
+		"deleted":"0",
+		"record_flags":null,
+		"md5":null,
+		"action_id":null,
+		"stage_id":null,
+		"id":"54063642-d4b4-480c-996e-3c690abf2d7d",
+		"parent_id":"",
+		"module_id":"53d7eed0-c6f0-4b58-ad57-23900af91b9d"
+	}
+]

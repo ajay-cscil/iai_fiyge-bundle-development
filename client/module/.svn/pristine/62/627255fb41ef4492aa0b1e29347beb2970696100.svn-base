@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\tickets\controller;
+  class bug_types extends \module\tickets\controller\bug_types_domain_logic
+  {
+       public $modelClass = '\\module\\tickets\\model\\bug_types';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

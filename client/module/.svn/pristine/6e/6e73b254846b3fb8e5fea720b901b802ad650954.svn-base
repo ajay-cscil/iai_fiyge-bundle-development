@@ -1,0 +1,78 @@
+[
+	{
+		"listviews":{
+			"name":"Recycle Bin",
+			"category_id":"5",
+			"query":"{\"fields\":[\"polling_station_informations.name\",\"polling_station_informations.boundary_properties\",\"polling_station_informations.created\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"polling_station_informations.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"polling_station_informations.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+			"_query":"{\"fields\":[{\"column\":\"polling_station_informations.name\",\"__column\":\"polling_station_informations.name\"},{\"column\":\"polling_station_informations.boundary_properties\",\"__column\":\"polling_station_informations.boundary_properties\"},{\"column\":\"polling_station_informations.created\",\"__column\":\"polling_station_informations.created\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"polling_station_informations.modified\",\"__column\":\"polling_station_informations.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"polling_station_informations.modified\",\"sort_by\":\"polling_station_informations.modified\"}}",
+			"description":null,
+			"controller":"elections\/polling_station_informations",
+			"is_default":0,
+			"is_public":"1",
+			"parent_id":null,
+			"created_by":"1",
+			"modified_by":null,
+			"owned_by":"1",
+			"created":"2014-07-05 11:13:14",
+			"modified":null,
+			"deleted":"0",
+			"revision":"1",
+			"flags":null,
+			"_acl":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				},
+				{
+					"id":"847",
+					"aro_id_model":"groups",
+					"aro_id":"847",
+					"__aro_id":"Ward-7-8"
+				}
+			],
+			"_acl_edit":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				}
+			],
+			"_acl_delete":[
+				{
+					"id":"1",
+					"aro_id_model":"users",
+					"aro_id":"1",
+					"__aro_id":"Gael Miles"
+				}
+			],
+			"_acl_tmp":null,
+			"_acl_tmp_edit":null,
+			"_acl_tmp_delete":null,
+			"full_name":"elections.polling_station_informations.Recycle Bin",
+			"sequence":"100376",
+			"primary_acl_group":"847",
+			"id":"53b7ddca-52f0-4075-ad20-79790af91b9d",
+			"module_id":"",
+			"old_id":null,
+			"do_not_inherit":"0",
+			"__created_by":"Gael Miles",
+			"created_by_model":"created_by_user",
+			"__modified_by":"",
+			"__category_id":"Business Views",
+			"category_id_model":"category",
+			"__parent_id":"",
+			"__owned_by":"Gael Miles",
+			"owned_by_model":"owned_by_user",
+			"__primary_acl_group":"Ward-7-8",
+			"primary_acl_group_model":"groups",
+			"__module_id":"",
+			"temporary_acl":[
+				
+			],
+			"inherited_read_acl":"This user is configured to bypass read ACL"
+		}
+	}
+]

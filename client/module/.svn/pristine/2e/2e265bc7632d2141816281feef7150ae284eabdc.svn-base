@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\manufacturing\controller;
+  class work_orders extends \module\manufacturing\controller\work_orders_domain_logic
+  {
+       public $modelClass = '\\module\\manufacturing\\model\\work_orders';
+
+
+
+
+
+
+  }

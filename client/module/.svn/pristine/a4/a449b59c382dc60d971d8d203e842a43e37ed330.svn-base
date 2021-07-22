@@ -1,0 +1,211 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\crm_cruise\model;
+  class opportunities extends \module\crm_cruise\model\opportunities_domain_logic
+  {
+       public $source = 'default';
+       public $table = 'crm_cruise__opportunities';
+       public $parentClass = '\\data_model';
+       public $displayField = 'name';
+       public $primaryKey = 'id';
+       public $paginateAs = 'lazy';
+       public $singular = 'opportunity';
+       public $sequenceColumnName = 'seq';
+       public $isSequentialData = '0';
+       public $isSearchable = '0';
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'associationAlias' => 'created_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+  ),
+  'modified_by_user' => 
+  array (
+    'associationAlias' => 'modified_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+  ),
+  'owned_by_user' => 
+  array (
+    'associationAlias' => 'owned_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+  ),
+  'imported_by_user' => 
+  array (
+    'associationAlias' => 'imported_by_user',
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'imported_by',
+  ),
+  'config_lead_sources' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\config_lead_sources',
+    'associationAlias' => 'config_lead_sources',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'lead_source',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'leads' => 
+  array (
+    'associationAlias' => 'leads',
+    'className' => '\\module\\crm_cruise\\model\\leads',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'related_to',
+  ),
+  'config_opportunity_types' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\config_opportunity_types',
+    'associationAlias' => 'config_opportunity_types',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'opportunity_type',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'currencies' => 
+  array (
+    'associationAlias' => 'currencies',
+    'className' => '\\module\\masters\\model\\currencies',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'currency',
+  ),
+  'config_sales_stages' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\config_sales_stages',
+    'associationAlias' => 'config_sales_stages',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'sales_stage',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'notes' => 
+  array (
+    'associationAlias' => 'notes',
+    'className' => '\\module\\help\\model\\notes',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'related_to',
+    'on' => 
+    array (
+      0 => '{{PRIMARY}}.{{PRIMARY_KEY}}={{FOREIGN}}.{{FOREIGN_KEY}}',
+      1 => '\'{{PRIMARY}}\'={{FOREIGN}}.related_to_model',
+    ),
+    'isAclChild' => '1',
+  ),
+  'unread_records' => 
+  array (
+    'associationAlias' => 'unread_records',
+    'className' => '\\module\\logging\\model\\action_history',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'record_id',
+    'on' => 
+    array (
+      0 => '{{FOREIGN}}.controller=\'{{PRIMARY}}\'',
+      1 => ' {{FOREIGN}}.record_id={{PRIMARY}}.{{PRIMARY_KEY}}',
+      2 => '{{FOREIGN}}.created_by={{CURRENT_USER}}',
+    ),
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'accounts' => 
+  array (
+    'className' => '\\module\\crm_cruise\\model\\accounts',
+    'associationAlias' => 'accounts',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'account_id',
+    'isAclParent' => '1',
+    'show_link' => '1',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+    'isSearchable' => '0',
+  ),
+  'products' => 
+  array (
+    'associationAlias' => 'products',
+    'className' => '\\module\\crm_cruise\\model\\products',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'product_id',
+    'isAclParent' => '0',
+    'show_link' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $behaviours = array (
+  '\\module\\access_controls\\behaviour\\acl' => 
+  array (
+    'cacheClass' => '1',
+  ),
+  '\\module\\brules\\behaviour\\business_rules' => 
+  array (
+    'name' => '\\module\\brules\\behaviour\\business_rules',
+    'isSearchable' => '0',
+  ),
+);
+       public $filters = array (
+  'name' => 
+  array (
+    0 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\transformation',
+          1 => 'ucwords',
+        ),
+      ),
+      'sanitize' => 1,
+    ),
+    1 => 
+    array (
+      'rule' => '1024',
+      'params' => 
+      array (
+        'options' => 
+        array (
+          0 => '\\tushar\\transformation',
+          1 => 'ucwords',
+        ),
+      ),
+      'sanitize' => 1,
+    ),
+  ),
+  'email_opt_out' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }

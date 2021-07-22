@@ -1,0 +1,92 @@
+<?php
+
+namespace module\license_management\model;
+
+class licenses_domain_logic extends \tushar\model{
+
+    public $table = 'license_management__licenses';
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        )
+        , 'license_ips' => array('assocType' => 'hasMany'
+            , 'foreignKey' => 'license_id'
+            , 'isSubModel' => 1
+            , 'className' => '\\module\\license_management\\model\\license_ips'
+        )
+        , 'license_domains' => array('assocType' => 'hasMany'
+            , 'foreignKey' => 'license_id'
+            , 'isSubModel' => 1
+            , 'className' => '\\module\\license_management\\model\\license_domains'
+        ), 'accounts' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'account_id'
+            , 'className' => '\\module\\crm\\model\\accounts'
+        )
+    );
+    public $filters = array(
+        'account_id' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+        , 'start' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+        , 'end' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+        , 'module' => array('required', array('rule' => FILTER_CALLBACK, 'params' => array('options' => array('\\tushar\\validation', 'notEmpty'))))
+    );
+
+    public function beforeSave() {
+        parent::beforeSave();
+        if (!empty($this->data)) {
+            if (isset($this->data['__account_id']) && isset($this->data['module'])) {
+                $this->data['name'] = "{$this->data['__account_id']}/{$this->data['module']}";
+            }
+            if (isset($this->data['controllers']) && is_array($this->data['controllers'])) {
+                $this->data['controllers'] = json_encode($this->data['controllers']);
+            }
+        }
+    }
+
+    public function afterRead(&$data) {
+        if (isset($data['controllers']) && !empty($data['controllers']) && !is_array($data['controllers'])) {
+            $data['controllers'] = json_decode($data['controllers'], true);
+        }
+    }
+
+    public function readLicense($id) {
+        $data = $this->read($id);
+        $modelObj = $this;
+        $license = \array_intersect_key($data[$modelObj->alias], $modelObj->schema());
+        $license['controllers'] = array();
+        if (isset($data[$modelObj->alias]['controllers'])) {
+            $license['controllers'] = $data[$modelObj->alias]['controllers'];
+        }
+        $license['ip'] = array();
+        if (isset($data[$modelObj->alias]['license_ips']) && is_array($data[$modelObj->alias]['license_ips'])) {
+            foreach ($data[$modelObj->alias]['license_ips'] as $info) {
+                $license['ip'][] = $info['ip'];
+            }
+        }
+        $license['domain'] = array();
+        if (isset($data[$modelObj->alias]['license_domains']) && is_array($data[$modelObj->alias]['license_domains'])) {
+            foreach ($data[$modelObj->alias]['license_domains'] as $info) {
+                $license['domain'][] = $info['domain'];
+            }
+        }
+        $filename = array();
+        foreach (array('usage_license', 'integration_license', 'developer_license', 'source_clone_license') as $type) {
+            if (isset($license[$type]) && $license[$type] == 1) {
+                $filename[] = str_replace("_license", "", $type);
+            }
+        }
+        $filename = "{$license['module']} [" . (implode(" + ", $filename)) . "]." . \tushar\configuration::read('licenseExtension');
+        $license = \tushar\license::encrypt(serialize($license));
+
+        $data['license_key'] = $license;
+        $data['license_filename'] = $filename;
+        return $data;
+    }
+
+}
+
+?>

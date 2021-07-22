@@ -1,0 +1,107 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "roles",
+                    "aro_id": "1",
+                    "__aro_id": "MyOrg"
+                },
+                {
+                    "id": "847",
+                    "aro_id_model": "groups",
+                    "aro_id": "847",
+                    "__aro_id": "Region-USA"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                },
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"fields\":[{\"column\":\"holiday_schedule.name\",\"__column\":\"holiday_schedule.name\"},{\"column\":\"holiday_schedule.created\",\"__column\":\"holiday_schedule.created\"},{\"column\":\"holiday_schedule.deleted\",\"__column\":\"holiday_schedule.deleted\"},{\"column\":\"modified_by_user.name\",\"__column\":\"modified_by_user.name\"},{\"column\":\"holiday_schedule.modified\",\"__column\":\"holiday_schedule.modified\"}],\"render_as\":\"index\",\"conditions\":[{\"__search_column\":\"leads.deleted\",\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"}],\"sort\":{\"__sort_by\":\"holiday_schedule.modified\",\"sort_by\":\"holiday_schedule.modified\"}}",
+            "category_id": "5",
+            "controller": "hr\/holiday_schedule",
+            "created": "2014-07-16 12:10:31",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "hr.holiday_schedule.Recycle Bin",
+            "id": "53c66bb7-8714-49b5-8fcc-70fa0af91b9d",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": null,
+            "modified_by": null,
+            "module_id": "27265080-e746-11e3-aad5-0800275f9930",
+            "name": "Recycle Bin",
+            "old_id": null,
+            "owned_by": "1",
+            "parent_id": null,
+            "primary_acl_group": "847",
+            "query": "{\"fields\":[\"holiday_schedule.name\",\"holiday_schedule.created\",\"holiday_schedule.deleted\",{\"modified_by_user.name\":{\"alias\":\"Deleted By User\"}},{\"holiday_schedule.modified\":{\"alias\":\"Deleted On\"}}],\"order\":[\"holiday_schedule.modified\"],\"conditions\":{\"search_column\":\"leads.deleted\",\"search_comparator\":\"=\",\"search_value\":\"1\"},\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "100382",
+            "__created_by": "System Admin",
+            "__modified_by": "",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "System Admin",
+            "__primary_acl_group": "Region-USA",
+            "__module_id": "hr",
+            "created_by_model": "created_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "primary_acl_group_model": "groups",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

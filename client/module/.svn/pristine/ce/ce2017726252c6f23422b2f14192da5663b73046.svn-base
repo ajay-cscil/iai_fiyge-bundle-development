@@ -1,0 +1,27 @@
+{
+	"cdr":{
+		"id":"267",
+		"template":"controller",
+		"properties":{
+			"modelClass":"\\module\\voip\\model\\cdr",
+			"parent_class":"\\tushar\\controller",
+			"preGenerateID":"0"
+		},
+		"parent_id":"0",
+		"module_id":"349",
+		"controller_class":"\\module\\voip\\controller\\cdr",
+		"lft":"415",
+		"rgt":"416",
+		"created_by":"1",
+		"modified_by":null,
+		"owned_by":null,
+		"created":"2013-05-31 15:51:25",
+		"modified":null,
+		"revision":null,
+		"flags":null,
+		"deleted":"0",
+		"children":[
+			
+		]
+	}
+}

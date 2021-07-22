@@ -1,0 +1,164 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\model;
+  class order_details_notes extends \module\excursion\model\order_details_notes_domain_logic
+  {
+       public $displayField = 'orderDetailID';
+       public $primaryKey = 'orderDetailID';
+       public $parentClass = '\\tushar\\model';
+       public $source = 'default';
+       public $table = 'excursion__order_details_notes';
+       public $alias = 'order_details_notes';
+       public $fields = array (
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'date_travel_agent_paid' => 
+  array (
+    'column' => 'date_travel_agent_paid',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'date_vendor_paid' => 
+  array (
+    'column' => 'date_vendor_paid',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'how_vendor_paid' => 
+  array (
+    'column' => 'how_vendor_paid',
+    'ntype' => 'string',
+    'length' => '255',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'notes' => 
+  array (
+    'column' => 'notes',
+    'ntype' => 'string',
+  ),
+  'orderDetailID' => 
+  array (
+    'column' => 'orderDetailID',
+    'ntype' => 'int',
+    'length' => '11',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+  ),
+);
+       public $associations = array (
+  'created_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'created_by',
+    'associationAlias' => 'created_by_user',
+  ),
+  'modified_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'modified_by',
+    'associationAlias' => 'modified_by_user',
+  ),
+  'owned_by_user' => 
+  array (
+    'className' => '\\module\\access_controls\\model\\users',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'owned_by',
+    'associationAlias' => 'owned_by_user',
+  ),
+  'approval_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\approval_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'approval_emails_log',
+  ),
+  'order_details_options_parsed' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_options_parsed',
+    'assocType' => 'belongsTo',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_options_parsed',
+  ),
+  'order_details_responses' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_details_responses',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_details_responses',
+  ),
+  'order_information_details' => 
+  array (
+    'className' => '\\module\\excursion\\model\\order_information_details',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'order_information_details',
+  ),
+  'tracker_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\tracker_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'tracker_log',
+  ),
+  'vendor_reminder_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\vendor_reminder_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'vendor_reminder_emails_log',
+  ),
+  'vendor_tour_manifest_emails_log' => 
+  array (
+    'className' => '\\module\\excursion\\model\\vendor_tour_manifest_emails_log',
+    'assocType' => 'hasMany',
+    'foreignKey' => 'orderDetailID',
+    'associationAlias' => 'vendor_tour_manifest_emails_log',
+  ),
+);
+  }

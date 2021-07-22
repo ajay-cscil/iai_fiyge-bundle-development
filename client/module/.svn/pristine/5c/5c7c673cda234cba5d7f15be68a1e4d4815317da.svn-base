@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\vrm\controller;
+  class polling_stations extends \module\vrm\controller\polling_stations_domain_logic
+  {
+       public $modelClass = '\\module\\vrm\\model\\polling_stations';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

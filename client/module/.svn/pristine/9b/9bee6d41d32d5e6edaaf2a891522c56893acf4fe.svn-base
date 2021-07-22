@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class cruisecal_ships extends \module\excursion\controller\cruisecal_ships_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\cruisecal_ships';
+
+
+
+
+
+
+  }

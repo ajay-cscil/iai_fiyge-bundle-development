@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\excursion\controller;
+  class affiliate_Group extends \module\excursion\controller\affiliate_Group_domain_logic
+  {
+       public $modelClass = '\\module\\excursion\\model\\affiliate_Group';
+
+
+
+
+
+
+  }

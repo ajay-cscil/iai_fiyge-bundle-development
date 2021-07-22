@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="9305" lt="1294" ts="1345630650532" s="true" lb="Login" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="115560">
+  <httpSample t="1294" lt="1294" ts="1345630650532" s="true" lb="http://192.168.56.102/maax-0.0.x/" rc="302" rm="Found" tn="" dt="text" by="822"/>
+  <httpSample t="7993" lt="7975" ts="1345630651844" s="true" lb="http://192.168.56.102/maax-0.0.x//maax-0.0.x/core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="114738"/>
+</httpSample>
+<httpSample t="159620" lt="159613" ts="1345630659869" s="true" lb="benchmarking__test_edit__test_case" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="1223"/>
+
+</testResults>

@@ -1,0 +1,12 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\stock\model;
+  class delivery_orders_domain_logic extends \data_model{
+
+       public function afterProcessData(){
+                \module\sales\model\quotes::getInstance()->setDefaultSalesShop($this->data);
+        }
+  }

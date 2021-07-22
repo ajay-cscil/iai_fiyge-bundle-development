@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\webforms\controller;
+  class leads extends \module\webforms\controller\leads_domain_logic
+  {
+       public $modelClass = '\\module\\webforms\\model\\leads';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:12 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>string (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\text</h2>
+
+</header><p class="signature">public  class <strong>string</strong></p>
+
+<div class="comment"><p>This class provides set of methods for peforming advance
+string manipulation operation required for mail merge etc.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#cleanUrls()">cleanUrls</a>(type mergeUrls)</p><p class="description"></p></td>
+</tr>
+<tr>
+<td class="type">static  array</td>
+<td class="description"><p class="name"><a href="#cleanWords()">cleanWords</a>(array mergeWords, str wrapper)</p><p class="description">Filter unwanted charectors from merge words</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#extract()">extract</a>(<a href="../kernel/string.html">string</a> path, array data, <a href="../kernel/string.html">string</a> value)</p><p class="description">Search given path in array and return found value</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#merge()">merge</a>(array parts, array tobeMerge)</p><p class="description">Handles merging of parts of mails</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#populateWords()">populateWords</a>(array mergeWords, array data)</p><p class="description">Merge words with data</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#split()">split</a>(<a href="../kernel/string.html">string</a> string, array rules)</p><p class="description">This method helps in splitting given string into multi-dimentional array based on each rule.
+</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="cleanUrls">public static  type <strong>cleanUrls</strong>(type mergeUrls)</code>
+<div class="details">
+<p></p><table>
+<tr><th>Todo</th>
+<td>: to be done</td>
+</tr></table>
+</div>
+
+<code class="signature" id="cleanWords">public static  array <strong>cleanWords</strong>(array mergeWords, str wrapper)</code>
+<div class="details">
+<p>Filter unwanted charectors from merge words</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="extract">public static  <a href="../kernel/string.html">string</a> <strong>extract</strong>(<a href="../kernel/string.html">string</a> path, array data, <a href="../kernel/string.html">string</a> value)</code>
+<div class="details">
+<p>Search given path in array and return found value</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="merge">public static  <a href="../kernel/string.html">string</a> <strong>merge</strong>(array parts, array tobeMerge)</code>
+<div class="details">
+<p>Handles merging of parts of mails</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="populateWords">public static  <a href="../kernel/string.html">string</a> <strong>populateWords</strong>(array mergeWords, array data)</code>
+<div class="details">
+<p>Merge words with data</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="split">public static  mixed <strong>split</strong>(<a href="../kernel/string.html">string</a> string, array rules)</code>
+<div class="details">
+<p>This method helps in splitting given string into multi-dimentional array based on each rule.
+Rules are regex for
+1)capturing merge words.
+2)optout links.
+3)links
+4).. practically any regex.</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>string - this contain string to be splitted</td>
+<td>rules - this contain array of rules</td>
+</tr><tr><th>Returns</th>
+<td>This array contain 2 elements. first element contain multi-dimentional array, one dimention pertaining to each rule. 2nd element contain 2 dimentional array, first key is rule name and 2nd key is match words form given string. $string=" hi im kernel takkar. call me on {{Contact.phone}} " $rules=array("merge_words"=>"/\{\{.*\}\}/i");</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

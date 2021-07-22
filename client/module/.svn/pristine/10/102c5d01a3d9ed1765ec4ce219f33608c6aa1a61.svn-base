@@ -1,0 +1,358 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\campaigns\model;
+
+class campaigns_domain_logic extends \data_model{
+
+    /**
+     * @author Tushar Takkar<ttakkar@primarymodules.com>
+     * @param type $val
+     * @param type $col
+     * @param type $data
+     * @param type $obj
+     * @param type $rule
+     * @return type
+     */
+    public static function notEmptyListview($val, $col, $data, $obj, $rule=array()) {
+        $count = 0;
+        if (isset($data['campaign_listviews']) && is_array($data['campaign_listviews'])) {
+            $count += count($data['campaign_listviews']);
+        }
+        if (isset($data['campaign_tags']) && is_array($data['campaign_tags'])) {
+            $count += count($data['campaign_tags']);
+        }
+
+        if (isset($data['csv_recipients']) && is_array($data['csv_recipients'])) {
+            $count += count($data['csv_recipients']);
+        }
+
+        if (isset($data['campaign_lists']) && is_array($data['campaign_lists'])) {
+            $count += count($data['campaign_lists']);
+        }
+        if ($count == 0)
+            throw new \Exception(sprintf(__('Select at least 1 Recipients source'), $val));
+
+        return $val;
+    }
+
+    private static function getMergeWords($content) {
+        $rules = array("merge_words" => "/\{\{[\.\w\-]*\}\}/i");
+        $mergeWords = array();
+        $array = \tushar\string::split($content, $rules);
+        list($strings, $extracts) = $array;
+        if (isset($extracts["merge_words"]) && is_array($extracts["merge_words"])) {
+            $mergeWords = \tushar\string::cleanWords($extracts["merge_words"]);
+        }
+        foreach ($mergeWords as $k => $word) {
+            if (\stripos($word, 'element.') !== false) {
+                unset($mergeWords[$k]);
+            } elseif (\strcasecmp($word, "custom_message") == 0) {
+                unset($mergeWords[$k]);
+            }
+        }
+        $mergeWords[] = "from_email";
+        $mergeWords[] = "to_email";
+        return $mergeWords;
+    }
+
+    public static function checkMergeWords($val, $col, $data, $obj, $rule=array()) {
+        $mergeWords = static::getMergeWords($val);
+        foreach ($mergeWords as $word) {
+            $word = trim($word);
+            if (empty($word)) {
+                throw new \Exception(\sprintf(__('Template contain empty merge words "{{}}"', 'module')));
+            }
+        }
+        return $val;
+    }
+
+    public static function getContentWithChain($obj, $data) {
+        $content = $data['content'];
+        if (isset($data['campaign_chaining']) && is_array($data['campaign_chaining'])) {
+            foreach ($data['campaign_chaining'] as $chain) {
+                if (isset($chain['deleted']) && $chain['deleted'] == 1) {
+                    continue;
+                }
+                $cur = current($obj->read($chain['trigger_campaign_id']));
+                $content .= " " . $cur['content'];
+            }
+        }
+        return $content;
+    }
+
+    public static function checkListview($val, $col, $data, $obj, $rule=array()) {
+        if (is_array($val)) {
+            $lists = array();
+            foreach ($val as $v) {
+                if (!isset($v['listview_id']) && (!isset($v['deleted']) || $v['deleted'] != 1 )) {
+                    $lists[] = $v['listview_id'];
+                }
+            }
+            //$mergeWords = static::getMergeWords($data['content']);
+            $mergeWords = static::getMergeWords(static::getContentWithChain($obj, $data));
+
+
+            $mergeWords = \array_diff($mergeWords, array('from_email', 'to_email'));
+            if (!empty($mergeWords)) {
+                $mergeWordsStr = implode(",", $mergeWords);
+                $listviewObj = \module\core\model\listviews::getInstance(array(), true);
+                foreach ($listviewObj->find(array('fields' => array("{$listviewObj->alias}.*")
+                            , 'where' => array($listviewObj->alias . "." . $listviewObj->primaryKey => $lists)
+                        ))
+                        ->fetchAll(\PDO::FETCH_ASSOC) as $row) {
+                    $query = json_decode($row['query'], true);
+                    if (isset($query['method']) && $query['method'] != 'index') {
+                        throw new \Exception(\sprintf(__('Listview "%s" is not index view'), $row['name']));
+                    }
+                    $array = \explode("/", $row['controller']);
+                    list($module, $controller) = $array;
+                    $controllerClass = "\\module\\{$module}\\controller\\{$controller}";
+                    if (class_exists($controllerClass)) {
+                        $modelObj = $controllerClass::getInstance()->modelObj();
+                        if (!isset($modelObj->associations['email_addresses'])) {
+                            throw new \Exception(\sprintf(__('model "%s" does not have association with %s'), $modelObj->alias, 'email_addresses'));
+                        }
+                        $schema = $modelObj->schema(false, true);
+                        $mergeWords = explode(',', \str_ireplace('common.', $modelObj->alias . ".", $mergeWordsStr));
+                        $diff = array();
+                        foreach ($mergeWords as $mergeWord) {
+                            if (\tushar\app::search($schema, $mergeWord, false) === false) {
+                                $diff[] = $mergeWord;
+                            }
+                        }
+
+                        if (count($diff) > 0) {
+                            throw new \Exception(\sprintf(__('Listview "%s" does not contain fields ( %s ) '), $row['controller'] . '-' . $row['name'], implode(",", $diff)
+                            ));
+                        }
+                    } else {
+                        throw new \Exception(\sprintf(__('"%s/%s" not found'), $module, $controller));
+                    }
+                }
+            }
+        }
+        return $val;
+    }
+
+    public static function checkTagview($val, $col, $data, $obj, $rule=array()) {
+        if (is_array($val)) {
+            //$mergeWords = static::getMergeWords($data['content']);
+            $mergeWords = static::getMergeWords(static::getContentWithChain($obj, $data));
+
+            $mergeWords = \array_diff($mergeWords, array('from_email', 'to_email'));
+            if (!empty($mergeWords)) {
+                $mergeWordsStr = implode(",", $mergeWords);
+                $listviewObj = \module\core\model\listviews::getInstance(array(), true);
+                foreach ($val as $row) {
+                    if (isset($row['deleted']) && $row['deleted'] == 1) {
+                        continue;
+                    }
+
+                    $array = \explode("/", $row['controller']);
+                    list($module, $controller) = $array;
+                    $controllerClass = "\\module\\{$module}\\controller\\{$controller}";
+                    if (class_exists($controllerClass)) {
+                        $modelObj = $controllerClass::getInstance()->modelObj();
+                        if (!isset($modelObj->associations['email_addresses'])) {
+                            throw new \Exception(\sprintf(__('model "%s" does not have association with %s'), $modelObj->alias, 'email_addresses'));
+                        }
+                        $schema = $modelObj->schema(false, true);
+                        $mergeWords = explode(',', \str_ireplace('common.', $modelObj->alias . ".", $mergeWordsStr));
+                        $diff = array();
+                        foreach ($mergeWords as $mergeWord) {
+                            if (\tushar\app::search($schema, $mergeWord, false) === false) {
+                                $diff[] = $mergeWord;
+                            }
+                        }
+                        if (count($diff) > 0) {
+                            throw new \Exception(\sprintf(__('Tagview "%s" does not contain fields(%s) '), $modelObj->alias . '/' . $row['__tag_id'], implode(",", $diff)));
+                        }
+                    } else {
+                        throw new \Exception(\sprintf(__('"%s/%s" not found'), $module, $controller));
+                    }
+                }
+            }
+        }
+        return $val;
+    }
+
+    public static function checkCampaignList($val, $col, $data, $obj, $rule=array()) {
+        if (is_array($val)) {
+            $lists = array();
+            foreach ($val as $v) {
+                $lists[] = $v['list_id'];
+            }
+            $mergeWords = static::getMergeWords($data['content']);
+            $mergeWords = \array_diff($mergeWords, array('from_email'));
+            if (!empty($mergeWords)) {
+                $listObj = \module\campaigns\model\lists::getInstance(array(), true);
+                foreach (
+                $listObj->find(array('fields' => array("{$listObj->alias}.*")
+                    , 'where' => array($listObj->alias . "." . $listObj->primaryKey => $lists)
+                        )
+                )->fetchAll(\PDO::FETCH_ASSOC) as $row
+                ) {
+                    $columns = json_decode($row['columns'], true);
+                    $columnList = array();
+                    if (is_array($columns)) {
+                        foreach ($columns as $column) {
+                            $columnList[$column['name']] = $column['name'];
+                        }
+                    }
+                    $diff = array_diff($mergeWords, $columnList);
+                    if (count($diff) > 0) {
+                        throw new \Exception(sprintf(__('List "%s" does not contain fields ( %s ) '), $row['name'], implode(",", $diff)));
+                    }
+                }
+            }
+        }
+        return $val;
+    }
+
+    public static function checkCSV($val, $col, $data, $obj, $rule=array()) {
+        if (is_array($val) && !empty($val)) {
+            //$mergeWords = static::getMergeWords($data['content']);
+            $mergeWords = static::getMergeWords(static::getContentWithChain($obj, $data));
+
+            $mergeWords = \array_diff($mergeWords, array('from_email'));
+            if (!empty($mergeWords) && is_array($val)) {
+                foreach ($val as $v) {
+                    if (isset($v['deleted']) && $v['deleted'] == 1) {
+                        continue;
+                    }
+                    if (isset($v["tmp_name"])) {
+                        $handle = \fopen($v["tmp_name"], 'r');
+                        $row = fgetcsv($handle, 0);
+                        $diff = array_diff($mergeWords, $row);
+                        if (count($diff) > 0) {
+                            throw new \Exception(sprintf(
+                                            __('CSV file "%s" does not contain fields ( %s )'), $v["name"], implode(",", $diff)
+                            ));
+                        }
+                    } elseif (isset($v["id"])) {
+                        $csv =
+                                    $obj->csv_recipients->find(array('fields' => array('csv_recipients.id')
+                                        , 'where' => array($obj->csv_recipients->alias . "." . $obj->csv_recipients->primaryKey => $v["id"])
+                                            )
+                                    )->fetch(\PDO::FETCH_COLUMN);
+                        $csv=$obj->csv_recipients->readFiles($csv);
+                        $handle = \fopen($csv['full_path'], 'r');
+                        $row = fgetcsv($handle, 0);
+                        $diff = array_diff($mergeWords, $row);
+                        if (count($diff) > 0) {
+                            throw new \Exception(sprintf(__('CSV file "%s" does not contain fields ( %s )'), $csv["name"], implode(",", $diff)));
+                        }
+                    }
+                }
+            }
+        }
+        return $val;
+    }
+
+    public function beforeValidate() {
+        if (!isset($this->filters['name'])) {
+            $this->filters['name'] = array();
+        }
+        $this->filters['name'][] = array(
+            'rule' => FILTER_CALLBACK,
+            'params' => array('options' => array('\\module\\campaigns\\model\\campaigns_domain_logic', 'notEmptyListview'))
+        );
+        if (!isset($this->filters['content'])) {
+            $this->filters['content'] = array();
+        }
+        $this->filters['content'][] = array(
+            'rule' => FILTER_CALLBACK,
+            'params' => array('options' => array('\\module\\campaigns\\model\\campaigns_domain_logic', 'checkMergeWords'))
+        );
+
+        $this->filters['campaign_listviews'] = array(
+            array(
+                'rule' => FILTER_CALLBACK,
+                'params' => array('options' => array('\\module\\campaigns\\model\\campaigns_domain_logic', 'checkListview'))
+            )
+        );
+        $this->filters['campaign_tags'] = array(
+            array(
+                'rule' => FILTER_CALLBACK,
+                'params' => array('options' => array('\\module\\campaigns\\model\\campaigns_domain_logic', 'checkTagview'))
+            )
+        );
+        $this->filters['csv_recipients'] = array(
+            array(
+                'rule' => FILTER_CALLBACK,
+                'params' => array('options' => array('\\module\\campaigns\\model\\campaigns_domain_logic', 'checkCSV'))
+            )
+        );
+        parent::beforeValidate();
+    }
+
+    public function beforeSave() {
+        if (isset($this->data['action'])) {
+            if (isset($this->data['action']['submit'])) {
+                if ($this->data['run_in_test_mode'] == 1) {
+                    $this->data['status'] = 'Under Testing';
+                }
+                else
+                    $this->data['status'] = 'Active';
+            }else if (isset($this->data['action']['draft'])) {
+                $this->data['status'] = 'Draft';
+            } else if (isset($this->data['action']['test_varified'])) {
+                $this->data['status'] = 'Active';
+            }
+        }
+        parent::beforeSave();
+    }
+
+    public function afterSave($created) {
+        if ($created || ( isset($this->data['action']) && isset($this->data['action']['unlock_campaign']))) {
+            \module\campaigns\model\campaign_run_status::getInstance(array(), true)
+                    ->save(array('campaign_id' => $this->data[$this->primaryKey], 'singleton_key' => NULL), array('atomic' => true));
+        }
+        parent::afterSave($created);
+    }
+
+    public function beforeDelete() {
+        if (isset($this->associations['campaign_listview'])) {
+            $this->associations['campaign_listview']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['campaign_tags'])) {
+            $this->associations['campaign_tags']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['csv_recipients'])) {
+            $this->associations['csv_recipients']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['attachments'])) {
+            $this->associations['attachments']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['campaign_lists'])) {
+            $this->associations['campaign_lists']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['campaign_log'])) {
+            $this->associations['campaign_log']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['campaign_log_summary'])) {
+            $this->associations['campaign_log_summary']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['scheduler'])) {
+            $this->associations['scheduler']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['campaign_chaining'])) {
+            $this->associations['campaign_chaining']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['campaign_run_status'])) {
+            $this->associations['campaign_run_status']['skipForeignKeyCheck'] = 1;
+        }
+        if (isset($this->associations['campaign_run_log'])) {
+            $this->associations['campaign_run_log']['skipForeignKeyCheck'] = 1;
+        }if (isset($this->associations['images'])) {
+            $this->associations['images']['skipForeignKeyCheck'] = 1;
+        }
+        parent::beforeDelete();
+    }
+
+}

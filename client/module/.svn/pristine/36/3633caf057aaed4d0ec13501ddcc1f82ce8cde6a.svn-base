@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\stock\controller;
+  class delivery_orders_group_acl_cache extends \module\stock\controller\delivery_orders_group_acl_cache_domain_logic
+  {
+       public $modelClass = '\\module\\stock\\model\\delivery_orders_group_acl_cache';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

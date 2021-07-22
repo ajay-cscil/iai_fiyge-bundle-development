@@ -1,0 +1,95 @@
+[
+    {
+        "listviews": {
+            "_acl": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "-2",
+                    "aro_id_model": "users",
+                    "aro_id": "-2",
+                    "__aro_id": "Maax Modules Development Team"
+                },
+                {
+                    "id": "-1",
+                    "aro_id_model": "users",
+                    "aro_id": "-1",
+                    "__aro_id": "Maax Core Development Team"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "_query": "{\"id\":\"5543e8a0-b1fc-4a5c-b224-071db1b1b263\",\"name\":\"Opportunities vs. Goals\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"crm\\\/opportunities\",\"render_as\":\"index\",\"description\":\"\",\"fields\":[{\"seq\":\"1\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.name\",\"column_model\":\"schema\",\"__column\":\"opportunities.name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"2\",\"field_type\":\"Data-Field\",\"column\":\"accounts.account_name\",\"column_model\":\"schema\",\"__column\":\"accounts.account_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"3\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.amount\",\"column_model\":\"schema\",\"__column\":\"opportunities.amount\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"4\",\"field_type\":\"Data-Field\",\"column\":\"currencies.currency_name\",\"column_model\":\"schema\",\"__column\":\"currencies.currency_name\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"5\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.config_lead_sources.lead_source\",\"column_model\":\"schema\",\"__column\":\"opportunities.config_lead_sources.lead_source\",\"alias\":\"\",\"aggregator\":\"\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"6\",\"field_type\":\"Data-Field\",\"column\":\"opportunities.owned_by_user.user_name\",\"column_model\":\"schema\",\"__column\":\"opportunities.owned_by_user.user_name\",\"alias\":\"Owned By\",\"aggregator\":\"\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"},{\"seq\":\"7\",\"field_type\":\"KPI Goal\",\"column\":\"opportunities.closing_date\",\"column_model\":\"schema\",\"__column\":\"opportunities.closing_date\",\"alias\":\"KPI Goal\",\"aggregator\":\"\",\"kpi_goal_type\":\"1d5215ba-0b4b-11e4-b38c-12313d0872e0\",\"kpi_goal_type_model\":\"goal_types\",\"__kpi_goal_type\":\"Revenue\",\"style\":\"\",\"class\":\"\",\"_sortable\":\"0\",\"sortable\":\"1\",\"_searchable\":\"0\",\"searchable\":\"1\",\"_is_invisible\":\"0\",\"_clickable_link\":\"0\",\"_compute_column_total\":\"0\",\"presentation\":\"\",\"id\":\"\",\"deleted\":\"\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}],\"group_by\":{\"1\":{\"column\":\"\",\"column_model\":\"schema\",\"__column\":\"\",\"id\":\"\",\"deleted\":\"\"}},\"sort\":{\"1\":{\"sort_by\":\"opportunities.created\",\"sort_by_model\":\"schema\",\"__sort_by\":\"opportunities.created\",\"sort_order\":\"ASC\",\"id\":\"\",\"deleted\":\"\"}},\"limit\":\"\",\"_is_default\":\"0\",\"show_has_many_records\":\"\",\"ui_helper\":\"\",\"_disable_ui_helper\":\"0\",\"parent_id\":\"\",\"parent_id_model\":\"parent_listview\",\"__parent_id\":\"\",\"row_class\":\"\",\"_hide_row_actions\":\"0\",\"_do_not_inherit\":\"0\",\"sequence\":\"1\",\"row_template\":\"\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\",\"owned_by\":\"-2\",\"owned_by_model\":\"users\",\"__owned_by\":\"Maax Modules Development Team\",\"primary_acl_group\":\"\",\"primary_acl_group_model\":\"groups\",\"__primary_acl_group\":\"\",\"_is_public\":\"0\",\"is_public\":\"1\",\"_acl\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"_acl_edit\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"_acl_delete\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}]}",
+            "category_id": "5",
+            "controller": "crm\/opportunities",
+            "created": "2015-05-01 20:57:04",
+            "created_by": "-2",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "do_not_inherit": null,
+            "flags": null,
+            "full_name": "crm.opportunities.Opportunities vs. Goals",
+            "id": "5543e8a0-b1fc-4a5c-b224-071db1b1b263",
+            "is_commit_pending": "0",
+            "is_default": 0,
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-05-01 21:01:26",
+            "modified_by": "-2",
+            "module_id": "27260a2d-e746-11e3-aad5-0800275f9930",
+            "name": "Opportunities vs. Goals",
+            "old_id": null,
+            "owned_by": "-2",
+            "parent_id": null,
+            "primary_acl_group": null,
+            "query": "{\"fields\":[{\"opportunities.name\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.name\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"accounts.account_name\":{\"field_type\":\"Data-Field\",\"__column\":\"accounts.account_name\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.amount\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.amount\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"currencies.currency_name\":{\"field_type\":\"Data-Field\",\"__column\":\"currencies.currency_name\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.config_lead_sources.lead_source\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.config_lead_sources.lead_source\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.owned_by_user.user_name\":{\"field_type\":\"Data-Field\",\"__column\":\"opportunities.owned_by_user.user_name\",\"alias\":\"Owned By\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}},{\"opportunities.closing_date\":{\"field_type\":\"KPI Goal\",\"__column\":\"opportunities.closing_date\",\"alias\":\"KPI Goal\",\"kpi_goal_type\":\"1d5215ba-0b4b-11e4-b38c-12313d0872e0\",\"kpi_goal_type_model\":\"goal_types\",\"__kpi_goal_type\":\"Revenue\",\"sortable\":\"1\",\"searchable\":\"1\",\"is_invisible\":\"0\",\"clickable_link\":\"0\",\"compute_column_total\":\"0\"}}],\"order\":[\"opportunities.created  ASC\"],\"name\":\"Opportunities vs. Goals\",\"category_id\":\"5\",\"category_id_model\":\"listview_categories\",\"__category_id\":\"Business Views\",\"controller\":\"crm\\\/opportunities\",\"render_as\":\"index\",\"is_default\":\"0\",\"disable_ui_helper\":\"0\",\"parent_id_model\":\"parent_listview\",\"hide_row_actions\":\"0\",\"do_not_inherit\":\"0\",\"sequence\":\"1\",\"module_id\":\"27260a2d-e746-11e3-aad5-0800275f9930\",\"module_id_model\":\"modules\",\"__module_id\":\"crm\",\"owned_by\":\"-2\",\"owned_by_model\":\"users\",\"__owned_by\":\"Maax Modules Development Team\",\"primary_acl_group_model\":\"groups\",\"is_public\":\"1\",\"acl\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"acl_edit\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"acl_delete\":[{\"aro_id\":\"-2\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Modules Development Team\",\"id\":\"-2\",\"deleted\":\"\"},{\"aro_id\":\"-1\",\"aro_id_model\":\"users\",\"__aro_id\":\"Maax Core Development Team\",\"id\":\"-1\",\"deleted\":\"\"}],\"method\":\"index\"}",
+            "revision": "1",
+            "sequence": "1",
+            "__created_by": "Maax Modules Development Team",
+            "__modified_by": "Maax Modules Development Team",
+            "__category_id": "Business Views",
+            "__parent_id": "",
+            "__owned_by": "Maax Modules Development Team",
+            "__primary_acl_group": "",
+            "__module_id": "crm",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "category_id_model": "category",
+            "owned_by_model": "owned_by_user",
+            "module_id_model": "modules",
+            "temporary_acl": [],
+            "inherited_read_acl": ""
+        }
+    }
+]

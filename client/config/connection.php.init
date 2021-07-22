@@ -1,0 +1,54 @@
+<?php
+
+$connections = array(
+    'default' =>
+    array(
+        'host' => 'hostname',
+        'port' => '3306',
+        'login' => 'database_username',
+        'password' => 'database_password',
+        'driver' => 'mysql',
+        'database' => 'withdata_app',
+        'drop_db_if_exists' => '1',
+    ),
+    'test_default' =>
+    array(
+        'host' => 'hostname',
+        'port' => '3306',
+        'login' => 'database_username',
+        'password' => 'database_password',
+        'driver' => 'mysql',
+        'database' => 'withdata_app',
+        'drop_db_if_exists' => '1',
+    ),
+    'design' =>
+    array(
+        'host' => 'hostname',
+        'port' => '3306',
+        'login' => 'database_username',
+        'password' => 'database_password',
+        'driver' => 'mysql',
+        'database' => 'withdata_design',
+        'drop_db_if_exists' => '1',
+    ),
+    'test_design' =>
+    array(
+        'host' => 'hostname',
+        'port' => '3306',
+        'login' => 'database_username',
+        'password' => 'database_password',
+        'driver' => 'mysql',
+        'database' => 'withdata_design',
+        'drop_db_if_exists' => '1',
+    ),
+    'acl' =>
+    array(
+        'host' => 'hostname',
+        'port' => '3306',
+        'login' => 'database_username',
+        'password' => 'database_password',
+        'driver' => 'mysql',
+        'database' => 'withdata_acl',
+        'drop_db_if_exists' => '1',
+    ),
+);

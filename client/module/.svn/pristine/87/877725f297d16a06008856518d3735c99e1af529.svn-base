@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\sales\controller;
+  class config_payment_terms extends \module\sales\controller\config_payment_terms_domain_logic
+  {
+       public $modelClass = '\\module\\sales\\model\\config_payment_terms';
+
+
+
+
+
+
+  }

@@ -1,0 +1,89 @@
+[
+    {
+        "widgets": {
+            "__related_to": "Dashboard Notifications",
+            "_acl": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_delete": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_edit": [
+                {
+                    "id": "1",
+                    "aro_id_model": "users",
+                    "aro_id": "1",
+                    "__aro_id": "System Admin"
+                }
+            ],
+            "_acl_tmp": null,
+            "_acl_tmp_delete": null,
+            "_acl_tmp_edit": null,
+            "column_span": "6",
+            "created": "2015-03-18 15:43:00",
+            "created_by": "1",
+            "data_conflict": null,
+            "deleted": "0",
+            "description": null,
+            "flags": null,
+            "id": "55099d04-9f08-427e-9b4c-3a1118031a31",
+            "is_commit_pending": "0",
+            "is_demo_data": null,
+            "is_public": "1",
+            "message_error": "",
+            "message_info": null,
+            "message_warn": null,
+            "modified": "2015-03-18 21:53:13",
+            "modified_by": "1",
+            "owned_by": null,
+            "pagination_limit": null,
+            "panel_id": "5",
+            "primary_acl_group": null,
+            "related_to": "55099c81-a5b8-4a63-8ea9-1b9b18031a31",
+            "related_to_model": "listviews",
+            "revision": "1",
+            "sequence_number": "2",
+            "type_of_view": null,
+            "widget_name": "Dashboard Notifications",
+            "__created_by": "System Admin",
+            "__modified_by": "System Admin",
+            "__owned_by": "",
+            "__panel_id": "Customer Service",
+            "__primary_acl_group": "",
+            "created_by_model": "created_by_user",
+            "modified_by_model": "modified_by_user",
+            "panel_id_model": "panels",
+            "temporary_acl": [],
+            "inherited_read_acl": "",
+            "widget_permissions": false,
+            "panel_information": {
+                "created": "2012-05-21 08:32:26",
+                "created_by": "1",
+                "dashboard_name": "Home",
+                "deleted": "0",
+                "flags": null,
+                "id": "5",
+                "is_demo_data": null,
+                "modified": "2015-03-18 22:11:09",
+                "modified_by": "1",
+                "owned_by": null,
+                "panel_name": "Customer Service",
+                "revision": "1",
+                "sequence_number": null,
+                "__created_by": "System Admin",
+                "__modified_by": "System Admin",
+                "__owned_by": null
+            }
+        }
+    }
+]

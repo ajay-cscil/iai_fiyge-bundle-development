@@ -1,0 +1,17 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\mrp\controller;
+  class resource extends \module\mrp\controller\resource_domain_logic
+  {
+       public $modelClass = '\\module\\mrp\\model\\resource';
+       public $preGenerateID = '0';
+
+
+
+
+
+
+  }

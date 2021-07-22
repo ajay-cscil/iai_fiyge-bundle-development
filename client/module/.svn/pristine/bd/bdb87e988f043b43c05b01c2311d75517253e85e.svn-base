@@ -1,0 +1,10 @@
+<?php
+ /**
+  *
+  * write any custom code in this class, build operation wont overwrite this class once generated;
+  */
+  namespace module\wiki\model;
+  class article_reviews_acl_cache_domain_logic extends \acl_model{
+
+
+  }

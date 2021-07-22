@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="109" lt="99" ts="1345706982952" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-1" dt="text" by="2465">
+  <httpSample t="99" lt="99" ts="1345706982952" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="4" lt="0" ts="1345706983057" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-1" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="76" lt="75" ts="1345706983029" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-2" dt="text" by="2465">
+  <httpSample t="75" lt="75" ts="1345706983029" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="1" lt="0" ts="1345706983104" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-2" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="92" lt="91" ts="1345706983143" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-3" dt="text" by="2465">
+  <httpSample t="91" lt="91" ts="1345706983143" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="0" lt="0" ts="1345706983235" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-3" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="77" lt="75" ts="1345706983238" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-4" dt="text" by="2465">
+  <httpSample t="75" lt="75" ts="1345706983238" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="1" lt="0" ts="1345706983314" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-4" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="126" lt="125" ts="1345706983353" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-5" dt="text" by="2465">
+  <httpSample t="125" lt="125" ts="1345706983353" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="0" lt="0" ts="1345706983479" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-5" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="469" lt="446" ts="1345706983072" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="306675"/>
+<httpSample t="99" lt="98" ts="1345706983449" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-6" dt="text" by="2465">
+  <httpSample t="98" lt="98" ts="1345706983449" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="1" lt="0" ts="1345706983547" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-6" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="536" lt="490" ts="1345706983106" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="306675"/>
+<httpSample t="141" lt="139" ts="1345706983559" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-7" dt="text" by="2465">
+  <httpSample t="139" lt="139" ts="1345706983559" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="1" lt="0" ts="1345706983699" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-7" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="214" lt="213" ts="1345706983662" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-8" dt="text" by="2465">
+  <httpSample t="213" lt="213" ts="1345706983662" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="0" lt="0" ts="1345706983876" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-8" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="674" lt="620" ts="1345706983237" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="306675"/>
+<httpSample t="719" lt="683" ts="1345706983317" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="306675"/>
+<httpSample t="396" lt="395" ts="1345706983765" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-9" dt="text" by="2465">
+  <httpSample t="395" lt="395" ts="1345706983765" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="0" lt="0" ts="1345706984161" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-9" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="705" lt="656" ts="1345706983481" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="306675"/>
+<httpSample t="772" lt="704" ts="1345706983549" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="306675"/>
+<httpSample t="816" lt="768" ts="1345706983542" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="306675"/>
+<httpSample t="771" lt="739" ts="1345706983702" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="306675"/>
+<httpSample t="830" lt="786" ts="1345706983643" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="306675"/>
+<httpSample t="766" lt="711" ts="1345706983912" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="306675"/>
+<httpSample t="824" lt="784" ts="1345706983879" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="306675"/>
+<httpSample t="847" lt="805" ts="1345706984037" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="306675"/>
+<httpSample t="1040" lt="1039" ts="1345706983868" s="false" lb="Login" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-10" dt="text" by="2465">
+  <httpSample t="1039" lt="1039" ts="1345706983868" s="true" lb="http://cruisebig.primod.com/" rc="302" rm="Found" tn="" dt="text" by="529"/>
+  <httpSample t="1" lt="0" ts="1345706984907" s="false" lb="Error: http://core/dashboard/?request_url=dashboards/widgets/dashboard/filter:Home" rc="Non HTTP response code: java.net.UnknownHostException" rm="Non HTTP response message: core" tn="Web Responses 1-10" dt="text" by="1936"/>
+</httpSample>
+<httpSample t="828" lt="771" ts="1345706984187" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="306675"/>
+<httpSample t="727" lt="677" ts="1345706984359" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="81538"/>
+<httpSample t="969" lt="903" ts="1345706984163" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="306675"/>
+<httpSample t="705" lt="683" ts="1345706984475" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="81538"/>
+<httpSample t="911" lt="867" ts="1345706984323" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="306675"/>
+<httpSample t="846" lt="779" ts="1345706984474" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="306675"/>
+<httpSample t="665" lt="617" ts="1345706984679" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="81538"/>
+<httpSample t="827" lt="777" ts="1345706984704" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="306674"/>
+<httpSample t="695" lt="651" ts="1345706984885" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="81538"/>
+<httpSample t="810" lt="779" ts="1345706985016" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="81538"/>
+<httpSample t="860" lt="810" ts="1345706985087" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="81538"/>
+<httpSample t="759" lt="709" ts="1345706985235" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="81538"/>
+<httpSample t="829" lt="773" ts="1345706985181" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="81538"/>
+<httpSample t="1217" lt="1173" ts="1345706984909" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="306675"/>
+<httpSample t="994" lt="954" ts="1345706985133" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="306675"/>
+<httpSample t="835" lt="773" ts="1345706985321" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="81538"/>
+<httpSample t="811" lt="757" ts="1345706985346" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="81538"/>
+<httpSample t="774" lt="737" ts="1345706985581" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="81538"/>
+<httpSample t="592" lt="529" ts="1345706985827" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="81538"/>
+<httpSample t="950" lt="900" ts="1345706985532" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="81538"/>
+<httpSample t="625" lt="584" ts="1345706985948" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="81538"/>
+<httpSample t="641" lt="610" ts="1345706985995" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="81538"/>
+<httpSample t="661" lt="621" ts="1345706986011" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="81538"/>
+<httpSample t="603" lt="556" ts="1345706986130" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="81538"/>
+<httpSample t="583" lt="537" ts="1345706986157" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="81538"/>
+<httpSample t="660" lt="625" ts="1345706986158" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="81538"/>
+<httpSample t="576" lt="546" ts="1345706986356" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="81538"/>
+<httpSample t="615" lt="583" ts="1345706986420" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="81537"/>
+<httpSample t="1005" lt="937" ts="1345706986128" s="true" lb="core__listviews__edit" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="306674"/>
+<httpSample t="649" lt="602" ts="1345706986574" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="81538"/>
+<httpSample t="740" lt="676" ts="1345706986483" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="81538"/>
+<httpSample t="609" lt="579" ts="1345706986637" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="81538"/>
+<httpSample t="623" lt="587" ts="1345706986673" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="81538"/>
+<httpSample t="619" lt="575" ts="1345706986741" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="81538"/>
+<httpSample t="648" lt="600" ts="1345706986734" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="81538"/>
+<httpSample t="644" lt="592" ts="1345706986819" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="81538"/>
+<httpSample t="678" lt="625" ts="1345706986933" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="81538"/>
+<httpSample t="651" lt="604" ts="1345706987036" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="81538"/>
+<httpSample t="634" lt="584" ts="1345706987134" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="81538"/>
+<httpSample t="657" lt="605" ts="1345706987247" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="81538"/>
+<httpSample t="700" lt="656" ts="1345706987224" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="81538"/>
+<httpSample t="573" lt="545" ts="1345706987361" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="81538"/>
+<httpSample t="719" lt="664" ts="1345706987297" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="181915"/>
+<httpSample t="824" lt="775" ts="1345706987223" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="181916"/>
+<httpSample t="694" lt="638" ts="1345706987383" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="81538"/>
+<httpSample t="820" lt="758" ts="1345706987464" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="181916"/>
+<httpSample t="740" lt="717" ts="1345706987612" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="181916"/>
+<httpSample t="675" lt="651" ts="1345706987769" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="81538"/>
+<httpSample t="795" lt="771" ts="1345706987688" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="181916"/>
+<httpSample t="630" lt="578" ts="1345706987925" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="81538"/>
+<httpSample t="560" lt="536" ts="1345706988018" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="77870"/>
+<httpSample t="554" lt="494" ts="1345706988048" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="77870"/>
+<httpSample t="716" lt="620" ts="1345706987935" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="181916"/>
+<httpSample t="862" lt="802" ts="1345706987905" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="181916"/>
+<httpSample t="723" lt="695" ts="1345706988078" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="81538"/>
+<httpSample t="539" lt="500" ts="1345706988352" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="77870"/>
+<httpSample t="687" lt="635" ts="1345706988285" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="77870"/>
+<httpSample t="557" lt="518" ts="1345706988445" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="81538"/>
+<httpSample t="589" lt="552" ts="1345706988484" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="77870"/>
+<httpSample t="551" lt="539" ts="1345706988603" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="77870"/>
+<httpSample t="626" lt="592" ts="1345706988579" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="77870"/>
+<httpSample t="642" lt="605" ts="1345706988652" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="77868"/>
+<httpSample t="750" lt="731" ts="1345706988556" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="181916"/>
+<httpSample t="603" lt="540" ts="1345706988768" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="77869"/>
+<httpSample t="564" lt="526" ts="1345706988892" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="77870"/>
+<httpSample t="740" lt="710" ts="1345706988802" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="181916"/>
+<httpSample t="685" lt="627" ts="1345706988973" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="77870"/>
+<httpSample t="632" lt="570" ts="1345706989074" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="77870"/>
+<httpSample t="720" lt="687" ts="1345706989003" s="true" lb="core__listview_categories__edit" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="81538"/>
+<httpSample t="773" lt="696" ts="1345706989155" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="213042"/>
+<httpSample t="616" lt="570" ts="1345706989372" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="77870"/>
+<httpSample t="743" lt="690" ts="1345706989294" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="77870"/>
+<httpSample t="835" lt="781" ts="1345706989205" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="213042"/>
+<httpSample t="741" lt="670" ts="1345706989307" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="77870"/>
+<httpSample t="637" lt="570" ts="1345706989543" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="77870"/>
+<httpSample t="1075" lt="1009" ts="1345706989456" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="213042"/>
+<httpSample t="644" lt="617" ts="1345706989929" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="80377"/>
+<httpSample t="876" lt="813" ts="1345706989723" s="true" lb="core__listviews__add" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="181916"/>
+<httpSample t="628" lt="563" ts="1345706990041" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="80379"/>
+<httpSample t="1068" lt="1004" ts="1345706989659" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="213042"/>
+<httpSample t="680" lt="628" ts="1345706990048" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="77870"/>
+<httpSample t="643" lt="584" ts="1345706990181" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="77870"/>
+<httpSample t="1142" lt="1083" ts="1345706989707" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="213042"/>
+<httpSample t="841" lt="792" ts="1345706990037" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="213042"/>
+<httpSample t="941" lt="883" ts="1345706989989" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="213042"/>
+<httpSample t="642" lt="619" ts="1345706990600" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="77869"/>
+<httpSample t="850" lt="807" ts="1345706990532" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="80378"/>
+<httpSample t="1157" lt="1131" ts="1345706990573" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="80379"/>
+<httpSample t="1172" lt="1127" ts="1345706990670" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="80379"/>
+<httpSample t="1118" lt="1079" ts="1345706990728" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="80379"/>
+<httpSample t="1007" lt="965" ts="1345706990932" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="80379"/>
+<httpSample t="1137" lt="1088" ts="1345706990850" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="80379"/>
+<httpSample t="1310" lt="1263" ts="1345706990729" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="213042"/>
+<httpSample t="1183" lt="1155" ts="1345706990879" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="80379"/>
+<httpSample t="855" lt="810" ts="1345706991243" s="true" lb="core__listview_categories__add" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="77870"/>
+<httpSample t="1426" lt="1364" ts="1345706990825" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="213042"/>
+<httpSample t="884" lt="830" ts="1345706991383" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="80379"/>
+<httpSample t="633" lt="581" ts="1345706991730" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="102318"/>
+<httpSample t="541" lt="496" ts="1345706991843" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="102318"/>
+<httpSample t="637" lt="618" ts="1345706991847" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="80379"/>
+<httpSample t="683" lt="654" ts="1345706991940" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="80379"/>
+<httpSample t="584" lt="539" ts="1345706992063" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="80378"/>
+<httpSample t="608" lt="551" ts="1345706992040" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="80379"/>
+<httpSample t="726" lt="655" ts="1345706991988" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="80379"/>
+<httpSample t="644" lt="600" ts="1345706992268" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="102318"/>
+<httpSample t="816" lt="766" ts="1345706992099" s="true" lb="core__listviews__view" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="213042"/>
+<httpSample t="691" lt="623" ts="1345706992252" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="80379"/>
+<httpSample t="590" lt="556" ts="1345706992364" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="80914"/>
+<httpSample t="607" lt="554" ts="1345706992385" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="80913"/>
+<httpSample t="664" lt="640" ts="1345706992485" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="102318"/>
+<httpSample t="616" lt="592" ts="1345706992624" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="102318"/>
+<httpSample t="607" lt="563" ts="1345706992648" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="102318"/>
+<httpSample t="567" lt="541" ts="1345706992715" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="102318"/>
+<httpSample t="644" lt="598" ts="1345706992649" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="80379"/>
+<httpSample t="559" lt="523" ts="1345706992913" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="80914"/>
+<httpSample t="558" lt="528" ts="1345706992916" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="80379"/>
+<httpSample t="647" lt="608" ts="1345706992954" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="80914"/>
+<httpSample t="698" lt="649" ts="1345706992993" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="80914"/>
+<httpSample t="781" lt="724" ts="1345706992943" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="80379"/>
+<httpSample t="594" lt="543" ts="1345706993150" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="80914"/>
+<httpSample t="573" lt="551" ts="1345706993240" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="80914"/>
+<httpSample t="580" lt="560" ts="1345706993256" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="80914"/>
+<httpSample t="638" lt="610" ts="1345706993283" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="80914"/>
+<httpSample t="726" lt="707" ts="1345706993293" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="102318"/>
+<httpSample t="597" lt="558" ts="1345706993473" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="80914"/>
+<httpSample t="596" lt="559" ts="1345706993475" s="true" lb="core__listview_categories__view" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="80379"/>
+<httpSample t="586" lt="562" ts="1345706993602" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="84369"/>
+<httpSample t="660" lt="604" ts="1345706993692" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="84367"/>
+<httpSample t="649" lt="613" ts="1345706993725" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="102318"/>
+<httpSample t="660" lt="580" ts="1345706993744" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="80914"/>
+<httpSample t="596" lt="546" ts="1345706993814" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="80914"/>
+<httpSample t="659" lt="611" ts="1345706993837" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="80914"/>
+<httpSample t="635" lt="592" ts="1345706993922" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="80914"/>
+<httpSample t="576" lt="548" ts="1345706994071" s="true" lb="core__listviews__index" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="102318"/>
+<httpSample t="644" lt="613" ts="1345706994020" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="80914"/>
+<httpSample t="653" lt="614" ts="1345706994071" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="84369"/>
+<httpSample t="640" lt="607" ts="1345706994189" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="79751"/>
+<httpSample t="587" lt="557" ts="1345706994375" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="80914"/>
+<httpSample t="610" lt="560" ts="1345706994411" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="84369"/>
+<httpSample t="670" lt="618" ts="1345706994353" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="79751"/>
+<httpSample t="672" lt="626" ts="1345706994404" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="84369"/>
+<httpSample t="595" lt="561" ts="1345706994497" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="84369"/>
+<httpSample t="669" lt="628" ts="1345706994558" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="84369"/>
+<httpSample t="687" lt="669" ts="1345706994648" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="80914"/>
+<httpSample t="674" lt="660" ts="1345706994724" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="79751"/>
+<httpSample t="753" lt="719" ts="1345706994665" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="80914"/>
+<httpSample t="606" lt="589" ts="1345706994830" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="79700"/>
+<httpSample t="650" lt="617" ts="1345706995021" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="79751"/>
+<httpSample t="654" lt="608" ts="1345706995023" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="79700"/>
+<httpSample t="716" lt="689" ts="1345706994962" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="80914"/>
+<httpSample t="650" lt="626" ts="1345706995093" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="79751"/>
+<httpSample t="575" lt="528" ts="1345706995227" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="79751"/>
+<httpSample t="754" lt="705" ts="1345706995077" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="79751"/>
+<httpSample t="621" lt="593" ts="1345706995399" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="79699"/>
+<httpSample t="728" lt="695" ts="1345706995336" s="true" lb="core__listview_categories__index" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="80914"/>
+<httpSample t="645" lt="608" ts="1345706995437" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="81135"/>
+<httpSample t="700" lt="664" ts="1345706995419" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="84369"/>
+<httpSample t="617" lt="581" ts="1345706995678" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="81135"/>
+<httpSample t="662" lt="603" ts="1345706995679" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="84369"/>
+<httpSample t="660" lt="643" ts="1345706995802" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="79700"/>
+<httpSample t="803" lt="763" ts="1345706995672" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="79700"/>
+<httpSample t="749" lt="698" ts="1345706995744" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="79700"/>
+<httpSample t="724" lt="652" ts="1345706995831" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="79700"/>
+<httpSample t="673" lt="643" ts="1345706996021" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="81135"/>
+<httpSample t="717" lt="648" ts="1345706996066" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="84369"/>
+<httpSample t="712" lt="663" ts="1345706996084" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="79541"/>
+<httpSample t="701" lt="661" ts="1345706996119" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="79751"/>
+<httpSample t="612" lt="596" ts="1345706996296" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="79541"/>
+<httpSample t="732" lt="678" ts="1345706996341" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="79750"/>
+<httpSample t="645" lt="578" ts="1345706996462" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="81135"/>
+<httpSample t="642" lt="590" ts="1345706996494" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="81135"/>
+<httpSample t="592" lt="544" ts="1345706996556" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="81135"/>
+<httpSample t="707" lt="674" ts="1345706996476" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="81135"/>
+<httpSample t="676" lt="637" ts="1345706996695" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="79541"/>
+<httpSample t="629" lt="583" ts="1345706996796" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="81690"/>
+<httpSample t="672" lt="607" ts="1345706996783" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="79751"/>
+<httpSample t="669" lt="625" ts="1345706996821" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="79700"/>
+<httpSample t="618" lt="593" ts="1345706996908" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="81690"/>
+<httpSample t="565" lt="511" ts="1345706997149" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="79541"/>
+<httpSample t="683" lt="662" ts="1345706997074" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="79700"/>
+<httpSample t="660" lt="614" ts="1345706997137" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="79541"/>
+<httpSample t="698" lt="656" ts="1345706997108" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="79541"/>
+<httpSample t="630" lt="574" ts="1345706997184" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="79541"/>
+<httpSample t="667" lt="620" ts="1345706997372" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="81690"/>
+<httpSample t="623" lt="561" ts="1345706997491" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="81135"/>
+<httpSample t="697" lt="645" ts="1345706997426" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="79541"/>
+<httpSample t="706" lt="675" ts="1345706997456" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="79700"/>
+<httpSample t="641" lt="602" ts="1345706997527" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="79541"/>
+<httpSample t="602" lt="556" ts="1345706997715" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="81690"/>
+<httpSample t="623" lt="598" ts="1345706997758" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="81135"/>
+<httpSample t="624" lt="589" ts="1345706997798" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="81690"/>
+<httpSample t="623" lt="599" ts="1345706997815" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="81690"/>
+<httpSample t="698" lt="679" ts="1345706997807" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="81689"/>
+<httpSample t="597" lt="574" ts="1345706998040" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="79541"/>
+<httpSample t="543" lt="524" ts="1345706998169" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="81690"/>
+<httpSample t="712" lt="649" ts="1345706998124" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="81690"/>
+<httpSample t="726" lt="667" ts="1345706998114" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="79541"/>
+<httpSample t="690" lt="628" ts="1345706998163" s="true" lb="core__listviews__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="81135"/>
+<httpSample t="635" lt="572" ts="1345706998319" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="79541"/>
+<httpSample t="682" lt="631" ts="1345706998423" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="79541"/>
+<httpSample t="709" lt="672" ts="1345706998439" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="79541"/>
+<httpSample t="775" lt="710" ts="1345706998382" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="79541"/>
+<httpSample t="690" lt="630" ts="1345706998506" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="79541"/>
+<httpSample t="597" lt="570" ts="1345706998638" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="81690"/>
+<httpSample t="619" lt="576" ts="1345706998713" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="74442"/>
+<httpSample t="610" lt="595" ts="1345706998853" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="79541"/>
+<httpSample t="641" lt="581" ts="1345706998837" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="74443"/>
+<httpSample t="639" lt="601" ts="1345706998840" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="81690"/>
+<httpSample t="627" lt="573" ts="1345706998955" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="81690"/>
+<httpSample t="625" lt="589" ts="1345706999106" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="81690"/>
+<httpSample t="584" lt="550" ts="1345706999149" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="81690"/>
+<httpSample t="590" lt="515" ts="1345706999158" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="81690"/>
+<httpSample t="624" lt="592" ts="1345706999334" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="75313"/>
+<httpSample t="772" lt="708" ts="1345706999196" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="81690"/>
+<httpSample t="935" lt="904" ts="1345706999236" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="74443"/>
+<httpSample t="744" lt="720" ts="1345706999479" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="79541"/>
+<httpSample t="848" lt="806" ts="1345706999479" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="75313"/>
+<httpSample t="856" lt="832" ts="1345706999583" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="74443"/>
+<httpSample t="981" lt="934" ts="1345706999464" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="81688"/>
+<httpSample t="842" lt="808" ts="1345706999732" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="74443"/>
+<httpSample t="853" lt="802" ts="1345706999750" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="79541"/>
+<httpSample t="891" lt="825" ts="1345706999734" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="74443"/>
+<httpSample t="705" lt="640" ts="1345706999969" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="74443"/>
+<httpSample t="737" lt="658" ts="1345706999959" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-2" dt="text" by="75313"/>
+<httpSample t="573" lt="559" ts="1345707000172" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="75313"/>
+<httpSample t="595" lt="580" ts="1345707000224" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="81690"/>
+<httpSample t="567" lt="534" ts="1345707000446" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="79541"/>
+<httpSample t="697" lt="656" ts="1345707000327" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-1" dt="text" by="75313"/>
+<httpSample t="663" lt="603" ts="1345707000440" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="75313"/>
+<httpSample t="654" lt="639" ts="1345707000575" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="75313"/>
+<httpSample t="702" lt="664" ts="1345707000603" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="81690"/>
+<httpSample t="704" lt="669" ts="1345707000626" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="75313"/>
+<httpSample t="663" lt="648" ts="1345707000675" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="75313"/>
+<httpSample t="659" lt="626" ts="1345707000746" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-4" dt="text" by="75313"/>
+<httpSample t="633" lt="607" ts="1345707000820" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="74443"/>
+<httpSample t="519" lt="486" ts="1345707001013" s="true" lb="core__listview_categories__basic_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="81690"/>
+<httpSample t="473" lt="454" ts="1345707001104" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-3" dt="text" by="75313"/>
+<httpSample t="460" lt="393" ts="1345707001230" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-7" dt="text" by="75312"/>
+<httpSample t="446" lt="432" ts="1345707001339" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-5" dt="text" by="75313"/>
+<httpSample t="486" lt="468" ts="1345707001333" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-6" dt="text" by="75313"/>
+<httpSample t="518" lt="499" ts="1345707001306" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="74443"/>
+<httpSample t="428" lt="410" ts="1345707001453" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="75313"/>
+<httpSample t="358" lt="342" ts="1345707001533" s="true" lb="core__listviews__advance_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="74443"/>
+<httpSample t="267" lt="250" ts="1345707001825" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="75313"/>
+<httpSample t="279" lt="261" ts="1345707001882" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-8" dt="text" by="75313"/>
+<httpSample t="285" lt="261" ts="1345707001891" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="75313"/>
+<httpSample t="263" lt="246" ts="1345707002093" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-9" dt="text" by="75313"/>
+<httpSample t="273" lt="255" ts="1345707002176" s="true" lb="core__listview_categories__advance_search" rc="200" rm="OK" tn="Web Responses 1-10" dt="text" by="75313"/>
+
+</testResults>

@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com>
+ */
+
+namespace module\campaigns\model;
+
+class campaign_tags extends \tushar\model
+{
+
+    public $table = 'campaigns__campaign_tags';
+    /**
+     *
+     * @var type
+     */
+    public $singular = 'campaign tag';
+    /**
+     *
+     * @var type
+     */
+    public $associations = array(
+        'created_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'created_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'modified_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'modified_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'owned_by_user' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'owned_by'
+            , 'className' => '\\module\\access_controls\\model\\users'
+        ), 'tags' => array('assocType' => 'belongsTo'
+            , 'foreignKey' => 'tag_id'
+            , 'className' => '\\module\\tags\\model\\tags'
+        )
+    );
+    public $filters = array(
+        'campaign_id' => array('required', array('rule' => FILTER_CALLBACK
+                , 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+        ), 'tag_id' => array('required', array('rule' => FILTER_CALLBACK
+                , 'params' => array('options' => array('\\tushar\\validation', 'notEmpty')))
+        )
+    );
+}

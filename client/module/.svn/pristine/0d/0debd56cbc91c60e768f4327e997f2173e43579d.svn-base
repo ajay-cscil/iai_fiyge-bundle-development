@@ -1,0 +1,31 @@
+[
+	{
+		"printviews":{
+			"controller":"vrm\/lists",
+			"business_key":"lists",
+			"name":"Lists",
+			"header":"",
+			"content":"[php]\r\n\r\n$companyObj = \\module\\crm_base\\model\\companies::getInstance(array(), true);\r\n$companyID=\\tushar\\user::read('company_id');\r\n$companyData = select(\"*\")->from($companyObj)->where('id',$companyID)->execute()->fetch(\\PDO::FETCH_ASSOC);\r\n$companyData['images']=select(\"*\")\r\n->from($companyObj->images)->where(array('related_to'=>$companyID,'related_to_model'=>'companies'))\r\n->execute()->fetch(\\PDO::FETCH_ASSOC);\r\n\r\n\r\n$options=select('name')\r\n->from(\\module\\vrm\\model\\current_canvass_options::getInstance())\r\n->inserted()\r\n->limit(0)\r\n->execute()\r\n   ->fetchAll(\\PDO::FETCH_ASSOC);\r\necho '<table>';\r\nforeach($options as $i=>$option){\r\n     echo '<tr><td>',(++$i),'= ', $option['name'],'<\/td><\/tr>';\r\n}\r\necho '<\/table>';\r\n$listID = $this->data('lists.id');\r\n$k=1;\r\necho \"<p><table>\";\r\necho '<tr style=\"height:25px;\">\r\n<td width=\"50px\"><b>No<\/b><\/td>\r\n<td width=\"200px\"><b>Name<\/b><\/td>\r\n<td width=\"180px\" style=\"padding:2px;\"><b>Address<\/b><\/td>';\r\nforeach($options as $p=>$opt){\r\n              echo '<td style=\"width:20px;\"><b>',(++$p),'&nbsp;<\/b><\/td>';\r\n}\r\necho '<\/tr>';\r\n\r\nforeach(\r\n      select('people.name,addresses.address_line_1')\r\n     ->from(\\module\\vrm\\model\\people_lists::getInstance())\r\n     ->joinInner('people')\r\n    ->join('addresses')\r\n    ->inserted()\r\n    ->where('people_lists.list_id',$listID)\r\n    ->limit(0)\r\n   ->group('people.id')\r\n  ->order(array('addresses.address_line_1','people.name'))\r\n   ->execute()\r\n   ->fetchAll(\\PDO::FETCH_ASSOC)\r\n   as $people){\r\n   echo '<tr style=\"height:25px;\">\r\n     <td width=\"50px\">',$k,'<\/td>\r\n      <td width=\"200px\">',$people['name'],'<\/td>\r\n      <td style=\"width:180px;padding:2px;\">',$people['address_line_1'],'<\/td>';\r\n      foreach($options as $opt){\r\n                 echo '<td  style=\"padding:5px;width:20px;\"><div style=\"border:1px solid #000000;\">&nbsp;&nbsp;<\/div><\/td>';\r\n       }\r\n   echo '<\/tr>';\r\n       $k++;\r\n}\r\necho \"<\/table>\";\r\n[\/php]",
+			"footer":"",
+			"created_by":"1",
+			"modified_by":"1",
+			"owned_by":"1",
+			"created":"2014-09-10 18:08:30",
+			"modified":"2014-09-11 13:51:43",
+			"deleted":"0",
+			"revision":"97",
+			"flags":null,
+			"description":"",
+			"id":"5410939e-fc64-4d3b-892a-49630abf2d7d",
+			"module_id":"",
+			"old_id":null,
+			"__created_by":"Super Admin",
+			"__modified_by":"Super Admin",
+			"__owned_by":"Super Admin",
+			"__module_id":"",
+			"created_by_model":"created_by_user",
+			"modified_by_model":"modified_by_user",
+			"owned_by_model":"owned_by_user"
+		}
+	}
+]

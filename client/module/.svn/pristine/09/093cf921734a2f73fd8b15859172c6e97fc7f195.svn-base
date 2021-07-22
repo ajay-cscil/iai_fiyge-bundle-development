@@ -1,0 +1,56 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\accounting\controller;
+
+class accounts_domain_logic extends \design_controller{
+
+    public function index($request, $query = array()) {
+        static::filter($request);
+        return parent::index($request, $query);
+    }
+
+    protected function indexQuery($request, &$query) {
+        $where = array();
+        $companyID = $request->session('company_id');
+        $fiscalYearID = $request->session('fiscal_year_id');
+        $periodID = $request->session('period_id');
+        $query['COMPANY_ID'] = $companyID;
+        $query['FISCAL_YEAR_ID'] = $fiscalYearID;
+        $query['PERIOD_ID'] = $periodID;
+
+        $modelObj = $this->modelObj();
+        if (!empty($companyID)) {
+            $where["{$modelObj->alias}.company_id"] = $companyID;
+            if (isset($query['where'])) {
+                $query['where'] = array($where, $query['where']);
+            }
+        }
+    }
+
+    public static function filter($request) {
+        $companyID = $request->param('company_id', $request->session('company_id', false));
+        $fiscalYearID = $request->param('fiscal_year_id', $request->session('fiscal_year_id', false));
+        $periodID = $request->param('period_id', $request->session('period_id', false));
+        $return = \module\accounting\model\accounts::getInstance()->accountingDefaults($companyID, $fiscalYearID, $periodID);
+        list($companyID, $fiscalYearID, $periodID, $companyName, $fiscalYearName, $periodName) = $return;
+        $request->sessionWrite('company_id', $companyID);
+        $request->sessionWrite('fiscal_year_id', $fiscalYearID);
+        $request->sessionWrite('period_id', $periodID);
+        $request->sessionWrite('company_name', $companyName);
+        $request->sessionWrite('fiscal_year_name', $fiscalYearName);
+        $request->sessionWrite('period_name', $periodName);
+    }
+    
+    public function _get_balance($request){
+        $id=$this->id($request);
+        $modelObject=$this->modelObj();
+        $balance=$modelObject->getBalance($id);
+        $request->set('balance',$balance);
+    }
+
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Jasmine Spec Runner</title>
+        <script type="text/javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" src="../../js/jquery.glob.js"></script>
+        <script type="text/javascript" src="../../js/jquery.formula.js"></script>
+        <link rel="shortcut icon" type="image/png" href="../../img/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../lib/jasmine-1.2.0/jasmine.css">
+        <link href="../lib/css/bootstrap.css" rel="stylesheet">
+        <link href="../lib/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="../lib/css/docs.css" rel="stylesheet">
+        <link href="../lib/css/prettify.css" rel="stylesheet">
+        <script type="text/javascript" src="../lib/jasmine-1.2.0/jasmine.js"></script>
+        <script type="text/javascript" src="../lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+        <!-- include spec files here... -->
+        <!--script type="text/javascript" src="spec/jqueryFormulaPlugin/resolve-operator.js"></script-->
+        <script type="text/javascript" src="../spec/jqueryFormulaPlugin/api-value.js"></script>
+        <script type="text/javascript" src="../spec/jqueryFormulaPlugin/api-sum.js"></script>
+        <script type="text/javascript" src="../spec/jqueryFormulaPlugin/api-min.js"></script>
+        <script type="text/javascript" src="../spec/jqueryFormulaPlugin/api-max.js"></script>
+        <script type="text/javascript" src="../spec/jqueryFormulaPlugin/api-count.js"></script>
+        <script type="text/javascript" src="../spec/jqueryFormulaPlugin/api-avg.js"></script>
+        <script type="text/javascript" src="../spec/jqueryFormulaPlugin/evaluate_formula.js"></script>
+        <script type="text/javascript">
+            (function() {
+                var jasmineEnv = jasmine.getEnv();
+                jasmineEnv.updateInterval = 1000;
+
+                var htmlReporter = new jasmine.HtmlReporter();
+
+                jasmineEnv.addReporter(htmlReporter);
+
+                jasmineEnv.specFilter = function(spec) {
+                    return htmlReporter.specFilter(spec);
+                };
+
+                var currentWindowOnload = window.onload;
+
+                window.onload = function() {
+                    if (currentWindowOnload) {
+                        currentWindowOnload();
+                    }
+                    execJasmine();
+                };
+
+                function execJasmine() {
+                    jasmineEnv.execute();
+                }
+
+            })();
+        </script>
+
+    </head>
+
+    <body>
+        <input id="mytxt" class="mytext txtval" type="text" value="8.3" style="display:none">
+        <input id="empty" class="mytext" type="text" value="" style="display:none">
+        <input class="mytext txtval" type="text" value="2" style="display:none">
+        <input class="txtval" type="text" value="5" style="display:none">
+
+
+        <form id="form1" style="display:none">
+            <fieldset>
+                <label>Quantity</label>
+                <input id="qty" value="50" type="text" placeholder="Type some numeric value…">
+                <label>Price/Unit</label>
+                <input id="pu" type="text" value="100" placeholder="Type some numeric value…">
+                <label>Discount %</label>
+                <input id="disc" type="text" value="5" placeholder="Type some numeric value…">
+                <label>Tax %</label>
+                <input id="tax" type="text" value="3" placeholder="Type some numeric value…">
+                <label>Total</label>
+                <input id="total" type="text" placeholder="Auto-populated as formula" formula="$('#qty').value()*$('#pu').value()-($('#qty').value()*$('#pu').value()*$('#disc').value()/100)+(($('#qty').value()*$('#pu').value()-($('#qty').value()*$('#pu').value()*$('#disc').value()/100))*$('#tax').value()/100)">
+            </fieldset>
+        </form>
+        <form id="form2" style="display:none">
+            <fieldset>
+                <label>Quantity</label>
+                <input id="form2-qty" value="50" type="text" placeholder="Type some numeric value…">
+                <label>Price/Unit</label>
+                <input id="form2-pu" type="text" value="100" placeholder="Type some numeric value…">
+                <label>Discount %</label>
+                <input id="form2-disc" type="text" value="5" placeholder="Type some numeric value…">
+                <label>Tax %</label>
+                <input id="form2-tax" type="text" value="3" placeholder="Type some numeric value…">
+                <label>Total</label>
+                <input id="form2-total" type="text" placeholder="Auto-populated as formula" formula="((100+250)*4-(50-20))/6">
+            </fieldset>
+        </form>
+        <form id="form3" style="display:none">
+            <fieldset>
+                <label>Quantity</label>
+                <input id="form3-qty" value="50" type="text" placeholder="Type some numeric value…">
+                <label>Price/Unit</label>
+                <input id="form3-pu" type="text" value="100" placeholder="Type some numeric value…">
+                <label>Discount %</label>
+                <input id="form3-disc" type="text" value="5" placeholder="Type some numeric value…">
+                <label>Tax %</label>
+                <input id="form3-tax" type="text" value="3" placeholder="Type some numeric value…">
+                <label>Total</label>
+                <input id="form3-total" type="text" placeholder="Auto-populated as formula" formula="$('#form3-qty').value()*$('#form3-pu').value()-($('#form3-qty').value()*$('#form3-pu').value()*$('#form3-disc').value()/100)+(($('#form3-qty').value()*$('#form3-pu').value()-($('#form3-qty').value()*$('#form3-pu').value()*$('#form3-disc').value()/100))*$('#form3-tax').value()/100)-70">
+            </fieldset>
+        </form>
+        <form id="form4" style="display:none">
+            <fieldset>
+                <label>Quantity</label>
+                <input id="form4-qty" value="50" type="text" placeholder="Type some numeric value…">
+                <label>Price/Unit</label>
+                <input id="form4-pu" type="text" value="100" placeholder="Type some numeric value…">
+                <label>Discount %</label>
+                <input id="form4-disc" type="text" value="5" placeholder="Type some numeric value…">
+                <label>Tax %</label>
+                <input id="form4-tax" type="text" value="3" placeholder="Type some numeric value…">
+                <label>Total</label>
+                <input id="form4-total" type="text" placeholder="Auto-populated as formula" formula="70+$('#form4-qty').value()*$('#form4-pu').value()-($('#form4-qty').value()*$('#form4-pu').value()*$('#form4-disc').value()/100)+(($('#form4-qty').value()*$('#form4-pu').value()-($('#form4-qty').value()*$('#form4-pu').value()*$('#form4-disc').value()/100))*$('#form4-tax').value()/100)">
+            </fieldset>
+        </form>
+        <div id="quot_line" style="display:none">
+            <form>
+            <ul data-role="listview" class="grid-template ui-listview last-data-row" style="display: block;"><li class="cell-seq-grid  ui-li ui-li-static ui-btn-up-d"><label class="placeholder-label">Record&nbsp;<span class="sequence">1</span></label><input name="data[quotes][quote_lines][1][seq]" type="hidden" class="sequence" value="1" id="data-quotes-quote_lines-1-seq" data-mini="true" grid_row_number="1"><div class=" float-right grid-action-button"><a type="button" name="grid-row-delete" class="grid-row-delete  btn btn-danger ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-notext" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="notext" value="Delete" id="grid-row-delete" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="d" title="Delete"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Delete</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a></div></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d"><div data-role="fieldcontain" class="field_collection ui-field-contain ui-body ui-br" style="border:0px;"><input class="popup-hidden   popup-hidden-product_id" type="hidden" name="data[quotes][quote_lines][1][product_id]" value="" for_text="" on_change_reload_form="0" id="data-quotes-quote_lines-1-product_id" data-mini="true" grid_row_number="1"><select value="" class="none  popup-select   popup-select-product_id" name="data[quotes][quote_lines][1][product_id_model]" permission="2" style="display:none;" id="data-quotes-quote_lines-1-product_id_model" data-value="" data-role="none" grid_row_number="1"><option custom_model="Product" href="/bizuat/product/products/index" not_empty="0" open_on_focus="0" model="Product" template="popupoption" text="Product" value="Product" permission="2">Product</option></select><input class="popup-autocomplete display-inline-block   popup-autocomplete-product_id ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-mini" href="/bizuat/product/products/index" q="" autocomplete="" type="text" name="data[quotes][quote_lines][1][__product_id]" value="" concat_text_value="0" inline_search="1" select="1" open="1" on_change_field_model="schema" mapped_field_model="schema" filter_field_model="schema" filter_by_fields_model="schema" method="popup" custom_model="Product" open_on_focus="0" model="Product" readonly="readonly" id="data-quotes-quote_lines-1-__product_id" data-mini="true" grid_row_number="1"><div data-role="fieldcontain" style="border:0px;" class="ui-field-contain ui-body ui-br"><a href="#" data-inline="true" data-theme="d" data-mini="true" class="popup-add  ui-btn-right ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-left" data-ajax="false" data-role="button" data-icon="plus" data-iconpos="left" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Select</span><span class="ui-icon ui-icon-plus ui-icon-shadow">&nbsp;</span></span></a><a href="#" data-inline="true" data-theme="d" data-mini="true" class="popup-clear   ui-btn-right ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-left" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="left" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Clear</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a></div></div></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d"><input name="data[quotes][quote_lines][1][description]" on_change_field="quotes.quote_lines.product_id" on_change_field_model="schema" __on_change_field="quotes.quote_lines.product_id" mapped_field_model="schema" __mapped_field="quotes.products.description" filter_field_model="schema" filter_by_fields_model="schema" method="input" class="not-empty-input ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-mini" type="text" id="data-quotes-quote_lines-1-description" data-mini="true" grid_row_number="1"></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d"><input name="data[quotes][quote_lines][1][quantity]" __value="" is_web_compatible="1" is_mobile_compatible="1" on_change_field_model="schema" mapped_field_model="schema" filter_field_model="schema" filter_by_fields_model="schema" method="number" do_not_open_on_tab_focus="0" render_as_label="0" value="5" class="not-empty-input  number ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-mini ui-focus1" type="text" id="data-quotes-quote_lines-1-quantity" data-mini="true" grid_row_number="1"></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d"><div data-role="fieldcontain" class="field_collection ui-field-contain ui-body ui-br" style="border:0px;"><input class="popup-hidden  not-empty-input  popup-hidden-uom_id" type="hidden" name="data[quotes][quote_lines][1][uom_id]" value="" for_text="" on_change_reload_form="0" id="data-quotes-quote_lines-1-uom_id" data-mini="true" grid_row_number="1"><select value="" class="none  popup-select  not-empty-input  popup-select-uom_id" name="data[quotes][quote_lines][1][uom_id_model]" permission="2" style="display:none;" id="data-quotes-quote_lines-1-uom_id_model" data-value="" data-role="none" grid_row_number="1"><option custom_model="product/config_uom/index" href="/bizuat/product/config_uom/index" not_empty="0" open_on_focus="0" model="product/config_uom/index" template="popupoption" text="product/config_uom/index" value="product/config_uom/index" permission="2">product/config_uom/index</option></select><input class="popup-autocomplete display-inline-block  not-empty-input  popup-autocomplete-uom_id ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-mini" href="/bizuat/product/config_uom/index" q="" autocomplete="" type="text" name="data[quotes][quote_lines][1][__uom_id]" value="" concat_text_value="0" inline_search="1" select="1" open="1" on_change_field="quotes.quote_lines.product_id" on_change_field_model="schema" __on_change_field="quotes.quote_lines.product_id" mapped_field_model="schema" __mapped_field="quotes.products.sale_uom_id" filter_field_model="schema" filter_by_fields_model="schema" method="popup" custom_model="product/config_uom/index" open_on_focus="0" model="product/config_uom/index" readonly="readonly" id="data-quotes-quote_lines-1-__uom_id" data-mini="true" grid_row_number="1"><div data-role="fieldcontain" style="border:0px;" class="ui-field-contain ui-body ui-br"><a href="#" data-inline="true" data-theme="d" data-mini="true" class="popup-add  ui-btn-right ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-left" data-ajax="false" data-role="button" data-icon="plus" data-iconpos="left" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Select</span><span class="ui-icon ui-icon-plus ui-icon-shadow">&nbsp;</span></span></a><a href="#" data-inline="true" data-theme="d" data-mini="true" class="popup-clear   ui-btn-right ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-left" data-ajax="false" data-role="button" data-icon="delete" data-iconpos="left" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Clear</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a></div></div></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d"><input name="data[quotes][quote_lines][1][price_per_unit]" __value="4" is_web_compatible="1" is_mobile_compatible="1" on_change_field="quotes.quote_lines.product_id" on_change_field_model="schema" __on_change_field="quotes.quote_lines.product_id" mapped_field="quotes.products.sale_price" mapped_field_model="schema" __mapped_field="quotes.products.sale_price" filter_field_model="schema" filter_by_fields_model="schema" method="number" do_not_open_on_tab_focus="0" render_as_label="0" value="4" class="not-empty-input  number ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-mini" type="text" id="data-quotes-quote_lines-1-price_per_unit" data-mini="true" grid_row_number="1"></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d"><input name="data[quotes][quote_lines][1][discount]" is_web_compatible="1" is_mobile_compatible="1" on_change_field_model="schema" mapped_field_model="schema" filter_field_model="schema" filter_by_fields_model="schema" method="number" do_not_open_on_tab_focus="0" class="number ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-mini" type="text" id="data-quotes-quote_lines-1-discount" data-mini="true" grid_row_number="1"></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d"><input name="data[quotes][quote_lines][1][total_amount]" value="0" __value="0" is_web_compatible="1" is_mobile_compatible="1" formula="row.find('[name*=&quot;quantity&quot;]').value()*row.find('[name*=&quot;price_per_unit&quot;]').value()-(row.find('[name*=&quot;quantity&quot;]').value()*row.find('[name*=&quot;price_per_unit&quot;]').value()*row.find('[name*=&quot;discount&quot;]').value()/100)" on_change_field_model="schema" mapped_field_model="schema" filter_field_model="schema" filter_by_fields_model="schema" method="number" do_not_open_on_tab_focus="0" class="number ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-mini" type="text" id="data-quotes-quote_lines-1-total_amount" data-mini="true" grid_row_number="1"></li><li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-d ui-li-last"><select value="" class="tokeninput-popup-select" name="" permission="2" style="display:none;" data-role="none" disabled="disabled" data-value="" grid_row_number="1"><option custom_model="tax_code" href="/bizuat/accounting/taxes/index" not_empty="0" open_on_focus="0" model="tax_code" template="popupoption" permission="2" text="tax_code" value="tax_code">tax_code</option></select><ul class="token-input-list"><li class="token-input-input-token"><input type="text" autocomplete="off" autocapitalize="off" id="token-input-" style="outline: none; width: 1267px;"><tester style="position: absolute; top: -9999px; left: -9999px; width: auto; font-size: 13px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; letter-spacing: normal; white-space: nowrap;"></tester></li></ul><input class="display-inline-block   tokeninput-popup-autocomplete" href="/bizuat/accounting/taxes/index" q="" autocomplete="" type="text" value="" concat_text_value="0" disabled="disabled" data-role="none" name="" inline_search="1" select="1" open="1" is_web_compatible="1" is_mobile_compatible="1" method="multiinput" show_model="0" show_link="0" multiselect="0" postfix_label="0" prefix_id="0" do_not_open_on_tab_focus="0" custom_model="tax_code" open_on_focus="0" model="tax_code" model_column="data[quotes][quote_lines][_X_][line_taxes][][tax_id_model]" label_column="data[quotes][quote_lines][_X_][line_taxes][][__tax_id]" key_column="data[quotes][quote_lines][_X_][line_taxes][][tax_id]" id_column="data[quotes][quote_lines][_X_][line_taxes][][id]" deleted_column="data[quotes][quote_lines][_X_][line_taxes][][deleted]" tax_amount_column="data[quotes][quote_lines][_X_][line_taxes][][tax_amount]" tax_value_column="data[quotes][quote_lines][_X_][line_taxes][][tax_value]" tax_type_column="data[quotes][quote_lines][_X_][line_taxes][][tax_type]" prepopulate="[]" id="" data-mini="true" grid_row_number="1" style="display: none;"><div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><a href="index.html" data-inline="true" data-mini="true" class="tokeninput-popup-add  ui-btn-right ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-mini ui-btn-inline ui-btn-icon-left" data-ajax="false" data-role="button" data-icon="plus" data-iconpos="left" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="d"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Select</span><span class="ui-icon ui-icon-plus ui-icon-shadow">&nbsp;</span></span></a></div></li></ul>
+            </form>
+        </div>
+        <!--================================================== -->    
+    </body>
+</html>

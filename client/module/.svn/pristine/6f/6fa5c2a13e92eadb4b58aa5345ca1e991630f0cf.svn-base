@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @author Tushar Takkar<ttakkar@primarymodules.com> 
+ */
+
+namespace module\campaigns\source;
+
+class lists implements \module\campaigns\source\source {
+
+    public static $settings = array();
+
+    public static function process($campaignObj, $tmp,$processor, $data, $params=array()) {
+        static::$settings = array_merge(static::$settings, $params);
+        $fields = (isset($data['merge_words']) && !empty($data['merge_words']) ? $data['merge_words'] : array());
+        $fields['entity_id_model'] = 'entity_id_model';
+        $fields['entity_id'] = 'entity_id';
+        $fields['to_email'] = 'to_email';
+
+        $campaignLists = select('campaign_lists.list_id')
+                        ->from($campaignObj)
+                        ->joinInner('campaign_lists')
+                        ->where(array("{$campaignObj->alias}.id" => $data['id']))
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_COLUMN, 0);
+        $listRecords = \module\campaigns\model\list_records::getInstance();
+        $stmt = $listRecords->find(array('fields' => array("{$listRecords->alias}.content"), 'limit' => false, 'where' => array("{$listRecords->alias}.list_id" => $campaignLists)));
+        while ($listRecord = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $listRecord = \json_decode($listRecord['content'], true);
+            if (!is_array($listRecord))
+                $listRecord = array();
+            $row = array();
+            foreach ($listRecord as $col => $val) {
+                $row[(isset($fields[$col]) ? $fields[$col] : $col)] = $val;
+            }
+            if (!isset($row['entity_id_model']))
+                $row['entity_id_model'] = 'List';
+            $tmp->saveModel($row, array('type' => 'insert'));
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\wiki\controller;
+  class article_subscriptions extends \module\wiki\controller\article_subscriptions_domain_logic
+  {
+       public $modelClass = '\\module\\wiki\\model\\article_subscriptions';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\tushar\\paginate',
+  'method' => 'index',
+  'fields' => 
+  array (
+    0 => 'users.first_name',
+    1 => 'users.last_name',
+    2 => 'groups.name',
+    3 => 'groups.description',
+  ),
+  'order' => '',
+);
+
+
+
+
+
+
+  }

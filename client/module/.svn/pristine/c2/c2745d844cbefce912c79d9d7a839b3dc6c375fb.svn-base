@@ -1,0 +1,16 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\manufacturing\controller;
+  class work_centers extends \module\manufacturing\controller\work_centers_domain_logic
+  {
+       public $modelClass = '\\module\\manufacturing\\model\\work_centers';
+
+
+
+
+
+
+  }

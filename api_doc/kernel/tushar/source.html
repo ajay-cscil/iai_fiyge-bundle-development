@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="generator" content="PHPDoctor 2.0.5 (http://peej.github.com/phpdoctor/)">
+<meta name="when" content="Sat, 01 Feb 2014 21:59:12 +0000">
+
+<link rel="stylesheet" type="text/css" href="../stylesheet.css">
+<link rel="start" href="../namespaces.html">
+
+<title>source (MVC framework)</title>
+
+</head>
+<body id="definition">
+
+<header><h1>PHP based MVC framework</h1><span>Class</span>
+
+<h2>kernel\source</h2>
+
+</header><p class="signature">public  class <strong>source</strong></p>
+
+<div class="comment"><p>This class manages all data sources initialization/lifecycle.</p></div>
+
+<table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+<h3>Fields</h3>
+<table>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#ignoreTransaction">$ignoreTransaction</a></p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#transactionSource">$transactionSource</a></p></td>
+</tr>
+</table>
+
+<h3>Methods</h3>
+<table>
+<tr>
+<td class="type">private  void</td>
+<td class="description"><p class="name"><a href="#__construct()">__construct</a>()</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#dbSchema()">dbSchema</a>(<a href="../kernel/string.html">string</a> sourceName, bool cacheCopy)</p><p class="description">Generate schema for database</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#deleteSchemaCache()">deleteSchemaCache</a>(mixed sourceName, mixed table)</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#flush()">flush</a>(mixed sourceName)</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#getInstance()">getInstance</a>(<a href="../kernel/string.html">string</a> sourceName)</p><p class="description">Generate instance of database connection</p></td>
+</tr>
+<tr>
+<td class="type">static  type</td>
+<td class="description"><p class="name"><a href="#log()">log</a>(type x)</p><p class="description">Acts as setter/getter for SQL's</p></td>
+</tr>
+<tr>
+<td class="type">static  <a href="../kernel/string.html">string</a></td>
+<td class="description"><p class="name"><a href="#sourceName()">sourceName</a>(<a href="../kernel/string.html">string</a> sourceName)</p><p class="description">Format source name based on test mode</p></td>
+</tr>
+<tr>
+<td class="type">static  void</td>
+<td class="description"><p class="name"><a href="#tableList()">tableList</a>(mixed sourceName, bool cacheCopy)</p></td>
+</tr>
+<tr>
+<td class="type">static  mixed</td>
+<td class="description"><p class="name"><a href="#tableSchema()">tableSchema</a>(<a href="../kernel/string.html">string</a> sourceName, <a href="../kernel/string.html">string</a> table, bool cacheCopy)</p><p class="description">Generate schema for table</p></td>
+</tr>
+</table>
+
+<h3>Details</h3>
+<code class="signature" id="ignoreTransaction">public static  mixed <strong>$ignoreTransaction</strong> = false</code>
+<div class="details">
+</div>
+
+<code class="signature" id="transactionSource">public static  mixed <strong>$transactionSource</strong> = null</code>
+<div class="details">
+</div>
+
+<code class="signature" id="__construct">private  void <strong>__construct</strong>()</code>
+<div class="details">
+</div>
+
+<code class="signature" id="dbSchema">public static  mixed <strong>dbSchema</strong>(<a href="../kernel/string.html">string</a> sourceName, bool cacheCopy)</code>
+<div class="details">
+<p>Generate schema for database</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>sourceName - source name defined in connection.php</td>
+<td>cacheCopy - if true return from cache, else generate new</td>
+</tr></table>
+</div>
+
+<code class="signature" id="deleteSchemaCache">public static  void <strong>deleteSchemaCache</strong>(mixed sourceName, mixed table)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="flush">public static  void <strong>flush</strong>(mixed sourceName)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="getInstance">public static  mixed <strong>getInstance</strong>(<a href="../kernel/string.html">string</a> sourceName)</code>
+<div class="details">
+<p>Generate instance of database connection</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>sourceName - source name defined in connection.php</td>
+</tr></table>
+</div>
+
+<code class="signature" id="log">public static  type <strong>log</strong>(type x)</code>
+<div class="details">
+<p>Acts as setter/getter for SQL's</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="sourceName">public static  <a href="../kernel/string.html">string</a> <strong>sourceName</strong>(<a href="../kernel/string.html">string</a> sourceName)</code>
+<div class="details">
+<p>Format source name based on test mode</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr></table>
+</div>
+
+<code class="signature" id="tableList">public static  void <strong>tableList</strong>(mixed sourceName, bool cacheCopy)</code>
+<div class="details">
+</div>
+
+<code class="signature" id="tableSchema">public static  mixed <strong>tableSchema</strong>(<a href="../kernel/string.html">string</a> sourceName, <a href="../kernel/string.html">string</a> table, bool cacheCopy)</code>
+<div class="details">
+<p>Generate schema for table</p><table>
+<tr><th>Author</th>
+<td>Tushar Takkar<ttakkar@primarymodules.com></td>
+</tr><tr><th>Parameters</th>
+<td>sourceName - source name defined in connection.php</td>
+<td>table - table name to process</td>
+<td>cacheCopy - if true return from cache, else generate new</td>
+</tr></table>
+</div>
+
+<p id="footer">This document was generated by <a href="http://peej.github.com/phpdoctor">PHPDoctor: The PHP Documentation Creator</a></p>
+
+</body>
+
+</html>

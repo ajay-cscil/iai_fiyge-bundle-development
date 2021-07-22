@@ -1,0 +1,121 @@
+<?php
+
+/**
+ *
+ * write any custom code in this class, build operation wont overwrite this class once generated;
+ */
+
+namespace module\cloud\model;
+
+class instances_domain_logic extends \tushar\model{
+
+    public $data = array();
+
+    public function beforeValidate() {
+        parent::beforeValidate();
+        if (!isset($this->filters['domain_name'])) {
+            $this->filters['domain_name'] = array();
+        }
+        $this->filters['domain_name'][] = array(
+            'rule' => '\\module\\cloud\\model\\instances_domain_logic::validDomainName',
+            'params' => array()
+        );
+    }
+
+    public static function validDomainName($val, $col, $data, $obj, $rule = array()) {
+        if (!empty($val)) {
+            if (!preg_match('/^[\w\-\.]+$/', $val)) {
+                throw new \Exception(sprintf(__('Character "a-zA-Z0-9._" are allowed in "%s"'), __("{$col}", 'module')));
+            }
+        }
+        return $val;
+    }
+
+    public function save($data, $options = array()) {
+        $userID = \tushar\user::read('id');
+        if (empty($userID)) {
+            $userModelObject = \module\access_controls\model\users::getInstance();
+            \tushar\user::write($userModelObject->setCurrentUserSesionInfo(1, true));
+        }
+        return parent::save($data, $options);
+    }
+
+    public function beforeSave() {
+        parent::beforeSave();
+        $ID = isset($this->data[$this->primaryKey]) ? $this->data[$this->primaryKey] : '';
+        if (!empty($ID)) {
+            $this->dataOld = current($this->read($ID));
+        }
+    }
+
+    public function afterSave($created) {
+        if ($created) {
+
+            $id = \select("id")
+                            ->from(\module\cloud\model\federated_users::getInstance())
+                            ->where('user_name', $this->data['office_email'])
+                            ->inserted()
+                            ->execute()->fetch(\PDO::FETCH_COLUMN);
+
+            if (!empty($id)) {
+                throw new \Exception(sprintf(__('Someone already have used email "%s", Try another.'), $this->data['office_email']));
+            }
+        }
+        $old = isset($this->dataOld['disable_instance']) ? $this->dataOld['disable_instance'] : 0;
+        $new = isset($this->data['disable_instance']) ? $this->data['disable_instance'] : 0;
+        if ($old != $new) {
+            if ($old == 0 && $new == 1) {
+                // disable all users
+            } else if ($old == 1 && $new == 0) {
+                // enable all users
+            }
+        }
+    }
+
+    public function beforeDelete() {
+        //throw new \Exception("No user is allowed to delete a instance from UI as fail safe measure. Contact maax admin to delete them from backend. System auto refreash instance list once per day");
+        //$this->dataOld = current($this->read($this->data['id']));
+        $this->associations['federated_users']['skipForeignKeyCheck'] = 1;
+        parent::beforeDelete();
+        $this->data = current($this->read($this->id, false));
+        if (isset($this->data['termination_protection']) && $this->data['termination_protection'] == 1) {
+            throw new \Exception(__('This instance is cloud not be terminated as flag "termination protection" is set.'));
+        }
+    }
+
+    public function afterDelete() {
+        parent::afterDelete();
+        $databases = array();
+        foreach (array_keys($this->data) as $key) {
+            if (stripos($key, '_database') !== false) {
+                $databases[] = str_replace("_database", "", $key);
+            }
+        }
+        $source = null;
+        foreach ($databases as $database) {
+            $settings = array('host' => $this->data['db_host'], 'port' => $this->data['db_port'], 'login' => $this->data['db_login'], 'password' => $this->data['db_password'], 'driver' => $this->data['db_driver']);
+            if (isset($this->data["{$database}_database"])) {
+                $settings['database'] = $this->data["{$database}_database"];
+                if (!empty($settings['database'])) {
+                    if (stripos($settings['driver'], NS) !== false) {
+                        $className = $settings['driver'];
+                    } else {
+                        $className = NS . 'tushar' . NS . 'drivers' . NS . $settings['driver'];
+                    }
+                    $source = new $className($settings);
+                    $source->execute("drop database IF EXISTS {$settings['database']} ;");
+                }
+            }
+        }
+        if (is_object($source)) {
+         //   $source->execute('drop user ' . $this->data['db_login'] . ' ;');
+        }
+        \update(array('deleted' => '1'))
+                ->from($this->federated_users)
+                ->where("federated_users.instance_id", $this->data['id'])
+                ->limit(0)
+                ->execute();
+        //throw new \Exception(__('This instance is cloud not be terminated as flag "termination protection" is set.'));
+    }
+
+}
