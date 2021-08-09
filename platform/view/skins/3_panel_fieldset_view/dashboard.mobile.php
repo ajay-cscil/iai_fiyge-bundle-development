@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <HTML>
     <HEAD>
-        <TITLE>MaaxFrame</TITLE>
+        <TITLE>Fiyge</TITLE>
         <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
         <meta http-equiv="content-type" content="text/html;charset=utf-8">
 

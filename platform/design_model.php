@@ -30,20 +30,17 @@ class design_model extends \kernel\model {
                 return false;
             }
             if ($this->cloned !== false) {
-                $data = $this->find(
-                                array(
-                                    'fields' => array('{{MODEL}}.lft', '{{MODEL}}.rgt')
-                                    , 'where' => array('{{MODEL}}.{{PRIMARY_KEY}}' => $this->cloned)
-                                )
-                        )->fetch(\PDO::FETCH_ASSOC);
-                if (!empty($data)) {
                     $data = $this->find(
                                     array(
-                                        'fields' => '{{MODEL}}.*'
-                                        , 'where' => array('{{MODEL}}.lft >= ' => $data['lft'], '{{MODEL}}.rgt <= ' => $data['rgt'])
-                                        , 'order' => array('{{MODEL}}.lft ASC'), 'limit' => 0
+                                        'fields' => '{{MODEL}}.*',
+                                        'where' => [],
+                                        'order' => array('{{MODEL}}.sequence ASC'), 
+                                        'limit' => 0,
+                                        'with_recursive'=>['{{MODEL}}.{{PRIMARY_KEY}}' => $this->cloned]
                                     )
                             )->fetchAll(\PDO::FETCH_ASSOC);
+
+                    
 
 
                     if (isset($data[0]) && isset($data[0]['parent_id'])) {
@@ -55,7 +52,6 @@ class design_model extends \kernel\model {
                         $data = isset($data['children']) ? $data['children'] : array();
                         $this->cloneChildren($data, $this->id, $dataOld, $this->data);
                     }
-                }
             }
             if (!empty(static::$errors)) {
                 if ($options['atomic'] === false) {
@@ -125,6 +121,31 @@ class design_model extends \kernel\model {
             $this->associations['design_acl']['skipForeignKeyCheck'] = 1;
         }
         parent::beforeDelete();
+    }
+
+    public function indexRecursiveTree($parentID=null){
+        $sequence=1;
+        $instance = \kernel\source::getInstance($this->source);
+        $data = select(array("{$this->alias}.*"))
+                        ->from($this)
+                        ->where(['parent_id'=>$parentID,'deleted !='=>1])
+                        ->order(['lft ASC'])
+                        ->limit(0)
+                        ->execute()
+                        ->fetchAll(\PDO::FETCH_ASSOC);
+
+        foreach( $data as $record){
+            $update = [
+                'fields' => ["sequence" => $sequence],
+                'table' => ['db' => $this->db, 'table' => $this->table],
+                'where' => ["id"=>$record['id']]
+            ];
+            $instance->save($update, true);
+            $sequence++;
+            $this->indexRecursiveTree($record['id']);
+        }
+
+
     }
 
 }

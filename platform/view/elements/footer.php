@@ -79,7 +79,7 @@ if (\kernel\configuration::read('debug') == true) {
 <div class=" split-bar ui-widget-header"></div>
 <div id="footer-panel"  >
     <span style="float:left;">
-        © MaaxFrame Inc. 2013 onwards - All rights reserved&reg;. <br />
+        © Fiyge Inc. 2021 onwards - All rights reserved&reg;. <br />
         <?php echo __('Server response time'); ?>:&nbsp;<?php
         global $requestStartTime;
         echo round((microtime(true) - $requestStartTime), 3), ' ', __('seconds')
@@ -93,7 +93,7 @@ if (\kernel\configuration::read('debug') == true) {
 
     </span>
 
-    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="maaxframe">MaaxFrame <?php echo "v" . \kernel\configuration::read('maaxframe_version'); ?></span></span>
+    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="fiyge">Fiyge <?php echo "v" . \kernel\configuration::read('fiyge_version'); ?></span></span>
 </div>
 <?php
 // locale file for datepicker.
@@ -165,7 +165,7 @@ echo \kernel\html::js($this->request, 'https://maps.googleapis.com/maps/api/js',
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-51074360-1', 'maaxframe.com');
+    ga('create', 'UA-51074360-1', 'fiyge.com');
     ga('send', 'pageview');
 </script>
 <script type="text/javascript">

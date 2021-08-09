@@ -1649,7 +1649,7 @@ label > input{
 .widget-header {padding:5px;margin-bottom:5px;}
 .widget-header-title{ display:inline-block;cursor:move;text-transform:capitalize;}
 .widget-header .ui-icon { float: right; }
-.widget-content { margin: 0; padding: 0;height:290px;  overflow: auto;}
+.widget-content { margin: 0; padding: 0;height:300px;  overflow: auto;}
 .widget-content .graph-panel-container{height:258px;  overflow: auto; margin: 0;}
 .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 200px !important; }
 .ui-sortable-placeholder * { visibility: hidden; }
