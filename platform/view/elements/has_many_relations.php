@@ -24,7 +24,7 @@ if (file_exists($fl)) {
                             'where' => array(
                                 "{$modelObj->alias}.url_key" => $urls
                             ),
-                            'order' => array("{$modelObj->alias}.lft"),
+                            'order' => array("{$modelObj->alias}.sequence"),
                             'limit' => 0
                         )
                 )->fetchAll(\PDO::FETCH_COLUMN);

@@ -17,8 +17,12 @@ if (!empty($urls)) {
     $urls = $modelObj->find(
                     array(
                         'fields' => array("{$modelObj->alias}.url_key"),
-                        'where' => array("{$modelObj->alias}.url_key" => $urls, "{$modelObj->alias}.is_active" => 1, "{$modelObj->alias}.{$compatibleWith}" => 1),
-                        'order' => array("{$modelObj->alias}.lft"),
+                        'where' => array(
+                            "{$modelObj->alias}.url_key" => $urls, 
+                            "{$modelObj->alias}.is_active" => 1, 
+                            "{$modelObj->alias}.{$compatibleWith}" => 1
+                        ),
+                        'order' => array("{$modelObj->alias}.sequence"),
                         'limit' => 0
                     )
             )->fetchAll(\PDO::FETCH_COLUMN);

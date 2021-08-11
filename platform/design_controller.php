@@ -191,7 +191,7 @@ class design_controller extends \kernel\controller {
                 ->from($modelObj)
                 ->inserted()
                 ->where(array("$modelObj->parentKey" => $parentID))
-                ->order(array("{$modelObj->parentKey} ASC", "lft ASC"))
+                ->order(array("{$modelObj->parentKey} ASC", "sequence ASC"))
                 ->limit(0)
                 ->execute()
                 ->fetchAll(\PDO::FETCH_ASSOC);
