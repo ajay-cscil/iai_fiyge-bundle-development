@@ -129,7 +129,7 @@ class design_model extends \kernel\model {
         $data = select(array("{$this->alias}.*"))
                         ->from($this)
                         ->where(['parent_id'=>$parentID,'deleted !='=>1])
-                        ->order(['left ASC'])
+                        ->order(['`left` ASC'])
                         ->limit(0)
                         ->execute()
                         ->fetchAll(\PDO::FETCH_ASSOC);
