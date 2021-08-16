@@ -232,7 +232,7 @@ class design_controller extends \kernel\controller {
         $modelObj = $this->modelObj();
         $schema = $modelObj->schema();
         echo "START";
-        if ($modelObj->has('column', 'lft')) {
+        if ($modelObj->has('column', 'left')) {
             $modelObj->indexRecursiveTree(null);
         }
         echo "COMPLETE";
