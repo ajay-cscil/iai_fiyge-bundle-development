@@ -145,6 +145,29 @@ class design_model extends \kernel\model {
             $this->indexRecursiveTree($record['id']);
         }
 
+        if(is_null($parentID) || empty($parentID)){
+                $parentID="";
+                $schema=$this->schema();
+                $records=select(array("{$this->alias}.*"))
+                            ->from($this)
+                            ->withRecursive(['parent_id'=>''])
+                            ->order(['sequence ASC'])
+                            ->limit(0)
+                            ->execute()
+                            ->fetchAll(\PDO::FETCH_ASSOC);
+                            
+                 foreach($records as $record){
+                    $update = [
+                        'fields' => ["full_name" => $record['full_name']],
+                        'table' => ['db' => $this->db, 'table' => $this->table],
+                        'type' => 'update', 
+                        'where' => ["id"=>$record['id']]
+                    ];
+                    $instance->save($update, true);
+                 }
+                        
+        }
+
 
     }
 
