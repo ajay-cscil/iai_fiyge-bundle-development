@@ -138,9 +138,10 @@ class design_model extends \kernel\model {
             $update = [
                 'fields' => ["sequence" => $sequence],
                 'table' => ['db' => $this->db, 'table' => $this->table],
+                'type' => 'update', 
                 'where' => ["id"=>$record['id']]
             ];
-            $instance->save($update, true);
+            $instance->save($update, false);
             $sequence++;
             $this->indexRecursiveTree($record['id']);
         }
@@ -163,7 +164,7 @@ class design_model extends \kernel\model {
                         'type' => 'update', 
                         'where' => ["id"=>$record['id']]
                     ];
-                    $instance->save($update, true);
+                    $instance->save($update, false);
                  }
                         
         }
