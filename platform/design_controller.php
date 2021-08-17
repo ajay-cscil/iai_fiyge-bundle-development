@@ -227,7 +227,7 @@ class design_controller extends \kernel\controller {
         }
     }
 
-    public function indexrecursivetree(){
+    public function __indexrecursivetree(){
         set_time_limit(0);
         $modelObj = $this->modelObj();
         $schema = $modelObj->schema();
