@@ -1,6 +1,6 @@
 # bundle-development
 
-- git clone --recursive https://github.com/fiyge/bundle-development.git
+- git clone --recursive git@github.com:fiyge/bundle-development.git
 - If installing on local machine then make entry into /etc/hosts file for virtual host pointing to 127.0.0.1
 - Setup virtual host domain in nginx
 - Open project url in browser to complete installation process.
