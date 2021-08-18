@@ -93,95 +93,39 @@ class design_controller extends \kernel\controller {
                 'OR' => array("{$modelObj->parentKey} IS NULL", "{$modelObj->parentKey}" => '')
             );
         }
-        //$modelObj->alias = $modelObj->table;
-        $instance->execute("ALTER TABLE {$modelObj->dbTable} DISABLE KEYS");
-        //$instance->execute("LOCK TABLES {$modelObj->table} as '{$modelObj->table}' WRITE");
-
-        $request->push(__('Searching top most parent records'));
-        $records = \select(array($modelObj->primaryKey, $modelObj->parentKey))
+        
+        $request->push(__('Searching records'));
+        $records = \select(["*"])
                 ->from($modelObj)
                 ->inserted()
-                ->where(
-                        $where
-                )
-                ->order("{$modelObj->leftKey} ASC")
+                ->withRecursive($where)
+                ->order("sequence ASC")
                 ->limit(0)
                 ->execute()
                 ->fetchAll(\PDO::FETCH_ASSOC);
 
-        $request->push(__('Child records search start'));
-        foreach ($records as $record) {
-            $rr = $this->recursive($modelObj, $record[$modelObj->primaryKey]);
-            if (is_array($rr)) {
-                $records = array_merge($records, $rr);
+        $parents=[];
+        foreach($records as $record){
+            $parentID=(is_null($record['parent_id']) || $record['parent_id']==""?"root":$record['parent_id']);
+            if(!isset($parents[$parentID])){
+                $parents[$parentID]=1;
             }
-        }
-        $request->push(sprintf(__('Child records search completed with total "%s" records'), count($records)));
-        $request->push(__('Reseting left/right to "0"'));
-        \update(array($modelObj->leftKey => 0, $modelObj->rightKey => 0))->from($modelObj)->inserted()->limit(0)->execute();
-
-        $request->push(__('Computation of left and right values start'));
-        foreach ($records as $recordNo => $record) {
-            $request->push(sprintf(__('&nbsp;&nbsp;%s. Start processing record with ID "%s"'), $recordNo, $record[$modelObj->primaryKey]));
-            if (empty($record[$modelObj->parentKey])) {
-                $left = \select(array("MAX({$modelObj->rightKey})"))
-                        ->from($modelObj)
-                        ->inserted()
-                        ->limit(0)
-                        ->execute()
-                        ->fetch(\PDO::FETCH_COLUMN);
-                $left = $left + 1;
-                $right = $left + 1;
-            } else {
-                $left = \select(array($modelObj->rightKey))
-                        ->from($modelObj)
-                        ->inserted()
-                        ->limit(1)
-                        ->where($modelObj->primaryKey, $record[$modelObj->parentKey])
-                        ->execute()
-                        ->fetch(\PDO::FETCH_COLUMN);
-                $right = $left + 1;
-            }
-            $instance->save(array(
-                'fields' => array(
-                    $modelObj->leftKey => "({$modelObj->leftKey}+2)"
-                ),
-                'table' => array(
-                    'db' => $modelObj->db,
-                    'table' => $modelObj->table
-                ),
-                'where' => array("{$modelObj->leftKey} >= " => $left)
-                    ), true);
-            $instance->save(array(
-                'fields' => array(
-                    $modelObj->rightKey => "({$modelObj->rightKey}+2)"
-                ),
-                'table' => array(
-                    'db' => $modelObj->db,
-                    'table' => $modelObj->table
-                ),
-                'where' => array("{$modelObj->rightKey} >= " => $left)
-                    ), true);
-            $instance->save(array(
-                'fields' => array($modelObj->leftKey => $left, $modelObj->rightKey => $right),
-                'table' => array(
-                    'db' => $modelObj->db,
-                    'table' => $modelObj->table
-                ),
-                'where' => array($modelObj->primaryKey => $record[$modelObj->primaryKey])
-                    ), true);
-            $request->push(sprintf(__('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End processing record with ID "%s"'), $record[$modelObj->primaryKey]));
-        }
-        /*
-          $instance->transaction('commit');
-          } catch (\Exception $e) {
-          $instance->transaction('rollback');
-          $request->pushError(sprintf(__('Rolling back changes due to error %s'), $e->getMessage()));
-          $request->pushWarning("Operation terminated due to error. Try again");
-          }
-         */
-        //$instance->execute("UNLOCK TABLES");
-        $instance->execute("ALTER TABLE {$modelObj->dbTable} ENABLE KEYS");
+            $instance->save(
+                    array(
+                        'fields' => array(
+                            "sequence" => $parents[$parentID]
+                        ),
+                        'table' => array(
+                            'db' => $modelObj->db,
+                            'table' => $modelObj->table
+                        ),
+                        'where' => array("{$modelObj->primaryKey}" => $record['id'])
+                    ),
+                     true);
+            $parents[$parentID]++;
+        }        
+        $request->push(__('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End processing'));
+        
         $request->push(__('End'));
         exit;
     }
@@ -191,7 +135,7 @@ class design_controller extends \kernel\controller {
                 ->from($modelObj)
                 ->inserted()
                 ->where(array("$modelObj->parentKey" => $parentID))
-                ->order(array("{$modelObj->parentKey} ASC", "lft ASC"))
+                ->order(array("{$modelObj->parentKey} ASC", "sequence ASC"))
                 ->limit(0)
                 ->execute()
                 ->fetchAll(\PDO::FETCH_ASSOC);
@@ -281,6 +225,18 @@ class design_controller extends \kernel\controller {
                 ->fetchAll(\PDO::FETCH_COLUMN) as $parentID) {
             $this->private_update_module_id($modelObj, $moduleID, $parentID);
         }
+    }
+
+    public function __indexrecursivetree(){
+        set_time_limit(0);
+        $modelObj = $this->modelObj();
+        $schema = $modelObj->schema();
+        echo "START";
+        if ($modelObj->has('column', 'left')) {
+            $modelObj->indexRecursiveTree(null);
+        }
+        echo "COMPLETE";
+        exit;
     }
 
 }

@@ -3,7 +3,7 @@
 <html>
     <head>
         <title><?php echo \kernel\configuration::read('document_title'); ?></title>
-        <link REL="MaaxFrame Icon" HREF="<?php echo $this->request->getStaticURL(); ?>img/favicon.ico" />
+        <link REL="Fiyge Icon" HREF="<?php echo $this->request->getStaticURL(); ?>img/favicon.ico" />
         <?php include $this->element('init', true); ?>
         <?php echo $resourceForLayout; ?>
 

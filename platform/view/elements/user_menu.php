@@ -12,26 +12,20 @@ if (\kernel\request::authenticate()) {
     }
     if (empty($menus)) {
         $modelObj = \module\development_base\model\menus::getInstance(array(), true);
-        $menu = \select(array('menus.lft', 'menus.rgt'))->from($modelObj)
-                        ->where('name', 'user-menu')
-                        ->where('parent_id', '')->inserted()->execute()->fetch(\PDO::FETCH_ASSOC);
-        if (!empty($menu)) {
-            $menu = $modelObj->find(
+
+        $menu = $modelObj->find(
                             array(
                                 'fields' => array('menus.*'),
                                 'where' => array(
                                     'menus.type' => 'controller',
                                     'menus.is_active' => 1,
-                                    'menus.lft > ' => $menu['lft'],
-                                    'menus.lft < ' => $menu['rgt'],
-                                    'menus.rgt < ' => $menu['rgt']
                                 ),
                                 'limit' => 0,
-                                'order' => array('menus.lft ASC')
+                                'order' => array('menus.sequence ASC'),
+                                'with_recursive'=>['name'=>'user-menu','parent_id'=>'']
                             )
                     )
                     ->fetchAll(\PDO::FETCH_ASSOC);
-        }
 
         
         $menus[] = '<a href="' . $this->request->base . 'access_controls/users/_help"  ajax=1 >Help</a>';
