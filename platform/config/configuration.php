@@ -29,7 +29,7 @@ $configuration['inherit_views'] = 1;
 
 
 $configuration['js']['tooltip_fadeout_duration'] = 2000;
-$configuration['fiyge_version'] = '4.0.1';
+$configuration['fiyge_version'] = '5.0.0';
 
 /*
  * Button placement in Left, Center and Right
