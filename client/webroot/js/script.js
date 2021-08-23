@@ -2294,7 +2294,17 @@ jQuery('document').ready(function($) {
             }
         });
 
-
+        container.find('.ui-tabs').each(function(){
+            $tab=jQuery(this);
+            $tab.find(".ui-tabs-anchor").each(function(){
+                $tabAnchor=jQuery(this);
+                var url=$tabAnchor.attr('url');
+                if($tab.find(url).is(":empty")){
+                    $tab.find(url).remove();
+                   $tabAnchor.parents("li:first").remove();
+                }
+            });
+        });
 
         container.find('.cell-info-grid').has('.block').not('.mp').css({
             'margin': 0,
