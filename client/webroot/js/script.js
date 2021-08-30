@@ -3454,9 +3454,9 @@ jQuery('document').ready(function($) {
      * @author Tushar Takkar<ttakkar@primarymodules.com>
      */
 
-    $(document).on('grid_row_add', '.grid', function(event) {
+    $(document).on('grid_row_add', '.grid', function(event,data) {
         var grid = $(this);
-
+        console.log(data);
         var gridId = grid.attr('id');
         var max = grid.attr('max');
         if (!isNaN(max)) {

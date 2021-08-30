@@ -10853,7 +10853,17 @@ jQuery('document').ready(function($) {
             }
         });
 
-
+        container.find('.ui-tabs').each(function(){
+            $tab=jQuery(this);
+            $tab.find(".ui-tabs-anchor").each(function(){
+                $tabAnchor=jQuery(this);
+                var url=$tabAnchor.attr('url');
+                if($tab.find(url).is(":empty")){
+                    $tab.find(url).remove();
+                   $tabAnchor.parents("li:first").remove();
+                }
+            });
+        });
 
         container.find('.cell-info-grid').has('.block').not('.mp').css({
             'margin': 0,
@@ -12003,9 +12013,9 @@ jQuery('document').ready(function($) {
      * @author Tushar Takkar<ttakkar@primarymodules.com>
      */
 
-    $(document).on('grid_row_add', '.grid', function(event) {
+    $(document).on('grid_row_add', '.grid', function(event,data) {
         var grid = $(this);
-
+        console.log(data);
         var gridId = grid.attr('id');
         var max = grid.attr('max');
         if (!isNaN(max)) {

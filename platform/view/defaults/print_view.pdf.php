@@ -39,8 +39,8 @@ foreach ($pages as $path => $info) {
     $i++;
     $name = $base . DS . $uuid . '-' . $i . '.pdf';
 // create new PDF document
-    $companyObj = \module\crm_base\model\companies::getInstance(array(), true);
-    $companyID = \kernel\user::read('company_id');
+    $companyObj = \module\crm_base\model\organizations::getInstance(array(), true);
+    $companyID = \kernel\user::read('organization_id');
     $companyData_def = \select("*")
             ->from($companyObj)
             ->where('id', $companyID)
@@ -48,7 +48,7 @@ foreach ($pages as $path => $info) {
             ->fetch(\PDO::FETCH_ASSOC);
     $companyData_def['images'] = \select("*")
             ->from($companyObj->images)
-            ->where(array('related_to' => $companyID, 'related_to_model' => 'companies'))
+            ->where(array('related_to' => $companyID, 'related_to_model' => 'organizations'))
             ->execute()
             ->fetch(\PDO::FETCH_ASSOC);
     //$companyData_def = current($companyObj->read(\kernel\user::read('company_id')));

@@ -110,7 +110,8 @@ class data_controller extends \kernel\controller {
                             $return = array("{$request->module}/{$request->controller}/{$request->action}/id:{$id}?current_form_page=" . $request->response('current_form_page'), true, true);
                         }
                     } else {
-                        $request->setMsg(sprintf(__('%s could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $this->actionLabel($request, $data[$modelObj->alias]['action'])));
+                        $actionLabel=(isset($data[$modelObj->alias]) && isset($data[$modelObj->alias]['action'])?$data[$modelObj->alias]['action']:"");
+                        $request->setMsg(sprintf(__('%s could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $this->actionLabel($request, $actionLabel)));
                         if ($multiPageForm === 1) {
                             $this->setCurrentPageAsActive($request);
                         }

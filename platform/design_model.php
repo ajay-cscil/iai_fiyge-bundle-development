@@ -18,10 +18,14 @@ class design_model extends \kernel\model {
             }
             $this->computeDepth = false;
             //20. call _save
+            $newModuleID=(isset($data[$this->alias]) && isset($data[$this->alias]['module_id'])?$data[$this->alias]['module_id']:'');
             $return = $this->__save($data, $options);
 
             $dataNew = $data;
             $dataOld = current($this->read($this->cloned));
+
+            $oldModuleID=(isset($dataOld['module_id'])?$dataOld['module_id']:'');
+            
 
             if (!empty(static::$errors)) {
                 if ($options['atomic'] === false) {
@@ -50,7 +54,7 @@ class design_model extends \kernel\model {
                     if (!empty($data)) {
                         $data = current($data);
                         $data = isset($data['children']) ? $data['children'] : array();
-                        $this->cloneChildren($data, $this->id, $dataOld, $this->data);
+                        $this->cloneChildren($data, $this->id, $dataOld, $this->data, $oldModuleID, $newModuleID);
                     }
             }
             if (!empty(static::$errors)) {
@@ -85,7 +89,7 @@ class design_model extends \kernel\model {
      * @param type $form
      * @param type $parentId
      */
-    public function cloneChildren($records, $parentId, $dataOld, $dataNew) {
+    public function cloneChildren($records, $parentId, $dataOld, $dataNew, $oldModuleID='', $newModuleID='') {
         $data = array();
         foreach ($records as $record) {
             $ignoreColumns = array_flip($this->standardColumns);
@@ -94,6 +98,13 @@ class design_model extends \kernel\model {
             $data[$this->alias] = array_diff_key($record, $ignoreColumns);
 
             $data[$this->alias]['parent_id'] = $parentId;
+
+            if(!empty($oldModuleID) && !empty($newModuleID)){
+                if(isset($data[$this->alias]['module_id']) && $data[$this->alias]['module_id'] == $oldModuleID){
+                    $data[$this->alias]['module_id']=$newModuleID;
+                }
+            }
+
             $modelClass = $this->modelClass;
             $aparentId = $modelClass::getInstance()->save($data, array('atomic' => true));
             if ($aparentId === false) {
@@ -101,7 +112,7 @@ class design_model extends \kernel\model {
                 return;
             }
             if ($aparentId && isset($record['children']) && !empty($record['children'])) {
-                $this->cloneChildren($record['children'], $aparentId, $dataOld, $dataNew);
+                $this->cloneChildren($record['children'], $aparentId, $dataOld, $dataNew, $oldModuleID, $newModuleID);
             }
         }
     }
