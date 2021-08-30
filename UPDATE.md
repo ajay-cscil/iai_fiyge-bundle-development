@@ -4,7 +4,7 @@ Development of submodule code.
 - merge changes in "main" branch of submodule.
 
 Update project to latest version of submodules("main" branch).
-- git clone --recurse-submodules https://github.com/fiyge/bundle-development.git
+- git clone --recurse-submodules git@github.com:fiyge/bundle-development.git
 - cd bundle-development
 - git submodule update --remote
 - git add .
