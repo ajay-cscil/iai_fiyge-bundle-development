@@ -1,0 +1,26 @@
+<?php
+  /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\email\controller;
+  class email_recipients extends \module\email\controller\email_recipients_domain_logic
+  {
+       public $modelClass = '\\module\\email\\model\\email_recipients';
+       public $preGenerateID = '0';
+       public $paginate = array (
+  'paginate_as' => 'lazy',
+  'class' => '\\kernel\\paginate',
+  'method' => 'index',
+  'row_template' => '<span calss=\\\'list-cell-email\\\'>{{email_recipients.email_address}}</span>',
+  'show_has_many_records' => 'one',
+  'order_by_column_model' => 'schema',
+  'inline_click' => '1',
+);
+
+
+
+
+
+
+  }

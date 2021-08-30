@@ -1,0 +1,234 @@
+<?php
+ /**
+  *
+  * Dont write any custom code in this class, build operation will overwrite this class;
+  */
+  namespace module\email\model;
+  class email_recipients extends \module\email\model\email_recipients_domain_logic
+  {
+       public $displayField = 'id';
+       public $primaryKey = 'id';
+       public $parentClass = '\\kernel\\model';
+       public $source = 'default';
+       public $table = 'email__email_recipients';
+       public $alias = 'email_recipients';
+       public $associations = array (
+  'emails' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\email\\model\\emails',
+    'associationAlias' => 'emails',
+    'foreignKey' => 'email_id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'email_addresses' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\crm_base\\model\\email_addresses',
+    'associationAlias' => 'email_addresses',
+    'foreignKey' => 'email_address_id',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'created_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'created_by_user',
+    'foreignKey' => 'created_by',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'modified_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'modified_by_user',
+    'foreignKey' => 'modified_by',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+  'owned_by_user' => 
+  array (
+    'assocType' => 'belongsTo',
+    'className' => '\\module\\access_controls\\model\\users',
+    'associationAlias' => 'owned_by_user',
+    'foreignKey' => 'owned_by',
+    'show_link' => '1',
+    'isSearchable' => '1',
+    'isAclParent' => '0',
+    'isAclChild' => '0',
+    'isSubModel' => '0',
+  ),
+);
+       public $fields = array (
+  'email_id' => 
+  array (
+    'column' => 'email_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'email_address_id' => 
+  array (
+    'column' => 'email_address_id',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'email_address' => 
+  array (
+    'column' => 'email_address',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'recipient_type' => 
+  array (
+    'column' => 'recipient_type',
+    'ntype' => 'string',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created_by' => 
+  array (
+    'column' => 'created_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified_by' => 
+  array (
+    'column' => 'modified_by',
+    'ntype' => 'int',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'id' => 
+  array (
+    'column' => 'id',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'owned_by' => 
+  array (
+    'column' => 'owned_by',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'created' => 
+  array (
+    'column' => 'created',
+    'ntype' => 'datetime',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'modified' => 
+  array (
+    'column' => 'modified',
+    'ntype' => 'datetime',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'deleted' => 
+  array (
+    'column' => 'deleted',
+    'ntype' => 'int',
+    'length' => '1',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'revision' => 
+  array (
+    'column' => 'revision',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+  'flags' => 
+  array (
+    'column' => 'flags',
+    'ntype' => 'int',
+    'length' => '19',
+    'is_sortable' => '1',
+    'is_searchable' => '1',
+    'is_exportable' => '1',
+  ),
+);
+       public $filters = array (
+  'email_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\kernel\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'email_address_id' => 
+  array (
+    0 => 
+    array (
+      'rule' => 257,
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+  'email_address' => 
+  array (
+    0 => 
+    array (
+      'rule' => '\\kernel\\validation::notEmpty',
+      'params' => 
+      array (
+      ),
+    ),
+    1 => 
+    array (
+      'rule' => '\\kernel\\validation::isValidEmail',
+      'params' => 
+      array (
+      ),
+    ),
+  ),
+);
+  }
