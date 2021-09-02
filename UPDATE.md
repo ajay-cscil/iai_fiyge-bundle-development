@@ -13,3 +13,8 @@ Update project to latest version of submodules("main" branch).
 
 Updating all deployed versions of project. From your project run
 - git submodule update --init --recursive
+
+Commit module changes recursively
+git submodule foreach 'echo $sm_path `git add .`'
+git submodule foreach 'echo $sm_path `git commit -m "v5.0.7" `'
+git submodule foreach 'echo $sm_path `git push`'
