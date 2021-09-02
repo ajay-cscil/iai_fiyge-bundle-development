@@ -4,7 +4,7 @@
 echo $l[0]; ?>">
     <head>
         <title><?php echo \kernel\configuration::read('document_title'); ?></title>
-        <link REL="Fiyge Icon" HREF="<?php echo $this->request->getStaticURL(); ?>img/favicon.ico" />
+        <link REL="Fiyge Icon" href="<?php echo \kernel\html::logo_path('favicon_images'); ?>" />
         <?php
         include $this->element(
                         'init', true
@@ -37,7 +37,7 @@ echo $l[0]; ?>">
             <tbody  class="no-mp">
                 <tr   class="no-mp sub-panel">
                     <td  style="width:20%;" class="no-mp logo-panel">
-                        <img src="<?php echo \kernel\html::logo_path(); ?>" border="0">
+                        <img src="<?php echo \kernel\html::logo_path('organization_images'); ?>" border="0">
                     </td>
                     <td style="width:80%;"  valign="top" class="no-mp">
                         <div class="search-panel"  style="clear:both;">
