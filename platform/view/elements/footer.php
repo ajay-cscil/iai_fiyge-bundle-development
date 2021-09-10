@@ -79,7 +79,16 @@ if (\kernel\configuration::read('debug') == true) {
 <div class=" split-bar ui-widget-header"></div>
 <div id="footer-panel"  >
     <span style="float:left;">
-        © Fiyge Inc. 2021 onwards - All rights reserved&reg;. <br />
+        <?php
+        $organizationName = \select("name")
+                                ->from(\module\crm_base\model\organizations::getInstance())
+                                ->where(array("OR" => array("parent_id is NULL", "parent_id" => 0)))
+                                ->inserted()
+                                ->limit(1)
+                                ->execute()->fetch(\PDO::FETCH_COLUMN);
+
+          echo "© {$organizationName} 2021 onwards - All rights reserved&reg;. <br />";                      
+        ?>
         <?php echo __('Server response time'); ?>:&nbsp;<?php
         global $requestStartTime;
         echo round((microtime(true) - $requestStartTime), 3), ' ', __('seconds')
@@ -93,7 +102,7 @@ if (\kernel\configuration::read('debug') == true) {
 
     </span>
 
-    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="fiyge">Fiyge <?php echo "v" . \kernel\configuration::read('fiyge_version'); ?></span></span>
+    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="fiyge"><?php echo $organizationName; ?> <?php echo "v" . \kernel\configuration::read('fiyge_version'); ?></span></span>
 </div>
 <?php
 // locale file for datepicker.
