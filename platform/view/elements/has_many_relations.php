@@ -8,6 +8,10 @@ if (file_exists($fl)) {
         $currentModelObj = $currentModelObj::getInstance(array(), true);
         foreach ($currentModelObj->associations as $asscoName => $assocInfo) {
             if ($assocInfo['assocType'] == "hasMany" || $assocInfo['assocType'] == "hasAndBelongsToMany") {
+                if(isset($assocInfo['foreignKey']) &&  in_array($assocInfo['foreignKey'],["created_by","modified_by","deleted_by"])){
+                    continue;
+                }
+                //access_controls/users
                 $className = explode(NS, $assocInfo['className']);
                 $className = "$className[2]/$className[4]/index";
                 $urls[$className] = $className;
