@@ -18,7 +18,14 @@ if (\kernel\configuration::read('debug') == true) {
             $q = str_replace('?', "'%s'", str_replace("%", "PERCENT_SIGN", $entry['message']));
             $msg = '';
             if (isset($entry['params']) && is_array($entry['params'])) {
-                $msg = @\vsprintf($q, \json_decode(str_replace("'", "\'", \json_encode($entry['params'])), true));
+                if(is_array($entry['params'])){
+                    $entry['params']=\json_encode($entry['params']);
+                }
+                $arr=\json_decode(str_replace("'", "\'", $entry['params']), true);
+                if(!is_array($arr)){
+                    $arr=[];
+                }
+                $msg = (substr_count($q, "%s") ==  count($arr)?\vsprintf($q, $arr):$q);
             }
             if (empty($msg)) {
                 $msg = $entry['message'] . (isset($entry['params']) && !empty($entry['params']) ? "<br/>Params:" . \json_encode($entry['params']) : "");
