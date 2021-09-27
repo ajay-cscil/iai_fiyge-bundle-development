@@ -45,6 +45,7 @@ $jsConfig = json_encode(array_merge($jsConfig, array(
     'skin' => $this->request->skin,
     'hour_format' => $hourFormat,
     'date_format' => $dateFormat,
+    'current_application_url'=> \kernel\configuration::read('current_application_url'),
     'delay_load_left_panel' => \kernel\configuration::read('delay_load_left_panel', 5000),
     'delay_load_right_panel' => \kernel\configuration::read('delay_load_right_panel', 5000),
     'debug_js' => \kernel\configuration::read('debug_js', 0),

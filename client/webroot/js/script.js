@@ -174,6 +174,16 @@ function extractName(name) {
     return name;
 }
 
+function copyToClipboard(TextToCopy) {
+  var TempText = document.createElement("input");
+  TempText.value = TextToCopy;
+  document.body.appendChild(TempText);
+  TempText.select();
+  document.execCommand("copy");
+  document.body.removeChild(TempText);
+  //alert("Copied the text: " + TempText.value);
+}
+
 jQuery.fn.valJSON = function(value, text, merge) {
     log('valJSON');
 
@@ -1085,6 +1095,70 @@ jQuery('document').ready(function($) {
         return false;
     });
 
+    
+    $(document).on('click', '.trigger-copy-to-clipboard ', function(event) {
+        var $this=jQuery(this);
+        var source=$this.data('source');
+        var label=jQuery('#'+source).val();
+        copyToClipboard( label );
+        $this.html('<span class="ui-button-text">Copied!</span>');
+        setTimeout(function(){$this.html('<span class="ui-button-text">Copy</span>');},2000);
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        return false;
+    });   
+
+    $(document).on('click', '.copy_to_clipboard ', function(event) {
+        console.log('click -> .copy_to_clipboard');
+        var href = $(this).attr('href');
+        if (!$.isset(href)){
+            href='';
+        }
+        href = href.split('?');
+        var base = href[0] || '';
+        var get = href[1] || '';
+        var length = 0;
+        base = base.split('/');
+        var params = {};
+        var index = '';
+        var p1 = '';
+        var p2 = '';
+        for (var i = 0, length = base.length; i < length; i++) {
+            index = base[i].indexOf(':');
+            if (index != -1) {
+                p1 = base[i].substring(0, index);
+                p2 = base[i].substring(index + 1);
+                if (!$.isEmpty(p1) && !$.isEmpty(p2))
+                    params[p1] = p2;
+            }
+        }
+        if (!$.isEmpty(get)){
+            get = get.split('&');
+        }
+        var getParams = {};
+        var pair = [];
+        for (var i = 0, length = get.length; i < length; i++) {
+            pair = get[i].split('=');
+            if ($.isset(pair[0]) && $.isset(pair[1]) && !$.isEmpty(pair[0]) && !$.isEmpty(pair[1])){
+                getParams[pair[0]] = pair[1];
+            }
+        }
+            var listview = $(this).parents("table.listview:first");
+            var displayField = listview.attr('display_field');
+            var primaryKey = listview.attr('primary_key');
+            var label = (displayField == primaryKey && $.isset(params['id'])? params['id'] : $(this).closest('tr').find("[column_name='" + displayField + "']").text());
+            
+            if(label.split("::").length ==2){
+                label=label.split("::")[1];
+            }    
+            copyToClipboard( label );
+        
+        $(this).parents("div.ui-widget-content:first").dialog('destroy').remove();
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        return false;
+    });   
+
     /**
      * @author Tushar Takkar<ttakkar@primarymodules.com>
      */
@@ -1442,7 +1516,11 @@ jQuery('document').ready(function($) {
             href = href.replace('/index', '/view');
             href = href.replace('?', '/id:' + popupHidden.val() + '?');
 
-            $(this).attr('href', href)
+        
+            $(popupAutocomplete).data('q_open', href);
+            $(popupAutocomplete).triggerHandler('beforeOpen');
+            var href = $(popupAutocomplete).data('q_open');
+            $(this).attr('href', href);
             $.ajaxPopup($(this).attr('ajax', 1));
         }
 
@@ -2305,6 +2383,39 @@ jQuery('document').ready(function($) {
                 }
             });
         });
+
+        container.find('textarea[editor="form-builder"]').each(function(){
+            $textarea=jQuery(this);
+            $textarea.hide();
+            var iframe = document.createElement('iframe');
+            var iframeID=uuidv4();
+            iframe.src = '/node_modules/formBuilder/form-builder.html?uuid='+iframeID;
+            iframe.style='height:600px;width:100%;border:none;';
+            iframe.id="form-builder-editor-"+iframeID;
+            $textarea.after(iframe);
+        
+            var modelFields=jQuery('[name="data[web_forms][model_fields]"]').val();
+            if(modelFields==""){
+                modelFields='[]';
+            }
+            modelFields=JSON.parse(modelFields);
+            var formData=$textarea.val();
+            if(formData ==""){
+                formData='[]';
+            }
+            formData=JSON.parse(formData);
+            var formOptions=JSON.stringify({"modelFields":modelFields,"formData":formData});
+            var receiveMessage=function(event) {
+                    if(event.data =="init"){
+                        iframe.contentWindow.postMessage(formOptions,"*");
+                    }else{
+                        $textarea.val(event.data);
+                    }
+            };
+            window.addEventListener('message',receiveMessage, true);
+        });
+
+        
 
         container.find('.cell-info-grid').has('.block').not('.mp').css({
             'margin': 0,
