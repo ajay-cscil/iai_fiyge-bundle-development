@@ -89,7 +89,7 @@ if (\kernel\request::$mobile === true) {
 
 echo "<table class='listview  ui-listview categorized sub-listview '>";
 echo '<tr class="ui-state-default  header-row">
-        <th data_type="VAR_STRING" colspan=2  class=" ui-li-highlight VAR_STRING  category  left-to-right " >' . __(ucwords($this->request->controller), 'module') . 
+        <th data_type="VAR_STRING" colspan=2  class=" ui-li-highlight VAR_STRING  category  left-to-right " >' . __(ucwords(str_replace("_"," ",$this->request->controller)), 'module') . 
 
 '&nbsp;Views&nbsp;&nbsp;[<' . $eleType . '   confirmation_message="' . htmlspecialchars($m['confirmation_message']) . '"   href="' .
                         (empty($m['url']) ? '#' : \kernel\request::base() .
