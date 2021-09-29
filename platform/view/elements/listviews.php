@@ -1,42 +1,5 @@
 <?php
 
-/*
-  $listview = array(
-  'collapsible' => 0,
-  'module' => 'core',
-  'controller' => 'listviews',
-  'action' => 'index',
-  'auto_build_where' => 0,
-  'auto_load' => true,
-  'load_menu' => false,
-  'template_markup' => '{{CONTENT_AREA}}',
-  'listview' => 'SYSTEM WEB VIEW',
-  'no_records_message' => '',
-  'disable_search' => true,
-  'permission' => EDIT,
-  'q' => array(
-  'track_open' => 0
-  , 'popup_view_record' => 0
-  , 'search_criteria' => 0
-  , 'list_row_action_label' => ''
-  , 'LISTVIEW_FOR' => __(str_replace('_', ' ', $this->request->controller), 'module')
-  , 'sortable' => 0
-  , 'paginate_as' => 'lazy'
-  , 'row_class' => '\\module\\core\\helper\\presentation\\listviews::view_icon'
-  , 'show_search_row' => 0
-  , 'inline_hyperlink_click' => 1
-  , 'table_class' => 'sub-listview'
-  , 'lca' => 0
-  , 'reset_params' => 1
-  , 'actions' => array(
-  'view' => array('presentation' => '\\module\\core\\helper\\presentation\\config_menu::format_action')
-  , 'edit' => array('class' => 'ajax-popup'), 'delete'
-  )
-  , 'where' => array("listviews.controller" => "{$this->request->module}/{$this->request->controller}")
-  )
-  );
-  echo \kernel\form::listview($this, $listview);
- */
 $views = array();
 $controllers = array();
 $replace = array();
@@ -114,10 +77,29 @@ foreach ($views as $k => $view1) {
     $listviews[$k] = array_values($listviews[$k]);
 }
 
+$m=\module\development_base\model\menus::getInstance()
+->find(["where"=>["url"=>"core/listviews/add","type"=>"action"]])
+->fetch(\PDO::FETCH_ASSOC);
+$urlParamString="data[listviews][controller]={$controller}";
+if (\kernel\request::$mobile === true) {
+    $eleType = 'a';
+} else {
+    $eleType = 'a';
+}
+
 echo "<table class='listview  ui-listview categorized sub-listview '>";
 echo '<tr class="ui-state-default  header-row">
-        <th data_type="VAR_STRING"  class=" ui-li-highlight VAR_STRING  category  left-to-right " >' . __($this->request->controller, 'module') . ' </th>
-        <th class="list-row-action-label" style="width: 12%;"></th>
+        <th data_type="VAR_STRING" colspan=2  class=" ui-li-highlight VAR_STRING  category  left-to-right " >' . __(ucwords($this->request->controller), 'module') . 
+
+'&nbsp;Views&nbsp;&nbsp;[<' . $eleType . '   confirmation_message="' . htmlspecialchars($m['confirmation_message']) . '"   href="' .
+                        (empty($m['url']) ? '#' : \kernel\request::base() .
+                                $m['url'])."?".$urlParamString.
+                        '" class=" ui-state-primary ' . $m['name'] . ' ' . $m['class'] . ($m['require_confirmation'] ? ' require_confirmation' : '') .
+                        ' " data-role="button" data-ajax="false"  data-mini="true"  data-inline="true" ajax="' . $m['ajax'] . '" >' .
+                        __($m['name'], 'module') . '</' . $eleType . '>]'
+
+
+        .'</th>
         </tr>';
 $currentListview = $this->request->get('current_listview', $this->get('current_listview'));
 $links = array();

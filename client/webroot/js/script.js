@@ -2404,7 +2404,7 @@ jQuery('document').ready(function($) {
                 formData='[]';
             }
             formData=JSON.parse(formData);
-            var formOptions=JSON.stringify({"modelFields":modelFields,"formData":formData});
+            var formOptions=JSON.stringify({"mode":($textarea.is(":disabled")?"render":"edtor"),"modelFields":modelFields,"formData":formData});
             var receiveMessage=function(event) {
                     if(event.data =="init"){
                         iframe.contentWindow.postMessage(formOptions,"*");
