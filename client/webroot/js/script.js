@@ -180,8 +180,8 @@ function copyToClipboard(TextToCopy) {
   document.body.appendChild(TempText);
   TempText.select();
   document.execCommand("copy");
-  document.body.removeChild(TempText);
-  //alert("Copied the text: " + TempText.value);
+  console.log("Copied the text: " + TempText.value);
+  document.body.removeChild(TempText); 
 }
 
 jQuery.fn.valJSON = function(value, text, merge) {
