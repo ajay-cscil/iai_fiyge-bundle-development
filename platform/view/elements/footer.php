@@ -140,6 +140,7 @@ echo \kernel\html::js($this->request, '/js/jquery.tagsinput');
 echo \kernel\html::js($this->request, '/js/jquery.depends_on');
 echo \kernel\html::js($this->request, '/js/jquery.filter_by');
 echo \kernel\html::js($this->request, '/js/jquery.aggregation');
+echo \kernel\html::js($this->request, '/node_modules/clipboard/dist/clipboard');
 
 //echo \kernel\html::js($this->request, '/node_modules/formBuilder/dist/form-builder.min');
 

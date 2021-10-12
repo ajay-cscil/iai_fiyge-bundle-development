@@ -91,12 +91,12 @@ echo "<table class='listview  ui-listview categorized sub-listview '>";
 echo '<tr class="ui-state-default  header-row">
         <th data_type="VAR_STRING" colspan=2  class=" ui-li-highlight VAR_STRING  category  left-to-right " >' . __(ucwords(str_replace("_"," ",$this->request->controller)), 'module') . 
 
-'&nbsp;Views&nbsp;&nbsp;[<' . $eleType . '   confirmation_message="' . htmlspecialchars($m['confirmation_message']) . '"   href="' .
+(!empty($m)? '&nbsp;Views&nbsp;&nbsp;[<' . $eleType . '   confirmation_message="' . htmlspecialchars($m['confirmation_message']) . '"   href="' .
                         (empty($m['url']) ? '#' : \kernel\request::base() .
                                 $m['url'])."?".$urlParamString.
                         '" class=" ui-state-primary ' . $m['name'] . ' ' . $m['class'] . ($m['require_confirmation'] ? ' require_confirmation' : '') .
                         ' " data-role="button" data-ajax="false"  data-mini="true"  data-inline="true" ajax="' . $m['ajax'] . '" >' .
-                        __($m['name'], 'module') . '</' . $eleType . '>]'
+                        __($m['name'], 'module') . '</' . $eleType . '>]':'')
 
 
         .'</th>

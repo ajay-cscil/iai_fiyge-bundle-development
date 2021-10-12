@@ -174,15 +174,7 @@ function extractName(name) {
     return name;
 }
 
-function copyToClipboard(TextToCopy) {
-  var TempText = document.createElement("input");
-  TempText.value = TextToCopy;
-  document.body.appendChild(TempText);
-  TempText.select();
-  document.execCommand("copy");
-  console.log("Copied the text: " + TempText.value);
-  document.body.removeChild(TempText); 
-}
+
 
 jQuery.fn.valJSON = function(value, text, merge) {
     log('valJSON');
@@ -1095,69 +1087,22 @@ jQuery('document').ready(function($) {
         return false;
     });
 
-    
-    $(document).on('click', '.trigger-copy-to-clipboard ', function(event) {
-        var $this=jQuery(this);
-        var source=$this.data('source');
-        var label=jQuery('#'+source).val();
-        copyToClipboard( label );
-        $this.html('<span class="ui-button-text">Copied!</span>');
-        setTimeout(function(){$this.html('<span class="ui-button-text">Copy</span>');},2000);
-        event.stopImmediatePropagation();
-        event.stopPropagation();
-        return false;
-    });   
+    if(ClipboardJS.isSupported()){
 
-    $(document).on('click', '.copy_to_clipboard ', function(event) {
-        console.log('click -> .copy_to_clipboard');
-        var href = $(this).attr('href');
-        if (!$.isset(href)){
-            href='';
-        }
-        href = href.split('?');
-        var base = href[0] || '';
-        var get = href[1] || '';
-        var length = 0;
-        base = base.split('/');
-        var params = {};
-        var index = '';
-        var p1 = '';
-        var p2 = '';
-        for (var i = 0, length = base.length; i < length; i++) {
-            index = base[i].indexOf(':');
-            if (index != -1) {
-                p1 = base[i].substring(0, index);
-                p2 = base[i].substring(index + 1);
-                if (!$.isEmpty(p1) && !$.isEmpty(p2))
-                    params[p1] = p2;
-            }
-        }
-        if (!$.isEmpty(get)){
-            get = get.split('&');
-        }
-        var getParams = {};
-        var pair = [];
-        for (var i = 0, length = get.length; i < length; i++) {
-            pair = get[i].split('=');
-            if ($.isset(pair[0]) && $.isset(pair[1]) && !$.isEmpty(pair[0]) && !$.isEmpty(pair[1])){
-                getParams[pair[0]] = pair[1];
-            }
-        }
-            var listview = $(this).parents("table.listview:first");
-            var displayField = listview.attr('display_field');
-            var primaryKey = listview.attr('primary_key');
-            var label = (displayField == primaryKey && $.isset(params['id'])? params['id'] : $(this).closest('tr').find("[column_name='" + displayField + "']").text());
-            
-            if(label.split("::").length ==2){
-                label=label.split("::")[1];
-            }    
-            copyToClipboard( label );
+        new ClipboardJS('.copy-to-clipboard-action');
+        var clipboard=new ClipboardJS('.copy_to_clipboard');
+        clipboard.on('success', function(e) {
+            setTimeout(function(){
+                jQuery(e.trigger).parents("div.ui-widget-content:first").dialog('destroy').remove();
+            },500);
+        });
+    }
+    
+
+
         
-        $(this).parents("div.ui-widget-content:first").dialog('destroy').remove();
-        event.stopImmediatePropagation();
-        event.stopPropagation();
-        return false;
-    });   
+
+     
 
     /**
      * @author Tushar Takkar<ttakkar@primarymodules.com>
@@ -2916,6 +2861,31 @@ jQuery('document').ready(function($) {
 
         var twisty = false;
         var listviewTableId = false;
+        var baseTableID='';
+        var form = $(object).closest('form');
+        if(form.length){
+            var parser = document.createElement("a");
+            parser.href = form.attr('action');
+            var searchParams=parser.search.substring(1);
+            var urlParams={};
+            if(searchParams){
+                jQuery.each(searchParams.split("&"),function(k,v){
+                    var v=v.split("=");
+                    if(v.length==2){
+                        urlParams[v[0]]=v[1];
+                    }
+                });
+            }
+            if(urlParams["search_view"]){
+                var tempBaseTable=$('#'+urlParams["search_view"]);
+                if (tempBaseTable.hasClass('listview')) {
+                    baseTableID =  tempBaseTable.attr('id');
+                } else {
+                    baseTableID =  tempBaseTable.find('.listview').attr('id');
+                }                   
+            }
+        }
+
         if (!$.isset(table)) {
             var table = $(object).closest('table');
         }
@@ -3056,13 +3026,14 @@ jQuery('document').ready(function($) {
                             if ($(object).attr('close_dialog') == 1) {
                                 $(object).closest('.js-container').dialog("destroy").remove();
                             }
-
+                            
                             if (typeof data == 'object') {
                                 $.afterSaveAjaxForm({
                                     'object': object,
                                     'data': data,
                                     'uuid': 'xxx',
                                     'listview_table_id': listviewTableId,
+                                    'base_table_id':baseTableID,
                                     'twisty': twisty,
                                     'href': href
                                 });
@@ -3071,6 +3042,7 @@ jQuery('document').ready(function($) {
                                     'object': object,
                                     'data': data,
                                     'listview_table_id': listviewTableId,
+                                    'base_table_id':baseTableID,
                                     'twisty': twisty,
                                     'href': href,
                                     'init': true
@@ -3103,6 +3075,7 @@ jQuery('document').ready(function($) {
                             'data': data,
                             'uuid': 'xxx',
                             'listview_table_id': listviewTableId,
+                            'base_table_id':baseTableID,
                             'twisty': twisty,
                             'href': href
                         });
@@ -3111,6 +3084,7 @@ jQuery('document').ready(function($) {
                             'object': object,
                             'data': data,
                             'listview_table_id': listviewTableId,
+                            'base_table_id':baseTableID,
                             'twisty': twisty,
                             'href': href,
                             'init': true
@@ -3135,6 +3109,7 @@ jQuery('document').ready(function($) {
         log('initAjaxForm');
         var data = settings['data'] || false;
         var listviewTableId = settings['listview_table_id'] || false;
+        var baseTableID = settings['base_table_id']||false;
         var twisty = settings['twisty'] || false;
         var href = settings['href'] || false;
         var containerParams = settings['container_params'] || false;
@@ -3241,6 +3216,7 @@ jQuery('document').ready(function($) {
                         'data': contents,
                         'uuid': uuid,
                         'listview_table_id': listviewTableId,
+                        'base_table_id':baseTableID,
                         'twisty': twisty,
                         'href': href
                     });
@@ -3283,6 +3259,7 @@ jQuery('document').ready(function($) {
                         'data': data,
                         'uuid': uuid,
                         'listview_table_id': listviewTableId,
+                        'base_table_id':baseTableID,
                         'twisty': twisty,
                         'href': href
                     });
@@ -3300,6 +3277,7 @@ jQuery('document').ready(function($) {
         log('afterSaveAjaxForm');
         var data = settings['data'] || false;
         var listviewTableId = settings['listview_table_id'] || false;
+        var baseTableID = settings['base_table_id']||false;
         var uuid = settings['uuid'] || false;
         var twisty = settings['twisty'] || false;
         var href = settings['href'] || false;
@@ -3386,7 +3364,10 @@ jQuery('document').ready(function($) {
                     }
                 } else if ($.isset(listviewTableId) && listviewTableId != false) {
                     $("#" + listviewTableId).trigger('reload');
+                } else if ($.isset(baseTableID) && baseTableID != false) {
+                    $("#" + baseTableID).trigger('reload');
                 }
+
                 $(object).trigger('request_end');
 
             } else {
@@ -3395,6 +3376,7 @@ jQuery('document').ready(function($) {
                     'object': object,
                     'data': a.html,
                     'listview_table_id': listviewTableId,
+                    'base_table_id':baseTableID,
                     'twisty': twisty,
                     'href': href,
                     'scripts': a

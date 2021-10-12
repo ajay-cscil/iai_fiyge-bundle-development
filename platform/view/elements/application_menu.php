@@ -179,3 +179,4 @@ ele=sfMenu.find(\'li[url *="request_url=' . $requestUrl . '"]:first\');
             </table>
         </div>
 </div>
+<input id='copy_from_input' tabindex='-1' aria-hidden='true' style="position: absolute;left: -9999px;">
