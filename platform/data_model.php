@@ -74,6 +74,6 @@ class data_model extends \kernel\model {
     public function init() {
         parent::init();
         $this->acl = array();
-    }
+    } 
 
 }
