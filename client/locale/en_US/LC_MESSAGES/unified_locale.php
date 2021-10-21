@@ -553,7 +553,7 @@
   'primary_address_line_3' => 'Primary Address Line  3',
   'primary_city' => 'Primary City',
   'primary_country' => 'Primary Country',
-  'primary_country_id' => 'Primary Country',
+  'primary_country_id' => 'Country',
   'primary_phone_number' => 'Primary Phone Number',
   'primary_state' => 'Primary State',
   'primary_state_id' => 'Primary State',
