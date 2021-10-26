@@ -193,3 +193,9 @@
 [submodule "client/module/web_forms"]
 	path = client/module/web_forms
 	url = https://github.com/fiyge/module-web_forms.git
+[submodule "library/phpqrcode"]
+	path = library/phpqrcode
+	url = git@github.com:fiyge/library-phpqrcode.git
+[submodule "client/module/contract_management"]
+	path = client/module/contract_management
+	url = git@github.com:fiyge/module-contract_management.git

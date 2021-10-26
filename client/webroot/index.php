@@ -35,6 +35,7 @@ define('PLATFORM_NAME', 'platform');
 define('APP', ROOT . DS . APP_NAME);
 define('PLATFORM', ROOT . DS . PLATFORM_NAME);
 define('TMP', APP . DS . 'tmp');
+define('WEBROOT', APP . DS . 'webroot');
 define('TUSHAR', ROOT . DS . 'kernel');
 
 
