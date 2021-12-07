@@ -1,86 +1,6 @@
 <?php
 if (\kernel\configuration::read('debug') == true) {
-    $slowQueryTime = \kernel\configuration::read('slow_query_time');
-    if ($slowQueryTime == false) {
-        $slowQueryTime = 10;
-    }
-    echo "<fieldset class='ui-widget-content'>
-        <legend class='ui-widget-header' >
-        <span class='collapsible ui-icon ui-icon-circle-plus  float-left'>*</span> ",
-    __('DEBUG HTTP Request ID'),
-    ': ',
-    \kernel\request::$requestID,
-    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-    "</legend>";
-    echo '<table cellspacing=0 cellpadding=0 class="block" ><tr class="collapsible-hide"><td><ol>';
-    foreach (\kernel\logger::$sqlLog as $entry) {
-        if (!is_object($entry['message'])) {
-            $q = str_replace('?', "'%s'", str_replace("%", "PERCENT_SIGN", $entry['message']));
-            $msg = '';
-            if (isset($entry['params']) && is_array($entry['params'])) {
-                if(is_array($entry['params'])){
-                    $entry['params']=\json_encode($entry['params']);
-                }
-                $arr=\json_decode(str_replace("'", "\'", $entry['params']), true);
-                if(!is_array($arr)){
-                    $arr=[];
-                }
-                $msg = (substr_count($q, "%s") ==  count($arr)?\vsprintf($q, $arr):$q);
-            }
-            if (empty($msg)) {
-                $msg = $entry['message'] . (isset($entry['params']) && !empty($entry['params']) ? "<br/>Params:" . \json_encode($entry['params']) : "");
-            }
-            $q = $msg;
-            $q = str_replace("PERCENT_SIGN", "%", $q);
-            $q = trim($q);
-            $class = "";
-            if (isset($q[0])) {
-                switch ($q[0]) {
-                    case 'S':
-                        $class = "";
-                        break;
-                    case 'I':
-                        $class = "btn-success";
-                        break;
-                    case 'U':
-                        $class = "btn-info";
-
-                        break;
-                    case 'D':
-                        $class = "btn-danger";
-                        break;
-                }
-            }
-        }
-        $timeTaken = '';
-        if (isset($entry['time_taken'])) {
-            $timeTaken = round(($entry['time_taken'] * 1000), 5);
-            $timeTaken = "&nbsp;[<span style='font-weight:bold;' " . ($timeTaken >= $slowQueryTime ? " class='ui-state-error-text'" : '') . ">" . $timeTaken . " ms</span>]";
-        }
-
-        echo "<li class='{$class}' style='border-bottom: 1px solid #F1F5F9;padding-bottom:5px;'>", $entry['event_type'], $timeTaken, " : ";
-        if (!is_object($entry['message'])) {
-            echo $q;
-        } else {
-            echo get_class($entry['message']);
-            echo "<fieldset class='ui-widget-content'>
-                    <legend class='ui-widget-header'>
-                    <span class='collapsible ui-icon ui-icon-circle-plus  float-left'>*</span>
-                    </legend>
-                    <table cellspacing=0 cellpadding=0 class='block' ><tr class='collapsible-hide'>
-                    <td>";
-            pr($entry['message']);
-            echo '</td></tr></table></fieldset>';
-        }
-        echo "</li>";
-    }
-
-
-    if (!empty(\kernel\model::$errors)) {
-        echo "<li style='border-bottom: 1px solid #F1F5F9;padding-bottom:5px;'>", json_encode(\kernel\model::$errors), "</li>";
-    }
-    echo '</ol></td></tr></table>';
-    echo '</fieldset>';
+    echo kernel\view\helper\log::sql();
 }
 ?>
 <div class=" split-bar ui-widget-header"></div>
@@ -153,7 +73,9 @@ $path = \kernel\html::ob_flush($this->request, 'js', true);
 echo \kernel\html::js($this->request, '/skins/' . $this->request->skin . '/script');
 echo \kernel\html::js($this->request, '/module/' . $this->request->module . '/js/' . $this->request->controller);
 // jquery globalization javascript.
-echo \kernel\html::js($this->request, 'https://maps.googleapis.com/maps/api/js', true);
+
+$googleMapsKey=\kernel\configuration::read('google_maps_key');
+echo \kernel\html::js($this->request, 'https://maps.googleapis.com/maps/api/js'.(!empty($googleMapsKey)?"?key={$googleMapsKey}":""), true);
 ?>
 <script type="text/javascript">
     setTimeout(function() {
