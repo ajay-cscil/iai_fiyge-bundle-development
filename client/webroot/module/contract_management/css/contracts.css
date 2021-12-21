@@ -1,0 +1,51 @@
+/*
+@media print {
+  @page {
+    size: auto;
+    margin: 0;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #contract-agreement, #contract-agreement * {
+    visibility: visible;
+  }
+  #contract-agreement {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+*/
+
+.no-close .ui-dialog-titlebar-close .ui-button-text{
+  display: none;
+}
+    
+     .main-page {
+         width: 210mm;
+         min-height: 297mm;
+         margin: 10mm auto;
+         background: white;
+       box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+     }
+     .sub-page {
+        padding: 1cm;
+     }
+     
+     @media print {
+       html, body {
+          width: 210mm;
+          height: 297mm;        
+       }
+       .main-page {
+          margin: 0;
+          border: initial;
+          border-radius: initial;
+          width: initial;
+          min-height: initial;
+          box-shadow: initial;
+          background: initial;
+          page-break-after: always;
+       }
+     }
