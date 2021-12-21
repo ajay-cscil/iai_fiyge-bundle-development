@@ -46,7 +46,7 @@ set_include_path(TUSHAR . PATH_SEPARATOR);
  */
 require_once TUSHAR . DS . 'function.php';
 require_once TUSHAR . DS . 'dispatcher.php';
-
+require_once ROOT . DS . 'library/composer/vendor/autoload.php';
 /*
  * Load dispatcher for current request.
  */

@@ -174,6 +174,17 @@ function extractName(name) {
     return name;
 }
 
+function setClipboard(value) {
+    console.log(value);
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+}
+
 
 
 jQuery.fn.valJSON = function(value, text, merge) {
@@ -1090,6 +1101,7 @@ jQuery('document').ready(function($) {
     if(ClipboardJS.isSupported()){
 
         new ClipboardJS('.copy-to-clipboard-action');
+        new ClipboardJS('.copy_to_clipboard_link');
         var clipboard=new ClipboardJS('.copy_to_clipboard');
         clipboard.on('success', function(e) {
             setTimeout(function(){
@@ -1268,6 +1280,7 @@ jQuery('document').ready(function($) {
      */
 
     $(document).on('click', '.popup-add', function(event) {
+        console.log('click -> .popup-add');
         log('click -> .popup-add');
         var uuid = $.uu();
         $(this).attr('id', uuid);
@@ -1275,7 +1288,6 @@ jQuery('document').ready(function($) {
         var q = '';
         var td = $(this).parents(':first');
         var popupSelect = td.find('.popup-select');
-
         if (popupSelect.length > 0) {
             var popupAutocomplete = td.find('.popup-autocomplete');
             if (popupSelect.find("option:selected").length == 0) {
@@ -1290,6 +1302,7 @@ jQuery('document').ready(function($) {
             q = popupAutocomplete.attr('q');
         }
         q = decodeURIComponent(q);
+        console.log(href);
         if (typeof (href) != 'undefined' && $.trim(href) != '') {
             if ($.trim(q) == '' || !$.isset(q))
                 q = '{}';
@@ -1329,6 +1342,7 @@ jQuery('document').ready(function($) {
             $(popupAutocomplete).triggerHandler('beforeSearch');
             q = $(popupAutocomplete).data('q');
             href += (href.indexOf('?') == -1 ? '?' : '') + '&action_menu_bar=1';
+
             if (q !== false) {
                 $.get(href, {
                     'q': encodeURIComponent(JSON.stringify(q)),
@@ -1437,6 +1451,7 @@ jQuery('document').ready(function($) {
 
 
     $(document).on('click', '.popup-open-record', function(event) {
+        console.log('click -> .popup-open-record');
         log('click -> .popup-open-record');
         var href = '';
         var q = '';
@@ -1456,7 +1471,9 @@ jQuery('document').ready(function($) {
             href = popupAutocomplete.attr('href');
             q = popupAutocomplete.attr('q');
         }
-        if ($.trim(href) != '' && popupHidden.val() != '') {
+        
+
+        if ($.trim(href) != '' && ($(this).hasClass('popup-open-record-always') || popupHidden.val() != '') ) {
             href += (href.indexOf('?') == -1 ? '?' : '');//+'&id='+popupHidden.val();
             href = href.replace('/index', '/view');
             href = href.replace('?', '/id:' + popupHidden.val() + '?');
@@ -1466,7 +1483,9 @@ jQuery('document').ready(function($) {
             $(popupAutocomplete).triggerHandler('beforeOpen');
             var href = $(popupAutocomplete).data('q_open');
             $(this).attr('href', href);
-            $.ajaxPopup($(this).attr('ajax', 1));
+            if ($.trim(href) != ''){
+                $.ajaxPopup($(this).attr('ajax', 1));
+            }
         }
 
         event.stopImmediatePropagation();
@@ -1519,8 +1538,8 @@ jQuery('document').ready(function($) {
         var td = $(this).closest('td');
         if (parseInt(td.find('.popup-hidden').attr('multiselect')) != 1) {
             td.find('.popup-autocomplete').val('').end()
-            .find('.popup-hidden').val('').trigger('change').end()
-            .find('.popup-open-record').hide().end();
+            .find('.popup-hidden').val('').trigger('change').end();
+            //.find('.popup-open-record').hide().end();
         }
         event.stopImmediatePropagation();
         event.stopPropagation();
@@ -2445,14 +2464,22 @@ jQuery('document').ready(function($) {
         $("#" + uuid).find(".content").html(html);
         if ($.isset(setting['maxHeight'])) {
             if ($('#' + uuid).height() > setting['maxHeight']) {
-        //setting['height']=setting['maxHeight']
-        }
+                //setting['height']=setting['maxHeight']
+            }
         }
         if ($.isset(setting['maxWidth'])) {
             if ($('#' + uuid).width() > setting['maxWidth']) {
                 setting['width'] = setting['maxWidth']
             }
         }
+        var isChildDialogWindow=$('.ui-dialog:visible').filter(':last').length > 0?true:false;
+        if(!isChildDialogWindow && (setting['width']=='auto' || setting['width'] > 700)){
+            setting['width'] = $(document).width()-10;
+            setting['height'] = $(window).height()-10;
+            setting['top'] = '0px';
+            setting['left'] ='0px';
+        }
+
         setting["close"] = function(event, ui) {
             $('#main-panel').removeClass('passive');
             $(this).dialog('destroy').remove();
@@ -2460,11 +2487,16 @@ jQuery('document').ready(function($) {
         $("#" + uuid).dialog(setting).dialog('open');
         $('#main-panel').addClass('passive');
         //To remove this hidden property and activate the default property of overflow the changes are made on line number 9519 in jquery-ui.js
-        $('body').css('overflow', 'hidden');
+        $('body').css('overflow', 'auto');
+        if(!isChildDialogWindow && (setting['width']=='auto' || setting['width'] > 700)){
+            $('.ui-dialog:visible').filter(':last').css('top', 0).css('left', 0);
+        }
         if ($.isPlainObject(pos)) {
             var ld = $('.ui-dialog:visible').filter(':last');
-            if (ld.width() > 400 && $(document).width() > (pos.left + 30 + ld.width() + 30)) {
-                ld.css('top', pos.top + 30).css('left', pos.left + 30);
+            if(isChildDialogWindow){
+                if (ld.width() > 400 && $(document).width() > (pos.left + 30 + ld.width() + 30)) {
+                    ld.css('top', pos.top + 30).css('left', pos.left + 30);
+                }
             }
         }
         return uuid;

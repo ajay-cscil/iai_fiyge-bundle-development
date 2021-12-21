@@ -1,6 +1,6 @@
 <?php
 if (\kernel\configuration::read('debug') == true) {
-    echo kernel\view\helper\log::sql();
+    echo kernel\view\helper\log::html();
 }
 ?>
 <div class=" split-bar ui-widget-header"></div>

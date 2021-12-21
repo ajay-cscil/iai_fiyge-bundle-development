@@ -706,7 +706,7 @@
 
     // execCommand - executes a designMode command
     function execCommand(editor, command, value, useCSS, button) {
-
+        console.log([command,value]);
         // Restore the current ie selection
         restoreRange(editor);
 

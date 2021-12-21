@@ -32,7 +32,6 @@ echo \kernel\html::css($this->request, 'ui-bootstrap');
 
 echo \kernel\html::css($this->request, '/css/social-buttons/zocial');
 
-
 // Required for jaquery validation plugun
 
 $jsConfig = \kernel\configuration::read('js', array());
@@ -132,7 +131,6 @@ echo \kernel\html::js($this->request, '/js/jquery-ui');
     });
 </script>
 <?php
-echo \kernel\html::js($this->request, '/node_modules/signature_pad/dist/signature_pad.umd.min');
 echo \kernel\html::js($this->request, '/module/superfish/js/superfish');
 ?>
 
