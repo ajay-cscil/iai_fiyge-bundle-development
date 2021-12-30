@@ -38,11 +38,11 @@ if (\kernel\request::authenticate()) {
         $menus[] = '<a href="' . $this->request->base . 'access_controls/users/logout"  >' . __('Logout') . '</a>';
         $menus = implode('&nbsp;|&nbsp;', $menus);
         if ($cacheMenu) {
-            \kernel\cache::write('/menus/' . $key, $menus);
+            //\kernel\cache::write('/menus/' . $key, $menus);
         }
     }
     $menus = \kernel\form::processMerge($menus, array('USER_ID' => \kernel\user::read('id'), 'NAME' => ucwords(\kernel\user::read('name'))));
 }
 ?>
-<div id="user_menu"><?php echo is_string($menus)?:''; ?> </div>
+<div id="user_menu"><?php echo is_string($menus)?$menus:''; ?> </div>
 
