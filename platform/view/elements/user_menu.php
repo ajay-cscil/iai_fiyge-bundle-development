@@ -44,5 +44,5 @@ if (\kernel\request::authenticate()) {
     $menus = \kernel\form::processMerge($menus, array('USER_ID' => \kernel\user::read('id'), 'NAME' => ucwords(\kernel\user::read('name'))));
 }
 ?>
-<div id="user_menu"><?php echo $menus; ?> </div>
+<div id="user_menu"><?php echo is_string($menus)?:''; ?> </div>
 
