@@ -620,7 +620,7 @@ function initChart(container) {
                         primaryKeys.push($(this).attr('primary_key'));  
                     });
                     graphType = 'Gantt';
-                    options['height']= (50* chartColumnRows) + 100;
+                    options['height']= (50* chartColumnRows) + 500;
                     options['gantt']={
                                         criticalPathEnabled: true,
                                         criticalPathStyle: {
