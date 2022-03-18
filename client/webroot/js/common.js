@@ -423,6 +423,9 @@ function initChart(container) {
         // Set chart options
         var options = {};
         var list = [[], {}];
+        if($(this).get(0).id){
+            options['uuid']=$(this).get(0).id;
+        }
         $.each(attrs($(this).get(0)), function(k, v) {
             list[0].push(k);
             list[1][k] = v;
@@ -566,7 +569,6 @@ function initChart(container) {
                             ["number", "Progress", "progress", false],
                             ["string", "Dependencies", "dependencies", false]
                     ];
-                    console.log(chartColumns);
                     for(var i=0; i < GanttChartColumns.length; i++){
                         for(var j=0; j < chartColumns.length; j++){
                             if(chartColumns[j].toLowerCase().indexOf(GanttChartColumns[i][2]) !== -1 ){
@@ -578,7 +580,7 @@ function initChart(container) {
                     jQuery.each(GanttChartColumns,function(k,GanttChartColumn){
                          data.addColumn(GanttChartColumn[0],GanttChartColumn[1]);
                     });
-                    console.log(GanttChartColumns);        
+                          
 
                     $(this).find('tr:gt(0)').each(function() {
                         var row = [];
@@ -615,7 +617,6 @@ function initChart(container) {
                             }
                         });
                         chartColumnRows++;
-                        console.log(chartColumnRow);
                         data.addRow(chartColumnRow);
                         primaryKeys.push($(this).attr('primary_key'));  
                     });
@@ -851,6 +852,11 @@ function initChart(container) {
                         });
                     }
                 }
+                return false;
+            }
+            var drilldownGantt = function(evt){
+                var recordURL=options['url'].replace('/index','/edit?id='+data.getValue(chart.getSelection()[0].row, 0));
+                jQuery.ajaxPopup($("<div>"),recordURL,jQuery('#'+options['uuid']));
                 return false;
             }
             var zoomToFitMarkers = false;
@@ -1296,7 +1302,6 @@ function initChart(container) {
                 //log(options);
                 chart = false;
                 // Instantiate and draw our chart, passing in some options.
-                console.log(google.visualization);
                 if (typeof (google.visualization[graphType]) != 'undefined') {
 
                     chart = new google.visualization[graphType](document.getElementById(uuid));
@@ -1309,14 +1314,16 @@ function initChart(container) {
                     $("#" + dialog).dialog("option", "position", "center");
                 }
             }
-            if (
+            if(graphType == 'Gantt'){
+                google.visualization.events.addListener(chart, 'select',drilldownGantt);
+            }else if (
                     chart !== false &&
                     (
                             (jQuery.isset(options['render_as']) && options['render_as'] == 'categorized')
                             ||
                             (jQuery.isset(options['child_listview']) && !jQuery.isEmpty(options['child_listview']))
-                            )
-                    ) {
+                    )
+            ) {
                 google.visualization.events.addListener(chart, 'select', drilldown);
             }
 
