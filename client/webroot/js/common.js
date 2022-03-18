@@ -547,7 +547,7 @@ function initChart(container) {
             var isGoogleMap = (graphType == 'GoogleMap');
             if(graphType == 'GanttChart'){
                     var chartColumns=[];
-                    var chartColumnRows=[];
+                    var chartColumnRows=0;
                     chartColumns.push("id");
                     $(this)
                     .find('tr:eq(0)')
@@ -614,11 +614,13 @@ function initChart(container) {
                                 chartColumnRow.push(null);
                             }
                         });
+                        chartColumnRows++;
                         console.log(chartColumnRow);
                         data.addRow(chartColumnRow);
                         primaryKeys.push($(this).attr('primary_key'));  
                     });
                     graphType = 'Gantt';
+                    options['height']= (50* chartColumnRows) + 100;
                     options['gantt']={
                                         criticalPathEnabled: true,
                                         criticalPathStyle: {
