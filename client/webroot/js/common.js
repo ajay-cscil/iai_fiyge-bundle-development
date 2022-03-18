@@ -378,7 +378,7 @@ function initChart(container) {
                     cache: true,
                     success: function() {
                         google.load('visualization', '1', {
-                            'packages': ['default', 'geochart', 'gauge', 'corechart'],
+                            'packages': ['default', 'geochart', 'gauge', 'corechart', 'gantt'],
                             'callback': function() {
                                 while ($['charts_queue'].length > 0) {
                                     var container = $['charts_queue'].shift();
@@ -545,7 +545,86 @@ function initChart(container) {
             var columnName = '';
             var multiAxis = [];
             var isGoogleMap = (graphType == 'GoogleMap');
-            $(this).find('tr:eq(0)')
+            if(graphType == 'GanttChart'){
+                    var chartColumns=[];
+                    var chartColumnRows=[];
+                    chartColumns.push("id");
+                    $(this)
+                    .find('tr:eq(0)')
+                    .find('th:eq(0),' + (pointer == 0 ? 'th:gt(' + pointer + ')' : 'th:eq(' + pointer + ')'))
+                    .each(function(k, v) {
+                        chartColumns.push($(this).text());
+                    });
+                    
+                    var GanttChartColumns=[
+                            ["string","Task ID", "id", false],
+                            ["string", "Task Name", "name", false],
+                            ["string", "Resource", "resource", false],
+                            ["date", "Start", "start", false],
+                            ["date", "End", "end", false],
+                            ["number", "Duration", "duration", false],
+                            ["number", "Percent Complete", "percent complete", false],
+                            ["string", "Dependencies", "dependencies", false]
+                    ];
+                    for(var i=0; i < GanttChartColumns.length; i++){
+                        for(var j=0; j < chartColumns.length; j++){
+                            if(chartColumns[j].indexOf(GanttChartColumns[i][2]) != -1 ){
+                                GanttChartColumns[i][3]=j;
+                                break;
+                            }
+                        }
+                    }
+                    jQuery.each(GanttChartColumns,function(k,GanttChartColumn){
+                         data.addColumn(GanttChartColumn[0],GanttChartColumn[1]);
+                    });
+
+                    $(this).find('tr:gt(0)').each(function() {
+                        var row = [];
+                        var i = 0;
+                        var val = '';
+                        row.push($(this).attr('primary_key'));
+                        $(this).find('td:eq(0),' + (pointer == 0 ? 'td:gt(' + pointer + ')' : 'td:eq(' + pointer + ')')).each(function() {
+                            val = $(this).text();
+                            if (types[i] == 'number') {
+                                val = parseFloat(val);
+                            }
+                            row.push(val);
+                            i++;
+                        });
+
+                        var chartColumnRow=[];
+                        jQuery.each(GanttChartColumns,function(k,GanttChartColumn){
+                            if(GanttChartColumn[3] !== false){
+                                if(GanttChartColumn[0] =="date"){
+                                    var dateTime=row[GanttChartColumn[3]];
+                                    if(dateTime!= ""){
+                                        dateTime=dateTime.split(/[- :]/); 
+                                        dateTime[1]--
+                                        chartColumnRow.push(new Date(...dateTime));
+                                    }else{
+                                        chartColumnRow.push(null);
+                                    }
+                                }else{
+                                    chartColumnRow.push(row[GanttChartColumn[3]]);
+                                }
+                            }else{
+                                chartColumnRow.push(null);
+                            }
+                        });
+                        data.addRow(chartColumnRow);
+                        primaryKeys.push($(this).attr('primary_key'));  
+                    });
+                    graphType = 'Gantt';
+                    options['gantt']={
+                                        criticalPathEnabled: true,
+                                        criticalPathStyle: {
+                                            stroke: '#e64a19',
+                                            strokeWidth: 5
+                                        }
+                                    };
+            }else{
+                $(this)
+                    .find('tr:eq(0)')
                     .find('th:eq(0),' + (pointer == 0 ? 'th:gt(' + pointer + ')' : 'th:eq(' + pointer + ')'))
                     .each(function(k, v) {
                         dataType = 'number';
@@ -577,10 +656,34 @@ function initChart(container) {
                                 'title': columnName
                             });
                         }
-
                         types.push(dataType);
                         data.addColumn(dataType, columnName);
                     });
+
+                    $(this).find('tr:gt(0)').each(function() {
+                        var row = [];
+                        var i = 0;
+                        var val = '';
+                        $(this).find('td:eq(0),' + (pointer == 0 ? 'td:gt(' + pointer + ')' : 'td:eq(' + pointer + ')')).each(function() {
+                            if (isGoogleMap) {
+                                val = $(this).html();
+                            } else {
+                                val = $(this).text();
+                                if (types[i] == 'number') {
+                                    val = parseFloat(val);
+                                }
+                            }
+
+                            row.push(val);
+                            i++;
+                        });
+                        data.addRow(row);
+                        primaryKeys.push($(this).attr('primary_key'));
+                    });
+
+
+
+            }
             if (graphType == 'BarChart') {
                 if (!$.isset(options['hAxis']) || $.isEmpty(options['hAxis'])) {
                     //options['hAxis']=multiAxis;
@@ -634,26 +737,7 @@ function initChart(container) {
                 });
             }
 
-            $(this).find('tr:gt(0)').each(function() {
-                var row = [];
-                var i = 0;
-                var val = '';
-                $(this).find('td:eq(0),' + (pointer == 0 ? 'td:gt(' + pointer + ')' : 'td:eq(' + pointer + ')')).each(function() {
-                    if (isGoogleMap) {
-                        val = $(this).html();
-                    } else {
-                        val = $(this).text();
-                        if (types[i] == 'number') {
-                            val = parseFloat(val);
-                        }
-                    }
-
-                    row.push(val);
-                    i++;
-                });
-                data.addRow(row);
-                primaryKeys.push($(this).attr('primary_key'));
-            });
+            
             $(this).parents(':first').find('.graph-panel-container').remove();
 
 
@@ -783,8 +867,8 @@ function initChart(container) {
 </table>\n\
 </div>').parents(':first').css('padding', 0);
             } else {
-                $(this).hide().before('<div  class="graph-panel-container" style="margin:5px;' + (options['is_mobile'] == true ? 'min-height:300px;' : '') + '">\n\
-    <div id="' + uuid + '" class="graph-panel graph-' + graphType + '" style="' + (options['is_mobile'] == true ? 'min-height:300px;' : '') + '"></div>\n\
+                $(this).hide().before('<div  class="graph-panel-container" style="margin:0px;' + (options['is_mobile'] == true ? 'min-height:300px;' : '') + '">\n\
+    <div id="' + uuid + '" class="graph-panel graph-' + graphType + '" style="margin: 0px;padding: 0px; ' + (options['is_mobile'] == true ? 'min-height:300px;' : '') + '"></div>\n\
 </div>').parents(':first').css('padding', 0);
             }
             if (graphType == 'GoogleMap') {
@@ -1206,7 +1290,9 @@ function initChart(container) {
                 //log(options);
                 chart = false;
                 // Instantiate and draw our chart, passing in some options.
+                console.log(google.visualization);
                 if (typeof (google.visualization[graphType]) != 'undefined') {
+
                     chart = new google.visualization[graphType](document.getElementById(uuid));
                     chart.draw(data, options);
                 }
