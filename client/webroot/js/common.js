@@ -566,9 +566,10 @@ function initChart(container) {
                             ["number", "Percent Complete", "percent complete", false],
                             ["string", "Dependencies", "dependencies", false]
                     ];
+                    console.log(chartColumns);
                     for(var i=0; i < GanttChartColumns.length; i++){
                         for(var j=0; j < chartColumns.length; j++){
-                            if(chartColumns[j].indexOf(GanttChartColumns[i][2]) != -1 ){
+                            if(chartColumns[j].indexOf(GanttChartColumns[i][2]) !== -1 ){
                                 GanttChartColumns[i][3]=j;
                                 break;
                             }
@@ -577,6 +578,7 @@ function initChart(container) {
                     jQuery.each(GanttChartColumns,function(k,GanttChartColumn){
                          data.addColumn(GanttChartColumn[0],GanttChartColumn[1]);
                     });
+                    console.log(GanttChartColumns);        
 
                     $(this).find('tr:gt(0)').each(function() {
                         var row = [];
@@ -591,7 +593,6 @@ function initChart(container) {
                             row.push(val);
                             i++;
                         });
-                        console.log(GanttChartColumns);
                         var chartColumnRow=[];
                         jQuery.each(GanttChartColumns,function(k,GanttChartColumn){
                             if(GanttChartColumn[3] !== false){
