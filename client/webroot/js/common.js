@@ -563,7 +563,7 @@ function initChart(container) {
                             ["date", "Start", "start", false],
                             ["date", "End", "end", false],
                             ["number", "Duration", "duration", false],
-                            ["number", "Percent Complete", "percent complete", false],
+                            ["number", "Progress", "progress", false],
                             ["string", "Dependencies", "dependencies", false]
                     ];
                     console.log(chartColumns);
@@ -605,6 +605,8 @@ function initChart(container) {
                                     }else{
                                         chartColumnRow.push(null);
                                     }
+                                }else if(GanttChartColumn[0] =="number"){
+                                    chartColumnRow.push(parseInt(row[GanttChartColumn[3]]));
                                 }else{
                                     chartColumnRow.push(row[GanttChartColumn[3]]);
                                 }
