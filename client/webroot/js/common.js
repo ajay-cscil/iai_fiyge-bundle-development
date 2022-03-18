@@ -591,7 +591,7 @@ function initChart(container) {
                             row.push(val);
                             i++;
                         });
-
+                        console.log(GanttChartColumns);
                         var chartColumnRow=[];
                         jQuery.each(GanttChartColumns,function(k,GanttChartColumn){
                             if(GanttChartColumn[3] !== false){
@@ -611,6 +611,7 @@ function initChart(container) {
                                 chartColumnRow.push(null);
                             }
                         });
+                        console.log(chartColumnRow);
                         data.addRow(chartColumnRow);
                         primaryKeys.push($(this).attr('primary_key'));  
                     });
