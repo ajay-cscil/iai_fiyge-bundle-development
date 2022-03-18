@@ -569,7 +569,7 @@ function initChart(container) {
                     console.log(chartColumns);
                     for(var i=0; i < GanttChartColumns.length; i++){
                         for(var j=0; j < chartColumns.length; j++){
-                            if(chartColumns[j].indexOf(GanttChartColumns[i][2]) !== -1 ){
+                            if(chartColumns[j].toLowerCase().indexOf(GanttChartColumns[i][2]) !== -1 ){
                                 GanttChartColumns[i][3]=j;
                                 break;
                             }
