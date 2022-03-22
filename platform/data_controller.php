@@ -208,7 +208,7 @@ class data_controller extends \kernel\controller {
         $modelObj = $this->modelObj();
         $id = $this->id($request);
         $schema = $modelObj->schema(false, 'submodel_1');
-        \kernel\model::softdelete(false);
+        //\kernel\model::softdelete(false);
         $isNot = $modelObj->call('isNotReadable', $id);
         if ($isNot !== false) {
             throw new \Exception($isNot);
@@ -221,7 +221,7 @@ class data_controller extends \kernel\controller {
         $request->set('id', $id);
         
         $data = $modelObj->read($id);
-        \kernel\model::softdelete(true);
+        //\kernel\model::softdelete(true);
         $request->set('is_record_deleted', (int)isset($data[$modelObj->alias][$modelObj->softDeleteColumn]) && $data[$modelObj->alias][$modelObj->softDeleteColumn]==true);
 
 
