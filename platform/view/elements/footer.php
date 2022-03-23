@@ -68,7 +68,7 @@ echo \kernel\html::js($this->request, '/node_modules/clipboard/dist/clipboard');
 echo \kernel\html::js($this->request, 'script');
 echo \kernel\html::js($this->request, 'common');
 
-echo "sadfasdfasdf";
+
 $path = \kernel\html::ob_flush($this->request, 'js', true);
 // script file for current module/controller.
 echo \kernel\html::js($this->request, '/skins/' . $this->request->skin . '/script');
