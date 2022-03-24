@@ -19,7 +19,7 @@
 */
 
 .no-close .ui-dialog-titlebar-close .ui-button-text{
-  display: none;
+        display: none;
 }
     
      .main-page {
@@ -27,10 +27,11 @@
          min-height: 297mm;
          margin: 10mm auto;
          background: white;
-       box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+         box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+         padding: 1cm 2cm 1cm 2cm;
      }
      .sub-page {
-        padding: 1cm;
+        padding: 1cm 2cm 1cm 2cm;
      }
      
      @media print {
@@ -47,5 +48,6 @@
           box-shadow: initial;
           background: initial;
           page-break-after: always;
+          padding: 1cm 2cm 1cm 2cm;
        }
      }
