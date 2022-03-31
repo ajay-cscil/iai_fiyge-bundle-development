@@ -29,6 +29,7 @@
          background: white;
          box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
          padding: 25mm 30mm 25mm 30mm;
+         box-sizing: border-box;
      }
      .sub-page {
         /*padding: 1cm 2cm 1cm 2cm;*/
@@ -49,5 +50,6 @@
           background: initial;
           page-break-after: always;
           padding: 25mm 30mm 25mm 30mm;
+          box-sizing: border-box;
        }
      }
