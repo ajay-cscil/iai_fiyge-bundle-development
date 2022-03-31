@@ -25,10 +25,10 @@
      .main-page {
          width: 210mm;
          min-height: 297mm;
-         margin: 4mm auto;
+         margin: 2mm auto;
          background: white;
          box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-         padding: 1cm 2cm 1cm 2cm;
+         padding: 25mm 30mm 25mm 30mm;
      }
      .sub-page {
         /*padding: 1cm 2cm 1cm 2cm;*/
@@ -48,6 +48,6 @@
           box-shadow: initial;
           background: initial;
           page-break-after: always;
-          padding: 1cm 2cm 1cm 2cm;
+          padding: 25mm 30mm 25mm 30mm;
        }
      }
