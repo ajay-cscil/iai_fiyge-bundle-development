@@ -280,6 +280,13 @@ class data_controller extends \kernel\controller {
             throw new \Exception($isNot);
         }
 
+        if ($request->param('override', 0) == true) {
+            if (is_array($modelObj->associations)) {
+                foreach ($modelObj->associations as $assocModel => $assocInfo) {
+                    $modelObj->associations[$assocModel]['skipForeignKeyCheck'] = 1;
+                }
+            }
+        }
         $this->saveHandlerOutput = $modelObj->delete($id);
         if ($this->saveHandlerOutput) {
             $request->setMsg(__('Record deleted successfully'));

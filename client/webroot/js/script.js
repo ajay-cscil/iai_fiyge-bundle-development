@@ -2761,9 +2761,11 @@ jQuery('document').ready(function($) {
         return href;
     }
 
-    $.deleteRecord = function(object, href, table) {
+    $.deleteRecord = function(object, href, table, overrideMessage) {
         log('deleteRecord');
-
+        if(!$.isset(overrideMessage)){
+            overrideMessage='';
+        }
         //var href=$(object).attr('href');
         var ajax = $(object).attr('ajax');
         var tr = $(object).closest('tr');
@@ -2815,41 +2817,49 @@ jQuery('document').ready(function($) {
                     href += '?';
                 }
                 href += '&is_confirm=1';
+                if(overrideMessage !=''){
+                    href += '&override=1';
+                }
                 if ($.isset(ajax) && ajax == "0") {
                     document.location.href = href;
                 } else {
                     $.get(href, function(data) {
+                        console.log(data);
                         if (typeof (data) === "object") {
-                            showMessage(data);
-                            if (typeof (data['javascript']) != 'undefined') {
-                                try {
-                                    eval(data['javascript']);
-                                } catch (e) {
+                            if(data.errors.join('').indexOf('it has dependent') != -1){
+                                var overrideMessage=data.message.join('. ')+'. <div style="color:#cd0a0a;"><b>Do you still want to delete?</b></div>';
+                                $.deleteRecord(object, href, table, overrideMessage);
+                            }else{
+                                showMessage(data);
+                                if (typeof (data['javascript']) != 'undefined') {
+                                    try {
+                                        eval(data['javascript']);
+                                    } catch (e) {
 
+                                    }
                                 }
-                            }
-                            if (twisty !== false) {
-                                if (twisty.hasClass('twisty-open') || twisty.hasClass('twisty-open-last')) {
-                                    var tr = $(object).closest('tr');
-                                    var al = tr.attr('active_level');
-                                    var paginationRow = tr.nextAll('[active_level="' + al + '"]').filter('.pagination-row:first');
-                                    if (paginationRow.length > 0) {
-                                        paginationRow.find('.active-paginate-link').trigger('click');
+                                if (twisty !== false) {
+                                    if (twisty.hasClass('twisty-open') || twisty.hasClass('twisty-open-last')) {
+                                        var tr = $(object).closest('tr');
+                                        var al = tr.attr('active_level');
+                                        var paginationRow = tr.nextAll('[active_level="' + al + '"]').filter('.pagination-row:first');
+                                        if (paginationRow.length > 0) {
+                                            paginationRow.find('.active-paginate-link').trigger('click');
+                                        } else {
+                                            twisty.trigger('click').trigger('click');
+                                        }
                                     } else {
-                                        twisty.trigger('click').trigger('click');
+                                        twisty.trigger('click');
                                     }
                                 } else {
-                                    twisty.trigger('click');
+                                    if ($("#" + params['table_id']).length > 0) {
+                                        $("#" + params['table_id']).trigger('reload');
+                                    } else if (params['panel'].length > 0) {
+                                        document.location.href = href.replace('/delete', '/index');
+                                    }
+                                //find('.active-paginate-link:first').trigger('click');
                                 }
-                            } else {
-                                if ($("#" + params['table_id']).length > 0) {
-                                    $("#" + params['table_id']).trigger('reload');
-                                } else if (params['panel'].length > 0) {
-                                    document.location.href = href.replace('/delete', '/index');
-                                }
-                            //find('.active-paginate-link:first').trigger('click');
                             }
-
                         }
                     });
                 }
@@ -2862,6 +2872,9 @@ jQuery('document').ready(function($) {
         var confirmationMessage = $(object).attr('confirmation_message');
         if ($.isEmpty(confirmationMessage)) {
             confirmationMessage = 'Do you want to delete';
+        }
+        if(overrideMessage !=''){
+            confirmationMessage=overrideMessage;
         }
         var uuid = $.jsContainer(confirmationMessage, params);
 
