@@ -328,6 +328,13 @@ class data_controller extends \kernel\controller {
         if ($selectAllRecords !== false) {
             $request->setMsg(sprintf(__('Trying to delete %s records'), count($selectAllRecords)));
         }
+        if ($request->param('override', 0) == true) {
+            if (is_array($modelObj->associations)) {
+                foreach ($modelObj->associations as $assocModel => $assocInfo) {
+                    $modelObj->associations[$assocModel]['skipForeignKeyCheck'] = 1;
+                }
+            }
+        }        
         foreach ($ids as $id) {
             $isNot = $modelObj->call('isNotDeletable', $id);
             if ($isNot !== false) {
