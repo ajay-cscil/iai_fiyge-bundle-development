@@ -2827,7 +2827,7 @@ jQuery('document').ready(function($) {
                         console.log(data);
                         if (typeof (data) === "object") {
                             if(data.errors.join('').indexOf('it has dependent') != -1){
-                                var overrideMessage=data.message.join('. ')+'. <div style="color:#cd0a0a;"><b>Do you still want to delete?</b></div>';
+                                var overrideMessage=data.message.join('. ')+'. <div style="color:#cd0a0a;"><b>Do you still want to override and continue delete?</b></div>';
                                 $.deleteRecord(object, href, table, overrideMessage);
                             }else{
                                 showMessage(data);
