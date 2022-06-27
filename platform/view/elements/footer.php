@@ -29,7 +29,7 @@ if (\kernel\configuration::read('debug') == true) {
 
     </span>
 
-    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="fiyge"><?php echo $organizationName; ?> <?php echo "v" . \kernel\configuration::read('fiyge_version'); ?></span></span>
+    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="fiyge">FIYGE <?php echo "v" . \kernel\configuration::read('fiyge_version'); ?></span></span>
 </div>
 <?php
 // locale file for datepicker.
