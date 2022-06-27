@@ -2489,7 +2489,7 @@ jQuery('document').ready(function($) {
         //To remove this hidden property and activate the default property of overflow the changes are made on line number 9519 in jquery-ui.js
         $('body').css('overflow', 'auto');
         if(!isChildDialogWindow && (setting['width']=='auto' || setting['width'] > 700)){
-            $('.ui-dialog:visible').filter(':last').css('top', 0).css('left', 0);
+            $('.ui-dialog:visible').filter(':last').css('top', 0+$(document).prop('scrollHeight')).css('left', 0);
         }
         if ($.isPlainObject(pos)) {
             var ld = $('.ui-dialog:visible').filter(':last');
