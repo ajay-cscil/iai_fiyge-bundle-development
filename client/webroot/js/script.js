@@ -209,6 +209,10 @@ jQuery.fn.valJSON = function(value, text, merge) {
         });
     }
 }
+function autoResizeIframe(iframe) {
+    jQuery(iframe).height(jQuery(iframe).contents().find('html').height());
+}
+
 /**
  * @author Tushar Takkar<ttakkar@primarymodules.com>
  */
