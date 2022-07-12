@@ -14,7 +14,7 @@ if (\kernel\configuration::read('debug') == true) {
                                 ->limit(1)
                                 ->execute()->fetch(\PDO::FETCH_COLUMN);
 
-          echo "© {$organizationName} 2021 onwards - All rights reserved&reg;. <br />";                      
+          echo "{$organizationName}<br />";                      
         ?>
         <?php echo __('Server response time'); ?>:&nbsp;<?php
         global $requestStartTime;
@@ -29,7 +29,7 @@ if (\kernel\configuration::read('debug') == true) {
 
     </span>
 
-    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="fiyge">FIYGE <?php echo "v" . \kernel\configuration::read('fiyge_version'); ?></span></span>
+    <span style="float:right;"><?php echo __('Powered By'); ?><br /><span class="fiyge">Fiyge&copy; Framework <?php echo "v" . \kernel\configuration::read('fiyge_version'); ?></span></span>
 </div>
 <?php
 // locale file for datepicker.
