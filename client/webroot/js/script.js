@@ -210,7 +210,12 @@ jQuery.fn.valJSON = function(value, text, merge) {
     }
 }
 function autoResizeIframe(iframe) {
-    jQuery(iframe).height(jQuery(iframe).contents().find('html').height());
+    var autoResizeIframeHeight=jQuery(iframe).contents().find('html').height();
+    console.log(autoResizeIframeHeight);
+    if(autoResizeIframeHeight < 100){
+        autoResizeIframeHeight=100;
+    }
+    jQuery(iframe).height(autoResizeIframeHeight);
 }
 
 /**
