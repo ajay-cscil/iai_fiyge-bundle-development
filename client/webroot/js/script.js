@@ -1860,7 +1860,7 @@ jQuery('document').ready(function($) {
             } else {
                 datetimeValue = [];
             }
-            $(this).datetimepicker({
+            var $thisdatetimepicker=$(this).datetimepicker({
                 "ampm": ampm,
                 "timeFormat": "hh:mm:ss TT",
                 "showSecond": true,
@@ -1868,6 +1868,9 @@ jQuery('document').ready(function($) {
                 "minute": datetimeValue[1] | 0,
                 "second": datetimeValue[2] | 0
             });
+            if(datetimeValue.length ==0){
+                $thisdatetimepicker.datetimepicker('setDate', new Date());
+            }
         }).next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
 
