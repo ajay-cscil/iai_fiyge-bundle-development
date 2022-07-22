@@ -299,6 +299,8 @@
             try {
                 // find all dependencies;
                 var dependentList = onChangeField.data('dependent_list');
+                log(['onChangeField',onChangeField,dependentList]);
+                
                 var form = onChangeField.closest('form');
                 // if data does not comes
                 if (data === false) {
@@ -362,6 +364,7 @@
                                 for (key in v) {
                                     // if key matches the mapped field we have to put that data
                                     if (key == mappedField) {
+                                        
                                         var field = form.find('[name="' + dependentName + '"]');
                                         // condition to check if field is empty
                                         if (field.val().length == 0) {
@@ -369,9 +372,14 @@
                                                 populatePopupValue(dependentName, v[key], popupHidden, form);
                                                 flag = false;
                                             } else {
-                                                log('Auto-population : [name="' + dependentName + '"].val(' + v[key] + ')');
+                                                log('Auto-population populateValue: [name="' + dependentName + '"].val(' + v[key] + ')');
                                                 // finding the field and setting its value
                                                 form.find('[name="' + dependentName + '"]').val(v[key]).trigger('change');
+
+                                                if(form.find('[name="' + dependentName + '"]').attr('editor') == "WYSIWYG"){
+                                                    form.find('[name="' + dependentName + '"]').cleditor()[0].updateFrame();
+                                                }
+
                                             }
                                         }
                                     }
@@ -416,8 +424,8 @@
                         //calling data cleaner to clean data
                         data = result['paginate']['data'][0];
                         for (x in data) {
-                            log('Auto-population : [name="' + dependentName + '"].val(' + data[x] + ')');
-                            log('Auto-population : [name="' + popupHidden + '"]).val(' + id + ')');
+                            log('Auto-population populatePopupValue : [name="' + dependentName + '"].val(' + data[x] + ')');
+                            log('Auto-population populatePopupValue : [name="' + popupHidden + '"]).val(' + id + ')');
 
                             form.find('[name="' + dependentName + '"]').val(data[x]).trigger('change');
                             form.find('[name="' + popupHidden + '"]').val(id).trigger('change');
