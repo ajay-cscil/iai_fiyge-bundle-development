@@ -81,7 +81,7 @@ echo \kernel\html::js($this->request, 'https://maps.googleapis.com/maps/api/js'.
 <script type="text/javascript">
     setTimeout(function() {
         var loader = document.createElement('script');
-        loader.src = "<?php echo $path[0]; ?>";
+        loader.src = "<?php echo (isset($path[0])?$path[0]:''); ?>";
         // most browsers
         if (typeof (initControllerAction) != 'undefined') {
             loader.onload = initControllerAction;
