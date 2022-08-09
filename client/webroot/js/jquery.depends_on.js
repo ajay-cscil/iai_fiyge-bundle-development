@@ -195,6 +195,16 @@
                         }
                         // push fields in our 'q'
                         rule_Q[index]['fields'].push(mappedField);
+                        if(form.find('[name="' + dependentName + '"]').attr('type') =='file'){
+                            var mappedFieldModel=mappedField.split('.');
+                            mappedFieldModel.pop();
+                            mappedFieldModel=mappedFieldModel.join('.');
+                            rule_Q[index]['fields'].push(mappedFieldModel+".mime_type as 'document_mime_type'");
+                            rule_Q[index]['fields'].push(mappedFieldModel+".path as 'document_path'");
+                            rule_Q[index]['fields'].push(mappedFieldModel+".storage_path  as 'document_storage_path'");
+                            rule_Q[index]['fields'].push(mappedFieldModel+".id AS 'document_id'");
+                            rule_Q[index]['fields'].push(mappedFieldModel+".name AS 'document_name'");
+                        }
                         // populate where conditions in 'q'
                         if (filterField != null) {
                             rule_Q[index]['where'][filterField] = filterValue;
@@ -306,13 +316,18 @@
                 if (data === false) {
                     data = {};
                     $.each(dependentList, function(i, dependentName) {
-                        form.find('[name="' + dependentName + '"]').val('');
+                        if(form.find('[name="' + dependentName + '"]').attr('type') != 'file'){
+                            form.find('[name="' + dependentName + '"]').val('');
+                        }
                     });
                 } else {
                     // iterate over dependent list and populate data one by one
                     $.each(dependentList, function(i, dependentName) {
                         // to reset all dependent fields before setting it 
-                        form.find('[name="' + dependentName + '"]').val('');
+                        if(form.find('[name="' + dependentName + '"]').attr('type') != 'file'){
+                            form.find('[name="' + dependentName + '"]').val('');
+                        }
+
                         if (typeof (dependentName) != 'undefined' && $.trim(dependentName) != '') {
                             var popupHidden = dependentName.split('][');
                             popup = popupHidden.pop();
@@ -322,7 +337,6 @@
                                 popupHidden = popupHidden.join('][');
                                 var flag = true;
                             }
-
                         }
                         // fetching attributs from the DOM
                         filterField = $(form.find('[name="' + dependentName + '"]')).attr('__filter_field');
@@ -336,14 +350,13 @@
                         if (typeof (mappedField) != 'undefined') {
                             mappedField = mappedField.split('.').pop();
                         }
-
+                        
                         // populating fields in DOM
                         if (mappedField != null) {
                             // index from which we have to get data on this dependent field
                             if (filterField == null) {
                                 index = 'simple';
-                            } else
-                            {
+                            } else {
                                 index = filterField + '|' + filterValue
                             }
                             // if we have not got the data we need to follow fall back to populate same data
@@ -351,11 +364,10 @@
                                 ind = index.split('|');
                                 for (x in data) {
                                     if (data[x].length > 0) {
-                                        if (x.indexOf(ind[0]) !== -1)
+                                        if (x.indexOf(ind[0]) !== -1){
                                             index = x;
-
+                                        }
                                     }
-
                                 }
                             }
                             // populating data based on fields
@@ -367,19 +379,29 @@
                                         
                                         var field = form.find('[name="' + dependentName + '"]');
                                         // condition to check if field is empty
-                                        if (field.val().length == 0) {
+                                        if (field.attr("type") == "file") {
+                                            var f1=dependentName.split('][');
+                                            var documentdata=data["simple"][0];
+                                            f1.pop();
+                                            f1=f1.join('][');
+                                            field.after('<input type="hidden" name="'+f1+'][clone_id]" value="'+documentdata['document_id']+'"><a href="/document_management_base/attachments/_download/id:'+documentdata['document_id']+'" data-ajax="false"><img src="'+(documentdata['document_storage_path']+documentdata['document_path']).replace('webroot/','/')+'" style="max-width:100px;height:auto;"></a>');                                            
+                                            //document_id: 1646
+                                            //document_mime_type: "image/png"
+                                            //document_name: "logo-sample.png"
+                                            //document_path: "2022/08/04/12/62ebbc93-7a3c-49df-998a-083d89e4c792.png"
+                                            //document_storage_path: "webroot/img/uploads/"
+
+                                        }else if(field.val().length == 0){
                                             if (flag == true) {
                                                 populatePopupValue(dependentName, v[key], popupHidden, form);
                                                 flag = false;
                                             } else {
-                                                log('Auto-population populateValue: [name="' + dependentName + '"].val(' + v[key] + ')');
+                                                log(field.attr("type")+' -> Auto-population populateValue: [name="' + dependentName + '"].val(' + v[key] + ')');
                                                 // finding the field and setting its value
-                                                form.find('[name="' + dependentName + '"]').val(v[key]).trigger('change');
-
-                                                if(form.find('[name="' + dependentName + '"]').attr('editor') == "WYSIWYG"){
-                                                    form.find('[name="' + dependentName + '"]').cleditor()[0].updateFrame();
+                                                field.val(v[key]).trigger('change');
+                                                if(field.attr('editor') == "WYSIWYG"){
+                                                    field.cleditor()[0].updateFrame();
                                                 }
-
                                             }
                                         }
                                     }
@@ -477,7 +499,7 @@
                         } else {
                             onChangeField.attr('oldFieldValue', onChangeFieldValue);
                         }
-
+                        console.log('onChangeFieldValue',onChangeFieldValue);
                         if (onChangeFieldValue != false) {
                             // find source which can be a
                             //1. JSON data

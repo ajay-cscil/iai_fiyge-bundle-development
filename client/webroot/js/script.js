@@ -1078,7 +1078,7 @@ jQuery('document').ready(function($) {
             $(this).parents(':first').find('.date').datepicker("destroy").removeClass('date datetime number');
             $(this).removeClass('toggle_enabled').addClass('toggle_disabled').text('Show Picker');
         } else {
-            $(this).parents(':first').find('.date').datepicker();
+            $(this).parents(':first').find('.date').datepicker({"yearRange": "-100:+5"});
             $(this).removeClass('toggle_disabled').addClass('toggle_enabled').text('Enter manually');
         }
         event.stopImmediatePropagation();
@@ -1829,7 +1829,7 @@ jQuery('document').ready(function($) {
                 $(this).after('<a href="#" class="date_toggle toggle_enabled">Enter manually</a>');
             }
         })
-        .datepicker().next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
+        .datepicker({"yearRange": "-100:+5"}).next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
 
         container.find('span.date')
         .not('.template-element')
