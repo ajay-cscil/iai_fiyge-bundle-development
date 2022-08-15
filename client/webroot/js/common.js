@@ -1539,14 +1539,13 @@ function initChart(container) {
     });
 })(jQuery);
 
-/*
- jQuery('document').ready(function($){
- var time=600000;
- //var time=10000;
- setInterval(function(){
- $.get(CONFIG['base']+'keep_alive_session_call',function(){
- //console.log("Session Call");
- });
- },time);
- })*/
+
+ jQuery(document).ready(function($){
+    var time=300000;
+    setInterval(function(){
+         $.get(CONFIG['base']+'keep_alive_session_call',function(){
+         console.log("Session Call");
+         });
+    },time);
+ })
 
