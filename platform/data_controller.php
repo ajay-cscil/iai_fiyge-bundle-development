@@ -358,6 +358,7 @@ class data_controller extends \kernel\controller {
         $modelObj = $this->modelObj();
         $schema = $modelObj->schema(false, 'submodel_1');
         $ids = $this->id($request);
+        $allowEmptyInput=$request->param('allow_empty_input');
         if (!is_array($ids)) {
             $ids = array($ids);
         }
@@ -401,13 +402,15 @@ class data_controller extends \kernel\controller {
                 if (isset($data[$modelObj->alias]) && is_array($data[$modelObj->alias])) {
                     foreach ($data[$modelObj->alias] as $column => $value) {
                         if (empty($value) && !is_array($value)) {
-                            if (!is_numeric($value)) {
+                            if (!is_numeric($value) && !$allowEmptyInput) {
                                 unset($data[$modelObj->alias][$column]);
                             }
                         }
                     }
                 }
-                rm_empty_input($data, false, true, true);
+                if(!$allowEmptyInput){
+                    rm_empty_input($data, false, true, true);
+                }
                 $data = \kernel\locale::normalize($data, $modelObj->schema(false, true, true, true));
                 $modelObj->processRules($data, true);
                 $successCount = 0;
