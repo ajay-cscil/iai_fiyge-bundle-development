@@ -2118,7 +2118,6 @@ jQuery('document').ready(function($) {
                 href = $(this.element[0]).attr('href');
             }
             href = href.replace('/index', '/view');
-
             href += ".json?id=" + id;
 
 
@@ -3763,27 +3762,28 @@ jQuery('document').ready(function($) {
     $(document).on('change', '[on_change_reload_form=1]', function(event) {
         log('change -> [on_change_reload_form=1]');
 
-        var form = $(this)
-        .closest('form');
-        // preventing form jquery form validation 
-        form.validate().currentForm = '';
-        var button = form.find('input[name="data[action][reload]"]:first');
-        if (button.length == 0) {
-            form.prepend('<input type="hidden" name="data[action][reload]" value="' + $(this).attr('name') + '" >');
-        } else {
-            button.val($(this).attr('name'));
-        }
-        var button = form.find('[type="submit"]:first');
-        if (button.length == 0) {
-            form.prepend('<input type="submit" name="submit" style="display:none;">');
-            button = form.find('[type="submit"]:first');
-        }
+        if($(this).val() != ""){
+            var form = $(this).closest('form');
+            // preventing form jquery form validation 
+            form.validate().currentForm = '';
+            var button = form.find('input[name="data[action][reload]"]:first');
+            if (button.length == 0) {
+                form.prepend('<input type="hidden" name="data[action][reload]" value="' + $(this).attr('name') + '" >');
+            } else {
+                button.val($(this).attr('name'));
+            }
+            var button = form.find('[type="submit"]:first');
+            if (button.length == 0) {
+                form.prepend('<input type="submit" name="submit" style="display:none;">');
+                button = form.find('[type="submit"]:first');
+            }
 
-        if (button.hasClass('ajax-popup-form')) {
-            button.trigger('click');
-        //button.triggerHandler('click');
-        } else {
-            button.trigger('click');
+            if (button.hasClass('ajax-popup-form')) {
+                button.trigger('click');
+            //button.triggerHandler('click');
+            } else {
+                button.trigger('click');
+            }
         }
         event.stopImmediatePropagation();
         event.stopPropagation();
