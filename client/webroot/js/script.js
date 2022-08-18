@@ -888,6 +888,9 @@ jQuery('document').ready(function($) {
         return false;
     });
 
+    $(document).on('change','.save-list-record-input',function(){
+        jQuery(this).closest('.record-row').find('.save-list-record').trigger('click');
+    });
 
     $(document).on('click', '.search_trigger', function(event) {
         log('click -> .search_trigger');
@@ -2670,7 +2673,6 @@ jQuery('document').ready(function($) {
         var row = $(this).closest('.record-row');
         var primaryKey = row.attr('primary_key');
         var href = row.attr('href');
-        console.log(href);
         if (href.indexOf('/view') !== -1) {
             href = href.replace('/view', '/edit_selected').split('?')[0];
         } else if (href.indexOf('/edit') !== -1) {
@@ -2678,9 +2680,8 @@ jQuery('document').ready(function($) {
         } else {
             href = href.replace('/index', '/edit_selected').split('?')[0];
         }
-        console.log(href);
         var payload = row.find(':input').serializeObject();
-        $.post(href + '?id=' + primaryKey, payload, function(data) {
+        $.post(href + '?allow_empty_input=1&id=' + primaryKey, payload, function(data) {
             if ($.isset(data)) {
                 if (typeof (data) === "object") {
                     showMessage(data);
