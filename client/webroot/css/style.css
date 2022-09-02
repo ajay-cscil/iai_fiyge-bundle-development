@@ -1624,6 +1624,11 @@ a span.value{
 .popup-select-aro_id,.popup-select-aro_id,.popup-select-aro_id {
     width: 80px !important;
 }
+
+.popup-select{
+    width: 100px;
+}
+
 .cell-info-grid:last-child{
     border-right: 0px !important;
 }
