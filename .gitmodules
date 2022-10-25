@@ -1,198 +1,198 @@
 [submodule "kernel"]
 	path = kernel
-	url = https://github.com/fiyge/kernel
+	url = git@github.com:fiyge/kernel.git
 [submodule "library/Aws"]
 	path = library/Aws
-	url = https://github.com/fiyge/library-Aws
+	url = git@github.com:fiyge/library-Aws.git
 [submodule "library/Doctrine"]
 	path = library/Doctrine
-	url = https://github.com/fiyge/library-Doctrine
+	url = git@github.com:fiyge/library-Doctrine.git
 [submodule "library/Guzzle"]
 	path = library/Guzzle
-	url = https://github.com/fiyge/library-Guzzle
+	url = git@github.com:fiyge/library-Guzzle.git
 [submodule "library/JsonSchema"]
 	path = library/JsonSchema
-	url = https://github.com/fiyge/library-JsonSchema
+	url = git@github.com:fiyge/library-JsonSchema.git
 [submodule "library/Monolog"]
 	path = library/Monolog
-	url = https://github.com/fiyge/library-Monolog
+	url = git@github.com:fiyge/library-Monolog.git
 [submodule "library/Psr"]
 	path = library/Psr
-	url = https://github.com/fiyge/library-Psr
+	url = git@github.com:fiyge/library-Psr.git
 [submodule "library/Symfony"]
 	path = library/Symfony
-	url = https://github.com/fiyge/library-Symfony
+	url = git@github.com:fiyge/library-Symfony.git
 [submodule "library/Zend"]
 	path = library/Zend
-	url = https://github.com/fiyge/library-Zend
+	url = git@github.com:fiyge/library-Zend.git
 [submodule "library/emogrifier"]
 	path = library/emogrifier
-	url = https://github.com/fiyge/library-emogrifier
+	url = git@github.com:fiyge/library-emogrifier.git
 [submodule "library/phpmailer"]
 	path = library/phpmailer
-	url = https://github.com/fiyge/library-phpmailer
+	url = git@github.com:fiyge/library-phpmailer.git
 [submodule "library/simpletest"]
 	path = library/simpletest
-	url = https://github.com/fiyge/library-simpletest
+	url = git@github.com:fiyge/library-simpletest.git
 [submodule "library/svndiff"]
 	path = library/svndiff
-	url = https://github.com/fiyge/library-svndiff
+	url = git@github.com:fiyge/library-svndiff.git
 [submodule "library/tcpdf"]
 	path = library/tcpdf
-	url = https://github.com/fiyge/library-tcpdf
+	url = git@github.com:fiyge/library-tcpdf.git
 [submodule "platform/module/access_controls"]
 	path = platform/module/access_controls
-	url = https://github.com/fiyge/platform-access_controls
+	url = git@github.com:fiyge/platform-access_controls.git
 [submodule "platform/module/admin_module_installer"]
 	path = platform/module/admin_module_installer
-	url = https://github.com/fiyge/platform-admin_module_installer
+	url = git@github.com:fiyge/platform-admin_module_installer.git
 [submodule "platform/module/administration"]
 	path = platform/module/administration
-	url = https://github.com/fiyge/platform-administration
+	url = git@github.com:fiyge/platform-administration.git
 [submodule "platform/module/core"]
 	path = platform/module/core
-	url = https://github.com/fiyge/platform-core
+	url = git@github.com:fiyge/platform-core.git
 [submodule "platform/module/crm_base"]
 	path = platform/module/crm_base
-	url = https://github.com/fiyge/platform-crm_base
+	url = git@github.com:fiyge/platform-crm_base.git
 [submodule "platform/module/development"]
 	path = platform/module/development
-	url = https://github.com/fiyge/platform-development
+	url = git@github.com:fiyge/platform-development.git
 [submodule "platform/module/development_base"]
 	path = platform/module/development_base
-	url = https://github.com/fiyge/platform-development_base
+	url = git@github.com:fiyge/platform-development_base.git
 [submodule "platform/module/document_management_base"]
 	path = platform/module/document_management_base
-	url = https://github.com/fiyge/platform-document_management_base
+	url = git@github.com:fiyge/platform-document_management_base.git
 [submodule "platform/module/icons"]
 	path = platform/module/icons
-	url = https://github.com/fiyge/platform-icons
+	url = git@github.com:fiyge/platform-icons.git
 [submodule "platform/module/installation"]
 	path = platform/module/installation
-	url = https://github.com/fiyge/platform-installation
+	url = git@github.com:fiyge/platform-installation.git
 [submodule "platform/module/job_queue"]
 	path = platform/module/job_queue
-	url = https://github.com/fiyge/platform-job_queue
+	url = git@github.com:fiyge/platform-job_queue.git
 [submodule "platform/module/logging"]
 	path = platform/module/logging
-	url = https://github.com/fiyge/platform-logging
+	url = git@github.com:fiyge/platform-logging.git
 [submodule "platform/module/masters"]
 	path = platform/module/masters
-	url = https://github.com/fiyge/platform-masters
+	url = git@github.com:fiyge/platform-masters.git
 [submodule "platform/module/metadata"]
 	path = platform/module/metadata
-	url = https://github.com/fiyge/platform-metadata
+	url = git@github.com:fiyge/platform-metadata.git
 [submodule "platform/module/tags"]
 	path = platform/module/tags
-	url = https://github.com/fiyge/platform-tags
+	url = git@github.com:fiyge/platform-tags.git
 [submodule "client/module/accounting"]
 	path = client/module/accounting
-	url = https://github.com/fiyge/module-accounting
+	url = git@github.com:fiyge/module-accounting.git
 [submodule "client/module/activities"]
 	path = client/module/activities
-	url = https://github.com/fiyge/module-activities
+	url = git@github.com:fiyge/module-activities.git
 [submodule "client/module/analytics"]
 	path = client/module/analytics
-	url = https://github.com/fiyge/module-analytics
+	url = git@github.com:fiyge/module-analytics.git
 [submodule "client/module/appraisal"]
 	path = client/module/appraisal
-	url = https://github.com/fiyge/module-appraisal
+	url = git@github.com:fiyge/module-appraisal.git
 [submodule "client/module/attendance"]
 	path = client/module/attendance
-	url = https://github.com/fiyge/module-attendance
+	url = git@github.com:fiyge/module-attendance.git
 [submodule "client/module/brules"]
 	path = client/module/brules
-	url = https://github.com/fiyge/module-brules
+	url = git@github.com:fiyge/module-brules.git
 [submodule "client/module/calendar"]
 	path = client/module/calendar
-	url = https://github.com/fiyge/module-calendar
+	url = git@github.com:fiyge/module-calendar.git
 [submodule "client/module/calls"]
 	path = client/module/calls
-	url = https://github.com/fiyge/module-calls
+	url = git@github.com:fiyge/module-calls.git
 [submodule "client/module/campaigns"]
 	path = client/module/campaigns
-	url = https://github.com/fiyge/module-campaigns
+	url = git@github.com:fiyge/module-campaigns.git
 [submodule "client/module/cases"]
 	path = client/module/cases
-	url = https://github.com/fiyge/module-cases
+	url = git@github.com:fiyge/module-cases.git
 [submodule "client/module/contracts"]
 	path = client/module/contracts
-	url = https://github.com/fiyge/module-contracts
+	url = git@github.com:fiyge/module-contracts.git
 [submodule "client/module/crm"]
 	path = client/module/crm
-	url = https://github.com/fiyge/module-crm
+	url = git@github.com:fiyge/module-crm.git
 [submodule "client/module/dashboards"]
 	path = client/module/dashboards
-	url = https://github.com/fiyge/module-dashboards
+	url = git@github.com:fiyge/module-dashboards.git
 [submodule "client/module/data_management"]
 	path = client/module/data_management
-	url = https://github.com/fiyge/module-data_management
+	url = git@github.com:fiyge/module-data_management.git
 [submodule "client/module/delivery"]
 	path = client/module/delivery
-	url = https://github.com/fiyge/module-delivery
+	url = git@github.com:fiyge/module-delivery.git
 [submodule "client/module/documentation"]
 	path = client/module/documentation
-	url = https://github.com/fiyge/module-documentation
+	url = git@github.com:fiyge/module-documentation.git
 [submodule "client/module/email_intelligence"]
 	path = client/module/email_intelligence
-	url = https://github.com/fiyge/module-email_intelligence
+	url = git@github.com:fiyge/module-email_intelligence.git
 [submodule "client/module/faq"]
 	path = client/module/faq
-	url = https://github.com/fiyge/module-faq
+	url = git@github.com:fiyge/module-faq.git
 [submodule "client/module/flexflow"]
 	path = client/module/flexflow
-	url = https://github.com/fiyge/module-flexflow
+	url = git@github.com:fiyge/module-flexflow.git
 [submodule "client/module/flexflow_test"]
 	path = client/module/flexflow_test
-	url = https://github.com/fiyge/module-flexflow_test
+	url = git@github.com:fiyge/module-flexflow_test.git
 [submodule "client/module/help"]
 	path = client/module/help
-	url = https://github.com/fiyge/module-help
+	url = git@github.com:fiyge/module-help.git
 [submodule "client/module/hr"]
 	path = client/module/hr
-	url = https://github.com/fiyge/module-hr
+	url = git@github.com:fiyge/module-hr.git
 [submodule "client/module/kpi"]
 	path = client/module/kpi
-	url = https://github.com/fiyge/module-kpi
+	url = git@github.com:fiyge/module-kpi.git
 [submodule "client/module/leave_management"]
 	path = client/module/leave_management
-	url = https://github.com/fiyge/module-leave_management
+	url = git@github.com:fiyge/module-leave_management.git
 [submodule "client/module/license_management"]
 	path = client/module/license_management
-	url = https://github.com/fiyge/module-license_management
+	url = git@github.com:fiyge/module-license_management.git
 [submodule "client/module/manufacturing"]
 	path = client/module/manufacturing
-	url = https://github.com/fiyge/module-manufacturing
+	url = git@github.com:fiyge/module-manufacturing.git
 [submodule "client/module/payroll"]
 	path = client/module/payroll
-	url = https://github.com/fiyge/module-payroll
+	url = git@github.com:fiyge/module-payroll.git
 [submodule "client/module/product"]
 	path = client/module/product
-	url = https://github.com/fiyge/module-product
+	url = git@github.com:fiyge/module-product.git
 [submodule "client/module/projects"]
 	path = client/module/projects
-	url = https://github.com/fiyge/module-projects
+	url = git@github.com:fiyge/module-projects.git
 [submodule "client/module/purchase"]
 	path = client/module/purchase
-	url = https://github.com/fiyge/module-purchase
+	url = git@github.com:fiyge/module-purchase.git
 [submodule "client/module/recruitment"]
 	path = client/module/recruitment
-	url = https://github.com/fiyge/module-recruitment
+	url = git@github.com:fiyge/module-recruitment.git
 [submodule "client/module/sales"]
 	path = client/module/sales
-	url = https://github.com/fiyge/module-sales
+	url = git@github.com:fiyge/module-sales.git
 [submodule "client/module/stock"]
 	path = client/module/stock
-	url = https://github.com/fiyge/module-stock
+	url = git@github.com:fiyge/module-stock.git
 [submodule "client/module/tag_cloud"]
 	path = client/module/tag_cloud
-	url = https://github.com/fiyge/module-tag_cloud
+	url = git@github.com:fiyge/module-tag_cloud.git
 [submodule "client/module/email"]
 	path = client/module/email
 	url = git@github.com:fiyge/module-email.git
 [submodule "client/module/web_forms"]
 	path = client/module/web_forms
-	url = https://github.com/fiyge/module-web_forms.git
+	url = git@github.com:fiyge/module-web_forms.git
 [submodule "library/phpqrcode"]
 	path = library/phpqrcode
 	url = git@github.com:fiyge/library-phpqrcode.git
