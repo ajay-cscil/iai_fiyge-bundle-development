@@ -639,7 +639,7 @@ function initChart(container) {
                                             strokeWidth: 5
                                         },
                                         labelStyle: {
-                                          fontName: "Roboto2",
+                                          fontName: "Roboto",
                                           fontSize: 14,
                                           color: '#757575'
                                         }
