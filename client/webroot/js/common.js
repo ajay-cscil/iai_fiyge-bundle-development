@@ -637,6 +637,11 @@ function initChart(container) {
                                         criticalPathStyle: {
                                             stroke: '#e64a19',
                                             strokeWidth: 5
+                                        },
+                                        labelStyle: {
+                                          fontName: Roboto2,
+                                          fontSize: 14,
+                                          color: '#757575'
                                         }
                                     };
             }else{
