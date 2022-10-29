@@ -608,14 +608,24 @@ function initChart(container) {
                                         chartColumnRow.push(null);
                                     }
                                 }else if(GanttChartColumn[0] =="number"){
-                                    chartColumnRow.push(parseInt(row[GanttChartColumn[3]]));
+                                    var GanttChartColumnInt=parseInt(row[GanttChartColumn[3]]);
+                                    if(isNaN(GanttChartColumnInt)){
+                                        GanttChartColumnInt=0;
+                                    }
+                                    chartColumnRow.push(GanttChartColumnInt);
                                 }else{
                                     chartColumnRow.push(row[GanttChartColumn[3]]);
                                 }
                             }else{
-                                chartColumnRow.push(null);
+                                if(GanttChartColumn[0] =="number"){
+                                    chartColumnRow.push(0);
+                                }else{
+                                    chartColumnRow.push(null);
+                                }
+                                
                             }
                         });
+                        console.log(chartColumnRow);
                         chartColumnRows++;
                         data.addRow(chartColumnRow);
                         primaryKeys.push($(this).attr('primary_key'));  
@@ -1316,6 +1326,9 @@ function initChart(container) {
             }
             if(graphType == 'Gantt'){
                 google.visualization.events.addListener(chart, 'select',drilldownGantt);
+                google.visualization.events.addListener(chart, 'error', function(err){
+                    console.log(err);
+                });
             }else if (
                     chart !== false &&
                     (
