@@ -1314,7 +1314,7 @@ jQuery('document').ready(function($) {
             q = popupAutocomplete.attr('q');
         }
         q = decodeURIComponent(q);
-        console.log(href);
+        
         if (typeof (href) != 'undefined' && $.trim(href) != '') {
             if ($.trim(q) == '' || !$.isset(q))
                 q = '{}';
@@ -1350,12 +1350,16 @@ jQuery('document').ready(function($) {
                 });
             }
             q['where'] = $.mergeAll([q['where'], where]);
+
             $(popupAutocomplete).data('q', q);
             $(popupAutocomplete).triggerHandler('beforeSearch');
             q = $(popupAutocomplete).data('q');
             href += (href.indexOf('?') == -1 ? '?' : '') + '&action_menu_bar=1';
 
             if (q !== false) {
+                if(href.indexOf($(this).data('current_module')+"/"+$(this).data('current_controller')) != -1){
+                    q['where'][$(this).data('current_controller')+".id != "] = $(this).data('current_record_id'); 
+                }
                 $.get(href, {
                     'q': encodeURIComponent(JSON.stringify(q)),
                     'trigger': uuid
