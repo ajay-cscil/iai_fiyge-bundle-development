@@ -51,6 +51,10 @@ $configuration['debug'] = false;
 $configuration['enable_update_check'] = 0;
 $configuration['check_for_update'] = 0;
 
+$configuration['allow_author_override'] = false;
+
+
+
 /*
  * Shows memory at bottom left of every page
  */
