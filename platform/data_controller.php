@@ -187,6 +187,13 @@ class data_controller extends \kernel\controller {
 
         $request->set('id', $id);
         $request->set('data', $data);
+        
+        $request->set('rebaseline', []);
+        if(isset($modelObj->baselineFields) && !empty($modelObj->baselineFields)){
+            $rebaseline=\module\core\model\rebaseline::getInstance()->getBaseline($modelObj,$id);
+            $request->set('rebaseline',$rebaseline );
+        }
+
         if (!is_null($return)) {
             return $return;
         }
@@ -246,6 +253,12 @@ class data_controller extends \kernel\controller {
         if (!empty($form)) {
             $form['permission'] = VIEW;
             $request->set('form', $form);
+        }
+        
+        $request->set('rebaseline', []);
+        if(isset($modelObj->baselineFields) && !empty($modelObj->baselineFields)){
+            $rebaseline=\module\core\model\rebaseline::getInstance()->getBaseline($modelObj,$id);
+            $request->set('rebaseline',$rebaseline );
         }
 
         if ($this->setCurrentFormPage($request) == true) {
