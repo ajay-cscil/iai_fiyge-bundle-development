@@ -102,8 +102,17 @@ foreach ($pages as $path => $info) {
         $value = trim(tidy_get_body($tidy)->value);
         $value = substr($value, 6, -7);
         //file_put_contents(TMP . DS . 'af.html', $value);
-        $value = $css . $value;
-        $pdf->writeHTML($value);
+
+        $htmlBreakPages=explode('page-break-html',$value);
+        $htmlBreakPagesTotal=count($htmlBreakPages);
+        foreach($htmlBreakPages as $htmlBreakPageKey=>$htmlBreakPage){
+            $pdf->writeHTML(($htmlBreakPageKey ==0 ? $css:"").$htmlBreakPage);
+            if($htmlBreakPageKey < ($htmlBreakPagesTotal-1)){
+                $pdf->AddPage();
+            }
+        }
+
+        
         $pdf->Output($name, 'F');
         $pdfDocs[$name] = true;
     }
