@@ -87,6 +87,9 @@ foreach ($pages as $path => $info) {
         $imgPath = APP . DS . $organizationData['images']['storage_path'] . $organizationData['images']['path'];
     }
     $pdf->setHeaderData($imgPath, $logoWidth, $headerTitle, $headerString); //,$c_header_title
+    if(!empty($footerStr)){
+        $pdf->footer_text=$footerStr;
+    }
     $pdf->AddPage();
     if (isset($info['document']) && $info['document'] == true) {
         if (isset($info['id'])) {
@@ -111,8 +114,6 @@ foreach ($pages as $path => $info) {
                 $pdf->AddPage();
             }
         }
-
-        
         $pdf->Output($name, 'F');
         $pdfDocs[$name] = true;
     }
