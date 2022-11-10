@@ -34,7 +34,7 @@ $imgPath = '';
 $logoWidth = 0;
 $headerTitle = '';
 $headerString = '';
-$footerStr = '';
+$footerString = '';
 $pages = $this->get('pages', array());
 foreach ($pages as $path => $info) {
     $i++;
@@ -56,20 +56,25 @@ foreach ($pages as $path => $info) {
         eval($organizationData['header_data']);
     }
     $pdfConf = array();
-    //$footerStr='';
     $templateInfo = $this->get('template');
     if (!empty($templateInfo) && isset($templateInfo['header']) && !empty($templateInfo['header'])) {
         eval($templateInfo['header']);
     }
     if (!empty($templateInfo) && isset($templateInfo['footer']) && !empty($templateInfo['footer'])) {
-        $footer_String = $templateInfo['footer'];
+        $footerString = $templateInfo['footer'];
     }
+
     if (isset($pageOrientation) && !empty($pageOrientation)) {
         $pdfConf['pdf_page_orientation'] = $pageOrientation;
     }
     if (isset($pdfUnit) && !empty($pdfUnit)) {
         $pdfConf['pdf_unit'] = $pdfUnit;
     }
+    if (isset($pageFormat) && !empty($pageFormat)) {
+        $pdfConf['pdf_page_format'] = $pageFormat;
+    }
+    
+
     if (isset($headerFontFamily) && !empty($headerFontFamily)) {
         $pdfConf['header_font_family'] = $headerFontFamily;
     }
@@ -79,16 +84,34 @@ foreach ($pages as $path => $info) {
     if (isset($headerFontSize) && !empty($headerFontSize)) {
         $pdfConf['header_font_size'] = $headerFontSize;
     }
-    if (isset($footer_String) && !empty($footer_String)) {
-        $footerStr = $footer_String;
+
+    if (isset($contentFontFamily) && !empty($contentFontFamily)) {
+        $pdfConf['content_font_family'] = $contentFontFamily;
     }
+    if (isset($contentFontStyle) && !empty($contentFontStyle)) {
+        $pdfConf['content_font_style'] = $contentFontStyle;
+    }
+    if (isset($contentFontSize) && !empty($contentFontSize)) {
+        $pdfConf['content_font_size'] = $contentFontSize;
+    }
+
+    if (isset($footerFontFamily) && !empty($footerFontFamily)) {
+        $pdfConf['footer_font_family'] = $footerFontFamily;
+    }
+    if (isset($footerFontStyle) && !empty($footerFontStyle)) {
+        $pdfConf['footer_font_style'] = $footerFontStyle;
+    }
+    if (isset($footerFontSize) && !empty($footerFontSize)) {
+        $pdfConf['footer_font_size'] = $footerFontSize;
+    }
+
     $pdf = \kernel\pdf::getInstance($pdfConf, true);
     if (!empty($organizationData) && !empty($organizationData['images'])) {
         $imgPath = APP . DS . $organizationData['images']['storage_path'] . $organizationData['images']['path'];
     }
     $pdf->setHeaderData($imgPath, $logoWidth, $headerTitle, $headerString); //,$c_header_title
-    if(!empty($footerStr)){
-        $pdf->footer_text=$footerStr;
+    if(isset($footerString) && !empty($footerString)){
+        $pdf->footer_text=$footerString;
     }
     $pdf->AddPage();
     if (isset($info['document']) && $info['document'] == true) {
@@ -100,11 +123,9 @@ foreach ($pages as $path => $info) {
         }
     } else {
         $value = $this->generate(TMP . DS . $path, $this->response);
-        //file_put_contents(TMP . DS . 'bf.html', $value);
         $tidy = tidy_parse_string($value, array('output-xhtml' => TRUE));
         $value = trim(tidy_get_body($tidy)->value);
         $value = substr($value, 6, -7);
-        //file_put_contents(TMP . DS . 'af.html', $value);
 
         $htmlBreakPages=explode('page-break-html',$value);
         $htmlBreakPagesTotal=count($htmlBreakPages);
@@ -117,7 +138,6 @@ foreach ($pages as $path => $info) {
         $pdf->Output($name, 'F');
         $pdfDocs[$name] = true;
     }
-    //\unlink(TMP . DS . $path);
 }
 $pdfNew = new \Zend_Pdf();
 foreach ($pdfDocs as $file => $isTemp) {
@@ -139,25 +159,6 @@ $pdfNew->properties['Author'] = \kernel\user::read('first_name') . ' ' . \kernel
 $pdfNew->save($mergePdf);
 $name = trim($templateInfo['name']) . ".pdf";
 $this->output["filepath"]=$mergePdf;
-
-
-
-/*
-$modelObj=\module\contract_management\model\contract_downloads::getInstance();
-$log = array();
-$log['related_to'] = $this->data(array('contracts', 'id'));
-$log['related_to_model'] = 'contracts';
-$log['tmp_name'] = $mergePdf;
-$log['name'] = $name;
-$log['type'] = 'application/pdf';
-$log['error'] = \UPLOAD_ERR_OK;
-
-try {
-    $modelObj->save(array($modelObj->alias=>$log));
-} catch (\Exception $e) {
-    echo $e->getMessage();
-}
-*/
 
 if($this->request->return !=4 ){
     header('Content-type:"application/pdf"');
