@@ -157,7 +157,7 @@ $mergePdf = $base . DS . $uuid . '.pdf';
 $pdfNew->properties['Title'] = $this->data(array('contracts', 'name'));
 $pdfNew->properties['Author'] = \kernel\user::read('first_name') . ' ' . \kernel\user::read('last_name');
 $pdfNew->save($mergePdf);
-$name = trim($templateInfo['name']) . ".pdf";
+$name = trim( $this->data(['model', 'name'])." ".$templateInfo['name']) . ".pdf";
 $this->output["filepath"]=$mergePdf;
 
 if($this->request->return !=4 ){
