@@ -1876,7 +1876,17 @@ jQuery('document').ready(function($) {
                 "second": datetimeValue[2] | 0
             });
             if(datetimeValue.length ==0){
-                $thisdatetimepicker.datetimepicker('setDate', new Date());
+                let defaultDatetime=new Date();
+                if($(this).attr('name').indexOf('start_') !== -1){
+                    defaultDatetime.setHours(9);
+                    defaultDatetime.setMinutes(0);
+                    defaultDatetime.setSeconds(0);
+                }else if($(this).attr('name').indexOf('end_') !== -1 || $(this).attr('name').indexOf('due_') !== -1){
+                    defaultDatetime.setHours(17);
+                    defaultDatetime.setMinutes(0);
+                    defaultDatetime.setSeconds(0);
+                }
+                $thisdatetimepicker.datetimepicker('setDate', defaultDatetime);
             }
         }).next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
