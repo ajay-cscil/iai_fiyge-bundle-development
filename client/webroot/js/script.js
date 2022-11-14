@@ -1855,19 +1855,21 @@ jQuery('document').ready(function($) {
             if ($.isset($.config) && $.isset($.config.hour_format) && parseInt($.config.hour_format) == 12) {
                 ampm = true;
             }
-            if ($(this).attr('is_readonly') != 0) {
-                $(this).attr('readonly', 'readonly');
+            var $this=$(this);
+            if ($this.attr('is_readonly') != 0) {
+                $this.attr('readonly', 'readonly');
             } else {
-                $(this).parents(':first').find('.datetime_toggle').remove();
-                $(this).after('<a href="#" class="datetime_toggle toggle_enabled" >Enter manually</a>');
+                $this.parents(':first').find('.datetime_toggle').remove();
+                $this.after('<a href="#" class="datetime_toggle toggle_enabled" >Enter manually</a>');
             }
-            var datetimeValue = $(this).val().split(' ');
+            var datetimeValueOriginal = $.trim($this.val());
+            var datetimeValue = $this.val().split(' ');
             if (typeof (datetimeValue[1]) != 'undefined') {
                 datetimeValue = datetimeValue[1].split(':');
             } else {
                 datetimeValue = [];
             }
-            var $thisdatetimepicker=$(this).datetimepicker({
+            var $thisdatetimepicker=$this.datetimepicker({
                 "ampm": ampm,
                 "timeFormat": "hh:mm:ss TT",
                 "showSecond": true,
@@ -1877,18 +1879,22 @@ jQuery('document').ready(function($) {
             });
             if(datetimeValue.length ==0){
                 let defaultDatetime=new Date();
-                if($(this).attr('name').indexOf('start_') !== -1){
+                if($this.attr('name').indexOf('start_') !== -1){
                     defaultDatetime.setHours(9);
                     defaultDatetime.setMinutes(0);
                     defaultDatetime.setSeconds(0);
-                }else if($(this).attr('name').indexOf('end_') !== -1 || $(this).attr('name').indexOf('due_') !== -1){
+                }else if($this.attr('name').indexOf('end_') !== -1 || $this.attr('name').indexOf('due_') !== -1){
                     defaultDatetime.setHours(17);
                     defaultDatetime.setMinutes(0);
                     defaultDatetime.setSeconds(0);
                 }
                 $thisdatetimepicker.datetimepicker('setDate', defaultDatetime);
             }
-        }).next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
+            if(datetimeValueOriginal.indexOf('XVAR') != -1){
+                $this.parents(':first').find('.datetime_toggle').trigger('click');
+                $this.val(datetimeValueOriginal);
+            }
+        }).after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
 
         container.find('span.datetime').not('.template-element')
