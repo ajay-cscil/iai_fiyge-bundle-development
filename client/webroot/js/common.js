@@ -1557,13 +1557,24 @@ function initChart(container) {
     });
 })(jQuery);
 
+ var keep_alive_session_call=function(){
 
+ } 
  jQuery(document).ready(function($){
-    var time=300000;
-    setInterval(function(){
-         $.get(CONFIG['base']+'keep_alive_session_call',function(){
+    var millisecond=30000;
+    keep_alive_session_call=function(){
+         $.get(CONFIG['base']+'keep_alive_session_call',function(data){
+            jQuery(document).triggerHandler('live_events',[data]);
          console.log("Session Call");
          });
-    },time);
+    };
+    setInterval(keep_alive_session_call,millisecond);
+
+    jQuery(document).on('live_events',function(p1,data){
+        if(jQuery.isset(data['task_in_progress']) && jQuery.isset(data['task_in_progress']['name'])){
+            jQuery('.time-tracker-task').html("[<i color='red'>Task:"+data['task_in_progress']['name']+'</i>]&nbsp;&nbsp;');
+        }
+    });
+    keep_alive_session_call();
  })
 

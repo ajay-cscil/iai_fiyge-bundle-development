@@ -2490,7 +2490,17 @@ jQuery('document').ready(function($) {
             modal: true,
             width: 'auto',
             dialogClass: 'no-close',
-            buttons: {}
+            buttons: {},
+            show: {
+                                effect: "slide",
+                                duration: 500,
+                                direction: "right"
+                            },
+                            hide: {
+                                effect: "slide",
+                                duration: 500,
+                                direction: "right"
+                            }
         };
         var setting = $.extend(false, defaults, params);
         var pos = $('.ui-dialog:visible').filter(':last').position();
@@ -2510,8 +2520,12 @@ jQuery('document').ready(function($) {
         if(!isChildDialogWindow && (setting['width']=='auto' || setting['width'] > 700)){
             setting['width'] = $(document).width()-10;
             setting['height'] = $(window).height()-10;
-            setting['top'] = '0px';
-            setting['left'] ='0px';
+            if(!$.isset(setting['top'])){
+                setting['top'] = '0px';
+            }
+            if(!$.isset(setting['left']) && !$.isset(setting['right'])){
+                setting['left'] ='0px';
+            }
         }
 
         setting["close"] = function(event, ui) {
@@ -3145,6 +3159,9 @@ jQuery('document').ready(function($) {
                 $[method](href, payload, function(data) {
                     if ($(object).attr('close_dialog') == 1) {
                         $(object).closest('.js-container').dialog("destroy").remove();
+                    }
+                    if($(object).hasClass('trigger-live-event')){
+                       keep_alive_session_call();
                     }
                     if (typeof data == 'object') {
                         $.afterSaveAjaxForm({
