@@ -1560,6 +1560,27 @@ function initChart(container) {
  var keep_alive_session_call=function(){
 
  } 
+ var  timeCounter=function(time){
+        var counter=time.split(":");
+            counter[0]=parseInt(counter[0]);
+            counter[1]=parseInt(counter[1]);
+            counter[2]=parseInt(counter[2]);
+            if(counter[2] < 60){
+                counter[2]++;
+            }else if(counter[1] < 60){
+                counter[1]++;
+            }
+            if(counter[2] ==60){
+                counter[1]++;
+                counter[2]=0;
+            }
+            if(counter[1] ==60){
+                counter[0]++;
+                counter[1]=0;
+            }
+        counter=String(counter[0]).padStart(2, '0')+':'+String(counter[1]).padStart(2, '0')+':'+String(counter[2]).padStart(2, '0');
+        return counter;
+ }
  jQuery(document).ready(function($){
     var millisecond=30000;
     keep_alive_session_call=function(){
@@ -1577,9 +1598,17 @@ function initChart(container) {
     };
     setInterval(keep_alive_session_call,millisecond);
 
+    setInterval(function(){
+        jQuery('#time-counter-clock,.time-counter-clock').each(function(){
+            $this=jQuery(this);
+            timeCounter($this.html());
+            $this.html(timeCounter($this.html()));
+        });
+    },1000);
+
     jQuery(document).on('live_events',function(p1,data){
         if(jQuery.isset(data['task_in_progress']) && jQuery.isset(data['task_in_progress']['name'])){
-            jQuery('.time-tracker-task').html("[<i color='red'>Task:"+data['task_in_progress']['name']+'</i>]&nbsp;&nbsp;');
+            jQuery('.time-tracker-task').html("[<i>"+data['task_in_progress']['name']+'(<span id="time-counter-clock" style="padding:2px;color:red;">'+(data['task_in_progress']['total_time_spent'])+'</span>)'+'</i>]&nbsp;&nbsp;');
         }else{
             jQuery('.time-tracker-task').html("");
         }
