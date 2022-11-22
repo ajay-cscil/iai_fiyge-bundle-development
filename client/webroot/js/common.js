@@ -1573,6 +1573,8 @@ function initChart(container) {
     jQuery(document).on('live_events',function(p1,data){
         if(jQuery.isset(data['task_in_progress']) && jQuery.isset(data['task_in_progress']['name'])){
             jQuery('.time-tracker-task').html("[<i color='red'>Task:"+data['task_in_progress']['name']+'</i>]&nbsp;&nbsp;');
+        }else{
+            jQuery('.time-tracker-task').html("");
         }
     });
     keep_alive_session_call();
