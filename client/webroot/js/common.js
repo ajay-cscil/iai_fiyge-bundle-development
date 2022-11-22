@@ -1563,10 +1563,17 @@ function initChart(container) {
  jQuery(document).ready(function($){
     var millisecond=30000;
     keep_alive_session_call=function(){
-         $.get(CONFIG['base']+'keep_alive_session_call',function(data){
-            jQuery(document).triggerHandler('live_events',[data]);
-         console.log("Session Call");
-         });
+        jQuery.ajax({
+            type: "GET",
+            timeout: 35000,
+            url: CONFIG['base']+'keep_alive_session_call',
+            success: function(data){
+                jQuery(document).triggerHandler('live_events',[data]);
+                console.log("Session Call");
+            }, 
+            global: false,     // this makes sure ajaxStart is not triggered
+            dataType: 'json',
+        });
     };
     setInterval(keep_alive_session_call,millisecond);
 
