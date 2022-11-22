@@ -2491,7 +2491,10 @@ jQuery('document').ready(function($) {
             width: 'auto',
             dialogClass: 'no-close',
             buttons: {},
-            show: {
+            
+        };
+        /*
+        show: {
                                 effect: "slide",
                                 duration: 500,
                                 direction: "right"
@@ -2501,7 +2504,7 @@ jQuery('document').ready(function($) {
                                 duration: 500,
                                 direction: "right"
                             }
-        };
+        */
         var setting = $.extend(false, defaults, params);
         var pos = $('.ui-dialog:visible').filter(':last').position();
         $("body").append('<div id="' + uuid + '" class="js-container"><span class="content">Records</span></p></div>');
