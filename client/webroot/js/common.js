@@ -581,7 +581,7 @@ function initChart(container) {
                          data.addColumn(GanttChartColumn[0],GanttChartColumn[1]);
                     });
                           
-
+                    var chartColumnRowList=[];
                     $(this).find('tr:gt(0)').each(function() {
                         var row = [];
                         var i = 0;
@@ -625,11 +625,29 @@ function initChart(container) {
                                 
                             }
                         });
-                        console.log(chartColumnRow);
+                        
                         chartColumnRows++;
-                        data.addRow(chartColumnRow);
+                        chartColumnRowList.push(chartColumnRow);
                         primaryKeys.push($(this).attr('primary_key'));  
                     });
+                    var chartColumnRowListLength=chartColumnRowList.length;
+                    for(var chartColumnRowListKey=0; chartColumnRowListKey < chartColumnRowListLength; chartColumnRowListKey++){
+                        var dependencies=chartColumnRowList[chartColumnRowListKey][7];  
+                        dependencies=dependencies.split(";");
+                        var validDependencies=[];
+                        if(jQuery.isArray(dependencies)){
+                            jQuery.each(dependencies,function(k,v){
+                                if(jQuery.inArray(v,primaryKeys) != -1){
+                                    validDependencies.push(v);
+                                }
+                            });
+                        }
+                        chartColumnRowList[chartColumnRowListKey][7]=validDependencies.join(";");
+                    } 
+                    for(var chartColumnRowListKey=0; chartColumnRowListKey < chartColumnRowListLength; chartColumnRowListKey++){
+                        data.addRow(chartColumnRowList[chartColumnRowListKey]);    
+                    }   
+
                     graphType = 'Gantt';
                     options['height']= (50* chartColumnRows) + 1000;
                     options['gantt']={
@@ -1581,6 +1599,7 @@ function initChart(container) {
         counter=String(counter[0]).padStart(2, '0')+':'+String(counter[1]).padStart(2, '0')+':'+String(counter[2]).padStart(2, '0');
         return counter;
  }
+ /*
  jQuery(document).ready(function($){
     var millisecond=30000;
     keep_alive_session_call=function(){
@@ -1615,4 +1634,5 @@ function initChart(container) {
     });
     keep_alive_session_call();
  })
+ */
 
