@@ -1579,6 +1579,7 @@ function initChart(container) {
 
  } 
  var  timeCounter=function(time){
+        var time=String(time);
         var counter=time.split(":");
             counter[0]=parseInt(counter[0]);
             counter[1]=parseInt(counter[1]);
@@ -1599,7 +1600,7 @@ function initChart(container) {
         counter=String(counter[0]).padStart(2, '0')+':'+String(counter[1]).padStart(2, '0')+':'+String(counter[2]).padStart(2, '0');
         return counter;
  }
- /*
+ 
  jQuery(document).ready(function($){
     var millisecond=30000;
     keep_alive_session_call=function(){
@@ -1634,5 +1635,5 @@ function initChart(container) {
     });
     keep_alive_session_call();
  })
- */
+ 
 
