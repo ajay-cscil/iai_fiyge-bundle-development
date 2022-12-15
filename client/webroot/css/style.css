@@ -1048,8 +1048,10 @@ form > .block{
     padding-top:3px;
     overflow:hidden;
     margin-left:3px;
-
-
+    min-width: 80%;
+}
+.active_level_column input{
+    width: 90%;
 }
 .tree-color{
     font-weight: bold;
