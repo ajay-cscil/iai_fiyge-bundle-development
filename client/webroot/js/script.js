@@ -1291,6 +1291,66 @@ jQuery('document').ready(function($) {
      * @author Tushar Takkar<ttakkar@primarymodules.com>
      */
 
+    
+    
+    $(document).on('click', '.popup-select-record,.popup-multi-select-record', function(event) {
+        console.log('click -> .popup-select-record,.popup-multi-select-record');
+        log('click -> .popup-select-record,.popup-multi-select-record');
+        var uuid = $.uu();
+        $(this).attr('id', uuid);
+        var href = '';
+        var q = '';
+        href = $(this).attr('href');
+        q = $(this).attr('q');
+        q = decodeURIComponent(q);
+        
+        if (typeof (href) != 'undefined' && $.trim(href) != '') {
+            if ($.trim(q) == '' || !$.isset(q))
+                q = '{}';
+            q = parseJSON(q);
+            if (!$.isPlainObject(q)) {
+                q = {};
+            }
+            q['limit'] = 16;
+            if($(this).hasClass('popup-multi-select-record')){
+                q['actions'] = [];
+            }else{
+                q['actions'] = ['select'];
+            }
+            
+            if (!$.isset(q['where'])) {
+                q['where'] = [];
+            }
+            q['fetch'] = 1;
+            q['merge_paginate'] = 1;
+
+            var where = {};
+            q['where'] = $.mergeAll([q['where'], where]);
+            href += (href.indexOf('?') == -1 ? '?' : '') + '&action_menu_bar=1';
+
+            if (q !== false) {
+                if(href.indexOf($(this).data('current_module')+"/"+$(this).data('current_controller')) != -1){
+                    q['where'][$(this).data('current_controller')+".id != "] = $(this).data('current_record_id'); 
+                }
+                $.get(href, {
+                    'q': encodeURIComponent(JSON.stringify(q)),
+                    'trigger': uuid
+                }, function(data) {
+                    var params = {
+                        "width": ((parseInt($('body').width()) / 100) * (CONFIG.popup_width_percent || 80)),
+                        "height": ((parseInt(screen.height) / 100) * (CONFIG.popup_height_percent ? CONFIG.popup_height_percent : 80))
+                    };
+                    params['title'] = popupTitle(href);
+                    var uuid = $.jsContainer(data, params);
+                    $.initFields($('#' + uuid));
+                });
+            }
+        }
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        return false;
+    });
+
     $(document).on('click', '.popup-add', function(event) {
         console.log('click -> .popup-add');
         log('click -> .popup-add');
@@ -2873,7 +2933,6 @@ jQuery('document').ready(function($) {
                     document.location.href = href;
                 } else {
                     $.get(href, function(data) {
-                        console.log(data);
                         if (typeof (data) === "object") {
                             if(data.errors.join('').indexOf('it has dependent') != -1){
                                 var overrideMessage=data.message.join('. ')+'. <div style="color:#cd0a0a;"><b>Do you still want to override and continue delete?</b></div>';
@@ -3017,21 +3076,23 @@ jQuery('document').ready(function($) {
                 select_all_records_query['view_controller'] = 'analytics/reports';
             }
             select_all_records_query['view_id'] = table.attr('listview_id');
-            console.log(select_all_records_query);
+
             var select_all_records = $('#select_all_records-' + searchView).find(':checked').length;
             if (isDeleteAction) {
-                href = $.buildURL(href, {
-                    'id': ids,
-                    'related_to': form_document_id,
-                    'select_all_records': select_all_records,
-                    'q': encodeURIComponent(JSON.stringify(select_all_records_query))
-                });
+                var buildURLParams={'id': ids,'select_all_records': select_all_records,'q': encodeURIComponent(JSON.stringify(select_all_records_query))};
+                if(form_document_id){
+                    buildURLParams['related_to']= form_document_id;
+                }
+                href = $.buildURL(href, buildURLParams);
             } else {
-                href = $.buildURL(href, {
-                    'related_to': form_document_id,
+                var buildURLParams={
                     'select_all_records': select_all_records,
                     'q': encodeURIComponent(JSON.stringify(select_all_records_query))
-                });
+                };
+                if(form_document_id){
+                    buildURLParams['related_to']= form_document_id;
+                }
+                href = $.buildURL(href, buildURLParams);
             }
             payload['data[action][reload]'] = "reload";
             payload['data[listview_id]'] = table.attr('listview_id');
@@ -3385,6 +3446,31 @@ jQuery('document').ready(function($) {
             $('#' + uuid).dialog("destroy").remove();
         if ($.isset(data)) {
             if (typeof (data) === "object") {
+
+                if (typeof (data['refreash_paginate_link']) != 'undefined') {
+                    var refreash_paginate_link=[];
+                    if(typeof (data['refreash_paginate_link']) == "string"){
+                        refreash_paginate_link.push(data['refreash_paginate_link']);
+                    }else{
+                        refreash_paginate_link=data['refreash_paginate_link'];
+                    }
+                    if(jQuery.isArray(refreash_paginate_link)){
+                        jQuery.each(refreash_paginate_link,function(k,refreash_paginate_linkv){
+                            if(refreash_paginate_linkv.indexOf('/') !== -1){
+                                jQuery('.active-paginate-link').each(function(){
+                                    var activePaginateLink=jQuery(this).attr('href');
+                                    if(activePaginateLink){
+                                        if(activePaginateLink.indexOf(refreash_paginate_linkv) != -1){
+                                            console.log([activePaginateLink,refreash_paginate_linkv]);
+                                            jQuery(this).trigger("click");
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }
+
                 if (typeof (data['redirect_to_url']) != 'undefined') {
                     var uid = $.uu();
                     $('body').append('<a href="' + data['redirect_to_url'] + '" id="' + uid + '" style="display:none;" class="ajax-popup">Next Action</a>')
