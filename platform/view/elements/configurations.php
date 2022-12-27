@@ -9,24 +9,70 @@ foreach ($configModels as $configModel) {
     $configModel = "{$configModel[2]}/{$configModel[4]}/index";
     $urls[$configModel] = $configModel;
 }
+$urls=array_values($urls);
 
-if (!empty($urls)) {
-    $urls = array_values($urls);
-    $compatibleWith = (\kernel\request::$mobile == true ? 'mobile_compatible' : 'web_compatible');
-    $modelObj = \module\development_base\model\menus::getInstance(array(), true);
-    $urls = $modelObj->find(
+$compatibleWith = (\kernel\request::$mobile == true ? 'mobile_compatible' : 'web_compatible');
+$modelObj = \module\development_base\model\menus::getInstance(array(), true);
+
+$nonConfigurations = $modelObj->find(
                     array(
                         'fields' => array("{$modelObj->alias}.url_key"),
                         'where' => array(
                             "{$modelObj->alias}.url_key" => $urls, 
                             "{$modelObj->alias}.is_active" => 1, 
-                            "{$modelObj->alias}.{$compatibleWith}" => 1
+                            "{$modelObj->alias}.{$compatibleWith}" => 1,
+                            "{$modelObj->alias}.type" => 'controller',
+                            "parentMenu.type !="=>'Configurations',
+                            "{$modelObj->alias}.full_name LIKE"=>'app-menu.%',
                         ),
                         'order' => array("{$modelObj->alias}.sequence"),
                         'limit' => 0
                     )
             )->fetchAll(\PDO::FETCH_COLUMN);
+if(is_array($nonConfigurations)){
+    $urls=array_diff($urls, $nonConfigurations);
 }
+
+// fetch fetch menu of type controller for current controller and fech all its configurations.
+
+$urlsMenuList=[];
+        $urlsMenuList = $modelObj->find(
+                    [
+                        'fields' => ["{$modelObj->alias}.url_key"],
+                        'where' => [
+                            "{$modelObj->alias}.is_active" => 1, 
+                            "{$modelObj->alias}.{$compatibleWith}" => 1,
+                            "parentMenu.type" => 'Configurations',
+                            "grandParentMenu.url_key" => "{$this->request->module}/{$this->request->controller}/index", 
+                            "grandParentMenu.is_active" => 1, 
+                            "grandParentMenu.{$compatibleWith}" => 1,
+                            "grandParentMenu.type" => 'controller'   
+                        ],
+                        'joins'=>[
+                            "parentMenu"=>[
+                                "db"=>$modelObj->db,
+                                "type"=>"INNER",    
+                                "table"=>$modelObj->table, 
+                                "alias"=>"parentMenu",
+                                "on"=>["{$modelObj->alias}.parent_id=parentMenu.id"]
+                            ],
+                            "grandParentMenu"=>[
+                                "db"=>$modelObj->db,
+                                "type"=>"INNER",    
+                                "table"=>$modelObj->table, 
+                                "alias"=>"grandParentMenu",
+                                "on"=>["parentMenu.parent_id=grandParentMenu.id"]
+                            ]
+                        ],
+                        'order' => ["{$modelObj->alias}.sequence"],
+                        'limit' => 0
+                    ]
+            )->fetchAll(\PDO::FETCH_COLUMN);
+        
+$urls=array_merge($urls,$urlsMenuList);
+$urls=array_unique($urls);
+
+
 $controllers = array();
 foreach ($urls as $url) {
     $url = explode("/", $url);
