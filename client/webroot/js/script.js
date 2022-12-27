@@ -3461,7 +3461,6 @@ jQuery('document').ready(function($) {
                                     var activePaginateLink=jQuery(this).attr('href');
                                     if(activePaginateLink){
                                         if(activePaginateLink.indexOf(refreash_paginate_linkv) != -1){
-                                            console.log([activePaginateLink,refreash_paginate_linkv]);
                                             jQuery(this).trigger("click");
                                         }
                                     }
