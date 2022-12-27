@@ -44,14 +44,14 @@ $configuration['button_set_position'] = array('_form', '_workflow', '_menus');
  * Useful for Audit purposes or Troubleshooting. 
  */
 $configuration['disable_data_acl'] = false;
-$configuration['debug'] = false;
+$configuration['debug'] = true;
 
 
 
 $configuration['enable_update_check'] = 0;
 $configuration['check_for_update'] = 0;
 
-$configuration['allow_author_override'] = false;
+$configuration['allow_author_override'] = true;
 
 
 
