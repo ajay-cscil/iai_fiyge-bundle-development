@@ -87,8 +87,15 @@ class data_controller extends \kernel\controller {
                 }
 
                 // set currenty performed form action into data
-                if (isset($data['action']) && isset($data[$modelObj->alias]))
+                if (isset($data['action']) && isset($data[$modelObj->alias])){
                     $data[$modelObj->alias]['action'] = $data['action'];
+                }
+
+                if(isset($data[$modelObj->alias]['action'])){
+                    $data[$modelObj->alias]['action']=[str_ireplace(['_&_continue','_and_continue'], ['',''], key($data[$modelObj->alias]['action']))=>current($data[$modelObj->alias]['action'])];
+                }
+                
+
                 // try to save data
                 $isReload = (isset($data['action']) && isset($data['action']['reload']));
                 if ($isReload === false) {
@@ -103,9 +110,9 @@ class data_controller extends \kernel\controller {
                                         , $this->actionLabel($request, isset($data[$modelObj->alias]['action']) ? $data[$modelObj->alias]['action'] : 'save')
                                 )
                         );
-
+                        $shouldContinue=(isset($data['action']) && is_array($data['action']) && stripos(key($data['action']),"_continue") !== false);
                         if ($multiPageForm !== 1) {
-                            $return = "{$request->module}/{$request->controller}/view/id:{$modelObj->id}";
+                            $return = ["{$request->module}/{$request->controller}/view/id:{$modelObj->id}",$shouldContinue,$shouldContinue];
                         } else {
                             $return = array("{$request->module}/{$request->controller}/{$request->action}/id:{$id}?current_form_page=" . $request->response('current_form_page'), true, true);
                         }
