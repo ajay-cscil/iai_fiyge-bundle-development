@@ -2174,6 +2174,36 @@ div.fadeMeOverlayMessage {
 .time-tracker-control{
     color: #FF0000;
 }
+.workflow-stage-progress-neutral-open{
+    font-weight: bold;
+}
+.workflow-stage-progress-neutral-close{
+    color:#808080;
+}
+.workflow-stage-progress-neutral-future{
+
+}
+.workflow-stage-progress-positive-open{
+    font-weight: bold;
+    color:#5cb85c;
+}
+.workflow-stage-progress-positive-close{
+     color:#5cb85c;
+}
+.workflow-stage-progress-positive-future{
+
+}
+.workflow-stage-progress-negative-open{
+    font-weight: bold;
+    color:#d9534f;
+}
+.workflow-stage-progress-negative-close{
+     color:#d9534f;
+}
+.workflow-stage-progress-negative-future{
+
+}
+
   
   
   
