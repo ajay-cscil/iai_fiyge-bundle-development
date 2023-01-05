@@ -26,6 +26,15 @@ function log(message) {
  */
 
 
+function array_column(matrix, col){
+       var column = [];
+       if(Array.isArray(matrix)){
+           for(var i=0; i<matrix.length; i++){
+              column.push(matrix[i][col]);
+           }
+       }
+       return column;
+}
 
 function html_entity_decode(string, quote_style) {
     //return string.replace('&lt;','<').replace('&gt;','>');
