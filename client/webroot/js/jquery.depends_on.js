@@ -444,15 +444,16 @@
                     // we get our data when promise done
                     dataPromise.done(function(result) {
                         //calling data cleaner to clean data
-                        data = result['paginate']['data'][0];
-                        for (x in data) {
-                            log('Auto-population populatePopupValue : [name="' + dependentName + '"].val(' + data[x] + ')');
+                        if(Array.isArray(result['paginate']['data']) && result['paginate']['data'].length > 0){
+                            var data = result['paginate']['data'][0];
+                            var allLabel=Object.values(data);
+                            var label=($.isset(data['name'])?data['name']:(allLabel.length > 0)?allLabel[0]:'');
+                            log('Auto-population populatePopupValue : [name="' + dependentName + '"].val(' + label + ')');
                             log('Auto-population populatePopupValue : [name="' + popupHidden + '"]).val(' + id + ')');
 
-                            form.find('[name="' + dependentName + '"]').val(data[x]).trigger('change');
+                            form.find('[name="' + dependentName + '"]').val(label).trigger('change');
                             form.find('[name="' + popupHidden + '"]').val(id).trigger('change');
-
-                        }
+                        }    
                     });
                 }
             }
