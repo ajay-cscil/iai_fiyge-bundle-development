@@ -1905,7 +1905,7 @@ jQuery('document').ready(function($) {
                 $(this).after('<a href="#" class="date_toggle toggle_enabled">Enter manually</a>');
             }
         })
-        .datepicker({"yearRange": "-100:+5"}).next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
+        .datepicker({"yearRange": "-100:15"}).next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
 
         container.find('span.date')
         .not('.template-element')
