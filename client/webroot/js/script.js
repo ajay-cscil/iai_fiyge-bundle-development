@@ -1819,6 +1819,10 @@ jQuery('document').ready(function($) {
         container.find('[editor="WYSIWYG"]').not('.template-element').each(function() {
             var properties = {};
             var height = parseInt($(this).css('height'));
+            var rows = parseInt($(this).attr('rows'));
+            if(rows > 0){
+                height=rows*20;
+            }
             if ($.isset(height) && height > 250)
                 properties['height'] = height;
 
@@ -2449,6 +2453,15 @@ jQuery('document').ready(function($) {
                    $tabAnchor.parents("li:first").remove();
                 }
             });
+        });
+
+        container.find('select:visible').not(".popup-select").each(function(){
+            var select2Params={};
+            var uiWidgetContent=jQuery(this).closest('.ui-widget-content');
+            if(uiWidgetContent.length){
+                select2Params.dropdownParent=uiWidgetContent;
+            }
+            jQuery(this).select2(select2Params);
         });
 
         container.find('textarea[editor="form-builder"]').each(function(){
