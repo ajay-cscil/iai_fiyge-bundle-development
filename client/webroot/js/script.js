@@ -2455,6 +2455,7 @@ jQuery('document').ready(function($) {
             });
         });
 
+        /*
         container.find('select:visible').not(".popup-select").each(function(){
             var select2Params={};
             var uiWidgetContent=jQuery(this).closest('.ui-widget-content');
@@ -2462,7 +2463,7 @@ jQuery('document').ready(function($) {
                 select2Params.dropdownParent=uiWidgetContent;
             }
             jQuery(this).select2(select2Params);
-        });
+        });*/
 
         container.find('textarea[editor="form-builder"]').each(function(){
             $textarea=jQuery(this);
