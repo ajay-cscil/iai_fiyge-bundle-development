@@ -601,6 +601,8 @@
         .addClass(POPUP_CLASS)
         .appendTo("body");
 
+        $popup.addClass('ui-dialog').width('500px');
+
         // Add the content
 
         // Custom popup
@@ -643,7 +645,7 @@
 
         // URL
         else if (popupName == "url") {
-            $popup.html('Enter URL:<br><input type=text value="http://" size=35><br><input type=button value="Submit">');
+            $popup.html('Enter URL:<br><input type=text value="http://" size=100><br><input type=button value="Submit">');
             popupTypeClass = PROMPT_CLASS;
         }
 
