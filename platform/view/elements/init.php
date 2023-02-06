@@ -63,6 +63,15 @@ echo \kernel\html::js($this->request, '/js/jquery');
 echo \kernel\html::js($this->request, '/js/jquery-ui');
 ?>
 <script type="text/javascript">
+    function autoResizeIframe(iframe) {
+            var autoResizeIframeHeight=jQuery(iframe).contents().find('html').height();
+            console.log(autoResizeIframeHeight);
+            if(autoResizeIframeHeight < 30){
+                autoResizeIframeHeight=30;
+            }
+            jQuery(iframe).height(autoResizeIframeHeight);
+    }
+
     jQuery(document).ready(function($) {
 
 <?php if (\kernel\configuration::read('show_http_loader_image')) { ?>
