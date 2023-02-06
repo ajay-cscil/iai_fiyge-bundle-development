@@ -1967,11 +1967,11 @@ jQuery('document').ready(function($) {
                 $this.parents(':first').find('.datetime_toggle').trigger('click');
                 $this.val(datetimeValueOriginal);
             }
-        }).after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
+        }).closest('.cell-info').append('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
 
         container.find('span.datetime').not('.template-element')
-        .after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
+        .closest('.cell-info').append('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
         /**
          * Initialize time picker
