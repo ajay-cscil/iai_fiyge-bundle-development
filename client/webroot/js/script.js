@@ -1967,11 +1967,11 @@ jQuery('document').ready(function($) {
                 $this.parents(':first').find('.datetime_toggle').trigger('click');
                 $this.val(datetimeValueOriginal);
             }
-        }).after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
+        }).closest('.cell-info').append('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
 
         container.find('span.datetime').not('.template-element')
-        .after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
+        .closest('.cell-info').append('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
         /**
          * Initialize time picker
@@ -2617,6 +2617,22 @@ jQuery('document').ready(function($) {
         setting["close"] = function(event, ui) {
             $('#main-panel').removeClass('passive');
             $(this).dialog('destroy').remove();
+        }
+        var formObject=$("#" + uuid).find('form');
+        if(formObject.length){
+            if(formObject.hasClass('height-100px')){
+                setting['height']=100;
+            }else if(formObject.hasClass('height-200px')){
+                setting['height']=200;
+            }else if(formObject.hasClass('height-300px')){
+                setting['height']=300;
+            }else if(formObject.hasClass('height-400px')){
+                setting['height']=400;
+            }else if(formObject.hasClass('height-500px')){
+                setting['height']=500;
+            }else if(formObject.hasClass('height-600px')){
+                setting['height']=600;
+            }
         }
         $("#" + uuid).dialog(setting).dialog('open');
         $('#main-panel').addClass('passive');
