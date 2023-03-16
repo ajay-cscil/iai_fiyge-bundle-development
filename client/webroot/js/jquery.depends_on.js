@@ -54,7 +54,7 @@
                             href = $((typeof (this.element) != 'undefined' && typeof (this.element[0]) != 'undefined' ? this.element[0] : this)).attr('href');
                         }
                         if (typeof (href) != 'undefined' && $.trim(href) != '') {
-                            href = href.replace('/index', '/view');
+                            href = href.split("?")[0].replace('/index', '/view');
                             href += ".json?id=" + id;
                             $(this).data('data_source_url', href);
                             event.preventDefault();
@@ -427,6 +427,7 @@
             try {
                 var source = $(form.find('[name="' + dependentName + '"]')).attr('href');
                 if (typeof (source) != 'undefined' && $.trim(source) != '') {
+                    source=source.split("?")[0];
                     source += '.json';
                     if (source.indexOf('view') > -1) {
                         source = source.replace('/view', '/index');
