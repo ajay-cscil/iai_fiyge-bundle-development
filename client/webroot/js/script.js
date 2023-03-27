@@ -3982,7 +3982,7 @@ jQuery('document').ready(function($) {
     $(document).on('click', '.ui-tabs-anchor', function(event) {
         log('click -> .ui-tabs-anchor');
 
-        $($(this).attr('href')).find('iframe').each(function(){
+        $($(this).attr('href')).find('iframe.auto-resize-iframe').each(function(){
             autoResizeIframe(jQuery(this).get(0));
         });
 
