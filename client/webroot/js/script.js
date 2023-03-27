@@ -219,19 +219,23 @@ jQuery.fn.valJSON = function(value, text, merge) {
     }
 }
 function autoResizeIframe(iframe) {
-    var autoResizeIframeHeight=jQuery(iframe).contents().find('html').height();
-    console.log(autoResizeIframeHeight);
-    if(autoResizeIframeHeight < 30){
-        autoResizeIframeHeight=30;
+    var autoResizeIframeHeight=iframe.contentWindow.document.body.scrollHeight;
+    console.log({"autoResizeIframeHeight":autoResizeIframeHeight});
+    if(jQuery(iframe).is(':visible')){
+        if(autoResizeIframeHeight < 30){
+            autoResizeIframeHeight=30;
+        }
+        jQuery(iframe).height(autoResizeIframeHeight);
+        jQuery(iframe).attr('scrolling','no');
+    }else{
+        jQuery(iframe).attr('scrolling','yes');
     }
-    jQuery(iframe).height(autoResizeIframeHeight);
 }
 
 /**
  * @author Tushar Takkar<ttakkar@primarymodules.com>
  */
 jQuery('document').ready(function($) {
-
     /**
      * check if variable defined
      *
@@ -3977,6 +3981,11 @@ jQuery('document').ready(function($) {
 
     $(document).on('click', '.ui-tabs-anchor', function(event) {
         log('click -> .ui-tabs-anchor');
+
+        $($(this).attr('href')).find('iframe').each(function(){
+            autoResizeIframe(jQuery(this).get(0));
+        });
+
         $($(this).attr('href')).find('.show-listview').each(function() {
             if ($(this).hasClass('open_on_focus')) {
                 $(this).closest('fieldset').find('.collapsible').trigger('click');
@@ -4176,9 +4185,6 @@ jQuery('document').ready(function($) {
         event.preventDefault();
         return false;
     });
-    
-    
-    
     
     
 });
