@@ -249,7 +249,7 @@ jQuery('document').ready(function($) {
     /**
      * @author Tushar Takkar<ttakkar@primarymodules.com>
      */
-    $.ucWords = function(str) {
+    $.ucWords = function(str,firstCharOnly) {
         log('ucWords');
 
         // split string on spaces
@@ -264,8 +264,10 @@ jQuery('document').ready(function($) {
 
             // convert case
             firstChar = firstChar.toUpperCase();
-            remainChar = remainChar.toLowerCase();
-
+            if(!(firstCharOnly && firstCharOnly===true)){
+                remainChar = remainChar.toLowerCase();
+            }
+            
             strOut += firstChar + remainChar + ' ';
         }
 
@@ -3364,9 +3366,11 @@ jQuery('document').ready(function($) {
         }
         //else use post to submit
         var should_validate = (typeof (settings.href) != 'undefined' && settings.href.split('?')[0].indexOf('edit_selected') == -1) ? true : false;
+        console.log({should_validate:should_validate});
         if (frame !== false) {
             form.submit(function(event) {
                 var form = $(this);
+                jQuery(this).find('.not-empty-input').attr('REQUIRED','REQUIRED');
                 // Validation on form submit
                 if (should_validate === true) {
                     if (!form.valid()) {
