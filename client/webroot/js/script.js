@@ -3309,7 +3309,7 @@ jQuery('document').ready(function($) {
      */
 
     $.initAjaxForm = function(settings) {
-        log('initAjaxForm');
+        console.log('initAjaxForm');
         var data = settings['data'] || false;
         var listviewTableId = settings['listview_table_id'] || false;
         var baseTableID = settings['base_table_id']||false;
@@ -3479,7 +3479,7 @@ jQuery('document').ready(function($) {
      */
 
     $.afterSaveAjaxForm = function(settings) {
-        log('afterSaveAjaxForm');
+        console.log('afterSaveAjaxForm');
         var data = settings['data'] || false;
         var listviewTableId = settings['listview_table_id'] || false;
         var baseTableID = settings['base_table_id']||false;
@@ -3488,6 +3488,27 @@ jQuery('document').ready(function($) {
         var href = settings['href'] || false;
         var containerParams = settings['container_params'] || false;
         var object = settings['object'] || false;
+
+
+        if(jQuery(object).hasClass('on_click_reload_form')){
+            console.log('click -> on_click_reload_form');
+            var form = jQuery(object).closest('form');
+            form.validate().currentForm = '';
+            var button = form.find('input[name="data[action][reload]"]:first');
+            if (button.length == 0) {
+                form.prepend('<input type="hidden" name="data[action][reload]" value="' + jQuery(object).attr('name') + '" >');
+            } else {
+                button.val(jQuery(object).attr('name'));
+            }
+            var button = form.find('[type="submit"]:first');
+            if (button.length == 0) {
+                form.prepend('<input type="submit" name="submit" style="display:none;">');
+                button = form.find('[type="submit"]:first');
+            }
+            button.trigger('click');
+            return false;
+        }
+
 
         if ($.isset(uuid))
             $('#' + uuid).dialog("destroy").remove();
@@ -3961,6 +3982,7 @@ jQuery('document').ready(function($) {
         event.stopPropagation();
         return false;
     });
+
     $('.no-enter-submit').bind('keypress', function(event) {
         if (event.which == 13)
             event.preventDefault();
