@@ -1629,8 +1629,14 @@ function initChart(container) {
     jQuery(document).on('live_events',function(p1,data){
         if(jQuery.isset(data) && jQuery.isset(data['task_in_progress']) && jQuery.isset(data['task_in_progress']['name'])){
             jQuery('.time-tracker-task').html("[<i>"+data['task_in_progress']['name']+'(<span id="time-counter-clock" style="padding:2px;">'+(data['task_in_progress']['total_time_spent'])+'</span>)'+'</i>]&nbsp;&nbsp;');
+            jQuery('.time-tracker-current-task').each(function(){
+                if(jQuery(this).attr('task_id') ==data['task_in_progress']['id']){
+                    jQuery(this).html("<i>"+'(<span id="time-counter-clock" style="padding:2px;">'+(data['task_in_progress']['total_time_spent'])+'</span>)'+'</i>&nbsp;&nbsp;');
+                }
+            });
         }else{
             jQuery('.time-tracker-task').html("");
+            jQuery('.time-tracker-current-task').html("");
         }
     });
     keep_alive_session_call();
