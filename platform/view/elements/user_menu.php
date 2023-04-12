@@ -32,12 +32,12 @@ if (\kernel\request::authenticate()) {
                 $menu[$item['url']]=$item;
             }            
         }
-        if($menu['projectivity/tasks/time_tracker']){
+        if(isset($menu['projectivity/tasks/time_tracker'])){
             $menus[] = '<a href="' . $this->request->base . 'projectivity/tasks/index?current_listview=62278f42-e218-497c-ad30-4d41ac69033c" data-panel="right" class="time-tracker-control"  ajax=1 ><span class="time-tracker-task"></span>Time Tracker</a>';
             unset($menu['projectivity/tasks/time_tracker']);
         }
         
-        if($menu['access_controls/users/_help']){
+        if(isset($menu['access_controls/users/_help'])){
             $menus[] = '<a href="' . $this->request->base . 'access_controls/users/_help"  ajax=1 >Help</a>';
         }
         $menus[] = '<a href="' . $this->request->base . 'access_controls/users/view/id:{{USER_ID}}"  ajax=1 >{{NAME}}</a>';
