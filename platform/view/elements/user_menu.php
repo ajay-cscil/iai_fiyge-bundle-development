@@ -13,26 +13,39 @@ if (\kernel\request::authenticate()) {
     if (empty($menus)) {
         $modelObj = \module\development_base\model\menus::getInstance(array(), true);
 
-        $menu = $modelObj->find(
-                            array(
-                                'fields' => array('menus.*'),
-                                'where' => array(
-                                    'menus.type' => 'controller',
-                                    'menus.is_active' => 1,
-                                ),
+        $menu=[];
+        $menuList = $modelObj->find(
+                            [
+                                'fields' => ['menus.*'],
+                                'where' => [
+                                    'menus.type' => ['controller','action'],
+                                    'menus.is_active' =>1
+                                ],
                                 'limit' => 0,
-                                'order' => array('menus.sequence ASC'),
+                                'order' => ['menus.sequence ASC'],
                                 'with_recursive'=>['name'=>'user-menu','parent_id'=>'']
-                            )
+                            ]
                     )
                     ->fetchAll(\PDO::FETCH_ASSOC);
-
-        $menus[] = '<a href="' . $this->request->base . 'projectivity/tasks/index?current_listview=62278f42-e218-497c-ad30-4d41ac69033c" data-panel="right" class="time-tracker-control"  ajax=1 ><span class="time-tracker-task"></span>Time Tracker</a>';
-        $menus[] = '<a href="' . $this->request->base . 'access_controls/users/_help"  ajax=1 >Help</a>';
+        if (is_array($menuList)) {            
+            foreach($menuList as $k => $item){
+                $menu[$item['url']]=$item;
+            }            
+        }
+        if($menu['projectivity/tasks/time_tracker']){
+            $menus[] = '<a href="' . $this->request->base . 'projectivity/tasks/index?current_listview=62278f42-e218-497c-ad30-4d41ac69033c" data-panel="right" class="time-tracker-control"  ajax=1 ><span class="time-tracker-task"></span>Time Tracker</a>';
+            unset($menu['projectivity/tasks/time_tracker']);
+        }
+        
+        if($menu['access_controls/users/_help']){
+            $menus[] = '<a href="' . $this->request->base . 'access_controls/users/_help"  ajax=1 >Help</a>';
+        }
         $menus[] = '<a href="' . $this->request->base . 'access_controls/users/view/id:{{USER_ID}}"  ajax=1 >{{NAME}}</a>';
         if (is_array($menu)) {
             foreach ($menu as $k => $item) {
-                $menus[$k] = '<a href="' . $this->request->base . $item['url'] . '/id:{{USER_ID}}" ajax="' . $item['ajax'] . '" >' . __($item['name']) . '</a>';
+                if(isset($item["is_active"]) && $item["is_active"]){
+                    $menus[$k] = '<a href="' . $this->request->base . $item['url'] . '/id:{{USER_ID}}" ajax="' . $item['ajax'] . '" >' . __($item['name']) . '</a>';
+                }
             }
         }
         $menus[] = '<a href="' . $this->request->base . 'access_controls/users/logout"  >' . __('Logout') . '</a>';
