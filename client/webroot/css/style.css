@@ -64,6 +64,9 @@ html,body {
 .standard td[colspan='3'] input[type="text"].width-100,.standard td[colspan='3'] .width-100,td[colspan='3'] .width-100{
     width:70%;
 }
+.standard td[colspan='3'] input[type="text"].width-full,.standard td[colspan='3'] .width-full,td[colspan='3'] .width-full{
+    width:99%;
+}
 
 button{
     text-transform:capitalize;

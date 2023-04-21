@@ -1915,7 +1915,13 @@ jQuery('document').ready(function($) {
                 $(this).after('<a href="#" class="date_toggle toggle_enabled">Enter manually</a>');
             }
         })
-        .datepicker({"yearRange": "-100:+15"}).next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
+        .datepicker({"yearRange": "-100:+15"})
+        .keyup(function(e) {
+            if(e.keyCode == 8 || e.keyCode == 46) {
+                $.datepicker._clearDate(this);
+            }
+        })
+        .next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
 
         container.find('span.date')
         .not('.template-element')
@@ -1972,6 +1978,10 @@ jQuery('document').ready(function($) {
             if(datetimeValueOriginal.indexOf('XVAR') != -1){
                 $this.parents(':first').find('.datetime_toggle').trigger('click');
                 $this.val(datetimeValueOriginal);
+            }
+        }).keyup(function(e) {
+            if(e.keyCode == 8 || e.keyCode == 46) {
+                $(this).val(null);
             }
         }).closest('.cell-info').append('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + " hh:mm:ss)" : "") + '</span>');
 
