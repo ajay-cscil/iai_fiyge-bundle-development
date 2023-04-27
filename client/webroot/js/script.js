@@ -3069,13 +3069,16 @@ jQuery('document').ready(function($) {
 
         if($(object).closest('form').length){
             var serializeData=$(object).closest('form').serializeObject();
+            var mergeWords={};
             jQuery.each(serializeData,function(k,v){
                 k=k.replace('data[','').replace('][','.').replace(']','');
                 k="{{"+k+"}}";
                 k=k.replaceAll('__','');
+                mergeWords[k]=v;
+            }); 
+            jQuery.each(mergeWords,function(k,v){
                 href=href.replaceAll(k,v);
-                console.log([k,v]);
-            });   
+            });     
         }
         if($(object).hasClass('ai-model-search')){
             if(href.indexOf('?') !== -1){
