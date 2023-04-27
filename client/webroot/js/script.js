@@ -3073,7 +3073,8 @@ jQuery('document').ready(function($) {
             jQuery.each(serializeData,function(k,v){
                 k=k.replace('data[','').replace('][','.').replace(']','');
                 k="{{"+k+"}}";
-                k=k.replaceAll('__','');
+                //k=k.replaceAll('__','');
+                console.log(k,v);
                 mergeWords[k]=v;
             }); 
             jQuery.each(mergeWords,function(k,v){
