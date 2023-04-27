@@ -3072,6 +3072,7 @@ jQuery('document').ready(function($) {
             jQuery.each(serializeData,function(k,v){
                 k=k.replace('data[','').replace('][','.').replace(']','');
                 k="{{"+k+"}}";
+                k=k.replaceAll('__','');
                 href=href.replaceAll(k,v);
                 console.log([k,v]);
             });   
