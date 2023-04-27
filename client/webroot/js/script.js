@@ -3067,6 +3067,26 @@ jQuery('document').ready(function($) {
             }
         }
 
+        if($(object).closest('form').length){
+            var serializeData=$(object).closest('form').serializeObject();
+            jQuery.each(serializeData,function(k,v){
+                k=k.replace('data[','').replace('][','.').replace(']','');
+                k="{{"+k+"}}";
+                href=href.replaceAll(k,v);
+                console.log([k,v]);
+            });   
+        }
+        if($(object).hasClass('ai-model-search')){
+            if(href.indexOf('?') !== -1){
+                href += "?";
+            }
+            var uuid = $.uu();
+            $(object).attr('id', uuid);
+            href += "&trigger="+uuid;
+        }
+
+        
+
         var twisty = false;
         var listviewTableId = false;
         var baseTableID='';
