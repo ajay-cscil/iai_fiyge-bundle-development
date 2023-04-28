@@ -3470,6 +3470,7 @@ jQuery('document').ready(function($) {
         } else {
             form.find('[type="submit"]').click(function(event) {
                 var form = $(this).closest('form');
+                jQuery(this).find('.not-empty-input').attr('REQUIRED','REQUIRED');
                 // Form Validation befor submit
                 if (should_validate === true) {
                     if (!form.valid()) {
