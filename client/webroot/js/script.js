@@ -1840,6 +1840,9 @@ jQuery('document').ready(function($) {
             //properties['width'] =parseInt($(this).parents(':visible:first').css('width'));
             //console.log()
             $(this).cleditor(properties);
+        }).change(function(){
+            var editor = $(this).cleditor()[0];
+                editor.refresh();
         });
 
         /**
