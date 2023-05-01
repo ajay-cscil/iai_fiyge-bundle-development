@@ -496,10 +496,9 @@ class data_controller extends \kernel\controller {
                                         $errors[] = $msg;
                                     } else {
                                         $messages = array();
-                                        pr(\kernel\model::$errors);
                                         foreach (\kernel\model::$errors as $k => $v) {
                                             if (is_array($messages)) {
-                                                $messages = array_merge($messages, $v);
+                                                $messages = array_merge($messages, (is_array($v)?$v:[$v]));
                                             } else {
                                                 $messages[] = $v;
                                             }
