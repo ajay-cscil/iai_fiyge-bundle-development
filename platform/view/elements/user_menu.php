@@ -71,9 +71,11 @@ if(\kernel\request::session('switch_user_mode')){
 }
 ?>
 <div id="user_menu">
+    <?php if(\kernel\request::session('switch_user_mode')){ ?>
     <select id="switch_user" style="max-width:200px">
     <?php echo \kernel\html::options($userListOptions,\kernel\user::read('id'),false); ?>
     </select>
+    <?php } ?>
     <?php echo is_string($menus)?$menus:''; ?> 
 </div>
 <script type="text/javascript">
