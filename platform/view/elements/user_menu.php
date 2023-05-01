@@ -1,7 +1,6 @@
 <?php
 $menu = '';
 $menus = array();
-
 if (\kernel\request::authenticate()) {
     $key = 'user-menu.' . (\kernel\request::$mobile === true ? 'm' : 'w') . '.' . \kernel\user::read('role_key');
 
@@ -32,6 +31,10 @@ if (\kernel\request::authenticate()) {
                 $menu[$item['url']]=$item;
             }            
         }
+        if(isset($menu['access_controls/users/switch_user'])){
+            \kernel\request::sessionWrite('switch_user_mode', true);
+            unset($menu['access_controls/users/switch_user']);
+        }
         if(isset($menu['projectivity/tasks/time_tracker'])){
             $menus[] = '<a href="' . $this->request->base . 'projectivity/tasks/index?current_listview=62278f42-e218-497c-ad30-4d41ac69033c" data-panel="right" class="time-tracker-control"  ajax=1 ><span class="time-tracker-task"></span>Time Tracker</a>';
             unset($menu['projectivity/tasks/time_tracker']);
@@ -56,6 +59,28 @@ if (\kernel\request::authenticate()) {
     }
     $menus = \kernel\form::processMerge($menus, array('USER_ID' => \kernel\user::read('id'), 'NAME' => ucwords(\kernel\user::read('name'))));
 }
-?>
-<div id="user_menu"><?php echo is_string($menus)?$menus:''; ?> </div>
 
+$userListOptions=[];
+if(\kernel\request::session('switch_user_mode')){
+        $userObj = \module\access_controls\model\users::getInstance();
+        $userList=select(["name","user_name","id"])->from($userObj)->execute()->fetchAll(\PDO::FETCH_ASSOC);
+        $userListOptions=[];
+        foreach($userList as $userLi){
+            $userListOptions[]=["value"=>$userLi["id"],"text"=>"{$userLi["name"]} [{$userLi["user_name"]}]"];
+        }    
+}
+?>
+<div id="user_menu">
+    <select id="switch_user" style="max-width:200px">
+    <?php echo \kernel\html::options($userListOptions,\kernel\user::read('id'),false); ?>
+    </select>
+    <?php echo is_string($menus)?$menus:''; ?> 
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#switch_user').change(function(){
+            document.location.href="/access_controls/users/switch_user/id:"+jQuery(this).val();
+        });
+    });
+    
+</script>
