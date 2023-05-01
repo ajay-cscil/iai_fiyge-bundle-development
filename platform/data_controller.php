@@ -356,6 +356,7 @@ class data_controller extends \kernel\controller {
             }
         }        
         foreach ($ids as $id) {
+            $modelObj = $this->modelObj(false);
             $isNot = $modelObj->call('isNotDeletable', $id);
             if ($isNot !== false) {
                 $request->setMsg($isNot);
@@ -438,6 +439,10 @@ class data_controller extends \kernel\controller {
                     $request->setMsg(sprintf(__('Trying to update %s records'), count($selectAllRecords)));
                 }
                 foreach ($ids as $id) {
+                    $modelObj = $this->modelObj(false);
+                    $saveHandler = $this->saveHandler;
+                    $modelObj->saveHandler = $saveHandler;
+
                     // check for editable permission.
                     $isNot = $modelObj->call('isNotEditable', $id);
                     if ($isNot !== false) {
