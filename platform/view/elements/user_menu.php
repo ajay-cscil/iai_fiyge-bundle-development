@@ -63,7 +63,7 @@ if (\kernel\request::authenticate()) {
 $userListOptions=[];
 if(\kernel\request::session('switch_user_mode')){
         $userObj = \module\access_controls\model\users::getInstance();
-        $userList=select(["name","user_name","id"])->from($userObj)->execute()->fetchAll(\PDO::FETCH_ASSOC);
+        $userList=select(["name","user_name","id"])->from($userObj)->order(["name ASC"])->execute()->fetchAll(\PDO::FETCH_ASSOC);
         $userListOptions=[];
         foreach($userList as $userLi){
             $userListOptions[]=["value"=>$userLi["id"],"text"=>"{$userLi["name"]} [{$userLi["user_name"]}]"];
