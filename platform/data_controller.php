@@ -72,6 +72,7 @@ class data_controller extends \kernel\controller {
         $saveHandler = $this->saveHandler;
         $modelObj->saveHandler = $saveHandler;
 
+        $isProcessRules=false;
         if ($isValid === true) {
             // if valid request
             if ($request->is('post') && !empty($request->data) && $multiPageForm !== -1) {
@@ -79,6 +80,7 @@ class data_controller extends \kernel\controller {
                 $data = \kernel\locale::normalize($request->data, $modelObj->schema(false, 'submodel', true, true));
 
                 $modelObj->processRules($data, true);
+                $isProcessRules=true;
                 if (
                         $this->preGenerateID == true &&
                         !empty($modelObj->softDeleteColumn) && isset($data[$modelObj->alias])
@@ -143,8 +145,9 @@ class data_controller extends \kernel\controller {
                 }
             }
         }
-        $modelObj->processRules($data, true);
-
+        if($isProcessRules==false){
+            $modelObj->processRules($data, true);
+        }
 
         $this->processSentData($request, $data);
         $request->set('primary_key', $modelObj->primaryKey);
