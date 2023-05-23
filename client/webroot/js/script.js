@@ -4250,6 +4250,11 @@ jQuery('document').ready(function($) {
         event.preventDefault();
         return false;
     });
+
+    if($.config["subview"]){
+        $('body').append('<a id="tigger-subview" class="ajax-popup" href="'+$.config["subview"]+'"  ajax=1 style="display:none;" >&nbsp;<a>');
+        $("#tigger-subview").trigger("click");
+    }
     
     
 });
