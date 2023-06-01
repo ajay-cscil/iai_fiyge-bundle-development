@@ -241,7 +241,25 @@ var scale = 1; //Set Scale for zooming PDF.
 var resolution = 2; //Set Resolution to Adjust PDF clarity.
 
 function LoadPdfFromUrl(pdfContainerID,url,fileName) {
-    if(fileName && fileName.indexOf('.pdf') == -1){
+    console.log('LoadPdfFromUrl',pdfContainerID,url,fileName);
+    var fileExt=(fileName?fileName.split('.').pop():'').toLowerCase();
+    if(fileExt =="pdf"){
+        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            var pdf_container = document.getElementById(pdfContainerID);
+            pdf_container.classList.add("preview_pdf_container");
+            if(pdf_container){
+                pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>";
+                for (var i = 1; i <= pdfDoc.numPages; i++) {
+                    RenderPage(pdf_container, i);
+                }
+            }
+        });
+    }else if(["doc","docx","xls","xlsx","xlsb","ppt"].includes(fileExt)){
+        var pdf_container = document.getElementById(pdfContainerID);
+        pdf_container.classList.add("preview_pdf_container");
+        pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>"+'<iframe src="https://docs.google.com/gview?url='+encodeURIComponent(url)+'&embedded=true" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>';
+    }else{
         var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
         var pdf_container = document.getElementById(pdfContainerID);
@@ -255,18 +273,6 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
             ctx.drawImage(myImg, 0, 0,myImg.width,myImg.height);
         };
         myImg.src = url;
-    }else{
-        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-            pdfDoc = pdfDoc_;
-            var pdf_container = document.getElementById(pdfContainerID);
-            pdf_container.classList.add("preview_pdf_container");
-            if(pdf_container){
-                pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>";
-                for (var i = 1; i <= pdfDoc.numPages; i++) {
-                    RenderPage(pdf_container, i);
-                }
-            }
-        });
     }
 }
 
