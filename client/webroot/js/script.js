@@ -258,7 +258,7 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
     }else if(["doc","docx","xls","xlsx","xlsb","ppt"].includes(fileExt)){
         var pdf_container = document.getElementById(pdfContainerID);
         pdf_container.classList.add("preview_pdf_container");
-        pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>"+'<iframe src="https://docs.google.com/gview?url='+encodeURIComponent(url)+'&embedded=true" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>';
+        pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>"+'<iframe src="https://docs.google.com/gview?url='+encodeURIComponent(url)+'&embedded=true" frameborder="0" style="overflow:hidden;height:90vh;width:100%" height="90vh" width="100%"></iframe>';
     }else{
         var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
