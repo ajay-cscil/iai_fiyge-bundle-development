@@ -2221,3 +2221,10 @@ div.fadeMeOverlayMessage {
   border-radius: 50%;
 }
   
+.preview_pdf_container{
+    display : block;
+    border :2px solid #ffddaa;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+} 

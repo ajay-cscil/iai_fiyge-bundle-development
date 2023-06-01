@@ -142,6 +142,10 @@ echo \kernel\html::js($this->request, '/js/jquery-ui');
 </script>
 <?php
 echo \kernel\html::js($this->request, '/module/superfish/js/superfish');
+
+echo \kernel\html::js($this->request, '/module/pdf/pdf.min');
+echo \kernel\html::css($this->request, '/module/pdf/pdf_viewer.min');
+
 ?>
 
 

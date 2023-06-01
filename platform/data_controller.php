@@ -90,8 +90,11 @@ class data_controller extends \kernel\controller {
 
                 // set currenty performed form action into data
                 if (isset($data['action']) && isset($data[$modelObj->alias])){
-                    $data[$modelObj->alias]['action'] = $data['action'];
+                    if(!isset($data[$modelObj->alias]['action']) || empty($data[$modelObj->alias]['action'])){
+                        $data[$modelObj->alias]['action'] = $data['action'];
+                    }
                 }
+
 
                 if(isset($data[$modelObj->alias]['action'])){
                     $data[$modelObj->alias]['action']=[str_ireplace(['_&_continue','_and_continue'], ['',''], key($data[$modelObj->alias]['action']))=>current($data[$modelObj->alias]['action'])];
@@ -146,6 +149,9 @@ class data_controller extends \kernel\controller {
             }
         }
         if($isProcessRules==false){
+            if(!isset($data[$modelObj->alias])){
+                $data[$modelObj->alias]=[];
+            }
             $modelObj->processRules($data, true);
         }
 
@@ -408,11 +414,11 @@ class data_controller extends \kernel\controller {
             throw new \Exception(__('Select records to edit'));
             return false;
         }
-
+        /*
         if (isset($modelObj->behaviours) && isset($modelObj->behaviours['\\module\\flexflow\\behaviour\\flexflow'])) {
             $request->setMsg(__('This model has dynamic form. Dynamic forms change based on option selected in form. Bulk edit is therefore is not allowed on dynamic form for data consistency reason.'));
             return false;
-        }
+        }*/
         $isValid = true;
         $successCount = 0;
         // now save changes.
@@ -436,7 +442,7 @@ class data_controller extends \kernel\controller {
                     rm_empty_input($data, false, true, true);
                 }
                 $data = \kernel\locale::normalize($data, $modelObj->schema(false, true, true, true));
-                $modelObj->processRules($data, true);
+                //$modelObj->processRules($data, true);
                 $successCount = 0;
                 if ($selectAllRecords !== false) {
                     $request->setMsg(sprintf(__('Trying to update %s records'), count($selectAllRecords)));
