@@ -414,11 +414,11 @@ class data_controller extends \kernel\controller {
             throw new \Exception(__('Select records to edit'));
             return false;
         }
-        
+        /*
         if (isset($modelObj->behaviours) && isset($modelObj->behaviours['\\module\\flexflow\\behaviour\\flexflow'])) {
             $request->setMsg(__('This model has dynamic form. Dynamic forms change based on option selected in form. Bulk edit is therefore is not allowed on dynamic form for data consistency reason.'));
             return false;
-        }
+        }*/
         $isValid = true;
         $successCount = 0;
         // now save changes.

@@ -2614,6 +2614,7 @@ jQuery('document').ready(function($) {
         if (form.length > 0) {
             if(form.attr('action').indexOf('edit_selected') != -1){
                 form.find(':input')
+                .not('[type="hidden"]')
                 .not('[type="checkbox"]')
                 .not('[type="button"]')
                 .not('[type="submit"]')
@@ -2621,7 +2622,6 @@ jQuery('document').ready(function($) {
                 .val('');
             }
         }
-
     }
 
 
@@ -3236,6 +3236,31 @@ jQuery('document').ready(function($) {
                 select_all_records_query['view_controller'] = 'analytics/reports';
             }
             select_all_records_query['view_id'] = table.attr('listview_id');
+            [   
+                "is_default",
+                "show_has_many_records",
+                "disable_ui_helper",
+                "parent_id_model",
+                "hide_row_actions",
+                "do_not_inherit",
+                "sequence",
+                "module_id",
+                "module_id_model",
+                "__module_id",
+                "owned_by",
+                "owned_by_model",
+                "__owned_by",
+                "primary_acl_group_model",
+                "is_public",
+                "method",
+                "description",
+                "page",
+                "reset"
+            ].forEach(function(item){
+                if(select_all_records_query.hasOwnProperty(item)){
+                    delete select_all_records_query[item];
+                }
+            });
 
             var select_all_records = $('#select_all_records-' + searchView).find(':checked').length;
             if (isDeleteAction) {
