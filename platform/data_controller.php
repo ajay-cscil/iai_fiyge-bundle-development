@@ -414,11 +414,11 @@ class data_controller extends \kernel\controller {
             throw new \Exception(__('Select records to edit'));
             return false;
         }
-        /*
+        
         if (isset($modelObj->behaviours) && isset($modelObj->behaviours['\\module\\flexflow\\behaviour\\flexflow'])) {
             $request->setMsg(__('This model has dynamic form. Dynamic forms change based on option selected in form. Bulk edit is therefore is not allowed on dynamic form for data consistency reason.'));
             return false;
-        }*/
+        }
         $isValid = true;
         $successCount = 0;
         // now save changes.
@@ -494,7 +494,17 @@ class data_controller extends \kernel\controller {
 
                                     $dataCopy[$modelObj->alias][$modelObj->primaryKey] = $id;
 // set currenty performed form action into data
-                                    $dataCopy[$modelObj->alias]['action'] = $this->action($request);
+                                    //$dataCopy[$modelObj->alias]['action'] = $this->action($request);
+                                    $dataCopyAction = $this->action($request);
+                                    if (isset($data['action'])){
+                                        $dataCopyAction = $data['action'];
+                                    }
+                                    if(isset($dataCopyAction) && is_array($dataCopyAction)){
+                                        $dataCopyActionKey=str_ireplace(['_&_continue','_and_continue'], ['',''], key($dataCopyAction));
+                                        $dataCopyActionValue=current($dataCopyAction);
+                                        $dataCopyAction=[$dataCopyActionKey=>$dataCopyActionValue];
+                                    }
+                                    $dataCopy[$modelObj->alias]['action'] = $dataCopyAction;
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
