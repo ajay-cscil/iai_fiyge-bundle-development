@@ -490,11 +490,40 @@ class data_controller extends \kernel\controller {
                                             unset($dataCopy[$modelObj->alias][$kkk]);
                                         }
                                     }
-                                    $dataCopy[$modelObj->alias] = array_merge_recursive_distinct($dataCopy[$modelObj->alias], $data[$modelObj->alias]);
+                                    $submodels=[];
+                                    if (is_array($modelObj->associations)) {
+                                        foreach ($modelObj->associations as $assocModel => $assocInfo) {
+                                            if(isset($assocInfo['isSubModel']) && $assocInfo['isSubModel']==1){
+                                                $submodels[$assocModel]=[];
+                                                if(isset($data[$modelObj->alias][$assocModel]) 
+                                                    && !empty($data[$modelObj->alias][$assocModel])
+                                                        && is_array($data[$modelObj->alias][$assocModel])){
+                                                            if(isset($dataCopy[$modelObj->alias][$assocModel])
+                                                                && is_array($dataCopy[$modelObj->alias][$assocModel])){
+                                                                    foreach($dataCopy[$modelObj->alias][$assocModel] as $sKey=>$sValue){
+                                                                        $dataCopy[$modelObj->alias][$assocModel][$sKey]["deleted"]=1;
+                                                                    }
+                                                            }
+                                                    if(!is_array($dataCopy[$modelObj->alias][$assocModel])){
+                                                        $dataCopy[$modelObj->alias][$assocModel]=[];
+                                                    }        
+                                                    $dataCopy[$modelObj->alias][$assocModel]=array_merge(
+                                                        $dataCopy[$modelObj->alias][$assocModel],
+                                                        $data[$modelObj->alias][$assocModel]
+                                                    );
+                                                }
+                                            }
+                                        }
+                                    }
 
+                                    
+
+                                    $dataCopy[$modelObj->alias] = array_merge_recursive_distinct(
+                                        $dataCopy[$modelObj->alias], 
+                                        array_diff_key($data[$modelObj->alias],$submodels)
+                                    );
+                                    
                                     $dataCopy[$modelObj->alias][$modelObj->primaryKey] = $id;
-// set currenty performed form action into data
-                                    //$dataCopy[$modelObj->alias]['action'] = $this->action($request);
                                     $dataCopyAction = $this->action($request);
                                     if (isset($data['action'])){
                                         $dataCopyAction = $data['action'];
