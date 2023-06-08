@@ -3126,6 +3126,8 @@ jQuery('document').ready(function($) {
     }
     $.ajaxPopup = function(object, href, table) {
         log('ajaxPopup');
+        var method = 'get';
+        var payload = {};
 
         if ($(object).is(':disabled') || $(object).hasClass('ui-state-disabled')) {
             return false;
@@ -3149,13 +3151,7 @@ jQuery('document').ready(function($) {
             }
         }
 
-        if($(object).closest('form').length){
-            var serializeData=$(object).closest('form').serializeObject();
-            if(href.indexOf('?') === -1){
-                href += "?";
-            }
-            href += "&form_data="+encodeURIComponent(JSON.stringify(serializeData));     
-        }
+        
         if($(object).hasClass('ai-model-search')){
             if(href.indexOf('?') === -1){
                 href += "?";
@@ -3163,6 +3159,11 @@ jQuery('document').ready(function($) {
             var uuid = $.uu();
             $(object).attr('id', uuid);
             href += "&trigger="+uuid;
+            method = 'post';
+            if($(object).closest('form').length){
+                var serializeData=$(object).closest('form').serializeObject();
+                payload={"form_data":JSON.stringify(serializeData)};
+            }
         }
 
         
@@ -3199,9 +3200,6 @@ jQuery('document').ready(function($) {
         }
         var ajax = $(object).attr('ajax');
         var needConfirmation = false;
-
-        var method = 'get';
-        var payload = {};
 
         // || $(object).hasClass('action')
         var isDeleteAction = false;
