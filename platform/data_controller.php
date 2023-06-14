@@ -203,6 +203,7 @@ class data_controller extends \kernel\controller {
 
         $request->set('id', $id);
         $request->set('data', $data);
+        $request->set('name',isset($data[$modelObj->alias]) && isset($data[$modelObj->alias][$modelObj->displayField])?$data[$modelObj->alias][$modelObj->displayField]:"");
         
         $request->set('rebaseline', []);
         if(isset($modelObj->baselineFields) && !empty($modelObj->baselineFields)){
@@ -263,6 +264,7 @@ class data_controller extends \kernel\controller {
 
         $request->set('model_behaviours', $modelObj->behaviours);
         $request->set('data', $data);
+        $request->set('name',isset($data[$modelObj->alias]) && isset($data[$modelObj->alias][$modelObj->displayField])?$data[$modelObj->alias][$modelObj->displayField]:"");
         $request->set('schema', $schema);
         $request->set('filterRules', $modelObj->filterRules($data, true));
         $form = $this->form();
