@@ -562,9 +562,12 @@ class data_controller extends \kernel\controller {
                     }
                 }
             }
-        } else {
-            $this->edit($request);
         }
+        
+        $request->overrideRequestMethod('get');
+        $this->edit($request);
+        $request->overrideRequestMethod(false);
+        
         \kernel\model::$errors = $errors;
         if ($successCount == count($ids)) {
             return("{$request->module}/{$request->controller}/index");
