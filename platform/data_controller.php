@@ -24,14 +24,16 @@ class data_controller extends \kernel\controller {
 
         $formPermission = EDIT;
         // check for editable permission.
-        if (!($this->preGenerateID == true && $this->addRecord === true)) {
-            if ($modelObj->restore === false && $request->action !== 'cloned') {
-                $isNot = $modelObj->call('isNotEditable', $id);
-                if ($isNot !== false) {
-                    if ($request->is('get') && $modelObj->call('isNotReadable', $id) === false) {
-                        $formPermission = VIEW;
-                    } else {
-                        throw new \Exception($isNot);
+        if($this->overrideACLCheck==false){
+            if (!($this->preGenerateID == true && $this->addRecord === true)) {
+                if ($modelObj->restore === false && $request->action !== 'cloned') {
+                    $isNot = $modelObj->call('isNotEditable', $id);
+                    if ($isNot !== false) {
+                        if ($request->is('get') && $modelObj->call('isNotReadable', $id) === false) {
+                            $formPermission = VIEW;
+                        } else {
+                            throw new \Exception($isNot);
+                        }
                     }
                 }
             }
@@ -233,9 +235,11 @@ class data_controller extends \kernel\controller {
         $id = $this->id($request);
         $schema = $modelObj->schema(false, 'submodel_1');
         //\kernel\model::softdelete(false);
-        $isNot = $modelObj->call('isNotReadable', $id);
-        if ($isNot !== false) {
-            throw new \Exception($isNot);
+        if($this->overrideACLCheck==false){
+            $isNot = $modelObj->call('isNotReadable', $id);
+            if ($isNot !== false) {
+                throw new \Exception($isNot);
+            }
         }
 
         $request->set('primary_key', $modelObj->primaryKey);
