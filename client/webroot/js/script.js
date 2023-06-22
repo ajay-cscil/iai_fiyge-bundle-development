@@ -2620,6 +2620,8 @@ jQuery('document').ready(function($) {
                 .not('[type="submit"]')
                 .not('button')
                 .val('');
+                form.find(':input').filter('[type="checkbox"]').prop("checked", false );
+                form.find('table.listview').remove();
 
                 form.find('span.not_empty').remove();
             }
