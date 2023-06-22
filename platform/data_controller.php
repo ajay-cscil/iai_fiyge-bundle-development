@@ -436,6 +436,7 @@ class data_controller extends \kernel\controller {
                 $errors[] = __('This form has expired, try to create new record.');
             } else {
                 $dataACL=[];
+                $updatingValuesInGrid="Append to the Grid";
                 if (isset($data[$modelObj->alias]) && is_array($data[$modelObj->alias])) {
                     foreach ($data[$modelObj->alias] as $column => $value) {
                         if (empty($value) && !is_array($value)) {
@@ -445,7 +446,11 @@ class data_controller extends \kernel\controller {
                         }
                     }
                     $dataACL=array_intersect_key($data[$modelObj->alias], ["_acl"=>1,"_acl_edit"=>1,"_acl_delete"=>1]);
+                    if(array_key_exists("updating_values_in_grid", $data[$modelObj->alias])){
+                        $updatingValuesInGrid=$data[$modelObj->alias]["updating_values_in_grid"];
+                    }
                 }
+                $updatingValuesInGrid=strtolower($updatingValuesInGrid);
                 if(!$allowEmptyInput){
                     rm_empty_input($data, false, true, true);
                 }
@@ -503,15 +508,20 @@ class data_controller extends \kernel\controller {
                                         foreach ($modelObj->associations as $assocModel => $assocInfo) {
                                             if(isset($assocInfo['isSubModel']) && $assocInfo['isSubModel']==1){
                                                 $submodels[$assocModel]=[];
-                                                if(isset($data[$modelObj->alias][$assocModel]) 
+                                                if(
+                                                    isset($data[$modelObj->alias][$assocModel]) 
                                                     && !empty($data[$modelObj->alias][$assocModel])
-                                                        && is_array($data[$modelObj->alias][$assocModel])){
-                                                            if(isset($dataCopy[$modelObj->alias][$assocModel])
-                                                                && is_array($dataCopy[$modelObj->alias][$assocModel])){
-                                                                    foreach($dataCopy[$modelObj->alias][$assocModel] as $sKey=>$sValue){
-                                                                        $dataCopy[$modelObj->alias][$assocModel][$sKey]["deleted"]=1;
-                                                                    }
+                                                    && is_array($data[$modelObj->alias][$assocModel])){
+                                                        if(
+                                                            isset($dataCopy[$modelObj->alias][$assocModel])
+                                                            && is_array($dataCopy[$modelObj->alias][$assocModel])
+                                                        ){
+                                                            if($updatingValuesInGrid =="replace the current grid"){
+                                                                foreach($dataCopy[$modelObj->alias][$assocModel] as $sKey=>$sValue){
+                                                                    $dataCopy[$modelObj->alias][$assocModel][$sKey]["deleted"]=1;
+                                                                }
                                                             }
+                                                        }
                                                     if(!is_array($dataCopy[$modelObj->alias][$assocModel])){
                                                         $dataCopy[$modelObj->alias][$assocModel]=[];
                                                     }        
@@ -523,18 +533,24 @@ class data_controller extends \kernel\controller {
                                             }
                                         }
                                     }
-                                    $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
-                                    foreach($dataACL as $dataACLKey=>$dataACLValue){
-                                        if(!empty($dataACLValue)){
-                                            $modelObj->setAcl($dataACLKey,"new", array_map(function($item){ 
-                                                return substr($item["aro_id_model"], 0,1).$item["aro_id"];
-                                            }, $dataACLValue));
+                                    if($updatingValuesInGrid =="replace the current grid"){
+                                        $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
+                                        foreach($dataACL as $dataACLKey=>$dataACLValue){
+                                            if(!empty($dataACLValue)){
+                                                $modelObj->setAcl($dataACLKey,"new", array_map(function($item){ 
+                                                    return substr($item["aro_id_model"], 0,1).$item["aro_id"];
+                                                }, $dataACLValue));
+                                            }
+                                        }
+                                    }else{
+                                        foreach($dataACL as $dataACLKey=>$dataACLValue){
+                                            if(!empty($dataACLValue)){
+                                                $modelObj->setSupplementaryACL($dataACLKey,"new", array_map(function($item){ 
+                                                    return substr($item["aro_id_model"], 0,1).$item["aro_id"];
+                                                }, $dataACLValue));
+                                            }
                                         }
                                     }
-                                   
-                                    
-
-                                    
 
                                     $dataCopy[$modelObj->alias] = array_merge_recursive_distinct(
                                         $dataCopy[$modelObj->alias], 
