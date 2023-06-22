@@ -527,10 +527,11 @@ class data_controller extends \kernel\controller {
                                     foreach($dataACL as $dataACLKey=>$dataACLValue){
                                         if(!empty($dataACLValue)){
                                             $modelObj->setAcl($dataACLKey,"new", array_map(function($item){ 
-                                                substr($item["aro_id_model"], 0,1).$item["aro_id"];
+                                                return substr($item["aro_id_model"], 0,1).$item["aro_id"];
                                             }, $dataACLValue));
                                         }
                                     }
+                                   
                                     
 
                                     
