@@ -435,6 +435,7 @@ class data_controller extends \kernel\controller {
             if ($isValid === false) {
                 $errors[] = __('This form has expired, try to create new record.');
             } else {
+                $dataACL=[];
                 if (isset($data[$modelObj->alias]) && is_array($data[$modelObj->alias])) {
                     foreach ($data[$modelObj->alias] as $column => $value) {
                         if (empty($value) && !is_array($value)) {
@@ -443,6 +444,7 @@ class data_controller extends \kernel\controller {
                             }
                         }
                     }
+                    $dataACL=array_intersect_key($data[$modelObj->alias], ["_acl"=>1,"_acl_edit"=>1,"_acl_delete"=>1]);
                 }
                 if(!$allowEmptyInput){
                     rm_empty_input($data, false, true, true);
@@ -521,6 +523,15 @@ class data_controller extends \kernel\controller {
                                             }
                                         }
                                     }
+                                    $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
+                                    foreach($dataACL as $dataACLKey=>$dataACLValue){
+                                        if(!empty($dataACLValue)){
+                                            $modelObj->setAcl($dataACLKey,"new", array_map(function($item){ 
+                                                substr($item["aro_id_model"], 0,1).$item["aro_id"];
+                                            }, $dataACLValue));
+                                        }
+                                    }
+                                    
 
                                     
 
@@ -540,6 +551,8 @@ class data_controller extends \kernel\controller {
                                         $dataCopyAction=[$dataCopyActionKey=>$dataCopyActionValue];
                                     }
                                     $dataCopy[$modelObj->alias]['action'] = $dataCopyAction;
+                                    
+
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
