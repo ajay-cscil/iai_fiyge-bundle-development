@@ -10,7 +10,7 @@ echo $this->request->base . $this->request->module . '/' . $this->request->contr
                echo '<input name="request_url" type="hidden" value="' . $this->request->requestedModule . '/' . $this->request->requestedController . '/' . $this->request->requestedAction . '">';
            }
            ?>
-    <input name="search_basic" class="big container search_box"  value="<?php
+    <input name="search_basic" class="big container search_box" placeholder="Enter complete words minimum 3 chars long to match"  value="<?php
            echo $this->request->get('search_basic', '');
            ?>"  >
     <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><?php echo __('Search'); ?></button>
