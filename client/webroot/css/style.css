@@ -1111,6 +1111,8 @@ tr.grid-template > td,.no-p
 }
 .ui-datepicker-trigger{
     display:inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
 }
 .search_box{
     height:20px;vertical-align:middle !important;
@@ -2229,3 +2231,12 @@ div.fadeMeOverlayMessage {
     padding: 10px;
     background-color: #D1D1D1;
 } 
+.inline-file-list:not(:last-child){
+    border-bottom:1px solid #EDEDED;
+    padding: 5px;
+}
+table.listview tbody tr:hover{
+    background-color:#EAF8FF !important;
+}
+
+
