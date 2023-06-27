@@ -2235,7 +2235,7 @@ div.fadeMeOverlayMessage {
     border-bottom:1px solid #EDEDED;
     padding: 5px;
 }
-table.listview tbody tr:hover{
+table[listview_id] > tbody > tr:hover{
     background-color:#EAF8FF !important;
 }
 
