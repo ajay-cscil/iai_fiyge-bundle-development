@@ -80,6 +80,10 @@ foreach ($views as $k => $view1) {
 $m=\module\development_base\model\menus::getInstance()
 ->find(["where"=>["url"=>"core/listviews/add","type"=>"action"]])
 ->fetch(\PDO::FETCH_ASSOC);
+$cloned=\module\development_base\model\menus::getInstance()
+->find(["where"=>["url"=>"core/listviews/cloned"]])
+->fetch(\PDO::FETCH_ASSOC);
+
 $urlParamString="data[listviews][controller]={$controller}";
 if (\kernel\request::$mobile === true) {
     $eleType = 'a';
@@ -106,6 +110,9 @@ $links = array();
 $links['view'] = $this->request->module . "/" . $this->request->controller . '/index?current_listview=';
 $links['edit'] = 'core/listviews/edit/id:';
 $links['delete'] = 'core/listviews/delete/id:';
+if($cloned){
+   $links['cloned'] = 'core/listviews/cloned/id:'; 
+}
 
 
 $ignoreACL = \module\access_controls\behaviour\acl::ignoreACL($listviewObject);
