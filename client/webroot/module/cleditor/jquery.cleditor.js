@@ -912,6 +912,8 @@
             var hgt = $group.offset().top + $group.outerHeight() - $toolbar.offset().top + 1;
             $toolbar.height(hgt);
 
+            editor.$toolbarHeight=hgt;
+
             // Resize the iframe
             hgt = (/%/.test("" + options.height) ? $main.height() : parseInt(options.height)) - hgt;
             $frame.width(wid).height(hgt);
@@ -1120,6 +1122,27 @@
             $body.html(html);
             $(editor).triggerHandler(CHANGE);
         }
+        setTimeout(function(){
+            if(editor.$frame){
+                var iframe= editor.$frame[0];
+                var editorHeight=editor.$frame.height();
+                var editorScrollHeight=iframe.contentWindow.document.body.scrollHeight;
+                if(editorScrollHeight){
+                    var editorOffset=1000;
+                    editorScrollHeight=editorScrollHeight+editorOffset;
+
+                    //editor.options.height=editorScrollHeight;
+                    editor.$main.css("height",editorScrollHeight);
+                    $('#contract-signees').css("height",editorScrollHeight+(editorOffset/5));
+
+                    editorScrollHeight= editorScrollHeight - editor.$toolbarHeight;
+                    editor.$area.css("height",editorScrollHeight);
+                    editor.$frame.css("height",editorScrollHeight);
+                    editor.$frame.height(editorScrollHeight);
+                }
+            }
+        },2000);
+        
 
     }
 
