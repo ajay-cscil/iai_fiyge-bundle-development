@@ -298,12 +298,14 @@
             digits: "Please enter only digits.",
             creditcard: "Please enter a valid credit card number.",
             equalTo: "Please enter the same value again.",
+            password:"A valid password should satisfy all the constraints(It contains at least 8 characters and at most 20 characters. It contains at least one digit. It contains at least one upper case alphabet. It contains at least one lower case alphabet. It contains at least one special character which includes !@#$%&*()-+=^. It doesn’t contain any white space.)",
             maxlength: $.validator.format("Please enter no more than {0} characters."),
             minlength: $.validator.format("Please enter at least {0} characters."),
             rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
             range: $.validator.format("Please enter a value between {0} and {1}."),
             max: $.validator.format("Please enter a value less than or equal to {0}."),
-            min: $.validator.format("Please enter a value greater than or equal to {0}.")
+            min: $.validator.format("Please enter a value greater than or equal to {0}."),
+            max_filesize: $.validator.format("Please select file with size less than or equal to {0}.")
         },
         autoCreateRanges: false,
         prototype: {
@@ -966,6 +968,9 @@
                 // contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
                 return this.optional(element) || /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$/i.test(value);
             },
+            password: function(value, element) {
+                return this.optional(element) || /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$/i.test(value);
+            },
             // http://docs.jquery.com/Plugins/Validation/Methods/url
             url: function(value, element) {
                 // contributed by Scott Gonzalez: http://projects.scottsplayground.com/iri/
@@ -1059,6 +1064,37 @@
                     });
                 }
                 return value === target.val();
+            },
+            // http://docs.jquery.com/Plugins/Validation/Methods/maxlength
+            max_filesize: function(value, element, param) {
+                param=param.toUpperCase();
+                var fileSizeUnit='MB';
+                var fileSize=1;
+                if(param.indexOf('MB') != -1){
+                    fileSizeUnit='MB';
+                }else if(param.indexOf('KB') != -1){
+                    fileSizeUnit='KB';
+                }
+                fileSize=param.replace(/[\W_]+/g,"");
+                fileSize=parseInt(fileSize);
+
+                var fileInput=$(element).get(0);
+                if(fileInput.files.length ==0){
+                    return true;
+                }
+                var fileSize = fileInput.files.item(0).size;
+
+                var actualFilesize=false;
+                if(fileSizeUnit =="KB"){
+                    actualFilesize=fileSize/1024;
+                }else if(fileSizeUnit =="MB"){
+                    actualFilesize=fileSize/(1024*1024);
+                }else if(fileSizeUnit =="GB"){
+                    actualFilesize=fileSize/(1024*1024*1024);
+                }
+                actualFilesize=parseInt(actualFilesize);
+                param=parseInt(param);
+                return this.optional(element) || (actualFilesize <= param);    
             },
             // http://docs.jquery.com/Plugins/Validation/Methods/remote
             remote: function(value, element, param) {
