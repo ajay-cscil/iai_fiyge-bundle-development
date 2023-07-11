@@ -80,7 +80,7 @@ class data_controller extends \kernel\controller {
             if ($request->is('post') && !empty($request->data) && $multiPageForm !== -1) {
                 // normalize data
                 $data = \kernel\locale::normalize($request->data, $modelObj->schema(false, 'submodel', true, true));
-
+                $modelObj->operation="write";
                 $modelObj->processRules($data, true);
                 $isProcessRules=true;
                 if (
@@ -155,6 +155,7 @@ class data_controller extends \kernel\controller {
                 $data[$modelObj->alias]=[];
             }
             $data[$modelObj->alias]["related_entity"]=$request->get();
+            $modelObj->operation="read";
             $modelObj->processRules($data, true);
         }
 
