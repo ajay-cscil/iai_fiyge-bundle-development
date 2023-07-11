@@ -154,6 +154,7 @@ class data_controller extends \kernel\controller {
             if(!isset($data[$modelObj->alias])){
                 $data[$modelObj->alias]=[];
             }
+            $data[$modelObj->alias]["related_entity"]=$request->get();
             $modelObj->processRules($data, true);
         }
 
