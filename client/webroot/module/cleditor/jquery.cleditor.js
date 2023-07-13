@@ -1123,7 +1123,7 @@
             $(editor).triggerHandler(CHANGE);
         }
         setTimeout(function(){
-            if(editor.$frame){
+            if(editor.$frame && editor.$area.hasClass('resize-on-update')){
                 var iframe= editor.$frame[0];
                 var editorHeight=editor.$frame.height();
                 var editorScrollHeight=iframe.contentWindow.document.body.scrollHeight;
