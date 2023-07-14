@@ -720,7 +720,7 @@ jQuery('document').ready(function($) {
         var where = {};
         var treeNode = $(td).hasClass('tree-node');
         if (treeNode) {
-            where[$(this).closest('table').attr('foreign_column_name')] = $.trim($(this).closest('tr').attr('primary_key'));
+            where[$(this).closest('table').attr('model')+'.'+$(this).closest('table').attr('foreign_column_name')] = $.trim($(this).closest('tr').attr('primary_key'));
         } else {
             var val = $.trim(td.text());
             if (td.is('[value]')) {
