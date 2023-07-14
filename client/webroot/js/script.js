@@ -1470,6 +1470,7 @@ jQuery('document').ready(function($) {
             href = popupAutocomplete.attr('href');
             q = popupAutocomplete.attr('q');
         }
+        href=processMergeWords($(this),href);
         q = decodeURIComponent(q);
         
         if (typeof (href) != 'undefined' && $.trim(href) != '') {
@@ -1561,6 +1562,7 @@ jQuery('document').ready(function($) {
             href = popupAutocomplete.attr('href');
             q = popupAutocomplete.attr('q');
         }
+        href=processMergeWords($(this),href);
         q = decodeURIComponent(q);
         if ($.trim(href) != '') {
             if ($.trim(q) == '' || !$.isset(q))
@@ -1644,6 +1646,7 @@ jQuery('document').ready(function($) {
             href = popupAutocomplete.attr('href');
             q = popupAutocomplete.attr('q');
         }
+        href=processMergeWords($(this),href);
         
 
         if ($.trim(href) != '' && ($(this).hasClass('popup-open-record-always') || popupHidden.val() != '') ) {
@@ -1665,6 +1668,22 @@ jQuery('document').ready(function($) {
         event.stopPropagation();
         return false;
     });
+
+    function processMergeWords(obj,href){
+        if (typeof (href) != 'undefined' && $.trim(href) != '') {
+            var formdata=$(obj).closest('form').serializeArray();
+            if(formdata.length){
+                for(var i=0; i < formdata.length; i++){
+                    var formfieldName=formdata[i]['name'];
+                    var formfieldValue=formdata[i]['value'];
+                    formfieldName=formfieldName.replaceAll('][','.').replaceAll('data[','').replaceAll(']','');
+                    href=href.replaceAll('{{'+formfieldName+'}}',formfieldValue);
+                    console.log('{{'+formfieldName+'}}',formfieldValue);
+                }
+            }
+        }
+        return href;
+    }
 
 
 
