@@ -2189,6 +2189,7 @@ jQuery('document').ready(function($) {
                         href = $(this.element[0]).attr('href');
                         q = $(this.element[0]).attr('q');
                     }
+                    href=processMergeWords($(this.element[0]),href);
                     var inline_search = $(this.element[0]).attr('inline_search');
                     if ($.isset(inline_search) && inline_search == 0) {
                         return false;
