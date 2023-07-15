@@ -54,7 +54,7 @@ $jsConfig = json_encode(array_merge($jsConfig, array(
     'delay_load_right_panel' => \kernel\configuration::read('delay_load_right_panel', 5000),
     'debug_js' => \kernel\configuration::read('debug_js', 0),
     'use_minified_files' => \kernel\configuration::read('use_minified_files', 0),
-    'subview'=> base64_decode($this->request->param('subview'))
+    'subview'=> ($this->request->param('subview')?base64_decode($this->request->param('subview')):'')
         )));
 //pr($jsConfig);
 //var_dump(\kernel\configuration::read('staticURL'));
