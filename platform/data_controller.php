@@ -261,6 +261,7 @@ class data_controller extends \kernel\controller {
             throw new \Exception(
             sprintf(__('Requested record not found, either you dont have permission to access it or its missing')));
         }
+        $modelObj->operation="read";
         $modelObj->processRules($data, true);
         $request->set('permissions', $modelObj->permissions);
         $modelObj->callAfterProcessData($data);
