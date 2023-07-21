@@ -2077,7 +2077,9 @@ jQuery('document').ready(function($) {
                     defaultDatetime.setMinutes(0);
                     defaultDatetime.setSeconds(0);
                 }
-                $thisdatetimepicker.datetimepicker('setDate', defaultDatetime);
+                if($this.attr('disable_autofill_while_cloning') != 1){
+                    $thisdatetimepicker.datetimepicker('setDate', defaultDatetime);
+                }
             }
             if(datetimeValueOriginal.indexOf('XVAR') != -1){
                 $this.parents(':first').find('.datetime_toggle').trigger('click');

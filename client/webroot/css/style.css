@@ -2232,6 +2232,24 @@ div.fadeMeOverlayMessage {
 .workflow-stage-progress-comment ol{
     margin-top:5px;padding-left: 20px;
 }
+
+.workflow-stage-planned-start-date{
+    font-weight: bold;
+    color:#5cb85c;
+}
+.workflow-stage-deadline{
+    font-weight: bold;
+    color:#5cb85c;
+}
+
+.workflow-stage-planned-start-date-overdue{
+    font-weight: bold;
+    color:#CC0000;
+}
+.workflow-stage-deadline-overdue{
+    font-weight: bold;
+    color:#CC0000;
+}
   
 .avatar {
   vertical-align: middle;

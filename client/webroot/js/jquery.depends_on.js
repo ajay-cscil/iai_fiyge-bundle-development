@@ -46,7 +46,7 @@
                 .bind('data_source_url', function(event, id) {
                     try {
                         var href = '';
-                        var td = $(this).closest('div');
+                        var td = $(this).closest('.cell-info');
                         var popupSelect = td.find('.popup-select');
                         if (popupSelect.length > 0) {
                             href = popupSelect.find("option:selected").attr('href');
