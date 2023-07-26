@@ -2784,6 +2784,13 @@ jQuery('document').ready(function($) {
                 }
             }
         }
+
+        var form_view_href=formObject.attr('form_view_href');
+        if(form_view_href){
+            var uiDialogTitlebar=$("#" + uuid).closest('.ui-dialog').find('.ui-dialog-titlebar');
+            uiDialogTitlebar.append('<a href="'+form_view_href+'" style="color:#ffffff;float:right;margin-right:50px;" ajax=1>Form Editor</a>');
+        }
+
         return uuid;
     };
 
