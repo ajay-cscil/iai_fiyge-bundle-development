@@ -10,7 +10,7 @@ define('ROOT', __DIR__);
 define('DEBUG', false);
 require_once 'client'.DS.'config'.DS.'connection.php';
 
-
+pr($connections);
 $inputline=inputline('Do you want to changed system wide int primary key to UUID(except users/groups) y/n:');
 if(	strtolower($inputline) == "y"){
 		nl("STARTED");
