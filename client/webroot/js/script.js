@@ -2646,6 +2646,42 @@ jQuery('document').ready(function($) {
         }
         initChart(container);
 
+        container.find('.action_require_confirmation').click(function(event){
+            var $object=$(this);
+            var form = $object.closest('form');
+                form.find('.not-empty-input').attr('REQUIRED','REQUIRED');
+            if (!form.valid()) {
+                event.stopPropagation();
+                event.preventDefault();
+                return false;
+            }else{
+               if(!$object.hasClass('is_confirmed')){
+                    var params = {
+                        "width": 250 + "px"
+                    };
+                    params['buttons'] = {
+                        'Yes': function() {
+                                $(this).dialog('destroy').remove();
+                                $object.addClass("is_confirmed");
+                                $object.trigger('click');
+                        },
+                        'No': function() {
+                            $(this).dialog('destroy').remove();
+                        }
+                    };
+                    var confirmationMessage = $object.attr('confirmation_message');
+                    if ($.isEmpty(confirmationMessage)) {
+                        confirmationMessage = 'Do you want to continue';
+                    }
+                    var uuid = $.jsContainer(confirmationMessage, params);
+                    event.stopImmediatePropagation();
+                    event.stopPropagation();
+                    event.preventDefault();
+                    return false;
+                } 
+            }
+        });
+
         if (form.length > 0 ) {
             var isTrueFormReload=form.attr('last_form_submit_action') =='reload' && form.attr('reload_triggered_by') !='reload' ;
             if(!isTrueFormReload){
