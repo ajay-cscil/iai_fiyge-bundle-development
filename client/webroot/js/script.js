@@ -2646,19 +2646,22 @@ jQuery('document').ready(function($) {
         }
         initChart(container);
 
-        if (form.length > 0) {
-            if(form.attr('action').indexOf('edit_selected') != -1){
-                form.find(':input')
-                .not('[type="hidden"]')
-                .not('[type="checkbox"]')
-                .not('[type="button"]')
-                .not('[type="submit"]')
-                .not('button')
-                .val('');
-                form.find(':input').filter('[type="checkbox"]').prop("checked", false );
-                form.find('table.listview').remove();
+        if (form.length > 0 ) {
+            var isTrueFormReload=form.attr('last_form_submit_action') =='reload' && form.attr('reload_triggered_by') !='reload' ;
+            if(!isTrueFormReload){
+                if(form.attr('action').indexOf('edit_selected') != -1){
+                    form.find(':input')
+                    .not('[type="hidden"]')
+                    .not('[type="checkbox"]')
+                    .not('[type="button"]')
+                    .not('[type="submit"]')
+                    .not('button')
+                    .val('');
+                    form.find(':input').filter('[type="checkbox"]').prop("checked", false );
+                    form.find('table.listview').remove();
 
-                form.find('span.not_empty').remove();
+                    form.find('span.not_empty').remove();
+                }
             }
         }
     }

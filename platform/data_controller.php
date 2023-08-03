@@ -571,8 +571,9 @@ class data_controller extends \kernel\controller {
                                         $dataCopyAction=[$dataCopyActionKey=>$dataCopyActionValue];
                                     }
                                     $dataCopy[$modelObj->alias]['action'] = $dataCopyAction;
-                                    
-
+                                    if(isset($data[$modelObj->alias]['stage_log'])){
+                                        $dataCopy[$modelObj->alias]['stage_log'] = $data[$modelObj->alias]['stage_log'];  
+                                    }
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
@@ -609,6 +610,68 @@ class data_controller extends \kernel\controller {
         if ($successCount == count($ids)) {
             return("{$request->module}/{$request->controller}/index");
         }
+
+        $unifiedJumpToStages=false;
+        $unifiedOpenStages=false;
+        foreach ($ids as $id) {
+                $modelObj = $this->modelObj(false);
+                $dataCopy = $modelObj->read($id);
+                if(isset($dataCopy[$modelObj->alias]['workflow_jump_to_stages'])){
+                    $unifiedJumpToStages1=[];
+                    foreach($dataCopy[$modelObj->alias]['workflow_jump_to_stages'] as $jumpToStage){
+                        $unifiedJumpToStages1[$jumpToStage['id']]=$jumpToStage['name'];
+                    }
+                    if($unifiedJumpToStages === false){
+                         $unifiedJumpToStages=$unifiedJumpToStages1;
+                    }else{
+                        $unifiedJumpToStages=array_intersect_key($unifiedJumpToStages,$unifiedJumpToStages1);
+                    }
+                }
+                if(isset($dataCopy[$modelObj->alias]['open_nodes'])){
+                    $unifiedOpenStages1=[];
+                    foreach($dataCopy[$modelObj->alias]['open_nodes'] as $openNode){
+                        $unifiedOpenStages1[$openNode['stage_id']]=$openNode['stage_name'];
+                    }
+                    if($unifiedOpenStages === false){
+                         $unifiedOpenStages=$unifiedOpenStages1;
+                    }else{
+                        $unifiedOpenStages=array_intersect_key($unifiedOpenStages,$unifiedOpenStages1);
+                    }
+                }
+        }
+
+        $data=$request->data;
+        if(!empty($unifiedJumpToStages)){
+            if(!isset($data) || !is_array($data)){
+                $data=[$modelObj->alias=>[]];
+            }
+            $data[$modelObj->alias]['workflow_jump_to_stages']=[];
+            foreach($unifiedJumpToStages as $unifiedJumpToStageID=>$unifiedJumpToStageName){
+                $data[$modelObj->alias]['workflow_jump_to_stages'][]=[
+                    "id"=>$unifiedJumpToStageID,
+                    "name"=>$unifiedJumpToStageName
+                ];
+            }
+        }
+        //pr($unifiedOpenStages);
+        if(!empty($unifiedOpenStages)){
+            if(!isset($data) || !is_array($data)){
+                $data=[$modelObj->alias=>[]];
+            }
+            $data[$modelObj->alias]['is_workflow_log_set']=1;
+            $data[$modelObj->alias]['open_stages']=[];
+            foreach($unifiedOpenStages as $unifiedOpenStageID=>$unifiedOpenStageName){
+                $data[$modelObj->alias]['open_stages'][]=[
+                    "stage_id"=>$unifiedOpenStageID,
+                    "stage_name"=>$unifiedOpenStageName
+                ];
+            } 
+            if(!isset($data[$modelObj->alias]["stage_log"])){
+                $data[$modelObj->alias]["stage_log"]=[];
+            }
+            $data[$modelObj->alias]["stage_log"]["stage_id"]=key($unifiedOpenStages);
+        }
+
         $this->processSentData($request, $data);
         $request->set('primary_key', $modelObj->primaryKey);
         $request->set('display_field', $modelObj->displayField);
