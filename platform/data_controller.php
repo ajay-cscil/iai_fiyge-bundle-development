@@ -641,36 +641,39 @@ class data_controller extends \kernel\controller {
         }
 
         $data=$request->data;
-        if(!empty($unifiedJumpToStages)){
-            if(!isset($data) || !is_array($data)){
-                $data=[$modelObj->alias=>[]];
-            }
-            $data[$modelObj->alias]['workflow_jump_to_stages']=[];
-            foreach($unifiedJumpToStages as $unifiedJumpToStageID=>$unifiedJumpToStageName){
-                $data[$modelObj->alias]['workflow_jump_to_stages'][]=[
-                    "id"=>$unifiedJumpToStageID,
-                    "name"=>$unifiedJumpToStageName
-                ];
-            }
-        }
-        //pr($unifiedOpenStages);
-        if(!empty($unifiedOpenStages)){
-            if(!isset($data) || !is_array($data)){
-                $data=[$modelObj->alias=>[]];
-            }
+
+        if($modelObj->has('behaviour','\\module\\flexflow\\behaviour\\flexflow')){
             $data[$modelObj->alias]['is_workflow_log_set']=1;
-            $data[$modelObj->alias]['open_stages']=[];
-            foreach($unifiedOpenStages as $unifiedOpenStageID=>$unifiedOpenStageName){
-                $data[$modelObj->alias]['open_stages'][]=[
-                    "stage_id"=>$unifiedOpenStageID,
-                    "stage_name"=>$unifiedOpenStageName
-                ];
-            } 
-            if(!isset($data[$modelObj->alias]["stage_log"])){
-                $data[$modelObj->alias]["stage_log"]=[];
+            if(!empty($unifiedJumpToStages)){
+                if(!isset($data) || !is_array($data)){
+                    $data=[$modelObj->alias=>[]];
+                }
+                $data[$modelObj->alias]['workflow_jump_to_stages']=[];
+                foreach($unifiedJumpToStages as $unifiedJumpToStageID=>$unifiedJumpToStageName){
+                    $data[$modelObj->alias]['workflow_jump_to_stages'][]=[
+                        "id"=>$unifiedJumpToStageID,
+                        "name"=>$unifiedJumpToStageName
+                    ];
+                }
             }
-            $data[$modelObj->alias]["stage_log"]["stage_id"]=key($unifiedOpenStages);
+            if(!empty($unifiedOpenStages)){
+                if(!isset($data) || !is_array($data)){
+                    $data=[$modelObj->alias=>[]];
+                }
+                $data[$modelObj->alias]['open_stages']=[];
+                foreach($unifiedOpenStages as $unifiedOpenStageID=>$unifiedOpenStageName){
+                    $data[$modelObj->alias]['open_stages'][]=[
+                        "stage_id"=>$unifiedOpenStageID,
+                        "stage_name"=>$unifiedOpenStageName
+                    ];
+                } 
+                if(!isset($data[$modelObj->alias]["stage_log"])){
+                    $data[$modelObj->alias]["stage_log"]=[];
+                }
+                $data[$modelObj->alias]["stage_log"]["stage_id"]=key($unifiedOpenStages);
+            }
         }
+
 
         $this->processSentData($request, $data);
         $request->set('primary_key', $modelObj->primaryKey);
