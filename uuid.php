@@ -43,8 +43,12 @@ function converttouuid(){
 										"core__revision_log",
 										"crm_base__addresses_revision_log",
 										"crm_base__email_addresses_revision_log",
-										"crm_base__phone_numbers_revision_log"
-					];
+										"crm_base__phone_numbers_revision_log",
+										"access_controls__groups_acl_cache",
+										"access_controls__groups_group_acl_cache",
+										"access_controls__users_acl_cache",
+										"access_controls__users_group_acl_cache"
+	];
 
 	
 
