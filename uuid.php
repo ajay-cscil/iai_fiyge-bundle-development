@@ -12,7 +12,7 @@ require_once 'client'.DS.'config'.DS.'connection.php';
 
 pr($connections);
 
-$filename=__DIR__.DIRECTORY_SEPARATOR."model_related_to_users.json";
+$filename=__DIR__.DIRECTORY_SEPARATOR."model_related_to_users/model_related_to_users.json";
 $model_related_to_users=[];
 if(file_exists($filename)){
 	$model_related_to_users=file_get_contents($filename);
