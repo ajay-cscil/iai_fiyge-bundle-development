@@ -12,14 +12,14 @@ require_once 'client'.DS.'config'.DS.'connection.php';
 
 pr($connections);
 
-$filename="model_related_to_users.json";
+$filename=__DIR__.DIRECTORY_SEPARATOR."model_related_to_users.json";
+$model_related_to_users=[];
 if(file_exists($filename)){
-	$model_related_to_users=json_decode(file_get_contents($filename));	
+	$model_related_to_users=file_get_contents($filename);
+	$model_related_to_users=json_decode($model_related_to_users,true);	
 }
 
-nl("model_related_to_users:".
-	(is_array($model_related_to_users) && !empty($model_related_to_users)?"found":"not-found")
-);
+echo PHP_EOL."model_related_to_users:".(is_array($model_related_to_users) && !empty($model_related_to_users)?"found":"not-found").PHP_EOL.PHP_EOL;
 
 $inputline=inputline('Do you want to changed system wide int primary key to UUID(except users/groups) y/n:');
 if(	strtolower($inputline) == "y"){
@@ -37,7 +37,7 @@ if(	strtolower($inputline) == "y"){
 
 
 function converttouuid(){
-	global $connections;
+	global $connections,$model_related_to_users;
 	$globalSkipTables=[
 										"sessions",
 										"core__revision_log",
@@ -81,7 +81,7 @@ function converttouuid(){
 	}
 
 	
-		foreach($tables as $tableKey=>$table){
+	foreach($tables as $tableKey=>$table){
 			if(in_array($table['TABLE_NAME'], [
 				"access_controls__users",
 				"access_controls__groups",
@@ -245,18 +245,29 @@ function converttouuid(){
 					")->fetch_all(MYSQLI_ASSOC) as $column){
 				$tables[$tableKey]["all_columns"][$column["COLUMN_NAME"]]=$column;
 			}
-		}
+	}
 	echo PHP_EOL."---------------------START-------------------------------";
+	
+	foreach($tables as $tableK=>$table){
+		if(!empty($table["columns"])){
+			if(
+				isset($model_related_to_users[$table['TABLE_NAME']]) && 
+				is_array($model_related_to_users[$table['TABLE_NAME']])
+			){
+				$tables[$tableK]["columns"]=
+				array_diff(
+					$tables[$tableK]["columns"], 
+					$model_related_to_users[$table['TABLE_NAME']]
+				);
+			}
+		}
+	}
+	
+
 	$notNullTable=['campaigns__campaign_run_status'];
 	foreach($tables as $table){
 		if(!empty($table["columns"])){
 			$columnSQL=[];
-
-			if(isset($model_related_to_users[$table['TABLE_NAME']]) && 
-				is_array($model_related_to_users[$table['TABLE_NAME']])
-			){
-				$table["columns"]=array_diff($table["columns"], $model_related_to_users[$table['TABLE_NAME']]);
-			}
 			foreach($table["columns"] as $column){
 				$schemaSQL="ALTER TABLE {$table["TABLE_SCHEMA"]}.{$table["TABLE_NAME"]} CHANGE {$column} {$column} VARCHAR(36) ".($column !="id" && !in_array($table["TABLE_NAME"], $notNullTable)?" default null ":"");	
 
@@ -321,7 +332,7 @@ function converttouuid(){
 			}
 		}
 	}
-	pr($modelClasses);
+	//pr($modelClasses);
 	exit;
 }
 
