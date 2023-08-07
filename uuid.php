@@ -11,6 +11,16 @@ define('DEBUG', false);
 require_once 'client'.DS.'config'.DS.'connection.php';
 
 pr($connections);
+
+$filename="model_related_to_users.json";
+if(file_exists($filename)){
+	$model_related_to_users=json_decode(file_get_contents($filename));	
+}
+
+nl("model_related_to_users:".
+	(is_array($model_related_to_users) && !empty($model_related_to_users)?"found":"not-found")
+);
+
 $inputline=inputline('Do you want to changed system wide int primary key to UUID(except users/groups) y/n:');
 if(	strtolower($inputline) == "y"){
 		nl("STARTED");
@@ -142,6 +152,26 @@ function converttouuid(){
 				")->fetch_all(MYSQLI_ASSOC);
 				$tables[$tableKey]["columns"]=array_column($cols,"COLUMN_NAME");
 				
+			}else if(in_array($table['TABLE_NAME'], ["document_management_base__attachments"])){
+				$cols=$mysqli->query("
+					SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
+					WHERE 
+					TABLE_NAME = '{$table['TABLE_NAME']}' AND 
+					TABLE_SCHEMA='{$table['TABLE_SCHEMA']}' AND 
+					TABLE_SCHEMA='{$table['TABLE_SCHEMA']}' AND 
+					COLUMN_NAME NOT IN('".implode("','",$globalSkipColumns)."')
+					AND COLUMN_NAME NOT LIKE '%user_id%'	
+					AND COLUMN_NAME NOT LIKE '%group_id%'	
+					AND COLUMN_NAME NOT LIKE 'is_%'	
+					AND 
+					(
+						COLUMN_NAME = 'id'
+						OR
+						COLUMN_NAME = 'related_to'
+					)
+				")->fetch_all(MYSQLI_ASSOC);
+				$tables[$tableKey]["columns"]=array_column($cols,"COLUMN_NAME");
+				
 			}else if(in_array($table['TABLE_NAME'],["campaigns__campaign_log","campaigns__campaign_log_summary",
 										"campaigns__campaign_run_log","campaigns__campaign_run_status", 
 										"campaigns__campaign_actions"])){
@@ -221,6 +251,12 @@ function converttouuid(){
 	foreach($tables as $table){
 		if(!empty($table["columns"])){
 			$columnSQL=[];
+
+			if(isset($model_related_to_users[$table['TABLE_NAME']]) && 
+				is_array($model_related_to_users[$table['TABLE_NAME']])
+			){
+				$table["columns"]=array_diff($table["columns"], $model_related_to_users[$table['TABLE_NAME']]);
+			}
 			foreach($table["columns"] as $column){
 				$schemaSQL="ALTER TABLE {$table["TABLE_SCHEMA"]}.{$table["TABLE_NAME"]} CHANGE {$column} {$column} VARCHAR(36) ".($column !="id" && !in_array($table["TABLE_NAME"], $notNullTable)?" default null ":"");	
 
