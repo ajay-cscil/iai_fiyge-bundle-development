@@ -540,17 +540,16 @@ class data_controller extends \kernel\controller {
                                         $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
                                         foreach($dataACL as $dataACLKey=>$dataACLValue){
                                             if(!empty($dataACLValue)){
-                                                $modelObj->setAcl($dataACLKey,"new", array_map(function($item){ 
-                                                    return substr($item["aro_id_model"], 0,1).$item["aro_id"];
-                                                }, $dataACLValue));
+                                                $dataCopy[$modelObj->alias][$dataACLKey]=$dataACLValue;
                                             }
                                         }
                                     }else{
                                         foreach($dataACL as $dataACLKey=>$dataACLValue){
                                             if(!empty($dataACLValue)){
-                                                $modelObj->setSupplementaryACL($dataACLKey,"new", array_map(function($item){ 
-                                                    return substr($item["aro_id_model"], 0,1).$item["aro_id"];
-                                                }, $dataACLValue));
+                                                if(!is_array($dataCopy[$modelObj->alias][$dataACLKey])){
+                                                    $dataCopy[$modelObj->alias][$dataACLKey]=[];
+                                                }
+                                                $dataCopy[$modelObj->alias][$dataACLKey]=array_merge($dataCopy[$modelObj->alias][$dataACLKey],$dataACLValue);
                                             }
                                         }
                                     }
