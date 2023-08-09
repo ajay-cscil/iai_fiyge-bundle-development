@@ -6,7 +6,9 @@
  */
 $(document).bind('document_update', function(event, dom) {
     dom.find('[formula]').each(function() {
-        var formula_with_form_id = $(this).attr('formula').replace(/\$/gi, "$('#" + $(this).closest('form').attr('id') + "').find");
+        var formID=$(this).closest('form').attr('id');
+        var formula_with_form_id = $(this).attr('formula').replace(/\$/gi, "$('#" +formID+ "').find");
+        formula_with_form_id=formula_with_form_id.replaceAll('FORM.','$("#'+formID+'").')
         $(this).attr('formula', formula_with_form_id);
         $(this).compute();
     });
