@@ -2588,6 +2588,24 @@ jQuery('document').ready(function($) {
             jQuery(this).select2(select2Params);
         });*/
 
+        container.find('textarea[auto_resize="1"]').not('.template-element').not('.init_auto_resize')
+        .each(function(){
+            var $textarea=jQuery(this);
+            $textarea.addClass('init_auto_resize');
+            $textarea.change(function(){
+                var $textarea=jQuery(this);
+                var oldHeight=$textarea.height();
+                $textarea.css('height','auto');
+                var newHeight=$textarea.get(0).scrollHeight;
+                console.log(newHeight, '>' ,oldHeight)
+                if(newHeight > oldHeight){
+                    console.log('SET');
+                    $textarea.css('height',(newHeight) + 'px');
+                }
+            }).triggerHandler('change');
+        });
+        
+
         container.find('textarea[editor="form-builder"]').each(function(){
             $textarea=jQuery(this);
             $textarea.hide();
