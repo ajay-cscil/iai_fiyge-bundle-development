@@ -35,11 +35,11 @@ html,body {
 
 .standard td[colspan='3'] input[type='text'],
 .standard td[colspan='3'] input[type='url'],
-.standard td[colspan='3'] input[type='number']
-,.standard td[colspan='3'] input[type='date'],
+.standard td[colspan='3'] input[type='number'],
+.standard td[colspan='3'] input[type='date'],
 .standard td[colspan='3'] input[type='time'],
-.standard td[colspan='3'] input[type='datetime']
-,.standard td[colspan='3'] input[type='password'],
+.standard td[colspan='3'] input[type='datetime'],
+.standard td[colspan='3'] input[type='password'],
 .standard td[colspan='3'] input[type='email'],.standard td[colspan='3'] input[type='tel'],
 .standard td[colspan='3'] textarea{
     width:70%;
@@ -61,8 +61,65 @@ html,body {
     width:71%
 }
 
-.standard td[colspan='3'] input[type="text"].width-100,.standard td[colspan='3'] .width-100,td[colspan='3'] .width-100{
+.standard td[colspan='3'] input[type="text"].width-5,.standard td[colspan='3'] .width-5,td[colspan='3'] .width-5{
+    width:5%;
+}
+.standard td[colspan='3'] input[type="text"].width-10,.standard td[colspan='3'] .width-10,td[colspan='3'] .width-10{
+    width:10%;
+}
+.standard td[colspan='3'] input[type="text"].width-15,.standard td[colspan='3'] .width-15,td[colspan='3'] .width-15{
+    width:15%;
+}
+.standard td[colspan='3'] input[type="text"].width-20,.standard td[colspan='3'] .width-20,td[colspan='3'] .width-20{
+    width:20%;
+}
+.standard td[colspan='3'] input[type="text"].width-25,.standard td[colspan='3'] .width-25,td[colspan='3'] .width-25{
+    width:25%;
+}
+.standard td[colspan='3'] input[type="text"].width-30,.standard td[colspan='3'] .width-30,td[colspan='3'] .width-30{
+    width:30%;
+}
+.standard td[colspan='3'] input[type="text"].width-35,.standard td[colspan='3'] .width-35,td[colspan='3'] .width-35{
+    width:35%;
+}
+.standard td[colspan='3'] input[type="text"].width-40,.standard td[colspan='3'] .width-40,td[colspan='3'] .width-40{
+    width:40%;
+}
+.standard td[colspan='3'] input[type="text"].width-45,.standard td[colspan='3'] .width-45,td[colspan='3'] .width-45{
+    width:45%;
+}
+.standard td[colspan='3'] input[type="text"].width-50,.standard td[colspan='3'] .width-50,td[colspan='3'] .width-50{
+    width:50%;
+}
+.standard td[colspan='3'] input[type="text"].width-55,.standard td[colspan='3'] .width-55,td[colspan='3'] .width-55{
+    width:55%;
+}
+.standard td[colspan='3'] input[type="text"].width-60,.standard td[colspan='3'] .width-60,td[colspan='3'] .width-60{
+    width:60%;
+}
+.standard td[colspan='3'] input[type="text"].width-65,.standard td[colspan='3'] .width-65,td[colspan='3'] .width-65{
+    width:65%;
+}
+.standard td[colspan='3'] input[type="text"].width-70,.standard td[colspan='3'] .width-70,td[colspan='3'] .width-70{
     width:70%;
+}
+.standard td[colspan='3'] input[type="text"].width-75,.standard td[colspan='3'] .width-75,td[colspan='3'] .width-75{
+    width:75%;
+}
+.standard td[colspan='3'] input[type="text"].width-80,.standard td[colspan='3'] .width-80,td[colspan='3'] .width-80{
+    width:80%;
+}
+.standard td[colspan='3'] input[type="text"].width-85,.standard td[colspan='3'] .width-85,td[colspan='3'] .width-85{
+    width:85%;
+}
+.standard td[colspan='3'] input[type="text"].width-90,.standard td[colspan='3'] .width-90,td[colspan='3'] .width-90{
+    width:90%;
+}
+.standard td[colspan='3'] input[type="text"].width-95,.standard td[colspan='3'] .width-95,td[colspan='3'] .width-95{
+    width:95%;
+}
+.standard td[colspan='3'] input[type="text"].width-100,.standard td[colspan='3'] .width-100,td[colspan='3'] .width-100{
+    width:99%;
 }
 .standard td[colspan='3'] input[type="text"].width-full,.standard td[colspan='3'] .width-full,td[colspan='3'] .width-full{
     width:99%;
@@ -822,17 +879,56 @@ fieldset{
 .standard input[type="text"].width-90,.standard .width-90,.width-90{
     width:90%;
 }
+.standard input[type="text"].width-85,.standard .width-85,.width-85{
+    width:85%;
+}
+.standard input[type="text"].width-80,.standard .width-80,.width-80{
+    width:80%;
+}
 .standard input[type="text"].width-75,.standard .width-75,.width-75{
     width:75%;
+}
+.standard input[type="text"].width-70,.standard .width-70,.width-70{
+    width:70% !important;
+}
+.standard input[type="text"].width-65,.standard .width-65,.width-65{
+    width:65% !important;
+}
+.standard input[type="text"].width-60,.standard .width-60,.width-60{
+    width:60% !important;
+}
+.standard input[type="text"].width-55,.standard .width-55,.width-55{
+    width:55% !important;
 }
 .standard input[type="text"].width-50,.standard .width-50,.width-50{
     width:50% !important;
 }
+.standard input[type="text"].width-45,.standard .width-45,.width-45{
+    width:45% !important;
+}
+.standard input[type="text"].width-40,.standard .width-40,.width-40{
+    width:40% !important;
+}
 .standard input[type="text"].width-35,.standard .width-35,.width-35{
     width:35% !important;
 }
+.standard input[type="text"].width-30,.standard .width-30,.width-30{
+    width:30% !important;
+}
 .standard input[type="text"].width-25,.standard .width-25,.width-25{
     width:25% !important;
+}
+.standard input[type="text"].width-20,.standard .width-20,.width-20{
+    width:20% !important;
+}
+.standard input[type="text"].width-15,.standard .width-15,.width-15{
+    width:15% !important;
+}
+.standard input[type="text"].width-10,.standard .width-10,.width-10{
+    width:10% !important;
+}
+.standard input[type="text"].width-5,.standard .width-5,.width-5{
+    width:5% !important;
 }
 .popup-autocomplete-value{
     width:35% !important;
