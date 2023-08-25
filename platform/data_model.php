@@ -57,10 +57,6 @@ class data_model extends \kernel\model {
     }
 
     public function beforeSave() {
-        if (isset($this->data[$this->primaryKey]) && !empty($this->data[$this->primaryKey])) {
-            $this->dataOld = current($this->read($this->data[$this->primaryKey], array()));
-        }
-
         parent::beforeSave();
     }
 
