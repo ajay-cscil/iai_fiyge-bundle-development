@@ -161,6 +161,10 @@
             var filterByFields = (settings.filter_by_fields != null ? settings.filter_by_fields : element.attr('filter_by_fields'));
             // field on whose value other fields need to be filtered by
             if (filterByFields != "") {
+                var __filterByFields = element.attr('__filter_by_fields');
+                if( filterByFields.indexOf('|') == -1 && __filterByFields.indexOf('|') != -1 ){
+                    filterByFields = filterByFields +"|"+ __filterByFields.split('|')[1];
+                }
                 filterByFields = filterByFields.split(',');
                 // find form containing element that defines scope of filtered by fields.
                 var form = element.closest('form');
