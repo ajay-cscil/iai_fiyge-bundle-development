@@ -80,6 +80,17 @@ class data_controller extends \kernel\controller {
             if ($request->is('post') && !empty($request->data) && $multiPageForm !== -1) {
                 // normalize data
                 $data = \kernel\locale::normalize($request->data, $modelObj->schema(false, 'submodel', true, true));
+                
+                // set currenty performed form action into data
+                if (isset($data['action']) && isset($data[$modelObj->alias])){
+                    if(!isset($data[$modelObj->alias]['action']) || empty($data[$modelObj->alias]['action'])){
+                        $data[$modelObj->alias]['action'] = $data['action'];
+                    }
+                }
+                if(isset($data[$modelObj->alias]['action'])){
+                    $data[$modelObj->alias]['action']=[str_ireplace(['_&_continue','_and_continue'], ['',''], key($data[$modelObj->alias]['action']))=>current($data[$modelObj->alias]['action'])];
+                }
+
                 $modelObj->operation="write";
                 $modelObj->processRules($data, true);
                 $isProcessRules=true;
@@ -90,17 +101,7 @@ class data_controller extends \kernel\controller {
                     $data[$modelObj->alias][$modelObj->softDeleteColumn] = 0;
                 }
 
-                // set currenty performed form action into data
-                if (isset($data['action']) && isset($data[$modelObj->alias])){
-                    if(!isset($data[$modelObj->alias]['action']) || empty($data[$modelObj->alias]['action'])){
-                        $data[$modelObj->alias]['action'] = $data['action'];
-                    }
-                }
-
-
-                if(isset($data[$modelObj->alias]['action'])){
-                    $data[$modelObj->alias]['action']=[str_ireplace(['_&_continue','_and_continue'], ['',''], key($data[$modelObj->alias]['action']))=>current($data[$modelObj->alias]['action'])];
-                }
+                
                 
 
                 // try to save data
