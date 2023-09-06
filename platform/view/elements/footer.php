@@ -7,6 +7,7 @@ if (\kernel\configuration::read('debug') == true) {
 <div id="footer-panel"  >
     <span style="float:left;">
         <?php
+        /*
         $organizationName = \select("name")
                                 ->from(\module\crm_base\model\organizations::getInstance())
                                 ->where(array("OR" => array("parent_id is NULL", "parent_id" => 0)))
@@ -14,7 +15,8 @@ if (\kernel\configuration::read('debug') == true) {
                                 ->limit(1)
                                 ->execute()->fetch(\PDO::FETCH_COLUMN);
 
-          echo "{$organizationName}<br />";                      
+          echo "{$organizationName}<br />";   
+        */                   
         ?>
         <?php echo __('Server response time'); ?>:&nbsp;<?php
         global $requestStartTime;
