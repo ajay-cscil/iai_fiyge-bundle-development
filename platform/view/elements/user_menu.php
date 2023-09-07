@@ -63,10 +63,19 @@ if (\kernel\request::authenticate()) {
 $userListOptions=[];
 if(\kernel\request::session('switch_user_mode')){
         $userObj = \module\access_controls\model\users::getInstance();
-        $userList=select(["name","user_name","id"])->from($userObj)->order(["name ASC"])->execute()->fetchAll(\PDO::FETCH_ASSOC);
+        $userList=select(["users.name","users.user_name","users.id","organizations.name as 'organization'",])
+        ->from($userObj)
+        ->join('organizations')
+        ->where('users.is_active',1)
+        ->order(["users.name ASC"])
+        ->execute()
+        ->fetchAll(\PDO::FETCH_ASSOC);
         $userListOptions=[];
         foreach($userList as $userLi){
-            $userListOptions[]=["value"=>$userLi["id"],"text"=>"{$userLi["name"]} [{$userLi["user_name"]}]"];
+            if(!isset($userListOptions[$userLi["organization"]])){
+                $userListOptions[$userLi["organization"]]=[];
+            }
+            $userListOptions[$userLi["organization"]][]=["value"=>$userLi["id"],"text"=>"{$userLi["name"]} [{$userLi["user_name"]}]"];
         }    
 }
 ?>
