@@ -2276,9 +2276,10 @@ div.fadeMeOverlayMessage {
     color: #FF0000;
 }
 
+
 .workflow-stage-progress-neutral-open{
     font-weight: bold;
-    color:#808080
+    color:#808080;
 }
 .workflow-stage-progress-neutral-close{
     color:#808080
@@ -2290,6 +2291,16 @@ div.fadeMeOverlayMessage {
     font-weight: bold;
     color:#CC0100;
 }
+.workflow-stage-neutral-open{
+    border: 1px solid #808080;
+    padding: 5px;
+}
+.workflow-stage-neutral-on-hold{
+    border: 1px solid #CC0100;
+    padding: 5px;
+}
+
+
 
 .workflow-stage-progress-positive-open{
     font-weight: bold;
@@ -2305,6 +2316,16 @@ div.fadeMeOverlayMessage {
     font-weight: bold;
     color:#82C03E;
 }
+.workflow-stage-positive-open{
+    border: 1px solid #5cb85c;
+    padding: 5px;
+}
+.workflow-stage-positive-on-hold{
+    border: 1px solid #82C03E;
+    padding: 5px;
+}
+
+
 
 .workflow-stage-progress-negative-open{
     font-weight: bold;
@@ -2320,6 +2341,17 @@ div.fadeMeOverlayMessage {
     font-weight: bold;
     color:#82C03E;
 }
+.workflow-stage-negative-open{
+    border: 1px solid #FF9002;
+    padding: 5px;
+}
+.workflow-stage-negative-on-hold{
+    border: 1px solid #82C03E;
+    padding: 5px;
+}
+
+
+
 
 .workflow-stage-progress-comment{
     color:#808080;
