@@ -2279,20 +2279,20 @@ div.fadeMeOverlayMessage {
 
 .workflow-stage-progress-neutral-open{
     font-weight: bold;
-    color:#051094;
+    color:#1D49C4;
 }
 .workflow-stage-progress-neutral-close{
     color:#A9A9A9;
 }
 .workflow-stage-progress-neutral-future{
-    color:#281e5d;
+    color:#7176ba;
 }
 .workflow-stage-progress-neutral-on-hold{
     font-weight: bold;
     color:#CC0100;
 }
 .workflow-stage-neutral-open{
-    border: 1px solid #051094;
+    border: 1px solid #1D49C4;
     padding: 5px;
 }
 .workflow-stage-neutral-on-hold{
@@ -2310,7 +2310,7 @@ div.fadeMeOverlayMessage {
      color:#5cb85c;
 }
 .workflow-stage-progress-positive-future{
-    color:#281e5d;
+    color:#7176ba;
 }
 .workflow-stage-progress-positive-on-hold{
     font-weight: bold;
@@ -2335,7 +2335,7 @@ div.fadeMeOverlayMessage {
      color:#FF9002;
 }
 .workflow-stage-progress-negative-future{
-    color:#281e5d;
+    color:#7176ba;
 }
 .workflow-stage-progress-negative-on-hold{
     font-weight: bold;
