@@ -2715,6 +2715,7 @@ jQuery('document').ready(function($) {
                     form.find('table.listview').remove();
 
                     form.find('span.not_empty').remove();
+                    form.find('.not-empty-input').removeClass('not-empty-input');
                 }
             }
         }
