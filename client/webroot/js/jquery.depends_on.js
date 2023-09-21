@@ -476,6 +476,7 @@
                 var onChangeField = (settings.on_change_field != null ? settings.on_change_field : $(this).attr('on_change_field'));
                 // try to localy dependednt on element.
                 onChangeField = $(this).closest('form').find('[name="' + settings.name_formatter(onChangeField) + '"]');
+                if(!onChangeField.is('[on_change_reload_form=1]')){
                 onChangeFieldList.push(onChangeField);
                 // find list containing all dependencies, else create an empty list.
                 var dependentList = onChangeField.data('dependent_list');
@@ -547,6 +548,7 @@
                         }
 
                     });
+                }
                 }
             }
             catch (err)
