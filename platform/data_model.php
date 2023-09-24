@@ -15,7 +15,7 @@ class data_model extends \kernel\model {
         if ($perm) {
             return $perm;
         }
-        if (!empty($id) && !$this->isOwnerOrCreator($id)) {
+        if (!\kernel\user::read('is_admin', false) && !empty($id) && !$this->isOwnerOrCreator($id)) {
             return sprintf(__('You dont have permission to %s %s [%s] as you are not owner or creator'), __('read'), __($this->singular, 'module'), $id);
         }
         return false;
@@ -28,7 +28,7 @@ class data_model extends \kernel\model {
         if ($perm) {
             return $perm;
         }
-        if (!empty($id) && !$this->isOwnerOrCreator($id)) {
+        if (!\kernel\user::read('is_admin', false) && !empty($id) && !$this->isOwnerOrCreator($id)) {
             return sprintf(__('You dont have permission to %s %s [%s] as you are not owner or creator'), __('delete'), __($this->singular, 'module'), $id);
         }
         return false;
@@ -39,7 +39,7 @@ class data_model extends \kernel\model {
         if ($perm) {
             return $perm;
         }
-        if (!empty($id) && !$this->isOwnerOrCreator($id)) {
+        if (!\kernel\user::read('is_admin', false) && !empty($id) && !$this->isOwnerOrCreator($id)) {
             return sprintf(__('You dont have permission to %s %s [%s] as you are not owner or creator'), __('edit'), __($this->singular, 'module'), $id);
         }
         return false;
