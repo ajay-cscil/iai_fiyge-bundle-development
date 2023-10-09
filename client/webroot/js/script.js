@@ -2848,7 +2848,7 @@ jQuery('document').ready(function($) {
             var uiDialogTitlebar=$("#" + uuid).closest('.ui-dialog').find('.ui-dialog-titlebar');
             uiDialogTitlebar.append('<a href="'+form_view_href+'" style="color:#ffffff;float:right;margin-right:50px;" ajax=1>Form Editor</a>');
         }
-
+        $(".ui-widget-overlay").height(document.documentElement.scrollHeight);
         return uuid;
     };
 
