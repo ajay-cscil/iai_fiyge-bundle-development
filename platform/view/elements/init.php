@@ -146,6 +146,8 @@ echo \kernel\html::js($this->request, '/module/superfish/js/superfish');
 echo \kernel\html::js($this->request, '/module/pdf/pdf.min');
 echo \kernel\html::css($this->request, '/module/pdf/pdf_viewer.min');
 
+echo \kernel\html::css($this->request, '/module/jquery-comments/jquery-comments');
+echo \kernel\html::js($this->request, '/module/jquery-comments/jquery-comments');
 ?>
 
 
