@@ -281,9 +281,9 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
         pdf_container.appendChild(canvas);
         var myImg = new Image();
         myImg.onload = function() {
-            ctx.canvas.width = myImg.width;
-            ctx.canvas.height = myImg.height;
-            ctx.drawImage(myImg, 0, 0,myImg.width,myImg.height);
+            ctx.canvas.width = window.innerWidth-100;//myImg.width;
+            ctx.canvas.height = (window.innerWidth/myImg.width)*myImg.height;
+            ctx.drawImage(myImg, 0, 0,ctx.canvas.width,ctx.canvas.height);
         };
         myImg.src = url;
     }
@@ -2848,7 +2848,10 @@ jQuery('document').ready(function($) {
             var uiDialogTitlebar=$("#" + uuid).closest('.ui-dialog').find('.ui-dialog-titlebar');
             uiDialogTitlebar.append('<a href="'+form_view_href+'" style="color:#ffffff;float:right;margin-right:50px;" ajax=1>Form Editor</a>');
         }
+
         $(".ui-widget-overlay").height(document.documentElement.scrollHeight);
+        $(".ui-widget-overlay").width(document.documentElement.scrollWidth);
+
         return uuid;
     };
 
@@ -3117,6 +3120,7 @@ jQuery('document').ready(function($) {
         //var href=$(object).attr('href');
         var ajax = $(object).attr('ajax');
         var tr = $(object).closest('tr');
+        var record_display_name=tr.attr('record_display_name');
         if (!$.isset(table)) {
             var table = $(object).closest('table.listview');
         }
@@ -3218,7 +3222,7 @@ jQuery('document').ready(function($) {
 
         var confirmationMessage = $(object).attr('confirmation_message');
         if ($.isEmpty(confirmationMessage)) {
-            confirmationMessage = 'Do you want to delete';
+            confirmationMessage = 'Do you want to delete'+(record_display_name != ''?' "'+record_display_name+'"':'');
         }
         if(overrideMessage !=''){
             confirmationMessage=overrideMessage;
