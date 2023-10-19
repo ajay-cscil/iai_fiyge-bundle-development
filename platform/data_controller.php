@@ -103,11 +103,15 @@ class data_controller extends \kernel\controller {
 
                 
                 
-
                 // try to save data
+                $skipValidation = (isset($data['skip_validation'])?$data['skip_validation']:"");
                 $isReload = (isset($data['action']) && isset($data['action']['reload']));
                 if ($isReload === false) {
-                    $this->saveHandlerOutput = $modelObj->$saveHandler($data);
+                    $options=[];
+                    if($skipValidation == true && isset($data['action']) && md5(key($data['action'])) == $skipValidation ){
+                        $options["validate"]=false;
+                    }
+                    $this->saveHandlerOutput = $modelObj->$saveHandler($data,$options);
                     if ($this->saveHandlerOutput) {
                         $id = $modelObj->id;
 

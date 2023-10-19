@@ -3676,6 +3676,11 @@ jQuery('document').ready(function($) {
         } else {
             form.find('[type="submit"]').click(function(event) {
                 var form = $(this).closest('form');
+                var skipValidation=$(this).attr('skip_validation');
+                if(skipValidation == true){
+                    should_validate=false;
+                }
+                console.log("should_validate",should_validate);
                 form.find('.not-empty-input').attr('REQUIRED','REQUIRED');
                 // Form Validation befor submit
                 if (should_validate === true) {
@@ -3690,18 +3695,11 @@ jQuery('document').ready(function($) {
                 }
                 var data = $(form).serializeObject();
                 data[$(this).attr('name')] = $(this).val();
+                data['data[skip_validation]']=skipValidation;
                 setTimeout(function() {
                     form.find('[type="submit"]').disable();
                 }, 100);
 
-                /*
-                 form.find('[type="submit"]')
-                 .click(function(event){
-                 event.stopPropagation();
-                 event.preventDefault();
-                 return false;
-                 }).disable(true);
-                 */
                 form.find('.grid-template-row').remove();
                 $.post($(form).attr('action').replace('?ajax=1', '?').replace('&ajax=1', ''), data, function(data) {
                     $.afterSaveAjaxForm({
