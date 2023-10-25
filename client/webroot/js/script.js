@@ -2207,7 +2207,7 @@ jQuery('document').ready(function($) {
                         if (!$.isPlainObject(q))
                             q = {};
                         q["paginate_as"] = "lazy";
-                        q['limit'] = 20;
+                        q['limit'] = 100;
                         q['fields'] = ['{{MODEL}}' + '.' + '{{DISPLAY_FIELD}}', '{{MODEL}}' + '.' + '{{PRIMARY_KEY}}'];
                         if (!$.isset(q['where'])) {
                             q['where'] = [];
@@ -2476,7 +2476,7 @@ jQuery('document').ready(function($) {
                         if (!$.isPlainObject(q))
                             q = {};
                         q["paginate_as"] = "lazy";
-                        q['limit'] = 20;
+                        q['limit'] = 100;
                         q['fields'] = ['{{MODEL}}' + '.' + '{{DISPLAY_FIELD}}', '{{MODEL}}' + '.' + '{{PRIMARY_KEY}}'];
                         if (!$.isset(q['where'])) {
                             q['where'] = [];
