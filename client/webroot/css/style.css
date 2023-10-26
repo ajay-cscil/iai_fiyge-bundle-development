@@ -2401,5 +2401,7 @@ div.fadeMeOverlayMessage {
 table[listview_id] > tbody > tr:hover{
     background-color:#EAF8FF !important;
 }
-
+.revision-log-diff .cell-info-grid{
+    vertical-align: top;
+}
 
