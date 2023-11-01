@@ -125,6 +125,16 @@ html,body {
     width:99%;
 }
 
+.standard td[colspan='3'] select.popup-select{
+    width:10%
+}
+.standard td[colspan='3'] input.popup-autocomplete-poly{
+    width:60%
+}
+.standard td[colspan='3'] input.popup-autocomplete-mono{
+    width:70%
+}
+
 button{
     text-transform:capitalize;
     padding:5.5px 12px;
