@@ -90,7 +90,7 @@
             // Other
             'click li.comment ul.child-comments .toggle-all': 'toggleReplies',
             'click li.comment button.reply': 'replyButtonClicked',
-            'click li.comment button.edit': 'editButtonClicked',
+            'click li.comment button.comment-edit': 'editButtonClicked',
 
             // Drag & dropping attachments
             'dragenter' : 'showDroppableOverlay',
@@ -1976,7 +1976,7 @@
 
             if(commentModel.createdByCurrentUser || this.options.currentUserIsAdmin) {
                 var editButton = $('<button/>', {
-                    'class': 'action edit',
+                    'class': 'action comment-edit',
                     text: this.options.textFormatter(this.options.editText)
                 });
                 actions.append(editButton);
