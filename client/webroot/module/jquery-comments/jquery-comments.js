@@ -1976,7 +1976,7 @@
 
             if(commentModel.createdByCurrentUser || this.options.currentUserIsAdmin) {
                 var editButton = $('<button/>', {
-                    'class': 'action comment-edit',
+                    'class': 'comment-action comment-edit',
                     text: this.options.textFormatter(this.options.editText)
                 });
                 actions.append(editButton);
