@@ -1174,6 +1174,8 @@
 
             // Ensure element stays visible
             this.ensureElementStaysVisible(editField);
+
+            ev.stopPropagation();
         },
 
         showDroppableOverlay: function(ev) {
