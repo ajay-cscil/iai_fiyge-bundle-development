@@ -90,7 +90,7 @@
             // Other
             'click li.comment ul.child-comments .toggle-all': 'toggleReplies',
             'click li.comment button.reply': 'replyButtonClicked',
-            'click li.comment button.comment-edit': 'editButtonClicked',
+            'click li.comment button.edit': 'editButtonClicked',
 
             // Drag & dropping attachments
             'dragenter' : 'showDroppableOverlay',
@@ -1174,8 +1174,6 @@
 
             // Ensure element stays visible
             this.ensureElementStaysVisible(editField);
-
-            ev.stopPropagation();
         },
 
         showDroppableOverlay: function(ev) {
@@ -1978,7 +1976,8 @@
 
             if(commentModel.createdByCurrentUser || this.options.currentUserIsAdmin) {
                 var editButton = $('<button/>', {
-                    'class': 'comment-action comment-edit',
+                    'class': 'action edit',
+                    'type': 'button',
                     text: this.options.textFormatter(this.options.editText)
                 });
                 actions.append(editButton);
