@@ -77,13 +77,13 @@
             // Edit mode actions
             'click .commenting-field .send.enabled' : 'postComment',
             'click .commenting-field .update.enabled' : 'putComment',
-            'click .commenting-field .delete.enabled' : 'deleteComment',
+            'click .commenting-field .comment-delete.enabled' : 'deleteComment',
             'click .commenting-field .attachments .attachment .delete' : 'preDeleteAttachment',
             'change .commenting-field .upload.enabled input[type="file"]' : 'fileInputChanged',
 
             // Other actions
             'click li.comment button.upvote' : 'upvoteComment',
-            'click li.comment button.delete.enabled' : 'deleteComment',
+            'click li.comment button.comment-delete.enabled' : 'deleteComment',
             'click li.comment .hashtag' : 'hashtagClicked',
             'click li.comment .ping' : 'pingClicked',
 
@@ -1433,7 +1433,7 @@
                 // Delete button
                 var deleteButtonText = this.options.textFormatter(this.options.deleteText);
                 var deleteButton = $('<span/>', {
-                    'class': 'delete enabled',
+                    'class': 'comment-delete enabled',
                     text: deleteButtonText
                 }).css('background-color', this.options.deleteButtonColor);
                 deleteButton.data('original-content', deleteButtonText);
