@@ -1745,7 +1745,8 @@
             });
 
             var icon = $('<i/>', {
-                'class': 'fa fa-times'
+                // 'class': 'fa fa-times'
+                'class': 'ui-button-icon-primary ui-icon ui-icon-closethick'
             });
             if(this.options.closeIconURL.length) {
                 icon.css('background-image', 'url("'+this.options.closeIconURL+'")');
