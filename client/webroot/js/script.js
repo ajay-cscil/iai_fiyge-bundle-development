@@ -2605,9 +2605,10 @@ jQuery('document').ready(function($) {
         
         container.find('select:visible').not(".popup-select").each(function(){
             var select2Params={};
-            var uiWidgetContent=jQuery(this).closest('.ui-widget-content');
-            if(uiWidgetContent.length){
-                select2Params.dropdownParent=uiWidgetContent;
+            var dropdownParent=jQuery(this).closest('.ui-dialog-content');
+            if(dropdownParent.length){
+                select2Params["dropdownParent"]=jQuery(this).parent();
+                select2Params["dropdownParent"].css({"position":"relative"});
             }
             jQuery(this).select2(select2Params);
         });

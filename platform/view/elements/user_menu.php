@@ -81,7 +81,7 @@ if(\kernel\request::session('switch_user_mode')){
 ?>
 <div id="user_menu">
     <?php if(\kernel\request::session('switch_user_mode')){ ?>
-    <select id="switch_user" style="max-width:200px">
+    <select id="switch_user" style="max-width:300px">
     <?php echo \kernel\html::options($userListOptions,\kernel\user::read('id'),false); ?>
     </select>
     <?php } ?>
