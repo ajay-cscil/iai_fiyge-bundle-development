@@ -1961,6 +1961,7 @@ jQuery('document').ready(function($) {
                 properties['minHeight'] = height;
             }
             properties["globalFullSize"]=false;
+            properties["toolbarAdaptive"]=false;
             $(this).data('jodit',Jodit.make($(this).get(0),properties));
         }).change(function(){
             //var jodit=$(this).data('jodit');
