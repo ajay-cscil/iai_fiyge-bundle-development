@@ -1965,6 +1965,7 @@ jQuery('document').ready(function($) {
             properties["toolbarAdaptive"]=false;
             properties["allowResizeX"]=false;
             properties["allowResizeY"]=false;
+            properties["toolbarSticky"]=false;
             $(this).data('jodit',Jodit.make($(this).get(0),properties));
         }).change(function(){
             //var jodit=$(this).data('jodit');
