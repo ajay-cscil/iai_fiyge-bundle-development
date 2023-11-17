@@ -2602,7 +2602,7 @@ jQuery('document').ready(function($) {
             });
         });
 
-        /*
+        
         container.find('select:visible').not(".popup-select").each(function(){
             var select2Params={};
             var uiWidgetContent=jQuery(this).closest('.ui-widget-content');
@@ -2610,7 +2610,7 @@ jQuery('document').ready(function($) {
                 select2Params.dropdownParent=uiWidgetContent;
             }
             jQuery(this).select2(select2Params);
-        });*/
+        });
 
         container.find('textarea[auto_resize="1"]').not('.template-element').not('.init_auto_resize')
         .each(function(){

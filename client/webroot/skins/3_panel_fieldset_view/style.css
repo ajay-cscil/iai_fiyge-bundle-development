@@ -99,6 +99,8 @@ input[type='text']
 ,select,textarea  {
     border:1px solid #DDDDDD;
     padding:3px;
+    line-height: 20px;
+    vertical-align: middle;
 }
 .token-input-list{
     border:1px solid #DDDDDD !important;

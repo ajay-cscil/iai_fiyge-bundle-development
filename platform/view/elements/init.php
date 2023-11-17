@@ -153,6 +153,9 @@ echo \kernel\html::js($this->request, '/module/jquery-comments/jquery.textcomple
 echo \kernel\html::css($this->request, '/node_modules/jodit/es5/jodit');
 echo \kernel\html::js($this->request, '/node_modules/jodit/es5/jodit');
 
+echo \kernel\html::css($this->request, '/module/select2/select2.min');
+echo \kernel\html::js($this->request, '/module/select2/select2.min');
+
 ?>
 
 
