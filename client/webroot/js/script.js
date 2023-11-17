@@ -1962,6 +1962,8 @@ jQuery('document').ready(function($) {
             }
             properties["globalFullSize"]=false;
             properties["toolbarAdaptive"]=false;
+            properties["allowResizeX"]=false;
+            properties["allowResizeY"]=false;
             $(this).data('jodit',Jodit.make($(this).get(0),properties));
         }).change(function(){
             //var jodit=$(this).data('jodit');
