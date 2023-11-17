@@ -1949,9 +1949,8 @@ jQuery('document').ready(function($) {
 
 
         container.find('textarea[editor="WYSIWYG-V1"]').not('.template-element').each(function() {
-            //var editorID=uuidv4();;
-            //$(this).attr('id',editorID);
-
+            var $td=$(this).closest('td');
+            $td.width($td.width()+'px');
             var properties = {};
             var height = parseInt($(this).css('height'));
             var rows = parseInt($(this).attr('rows'));
@@ -1965,11 +1964,10 @@ jQuery('document').ready(function($) {
             properties["toolbarAdaptive"]=false;
             properties["allowResizeX"]=false;
             properties["allowResizeY"]=false;
-            properties["toolbarSticky"]=false;
+            properties["toolbarSticky"]=true;
             $(this).data('jodit',Jodit.make($(this).get(0),properties));
         }).change(function(){
-            //var jodit=$(this).data('jodit');
-            //jodit.setEditorValue($(this).val());
+            
         });
 
         
