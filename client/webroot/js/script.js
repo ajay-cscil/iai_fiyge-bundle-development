@@ -1952,7 +1952,6 @@ jQuery('document').ready(function($) {
             //var editorID=uuidv4();;
             //$(this).attr('id',editorID);
 
-            $(this).closest('td').css({"position":"relative"});
             var properties = {};
             var height = parseInt($(this).css('height'));
             var rows = parseInt($(this).attr('rows'));
