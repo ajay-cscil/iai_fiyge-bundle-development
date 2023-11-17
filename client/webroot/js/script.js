@@ -1959,7 +1959,7 @@ jQuery('document').ready(function($) {
                 height=rows*20;
             }
             if ($.isset(height) && height > 250){
-                properties['height'] = height;
+                properties['minHeight'] = height;
             }
             properties["globalFullSize"]=false;
             properties["toolbarAdaptive"]=false;
