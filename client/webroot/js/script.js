@@ -1961,7 +1961,7 @@ jQuery('document').ready(function($) {
                 properties['minHeight'] = height;
             }
             properties["globalFullSize"]=false;
-            properties["toolbarAdaptive"]=false;
+            properties["toolbarAdaptive"]=true;
             properties["allowResizeX"]=false;
             properties["allowResizeY"]=false;
             properties["toolbarSticky"]=true;
