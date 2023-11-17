@@ -1923,7 +1923,7 @@ jQuery('document').ready(function($) {
          *
          * @author Tushar Takkar<ttakkar@primarymodules.com>
          */
-        container.find('[editor="WYSIWYG"]').not('.template-element').each(function() {
+        container.find('textarea[editor="WYSIWYG"]').not('.template-element').each(function() {
             var properties = {};
             var height = parseInt($(this).css('height'));
             var rows = parseInt($(this).attr('rows'));
@@ -1945,6 +1945,29 @@ jQuery('document').ready(function($) {
             var editor = $(this).cleditor()[0];
                 editor.refresh();
         });
+
+
+
+        container.find('textarea[editor="WYSIWYG-V1"]').not('.template-element').each(function() {
+            //var editorID=uuidv4();;
+            //$(this).attr('id',editorID);
+            var properties = {};
+            var height = parseInt($(this).css('height'));
+            var rows = parseInt($(this).attr('rows'));
+            if(rows > 0){
+                height=rows*20;
+            }
+            if ($.isset(height) && height > 250){
+                properties['minHeight'] = height;
+            }
+            properties["globalFullSize"]=false;
+            $(this).data('jodit',Jodit.make($(this).get(0),properties));
+        }).change(function(){
+            //var jodit=$(this).data('jodit');
+            //jodit.setEditorValue($(this).val());
+        });
+
+        
 
         /**
          * Initialize WYSIWYG editor

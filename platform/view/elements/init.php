@@ -150,6 +150,9 @@ echo \kernel\html::css($this->request, '/module/jquery-comments/jquery-comments'
 echo \kernel\html::js($this->request, '/module/jquery-comments/jquery-comments');
 echo \kernel\html::js($this->request, '/module/jquery-comments/jquery.textcomplete');
 
+echo \kernel\html::css($this->request, '/node_modules/jodit/es5/jodit.min');
+echo \kernel\html::js($this->request, '/node_modules/jodit/es5/jodit.min');
+
 ?>
 
 
