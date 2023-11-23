@@ -220,6 +220,8 @@ class data_controller extends \kernel\controller {
             $request->set('rebaseline',$rebaseline );
         }
 
+        $request->set('allow_comments',($id && $modelObj->call('isNotCommentable', $id) === false?1:0));
+
         if (!is_null($return)) {
             return $return;
         }
@@ -290,6 +292,8 @@ class data_controller extends \kernel\controller {
             $rebaseline=\module\core\model\rebaseline::getInstance()->getBaseline($modelObj,$id);
             $request->set('rebaseline',$rebaseline );
         }
+
+        $request->set('allow_comments',($id && $modelObj->call('isNotCommentable', $id) === false?1:0));
 
         if ($this->setCurrentFormPage($request) == true) {
             return array("{$request->module}/{$request->controller}/{$request->action}/id:{$id}", true, true);
