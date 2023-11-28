@@ -58,36 +58,55 @@
         //code for grid it will modify the attribute on_change_field in grid
         dom.find("[name]").not('.template-element').each(function() {
             try {
+                var filters = '';
                 if (typeof ($(this).attr('filter_by_fields')) != undefined) {
-                    var filter = $(this).attr('filter_by_fields');
+                    filters = $(this).attr('filter_by_fields');
                 }
 
-                if (filter != null && filter != '') {
-                    // take the ROW or COLUMN out
-                    filter = filter.split('|');
-                    // pick the first part of array which is the filter definition
-                    filter = filter[0];
-                    var filter_fullname = filter.split(".");
-                    filter_fullname = "data[" + filter_fullname.join("][") + "]";
-                    // above 2 could have been written as var filter_fullname = "data[" + filter.split(".").join("][") + "]";
-                    // pick the closest form as maax supports multiple forms per page
-                    var form = $(this).closest('form');
-                    // @TODO This is a slow operation, better to go by ID for any DOM element
-                    var filter_name = form.find('[name="' + filter_fullname + '"]').attr('name');
-                    // filter_name is undefined
-                    var name = $(this).attr('name');
-                    name = name.split('][');
-                    // throw away the last
-                    name.pop();
-                    // grid element number
-                    var grid = name.pop();
-                    grid = parseInt(grid);
-                    // @TODO bad logic here.  Grids are 0 based and && grid checks for TRUE / FALSE and 0 = FALSE
-                    // Such a scenario is only used before typeof to avoid if throwing an error
-                    // Read shortcut evaluation 
-                    // ~~ if (typeof (grid) == 'number' && grid && typeof (filter_name) == 'undefined') { ~~
-                    if (typeof (grid) == 'number' && typeof (filter_name) == 'undefined') {
-                        $(this).attr('filter_by_fields', Grid(filter, grid)).removeAttr('disabled').filter('[is_disabled="1"]').attr('disabled', 'disabled');
+                if (filters != null && filters != '') {
+                    filters=filters.split(',');
+                    var filter_by_fields=[];
+                    for(var i=0; i < filters.length; i++){
+                        var filter=filters[i];
+                        // take the ROW or COLUMN out
+                        filter = filter.split('|');
+                        var sqlColumnName="";
+                        if(filter.length == 2){
+                            sqlColumnName=filter[1];
+                        }
+                        // pick the first part of array which is the filter definition
+                        filter = filter[0];
+                        var filter_fullname = filter.split(".");
+                        filter_fullname = "data[" + filter_fullname.join("][") + "]";
+                        // above 2 could have been written as var filter_fullname = "data[" + filter.split(".").join("][") + "]";
+                        // pick the closest form as maax supports multiple forms per page
+                        var form = $(this).closest('form');
+                        // @TODO This is a slow operation, better to go by ID for any DOM element
+                        var filter_name = form.find('[name="' + filter_fullname + '"]').attr('name');
+                        // filter_name is undefined
+                        var name = $(this).attr('name');
+                        name = name.split('][');
+                        // throw away the last
+                        name.pop();
+                        // grid element number
+                        var grid = name.pop();
+                        grid = parseInt(grid);
+                        // @TODO bad logic here.  Grids are 0 based and && grid checks for TRUE / FALSE and 0 = FALSE
+                        // Such a scenario is only used before typeof to avoid if throwing an error
+                        // Read shortcut evaluation 
+                        // ~~ if (typeof (grid) == 'number' && grid && typeof (filter_name) == 'undefined') { ~~
+                        if (typeof (grid) == 'number' && typeof (filter_name) == 'undefined') {
+                            var filter_by_field=Grid(filter, grid);
+                            if(sqlColumnName !=""){
+                                filter_by_field="|"+sqlColumnName;
+                            }
+                            filter_by_fields.push(filter_by_field);
+                            //$(this).attr('filter_by_fields', filter_by_field).removeAttr('disabled').filter('[is_disabled="1"]').attr('disabled', 'disabled');
+                        }
+                    }
+                    if(filter_by_fields.length >  0){
+                        filter_by_fields=filter_by_fields.join(',');
+                        $(this).attr('filter_by_fields', filter_by_fields).removeAttr('disabled').filter('[is_disabled="1"]').attr('disabled', 'disabled');
                     }
                 }
                 function Grid(filter, count) {
@@ -208,24 +227,25 @@
                 element.bind('beforeSearch', function() {
                     try {
                         var q = $(this).data('q');
-                        /*  if(!$.isArray(q)){
-                         q=[q];   
-                         } */
+                        /*  
+                        if(!$.isArray(q)){
+                            q=[q];   
+                        } 
+                        */
+                        var where = {}; 
                         $(this).data('filter_by_fields_obj').forEach(function(k, v) {
-                            var con = {};
-                            con[k['sql_column_name']] = form.find('[name="' + k['form_field_name'] + '"]').val();
-                            $.extend(q['where'], con);
+                            where[k['sql_column_name']] = form.find('[name="' + k['form_field_name'] + '"]').val();
                             //new code for grid
                             if (typeof (q['controller']) == 'undefined') {
                                 var id = form.find('[name="' + k['form_field_name'] + '"]').val();
                                 if (id != null && id != '') {
-                                    var where = {};
                                     where[k['sql_column_name']] = id;
-                                    q['where'] = where;
+                                    //   q['where'] = where;
                                 }
                             }
-
                         });
+                        $.extend(q['where'], where);
+                        console.log(q);
                         $(this).data('q', q);
                     }
                     catch (err)
