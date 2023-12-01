@@ -2043,7 +2043,7 @@ jQuery('document').ready(function($) {
                 $(this).after('<a href="#" class="date_toggle toggle_enabled">Enter manually</a>');
             }
         })
-        .datepicker({"yearRange": "-100:+15"})
+        .datepicker({"yearRange": "-100:3000"})
         .keyup(function(e) {
             if(e.keyCode == 8 || e.keyCode == 46) {
                 $.datepicker._clearDate(this);
