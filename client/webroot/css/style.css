@@ -2414,6 +2414,6 @@ table[listview_id] > tbody > tr:hover{
 .revision-log-diff .cell-info-grid{
     vertical-align: top;
 }
-del.diffmod{
+del.diffmod,del.diffdel{
     color:#cc0000;
 }
