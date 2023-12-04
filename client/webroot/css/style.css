@@ -2417,3 +2417,6 @@ table[listview_id] > tbody > tr:hover{
 del.diffmod,del.diffdel{
     color:#cc0000;
 }
+ins.diffmod,ins.diffdel{
+    color:#cc0000;
+}
