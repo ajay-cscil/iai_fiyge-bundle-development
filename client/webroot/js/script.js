@@ -663,6 +663,10 @@ jQuery('document').ready(function($) {
         }
     });
 
+
+
+    
+
     /*
      $(document).on('submit','.search_inline_form',function(event){
      var col=$(this).find('.search_inline_column');
@@ -2026,6 +2030,22 @@ jQuery('document').ready(function($) {
                 });
             });
         });
+
+        container.find('.htmldiff-box').not('.template-element').each(function() {
+            //console.log('HtmlDiff',window.HtmlDiff);
+            //console.log(window.HtmlDiff);
+            var $this=$(this);
+            var oldValue=$this.find('.htmldiff-old-content').val();
+            var newValue=$this.find('.htmldiff-new-content').val();
+            var diffValue=window.HtmlDiff.execute(oldValue,newValue);
+            console.log("oldValue",oldValue);
+            console.log("newValue",newValue);
+            console.log("diffValue",diffValue);
+            $this.find('.htmldiff-diff-content').html(diffValue);            
+        });
+
+
+        
 
         /**
          * Initialize date picker
