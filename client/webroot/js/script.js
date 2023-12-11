@@ -374,6 +374,111 @@ function dateToText(dateObject,dateFormat){
     return false;
 }
 
+function textToDatetime(dateValue,dateFormat,ampmFormat){
+    var dateFormatSplit=[];
+    var dateValueSplit=[];
+    var timeValue=dateValue.split(" ")[1];
+        dateValue=dateValue.split(" ")[0];
+    console.log(dateValue,timeValue,dateFormat,hourFormat);
+    if(dateFormat.indexOf('/') !== -1){
+        dateFormatSplit=dateFormat.split('/');
+        dateValueSplit=dateValue.split('/');
+    }else if(dateFormat.indexOf(':') !== -1){
+        dateFormatSplit=dateFormat.split(':');
+        dateValueSplit=dateValue.split(':');
+    }else if(dateFormat.indexOf('-') !== -1){
+        dateFormatSplit=dateFormat.split('-');
+        dateValueSplit=dateValue.split('-');
+    }
+    if(dateFormatSplit.length){
+        var dateParts={};
+        for(var i=0; i < dateFormatSplit.length; i++){
+            dateParts[dateFormatSplit[i]]=dateValueSplit[i];
+        } 
+        if(ampmFormat == "1"){
+            if(timeValue.indexOf('PM') != -1){
+                timeValue.replace('PM','');
+                timeValue=jQuery.trim(timeValue);
+                timeValue=timeValue.split(':');
+                timeValue[0]=timeValue[0]+12;
+            }else{
+                timeValue.replace('AM','');
+                timeValue=jQuery.trim(timeValue);
+                timeValue=timeValue.split(':');
+            }
+        }else{
+            timeValue=jQuery.trim(timeValue);
+            timeValue=timeValue.split(':');
+        }
+        var $return = new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
+        if(timeValue.length){
+            $return.setHours(timeValue[0], timeValue[1], timeValue[2]);
+        }
+        return $return;
+    }
+    return false;
+}
+
+function dateToText(dateObject,dateFormat,ampmFormat){
+    console.log(dateObject,dateFormat,ampmFormat);
+    var dateFormatSplit=[];
+    var seperator="";
+    if(dateFormat.indexOf('/') !== -1){
+        dateFormatSplit=dateFormat.split('/');
+        seperator="/";
+    }else if(dateFormat.indexOf(':') !== -1){
+        dateFormatSplit=dateFormat.split(':');
+        seperator=":";
+    }else if(dateFormat.indexOf('-') !== -1){
+        dateFormatSplit=dateFormat.split('-');
+        seperator="-";
+    }
+    if(dateFormatSplit.length){
+        for(var i=0; i < dateFormatSplit.length; i++){
+            if(dateFormatSplit[i] =="yy"){
+                dateFormatSplit[i]=dateObject.getFullYear();
+            }else if(dateFormatSplit[i] =="mm"){
+                dateFormatSplit[i]=dateObject.getMonth()+1;
+                if(dateFormatSplit[i] < 10){
+                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
+                }
+            }else if(dateFormatSplit[i] =="dd"){
+                dateFormatSplit[i]=dateObject.getDate();
+                if(dateFormatSplit[i] < 10){
+                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
+                }
+            }
+        }
+        dateFormatSplit=dateFormatSplit.join(seperator);
+        var timeValue=[];
+        timeValue[0]=dateObject.getHours();
+        timeValue[1]=dateObject.getMinutes();
+        timeValue[2]=dateObject.getSeconds();
+        var isAMPM="";
+        if(ampmFormat =="1"){
+            if(timeValue[0] > 12){
+                timeValue[0]=timeValue[0]-12;
+                isAMPM="PM";
+            }else{
+                isAMPM="AM";
+            }
+        }
+        if(timeValue[0] < 10){
+            timeValue[0]="0"+timeValue[0];
+        }
+        if(timeValue[1] < 10){
+            timeValue[1]="0"+timeValue[1];
+        }
+        if(timeValue[2] < 10){
+            timeValue[2]="0"+timeValue[2];
+        }
+        return dateFormatSplit+" "+timeValue.join(":")+(ampmFormat =="1"?" "+isAMPM:"");
+    }
+    return false;
+}
+
+
+
 
 /**
  * @author Tushar Takkar<ttakkar@primarymodules.com>
@@ -2142,15 +2247,16 @@ jQuery('document').ready(function($) {
          *
          * @author Tushar Takkar<ttakkar@primarymodules.com>
          */
+        var ampm = false;
+        if ($.isset($.config) && $.isset($.config.hour_format) && parseInt($.config.hour_format) == 12) {
+            ampm = true;
+        }
+            
         container.find('input.datetime')
         .not('.template-element')
         .attr('date_format',dateFormat)
+        .attr('ampm_format',(ampm?"1":"0"))
         .each(function() {
-
-            var ampm = false;
-            if ($.isset($.config) && $.isset($.config.hour_format) && parseInt($.config.hour_format) == 12) {
-                ampm = true;
-            }
             var $this=$(this);
             if ($this.attr('is_readonly') != 0) {
                 $this.attr('readonly', 'readonly');
