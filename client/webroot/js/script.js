@@ -313,6 +313,67 @@ function RenderPage(pdf_container, num) {
     });
 }
 
+function textToDate(dateValue,dateFormat){
+    var dateFormatSplit=[];
+    var dateValueSplit=[];
+    console.log(dateValue,dateFormat);
+    if(dateFormat.indexOf('/') !== -1){
+        dateFormatSplit=dateFormat.split('/');
+        dateValueSplit=dateValue.split('/');
+    }else if(dateFormat.indexOf(':') !== -1){
+        dateFormatSplit=dateFormat.split(':');
+        dateValueSplit=dateValue.split(':');
+    }else if(dateFormat.indexOf('-') !== -1){
+        dateFormatSplit=dateFormat.split('-');
+        dateValueSplit=dateValue.split('-');
+    }
+    if(dateFormatSplit.length){
+        var dateParts={};
+        for(var i=0; i < dateFormatSplit.length; i++){
+            dateParts[dateFormatSplit[i]]=dateValueSplit[i];
+        } 
+
+        return new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
+    }
+    return false;
+}
+
+function dateToText(dateObject,dateFormat){
+    console.log(dateObject,dateFormat);
+    var dateFormatSplit=[];
+    var seperator="";
+    if(dateFormat.indexOf('/') !== -1){
+        dateFormatSplit=dateFormat.split('/');
+        seperator="/";
+    }else if(dateFormat.indexOf(':') !== -1){
+        dateFormatSplit=dateFormat.split(':');
+        seperator=":";
+    }else if(dateFormat.indexOf('-') !== -1){
+        dateFormatSplit=dateFormat.split('-');
+        seperator="-";
+    }
+    if(dateFormatSplit.length){
+        for(var i=0; i < dateFormatSplit.length; i++){
+            if(dateFormatSplit[i] =="yy"){
+                dateFormatSplit[i]=dateObject.getFullYear();
+            }else if(dateFormatSplit[i] =="mm"){
+                dateFormatSplit[i]=dateObject.getMonth()+1;
+                if(dateFormatSplit[i] < 10){
+                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
+                }
+            }else if(dateFormatSplit[i] =="dd"){
+                dateFormatSplit[i]=dateObject.getDate();
+                if(dateFormatSplit[i] < 10){
+                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
+                }
+            }
+        }
+        dateFormatSplit=dateFormatSplit.join(seperator);
+        return dateFormatSplit;
+    }
+    return false;
+}
+
 
 /**
  * @author Tushar Takkar<ttakkar@primarymodules.com>
@@ -2063,6 +2124,7 @@ jQuery('document').ready(function($) {
                 $(this).after('<a href="#" class="date_toggle toggle_enabled">Enter manually</a>');
             }
         })
+        .attr('date_format',dateFormat)
         .datepicker({"yearRange": "-100:3000"})
         .keyup(function(e) {
             if(e.keyCode == 8 || e.keyCode == 46) {
@@ -2082,6 +2144,7 @@ jQuery('document').ready(function($) {
          */
         container.find('input.datetime')
         .not('.template-element')
+        .attr('date_format',dateFormat)
         .each(function() {
 
             var ampm = false;
