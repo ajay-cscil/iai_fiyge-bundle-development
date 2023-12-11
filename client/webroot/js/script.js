@@ -377,10 +377,10 @@ function dateToText(dateObject,dateFormat){
 function textToDatetime(datetimeValueOriginal,dateFormat,ampmFormat){
     var dateFormatSplit=[];
     var dateValueSplit=[];
-    var dateValue=dateValueOriginal.split(" ")[0];
-    var timeValue=dateValueOriginal.split(" ")[1];
-    var ampmValue=dateValueOriginal.split(" ")[2];
-    console.log("textToDatetime",dateValueOriginal,dateValue,timeValue,dateFormat,ampmFormat);
+    var dateValue=datetimeValueOriginal.split(" ")[0];
+    var timeValue=datetimeValueOriginal.split(" ")[1];
+    var ampmValue=datetimeValueOriginal.split(" ")[2];
+    console.log("textToDatetime",datetimeValueOriginal,dateValue,timeValue,dateFormat,ampmFormat);
     if(dateFormat.indexOf('/') !== -1){
         dateFormatSplit=dateFormat.split('/');
         dateValueSplit=dateValue.split('/');
@@ -398,7 +398,7 @@ function textToDatetime(datetimeValueOriginal,dateFormat,ampmFormat){
         } 
         timeValue=jQuery.trim(timeValue);
         timeValue=timeValue.split(':');
-        if(dateValueOriginal.indexOf('PM') != -1){
+        if(datetimeValueOriginal.indexOf('PM') != -1){
             timeValue[0]=timeValue[0]+12;
         }
         var $return = new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
