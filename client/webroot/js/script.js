@@ -399,7 +399,7 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
                 timeValue.replace('PM','');
                 timeValue=jQuery.trim(timeValue);
                 timeValue=timeValue.split(':');
-                timeValue[0]=timeValue[0]+12;
+        //        timeValue[0]=timeValue[0]+12;
         }else{
                 timeValue.replace('AM','');
                 timeValue=jQuery.trim(timeValue);
