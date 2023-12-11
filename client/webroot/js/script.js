@@ -399,7 +399,7 @@ function textToDatetime(datetimeValueOriginal,dateFormat,ampmFormat){
         timeValue=jQuery.trim(timeValue);
         timeValue=timeValue.split(':');
         if(datetimeValueOriginal.indexOf('PM') != -1){
-            timeValue[0]=timeValue[0]+12;
+            timeValue[0]=parseInt(timeValue[0])+12;
         }
         var $return = new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
         if(timeValue.length){
@@ -450,7 +450,7 @@ function datetimeToText(dateObject,dateFormat,ampmFormat){
         var isAMPM="";
         if(ampmFormat =="1"){
             if(timeValue[0] >= 12){
-                timeValue[0]=timeValue[0]-12;
+                timeValue[0]=parseInt(timeValue[0])-12;
                 isAMPM="PM";
             }else{
                 isAMPM="AM";
