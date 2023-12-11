@@ -379,7 +379,7 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
     var dateValueSplit=[];
     var timeValue=dateValue.split(" ")[1];
         dateValue=dateValue.split(" ")[0];
-    console.log(dateValue,timeValue,dateFormat,ampmFormat);
+    console.log("textToDatetime",dateValue,timeValue,dateFormat,ampmFormat);
     if(dateFormat.indexOf('/') !== -1){
         dateFormatSplit=dateFormat.split('/');
         dateValueSplit=dateValue.split('/');
@@ -420,7 +420,7 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
 }
 
 function datetimeToText(dateObject,dateFormat,ampmFormat){
-    console.log(dateObject,dateFormat,ampmFormat);
+    console.log("datetimeToText",dateObject,dateFormat,ampmFormat);
     var dateFormatSplit=[];
     var seperator="";
     if(dateFormat.indexOf('/') !== -1){
