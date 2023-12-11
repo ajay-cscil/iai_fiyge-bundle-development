@@ -379,7 +379,7 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
     var dateValueSplit=[];
     var timeValue=dateValue.split(" ")[1];
         dateValue=dateValue.split(" ")[0];
-    console.log(dateValue,timeValue,dateFormat,hourFormat);
+    console.log(dateValue,timeValue,dateFormat,ampmFormat);
     if(dateFormat.indexOf('/') !== -1){
         dateFormatSplit=dateFormat.split('/');
         dateValueSplit=dateValue.split('/');
