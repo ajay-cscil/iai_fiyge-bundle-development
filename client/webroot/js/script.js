@@ -449,7 +449,7 @@ function datetimeToText(dateObject,dateFormat,ampmFormat){
         timeValue[2]=dateObject.getSeconds();
         var isAMPM="";
         if(ampmFormat =="1"){
-            if(timeValue[0] > 12){
+            if(timeValue[0] >= 12){
                 timeValue[0]=timeValue[0]-12;
                 isAMPM="PM";
             }else{
