@@ -395,20 +395,15 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
         for(var i=0; i < dateFormatSplit.length; i++){
             dateParts[dateFormatSplit[i]]=dateValueSplit[i];
         } 
-        if(ampmFormat == "1"){
-            if(timeValue.indexOf('PM') != -1){
+        if(timeValue.indexOf('PM') != -1){
                 timeValue.replace('PM','');
                 timeValue=jQuery.trim(timeValue);
                 timeValue=timeValue.split(':');
                 timeValue[0]=timeValue[0]+12;
-            }else{
+        }else{
                 timeValue.replace('AM','');
                 timeValue=jQuery.trim(timeValue);
                 timeValue=timeValue.split(':');
-            }
-        }else{
-            timeValue=jQuery.trim(timeValue);
-            timeValue=timeValue.split(':');
         }
         var $return = new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
         if(timeValue.length){
