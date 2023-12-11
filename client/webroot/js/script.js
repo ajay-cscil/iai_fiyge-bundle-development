@@ -419,7 +419,7 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
     return false;
 }
 
-function dateToText(dateObject,dateFormat,ampmFormat){
+function datetimeToText(dateObject,dateFormat,ampmFormat){
     console.log(dateObject,dateFormat,ampmFormat);
     var dateFormatSplit=[];
     var seperator="";
