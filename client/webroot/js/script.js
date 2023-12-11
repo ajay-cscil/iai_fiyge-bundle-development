@@ -374,12 +374,13 @@ function dateToText(dateObject,dateFormat){
     return false;
 }
 
-function textToDatetime(dateValue,dateFormat,ampmFormat){
+function textToDatetime(datetimeValueOriginal,dateFormat,ampmFormat){
     var dateFormatSplit=[];
     var dateValueSplit=[];
-    var timeValue=dateValue.split(" ")[1];
-        dateValue=dateValue.split(" ")[0];
-    console.log("textToDatetime",dateValue,timeValue,dateFormat,ampmFormat);
+    var dateValue=dateValueOriginal.split(" ")[0];
+    var timeValue=dateValueOriginal.split(" ")[1];
+    var ampmValue=dateValueOriginal.split(" ")[2];
+    console.log("textToDatetime",dateValueOriginal,dateValue,timeValue,dateFormat,ampmFormat);
     if(dateFormat.indexOf('/') !== -1){
         dateFormatSplit=dateFormat.split('/');
         dateValueSplit=dateValue.split('/');
@@ -395,15 +396,10 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
         for(var i=0; i < dateFormatSplit.length; i++){
             dateParts[dateFormatSplit[i]]=dateValueSplit[i];
         } 
-        if(timeValue.indexOf('PM') != -1){
-                timeValue.replace('PM','');
-                timeValue=jQuery.trim(timeValue);
-                timeValue=timeValue.split(':');
-                timeValue[0]=timeValue[0]+12;
-        }else{
-                timeValue.replace('AM','');
-                timeValue=jQuery.trim(timeValue);
-                timeValue=timeValue.split(':');
+        timeValue=jQuery.trim(timeValue);
+        timeValue=timeValue.split(':');
+        if(dateValueOriginal.indexOf('PM') != -1){
+            timeValue[0]=timeValue[0]+12;
         }
         var $return = new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
         if(timeValue.length){
@@ -411,7 +407,6 @@ function textToDatetime(dateValue,dateFormat,ampmFormat){
         }
         console.log("timeValue",timeValue);
         console.log("return",$return);
-
         return $return;
     }
     return false;
