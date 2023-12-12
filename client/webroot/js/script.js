@@ -2062,7 +2062,7 @@ jQuery('document').ready(function($) {
                 $(this).after('<a href="#" class="date_toggle toggle_enabled">Enter manually</a>');
             }
         })
-        .attr('date_format',dateFormat.replace("yy","YYYY"))
+        .attr('date_format',dateFormat.replace("yy","yyyy").toUpperCase())
         .datepicker({"yearRange": "-100:3000"})
         .keyup(function(e) {
             if(e.keyCode == 8 || e.keyCode == 46) {
@@ -2087,8 +2087,8 @@ jQuery('document').ready(function($) {
             
         container.find('input.datetime')
         .not('.template-element')
-        .attr('date_format',dateFormat.replace("yy","YYYY"))
-        .attr('datetime_format',(dateFormat.replace("yy","YYYY"))+" hh:mm:ss"+(ampm?" A":""))
+        .attr('date_format',dateFormat.replace("yy","yyyy").toUpperCase())
+        .attr('datetime_format',(dateFormat.replace("yy","yyyy").toUpperCase())+" HH:mm:ss"+(ampm?" A":""))
         .each(function() {
             var $this=$(this);
             if ($this.attr('is_readonly') != 0) {
