@@ -2088,7 +2088,7 @@ jQuery('document').ready(function($) {
         container.find('input.datetime')
         .not('.template-element')
         .attr('date_format',dateFormat.replace("yy","yyyy").toUpperCase())
-        .attr('datetime_format',(dateFormat.replace("yy","yyyy").toUpperCase())+" HH:mm:ss"+(ampm?" A":""))
+        .attr('datetime_format',(dateFormat.replace("yy","yyyy").toUpperCase())+" "+(ampm?"hh:mm:ss A":"HH:mm:ss"))
         .each(function() {
             var $this=$(this);
             if ($this.attr('is_readonly') != 0) {
