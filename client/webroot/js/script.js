@@ -313,166 +313,6 @@ function RenderPage(pdf_container, num) {
     });
 }
 
-function textToDate(dateValue,dateFormat){
-    var dateFormatSplit=[];
-    var dateValueSplit=[];
-    console.log(dateValue,dateFormat);
-    if(dateFormat.indexOf('/') !== -1){
-        dateFormatSplit=dateFormat.split('/');
-        dateValueSplit=dateValue.split('/');
-    }else if(dateFormat.indexOf(':') !== -1){
-        dateFormatSplit=dateFormat.split(':');
-        dateValueSplit=dateValue.split(':');
-    }else if(dateFormat.indexOf('-') !== -1){
-        dateFormatSplit=dateFormat.split('-');
-        dateValueSplit=dateValue.split('-');
-    }
-    if(dateFormatSplit.length){
-        var dateParts={};
-        for(var i=0; i < dateFormatSplit.length; i++){
-            dateParts[dateFormatSplit[i]]=dateValueSplit[i];
-        } 
-
-        return new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
-    }
-    return false;
-}
-
-function dateToText(dateObject,dateFormat){
-    console.log(dateObject,dateFormat);
-    var dateFormatSplit=[];
-    var seperator="";
-    if(dateFormat.indexOf('/') !== -1){
-        dateFormatSplit=dateFormat.split('/');
-        seperator="/";
-    }else if(dateFormat.indexOf(':') !== -1){
-        dateFormatSplit=dateFormat.split(':');
-        seperator=":";
-    }else if(dateFormat.indexOf('-') !== -1){
-        dateFormatSplit=dateFormat.split('-');
-        seperator="-";
-    }
-    if(dateFormatSplit.length){
-        for(var i=0; i < dateFormatSplit.length; i++){
-            if(dateFormatSplit[i] =="yy"){
-                dateFormatSplit[i]=dateObject.getFullYear();
-            }else if(dateFormatSplit[i] =="mm"){
-                dateFormatSplit[i]=dateObject.getMonth()+1;
-                if(dateFormatSplit[i] < 10){
-                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
-                }
-            }else if(dateFormatSplit[i] =="dd"){
-                dateFormatSplit[i]=dateObject.getDate();
-                if(dateFormatSplit[i] < 10){
-                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
-                }
-            }
-        }
-        dateFormatSplit=dateFormatSplit.join(seperator);
-        return dateFormatSplit;
-    }
-    return false;
-}
-
-function textToDatetime(datetimeValueOriginal,dateFormat,ampmFormat){
-    var dateFormatSplit=[];
-    var dateValueSplit=[];
-    var dateValue=datetimeValueOriginal.split(" ")[0];
-    var timeValue=datetimeValueOriginal.split(" ")[1];
-    var ampmValue=datetimeValueOriginal.split(" ")[2];
-    console.log("textToDatetime",datetimeValueOriginal,dateValue,timeValue,dateFormat,ampmFormat);
-    if(dateFormat.indexOf('/') !== -1){
-        dateFormatSplit=dateFormat.split('/');
-        dateValueSplit=dateValue.split('/');
-    }else if(dateFormat.indexOf(':') !== -1){
-        dateFormatSplit=dateFormat.split(':');
-        dateValueSplit=dateValue.split(':');
-    }else if(dateFormat.indexOf('-') !== -1){
-        dateFormatSplit=dateFormat.split('-');
-        dateValueSplit=dateValue.split('-');
-    }
-    if(dateFormatSplit.length){
-        var dateParts={};
-        for(var i=0; i < dateFormatSplit.length; i++){
-            dateParts[dateFormatSplit[i]]=dateValueSplit[i];
-        } 
-        timeValue=jQuery.trim(timeValue);
-        timeValue=timeValue.split(':');
-        if(datetimeValueOriginal.indexOf('PM') != -1){
-            timeValue[0]=parseInt(timeValue[0])+12;
-        }
-        var $return = new Date(dateParts["yy"]+"-"+dateParts["mm"]+"-"+dateParts["dd"]);
-        if(timeValue.length){
-            $return.setHours(timeValue[0], timeValue[1], timeValue[2]);
-        }
-        console.log("timeValue",timeValue);
-        console.log("return",$return);
-        return $return;
-    }
-    return false;
-}
-
-function datetimeToText(dateObject,dateFormat,ampmFormat){
-    console.log("datetimeToText",dateObject,dateFormat,ampmFormat);
-    var dateFormatSplit=[];
-    var seperator="";
-    if(dateFormat.indexOf('/') !== -1){
-        dateFormatSplit=dateFormat.split('/');
-        seperator="/";
-    }else if(dateFormat.indexOf(':') !== -1){
-        dateFormatSplit=dateFormat.split(':');
-        seperator=":";
-    }else if(dateFormat.indexOf('-') !== -1){
-        dateFormatSplit=dateFormat.split('-');
-        seperator="-";
-    }
-    if(dateFormatSplit.length){
-        for(var i=0; i < dateFormatSplit.length; i++){
-            if(dateFormatSplit[i] =="yy"){
-                dateFormatSplit[i]=dateObject.getFullYear();
-            }else if(dateFormatSplit[i] =="mm"){
-                dateFormatSplit[i]=dateObject.getMonth()+1;
-                if(dateFormatSplit[i] < 10){
-                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
-                }
-            }else if(dateFormatSplit[i] =="dd"){
-                dateFormatSplit[i]=dateObject.getDate();
-                if(dateFormatSplit[i] < 10){
-                    dateFormatSplit[i] = "0"+dateFormatSplit[i];
-                }
-            }
-        }
-        dateFormatSplit=dateFormatSplit.join(seperator);
-        var timeValue=[];
-        timeValue[0]=dateObject.getHours();
-        timeValue[1]=dateObject.getMinutes();
-        timeValue[2]=dateObject.getSeconds();
-        var isAMPM="";
-        if(ampmFormat =="1"){
-            if(timeValue[0] >= 12){
-                timeValue[0]=parseInt(timeValue[0])-12;
-                isAMPM="PM";
-            }else{
-                isAMPM="AM";
-            }
-        }
-        if(timeValue[0] < 10){
-            timeValue[0]="0"+timeValue[0];
-        }
-        if(timeValue[1] < 10){
-            timeValue[1]="0"+timeValue[1];
-        }
-        if(timeValue[2] < 10){
-            timeValue[2]="0"+timeValue[2];
-        }
-        return dateFormatSplit+" "+timeValue.join(":")+(ampmFormat =="1"?" "+isAMPM:"");
-    }
-    return false;
-}
-
-
-
-
 /**
  * @author Tushar Takkar<ttakkar@primarymodules.com>
  */
@@ -2222,7 +2062,7 @@ jQuery('document').ready(function($) {
                 $(this).after('<a href="#" class="date_toggle toggle_enabled">Enter manually</a>');
             }
         })
-        .attr('date_format',dateFormat)
+        .attr('date_format',dateFormat.replace("yy","YYYY"))
         .datepicker({"yearRange": "-100:3000"})
         .keyup(function(e) {
             if(e.keyCode == 8 || e.keyCode == 46) {
@@ -2247,8 +2087,8 @@ jQuery('document').ready(function($) {
             
         container.find('input.datetime')
         .not('.template-element')
-        .attr('date_format',dateFormat)
-        .attr('ampm_format',(ampm?"1":"0"))
+        .attr('date_format',dateFormat.replace("yy","YYYY"))
+        .attr('datetime_format',(dateFormat.replace("yy","YYYY"))+" hh:mm:ss"+(ampm?" A":""))
         .each(function() {
             var $this=$(this);
             if ($this.attr('is_readonly') != 0) {
