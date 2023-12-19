@@ -1681,7 +1681,7 @@ jQuery('document').ready(function($) {
                     var formfieldValue=formdata[i]['value'];
                     formfieldName=formfieldName.replaceAll('][','.').replaceAll('data[','').replaceAll(']','');
                     href=href.replaceAll('{{'+formfieldName+'}}',formfieldValue);
-                    console.log('{{'+formfieldName+'}}',formfieldValue);
+                    //console.log('{{'+formfieldName+'}}',formfieldValue);
                 }
             }
         }
@@ -1966,7 +1966,9 @@ jQuery('document').ready(function($) {
             properties["allowResizeX"]=false;
             properties["allowResizeY"]=false;
             properties["toolbarSticky"]=false;
-            $(this).data('jodit',Jodit.make($(this).get(0),properties));
+            if(typeof(Jodit) !="undefined"){
+                $(this).data('jodit',Jodit.make($(this).get(0),properties));
+            }
         }).change(function(){
             
         });
@@ -4089,7 +4091,7 @@ jQuery('document').ready(function($) {
 
     $(document).on('grid_row_add', '.grid', function(event,data) {
         var grid = $(this);
-        console.log(data);
+        //console.log(data);
         var gridId = grid.attr('id');
         var max = grid.attr('max');
         if (!isNaN(max)) {
@@ -4502,10 +4504,30 @@ jQuery('document').ready(function($) {
         return false;
     });
 
+    $(document).on('click','.button-box-dropbtn',function(event){
+        jQuery(this).next().get(0).classList.toggle("button-box-show");
+        event.stopImmediatePropagation();
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
+    });
+
+
     if($.config["subview"]){
         $('body').append('<a id="tigger-subview" class="ajax-popup" href="'+$.config["subview"]+'"  ajax=1 style="display:none;" >&nbsp;<a>');
         $("#tigger-subview").trigger("click");
-    }
-    
-    
+    }   
 });
+
+window.onclick = function(event) {
+  if (!event.target.matches('.button-box-dropbtn')) {
+    var dropdowns = document.getElementsByClassName("button-box-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('button-box-show')) {
+        openDropdown.classList.remove('button-box-show');
+      }
+    }
+  }
+}

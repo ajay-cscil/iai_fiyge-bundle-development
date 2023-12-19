@@ -1727,7 +1727,7 @@ a span.value{
 }
 .panel .ui-menu{
     left: 1003.375px;
-    width:110px !important;
+    width:200px !important;
 }
 .ui-dialog .set_form{
     float:left !important;
@@ -1776,7 +1776,7 @@ dashboard .pagination-row{
     background-image: none !important; 
 }
 .set_workflow{
-    float:right;
+    float:right !important;
 }
 .more{
     text-align:right !important;
@@ -2419,4 +2419,54 @@ del.diffmod,del.diffdel{
 }
 ins.diffmod,ins.diffdel{
     color:#cc0000;
+}
+
+.button-box-dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-box-dropbtn:hover, .button-box-dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.button-box {
+    float: right;
+    position: relative;
+    display: inline-block;
+}
+
+.button-box-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+}
+
+.button-box-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width:100%;
+    border:0px;
+}
+
+.button-box button:hover {
+    background-color: #ddd;
+}
+
+.button-box-show {
+    display: block;
+}
+.button-box-content button{
+    text-align: right;
 }
