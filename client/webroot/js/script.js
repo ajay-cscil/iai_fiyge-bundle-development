@@ -2049,7 +2049,7 @@ jQuery('document').ready(function($) {
         .not('.star-rating-init').addClass('star-rating-init')
         .each(function(){
             var $this=jQuery(this);
-            var initialRating=Math.round(parseFloat($this.text()),2);
+            var initialRating=parseFloat($this.text());
             $this.starRating({
                 readOnly: true,
                 totalStars: 5,
