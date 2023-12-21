@@ -1117,20 +1117,6 @@ jQuery('document').ready(function($) {
         return false;
 
     });
-    $.initListview=function(listView){
-        listView
-        .find('div.star-rating[readonly]')
-        .starRating({
-            readOnly: true,
-            totalStars: 5,
-            emptyColor: 'lightgray',
-            hoverColor: 'salmon',
-            activeColor: 'cornflowerblue',
-            strokeWidth: 0,
-            useGradient: false
-        });
-
-    }
     $.replaceListview = function(replacedView, data) {
         console.log('replaceListview');
 
@@ -1149,7 +1135,6 @@ jQuery('document').ready(function($) {
                 'id': viewId
             });
         }
-        $.initListview($(requiredTable));
         initChart(data);
     //$.tableColResizable(requiredTable);
     }
