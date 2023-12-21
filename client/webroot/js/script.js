@@ -1137,6 +1137,23 @@ jQuery('document').ready(function($) {
         }
 
         initChart(data);
+
+        requiredTable
+        .find('div.star-rating[readonly]')
+        .starRating({
+            readOnly: true,
+            totalStars: 5,
+            emptyColor: 'lightgray',
+            hoverColor: 'salmon',
+            activeColor: 'cornflowerblue',
+            strokeWidth: 0,
+            useGradient: false
+        });
+
+       
+    
+        
+
     //$.tableColResizable(requiredTable);
     }
     /*
@@ -2043,6 +2060,24 @@ jQuery('document').ready(function($) {
             console.log("newValue",newValue);
             console.log("diffValue",diffValue);
             $this.find('.htmldiff-diff-content').html(diffValue);            
+        });
+
+        container.find('input.star-rating').not('.template-element').each(function() {
+            var $this=jQuery(this);
+            var id=uuidv4();
+            $this.css({"display":"none"}).after('<div id="'+id+'"></div>')
+            jQuery('#'+id).starRating({
+                totalStars: 5,
+                emptyColor: 'lightgray',
+                hoverColor: 'salmon',
+                activeColor: 'cornflowerblue',
+                initialRating: 4,
+                strokeWidth: 0,
+                useGradient: false,
+                callback: function(currentRating){
+                    $this.val(currentRating);
+                }
+            });
         });
 
 
