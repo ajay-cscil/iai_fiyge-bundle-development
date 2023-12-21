@@ -2050,6 +2050,7 @@ jQuery('document').ready(function($) {
         .each(function(){
             var $this=jQuery(this);
             var initialRating=parseFloat($this.text());
+            $this.html("");
             $this.starRating({
                 readOnly: true,
                 totalStars: 5,
