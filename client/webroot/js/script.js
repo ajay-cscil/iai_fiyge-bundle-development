@@ -2059,7 +2059,8 @@ jQuery('document').ready(function($) {
                 hoverColor: 'salmon',
                 activeColor: 'cornflowerblue',
                 strokeWidth: 0,
-                useGradient: false
+                useGradient: false,
+                starSize: 20
             });
         });
 
@@ -2077,6 +2078,7 @@ jQuery('document').ready(function($) {
                 initialRating: $this.val(),
                 strokeWidth: 0,
                 useGradient: false,
+                starSize: 20,
                 callback: function(currentRating){
                     $this.val(currentRating);
                 }
