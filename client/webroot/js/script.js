@@ -1816,7 +1816,7 @@ jQuery('document').ready(function($) {
      */
 
     $.initFields = function(container, init) {
-        log('initFields');
+        console.log('initFields');
 
         /**
          * Initialize jquery tab
