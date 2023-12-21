@@ -2047,9 +2047,9 @@ jQuery('document').ready(function($) {
         container.find('div.star-rating,span.star-rating')
         .not('.star-rating-init').addClass('star-rating-init')
         .each(function(){
-            var ratingUI=jQuery(this);
+            var $this=jQuery(this);
             var initialRating=Math.round(parseFloat($this.text()),2);
-            ratingUI.starRating({
+            $this.starRating({
                 readOnly: true,
                 totalStars: 5,
                 initialRating: initialRating,
