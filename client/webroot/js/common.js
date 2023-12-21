@@ -351,22 +351,7 @@ function getMapMarkup(uuid, options, map, data, primaryKeys, infowindow, zoomToF
     return markers;
 }
 function initChart(container) {
-    var listview=$(container).hasClass('listview')?$(container):$(container).find('.listview');
-    if(listview.length){
-        listview
-        .find('div.star-rating[readonly]')
-        .starRating({
-            readOnly: true,
-            totalStars: 5,
-            emptyColor: 'lightgray',
-            hoverColor: 'salmon',
-            activeColor: 'cornflowerblue',
-            strokeWidth: 0,
-            useGradient: false
-        });
-    }
     
-
     var charts = $(container).find(".chart");
     var height = $(document).height();
     var minHeight = 0;

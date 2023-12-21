@@ -2044,7 +2044,26 @@ jQuery('document').ready(function($) {
             $this.find('.htmldiff-diff-content').html(diffValue);            
         });
 
-        container.find('input.star-rating').not('.template-element').each(function() {
+        container.find('div.star-rating,span.star-rating')
+        .not('.star-rating-init').addClass('star-rating-init')
+        .each(function(){
+            var ratingUI=jQuery(this);
+            var initialRating=Math.round(parseFloat($this.text()),2);
+            ratingUI.starRating({
+                readOnly: true,
+                totalStars: 5,
+                initialRating: initialRating,
+                emptyColor: 'lightgray',
+                hoverColor: 'salmon',
+                activeColor: 'cornflowerblue',
+                strokeWidth: 0,
+                useGradient: false
+            });
+        });
+
+        container.find('input.star-rating').not('.template-element')
+        .not('.star-rating-init').addClass('star-rating-init')
+        .each(function() {
             var $this=jQuery(this);
             var id=uuidv4();
             $this.css({"display":"none"}).after('<div id="'+id+'"></div>');
@@ -2061,7 +2080,7 @@ jQuery('document').ready(function($) {
                 }
             });
         });
-
+        
 
         
 
