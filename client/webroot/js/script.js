@@ -1135,8 +1135,9 @@ jQuery('document').ready(function($) {
                 'id': viewId
             });
         }
-        initChart(data);
-    //$.tableColResizable(requiredTable);
+        $.initFields(data);
+        //initChart(data);
+        //$.tableColResizable(requiredTable);
     }
     /*
      $.tableColResizable=function(table){
