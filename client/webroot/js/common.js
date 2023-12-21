@@ -351,7 +351,7 @@ function getMapMarkup(uuid, options, map, data, primaryKeys, infowindow, zoomToF
     return markers;
 }
 function initChart(container) {
-    var listview=$(container).hasClass('.listview')?$(container):$(container).find('.listview');
+    var listview=$(container).hasClass('listview')?$(container):$(container).find('.listview');
     if(listview.length){
         listview
         .find('div.star-rating[readonly]')
