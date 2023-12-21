@@ -2065,13 +2065,13 @@ jQuery('document').ready(function($) {
         container.find('input.star-rating').not('.template-element').each(function() {
             var $this=jQuery(this);
             var id=uuidv4();
-            $this.css({"display":"none"}).after('<div id="'+id+'"></div>')
+            $this.css({"display":"none"}).after('<div id="'+id+'"></div>');
             jQuery('#'+id).starRating({
                 totalStars: 5,
                 emptyColor: 'lightgray',
                 hoverColor: 'salmon',
                 activeColor: 'cornflowerblue',
-                initialRating: 4,
+                initialRating: $this.val(),
                 strokeWidth: 0,
                 useGradient: false,
                 callback: function(currentRating){
