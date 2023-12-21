@@ -1118,7 +1118,7 @@ jQuery('document').ready(function($) {
 
     });
     $.replaceListview = function(replacedView, data) {
-        log('replaceListview');
+        console.log('replaceListview');
 
         var data = $(data);
         var requiredTable = (data.hasClass('listview') ? data : data.find('.listview:first'));
