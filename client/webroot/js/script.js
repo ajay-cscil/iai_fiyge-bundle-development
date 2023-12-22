@@ -2060,7 +2060,7 @@ jQuery('document').ready(function($) {
                 activeColor: 'cornflowerblue',
                 strokeWidth: 0,
                 useGradient: false,
-                starSize: 20
+                starSize: 15
             });
         });
 
@@ -2078,7 +2078,7 @@ jQuery('document').ready(function($) {
                 initialRating: $this.val(),
                 strokeWidth: 0,
                 useGradient: false,
-                starSize: 20,
+                starSize: 15,
                 callback: function(currentRating){
                     $this.val(currentRating);
                 }
