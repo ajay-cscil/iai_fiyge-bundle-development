@@ -350,8 +350,34 @@ function getMapMarkup(uuid, options, map, data, primaryKeys, infowindow, zoomToF
     }
     return markers;
 }
+function getColumnTotalData(listview){
+    var columnTotalData=listview.attr('column_total_data');
+    if(columnTotalData){
+            columnTotalData=atob(columnTotalData);
+            if(columnTotalData){
+                columnTotalData=JSON.parse(columnTotalData);
+            }
+    }
+    if(!jQuery.isPlainObject(columnTotalData)){
+        columnTotalData={};
+    }
+}
 function initChart(container) {
-    
+    var listviews=$(container).hasClass('listview')?$(container):$(container).find('.listview');
+    console.log(listviews.length);
+    listviews.each(function(k,listview){
+        var listview=jQuery(listview);
+        var javascript=listview.attr('javascript');
+        console.log(javascript);
+        var columnTotalData=getColumnTotalData(listview);
+        
+        if(javascript){
+            javascript=atob(javascript);
+            console.log(javascript);
+            eval(javascript);
+        }
+    });
+
     var charts = $(container).find(".chart");
     var height = $(document).height();
     var minHeight = 0;
