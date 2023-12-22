@@ -352,18 +352,16 @@ function getMapMarkup(uuid, options, map, data, primaryKeys, infowindow, zoomToF
 }
 function getColumnTotalData(listview){
     var columnTotalData=listview.attr('column_total_data');
-    console.log(1,columnTotalData);
     if(columnTotalData){
             columnTotalData=atob(columnTotalData);
-            console.log(2,columnTotalData);
             if(columnTotalData){
                 columnTotalData=JSON.parse(columnTotalData);
-                console.log(3,columnTotalData);
             }
     }
     if(!jQuery.isPlainObject(columnTotalData)){
         columnTotalData={};
     }
+    return columnTotalData;
 }
 function initChart(container) {
     var listviews=$(container).hasClass('listview')?$(container):$(container).find('.listview');
