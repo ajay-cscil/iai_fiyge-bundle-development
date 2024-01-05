@@ -157,7 +157,7 @@
                     }
                     if (typeof (filterField) != 'undefined') {
                         filterField = filterField.split('.');
-                        filterField.splice(0, 1);
+                        //filterField.splice(0, 1);
                         filterField = filterField.join('.');
                     }
 
@@ -236,6 +236,7 @@
 
         // function to bring data via ajax calls based on our 'q'
         function bringData(rule_Q, dataSource, id, onChangeField) {
+            var dataFieldMap={};
             try {
                 // hot fix for issue of alias name
                 if (typeof (id[0]) != 'undefined' && $.trim(id[0]) != '') {
@@ -256,7 +257,9 @@
                          }
                          */
                         // We have to remove any path before alias string, if its missing as it as first string.
-                        rule_Q[z]['fields'][x] = processString(rule_Q[z]['fields'][x], alias);
+                        var columnName=processString(rule_Q[z]['fields'][x], alias);
+                        dataFieldMap[columnName.replaceAll('.','_')]=rule_Q[z]['fields'][x];
+                        rule_Q[z]['fields'][x] = columnName+" AS "+columnName.replaceAll('.','_');  
                     }
                     for (y in rule_Q[z]['where']) {
                         var dup = processString(y, alias);
@@ -287,7 +290,7 @@
                             data[i] = settings.data_cleaner(result);
                             if (cnt == count - 1) {
                                 // calling populate value as we  need to populate this data in fields
-                                $.populateValue(onChangeField, data);
+                                $.populateValue(onChangeField, data, dataFieldMap);
                             } else {
                                 cnt++;
                             }
@@ -305,11 +308,10 @@
         }
 
         // function to populate value to be called from bring data after data is being collected
-        $.populateValue = function(onChangeField, data) {
+        $.populateValue = function(onChangeField, data, dataFieldMap) {
             try {
                 // find all dependencies;
                 var dependentList = onChangeField.data('dependent_list');
-                log(['onChangeField',onChangeField,dependentList]);
                 
                 var form = onChangeField.closest('form');
                 // if data does not comes
@@ -341,14 +343,14 @@
                         // fetching attributs from the DOM
                         filterField = $(form.find('[name="' + dependentName + '"]')).attr('__filter_field');
                         if (typeof (filterField) != 'undefined') {
-                            filterField = filterField.split('.');
-                            filterField.splice(0, 1);
-                            filterField = filterField.join('.');
+                            //filterField = filterField.split('.');
+                            //filterField.splice(0, 1);
+                            //filterField = filterField.join('.');
                         }
                         filterValue = $(form.find('[name="' + dependentName + '"]')).attr('filter_val');
                         mappedField = $(form.find('[name="' + dependentName + '"]')).attr('__mapped_field');
                         if (typeof (mappedField) != 'undefined') {
-                            mappedField = mappedField.split('.').pop();
+                            //mappedField = mappedField.split('.').pop();
                         }
                         
                         // populating fields in DOM
@@ -370,12 +372,22 @@
                                     }
                                 }
                             }
+
+                            
                             // populating data based on fields
                             $.each(data[index], function(k, v) {
                                 // iterating through each key
                                 for (key in v) {
                                     // if key matches the mapped field we have to put that data
-                                    if (key == mappedField) {
+                                    var dataMappedField=false;
+                                    if(dataFieldMap && dataFieldMap[key]){
+                                        dataMappedField=dataFieldMap[key];
+                                    }
+                                    if (
+                                        (dataMappedField != false && dataMappedField == mappedField) 
+                                        || 
+                                        (dataMappedField == false && key == mappedField)
+                                    ) {
                                         
                                         var field = form.find('[name="' + dependentName + '"]');
                                         // condition to check if field is empty

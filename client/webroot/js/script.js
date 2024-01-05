@@ -486,10 +486,12 @@ jQuery('document').ready(function($) {
      * Initialize default ajax loader.
      * @author Tushar Takkar<ttakkar@primarymodules.com>
      */
-    $("body").append('<div id="ajax-loader" class="ui-state-highlight" style="display:none;z-index:100002">Loading...</div>');
-    var bodyWidth = $("body").width();
+    $("body").append('<div id="ajax-loader" class="ui-state-highlight" style="display:none;z-index:100002"><img style="width:300px;" src="/img/page-loading.gif"></div>');
+    var bodyWidth = window.innerWidth;
+    var bodyHeight = window.innerHeight;
     var ajaxLoaderWidth = $("#ajax-loader").width();
-    var ajaxLoaderTop = 1;
+    var ajaxLoaderHeight = $("#ajax-loader").height();
+    var ajaxLoaderTop = (bodyHeight/2) - (ajaxLoaderHeight/2)-200;
     var ajaxLoaderLeft = (bodyWidth / 2) - (ajaxLoaderWidth / 2);
     var ajaxLoaderCounter = 0;
     $("#ajax-loader").css({
@@ -498,25 +500,26 @@ jQuery('document').ready(function($) {
         "position": "fixed"
     })
     .ajaxStart(function() {
-        $.showLoader();
+        $.showLoader(1);
     })
     .ajaxStop(function() {
-        $.hideLoader();
+        $.hideLoader(1);
     });
+
     $.showLoader = function(stat) {
-        if ($.isset(stat))
+        if ($.isset(stat)){
             ajaxLoaderCounter += stat;
-        var obj = $("#ajax-loader");
-        $(obj).html('Loading...').show();
+        }
         setTimeout(function() {
-            if (obj.is(':visible')) {
-                obj.html('Still Loading...');
+            if (ajaxLoaderCounter > 0) {
+                $("#ajax-loader").show();
             }
-        }, 3000);
+        }, 1000);
     }
     $.hideLoader = function(stat) {
-        if ($.isset(stat))
+        if ($.isset(stat)){
             ajaxLoaderCounter -= stat;
+        }
 
         if (ajaxLoaderCounter <= 0) {
             $("#ajax-loader").hide();

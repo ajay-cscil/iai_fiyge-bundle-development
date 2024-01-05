@@ -36,22 +36,18 @@ $headerTitle = '';
 $headerString = '';
 $footerString = '';
 $pages = $this->get('pages', array());
+$modelName=$this->get('model');
+$record=isset($data[$modelName])?$data[$modelName]:[];
+$organizationObj = \module\crm_base\model\organizations::getInstance();
+$organizationID = $record['organization_id'];
+$organizationData = current($organizationObj->read($organizationID));
+if(!isset($organizationData['organization_image'])){
+    $organizationData['organization_image']=[];
+}   
 foreach ($pages as $path => $info) {
     $i++;
     $name = $base . DS . $uuid . '-' . $i . '.pdf';
 // create new PDF document
-    $companyObj = \module\crm_base\model\organizations::getInstance(array(), true);
-    $companyID = \kernel\user::read('organization_id');
-    $organizationData = \select("*")
-            ->from($companyObj)
-            ->where('id', $companyID)
-            ->execute()
-            ->fetch(\PDO::FETCH_ASSOC);
-    $organizationData['images'] = \select("*")
-            ->from($companyObj->organization_image)
-            ->where(array('related_to' => $companyID, 'related_to_model' => 'organizations','field_type'=>'organization_image'))
-            ->execute()
-            ->fetch(\PDO::FETCH_ASSOC);
     if (isset($organizationData['header_data']) && !empty($organizationData['header_data'])) {
         eval($organizationData['header_data']);
     }
@@ -106,8 +102,11 @@ foreach ($pages as $path => $info) {
     }
 
     $pdf = \kernel\pdf::getInstance($pdfConf, true);
-    if (!empty($organizationData) && !empty($organizationData['images'])) {
-        $imgPath = APP . DS . $organizationData['images']['storage_path'] . $organizationData['images']['path'];
+    if (!empty($organizationData) && !empty($organizationData['organization_image'])) {
+        $imgPath = APP . DS . $organizationData['organization_image']['storage_path'] . $organizationData['organization_image']['path'];
+    }
+    if($logoWidth==0){
+        $logoWidth=50;
     }
     $pdf->setHeaderData($imgPath, $logoWidth, $headerTitle, $headerString); //,$c_header_title
     if(isset($footerString) && !empty($footerString)){
@@ -157,7 +156,7 @@ $mergePdf = $base . DS . $uuid . '.pdf';
 $pdfNew->properties['Title'] = $this->data(array('contracts', 'name'));
 $pdfNew->properties['Author'] = \kernel\user::read('first_name') . ' ' . \kernel\user::read('last_name');
 $pdfNew->save($mergePdf);
-$name = trim( $this->data(['model', 'name'])." ".$templateInfo['name']) . ".pdf";
+$name = trim( $record['name']." ".$templateInfo['name']) . ".pdf";
 $this->output["filepath"]=$mergePdf;
 
 if($this->request->return !=4 ){
