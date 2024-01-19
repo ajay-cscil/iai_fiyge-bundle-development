@@ -141,7 +141,7 @@
 
         <script type="text/javascript">
         jQuery(document).ready(function(){
-            $("#global_filter_date_range").change(function(){
+            $("#global_filter_date_range,#global_filter_start_date,#global_filter_end_date").change(function(){
                 $(this).closest('form').submit();
             });
             $("#global_filter_date_range_previous").click(function(){
