@@ -2098,7 +2098,7 @@ jQuery('document').ready(function($) {
          */
 
         var dateFormat = $.config['date_format'];
-        container.find('input.date')
+        var datepickers=container.find('input.date')
         .not('.template-element').each(function() {
             if ($(this).attr('is_readonly') != 0) {
                 $(this).attr('readonly', 'readonly');
@@ -2108,13 +2108,16 @@ jQuery('document').ready(function($) {
             }
         })
         .attr('date_format',dateFormat.replace("yy","yyyy").toUpperCase())
-        .datepicker({"yearRange": "-100:3000"})
-        .keyup(function(e) {
+        .datepicker({"yearRange": "-100:3000"});
+
+        datepickers.keyup(function(e) {
             if(e.keyCode == 8 || e.keyCode == 46) {
                 $.datepicker._clearDate(this);
             }
-        })
+        }).not('.no-field-help-date_format')
         .next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
+
+        datepickers.filter('[disabled]').datepicker('disable');
 
         container.find('span.date')
         .not('.template-element')
@@ -2670,7 +2673,7 @@ jQuery('document').ready(function($) {
         });
 
         
-        container.find('select:visible').not(".popup-select").each(function(){
+        container.find('select:visible').not(".popup-select:hidden").each(function(){
             var select2Params={};
             var dropdownParent=jQuery(this).closest('.ui-dialog-content');
             if(dropdownParent.length){
