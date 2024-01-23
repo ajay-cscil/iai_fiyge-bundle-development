@@ -702,6 +702,17 @@ function initChart(container) {
                         switch ($(this).attr('data_type')) {
                             case 'VAR_STRING':
                                 dataType = 'string';
+                            break;
+                            case 'DATE':
+                                dataType = 'string';
+                            break;
+                            case 'DATEIME':
+                                dataType = 'string';
+                            break;
+                            case 'LONG':
+                                dataType = 'number';
+                            break;
+                                    
                         }
                         columnName = $(this).text();
                         if (graphType == 'BarChart') {
