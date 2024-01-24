@@ -410,7 +410,13 @@
                                             } else {
                                                 log(field.attr("type")+' -> Auto-population populateValue: [name="' + dependentName + '"].val(' + v[key] + ')');
                                                 // finding the field and setting its value
-                                                field.val(v[key]).trigger('change');
+                                                var newFieldValue=v[key];
+                                                if(field.hasClass('date')){
+                                                    var datetimeFormat=field.attr('date_format');
+                                                    newFieldValue=moment(newFieldValue, 'YYYY-MM-DD');
+                                                    newFieldValue=newFieldValue.format(datetimeFormat);
+                                                }
+                                                field.val(newFieldValue).trigger('change');
                                                 if(field.attr('editor') == "WYSIWYG"){
                                                     field.cleditor()[0].updateFrame();
                                                 }
