@@ -2922,6 +2922,9 @@ jQuery('document').ready(function($) {
                 setting['height']=600;
             }
         }
+        if($.isset(setting["width"]) && setting["width"] > $('body').innerWidth()){
+            setting["width"]=$('body').innerWidth();
+        } 
         $("#" + uuid).dialog(setting).dialog('open');
         $('#main-panel').addClass('passive');
         //To remove this hidden property and activate the default property of overflow the changes are made on line number 9519 in jquery-ui.js
