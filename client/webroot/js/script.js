@@ -2264,8 +2264,8 @@ jQuery('document').ready(function($) {
                     var element = this.element[0];
                     log(this.element[0]);
                     var td = $(this.element[0]).closest('td');
-                    log(td);
-                    log(td.html());
+                    console.log(td);
+                    console.log(td.html());
                     var term = [];
                     var termP = request.term.split("/");
                     for (var i = 0; i < termP.length; i++) {
@@ -2273,7 +2273,7 @@ jQuery('document').ready(function($) {
                     }
                     term = term.join('/');
                     var popupHidden = td.find('.popup-hidden:first');
-                    log(popupHidden);
+                    console.log(popupHidden);
                     var forText = popupHidden.attr('for_text');
                     if (typeof (forText) == 'undefined') {
                         forText = "";
