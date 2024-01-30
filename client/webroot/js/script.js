@@ -291,6 +291,11 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
 
 function RenderPage(pdf_container, num) {
     pdfDoc.getPage(num).then(function (page) {
+        const windowWidth = pdf_container.clientWidth-(pdf_container.clientWidth*0.05);
+        const windowHeight = pdf_container.clientHeight-(pdf_container.clientHeight*0.05);
+        var scale=1;
+        var resolution=1;
+
         var canvas = document.createElement('canvas');
         canvas.id = 'pdf-' + num;
         var ctx = canvas.getContext('2d');
@@ -301,6 +306,11 @@ function RenderPage(pdf_container, num) {
         pdf_container.appendChild(spacer);
 
         var viewport = page.getViewport({ scale: scale });
+
+        if(windowWidth < viewport.width){
+            scale=windowWidth/viewport.width;
+            viewport = page.getViewport({ scale: scale });
+        }
         canvas.height = resolution * viewport.height;
         canvas.width = resolution * viewport.width;
 
@@ -312,6 +322,7 @@ function RenderPage(pdf_container, num) {
         page.render(renderContext);
     });
 }
+
 
 /**
  * @author Tushar Takkar<ttakkar@primarymodules.com>
