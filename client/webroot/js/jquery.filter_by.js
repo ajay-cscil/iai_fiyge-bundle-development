@@ -239,7 +239,7 @@
                             if(k['sql_column_name'].indexOf('filter_by_url.') != -1){
                                 k['sql_column_name']=k['sql_column_name'].replace('filter_by_url.','');
                                 var sql_column_name=k['sql_column_name'].split('.')[0];
-                                console.log(sql_column_name);
+                                console.log(k['sql_column_name'].split('.'));
                                 if(href.indexOf('/'+sql_column_name+'/') != -1){
                                     prefilter=true;
                                 }
