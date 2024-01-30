@@ -232,14 +232,13 @@
                             q=[q];   
                         } 
                         */
-                        var href=href.split('/');
                         var where = {}; 
                         $(this).data('filter_by_fields_obj').forEach(function(k, v) {
                             var prefilter=false;
                             console.log(href,k);
                             if(k['sql_column_name'].indexOf('filter_by_url.') != -1){
                                 var sql_column_name=k['sql_column_name'].split('.');
-                                if(href[0] == sql_column_name[0]){
+                                if(href.indexOf('/'+sql_column_name[0]+'/') != -1){
                                     prefilter=true;
                                 }
                                 k['sql_column_name']=k['sql_column_name'].replace('filter_by_url.','');
