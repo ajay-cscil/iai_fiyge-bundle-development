@@ -243,10 +243,10 @@
                                 if(href.indexOf('/'+sql_column_name+'/') != -1){
                                     prefilter=true;
                                 }
-                                
                             }else{
                                 prefilter=true;
                             }
+                            console.log("prefilter",prefilter);
                             if(prefilter == true){
                                 where[k['sql_column_name']] = form.find('[name="' + k['form_field_name'] + '"]').val();
                                 //new code for grid
