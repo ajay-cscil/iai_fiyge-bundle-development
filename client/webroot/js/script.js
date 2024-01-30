@@ -2304,7 +2304,7 @@ jQuery('document').ready(function($) {
                     }
 
 
-
+                    console.log("href",href);
                     q = decodeURIComponent(q);
                     if (typeof (href) != 'undefined' && href != '') {
                         if ($.trim(q) == '' || !$.isset(q))
