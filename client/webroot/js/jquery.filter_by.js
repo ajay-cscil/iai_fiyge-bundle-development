@@ -235,18 +235,15 @@
                         var where = {}; 
                         $(this).data('filter_by_fields_obj').forEach(function(k, v) {
                             var prefilter=false;
-                            console.log(href,k);
                             if(k['sql_column_name'].indexOf('filter_by_url.') != -1){
                                 k['sql_column_name']=k['sql_column_name'].replace('filter_by_url.','');
                                 var sql_column_name=k['sql_column_name'].split('.')[0];
-                                console.log("sql_column_name",sql_column_name);
                                 if(href.indexOf('/'+sql_column_name+'/') != -1){
                                     prefilter=true;
                                 }
                             }else{
                                 prefilter=true;
                             }
-                            console.log("prefilter",prefilter);
                             if(prefilter == true){
                                 where[k['sql_column_name']] = form.find('[name="' + k['form_field_name'] + '"]').val();
                                 //new code for grid
@@ -257,12 +254,11 @@
                                         //   q['where'] = where;
                                     }
                                 }
+                            }else{
+                                q['where']=[];
                             }
-
                         });
-                        console.log("where",where);
                         $.extend(q['where'], where);
-                        console.log(q);
                         $(this).data('q', q);
                     }
                     catch (err)
