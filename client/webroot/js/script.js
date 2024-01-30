@@ -293,8 +293,7 @@ function RenderPage(pdf_container, num) {
     pdfDoc.getPage(num).then(function (page) {
         const windowWidth = pdf_container.clientWidth-(pdf_container.clientWidth*0.05);
         const windowHeight = pdf_container.clientHeight-(pdf_container.clientHeight*0.05);
-        var scale=1;
-        var resolution=1;
+        
 
         var canvas = document.createElement('canvas');
         canvas.id = 'pdf-' + num;
@@ -308,8 +307,9 @@ function RenderPage(pdf_container, num) {
         var viewport = page.getViewport({ scale: scale });
 
         if(windowWidth < viewport.width){
-            scale=windowWidth/viewport.width;
-            viewport = page.getViewport({ scale: scale });
+            scaleNew=windowWidth/viewport.width;
+            viewport = page.getViewport({ scale: scaleNew });
+            console.log("scaleNew",scaleNew);    
         }
         canvas.height = resolution * viewport.height;
         canvas.width = resolution * viewport.width;
