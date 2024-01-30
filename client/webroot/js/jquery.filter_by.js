@@ -260,6 +260,7 @@
                             }
 
                         });
+                        console.log("where",where);
                         $.extend(q['where'], where);
                         console.log(q);
                         $(this).data('q', q);
