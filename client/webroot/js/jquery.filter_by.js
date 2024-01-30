@@ -224,7 +224,7 @@
                 });
                 // we will assign this sql name and name odf the field to tha data attribute of each associated with field
                 element.data('filter_by_fields_obj', filterByFieldsObj);
-                element.bind('beforeSearch', function() {
+                element.bind('beforeSearch', function(event,href) {
                     try {
                         var q = $(this).data('q');
                         /*  
@@ -232,17 +232,31 @@
                             q=[q];   
                         } 
                         */
+                        var href=href.split('/');
                         var where = {}; 
                         $(this).data('filter_by_fields_obj').forEach(function(k, v) {
-                            where[k['sql_column_name']] = form.find('[name="' + k['form_field_name'] + '"]').val();
-                            //new code for grid
-                            if (typeof (q['controller']) == 'undefined') {
-                                var id = form.find('[name="' + k['form_field_name'] + '"]').val();
-                                if (id != null && id != '') {
-                                    where[k['sql_column_name']] = id;
-                                    //   q['where'] = where;
+                            var prefilter=false;
+                            if(k['sql_column_name'].indexOf('filter_by_url.') != -1){
+                                var sql_column_name=k['sql_column_name'].split('.');
+                                if(href[0] == sql_column_name[0]){
+                                    prefilter=true;
+                                }
+                                k['sql_column_name']=k['sql_column_name'].replace('filter_by_url.','');
+                            }else{
+                                prefilter=true;
+                            }
+                            if(prefilter == true){
+                                where[k['sql_column_name']] = form.find('[name="' + k['form_field_name'] + '"]').val();
+                                //new code for grid
+                                if (typeof (q['controller']) == 'undefined') {
+                                    var id = form.find('[name="' + k['form_field_name'] + '"]').val();
+                                    if (id != null && id != '') {
+                                        where[k['sql_column_name']] = id;
+                                        //   q['where'] = where;
+                                    }
                                 }
                             }
+
                         });
                         $.extend(q['where'], where);
                         console.log(q);

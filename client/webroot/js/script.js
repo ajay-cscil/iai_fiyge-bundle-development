@@ -1527,7 +1527,7 @@ jQuery('document').ready(function($) {
             q['where'] = $.mergeAll([q['where'], where]);
 
             $(popupAutocomplete).data('q', q);
-            $(popupAutocomplete).triggerHandler('beforeSearch');
+            $(popupAutocomplete).triggerHandler('beforeSearch',href);
             q = $(popupAutocomplete).data('q');
             href += (href.indexOf('?') == -1 ? '?' : '') + '&action_menu_bar=1';
 
@@ -1617,7 +1617,7 @@ jQuery('document').ready(function($) {
             }
             q['where'] = $.mergeAll([q['where'], where]);
             $(popupAutocomplete).data('q', q);
-            $(popupAutocomplete).triggerHandler('beforeSearch');
+            $(popupAutocomplete).triggerHandler('beforeSearch',href);
             q = $(popupAutocomplete).data('q');
             href += (href.indexOf('?') == -1 ? '?' : '') + '&action_menu_bar=1';
             if (q !== false) {
@@ -2330,7 +2330,7 @@ jQuery('document').ready(function($) {
 
 
                         $(this.element[0]).data('q', q);
-                        $(this.element[0]).triggerHandler('beforeSearch');
+                        $(this.element[0]).triggerHandler('beforeSearch',href);
                         q = $(this.element[0]).data('q');
                         if (q !== false) {
                             if (href.indexOf('?') !== -1) {
@@ -2595,7 +2595,7 @@ jQuery('document').ready(function($) {
                         q['where'] = $.mergeAll([q['where'], where]);
                         var concatTextValue = parseInt(element.attr('concat_text_value'));
                         $(element).data('q', q);
-                        $(element).triggerHandler('beforeSearch');
+                        $(element).triggerHandler('beforeSearch',href);
                         q = $(element).data('q');
                         if (href.indexOf('?') !== -1) {
                             href = href.replace('?', '.json?');
