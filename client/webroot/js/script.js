@@ -2258,6 +2258,7 @@ jQuery('document').ready(function($) {
 
                 },
                 source: function(request, response) {
+                    console.log(request, response);
                     var href = '';
                     var q = '';
                     var element = this.element[0];
@@ -2393,6 +2394,7 @@ jQuery('document').ready(function($) {
             }
             $(this).autocomplete(autocomplete);
         }).click(function() {
+            console.log('search');
             $(this).autocomplete('search');
         }).keydown(function(event) {
             if (event.keyCode === $.ui.keyCode.TAB
