@@ -251,7 +251,7 @@ var pdfjsLib = window['pdfjs-dist/build/pdf'];
 pdfjsLib.GlobalWorkerOptions.workerSrc = '/module/pdf/pdf.worker.min.js';
 var pdfDoc = null;
 var scale = 1; //Set Scale for zooming PDF.
-var resolution = 2; //Set Resolution to Adjust PDF clarity.
+var resolution = 1; //Set Resolution to Adjust PDF clarity.
 
 function LoadPdfFromUrl(pdfContainerID,url,fileName) {
     console.log('LoadPdfFromUrl',pdfContainerID,url,fileName);
