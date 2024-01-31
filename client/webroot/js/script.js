@@ -1984,8 +1984,7 @@ jQuery('document').ready(function($) {
             properties["toolbarSticky"]=true;
             properties["toolbarDisableStickyForMobile"]=false;
             if(typeof(Jodit) !="undefined"){
-                Jodit.make($(this).get(0),properties);
-                //$(this).data('jodit',Jodit.make($(this).get(0),properties));
+                $(this).addClass('textarea-jodit').data('jodit',Jodit.make($(this).get(0),properties));
             }
         }).change(function(){
             
@@ -2791,11 +2790,17 @@ jQuery('document').ready(function($) {
                     };
                     params['buttons'] = {
                         'Yes': function() {
+                                $(this).dialog("widget").find('.textarea-jodit').each(function(){
+                                    jQuery(this).data('jodit').destruct();
+                                });
                                 $(this).dialog('destroy').remove();
                                 $object.addClass("is_confirmed");
                                 $object.trigger('click');
                         },
                         'No': function() {
+                            $(this).dialog("widget").find('.textarea-jodit').each(function(){
+                                jQuery(this).data('jodit').destruct();
+                            });
                             $(this).dialog('destroy').remove();
                         }
                     };
@@ -2921,6 +2926,9 @@ jQuery('document').ready(function($) {
 
         setting["close"] = function(event, ui) {
             $('#main-panel').removeClass('passive');
+            $(this).dialog("widget").find('.textarea-jodit').each(function(){
+                jQuery(this).data('jodit').destruct();
+            });
             $(this).dialog('destroy').remove();
         }
         var formObject=$("#" + uuid).find('form');
@@ -3279,6 +3287,9 @@ jQuery('document').ready(function($) {
 
         params['buttons'] = {
             'Yes': function() {
+                $(this).dialog("widget").find('.textarea-jodit').each(function(){
+                    jQuery(this).data('jodit').destruct();
+                });
                 $(this).dialog('destroy').remove();
                 if (href.indexOf('?') == -1) {
                     href += '?';
@@ -3331,6 +3342,9 @@ jQuery('document').ready(function($) {
                 }
             },
             'No': function() {
+                $(this).dialog("widget").find('.textarea-jodit').each(function(){
+                    jQuery(this).data('jodit').destruct();
+                });
                 $(this).dialog('destroy').remove();
             }
         };
@@ -3572,6 +3586,9 @@ jQuery('document').ready(function($) {
             params['table_id'] = $(object).closest('table.listview').attr('id');
             params['buttons'] = {
                 'Yes': function() {
+                    $(this).dialog("widget").find('.textarea-jodit').each(function(){
+                        jQuery(this).data('jodit').destruct();
+                    });
                     $(this).dialog('destroy').remove();
                     if (href.indexOf('?') == -1) {
                         href += '?';
@@ -3611,6 +3628,9 @@ jQuery('document').ready(function($) {
                     }
                 },
                 'No': function() {
+                    $(this).dialog("widget").find('.textarea-jodit').each(function(){
+                        jQuery(this).data('jodit').destruct();
+                    });
                     $(this).dialog('destroy').remove();
                 }
             };
