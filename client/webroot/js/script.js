@@ -1984,7 +1984,8 @@ jQuery('document').ready(function($) {
             properties["toolbarSticky"]=true;
             properties["toolbarDisableStickyForMobile"]=false;
             if(typeof(Jodit) !="undefined"){
-                $(this).data('jodit',Jodit.make($(this).get(0),properties));
+                Jodit.make($(this).get(0),properties);
+                //$(this).data('jodit',Jodit.make($(this).get(0),properties));
             }
         }).change(function(){
             
