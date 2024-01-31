@@ -246,13 +246,15 @@ function getPath(obj) {
   }
   return obj;
 }
-        
-var pdfjsLib = window['pdfjs-dist/build/pdf'];
-pdfjsLib.GlobalWorkerOptions.workerSrc = '/module/pdf/pdf.worker.min.js';
-var pdfDoc = null;
-var scale = 1; //Set Scale for zooming PDF.
-var resolution = 1; //Set Resolution to Adjust PDF clarity.
 
+if(typeof(window['pdfjs-dist/build/pdf']) != "undefined"){        
+    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '/module/pdf/pdf.worker.min.js';
+    var pdfDoc = null;
+    var scale = 1; //Set Scale for zooming PDF.
+    var resolution = 1; //Set Resolution to Adjust PDF clarity.
+
+}
 function LoadPdfFromUrl(pdfContainerID,url,fileName) {
     console.log('LoadPdfFromUrl',pdfContainerID,url,fileName);
     var fileExt=(fileName?fileName.split('.').pop():'').toLowerCase();
@@ -1979,7 +1981,8 @@ jQuery('document').ready(function($) {
             properties["toolbarAdaptive"]=true;
             properties["allowResizeX"]=false;
             properties["allowResizeY"]=false;
-            properties["toolbarSticky"]=false;
+            properties["toolbarSticky"]=true;
+            properties["toolbarDisableStickyForMobile"]=false;
             if(typeof(Jodit) !="undefined"){
                 $(this).data('jodit',Jodit.make($(this).get(0),properties));
             }
