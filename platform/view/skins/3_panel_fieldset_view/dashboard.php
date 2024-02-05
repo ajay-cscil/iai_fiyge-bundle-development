@@ -44,8 +44,9 @@
                                        <td class="cell-label"  style="border-bottom:0px;">
                                             <label for="data-peoples-filing_option_id">User/Group</label>
                                        </td>
-                                       <td style="padding:5px;">
-                                       <?php     
+                                       <!--td style="padding:5px;">
+                                       <?php  
+                                       /*   
                                             $props=[
                                                 "name"=>"global_filter_scope",
                                                 "value"=>$globalFilterScope,
@@ -61,9 +62,9 @@
                                                     $props["is_readonly"]=1;
                                             }
                                             echo \kernel\form::popup($this,$props);
-
+                                        */
                                         ?>
-                                        </td>
+                                        </td-->
                                        <td class="cell-label" style="border-bottom:0px;">
                                             <label for="data-peoples-filing_option_id">Date</label>
                                        </td>  
