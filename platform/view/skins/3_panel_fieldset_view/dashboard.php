@@ -41,9 +41,9 @@
                                              $globalFilterStartDate=\kernel\view::$globalFilters["global_filter_start_date"];
                                              $globalFilterEndDate=\kernel\view::$globalFilters["global_filter_end_date"];
                                        ?>
-                                       <td class="cell-label"  style="border-bottom:0px;">
+                                       <!--td class="cell-label"  style="border-bottom:0px;">
                                             <label for="data-peoples-filing_option_id">User/Group</label>
-                                       </td>
+                                       </td-->
                                        <!--td style="padding:5px;">
                                        <?php  
                                        /*   
