@@ -1,10 +1,35 @@
 <?php
 
-class acl_model extends \kernel\model
-{
+class acl_model extends \kernel\model{
 
     public $source = 'acl';
 
+    public function afterInit(){
+        parent::afterInit();
+        if(str_contains($this->alias, 'group_acl_cache')== true){
+             $this->associations['groups'] = array (
+                            'className' => '\\module\\access_controls\\model\\groups',
+                            'associationAlias' => 'groups',
+                            'assocType' => 'belongsTo',
+                            'foreignKey' => 'group_id',
+                            'show_link' => '1',
+                            'isAclParent' => '0',
+                            'isAclChild' => '0',
+                            'isSubModel' => '0',
+            );
+        }else if(str_contains($this->alias, 'acl_cache')== true){
+            $this->associations['users'] = array (
+                            'className' => '\\module\\access_controls\\model\\users',
+                            'associationAlias' => 'users',
+                            'assocType' => 'belongsTo',
+                            'foreignKey' => 'user_id',
+                            'show_link' => '1',
+                            'isAclParent' => '0',
+                            'isAclChild' => '0',
+                            'isSubModel' => '0',
+            );
+        }
+    }
 
     /*
             if($request->param('related_to') && stripos($paginate['model_class'], '_group_acl_cache') !== false){
