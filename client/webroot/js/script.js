@@ -3813,7 +3813,7 @@ jQuery('document').ready(function($) {
             form.find('[type="submit"]').click(function(event) {
                 var form = $(this).closest('form');
                 var skipValidation=$(this).attr('skip_validation');
-                if(skipValidation == true){
+                if(Boolean(skipValidation) == true){
                     should_validate=false;
                 }
                 console.log("should_validate",should_validate);
