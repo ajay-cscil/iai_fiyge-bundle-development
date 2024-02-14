@@ -3755,6 +3755,7 @@ jQuery('document').ready(function($) {
                     if (!form.valid()) {
                         event.stopPropagation();
                         event.preventDefault();
+                        form.find('.error:visible').first().closest(".cell-info").find(':input').filter(':visible').focus();
                         return false;
                     }
                 }
@@ -3822,6 +3823,7 @@ jQuery('document').ready(function($) {
                     if (!form.valid()) {
                         event.stopPropagation();
                         event.preventDefault();
+                        form.find('.error:visible').first().closest(".cell-info").find(':input').filter(':visible').focus();
                         return false;
                     }
                 }
