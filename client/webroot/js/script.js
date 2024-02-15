@@ -500,19 +500,19 @@ jQuery('document').ready(function($) {
      * @author Tushar Takkar<ttakkar@primarymodules.com>
      */
     $("body").append('<div id="ajax-loader" class="ui-state-highlight" style="display:none;z-index:100002">'+
-        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:#fff;display:block;" width="250px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">'+
-            '<defs>'+
-              '<clipPath id="progress-7x4qtbj3m1o-cp" x="0" y="0" width="100" height="100">'+
-                '<rect x="0" y="0" width="0" height="100">'+
-                  '<animate attributeName="width" repeatCount="indefinite" dur="1s" values="0;100;100" keyTimes="0;0.5;1"></animate>'+
-                  '<animate attributeName="x" repeatCount="indefinite" dur="1s" values="0;0;100" keyTimes="0;0.5;1"></animate>'+
-                '</rect>'+
-              '</clipPath>'+
-            '</defs>'+
-            '<text x="15" y="20" style="font: italic 20px serif;fill: #E15A63;">Loading...</text>'+
-            '<path fill="none" stroke="#e15b64" stroke-width="2.79" d="M18 36.895L81.99999999999999 36.895A13.104999999999999 13.104999999999999 0 0 1 95.10499999999999 50L95.10499999999999 50A13.104999999999999 13.104999999999999 0 0 1 81.99999999999999 63.105L18 63.105A13.104999999999999 13.104999999999999 0 0 1 4.895000000000003 50L4.895000000000003 50A13.104999999999999 13.104999999999999 0 0 1 18 36.895 Z"></path>'+
-            '<path fill="#f8b26a" clip-path="url(#progress-7x4qtbj3m1o-cp)" d="M18 40.99L82 40.99A9.009999999999998 9.009999999999998 0 0 1 91.00999999999999 50L91.00999999999999 50A9.009999999999998 9.009999999999998 0 0 1 82 59.01L18 59.01A9.009999999999998 9.009999999999998 0 0 1 8.990000000000004 50L8.990000000000004 50A9.009999999999998 9.009999999999998 0 0 1 18 40.99 Z"></path>'+
-        '</svg>'+
+        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgb(241, 242, 243); display: block;" width="304px" height="120px" viewBox="0 0 100 80" preserveAspectRatio="xMidYMid">'+
+        '<defs>'+
+          '<clipPath id="progress-y9sp7d374xr-cp" x="0" y="0" width="100" height="100">'+
+            '<rect x="0" y="0" width="0" height="100">'+
+              '<animate attributeName="width" repeatCount="indefinite" dur="1.1363636363636365s" values="0;100;100" keyTimes="0;0.5;1"></animate>'+
+              '<animate attributeName="x" repeatCount="indefinite" dur="1.1363636363636365s" values="0;0;100" keyTimes="0;0.5;1"></animate>'+
+            '</rect>'+
+          '</clipPath>'+
+        '</defs>'+
+        '<text x="15" y="20" style="font: italic 15px serif;fill: #f81b24;">Loading...</text>'+
+        '<path fill="none" stroke="#f81b24" stroke-width="2.79" d="M5.421250000000003 37.894999999999996L94.57874999999999 37.894999999999996A3.02625 3.02625 0 0 1 97.60499999999999 40.92124999999999L97.60499999999999 59.07875000000001A3.02625 3.02625 0 0 1 94.57874999999999 62.105000000000004L5.421250000000003 62.105000000000004A3.02625 3.02625 0 0 1 2.395000000000003 59.07875000000001L2.395000000000003 40.92124999999999A3.02625 3.02625 0 0 1 5.421250000000003 37.894999999999996 Z"></path>'+
+        '<path fill="#009553" clip-path="url(#progress-y9sp7d374xr-cp)" d="M5.490000000000004 40.989999999999995L94.50999999999999 40.989999999999995A0 0 0 0 1 94.50999999999999 40.989999999999995L94.50999999999999 59.010000000000005A0 0 0 0 1 94.50999999999999 59.010000000000005L5.490000000000004 59.010000000000005A0 0 0 0 1 5.490000000000004 59.010000000000005L5.490000000000004 40.989999999999995A0 0 0 0 1 5.490000000000004 40.989999999999995 Z"></path>'+
+        '</svg>'+   
     '</div>');
     var bodyWidth = window.innerWidth;
     var bodyHeight = window.innerHeight;
