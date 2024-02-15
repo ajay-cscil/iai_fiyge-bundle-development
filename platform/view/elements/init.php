@@ -162,7 +162,7 @@ echo \kernel\html::js($this->request, '/module/star-rating/star-rating-svg');
 
 echo \kernel\html::js($this->request, '/js/htmldiff');
 
-echo \kernel\html::js($this->request, '/node_modules/moment/moment');
+echo \kernel\html::js($this->request, '/node_modules/moment/min/moment.min');
 
 ?>
 
