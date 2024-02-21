@@ -3830,6 +3830,9 @@ jQuery('document').ready(function($) {
                 if(Boolean(skipValidation) == true){
                     should_validate=false;
                 }
+                if(String($(this).attr('name')).indexOf('save_progress') != -1){
+                    should_validate=false;
+                }
                 console.log("should_validate",should_validate);
                 form.find('.not-empty-input').attr('REQUIRED','REQUIRED');
                 // Form Validation befor submit
