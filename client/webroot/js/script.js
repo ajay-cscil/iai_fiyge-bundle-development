@@ -1956,6 +1956,7 @@ jQuery('document').ready(function($) {
          *
          * @author Tushar Takkar<ttakkar@primarymodules.com>
          */
+        /* 
         container.find('textarea[editor="WYSIWYG"]').not('.template-element').each(function() {
             var properties = {};
             var height = parseInt($(this).css('height'));
@@ -1978,10 +1979,10 @@ jQuery('document').ready(function($) {
             var editor = $(this).cleditor()[0];
                 editor.refresh();
         });
+        */
 
 
-
-        container.find('textarea[editor="WYSIWYG-V1"]').not('.template-element').each(function() {
+        container.find('textarea[editor="WYSIWYG"],textarea[editor="WYSIWYG-V1"]').not('.template-element').each(function() {
             var properties = {};
             var height = parseInt($(this).css('height'));
             var rows = parseInt($(this).attr('rows'));
