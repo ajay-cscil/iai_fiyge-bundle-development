@@ -12,7 +12,7 @@ echo \kernel\html::css($this->request, 'jquery-ui');
 //markItUp! toolbar theme
 //markItUp! theme
 //css file for WYSIWYG editor.
-echo \kernel\html::css($this->request, '/module/cleditor/jquery.cleditor');
+//echo \kernel\html::css($this->request, '/module/cleditor/jquery.cleditor');
 echo \kernel\html::css($this->request, '/module/superfish/css/superfish');
 // file for app level css.
 echo \kernel\html::css($this->request, '/css/style');

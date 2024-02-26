@@ -50,7 +50,7 @@ echo \kernel\html::js($this->request, '/js/json');
 // jquery ui timepicker javascript.
 echo \kernel\html::js($this->request, '/js/jquery-ui-timepicker');
 //script file for WYSIWYG editor.
-echo \kernel\html::js($this->request, '/module/cleditor/jquery.cleditor');
+//echo \kernel\html::js($this->request, '/module/cleditor/jquery.cleditor');
 echo \kernel\html::js($this->request, '/js/jquery.cookie');
 // file for app level javascript.
 //script file for markItUp editor.
