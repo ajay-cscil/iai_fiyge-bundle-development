@@ -3209,6 +3209,9 @@ jQuery('document').ready(function($) {
         log('click -> [name ="data[action][cancel]"]');
         var jscontainer = $(this).closest('.js-container');
         if (jscontainer.length > 0) {
+            $('#' + jscontainer.attr('id')).dialog("widget").find('.textarea-jodit').each(function(){
+                jQuery(this).data('jodit').destruct();
+            });
             $('#' + jscontainer.attr('id')).dialog("destroy").remove();
         } else {
             var http_referer = $(this).attr('href');
