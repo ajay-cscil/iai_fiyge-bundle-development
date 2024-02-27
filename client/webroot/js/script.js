@@ -1992,6 +1992,7 @@ jQuery('document').ready(function($) {
             if ($.isset(height) && height > 250){
                 properties['minHeight'] = height;
             }
+            properties["iframe"]=true;
             properties["globalFullSize"]=false;
             properties["toolbarAdaptive"]=true;
             properties["allowResizeX"]=false;
