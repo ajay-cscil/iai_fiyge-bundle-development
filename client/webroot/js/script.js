@@ -2130,6 +2130,7 @@ jQuery('document').ready(function($) {
         var dateFormat = $.config['date_format'];
         var datepickers=container.find('input.date')
         .not('.template-element').each(function() {
+            $(this).attr('id',$(this).attr('id')+'-'+uuidv4());
             if ($(this).attr('is_readonly') != 0) {
                 $(this).attr('readonly', 'readonly');
             } else {
@@ -2168,6 +2169,7 @@ jQuery('document').ready(function($) {
         .attr('date_format',dateFormat.replace("yy","yyyy").toUpperCase())
         .attr('datetime_format',(dateFormat.replace("yy","yyyy").toUpperCase())+" "+(ampm?"hh:mm:ss A":"HH:mm:ss"))
         .each(function() {
+            $(this).attr('id',$(this).attr('id')+'-'+uuidv4());
             var $this=$(this);
             if ($this.attr('is_readonly') != 0) {
                 $this.attr('readonly', 'readonly');
