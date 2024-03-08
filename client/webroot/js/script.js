@@ -2149,6 +2149,8 @@ jQuery('document').ready(function($) {
         .next().after('<span class="field-help">' + (dateFormat != '' ? "(" + dateFormat + ")" : "") + '</span>');
 
         datepickers.filter('[disabled]').datepicker('disable');
+        datepickers.filter('.disable-trigger').next('.ui-datepicker-trigger').remove();
+        datepickers.trigger('init');
 
         container.find('span.date')
         .not('.template-element')
