@@ -4229,10 +4229,17 @@ jQuery('document').ready(function($) {
         }
         var clone = grid.find('.grid-template-row').clone(true).removeClass('grid-template-row')
         .addClass('last-data-row')
+        .find('.copy-to-clipboard-action').each(function() {
+            var dataClipboardTarget = $(this).attr('data-clipboard-target');
+            if (dataClipboardTarget != null && dataClipboardTarget != '') {
+                $(this).attr('data-clipboard-target', dataClipboardTarget.replace('_X_', '' + count + ''));
+            }
+        }).end()
         .find(':input').each(function() {
 
             var name = $(this).attr('name');
             var id = $(this).attr('id');
+            
             if (name != null && name != '') {
                 $(this).attr('name', name.replace('[_X_]', '[' + count + ']'))
                 .removeAttr('disabled').filter('[is_disabled="1"]')
