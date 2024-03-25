@@ -368,7 +368,6 @@
             checkForm: function() {
                 this.prepareForm();
                 for (var i = 0, elements = (this.currentElements = this.elements()); elements[i]; i++) {
-                    console.log(elements[i]);
                     this.check(elements[i]);
                 }
                 return this.valid();
