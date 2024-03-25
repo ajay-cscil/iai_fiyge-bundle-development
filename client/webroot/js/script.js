@@ -4458,9 +4458,9 @@ jQuery('document').ready(function($) {
             } else {
                 block.find('tr:first').parents(':first').children('tr.collapsible-hide').removeClass('collapsible-hide').show().end().find('.show-listview').trigger('click');
             }
-            block.find('[editor="WYSIWYG"]').not('.template-element').each(function() {
-                var editor = $(this).cleditor()[0];
-                editor.refresh();
+            block.find('[editor="WYSIWYG"],[editor="WYSIWYG-V1"]').not('.template-element').each(function() {
+                //var editor = $(this).cleditor()[0];
+                //editor.refresh();
             });
         } else {
             $(this).removeClass('ui-icon-circle-minus').addClass('ui-icon-circle-plus');
