@@ -79,28 +79,37 @@ echo \kernel\html::js($this->request, '/module/' . $this->request->module . '/js
 
 $googleMapsKey=\kernel\configuration::read('google_maps_key');
 echo \kernel\html::js($this->request, 'https://maps.googleapis.com/maps/api/js'.(!empty($googleMapsKey)?"?key={$googleMapsKey}":""), true);
+
+$loaderPATH=trim(isset($path[0])?$path[0]:'');
 ?>
 <script type="text/javascript">
     setTimeout(function() {
-        var loader = document.createElement('script');
-        loader.src = "<?php echo trim(isset($path[0])?$path[0]:'');?>";
-        // most browsers
-        console.log('initControllerAction',loader.src,loader.src=="");
-        if (typeof (initControllerAction) != 'undefined') {
-            if(loader.src != ""){
-                loader.onload = initControllerAction;
-                // IE 6 & 7
-                loader.onreadystatechange = function() {
-                    if (this.readyState == 'complete') {
-                        initControllerAction();
+        <?php if($loaderPATH){ ?>    
+                    var loader = document.createElement('script');
+                    loader.src = "<?php echo $loaderPATH;?>";
+                    // most browsers
+                    console.log('initControllerAction1');
+                    if (typeof (initControllerAction) != 'undefined') {
+                        if(loader.src != ""){
+                            loader.onload = initControllerAction;
+                            // IE 6 & 7
+                            loader.onreadystatechange = function() {
+                                if (this.readyState == 'complete') {
+                                    initControllerAction();
+                                }
+                            }
+                        }else{
+                            initControllerAction();
+                        }
                     }
-                }
-            }else{
-                initControllerAction();
-            }
-        }
-        document.getElementsByTagName('head')[0].appendChild(loader);
+                    document.getElementsByTagName('head')[0].appendChild(loader);
+        <?php }else{ ?> 
+                    console.log('initControllerAction2');
+                    initControllerAction();
+        <?php } ?>    
+
     }, 200);
+
 </script>
 <script>
     (function(i, s, o, g, r, a, m) {
