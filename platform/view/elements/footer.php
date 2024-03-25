@@ -88,7 +88,6 @@ $loaderPATH=trim(isset($path[0])?$path[0]:'');
                     var loader = document.createElement('script');
                     loader.src = "<?php echo $loaderPATH;?>";
                     // most browsers
-                    console.log('initControllerAction1');
                     if (typeof (initControllerAction) != 'undefined') {
                         if(loader.src != ""){
                             loader.onload = initControllerAction;
@@ -104,7 +103,6 @@ $loaderPATH=trim(isset($path[0])?$path[0]:'');
                     }
                     document.getElementsByTagName('head')[0].appendChild(loader);
         <?php }else{ ?> 
-                    console.log('initControllerAction2');
                     initControllerAction();
         <?php } ?>    
 
