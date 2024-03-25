@@ -86,12 +86,16 @@ echo \kernel\html::js($this->request, 'https://maps.googleapis.com/maps/api/js'.
         loader.src = "<?php echo (isset($path[0])?$path[0]:''); ?>";
         // most browsers
         if (typeof (initControllerAction) != 'undefined') {
-            loader.onload = initControllerAction;
-            // IE 6 & 7
-            loader.onreadystatechange = function() {
-                if (this.readyState == 'complete') {
-                    initControllerAction();
+            if(loader.src != ""){
+                loader.onload = initControllerAction;
+                // IE 6 & 7
+                loader.onreadystatechange = function() {
+                    if (this.readyState == 'complete') {
+                        initControllerAction();
+                    }
                 }
+            }else{
+                initControllerAction();
             }
         }
         document.getElementsByTagName('head')[0].appendChild(loader);
