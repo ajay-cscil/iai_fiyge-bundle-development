@@ -3919,8 +3919,13 @@ jQuery('document').ready(function($) {
         }
 
 
-        if ($.isset(uuid))
+        if ($.isset(uuid)){
+            $('#' + uuid).dialog("widget").find('.textarea-jodit')
+            .each(function(){
+                            jQuery(this).data('jodit').destruct();
+            });
             $('#' + uuid).dialog("destroy").remove();
+        }
         if ($.isset(data)) {
             if (typeof (data) === "object") {
 
