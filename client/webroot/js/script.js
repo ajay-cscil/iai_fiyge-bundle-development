@@ -3669,6 +3669,9 @@ jQuery('document').ready(function($) {
             else {
                 $[method](href, payload, function(data) {
                     if ($(object).attr('close_dialog') == 1) {
+                        $(object).closest('.js-container').dialog("widget").find('.textarea-jodit').each(function(){
+                            jQuery(this).data('jodit').destruct();
+                        });
                         $(object).closest('.js-container').dialog("destroy").remove();
                     }
                     if($(object).hasClass('trigger-live-event')){
