@@ -251,6 +251,8 @@ class data_controller extends \kernel\controller {
             }
         }
 
+        $request->set('is_editable', $modelObj->call('isNotEditable', $id) === false?1:0);
+
         $request->set('primary_key', $modelObj->primaryKey);
         $request->set('display_field', $modelObj->displayField);
         $request->set('model', $modelObj->alias);
