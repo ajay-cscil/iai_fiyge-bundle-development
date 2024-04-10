@@ -623,6 +623,7 @@ class data_controller extends \kernel\controller {
 
         $unifiedJumpToStages=false;
         $unifiedOpenStages=false;
+        $workflowGlobalActions=false;
         foreach ($ids as $id) {
                 $modelObj = $this->modelObj(false);
                 $dataCopy = $modelObj->read($id);
@@ -646,6 +647,17 @@ class data_controller extends \kernel\controller {
                          $unifiedOpenStages=$unifiedOpenStages1;
                     }else{
                         $unifiedOpenStages=array_intersect_key($unifiedOpenStages,$unifiedOpenStages1);
+                    }
+                }
+                if(isset($dataCopy[$modelObj->alias]['workflow_global_actions'])){
+                    $workflowGlobalActions1=[];
+                    foreach($dataCopy[$modelObj->alias]['workflow_global_actions'] as $globalAction){
+                        $workflowGlobalActions1[$globalAction['id']]=$globalAction;
+                    }
+                    if($workflowGlobalActions === false){
+                         $workflowGlobalActions=$workflowGlobalActions1;
+                    }else{
+                        $workflowGlobalActions=array_intersect_key($workflowGlobalActions,$workflowGlobalActions1);
                     }
                 }
         }
@@ -681,6 +693,10 @@ class data_controller extends \kernel\controller {
                     $data[$modelObj->alias]["stage_log"]=[];
                 }
                 $data[$modelObj->alias]["stage_log"]["stage_id"]=key($unifiedOpenStages);
+            }
+
+            if(!empty($workflowGlobalActions)){
+                $data[$modelObj->alias]['workflow_global_actions']=$workflowGlobalActions;
             }
         }
 
