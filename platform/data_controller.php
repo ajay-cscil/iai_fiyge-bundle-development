@@ -723,4 +723,287 @@ class data_controller extends \kernel\controller {
         }
     }
 
+    public function share_selected($request) {
+        \set_time_limit(0);
+        $this->render = 'edit';
+        $request->lauout = 'detail';
+        $data = $request->data;
+        $modelObj = $this->modelObj();
+        $schema = $modelObj->schema(false, 'submodel_1');
+        $ids = $this->id($request);
+        $allowEmptyInput=$request->param('allow_empty_input');
+        if (!is_array($ids)) {
+            $ids = array($ids);
+        }
+
+        $saveHandler = $this->saveHandler;
+        $modelObj->saveHandler = $saveHandler;
+
+        $selectAllRecords = $this->selectAllRecords($request);
+        if ($selectAllRecords !== false) {
+            $ids = $selectAllRecords;
+        }
+
+        $isNotEmpty = false;
+        if (is_array($ids)) {
+            foreach ($ids as $id) {
+                if (!empty($id)) {
+                    $isNotEmpty = true;
+                    break;
+                }
+            }
+        }
+        if ($isNotEmpty === false) {
+            throw new \Exception(__('Select records to edit'));
+            return false;
+        }
+        
+        $isValid = true;
+        $successCount = 0;
+        // now save changes.
+        $errors = array();
+        if ($request->is('post')) {
+            // check for singleton insert
+            $isValid = $request->isSingleton();
+            if ($isValid === false) {
+                $errors[] = __('This form has expired, try to create new record.');
+            } else {
+                $dataACL=[];
+                $updatingValuesInGrid="Append to the Grid";
+                if (isset($data[$modelObj->alias]) && is_array($data[$modelObj->alias])) {
+                    foreach ($data[$modelObj->alias] as $column => $value) {
+                        if (empty($value) && !is_array($value)) {
+                            if (!is_numeric($value) && !$allowEmptyInput) {
+                                unset($data[$modelObj->alias][$column]);
+                            }
+                        }
+                    }
+                    $dataACL=array_intersect_key($data[$modelObj->alias], ["_acl"=>1,"_acl_edit"=>1,"_acl_delete"=>1]);
+                    if(array_key_exists("updating_values_in_grid", $data[$modelObj->alias])){
+                        $updatingValuesInGrid=$data[$modelObj->alias]["updating_values_in_grid"];
+                    }
+                }
+                $updatingValuesInGrid=strtolower($updatingValuesInGrid);
+                if(!$allowEmptyInput){
+                    rm_empty_input($data, false, true, true);
+                }
+                $data = \kernel\locale::normalize($data, $modelObj->schema(false, true, true, true));
+                //$modelObj->processRules($data, true);
+                $successCount = 0;
+                if ($selectAllRecords !== false) {
+                    $request->setMsg(sprintf(__('Trying to update %s records'), count($selectAllRecords)));
+                }
+                $selectedUserIDS=[];
+                if($data[$modelObj->alias]["revoke_custom_access_of_role_id"]){
+                    $selectedUserIDS=\select("user_id")
+                                    ->from(\module\access_controls\model\roles_users::getInstance())
+                                    ->where(["role_id"=>$data[$modelObj->alias]["revoke_custom_access_of_role_id"]])
+                                    ->execute()
+                                    ->fetchAll(\PDO::FETCH_COLUMN,0);
+
+                }
+                foreach ($ids as $id) {
+                    $modelObj = $this->modelObj(false);
+                    $saveHandler = $this->saveHandler;
+                    $modelObj->saveHandler = $saveHandler;
+
+                    // check for editable permission.
+                    $isNot = $modelObj->call('isNotEditable', $id);
+                    if ($isNot !== false) {
+                        $errors[] = $isNot;
+                        continue;
+                    }
+                    if (!empty($id) && $request->is('post') && !empty($request->data)) {
+                        // check for singleton update
+                        if ($isValid === true) {
+                            $isValid = $this->isValidLastModified($request, $id);
+                            if ($isValid === false) {
+                                $errors[] = \sprintf(
+                                        __('This record record[%s] has been modified, %d click here %d to view modified record.'), $id, '<a  data-ajax = "false"  href="' . $request->base . $request->module
+                                        . '/' . $request->controller . '/view/' . $id . '">', '</a>'
+                                );
+                            }
+                        }
+
+
+                        if ($isValid === true) {
+                            // if valid request
+                            if ($request->is('post') && !empty($data)) {
+
+                                // try to save data
+                                $isReload = (isset($data['action']) && isset($data['action']['reload']));
+                                if ($isReload === false) {
+                                    $dataCopy = $modelObj->read($id);
+                                    if (!is_array($dataCopy[$modelObj->alias])) {
+                                        $errors[] = sprintf(__('%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
+                                        continue;
+                                    }
+
+                                    \kernel\registry::write('request_action', 'share_selected');
+                                    foreach ($dataCopy[$modelObj->alias] as $kkk => $vvv) {
+                                        if (empty($vvv) && !is_numeric($vvv)) {
+                                            unset($dataCopy[$modelObj->alias][$kkk]);
+                                        }
+                                    }
+                                    foreach(["_acl","_acl_edit","_acl_delete","_acl_comment"] as $aclTYPE){
+                                        if(
+                                            isset($dataCopy[$modelObj->alias][$aclTYPE]) 
+                                            && 
+                                            is_array($dataCopy[$modelObj->alias][$aclTYPE])
+                                        ){
+                                            foreach($dataCopy[$modelObj->alias][$aclTYPE] as $aclRecordKey=>$aclRecordValue){
+                                                if(isset($aclRecordValue["aro_id"]) && $aclRecordValue["aro_id_model"] =="users" && in_array($aclRecordValue["aro_id"], $selectedUserIDS)){
+                                                    $dataCopy[$modelObj->alias][$aclTYPE][$aclRecordKey]["deleted"]=1;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    $submodels=[];
+                                    if (is_array($modelObj->associations)) {
+                                        foreach ($modelObj->associations as $assocModel => $assocInfo) {
+                                            if(isset($assocInfo['isSubModel']) && $assocInfo['isSubModel']==1){
+                                                $submodels[$assocModel]=[];
+                                                if(
+                                                    isset($data[$modelObj->alias][$assocModel]) 
+                                                    && !empty($data[$modelObj->alias][$assocModel])
+                                                    && is_array($data[$modelObj->alias][$assocModel])){
+                                                        if(
+                                                            isset($dataCopy[$modelObj->alias][$assocModel])
+                                                            && is_array($dataCopy[$modelObj->alias][$assocModel])
+                                                        ){
+                                                            if($updatingValuesInGrid =="replace the current grid"){
+                                                                foreach($dataCopy[$modelObj->alias][$assocModel] as $sKey=>$sValue){
+                                                                    $dataCopy[$modelObj->alias][$assocModel][$sKey]["deleted"]=1;
+                                                                }
+                                                            }
+                                                        }
+                                                    if(!is_array($dataCopy[$modelObj->alias][$assocModel])){
+                                                        $dataCopy[$modelObj->alias][$assocModel]=[];
+                                                    }        
+                                                    $dataCopy[$modelObj->alias][$assocModel]=array_merge(
+                                                        $dataCopy[$modelObj->alias][$assocModel],
+                                                        $data[$modelObj->alias][$assocModel]
+                                                    );
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if($updatingValuesInGrid =="replace the current grid"){
+                                        $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
+                                        foreach($dataACL as $dataACLKey=>$dataACLValue){
+                                            if(!empty($dataACLValue)){
+                                                $dataCopy[$modelObj->alias][$dataACLKey]=$dataACLValue;
+                                            }
+                                        }
+                                    }else{
+                                        foreach($dataACL as $dataACLKey=>$dataACLValue){
+                                            if(!empty($dataACLValue)){
+                                                if(!is_array($dataCopy[$modelObj->alias][$dataACLKey])){
+                                                    $dataCopy[$modelObj->alias][$dataACLKey]=[];
+                                                }
+                                                $dataCopy[$modelObj->alias][$dataACLKey]=array_merge($dataCopy[$modelObj->alias][$dataACLKey],$dataACLValue);
+                                            }
+                                        }
+                                    }
+
+                                    $dataCopy[$modelObj->alias] = array_merge_recursive_distinct(
+                                        $dataCopy[$modelObj->alias], 
+                                        array_diff_key($data[$modelObj->alias],$submodels)
+                                    );
+                                    
+                                    $dataCopy[$modelObj->alias][$modelObj->primaryKey] = $id;
+                                    $dataCopyAction = $this->action($request);
+                                    if (isset($data['action'])){
+                                        $dataCopyAction = $data['action'];
+                                    }
+                                    if(isset($dataCopyAction) && is_array($dataCopyAction)){
+                                        $dataCopyActionKey=str_ireplace(['_&_continue','_and_continue'], ['',''], key($dataCopyAction));
+                                        $dataCopyActionValue=current($dataCopyAction);
+                                        $dataCopyAction=[$dataCopyActionKey=>$dataCopyActionValue];
+                                    }
+                                    $dataCopy[$modelObj->alias]['action'] = $dataCopyAction;
+                                    if(isset($data[$modelObj->alias]['stage_log'])){
+                                        $dataCopy[$modelObj->alias]['stage_log'] = $data[$modelObj->alias]['stage_log'];  
+                                    }
+                                    $modelObj->id = '';
+                                    \kernel\model::$errors = array();
+                                    $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
+                                    if ($this->saveHandlerOutput) {
+                                        $successCount++;
+                                        $msg = sprintf(__('%s [%s] %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
+                                        $request->setMsg($msg);
+                                        $errors[] = $msg;
+                                    } else {
+                                        $messages = array();
+                                        foreach (\kernel\model::$errors as $k => $v) {
+                                            if (is_array($messages)) {
+                                                $messages = array_merge($messages, (is_array($v)?$v:[$v]));
+                                            } else {
+                                                $messages[] = $v;
+                                            }
+                                        }
+                                        $messages = implode(', ', $messages);
+                                        $errors[] = sprintf(__('%s [%s] could not be %s due to validation check: %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'), $messages);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        $request->overrideRequestMethod('get');
+        $this->edit($request);
+        $request->overrideRequestMethod(false);
+        
+        \kernel\model::$errors = $errors;
+        if ($successCount == count($ids)) {
+            return("{$request->module}/{$request->controller}/index");
+        }
+        $data=$request->data;
+        $this->processSentData($request, $data);
+        $request->set('primary_key', $modelObj->primaryKey);
+        $request->set('display_field', $modelObj->displayField);
+        $request->set('model', $modelObj->alias);
+        $request->set('model_class', $modelObj->modelClass);
+        $request->set('id', $ids);
+        $request->set('singleton_key', $request->singletonKey());
+        $request->set('data', $data);
+        $request->set('schema', $schema);
+        $request->set('filterRules', $modelObj->filterRules($data, true));
+        $request->set('permissions', $modelObj->permissions);
+
+        $request->set('model_associations', $modelObj->associations);
+        $request->set('invalid_associations', $modelObj->invalidAssociations);
+        $request->set('model_behaviours', $modelObj->behaviours);
+
+        $form = $this->form();
+        $permissionFormActions=$form['children'][0];
+        $permissionFormActions['children']=[];
+        $permissionFormActions['children'][]=[
+                                            'helper' => '\\kernel\\form', 
+                                            'method' => 'cancel', 
+                                            'template' => 'cancel', 
+                                        ];
+       $permissionFormActions['children'][]=[ 
+                                            'name' => ['action', 'save_progress'], 
+                                            'label' => 'Update Permissions', 
+                                            'value' => 'Update Permissions', 
+                                            '__value' => 'Update Permissions', 
+                                            'is_web_compatible' => '1', 
+                                            'is_mobile_compatible' => '1', 
+                                            'helper' => '\\kernel\\form', 
+                                            'method' => 'submit', 
+                                            'template' => 'submit', 
+                                            'mw' => false, 
+                                        ];
+
+        $permissionForm=array ( 'name' => array ( 0 => 'ACL & Revisions', ), 'label' => 'Permissions', 'sub_form_model_class' => '\\module\\core\\model\\listviews', 'sub_form_name' => 'SYSTEM_ACL_REVISIONS', 'overwrite_sub_form_model' => '1', 'is_web_compatible' => '1', 'rules_grid' => '1', 'roles_grid' => '1', 'helper' => '\\kernel\\form', 'method' => 'subform', 'is_mobile_compatible' => '0', 'show_collapsed' => '0', 'allow_copy_to_clipboard' => '0', 'allow_user_to_specify_user_level_default' => '0', 'business_key' => '656601b5-16d4-4925-b409-497aac69033c', 'template' => 'subform', 'packaged_with_module' => 'crm', 'mw' => false, );
+        $form['children']=[$permissionFormActions,$permissionForm];                            
+        if (!empty($form)) {
+            $request->set('form', $form);
+        }
+    }
+
 }
