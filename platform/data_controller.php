@@ -927,6 +927,7 @@ class data_controller extends \kernel\controller {
                                     }
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
+                                    pr($dataCopy);
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
                                     if ($this->saveHandlerOutput) {
                                         $successCount++;
