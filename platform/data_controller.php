@@ -928,7 +928,7 @@ class data_controller extends \kernel\controller {
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
                                     pr($dataCopy);
-                                    $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
+                                    $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy,["validate"=>false]);
                                     if ($this->saveHandlerOutput) {
                                         $successCount++;
                                         $msg = sprintf(__('%s [%s] %s successfully'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
