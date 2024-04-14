@@ -2004,6 +2004,7 @@ jQuery('document').ready(function($) {
                 properties["buttons"]="bold,italic,underline,strikethrough,eraser,ul,ol,font,fontsize,paragraph,lineHeight,superscript,subscript,classSpan,image,video,cut,copy,paste";
             }
             if(typeof(Jodit) !="undefined"){
+                console.log(properties);
                 $(this).addClass('textarea-jodit').data('jodit',Jodit.make($(this).get(0),properties));
             }
         }).change(function(){
