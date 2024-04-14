@@ -1999,6 +1999,10 @@ jQuery('document').ready(function($) {
             properties["allowResizeY"]=false;
             properties["toolbarSticky"]=true;
             properties["toolbarDisableStickyForMobile"]=false;
+
+            if($(this).hasClass('minimal-ui')){
+                properties["buttons"]="bold,italic,underline,strikethrough,eraser,ul,ol,font,fontsize,paragraph,lineHeight,superscript,subscript,classSpan,image,video,cut,copy,paste";
+            }
             if(typeof(Jodit) !="undefined"){
                 $(this).addClass('textarea-jodit').data('jodit',Jodit.make($(this).get(0),properties));
             }
