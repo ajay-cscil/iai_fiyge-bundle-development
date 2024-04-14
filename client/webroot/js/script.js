@@ -4290,7 +4290,10 @@ jQuery('document').ready(function($) {
     function gridSequence(grid) {
         log('gridSequence');
 
-        grid.find('.last-data-row').each(function(i, k) {
+        grid
+        .find('.last-data-row:first')
+        .siblings('.last-data-row').addBack()
+        .each(function(i, k) {
             $.each($(this).find('.cell-seq-grid:first').find('.sequence'), function(k, v) {
                 if ($(this).is('input')) {
                     $(this).val((i + 1));
@@ -4302,13 +4305,17 @@ jQuery('document').ready(function($) {
     }
     function gridRows(grid) {
         log('gridRows');
-
         var count = 0;
-        grid.find('.last-data-row').each(function(i, k) {
-            if ($(this).find(".deleted:first").val() != 1) {
+        grid
+        .find('.last-data-row:first')
+        .siblings('.last-data-row').addBack()
+        .each(function(i, k) {
+            if ($(this).find('.cell-action-grid:last').find(".deleted:first").val() != 1) {
                 count++;
             }
         });
+         
+        
         return count;
     }
     /**
