@@ -2001,10 +2001,10 @@ jQuery('document').ready(function($) {
             properties["toolbarDisableStickyForMobile"]=false;
 
             if($(this).hasClass('minimal-ui')){
-                properties["buttons"]="bold,italic,underline,strikethrough,eraser,ul,ol,font,fontsize,paragraph,lineHeight,superscript,subscript,classSpan,image,video,cut,copy,paste";
+                properties["toolbarAdaptive"]=false;
+                properties["buttons"]="bold,italic,underline,strikethrough,eraser,ul,ol,font,fontsize,paragraph,lineHeight,classSpan,image,video,cut,copy,paste,selectall,copyformat";
             }
             if(typeof(Jodit) !="undefined"){
-                console.log(properties);
                 $(this).addClass('textarea-jodit').data('jodit',Jodit.make($(this).get(0),properties));
             }
         }).change(function(){
