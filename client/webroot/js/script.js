@@ -4231,12 +4231,15 @@ jQuery('document').ready(function($) {
 
         $('#row_counter_' + gridId).val(count);
         var after = {};
-        if (grid.find('.last-data-row:last').length > 0) {
-            after = grid.find('.last-data-row:last')
+        var firstTemplateRow=grid.find('.grid-template-row:first');
+        if (firstTemplateRow.siblings('.last-data-row:last').length > 0) {
+            after = firstTemplateRow.siblings('.last-data-row:last');
         } else {
-            after = grid.find('.grid-template-row:last');
+            after = firstTemplateRow;
         }
-        var clone = grid.find('.grid-template-row').clone(true).removeClass('grid-template-row')
+        
+        
+        var clone = grid.find('.grid-template-row:first').clone(true).removeClass('grid-template-row')
         .addClass('last-data-row')
         .find('.copy-to-clipboard-action').each(function() {
             var dataClipboardTarget = $(this).attr('data-clipboard-target');
@@ -4250,18 +4253,21 @@ jQuery('document').ready(function($) {
             var id = $(this).attr('id');
             
             if (name != null && name != '') {
-                $(this).attr('name', name.replace('[_X_]', '[' + count + ']'))
+                var keyChar=(name.indexOf('[_X_]') != -1?'[_X_]':'[_Y_]');
+                $(this).attr('name', name.replace(keyChar, '[' + count + ']'))
                 .removeAttr('disabled').filter('[is_disabled="1"]')
                 .attr('disabled', 'disabled');
             }
             if (id != null && id != '') {
-                $(this).attr('id', id.replace('_X_', '' + count + ''));
+                var keyChar=(name.indexOf('[_X_]') != -1?'[_X_]':'[_Y_]');
+                $(this).attr('id', id.replace(keyChar, '' + count + ''));
             }
             $(this).attr('grid_row_number', count);
             $(this).removeClass('template-element');
 
         }).end().insertAfter(after);
-        $.initFields(grid.find('.last-data-row:last').show());
+
+        $.initFields(firstTemplateRow.siblings('.last-data-row:last').show());
         gridSequence(grid);
         //$.initFields(clone);
         grid.trigger('row_add');

@@ -1883,7 +1883,7 @@ dashboard .pagination-row{
 
 }
 .vertical-align-top {
-    vertical-align: top;
+    vertical-align: top !important;
 }
 .vertical-align-top >  .block  {
     margin-top: 7px;
@@ -2093,7 +2093,7 @@ a{
     border-right: 0px !important;
 }
 .block .grid .cell-info-grid {
-    padding: 0px !important;
+    /*padding: 0px !important;*/
 }
 .block .grid{
     margin:0px !important;
