@@ -4163,27 +4163,29 @@ jQuery('document').ready(function($) {
         return false;
     });
     $(document).on('click', '.grid-row-delete', function(event) {
-        $(this).closest('.last-data-row').trigger('grid_row_delete');
+        $(this).closest('.cell-action-grid').trigger('grid_row_delete');
         event.stopImmediatePropagation();
         event.stopPropagation();
         return false;
     });
-    $(document).on('grid_row_delete', '.last-data-row', function(event) {
+    $(document).on('grid_row_delete', '.cell-action-grid', function(event) {
         log('click -> .grid-row-delete');
         var grid = $(this).closest('.grid');
         var min = grid.attr('min');
-        var tr = $(this);
+        var td = $(this);
+        var tr = $(this).closest('.last-data-row');
         if (!isNaN(min)) {
             if ((gridRows(grid) <= min)) {
                 $.jsContainer('<span>Minimum number of allowed rows are ' + min + '</span>');
                 return;
             }
         }
-        var primary = tr.find(".primary:first").val();
+        var primary = td.find(".primary:first").val();
         if (!$.isset(primary) || primary == '') {
             tr.remove();
         } else {
-            tr.removeClass('last-data-row').hide().find(".deleted:first").val(1).end();
+            tr.removeClass('last-data-row').hide();
+            td.find(".deleted:first").val(1);
         }
         gridSequence(grid);
         grid.trigger('row_delete');
