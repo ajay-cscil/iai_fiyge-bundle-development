@@ -4266,7 +4266,7 @@ jQuery('document').ready(function($) {
                 .attr('disabled', 'disabled');
             }
             if (id != null && id != '') {
-                var keyChar=(name.indexOf('[_X_]') != -1?'[_X_]':'[_Y_]');
+                var keyChar=(name.indexOf('[_X_]') != -1?'_X_':'_Y_');
                 $(this).attr('id', id.replace(keyChar, '' + count + ''));
             }
             $(this).attr('grid_row_number', count);
