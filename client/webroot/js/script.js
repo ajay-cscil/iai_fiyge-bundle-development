@@ -283,8 +283,8 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
         pdf_container.appendChild(canvas);
         var myImg = new Image();
         myImg.onload = function() {
-            ctx.canvas.width = window.innerWidth-100;//myImg.width;
-            ctx.canvas.height = (window.innerWidth/myImg.width)*myImg.height;
+            ctx.canvas.width = pdf_container.innerWidth-10;//myImg.width;
+            ctx.canvas.height = (pdf_container.innerWidth/myImg.width)*myImg.height;
             ctx.drawImage(myImg, 0, 0,ctx.canvas.width,ctx.canvas.height);
         };
         myImg.src = url;
