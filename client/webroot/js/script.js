@@ -281,6 +281,7 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
         pdf_container.classList.add("preview_pdf_container");
         pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>";
         pdf_container.appendChild(canvas);
+        console.log('innerWidth',pdf_container.innerWidth);
         var myImg = new Image();
         myImg.onload = function() {
             ctx.canvas.width = pdf_container.innerWidth-10;//myImg.width;
