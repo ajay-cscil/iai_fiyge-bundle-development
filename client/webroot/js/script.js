@@ -281,11 +281,10 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
         pdf_container.classList.add("preview_pdf_container");
         pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>";
         pdf_container.appendChild(canvas);
-        console.log('innerWidth',pdf_container.innerWidth);
         var myImg = new Image();
         myImg.onload = function() {
-            ctx.canvas.width = pdf_container.innerWidth-10;//myImg.width;
-            ctx.canvas.height = (pdf_container.innerWidth/myImg.width)*myImg.height;
+            ctx.canvas.width = window.innerWidth-100;//myImg.width;
+            ctx.canvas.height = (window.innerWidth/myImg.width)*myImg.height;
             ctx.drawImage(myImg, 0, 0,ctx.canvas.width,ctx.canvas.height);
         };
         myImg.src = url;
@@ -2715,7 +2714,7 @@ jQuery('document').ready(function($) {
         });
 
         
-        container.find('select:visible').not(".popup-select:hidden").each(function(){
+        container.find('select:visible').not(".popup-select:hidden").not('.no-select2').each(function(){
             var select2Params={};
             var dropdownParent=jQuery(this).closest('.ui-dialog-content');
             if(dropdownParent.length){
