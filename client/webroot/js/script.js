@@ -277,7 +277,7 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
     }else{
         var pdf_container = document.getElementById(pdfContainerID);
         pdf_container.classList.add("preview_pdf_container");
-        pdf_container.innerHTML = "<div><b>"+fileName+"<b></div><img style='width:100%;' src='"+url+"'>";
+        pdf_container.innerHTML = "<div><b>"+fileName+"<b></div><img style='width:90%;' src='"+url+"'>";
     }
 }
 
