@@ -275,19 +275,9 @@ function LoadPdfFromUrl(pdfContainerID,url,fileName) {
         pdf_container.classList.add("preview_pdf_container");
         pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>"+'<iframe src="https://docs.google.com/gview?url='+encodeURIComponent(url)+'&embedded=true" frameborder="0" style="overflow:hidden;height:90vh;width:100%" height="90vh" width="100%"></iframe>';
     }else{
-        var canvas = document.createElement('canvas');
-        var ctx = canvas.getContext('2d');
         var pdf_container = document.getElementById(pdfContainerID);
         pdf_container.classList.add("preview_pdf_container");
-        pdf_container.innerHTML = "<div><b>"+fileName+"<b></div>";
-        pdf_container.appendChild(canvas);
-        var myImg = new Image();
-        myImg.onload = function() {
-            ctx.canvas.width = window.innerWidth-100;//myImg.width;
-            ctx.canvas.height = (window.innerWidth/myImg.width)*myImg.height;
-            ctx.drawImage(myImg, 0, 0,ctx.canvas.width,ctx.canvas.height);
-        };
-        myImg.src = url;
+        pdf_container.innerHTML = "<div><b>"+fileName+"<b></div><img style='width:100%;' src='"+url+"'>";
     }
 }
 
