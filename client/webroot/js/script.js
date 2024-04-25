@@ -509,6 +509,7 @@ jQuery('document').ready(function($) {
         q['limit'] = 20;
         q['page'] = pagenumber;
         q['fields'] = ['notifications.*'];
+        q['order']={"notifications.id":"DESC"}
         jQuery.getJSON(
             '/notifications/notifications/index.json',
             {'q': encodeURIComponent(JSON.stringify(q))},
