@@ -18,6 +18,15 @@
     z-index: 100000;
 }
 
+/* The alert message box */
+.sidebar-alert {
+  padding: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: left;
+  border:1px solid #000000;
+}
+
 .sidebar-alert-danger{
   border:1px solid #f44336;
 }
@@ -31,14 +40,7 @@
   border:1px solid #ff9800;
 }
 
-/* The alert message box */
-.sidebar-alert {
-  padding: 5px;
-  margin-bottom: 15px;
-  width: 100%;
-  text-align: left;
-  border:1px solid #000000;
-}
+
 
 /* The close button */
 .sidebar-alert-closebtn {
