@@ -109,7 +109,7 @@ if(\kernel\request::session('switch_user_mode')){
 </script>
 <div class="sidebars">
             <div class="sidebar sidebar-right">
-                <div class="notification-list" data-pagenumber=1></div>
+                <div class="notification-list" data-pagenumber="0"></div>
                 <div class="notification-action-bar">
                     <a class="close-notification-sidebar btn btn-default" type="button">Cancel</a>
                     <a class="load-notifications btn btn-success" type="button">Load More</a>

@@ -494,6 +494,13 @@ jQuery('document').ready(function($) {
 
     jQuery(document).on('click','.open-notification-sidebar',function(){
         jQuery(".sidebar-right").trigger("sidebar:toggle");
+        let pagenumber=parseInt(notificationList.data('pagenumber'));
+        if(!isNaN(pagenumber)){
+            pagenumber=0;
+        }
+        if(pagenumber == 0){
+            jQuery('.load-notifications').trigger('click');
+        }
     });
     jQuery(document).on('click','.close-notification-sidebar',function(){
         jQuery(".sidebar-right").trigger("sidebar:close");
@@ -502,8 +509,9 @@ jQuery('document').ready(function($) {
         let notificationList=jQuery('.notification-list');
         let pagenumber=parseInt(notificationList.data('pagenumber'));
         if(!isNaN(pagenumber)){
-            pagenumber=1;
+            pagenumber=0;
         }
+        pagenumber++;
         let q = {};
         q["method"] = "find";
         q['limit'] = 20;
@@ -526,7 +534,7 @@ jQuery('document').ready(function($) {
                 }
             }
         );
-        pagenumber++;
+        
         notificationList.data('pagenumber',pagenumber);
     });
 
