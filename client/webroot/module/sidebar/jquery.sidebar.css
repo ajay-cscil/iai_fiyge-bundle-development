@@ -20,24 +20,24 @@
 
 /* The alert message box */
 .sidebar-alert {
-  padding: 5px;
-  margin-bottom: 15px;
-  width: 100%;
-  text-align: left;
-  border:1px solid #000000;
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: left;
+    border:1px solid #000000;
 }
 
 .sidebar-alert-danger{
-  border:1px solid #f44336;
+    border:1px solid #f44336 !important;
 }
 .sidebar-alert-success {
-  border:1px solid #04AA6D;
+    border:1px solid #04AA6D !important;
 }
 .sidebar-alert-info {
-  border:1px solid #2196F3;
+    border:1px solid #2196F3 !important;
 }
 .sidebar-alert-warning {
-  border:1px solid #ff9800;
+    border:1px solid #ff9800 !important;
 }
 
 
