@@ -501,13 +501,23 @@ jQuery('document').ready(function($) {
     jQuery(document).on('click','.load-notifications',function(){
         let notificationList=jQuery('.notification-list');
         let pagenumber=parseInt(notificationList.data('pagenumber'));
+        if(!isNaN(pagenumber)){
+            pagenumber=1;
+        }
+        let q = {};
+        q["method"] = "find";
+        q['limit'] = 20;
+        q['page'] = pagenumber;
+        q['fields'] = ['*'];
         jQuery.getJSON(
             '/notifications/notifications/index.json',
-            {"method":"find","limit":20,"page":pagenumber},
+            {'q': encodeURIComponent(JSON.stringify(q))},
             function(data){
                 console.log(data);
             }
         );
+        pagenumber++;
+        notificationList.data('pagenumber',pagenumber);
     });
 
     
