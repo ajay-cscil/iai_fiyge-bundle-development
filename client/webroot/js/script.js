@@ -513,8 +513,17 @@ jQuery('document').ready(function($) {
         jQuery.getJSON(
             '/notifications/notifications/index.json',
             {'q': encodeURIComponent(JSON.stringify(q))},
-            function(data){
-                console.log(data);
+            function(response){
+                if(response.paginate.data){
+                    for(let i=0,j=response.paginate.data.length; i<j; i++){
+                        let by="<div>By "+(response.paginate.data[i]['sender_id']==""?"System":response.paginate.data[i]['sender_name'])+" on "+response.paginate.data[i]['created']+'</div>';
+                        if(response.paginate.data[i]['access_url']){
+                            notificationList.append('<div class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><a href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
+                        }else{
+                            notificationList.append('<div class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'">'+response.paginate.data[i]['message']+by+'</div>');
+                        }
+                    }
+                }
             }
         );
         pagenumber++;
