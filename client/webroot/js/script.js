@@ -494,6 +494,7 @@ jQuery('document').ready(function($) {
 
     jQuery(document).on('click','.open-notification-sidebar',function(){
         jQuery(".sidebar-right").trigger("sidebar:toggle");
+        let notificationList=jQuery('.notification-list');
         let pagenumber=parseInt(notificationList.data('pagenumber'));
         if(!isNaN(pagenumber)){
             pagenumber=0;
