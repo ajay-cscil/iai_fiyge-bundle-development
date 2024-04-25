@@ -508,7 +508,7 @@ jQuery('document').ready(function($) {
         q["method"] = "find";
         q['limit'] = 20;
         q['page'] = pagenumber;
-        q['fields'] = ['*'];
+        q['fields'] = ['notifications.*'];
         jQuery.getJSON(
             '/notifications/notifications/index.json',
             {'q': encodeURIComponent(JSON.stringify(q))},
