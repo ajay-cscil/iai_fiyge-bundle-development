@@ -52,6 +52,13 @@ if (\kernel\request::authenticate()) {
             }
         }
         $menus[] = '<a href="' . $this->request->base . 'access_controls/users/logout"  >' . __('Logout') . '</a>';
+
+       
+
+        
+
+        
+
         $menus = implode('&nbsp;|&nbsp;', $menus);
         if ($cacheMenu) {
             //\kernel\cache::write('/menus/' . $key, $menus);
@@ -80,6 +87,11 @@ if(\kernel\request::session('switch_user_mode')){
 }
 ?>
 <div id="user_menu">
+    <a href="#" class="open-notification-sidebar"  >
+            <img class="notification-bell" src="/img/icons/notification-bell.png">
+            <span class="notification-count">5</span>
+    </a>
+    
     <?php if(\kernel\request::session('switch_user_mode')){ ?>
     <select id="switch_user" style="max-width:300px">
     <?php echo \kernel\html::options($userListOptions,\kernel\user::read('id'),false); ?>
@@ -95,3 +107,12 @@ if(\kernel\request::session('switch_user_mode')){
     });
     
 </script>
+<div class="sidebars">
+            <div class="sidebar sidebar-right">
+                <div class="notification-list" data-pagenumber=1></div>
+                <div class="notification-action-bar">
+                    <a class="close-notification-sidebar btn btn-default" type="button">Cancel</a>
+                    <a class="load-notifications btn btn-success" type="button">Load More</a>
+                </div>
+            </div>
+</div>

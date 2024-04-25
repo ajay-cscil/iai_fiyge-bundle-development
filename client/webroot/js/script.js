@@ -485,6 +485,35 @@ jQuery('document').ready(function($) {
         return string;
     }
 
+    // Initialize sidebars
+    var sides = ["left", "top", "right", "bottom"];
+    for (var i = 0; i < sides.length; ++i) {
+        var cSide = sides[i];
+        $(".sidebar.sidebar-" + cSide).sidebar({side: cSide});
+    }
+
+    jQuery(document).on('click','.open-notification-sidebar',function(){
+        jQuery(".sidebar-right").trigger("sidebar:toggle");
+    });
+    jQuery(document).on('click','.close-notification-sidebar',function(){
+        jQuery(".sidebar-right").trigger("sidebar:close");
+    });
+    jQuery(document).on('click','.load-notifications',function(){
+        let notificationList=jQuery('.notification-list');
+        let pagenumber=parseInt(notificationList.data('pagenumber'));
+        jQuery.getJSON(
+            '/notifications/notifications/index.json',
+            {"method":"find","limit":20,"page":pagenumber},
+            function(data){
+                console.log(data);
+            }
+        );
+    });
+
+    
+
+
+
     /**
      * Initialize default ajax loader.
      * @author Tushar Takkar<ttakkar@primarymodules.com>

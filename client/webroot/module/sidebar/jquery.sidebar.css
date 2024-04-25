@@ -1,0 +1,75 @@
+.sidebar.sidebar-right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 270px;
+    background: #FFFFFF;
+    display: none;
+}
+
+.sidebars > .sidebar {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);
+    position: fixed;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 100000;
+}
+
+.sidebar-alert-danger{
+  background-color: #f44336;
+  color: white;
+}
+.sidebar-alert-success {
+  background-color: #04AA6D;
+  color: white;
+}
+.sidebar-alert-info {
+  background-color: #2196F3;
+  color: white;
+}
+.sidebar-alert-warning {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* The alert message box */
+.sidebar-alert {
+  padding: 5px;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: left;
+}
+
+/* The close button */
+.sidebar-alert-closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.sidebar-alert-closebtn:hover {
+  color: black;
+}
+
+.open-notification-sidebar{
+  position:relative;
+}
+.notification-bell{
+  width:25px;vertical-align:middle;
+}
+.notification-count{
+  position:absolute;left:10px;top:2px;color:red;
+}
+.notification-list{
+  height:90%;overflow: auto;
+}
+.notification-action-bar{
+  position: absolute;bottom: 0px;text-align: center;width: 100%;padding:5px;
+}

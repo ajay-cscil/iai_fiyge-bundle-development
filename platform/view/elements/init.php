@@ -32,6 +32,8 @@ echo \kernel\html::css($this->request, 'ui-bootstrap');
 
 echo \kernel\html::css($this->request, '/css/social-buttons/zocial');
 
+echo \kernel\html::css($this->request, '/module/sidebar/jquery.sidebar');
+
 // Required for jaquery validation plugun
 
 $jsConfig = \kernel\configuration::read('js', array());
@@ -163,6 +165,7 @@ echo \kernel\html::js($this->request, '/module/star-rating/star-rating-svg');
 echo \kernel\html::js($this->request, '/js/htmldiff');
 
 echo \kernel\html::js($this->request, '/node_modules/moment/min/moment.min');
+echo \kernel\html::js($this->request, '/module/sidebar/jquery.sidebar');
 
 ?>
 
