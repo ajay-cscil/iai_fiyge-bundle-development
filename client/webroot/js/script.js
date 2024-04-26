@@ -504,14 +504,15 @@ jQuery('document').ready(function($) {
             q['where']=["notifications.notification_users.last_viewed IS NULL"]; 
             let last=notificationList.find('.sidebar-alert:last');
             if(last.length){
-                q['where']["notifications.id >"] = parseInt(last.attr('id').split('_')[1]);
+                q['where'].push({"notifications.id >":parseInt(last.attr('id').split('_')[1]) });
             } 
         }else{
             q['limit'] = 20;
             q['order']=["notifications.id DESC"];
+            q['where']=[];
             let last=notificationList.find('.sidebar-alert:last');
             if(last.length){
-                q['where']=["notifications.id >"=>parseInt(last.attr('id').split('_')[1])];
+                q['where'].push({"notifications.id >":parseInt(last.attr('id').split('_')[1])});
             }
         }
         q['fields'] = ['notifications.*'];
