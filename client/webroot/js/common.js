@@ -1678,9 +1678,14 @@ function initChart(container) {
             jQuery('.time-tracker-current-task').html("");
         }
         if(jQuery.isset(data) && jQuery.isset(data['new_notification_count']) && jQuery.isset(data['new_notification_count'])){
-            jQuery('.notification-count').text(data.new_notification_count);
+            let newNotificationCount=parseInt(data.new_notification_count);
+            jQuery('.notification-count').text(newNotificationCount);
+            if(newNotificationCount > 0 && jQuery('.notification-list:visible')){
+                jQuery('.notification-count').text('');
+                loadNotifications("new");
+            }
         }else{
-            jQuery('.notification-count').text(0);
+            jQuery('.notification-count').text();
         }
 
 

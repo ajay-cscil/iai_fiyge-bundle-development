@@ -493,15 +493,28 @@ jQuery('document').ready(function($) {
     }
 
     let notificationPagenumber=0;
-    function loadNotifications(){
+    function loadNotifications(fetch="all"){
         notificationPagenumber++;
         let notificationList=jQuery('.notification-list');
         let q = {};
-        //q["method"] = "find";
         q["update_last_viewed"] = 1;
-        q['limit'] = 20;
+        if(fetch=="new"){
+            q['limit'] = 10000;
+            q['order']=["notifications.id ASC"];  
+            q['where']=["notifications.notification_users.last_viewed IS NULL"]; 
+            let last=notificationList.find('.sidebar-alert:last');
+            if(last.length){
+                q['where']["notifications.id >"] = parseInt(last.attr('id').split('_')[1]);
+            } 
+        }else{
+            q['limit'] = 20;
+            q['order']=["notifications.id DESC"];
+            let last=notificationList.find('.sidebar-alert:last');
+            if(last.length){
+                q['where']=["notifications.id >"=>parseInt(last.attr('id').split('_')[1])];
+            }
+        }
         q['fields'] = ['notifications.*'];
-        q['order']=["notifications.id DESC"];
         jQuery.getJSON(
             '/notifications/notifications/index.json?current_listview=662baecd-7830-40e6-ad6a-492dac69033c',
             {'q': encodeURIComponent(JSON.stringify(q)),'page':notificationPagenumber},
@@ -509,11 +522,22 @@ jQuery('document').ready(function($) {
                 if(response.paginate.data){
                     for(let i=0,j=response.paginate.data.length; i<j; i++){
                         let by="<div><i>By "+(response.paginate.data[i]['sender_id']==null?"System":response.paginate.data[i]['sender_name'])+" on "+response.paginate.data[i]['created']+'</i></div>';
-                        if(response.paginate.data[i]['access_url']){
-                            notificationList.append('<div class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><a ajax=1 href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
-                        }else{
-                            notificationList.append('<div class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'">'+response.paginate.data[i]['message']+by+'</div>');
-                        }
+                        let id='notification_'+(response.paginate.data[i]['id']);
+                        if(notificationList.find('#'+id).length ==0){ 
+                            if(fetch=="new"){
+                                if(response.paginate.data[i]['access_url']){
+                                    notificationList.prepend('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><a ajax=1 href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
+                                }else{
+                                    notificationList.prepend('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'">'+response.paginate.data[i]['message']+by+'</div>');
+                                }                          
+                            }else{
+                                if(response.paginate.data[i]['access_url']){
+                                    notificationList.append('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><a ajax=1 href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
+                                }else{
+                                    notificationList.append('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'">'+response.paginate.data[i]['message']+by+'</div>');
+                                }    
+                            }
+                        }  
                     }
                 }
             }
