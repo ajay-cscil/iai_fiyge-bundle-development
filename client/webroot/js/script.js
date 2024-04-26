@@ -499,12 +499,11 @@ jQuery('document').ready(function($) {
         let q = {};
         q["method"] = "find";
         q['limit'] = 20;
-        q['page'] = notificationPagenumber;
         q['fields'] = ['notifications.*'];
         q['order']=["notifications.id DESC"];
         jQuery.getJSON(
             '/notifications/notifications/index.json',
-            {'q': encodeURIComponent(JSON.stringify(q))},
+            {'q': encodeURIComponent(JSON.stringify(q)),'page':notificationPagenumber},
             function(response){
                 if(response.paginate.data){
                     for(let i=0,j=response.paginate.data.length; i<j; i++){
