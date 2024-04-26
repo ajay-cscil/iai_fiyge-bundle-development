@@ -89,7 +89,7 @@ if(\kernel\request::session('switch_user_mode')){
 <div id="user_menu">
     <a href="#" class="open-notification-sidebar"  >
             <img class="notification-bell" src="/img/icons/notification-bell.png">
-            <span class="notification-count">5</span>
+            <span class="notification-count"></span>
     </a>
     
     <?php if(\kernel\request::session('switch_user_mode')){ ?>
