@@ -492,21 +492,7 @@ jQuery('document').ready(function($) {
         $(".sidebar.sidebar-" + cSide).sidebar({side: cSide});
     }
 
-    jQuery(document).on('click','.open-notification-sidebar',function(){
-        jQuery(".sidebar-right").trigger("sidebar:toggle");
-        let notificationList=jQuery('.notification-list');
-        let pagenumber=parseInt(notificationList.data('pagenumber'));
-        if(!isNaN(pagenumber)){
-            pagenumber=0;
-        }
-        if(pagenumber == 0){
-            jQuery('.load-notifications').trigger('click');
-        }
-    });
-    jQuery(document).on('click','.close-notification-sidebar',function(){
-        jQuery(".sidebar-right").trigger("sidebar:close");
-    });
-    jQuery(document).on('click','.load-notifications',function(){
+    function loadNotifications(){
         let notificationList=jQuery('.notification-list');
         let pagenumber=parseInt(notificationList.data('pagenumber'));
         if(!isNaN(pagenumber)){
@@ -519,6 +505,7 @@ jQuery('document').ready(function($) {
         q['page'] = pagenumber;
         q['fields'] = ['notifications.*'];
         q['order']=["notifications.id DESC"];
+        console.log(q);
         jQuery.getJSON(
             '/notifications/notifications/index.json',
             {'q': encodeURIComponent(JSON.stringify(q))},
@@ -535,9 +522,24 @@ jQuery('document').ready(function($) {
                 }
             }
         );
-        
         notificationList.data('pagenumber',pagenumber);
+    }
+
+    jQuery(document).on('click','.open-notification-sidebar',function(){
+        jQuery(".sidebar-right").trigger("sidebar:toggle");
     });
+    jQuery(document).on('click','.close-notification-sidebar',function(){
+        jQuery(".sidebar-right").trigger("sidebar:close");
+    });
+    jQuery(".sidebar-right").on("sidebar:opened",function(){
+        let notificationList=jQuery('.notification-list');
+        notificationList.data('pagenumber',1);
+        notificationList.html("");
+        loadNotifications();
+    });
+    jQuery(document).on('click','.load-notifications',loadNotifications);
+
+    
 
     
 
