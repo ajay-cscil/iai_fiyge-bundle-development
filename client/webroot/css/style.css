@@ -2470,4 +2470,12 @@ ins.diffmod,ins.diffdel{
 .button-box-content button{
     text-align: right;
 }
+.blink {
+  animation: blinker 1s linear 2;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 

@@ -526,9 +526,9 @@ jQuery('document').ready(function($) {
                         if(notificationList.find('#'+id).length ==0){ 
                             if(fetch=="new"){
                                 if(response.paginate.data[i]['access_url']){
-                                    notificationList.prepend('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><a ajax=1 href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
+                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><a ajax=1 href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
                                 }else{
-                                    notificationList.prepend('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'">'+response.paginate.data[i]['message']+by+'</div>');
+                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'">'+response.paginate.data[i]['message']+by+'</div>');
                                 }                          
                             }else{
                                 if(response.paginate.data[i]['access_url']){
