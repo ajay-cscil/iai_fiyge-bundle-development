@@ -497,7 +497,7 @@ jQuery('document').ready(function($) {
         notificationPagenumber++;
         let notificationList=jQuery('.notification-list');
         let q = {};
-        q["method"] = "find";
+        //q["method"] = "find";
         q["update_last_viewed"] = 1;
         q['limit'] = 20;
         q['fields'] = ['notifications.*'];
