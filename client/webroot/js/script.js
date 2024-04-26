@@ -492,9 +492,7 @@ jQuery('document').ready(function($) {
         $(".sidebar.sidebar-" + cSide).sidebar({side: cSide});
     }
 
-    let notificationPagenumber=0;
     loadNotifications=function(fetch="all"){
-        notificationPagenumber++;
         let notificationList=jQuery('.notification-list');
         let q = {};
         q["update_last_viewed"] = 1;
@@ -516,9 +514,10 @@ jQuery('document').ready(function($) {
             }
         }
         q['fields'] = ['notifications.*'];
+        console.log(q);
         jQuery.getJSON(
             '/notifications/notifications/index.json?current_listview=662baecd-7830-40e6-ad6a-492dac69033c',
-            {'q': encodeURIComponent(JSON.stringify(q)),'page':notificationPagenumber},
+            {'q': encodeURIComponent(JSON.stringify(q))},
             function(response){
                 if(response.paginate.data){
                     for(let i=0,j=response.paginate.data.length; i<j; i++){
