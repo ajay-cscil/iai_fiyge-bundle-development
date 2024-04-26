@@ -503,7 +503,7 @@ jQuery('document').ready(function($) {
         q['fields'] = ['notifications.*'];
         q['order']=["notifications.id DESC"];
         jQuery.getJSON(
-            'notifications/notifications/index.json?current_listview=662baecd-7830-40e6-ad6a-492dac69033c',
+            '/notifications/notifications/index.json?current_listview=662baecd-7830-40e6-ad6a-492dac69033c',
             {'q': encodeURIComponent(JSON.stringify(q)),'page':notificationPagenumber},
             function(response){
                 if(response.paginate.data){
