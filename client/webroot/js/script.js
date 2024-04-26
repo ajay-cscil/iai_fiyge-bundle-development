@@ -494,15 +494,14 @@ jQuery('document').ready(function($) {
 
     let notificationPagenumber=0;
     function loadNotifications(){
-        let notificationList=jQuery('.notification-list');
         notificationPagenumber++;
+        let notificationList=jQuery('.notification-list');
         let q = {};
         q["method"] = "find";
         q['limit'] = 20;
         q['page'] = notificationPagenumber;
         q['fields'] = ['notifications.*'];
         q['order']=["notifications.id DESC"];
-        console.log(q);
         jQuery.getJSON(
             '/notifications/notifications/index.json',
             {'q': encodeURIComponent(JSON.stringify(q))},
