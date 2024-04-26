@@ -532,15 +532,6 @@ jQuery('document').ready(function($) {
         loadNotifications();
     });
     jQuery(document).on('click','.load-notifications',loadNotifications);
-
-    jQuery(document).on('live_events','.notification-count',function(event,data){
-        console.log(data);
-        if(data.new_notification_count){
-            jQuery('.notification-count').text(data.new_notification_count);
-        }else{
-            jQuery('.notification-count').text(0);
-        }
-    });
     
     
 
