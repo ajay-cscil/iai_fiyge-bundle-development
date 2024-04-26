@@ -502,9 +502,9 @@ jQuery('document').ready(function($) {
             q['limit'] = 10000;
             q['order']=["notifications.id ASC"];  
             q['where']=["notifications.notification_users.last_viewed IS NULL"]; 
-            let last=notificationList.find('.sidebar-alert:last');
-            if(last.length){
-                q['where'].push({"notifications.id >":parseInt(last.attr('id').split('_')[1]) });
+            let first=notificationList.find('.sidebar-alert:first');
+            if(first.length){
+                q['where'].push({"notifications.id >":parseInt(first.attr('id').split('_')[1]) });
             } 
         }else{
             q['limit'] = 20;
@@ -512,7 +512,7 @@ jQuery('document').ready(function($) {
             q['where']=[];
             let last=notificationList.find('.sidebar-alert:last');
             if(last.length){
-                q['where'].push({"notifications.id >":parseInt(last.attr('id').split('_')[1])});
+                q['where'].push({"notifications.id <":parseInt(last.attr('id').split('_')[1])});
             }
         }
         q['fields'] = ['notifications.*'];
