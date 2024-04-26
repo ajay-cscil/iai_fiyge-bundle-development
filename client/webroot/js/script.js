@@ -492,17 +492,14 @@ jQuery('document').ready(function($) {
         $(".sidebar.sidebar-" + cSide).sidebar({side: cSide});
     }
 
+    let notificationPagenumber=0;
     function loadNotifications(){
         let notificationList=jQuery('.notification-list');
-        let pagenumber=parseInt(notificationList.data('pagenumber'));
-        if(!isNaN(pagenumber)){
-            pagenumber=0;
-        }
-        pagenumber++;
+        notificationPagenumber++;
         let q = {};
         q["method"] = "find";
         q['limit'] = 20;
-        q['page'] = pagenumber;
+        q['page'] = notificationPagenumber;
         q['fields'] = ['notifications.*'];
         q['order']=["notifications.id DESC"];
         console.log(q);
@@ -522,7 +519,6 @@ jQuery('document').ready(function($) {
                 }
             }
         );
-        notificationList.data('pagenumber',pagenumber);
     }
 
     jQuery(document).on('click','.open-notification-sidebar',function(){
@@ -532,9 +528,8 @@ jQuery('document').ready(function($) {
         jQuery(".sidebar-right").trigger("sidebar:close");
     });
     jQuery(".sidebar-right").on("sidebar:opened",function(){
-        let notificationList=jQuery('.notification-list');
-        notificationList.data('pagenumber',1);
-        notificationList.html("");
+        jQuery('.notification-list').html("");
+        notificationPagenumber=0;
         loadNotifications();
     });
     jQuery(document).on('click','.load-notifications',loadNotifications);
