@@ -493,7 +493,7 @@ jQuery('document').ready(function($) {
     }
 
     let notificationPagenumber=0;
-    function loadNotifications(fetch="all"){
+    loadNotifications=function(fetch="all"){
         notificationPagenumber++;
         let notificationList=jQuery('.notification-list');
         let q = {};
