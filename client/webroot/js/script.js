@@ -552,7 +552,6 @@ jQuery('document').ready(function($) {
     });
     jQuery(".sidebar-right").on("sidebar:opened",function(){
         jQuery('.notification-list').html("");
-        notificationPagenumber=0;
         loadNotifications();
     });
     jQuery(document).on('click','.load-notifications',loadNotifications);
