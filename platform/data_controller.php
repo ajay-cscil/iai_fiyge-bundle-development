@@ -80,7 +80,6 @@ class data_controller extends \kernel\controller {
             if ($request->is('post') && !empty($request->data) && $multiPageForm !== -1) {
                 // normalize data
                 $data = \kernel\locale::normalize($request->data, $modelObj->schema(false, 'submodel', true, true));
-                
                 // set currenty performed form action into data
                 if (isset($data['action']) && isset($data[$modelObj->alias])){
                     if(!isset($data[$modelObj->alias]['action']) || empty($data[$modelObj->alias]['action'])){
@@ -111,6 +110,7 @@ class data_controller extends \kernel\controller {
                     if($skipValidation == true && isset($data['action']) && md5(key($data['action'])) == $skipValidation ){
                         $options["validate"]=false;
                     }
+
                     $this->saveHandlerOutput = $modelObj->$saveHandler($data,$options);
                     if ($this->saveHandlerOutput) {
                         $id = $modelObj->id;
