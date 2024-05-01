@@ -553,8 +553,13 @@ jQuery('document').ready(function($) {
         });
         if(selectedNotifications){
             selectedNotifications['data[notifications][action][mark_as_read]']='Mark As Read';
-            jQuery.post('/notifications/notifications/_mark_notification_as_read.json',selectedNotifications,function(){
-
+            jQuery.post('/notifications/notifications/_mark_notification_as_read.json',selectedNotifications,function(response){
+                if(response['data'] && response['data']['notifications'] && response['data']['notifications']['last_viewed']){
+                   for(let i=0; i < response['data']['notifications']['last_viewed'].length; i++){
+                        let id='notification_'+response['data']['notifications']['last_viewed'][i];
+                        jQuery('#'+id).addClass('sidebar-alert-read');
+                   } 
+                } 
             })
         }
     });
