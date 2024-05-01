@@ -114,6 +114,7 @@ if(\kernel\request::session('switch_user_mode')){
                     <a class="close-notification-sidebar btn btn-default" type="button">Cancel</a>
                     <a class="load-notifications btn btn-success" type="button">Load More</a>
                     <a class="mark-as-read-notifications btn btn-primary" type="button">Mark as read</a>
+                    <a class="mark-as-delete-notifications btn btn-primary" type="button">Delete</a>
                 </div>
             </div>
 </div>
