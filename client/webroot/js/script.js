@@ -553,7 +553,7 @@ jQuery('document').ready(function($) {
         });
         if(selectedNotifications){
             selectedNotifications['data[notifications][action][mark_as_read]']='Mark As Read';
-            jQuery.post('/notifications/notifications/_mark_notification_as_read',selectedNotifications,function(){
+            jQuery.post('/notifications/notifications/_mark_notification_as_read.json',selectedNotifications,function(){
 
             })
         }
