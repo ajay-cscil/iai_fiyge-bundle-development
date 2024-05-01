@@ -564,6 +564,28 @@ jQuery('document').ready(function($) {
             })
         }
     });
+    jQuery(document).on('click','.mark-as-delete-notifications',function(){
+        let selectedNotifications={};
+        jQuery(".sidebar-right")
+        .find('.notification-checkbox:checked')
+        .each(function(index){
+            selectedNotifications['data[notifications][id]['+index+']']=jQuery(this).val();
+        });
+        if(selectedNotifications){
+            selectedNotifications['data[notifications][action][mark_as_delete]']='Delete';
+            jQuery.post('/notifications/notifications/_mark_notification_as_delete.json',selectedNotifications,function(response){
+                if(response['data'] && response['data']['notifications'] && response['data']['notifications']['id']){
+                   for(let i=0; i < response['data']['notifications']['id'].length; i++){
+                        let id='notification_'+response['data']['notifications']['id'][i];
+                        jQuery('#'+id).remove();
+                   } 
+                } 
+            })
+        }
+    });
+
+    
+
     jQuery(document).on('click','.open-notification-sidebar',function(){
         jQuery(".sidebar-right").trigger("sidebar:toggle");
     });
