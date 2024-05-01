@@ -40,7 +40,22 @@
     border:1px solid #ff9800 !important;
 }
 
+.sidebar-alert-danger a{
+    color:#f44336 !important;
+}
+.sidebar-alert-success a{
+    color:#04AA6D !important;
+}
+.sidebar-alert-info a{
+    color:#2196F3 !important;
+}
+.sidebar-alert-warning a{
+    color:#ff9800 !important;
+}
 
+.sidebar-alert-read{
+    background-color: #f3efef;
+}
 
 /* The close button */
 .sidebar-alert-closebtn {
