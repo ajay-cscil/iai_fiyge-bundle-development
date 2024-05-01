@@ -521,20 +521,21 @@ jQuery('document').ready(function($) {
             function(response){
                 if(response.paginate.data){
                     for(let i=0,j=response.paginate.data.length; i<j; i++){
-                        let by="<div><i>By "+(response.paginate.data[i]['sender_id']==null?"System":response.paginate.data[i]['sender_name'])+" on "+response.paginate.data[i]['created']+'</i></div>';
-                        let id='notification_'+(response.paginate.data[i]['id']);
+                        let notification=response.paginate.data[i];
+                        let by="<div><i>By "+(notification['sender_id']==null?"System":notification['sender_name'])+" on "+notification['created']+'</i></div>';
+                        let id='notification_'+(notification['id']);
                         if(notificationList.find('#'+id).length ==0){ 
                             if(fetch=="new"){
-                                if(response.paginate.data[i]['access_url']){
-                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><input class="notification-checkbox" type="checkbox" value="'+response.paginate.data[i]['id']+'" ><a ajax=1 href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
+                                if(notification['access_url']){
+                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><a ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div>');    
                                 }else{
-                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><input class="notification-checkbox" type="checkbox" value="'+response.paginate.data[i]['id']+'" >'+response.paginate.data[i]['message']+by+'</div>');
+                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" >'+notification['message']+by+'</div>');
                                 }                          
                             }else{
                                 if(response.paginate.data[i]['access_url']){
-                                    notificationList.append('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><input class="notification-checkbox" type="checkbox" value="'+response.paginate.data[i]['id']+'" ><a ajax=1 href="'+response.paginate.data[i]['access_url']+'">'+response.paginate.data[i]['message']+'</a>'+by+'</div>');    
+                                    notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><a ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div>');    
                                 }else{
-                                    notificationList.append('<div id="'+id+'" class="sidebar-alert sidebar-alert-'+response.paginate.data[i]['type']+'"><input class="notification-checkbox" type="checkbox" value="'+response.paginate.data[i]['id']+'" >'+response.paginate.data[i]['message']+by+'</div>');
+                                    notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" >'+notification['message']+by+'</div>');
                                 }    
                             }
                         }  
