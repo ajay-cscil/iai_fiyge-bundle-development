@@ -513,7 +513,7 @@ jQuery('document').ready(function($) {
                 q['where'].push({"notifications.id <":parseInt(last.attr('id').split('_')[1])});
             }
         }
-        q['fields'] = ['notifications.*','notification_users.*'];
+        q['fields'] = ['notifications.*','notification_users.last_viewed'];
         console.log(q);
         jQuery.getJSON(
             '/notifications/notifications/index.json?current_listview=662baecd-7830-40e6-ad6a-492dac69033c',
