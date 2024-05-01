@@ -11,6 +11,7 @@
 }
 
 .sidebars > .sidebar {
+    box-sizing: border-box;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);
     position: fixed;
     padding: 10px;
@@ -20,6 +21,7 @@
 
 /* The alert message box */
 .sidebar-alert {
+    box-sizing: border-box;
     padding: 5px;
     margin-bottom: 15px;
     width: 100%;
