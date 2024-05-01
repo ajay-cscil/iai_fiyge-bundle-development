@@ -527,13 +527,13 @@ jQuery('document').ready(function($) {
                         if(notificationList.find('#'+id).length ==0){ 
                             if(fetch=="new"){
                                 if(notification['access_url']){
-                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><a ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div>');    
+                                    notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><a class="notification-access-url" ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div>');    
                                 }else{
                                     notificationList.prepend('<div id="'+id+'" class="blink sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" >'+notification['message']+by+'</div>');
                                 }                          
                             }else{
                                 if(response.paginate.data[i]['access_url']){
-                                    notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><a ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div>');    
+                                    notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><a class="notification-access-url" ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div>');    
                                 }else{
                                     notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']!='null'?'sidebar-alert-read':'')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" >'+notification['message']+by+'</div>');
                                 }    
@@ -544,6 +544,17 @@ jQuery('document').ready(function($) {
             }
         );
     }
+
+    
+    jQuery(document).on('click','.notification-access-url',function(){
+        let selectedNotifications={};
+        jQuery(this).closest('.sidebar-alert')
+        .find('.notification-checkbox')
+        .each(function(index){
+            selectedNotifications['data[notifications][id]['+index+']']=jQuery(this).val();
+        });
+        markAsReadNotifications(selectedNotifications);
+    });
     
     jQuery(document).on('click','.mark-as-read-notifications',function(){
         let selectedNotifications={};
@@ -552,6 +563,10 @@ jQuery('document').ready(function($) {
         .each(function(index){
             selectedNotifications['data[notifications][id]['+index+']']=jQuery(this).val();
         });
+        markAsReadNotifications(selectedNotifications);
+        
+    });
+    function markAsReadNotifications(selectedNotifications){
         if(selectedNotifications){
             selectedNotifications['data[notifications][action][mark_as_read]']='Mark As Read';
             jQuery.post('/notifications/notifications/_mark_notification_as_read.json',selectedNotifications,function(response){
@@ -563,7 +578,7 @@ jQuery('document').ready(function($) {
                 } 
             })
         }
-    });
+    }
     jQuery(document).on('click','.mark-as-delete-notifications',function(){
         let selectedNotifications={};
         jQuery(".sidebar-right")
