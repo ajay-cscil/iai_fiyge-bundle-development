@@ -548,8 +548,8 @@ jQuery('document').ready(function($) {
         let selectedNotifications={};
         jQuery(".sidebar-right")
         .find('.notification-checkbox:checked')
-        .each(function(){
-            selectedNotifications['data[notifications][id][]']=jQuery(this).val();
+        .each(function(index){
+            selectedNotifications['data[notifications][id]['+index+']']=jQuery(this).val();
         });
         if(selectedNotifications){
             selectedNotifications['data[notifications][action][mark_as_read]']='Mark As Read';
