@@ -552,7 +552,7 @@ class data_controller extends \kernel\controller {
                                         $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
                                         foreach($dataACL as $dataACLKey=>$dataACLValue){
                                             if(!empty($dataACLValue)){
-                                                $dataCopy[$modelObj->alias][$dataACLKey]=$dataACLValue;
+                                                $dataCopy[$modelObj->alias][$dataACLKey]=array_values($dataACLValue);
                                             }
                                         }
                                     }else{
