@@ -510,6 +510,7 @@ class data_controller extends \kernel\controller {
                                         $errors[] = sprintf(__('%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
                                         continue;
                                     }
+                                    pr($dataCopy);
 
                                     \kernel\registry::write('request_action', 'edit_selected');
                                     foreach ($dataCopy[$modelObj->alias] as $kkk => $vvv) {
@@ -586,6 +587,7 @@ class data_controller extends \kernel\controller {
                                     }
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
+                                    pr($dataCopy);
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
                                     if ($this->saveHandlerOutput) {
                                         $successCount++;
