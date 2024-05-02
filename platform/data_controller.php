@@ -510,8 +510,6 @@ class data_controller extends \kernel\controller {
                                         $errors[] = sprintf(__('%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
                                         continue;
                                     }
-                                    pr($dataCopy);
-
                                     \kernel\registry::write('request_action', 'edit_selected');
                                     foreach ($dataCopy[$modelObj->alias] as $kkk => $vvv) {
                                         if (empty($vvv) && !is_numeric($vvv)) {
@@ -549,10 +547,14 @@ class data_controller extends \kernel\controller {
                                         }
                                     }
                                     if($updatingValuesInGrid =="replace the current grid"){
-                                        $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
                                         foreach($dataACL as $dataACLKey=>$dataACLValue){
                                             if(!empty($dataACLValue)){
-                                                $dataCopy[$modelObj->alias][$dataACLKey]=array_values($dataACLValue);
+                                                foreach($dataCopy[$modelObj->alias][$dataACLKey] as 
+                                                    $aclRecordKey=>$aclRecordValue
+                                                ){
+                                                    $dataCopy[$modelObj->alias][$dataACLKey][$aclRecordKey]["deleted"]=1;
+                                                }
+                                                $dataCopy[$modelObj->alias][$dataACLKey]=array_merge($dataCopy[$modelObj->alias][$dataACLKey],$dataACLValue);
                                             }
                                         }
                                     }else{
@@ -587,7 +589,6 @@ class data_controller extends \kernel\controller {
                                     }
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
-                                    pr($dataCopy);
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
                                     if ($this->saveHandlerOutput) {
                                         $successCount++;
