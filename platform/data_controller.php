@@ -587,6 +587,7 @@ class data_controller extends \kernel\controller {
                                     if(isset($data[$modelObj->alias]['stage_log'])){
                                         $dataCopy[$modelObj->alias]['stage_log'] = $data[$modelObj->alias]['stage_log'];  
                                     }
+                                    pr($dataCopy);
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
