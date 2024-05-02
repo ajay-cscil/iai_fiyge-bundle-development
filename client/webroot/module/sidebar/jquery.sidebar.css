@@ -56,7 +56,11 @@
 }
 
 .sidebar-alert-read{
-    background-color: #f3efef !important;
+    opacity: 0.5;
+    font-weight: normal;
+}
+.notification-access-url{
+    font-weight: bold;
 }
 
 /* The close button */
