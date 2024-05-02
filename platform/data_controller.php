@@ -520,7 +520,7 @@ class data_controller extends \kernel\controller {
                                     $submodels=[];
                                     if (is_array($modelObj->associations)) {
                                         foreach ($modelObj->associations as $assocModel => $assocInfo) {
-                                            if(isset($assocInfo['isSubModel']) && $assocInfo['isSubModel']==1){
+                                            if(isset($assocInfo['isSubModel']) && $assocInfo['isSubModel']==1 && $assocInfo['assocType'] =='hasMany'){
                                                 $submodels[$assocModel]=[];
                                                 if(
                                                     isset($data[$modelObj->alias][$assocModel]) 
