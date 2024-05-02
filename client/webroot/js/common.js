@@ -1681,13 +1681,14 @@ function initChart(container) {
         if(jQuery.isset(data) && jQuery.isset(data['new_notification_count']) && jQuery.isset(data['new_notification_count'])){
             let newNotificationCount=parseInt(data.new_notification_count);
             jQuery('.notification-count').text("");
-            if(newNotificationCount > 0 && jQuery('.notification-list:visible')){
+            if(newNotificationCount > 0){
                 jQuery('.notification-count').text(newNotificationCount);
-                jQuery('.notification-count').text('');
+            }
+            if(newNotificationCount > 0 && jQuery('.notification-list:visible')){
                 loadNotifications("new");
             }
         }else{
-            jQuery('.notification-count').text();
+            jQuery('.notification-count').text("");
         }
 
 

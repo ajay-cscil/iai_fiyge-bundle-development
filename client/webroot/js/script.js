@@ -495,7 +495,6 @@ jQuery('document').ready(function($) {
     loadNotifications=function(fetch="all"){
         let notificationList=jQuery('.notification-list');
         let q = {};
-        q["update_last_viewed"] = 1;
         if(fetch=="new"){
             q['limit'] = 10000;
             q['order']=["notifications.id ASC"];  
@@ -514,7 +513,6 @@ jQuery('document').ready(function($) {
             }
         }
         q['fields'] = ['notifications.*','notification_users.last_viewed AS last_viewed'];
-        console.log(q);
         jQuery.getJSON(
             '/notifications/notifications/index.json?current_listview=662baecd-7830-40e6-ad6a-492dac69033c',
             {'q': encodeURIComponent(JSON.stringify(q))},
