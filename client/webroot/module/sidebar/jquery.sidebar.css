@@ -55,7 +55,7 @@
     color:#ff9800 !important;
 }
 
-.sidebar-alert-read{
+.sidebar-alert-read,.sidebar-alert-read .notification-access-url{
     opacity: 0.5;
     font-weight: normal;
 }
