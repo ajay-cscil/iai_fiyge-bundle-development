@@ -82,6 +82,9 @@
   cursor: pointer;
   transition: 0.3s;
 }
+.mark-as-read-notifications,.mark-as-delete-notifications{
+    display: none;
+}
 
 /* When moving the mouse over the close button */
 .sidebar-alert-closebtn:hover {
