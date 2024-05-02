@@ -118,9 +118,9 @@ if(\kernel\request::session('switch_user_mode')){
                 <div class="notification-list" data-pagenumber="0"></div>
                 <div class="notification-action-bar">
                     
-                    <a class="load-notifications btn btn-success" type="button">Load More</a>
-                    <a class="mark-as-read-notifications btn btn-secondary" type="button">Mark as read</a>
-                    <a class="mark-as-delete-notifications btn btn-secondary" type="button">Delete</a>
+                    <button class="load-notifications btn btn-success" type="button">Load More</button>
+                    <button class="mark-as-read-notifications btn btn-secondary" type="button">Mark as read</button>
+                    <button class="mark-as-delete-notifications btn btn-secondary" type="button">Delete</button>
                 </div>
             </div>
 </div>
