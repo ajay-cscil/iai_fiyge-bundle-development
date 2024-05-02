@@ -600,6 +600,14 @@ jQuery('document').ready(function($) {
     });
 
     
+    jQuery(document).on('click','.notification-checkbox',function(){
+        if(jQuery(".sidebar-right")
+        .find('.notification-checkbox:checked').length){
+            jQuery('.mark-as-read-notifications,.mark-as-delete-notifications').css("display","inline-block");
+        }else{
+            jQuery('.mark-as-read-notifications,.mark-as-delete-notifications').css("display","none");
+        }
+    });
 
     jQuery(document).on('click','.open-notification-sidebar',function(){
         jQuery(".sidebar-right").trigger("sidebar:toggle");
