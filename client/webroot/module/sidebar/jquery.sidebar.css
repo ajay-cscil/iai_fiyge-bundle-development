@@ -67,7 +67,9 @@
     color: #999999;
 }
 
-.notification-checkbox{float: left;}
+.notification-checkbox{
+    float: left;
+}
 
 /* The close button */
 .sidebar-alert-closebtn {
@@ -85,6 +87,18 @@
 .sidebar-alert-closebtn:hover {
   color: black;
 }
+
+.sidebar-header{
+    padding: .4em 1em;
+}
+
+.close-notification-sidebar{
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    border: 1px solid;
+}
+
 
 .open-notification-sidebar{
   position:relative;
