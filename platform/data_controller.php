@@ -459,7 +459,7 @@ class data_controller extends \kernel\controller {
                             }
                         }
                     }
-                    $dataACL=array_intersect_key($data[$modelObj->alias], ["_acl"=>1,"_acl_edit"=>1,"_acl_delete"=>1]);
+                    $dataACL=array_intersect_key($data[$modelObj->alias], ["_acl"=>1,"_acl_edit"=>1,"_acl_delete"=>1,"_acl_comment"=>1]);
                     if(array_key_exists("updating_values_in_grid", $data[$modelObj->alias])){
                         $updatingValuesInGrid=$data[$modelObj->alias]["updating_values_in_grid"];
                     }
