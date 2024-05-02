@@ -459,7 +459,7 @@ class data_controller extends \kernel\controller {
                             }
                         }
                     }
-                    $dataACL=array_intersect_key($data[$modelObj->alias], ["_acl"=>1,"_acl_edit"=>1,"_acl_delete"=>1,"_acl_comment"=>1]);
+                    $dataACL=array_intersect_key($data[$modelObj->alias], ["_acl"=>1,"_acl_edit"=>1,"_acl_delete"=>1]);
                     if(array_key_exists("updating_values_in_grid", $data[$modelObj->alias])){
                         $updatingValuesInGrid=$data[$modelObj->alias]["updating_values_in_grid"];
                     }
@@ -510,6 +510,7 @@ class data_controller extends \kernel\controller {
                                         $errors[] = sprintf(__('%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
                                         continue;
                                     }
+
                                     \kernel\registry::write('request_action', 'edit_selected');
                                     foreach ($dataCopy[$modelObj->alias] as $kkk => $vvv) {
                                         if (empty($vvv) && !is_numeric($vvv)) {
@@ -547,14 +548,10 @@ class data_controller extends \kernel\controller {
                                         }
                                     }
                                     if($updatingValuesInGrid =="replace the current grid"){
+                                        $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
                                         foreach($dataACL as $dataACLKey=>$dataACLValue){
                                             if(!empty($dataACLValue)){
-                                                foreach($dataCopy[$modelObj->alias][$dataACLKey] as 
-                                                    $aclRecordKey=>$aclRecordValue
-                                                ){
-                                                    $dataCopy[$modelObj->alias][$dataACLKey][$aclRecordKey]["deleted"]=1;
-                                                }
-                                                $dataCopy[$modelObj->alias][$dataACLKey]=array_merge($dataCopy[$modelObj->alias][$dataACLKey],$dataACLValue);
+                                                $dataCopy[$modelObj->alias][$dataACLKey]=$dataACLValue;
                                             }
                                         }
                                     }else{
@@ -587,7 +584,6 @@ class data_controller extends \kernel\controller {
                                     if(isset($data[$modelObj->alias]['stage_log'])){
                                         $dataCopy[$modelObj->alias]['stage_log'] = $data[$modelObj->alias]['stage_log'];  
                                     }
-                                    pr($dataCopy);
                                     $modelObj->id = '';
                                     \kernel\model::$errors = array();
                                     $this->saveHandlerOutput = $modelObj->$saveHandler($dataCopy);
