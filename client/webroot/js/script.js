@@ -520,10 +520,10 @@ jQuery('document').ready(function($) {
                 if(response.paginate.data){
                     if(fetch !="new" ){
                         if(response.paginate.data.length ==21){
-                            jQuery('.load-notifications').removeClass('disabled');
+                            jQuery('.load-notifications').removeAttr('disabled');
                             response.paginate.data=response.paginate.data.slice(0,-1);          
                         }else{
-                            jQuery('.load-notifications').addClass('disabled'); 
+                            jQuery('.load-notifications').attr('disabled','disabled'); 
                         }
                     }
 
