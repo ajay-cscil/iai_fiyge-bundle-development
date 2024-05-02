@@ -520,7 +520,7 @@ jQuery('document').ready(function($) {
                 if(response.paginate.data){
                     for(let i=0,j=response.paginate.data.length; i<j; i++){
                         let notification=response.paginate.data[i];
-                        let by="<div><i>By "+(notification['sender_id']==null?"System":notification['sender_name'])+" on "+notification['created']+'</i></div>';
+                        let by="<div class='notification-by'><i>By "+(notification['sender_id']==null?"System":notification['sender_name'])+" on "+notification['created']+'</i></div>';
                         let id='notification_'+(notification['id']);
                         if(notificationList.find('#'+id).length ==0){ 
                             if(fetch=="new"){
