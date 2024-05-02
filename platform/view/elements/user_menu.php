@@ -109,12 +109,18 @@ if(\kernel\request::session('switch_user_mode')){
 </script>
 <div class="sidebars">
             <div class="sidebar sidebar-right">
+                <div class="sidebar-header ui-widget-header">
+                    Notifications
+                    <a class="close-notification-sidebar ui-state-error" type="button">
+                        <span class="ui-icon ui-icon-close"></span>
+                    </a>
+                </div>
                 <div class="notification-list" data-pagenumber="0"></div>
                 <div class="notification-action-bar">
-                    <a class="close-notification-sidebar btn btn-default" type="button">Cancel</a>
+                    
                     <a class="load-notifications btn btn-success" type="button">Load More</a>
-                    <a class="mark-as-read-notifications btn btn-primary" type="button">Mark as read</a>
-                    <a class="mark-as-delete-notifications btn btn-primary" type="button">Delete</a>
+                    <a class="mark-as-read-notifications btn btn-secondary" type="button">Mark as read</a>
+                    <a class="mark-as-delete-notifications btn btn-secondary" type="button">Delete</a>
                 </div>
             </div>
 </div>
