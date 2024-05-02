@@ -1680,8 +1680,9 @@ function initChart(container) {
         }
         if(jQuery.isset(data) && jQuery.isset(data['new_notification_count']) && jQuery.isset(data['new_notification_count'])){
             let newNotificationCount=parseInt(data.new_notification_count);
-            jQuery('.notification-count').text(newNotificationCount);
+            jQuery('.notification-count').text("");
             if(newNotificationCount > 0 && jQuery('.notification-list:visible')){
+                jQuery('.notification-count').text(newNotificationCount);
                 jQuery('.notification-count').text('');
                 loadNotifications("new");
             }
