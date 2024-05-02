@@ -504,7 +504,7 @@ jQuery('document').ready(function($) {
                 q['where'].push({"notifications.id >":parseInt(first.attr('id').split('_')[1]) });
             } 
         }else{
-            q['limit'] = 20;
+            q['limit'] = 21;
             q['order']=["notifications.id DESC"];
             q['where']=[];
             let last=notificationList.find('.sidebar-alert:last');
@@ -518,6 +518,15 @@ jQuery('document').ready(function($) {
             {'q': encodeURIComponent(JSON.stringify(q))},
             function(response){
                 if(response.paginate.data){
+                    if(fetch !="new" ){
+                        if(response.paginate.data.length ==21){
+                            jQuery('.load-notifications').removeClass('disabled');
+                            response.paginate.data=response.paginate.data.slice(0,-1);          
+                        }else{
+                            jQuery('.load-notifications').addClass('disabled'); 
+                        }
+                    }
+
                     for(let i=0,j=response.paginate.data.length; i<j; i++){
                         let notification=response.paginate.data[i];
                         let by="<div class='notification-by'><i>By "+(notification['sender_id']==null?"System":notification['sender_name'])+" on "+notification['created']+'</i></div>';
@@ -531,10 +540,10 @@ jQuery('document').ready(function($) {
                                 }                          
                             }else{
                                 if(response.paginate.data[i]['access_url']){
-                                    notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']==null?'':'sidebar-alert-read')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><div><a class="notification-access-url" ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div></div>');    
+                                        notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']==null?'':'sidebar-alert-read')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><div><a class="notification-access-url" ajax=1 href="'+notification['access_url']+'">'+notification['message']+'</a>'+by+'</div></div>');    
                                 }else{
-                                    notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']==null?'':'sidebar-alert-read')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><div>'+notification['message']+by+'</div></div>');
-                                }    
+                                        notificationList.append('<div id="'+id+'" class="sidebar-alert '+(notification['last_viewed']==null?'':'sidebar-alert-read')+' sidebar-alert-'+notification['type']+'"><input class="notification-checkbox" type="checkbox" value="'+notification['id']+'" ><div>'+notification['message']+by+'</div></div>');
+                                }   
                             }
                         }  
                     }
