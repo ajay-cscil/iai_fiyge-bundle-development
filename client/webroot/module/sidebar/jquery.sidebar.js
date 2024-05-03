@@ -88,7 +88,7 @@
             settings.isClosed = null;
             self.stop().animate(properties, $.extend({}, settings, data).speed, function() {
                 settings.isClosed = false;
-                self.trigger("sidebar:opened");
+                self.addClass('sidebar-open').trigger("sidebar:opened");
             });
         });
 
@@ -107,7 +107,7 @@
             settings.isClosed = null;
             self.stop().animate(properties, $.extend({}, settings, data).speed, function() {
                 settings.isClosed = true;
-                self.trigger("sidebar:closed");
+                self.removeClass('sidebar-open').trigger("sidebar:closed");
             });
         });
 
