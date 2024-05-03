@@ -510,6 +510,9 @@ class data_controller extends \kernel\controller {
                                         $errors[] = sprintf(__('%s [%s] could not be %s'), (!is_null($modelObj->singular) ? __($modelObj->singular) : 'Record'), $id, __('updated'));
                                         continue;
                                     }
+                                    if(isset($dataCopy[$modelObj->alias]["_fulltext"])){
+                                        unset($dataCopy[$modelObj->alias]["_fulltext"]);
+                                    }
 
                                     \kernel\registry::write('request_action', 'edit_selected');
                                     foreach ($dataCopy[$modelObj->alias] as $kkk => $vvv) {
@@ -548,10 +551,16 @@ class data_controller extends \kernel\controller {
                                         }
                                     }
                                     if($updatingValuesInGrid =="replace the current grid"){
-                                        $dataCopy[$modelObj->alias]=array_diff_key($dataCopy[$modelObj->alias], $dataACL);
                                         foreach($dataACL as $dataACLKey=>$dataACLValue){
                                             if(!empty($dataACLValue)){
-                                                $dataCopy[$modelObj->alias][$dataACLKey]=$dataACLValue;
+                                                if(is_array($dataCopy[$modelObj->alias][$dataACLKey])){
+                                                    foreach($dataCopy[$modelObj->alias][$dataACLKey] as $dataACLKeyKey=>$dataACLKeyValue){
+                                                        $dataCopy[$modelObj->alias][$dataACLKey][$dataACLKeyKey]["deleted"]=1;
+                                                    }
+                                                    $dataCopy[$modelObj->alias][$dataACLKey]=array_merge($dataCopy[$modelObj->alias][$dataACLKey],$dataACLValue);
+                                                }else{
+                                                    $dataCopy[$modelObj->alias][$dataACLKey]=$dataACLValue;
+                                                }
                                             }
                                         }
                                     }else{
