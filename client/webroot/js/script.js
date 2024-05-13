@@ -2251,7 +2251,12 @@ jQuery('document').ready(function($) {
         .each(function() {
             var $this=jQuery(this);
             var id=uuidv4();
-            $this.css({"display":"none"}).after('<div id="'+id+'"></div>');
+            $this.before('<div id="'+id+'"></div>');
+            if($this.attr("required")){
+                $this.css({"padding":0,"margin":0,"width":0,"height":0,"border":0});
+            }else{
+                $this.css({"display":"none"});
+            }
             jQuery('#'+id).starRating({
                 totalStars: 5,
                 emptyColor: 'lightgray',
