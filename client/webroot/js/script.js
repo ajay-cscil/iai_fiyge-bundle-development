@@ -671,10 +671,24 @@ jQuery('document').ready(function($) {
         "position": "fixed"
     })
     .ajaxStart(function() {
-        $.showLoader(1);
     })
     .ajaxStop(function() {
-        $.hideLoader(1);
+        
+    });
+
+    var skipAjaxTrackerURL=['/flexflow/stage_log/_workflow'];
+
+    $(document).ajaxSend(function(e, xhr, options){
+        var url=options.url.split('?')[0].split('/').slice(0,4).join('/');
+        if($.inArray(url,skipAjaxTrackerURL) == -1){
+            $.showLoader(1);
+        }
+    });
+    $(document).ajaxComplete(function(event,xhr,options){
+        var url=options.url.split('?')[0].split('/').slice(0,4).join('/');
+        if($.inArray(url,skipAjaxTrackerURL) == -1){
+            $.hideLoader(1);
+        }
     });
 
     $.showLoader = function(stat) {
