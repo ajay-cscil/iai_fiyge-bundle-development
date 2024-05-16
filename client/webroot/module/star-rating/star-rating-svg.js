@@ -97,7 +97,9 @@
     handleRating: function(e){
       var index = this.getIndex(e);
       var rating = index + 1;
-
+      if(this.settings.disableAfterRate==false){
+          this.paintStars(this.settings.totalStars-1, 'active');
+      }
       this.applyRating(rating, this.$el);
       this.executeCallback( rating, this.$el );
 
