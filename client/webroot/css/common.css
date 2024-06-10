@@ -6128,3 +6128,15 @@ label.error {
         overflow-x: ellipsis;
     }
 }
+.multi-step{
+    display: none;
+}
+.multi-step-active{
+    display: block !important;
+}
+.multi-step-action{
+    
+}
+.multi-step-action-prev{
+    
+}

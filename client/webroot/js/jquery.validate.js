@@ -101,7 +101,7 @@
                 return this.validate().form();
             } else {
                 var valid = true;
-                var validator = $(this[0].form).validate();
+                var validator = $($(this[0]).closest('form')).validate();
                 this.each(function() {
                     valid = valid && validator.element(this);
                 });

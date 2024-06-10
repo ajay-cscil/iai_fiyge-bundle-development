@@ -194,6 +194,9 @@ function setClipboard(value) {
     document.body.removeChild(tempInput);
 }
 
+jQuery.fn.reverse = function() {
+    return this.pushStack(this.get().reverse(), arguments);
+}; 
 
 
 jQuery.fn.valJSON = function(value, text, merge) {
@@ -2272,6 +2275,7 @@ jQuery('document').ready(function($) {
                 $this.css({"display":"none"});
             }
             jQuery('#'+id).starRating({
+                disableAfterRate: false,
                 totalStars: 5,
                 emptyColor: 'lightgray',
                 hoverColor: 'salmon',
@@ -2307,7 +2311,7 @@ jQuery('document').ready(function($) {
             }
         })
         .attr('date_format',dateFormat.replace("yy","yyyy").toUpperCase())
-        .datepicker({"yearRange": "-100:3000"});
+        .datepicker({"yearRange": "-120:3000"});
 
         datepickers.keyup(function(e) {
             if(e.keyCode == 8 || e.keyCode == 46) {
@@ -3024,8 +3028,171 @@ jQuery('document').ready(function($) {
                 }
             }
         }
+        if(form.length > 0 && parseInt(form.attr('is_multi_step_form')) == 1 && form.attr('action').indexOf('edit_selected') == -1){
+            var active_multi_step=parseInt(form.attr('active_multi_step'));
+            if(isNaN(active_multi_step)){
+                active_multi_step=1;
+            }
+            form.attr('active_multi_step',active_multi_step);
+            if(!form.hasClass('init-multi-step-form')){
+                form.addClass('init-multi-step-form');
+                
+                var steps=form.children('.grid,.fieldset-grid,.fieldset-block,.block,.tab').not('.panel');
+                
+                steps
+                .addClass('multi-step')
+                .removeClass('multi-step-active')
+                .each(function(index){
+                    var stepNo=index+1;
+                    if(stepNo==active_multi_step){
+                        jQuery(this).addClass('multi-step-active');
+                        form.trigger("step_opened", [jQuery(this),stepNo]);
+                    }
+                });
+                var actionPanel=form.children('.block.panel');
+                var actionName=form.attr('action').split('?')[0];
+                actionName=actionName.split("/");
+                actionName=actionName.length > 3  ? actionName[3]:""; 
+                if(["view"].includes(actionName)){
+                    actionPanel=actionPanel.clone();
+                    actionPanel.html('<div class="button-set set_form ui-buttonset" style="width: 100%;"></div>');
+                }
+                form.append(actionPanel);
+
+                actionPanel.addClass('multi-step-action');
+                actionPanel.find('button').addClass('multi-step-form-action').css('display',"none");
+                actionPanel.find('.button-set:first')
+                    .append('<div style="float:left"><button type="button" class="multi-step-action-prev set-button-first ui-corner-left">&laquo; Previous</button><button type="button" class="multi-step-action-next set-button  set-button-last ui-button-text-only ui-corner-right" style="margin-right:50px;">Next &raquo;</button></div>');
+                
+
+                form.find('.multi-step-action-prev,.multi-step-action-next').button();
+
+                if(active_multi_step == 1){
+                    form.find('.multi-step-action-prev').button({disabled: true});
+                }else if(active_multi_step == (steps.length)){
+                    form.find('.multi-step-action-next').button({disabled: true});
+                }
+
+            }
+        }
     }
 
+    jQuery(document).on('change','[name="data[imports][attachments][name]"]',
+        function(){
+            var fileinput=jQuery(this).get(0);
+            new CsvJS(fileinput,
+                function(csvDATA){ 
+                    if(csvDATA && jQuery.isArray(csvDATA)){
+                        var columnMappingGrid=jQuery('.column-mapping');
+                        if(
+                            csvDATA[0].includes('Field Label') 
+                            && 
+                            csvDATA[1].includes('Field Name') 
+                            && 
+                            csvDATA[2].includes('Field Option')
+                        ){
+                            let importFields=[];
+                            for(let fieldNo=1;fieldNo < csvDATA[1].length; fieldNo++){
+                                let importField={};
+                                importField['source_field_name']=csvDATA[0][fieldNo];
+                                importField['csv_column']=fieldNo;
+                                for(let colNo=1;colNo<=5;colNo++){
+                                    importField['value_'+colNo]=csvDATA[(colNo+2)][fieldNo];
+                                }
+                                importField['__target_field_name']=importField['target_field_name']=csvDATA[1][fieldNo];
+                                importFields.push(importField);
+                            }
+                            columnMappingGrid
+                            .find('.last-data-row')
+                            .each(function(){
+                                jQuery(this).find('.cell-action-grid').trigger('grid_row_delete');
+                            });
+
+                            for(let i=0; i < importFields.length; i++){
+                                columnMappingGrid.trigger('grid_row_add',importFields[i]);
+                            }
+                        }else{
+                            let importFields=[];
+                            for(let fieldNo=0;fieldNo < csvDATA[0].length; fieldNo++){
+                                let importField={};
+                                importField['source_field_name']=csvDATA[0][fieldNo];
+                                importField['csv_column']=fieldNo;
+                                for(let colNo=1;colNo<=5;colNo++){
+                                    importField['value_'+colNo]=csvDATA[colNo][fieldNo];
+                                }
+                                importField['__target_field_name']=importField['target_field_name']='';
+                                importFields.push(importField);
+                            }
+                            columnMappingGrid
+                            .find('.last-data-row')
+                            .each(function(){
+                                jQuery(this).find('.cell-action-grid').trigger('grid_row_delete');
+                            });
+
+                            for(let i=0; i < importFields.length; i++){
+                                columnMappingGrid.trigger('grid_row_add',importFields[i]);
+                            }
+                        }
+                    }
+                }
+            );
+        }
+    );
+
+
+    jQuery(document).on('click','.multi-step-action-prev',function(){
+        var form=jQuery(this).closest('form')
+        var active_multi_step=parseInt(form.attr('active_multi_step'));
+        active_multi_step--;
+        form.attr('active_multi_step',active_multi_step);
+
+        form.children('.multi-step')
+        .removeClass('multi-step-active')
+        .each(function(index){
+            var stepNo=index+1;
+            if(stepNo == (active_multi_step +1) ){
+                form.trigger("step_closed", [jQuery(this),stepNo]);
+            }else if(stepNo==active_multi_step){
+                jQuery(this).addClass('multi-step-active');
+                form.trigger("step_opened", [jQuery(this),stepNo]);
+            }
+        });
+
+        form.find('.multi-step-action-prev,.multi-step-action-next').button({disabled: false});
+        form.find('.multi-step-form-action').css('display',"none");
+        if(active_multi_step == 1){
+            form.find('.multi-step-action-prev').button({disabled: true});    
+        }
+    });
+
+    jQuery(document).on('click','.multi-step-action-next',function(){
+        var form=jQuery(this).closest('form')
+        var active_multi_step=parseInt(form.attr('active_multi_step'));
+        form.find('.multi-step-active').find('.not-empty-input').attr('REQUIRED','REQUIRED');
+        if(form.find('.multi-step-active').find(':input').not('.template-element').valid()){
+            active_multi_step++;
+            form.attr('active_multi_step',active_multi_step);
+            
+            form.children('.multi-step')
+            .removeClass('multi-step-active').each(function(index){
+                var stepNo=index+1;
+                if(stepNo== (active_multi_step-1) ){
+                    form.trigger("step_closed", [jQuery(this),stepNo]);
+                }else if(stepNo==active_multi_step){
+                    jQuery(this).addClass('multi-step-active');
+                    form.trigger("step_opened", [jQuery(this),stepNo]);
+                }
+            });
+
+            form.find('.multi-step-action-prev,.multi-step-action-next').button({disabled: false});
+            form.find('.multi-step-form-action').css('display',"none");
+            if( active_multi_step == form.find('.multi-step').length ){
+                form.find('.multi-step-action-next').button({disabled: true});
+                jQuery('.multi-step-form-action').css('display','inline-block');
+            }
+        }
+        
+    });
 
 
 
@@ -4386,7 +4553,7 @@ jQuery('document').ready(function($) {
 
     $(document).on('grid_row_add', '.grid', function(event,data) {
         var grid = $(this);
-        //console.log(data);
+        console.log(data);
         var gridId = grid.attr('id');
         var max = grid.attr('max');
         if (!isNaN(max)) {
@@ -4439,7 +4606,14 @@ jQuery('document').ready(function($) {
 
         }).end().insertAfter(after);
 
-        $.initFields(firstTemplateRow.siblings('.last-data-row:last').show());
+        let gridNewRow=firstTemplateRow.siblings('.last-data-row:last');
+        if(jQuery.isPlainObject(data)){
+            jQuery.each(data,function(k,v){
+                gridNewRow.find('[name*="['+k+']"]').val(v);
+            });
+        }
+
+        $.initFields(gridNewRow.show());
         gridSequence(grid);
         //$.initFields(clone);
         grid.trigger('row_add');
