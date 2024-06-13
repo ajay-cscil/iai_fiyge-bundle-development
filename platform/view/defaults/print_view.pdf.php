@@ -43,14 +43,43 @@ $organizationID = $record['organization_id'];
 $organizationData = current($organizationObj->read($organizationID));
 if(!isset($organizationData['organization_image'])){
     $organizationData['organization_image']=[];
-}   
+}
+
+$pageOrientation='P';
+$pdfUnit='mm';
+$headerFontFamily='times';
+$headerFontStyle='initial';
+$headerFontSize=10;
+
+$headerString=[];
+$headerString[]=$organizationData['primary_address_line_1'];
+if(!empty($organizationData['primary_address_line_2'])){
+    $headerString[]=$organizationData['primary_address_line_2'];
+}
+
+$headerString[]="{$organizationData['primary_city']}, {$organizationData['primary_state']}, {$organizationData['__primary_country']} - {$organizationData['primary_zip']}";
+
+$contactHeaderString=[];
+if(!empty($organizationData['email'])){
+    $contactHeaderString[]="Email - {$organizationData['email']}";
+}
+if(!empty($organizationData['primary_phone_number'])){
+    $contactHeaderString[]="Tel - {$organizationData['primary_phone_number']}";
+}
+if(!empty($contactHeaderString)){
+    $headerString[]=implode(", ",$contactHeaderString);
+}
+$headerString=implode(PHP_EOL, $headerString);
+$headerTitle=$organizationData['name'];
+
+
 foreach ($pages as $path => $info) {
     $i++;
     $name = $base . DS . $uuid . '-' . $i . '.pdf';
 // create new PDF document
-    if (isset($organizationData['header_data']) && !empty($organizationData['header_data'])) {
-        eval($organizationData['header_data']);
-    }
+    //if (isset($organizationData['header_data']) && !empty($organizationData['header_data'])) {
+    //    eval($organizationData['header_data']);
+    //}
     $pdfConf = array();
     $templateInfo = $this->get('template');
     if (!empty($templateInfo) && isset($templateInfo['header']) && !empty($templateInfo['header'])) {
