@@ -221,6 +221,7 @@ class data_controller extends \kernel\controller {
         }
 
         $request->set('allow_comments',($id && $modelObj->call('isNotCommentable', $id) === false?1:0));
+        $request->set('is_deletable', $modelObj->call('isNotDeletable', $id) === false?1:0);
 
         if (!is_null($return)) {
             return $return;
@@ -251,7 +252,7 @@ class data_controller extends \kernel\controller {
             }
         }
 
-        $request->set('is_editable', $modelObj->call('isNotEditable', $id) === false?1:0);
+        
 
         $request->set('primary_key', $modelObj->primaryKey);
         $request->set('display_field', $modelObj->displayField);
@@ -296,6 +297,8 @@ class data_controller extends \kernel\controller {
         }
 
         $request->set('allow_comments',($id && $modelObj->call('isNotCommentable', $id) === false?1:0));
+        $request->set('is_editable', $id && $modelObj->call('isNotEditable', $id) === false?1:0);
+        $request->set('is_deletable', $id && $modelObj->call('isNotDeletable', $id) === false?1:0);
 
         if ($this->setCurrentFormPage($request) == true) {
             return array("{$request->module}/{$request->controller}/{$request->action}/id:{$id}", true, true);
