@@ -4588,7 +4588,7 @@ jQuery('document').ready(function($) {
         }).end()
         .find(':input').each(function() {
 
-            var name = $(this).attr('name');
+            var name = String($(this).attr('name'));
             var id = $(this).attr('id');
             
             if (name != null && name != '') {
